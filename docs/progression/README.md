@@ -12,6 +12,10 @@ reorders lack exact timestamps; move membership is known across those windows.
 The [starter reconstruction notes](pokeguy-starter.md) preserve the nature,
 EV, and IV findings separately from the battle-input assumptions.
 
+The [full-run benchmark readiness audit](../battles/pokeguy-readiness.md)
+catalogs purchases and partial bag checkpoints, and identifies what must be
+reconciled before estimating every battle's win probability.
+
 The [complete battle log](pokeguy-exp.md) calculates the starter's cumulative
 EXP and level after every battle from Oak's lab through the Champion. It
 contains 69 trainer fights / 199 trainer Pokémon, seven Rare Candies, and the

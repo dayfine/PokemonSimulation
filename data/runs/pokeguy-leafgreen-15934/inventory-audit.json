@@ -1,0 +1,342 @@
+{
+  "format": "pokesim-frlg-inventory-audit/1",
+  "source": {
+    "notes_repository": "https://github.com/dayfine/Arduino-Source",
+    "notes_commit": "11cbf77e0271e97b3639f9d5d419d0549ebec0bf",
+    "notes_path": "pokemon_sv/FRLG_POKEGUY_15934_VIDEO_NOTES.md",
+    "notes_sha256": "79c45ebea93f68b6bc4a893dd2ed2801ca5d7c018d36b161d8e09de2266d2f3c",
+    "video": "https://www.youtube.com/watch?v=CbfjWuRWH10",
+    "verified_run": "https://www.speedrun.com/pkmnfrlg/runs/z5kkjogz",
+    "clock": "video playback seconds, not the run timer",
+    "method": "Curated from the existing visual-review notes; not a new continuous video transcription."
+  },
+  "status": "Catalog of purchases and partial checkpoints; not a reconciled bag ledger.",
+  "purchases": [
+    {
+      "place": "Pewter Mart",
+      "video_start": 838,
+      "video_end": 848,
+      "items": {
+        "POTION": 9,
+        "AWAKENING": 3,
+        "REPEL": 3
+      },
+      "basis": "observed_or_reconciled",
+      "evidence": [
+        {
+          "line": 269,
+          "text": "| [13:58\u201314:08](https://www.youtube.com/watch?v=CbfjWuRWH10&t=838) | Buy **9 Potions, 3 Awakenings and 3 Repels**. | Quarter-second inspection confirms quantities. Money 4,808\u21922,108\u21921,358\u2192308. Potion bag count was 0. The initial fast quantity scroll passes 11 before settling on 9; do not read that transient value as the purchase. |"
+        }
+      ]
+    },
+    {
+      "place": "Vermilion Mart",
+      "video_start": 2244,
+      "video_end": 2257,
+      "items": {
+        "SUPER_POTION": 5,
+        "PARLYZ_HEAL": 3,
+        "REPEL": 3
+      },
+      "basis": "observed_or_reconciled",
+      "evidence": [
+        {
+          "line": 446,
+          "text": "| [37:24\u201337:37](https://www.youtube.com/watch?v=CbfjWuRWH10&t=2244) | Buy **5 Super Potions, 3 Parlyz Heals, 3 Repels**. | First two quantities visible in baseline frames; Repels confirmed with quarter-second inspection. Money 7,816\u21924,316\u21923,716\u21922,666. No selling Nugget. |"
+        }
+      ]
+    },
+    {
+      "place": "Lavender Mart",
+      "video_start": 3258,
+      "video_end": 3269,
+      "items": {
+        "ESCAPE_ROPE": 4,
+        "SUPER_REPEL": 7
+      },
+      "basis": "observed_or_reconciled",
+      "evidence": [
+        {
+          "line": 563,
+          "text": "| [54:18\u201354:29](https://www.youtube.com/watch?v=CbfjWuRWH10&t=3258) | Buy **4 Escape Ropes and 7 Super Repels**, then leave. | Quarter-second review confirms final quantities, not transient scrolling values. Money **13,982\u219211,782\u21928,282**. No Nugget sale. |"
+        }
+      ]
+    },
+    {
+      "place": "Celadon Department Store 5F",
+      "video_start": 3762,
+      "video_end": 3775,
+      "items": {
+        "X_SPEED": 6,
+        "X_SPECIAL": 21,
+        "X_ACCURACY": 5,
+        "GUARD_SPEC": 2
+      },
+      "basis": "observed_or_reconciled",
+      "evidence": [
+        {
+          "line": 621,
+          "text": "| 1:02:42\u20131:02:55 | Buy **6 X Speeds, 21 X Specials, 5 X Accuracies and 2 Guard Specs.** | Quantities supported by subsequent bag counts and money: 15,694\u219213,594\u21926,244\u21921,494\u219294. No sale. |"
+        }
+      ]
+    },
+    {
+      "place": "Indigo Plateau Mart",
+      "video_start": 6375,
+      "video_end": 6381,
+      "items": {
+        "FULL_RESTORE": null
+      },
+      "basis": "purchase observed; quantity not directly read",
+      "evidence": [
+        {
+          "line": 910,
+          "text": "| 1:46:15\u20131:46:21 | Plateau Mart: buy **Full Restores** (\u20bd3000 each). | Money **\u20bd41,818** before. Quantity not readable at 1 fps; the bag shows **Full Restore 13** at 1:48:36, so about **13** were bought (if the count was 0 before). |"
+        }
+      ]
+    }
+  ],
+  "inferred_purchase_constraints": {
+    "event": "Indigo Plateau Full Restores",
+    "candidate_quantity": 13,
+    "basis": "Full Restore was 0 before the Plateau; 41818 money permits at most 13 at 3000 each; a later bag view shows 13. Reconcile timestamps and earlier uses before treating this as a verified entry quantity.",
+    "evidence": [
+      {
+        "line": 860,
+        "text": "| 1:39:43\u20131:39:48 | Use **Full Restore** on A: **32\u2192153/153** (\"restored by 121\"). | Full Restore 1\u21920. Guard Spec. viewed at 1:39:49, not used. |"
+      },
+      {
+        "line": 910,
+        "text": "| 1:46:15\u20131:46:21 | Plateau Mart: buy **Full Restores** (\u20bd3000 each). | Money **\u20bd41,818** before. Quantity not readable at 1 fps; the bag shows **Full Restore 13** at 1:48:36, so about **13** were bought (if the count was 0 before). |"
+      }
+    ]
+  },
+  "partial_battle_checkpoints": [
+    {
+      "event": "misty",
+      "hp": 54,
+      "max_hp": 59,
+      "known_bag_counts": {
+        "POTION": 7,
+        "AWAKENING": 3,
+        "ANTIDOTE": 1
+      },
+      "known_pp": {},
+      "complete_scenario": false,
+      "warning": "Unlisted bag items and PP are unknown here, not zero. This is a source checkpoint, not a runnable simulation fixture.",
+      "evidence": [
+        {
+          "line": 341,
+          "text": "| 23:20\u201323:28 | Use **two Potions** on A, restoring 14\u219234\u219254/59 HP. | Nine Potions before; seven after by two observed uses. Rattata/Pidgey not healed. |"
+        },
+        {
+          "line": 354,
+          "text": "Potions 7, Awakenings 3, Antidote 1, Poke Balls 3; all Repels and both Rare"
+        }
+      ],
+      "count_basis": "Direct bag readings plus carry-forward through logged acquisitions/uses; scope remains partial."
+    },
+    {
+      "event": "cerulean-rival",
+      "hp": 32,
+      "max_hp": 61,
+      "known_bag_counts": {
+        "POTION": 6,
+        "AWAKENING": 3,
+        "ANTIDOTE": 1
+      },
+      "known_pp": {},
+      "complete_scenario": false,
+      "warning": "Unlisted bag items and PP are unknown here, not zero. This is a source checkpoint, not a runnable simulation fixture.",
+      "evidence": [
+        {
+          "line": 369,
+          "text": "| [25:00\u201325:17](https://www.youtube.com/watch?v=CbfjWuRWH10&t=1500) | Leave Gym; use **one Potion** outside, then go north around the house toward bridge. | A restores 12\u219232/61 HP at 25:08. No Center visit. Six Potions remain by subtraction. |"
+        },
+        {
+          "line": 354,
+          "text": "Potions 7, Awakenings 3, Antidote 1, Poke Balls 3; all Repels and both Rare"
+        }
+      ],
+      "count_basis": "Direct bag readings plus carry-forward through logged acquisitions/uses; scope remains partial."
+    },
+    {
+      "event": "ssanne-rival",
+      "hp": 37,
+      "max_hp": 76,
+      "known_bag_counts": {
+        "POTION": 5,
+        "SUPER_POTION": 5,
+        "PARLYZ_HEAL": 3,
+        "AWAKENING": 3,
+        "ANTIDOTE": 1
+      },
+      "known_pp": {
+        "WATER_PULSE": 3
+      },
+      "complete_scenario": false,
+      "warning": "Unlisted bag items and PP are unknown here, not zero. This is a source checkpoint, not a runnable simulation fixture.",
+      "evidence": [
+        {
+          "line": 449,
+          "text": "| 38:00\u201338:05 | Use Route 6 Rare Candy: A Lv.26\u219227, 37/76 HP. | Rare Candy consumed; no new move prompt observed. |"
+        },
+        {
+          "line": 446,
+          "text": "| [37:24\u201337:37](https://www.youtube.com/watch?v=CbfjWuRWH10&t=2244) | Buy **5 Super Potions, 3 Parlyz Heals, 3 Repels**. | First two quantities visible in baseline frames; Repels confirmed with quarter-second inspection. Money 7,816\u21924,316\u21923,716\u21922,666. No selling Nugget. |"
+        },
+        {
+          "line": 448,
+          "text": "| 37:55\u201337:59 | Use **one Potion** on A. | 15\u219235/74 HP; bag Potions 6\u21925. This is the first Potion after the one outside Misty's Gym. |"
+        },
+        {
+          "line": 450,
+          "text": "| 38:06\u201338:28 | Traverse upper corridor east, then north toward captain; rival approaches and starts battle. | Water Pulse **3/20 PP** visible before choosing first attack; no PP refill on boarding. |"
+        },
+        {
+          "line": 354,
+          "text": "Potions 7, Awakenings 3, Antidote 1, Poke Balls 3; all Repels and both Rare"
+        }
+      ],
+      "count_basis": "Direct bag readings plus carry-forward through logged acquisitions/uses; scope remains partial."
+    },
+    {
+      "event": "surge",
+      "hp": 79,
+      "max_hp": 79,
+      "known_bag_counts": {
+        "POTION": 5,
+        "SUPER_POTION": 5,
+        "PARLYZ_HEAL": 3,
+        "AWAKENING": 3,
+        "ANTIDOTE": 1
+      },
+      "known_pp": {
+        "WATER_PULSE": 19
+      },
+      "complete_scenario": false,
+      "warning": "Unlisted bag items and PP are unknown here, not zero. This is a source checkpoint, not a runnable simulation fixture.",
+      "evidence": [
+        {
+          "line": 484,
+          "text": "| 41:44\u201342:01 | Resume searching cans, down right side then back into central area; open/close bag briefly. | Bag at 42:00 confirms Potions 5, Super Potions 5, Parlyz Heals 3, Repels 3, Nugget 1, Elixir 1. No item use shown. |"
+        },
+        {
+          "line": 490,
+          "text": "| 42:53\u201343:02 | One Water Pulse KOs Pikachu Lv.18. | Water Pulse 18/20 PP before use, consistent with cabin refill and one use each on Tucker and Voltorb. |"
+        },
+        {
+          "line": 488,
+          "text": "| 42:24\u201342:40 | Approach Lt. Surge, advance introduction, begin battle. | A Lv.28, 79/79 HP. |"
+        },
+        {
+          "line": 354,
+          "text": "Potions 7, Awakenings 3, Antidote 1, Poke Balls 3; all Repels and both Rare"
+        }
+      ],
+      "count_basis": "Direct bag readings plus carry-forward through logged acquisitions/uses; scope remains partial."
+    }
+  ],
+  "healing_and_held_item_events": [
+    {
+      "event": "Lab scripted restoration",
+      "basis": "Rattata battle shows 22/22 HP and Tackle 35/35 after lab rival; not a Potion or nurse visit.",
+      "evidence": [
+        {
+          "line": 151,
+          "text": "| [03:10\u201303:18](https://www.youtube.com/watch?v=CbfjWuRWH10&t=190) | Enter wild battle against **Rattata Lv.3**. | A is **Lv.6, 22/22 HP**, Tackle **35/35 PP** when the move menu appears. Both HP and Tackle PP have been restored since the lab fight; no nurse or bag action intervened. |"
+        }
+      ]
+    },
+    {
+      "event": "S.S. Anne cabin, 40:14\u201340:24",
+      "basis": "Observed full-party rest restores HP, PP, and status; does not consume bag medicine.",
+      "evidence": [
+        {
+          "line": 479,
+          "text": "| 40:14\u201340:24 | Speak to cabin woman, accept rest, wait through healing fade, leave room. | First observed full-party healing stop since the early scripted restoration. A's next battle shows **79/79 HP**; Water Pulse PP also restored. Other party members' post-heal numeric HP not reopened here. |"
+        }
+      ]
+    },
+    {
+      "event": "BlackGlasses equipped, 1:03:50\u20131:03:58",
+      "basis": "Held item changes damage previews; acquisition earlier at 56:47 is not the equip time.",
+      "evidence": [
+        {
+          "line": 624,
+          "text": "| 1:03:50\u20131:03:58 | Use **one Super Repel**, give **BlackGlasses to A**, **throw away Moon Stone**. | Bag Super Repels 7\u21926; held-item confirmation; explicit discard-one Moon Stone message. |"
+        }
+      ]
+    },
+    {
+      "event": "Indigo Plateau, before Lorelei",
+      "basis": "Full HP and restored PP support a heal not directly seen in sampled frames; reconcile as inferred, not an observed nurse interaction.",
+      "evidence": [
+        {
+          "line": 908,
+          "text": "| 1:45:53\u20131:45:56 | Enter the Center; walk past the nurse to the PC. | Party HP is **full** when Lorelei starts (159/159) and Bite is **25/25**, so a nurse heal happened here, unsampled. |"
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "topic": "Ether target",
+      "impact": "Mega Kick refill inferred, not directly selected in sampled menu.",
+      "evidence": [
+        {
+          "line": 416,
+          "text": "| 34:55\u201335:00 | Open bag, move Potion down the item list, then **use Ether on A**. | Bag confirms Potions 6, Awakenings 3, Antidote 1, Nugget 1, Elixir 1, Ether 1. A remains 27/72 HP. Denser inspection confirms Ether selected at 34:57.5 and PP-restored message at 34:59.9. The move-selection cursor moves too quickly to identify its final target directly; subsequent PP use supports Mega Kick. |"
+        }
+      ]
+    },
+    {
+      "topic": "Lorelei setup item turns",
+      "impact": "The prose says two X Specials, but readings go from 15 before the fight to 13, 12, then 11. Exact use count/timing must be reconciled; do not convert prose directly into two setup turns.",
+      "evidence": [
+        {
+          "line": 913,
+          "text": "| 1:46:53\u20131:47:09 | Use **X Special** twice (15\u219213\u219212, \"A's Sp. Atk rose!\"). Dewgong's **Ice Beam** (140\u2192121), **Surf** (121\u2192101), then **Safeguard**. | Bag counts read at 1:47:01 (13) and 1:47:08 (12). |"
+        },
+        {
+          "line": 919,
+          "text": "| 1:48:34\u20131:48:39 | Use **Full Restore** (13\u219212): **33\u2192162/162**, paralysis cured. | X Special **11** in the same bag view (one more X Special used earlier, unsampled). |"
+        }
+      ]
+    },
+    {
+      "topic": "X Speed / X Accuracy timing around the League",
+      "impact": "Some menu cursors do not prove item consumption. Counts and actions need reconciliation.",
+      "evidence": [
+        {
+          "line": 912,
+          "text": "| 1:46:37\u20131:46:47 | Lorelei: **Dewgong Lv.52**. Open the bag on turn 1 (cursor on **X Speed**, 4 left); whether it was used is not readable. | Dewgong uses **Surf**: **159\u2192152\u2192140** (not very effective). |"
+        },
+        {
+          "line": 922,
+          "text": "| 1:49:15\u20131:49:33 | Bruno: **Onix Lv.51**. Use **X Accuracy**? (bag on X Accuracy 3 at 1:49:25) then **X Special** (11\u219210\u21929). Onix's **Rock Tomb** (130\u2192118\u2192114, Speed fell) and **Earthquake** (114\u219279\u219242). | Counts read at 1:49:34 (10) and 1:49:40 (9). Whether X Accuracy was used is not certain. |"
+        }
+      ]
+    },
+    {
+      "topic": "Late Elixir timing",
+      "impact": "Restored Surf PP shows an Elixir used at an unsampled point; affects per-battle PP and bag state.",
+      "evidence": [
+        {
+          "line": 994,
+          "text": "| 1:57:15\u20131:57:27 | **Alakazam Lv.57**: one **Surf** (critical), KO. | Surf **12/15** (1:57:18): the Elixir was used at an unsampled moment between Lance and here. |"
+        }
+      ]
+    },
+    {
+      "topic": "Old man demo inventory",
+      "impact": "Demo Potion/Poke Ball counts are not player inventory.",
+      "evidence": [
+        {
+          "line": 210,
+          "text": "| [07:23\u201307:56](https://www.youtube.com/watch?v=CbfjWuRWH10&t=443) | Watch the old man's scripted **Weedle Lv.5** capture demonstration. | His demo bag shows Potion x1 and Poke Ball x1; these are **not** evidence of the player's inventory. Weedle is not a new member of the player's party. |"
+        }
+      ]
+    }
+  ]
+}
