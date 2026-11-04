@@ -6,9 +6,10 @@ before spending time on a console run.
 
 The existing library covers maps, tile movement, routing under uncertainty,
 and movement physics for FireRed / LeafGreen and Brilliant Diamond /
-Shining Pearl. We are expanding it to use public battle simulation libraries
-and pret decompilations as map data sources. Battle library integration and
-moving specific workloads here are follow-up projects.
+Shining Pearl. The first battle milestone runs four FRLG trainer encounters
+with Python policies, pret data, and a local Pokémon Showdown engine.
+See [the battle benchmark guide](docs/battles/README.md) for inputs, limitations,
+and reproducible results.
 
 The console programs live in
 [Arduino-Source](https://github.com/PokemonAutomation/Arduino-Source).
@@ -20,6 +21,8 @@ generation, battle evaluation, and route validation.
 
 | Path | Purpose |
 |---|---|
+| `src/pokesim/battle/` | Python battle policies, pret import, engine client, and benchmark reports. |
+| `engines/showdown/` | Pinned Showdown and Smogon calculator adapter; runs locally through Node. |
 | `src/pokesim/grid/` | Map models, movement rules, rendering, and route planning. |
 | `src/pokesim/physics/` | Movement uncertainty models. |
 | `src/pokesim/decomp/` | pret map importers: FRLG (`frlg`) and Sinnoh (`landdata`, `events`, `repos`, `generate`). |
@@ -32,13 +35,11 @@ generation, battle evaluation, and route validation.
 | `docs/navigation/` | Map, movement, physics, and routing documentation. |
 | `docs/examples/` | Small example inputs. |
 
-Future battle modules will sit alongside `grid`, `physics`, and `decomp` once
-we choose a library and the first workload.
-
 ## Develop
 
-The current code uses Python 3.8+ and the standard library. From the
-repository root:
+Python modules use Python 3.8+ and the standard library. Battle simulation
+also requires Node 22+ and the pinned npm packages; navigation works without
+them. From the repository root:
 
 ```sh
 PYTHONPATH=src python3 -m unittest discover -s tests -t .
@@ -54,6 +55,13 @@ points at it:
 
 ```sh
 POKEFIRERED_DIR="$PWD/external/pokefirered" PYTHONPATH=src python3 -m unittest discover -s tests -t .
+```
+
+Run the battle milestone:
+
+```sh
+npm ci --omit=optional --prefix engines/showdown
+PYTHONPATH=src python3 -m pokesim.cli.battle --battles 1000 --out /tmp/frlg.json
 ```
 
 See [external/README.md](external/README.md) for source checkout conventions,

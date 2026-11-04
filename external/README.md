@@ -2,7 +2,8 @@
 
 Keep local upstream source checkouts here, such as `pokefirered`,
 `pokediamond`, or `pokeplatinum` from pret. Their contents are ignored by Git;
-this refactor does not clone or pin them yet.
+the battle benchmark pins its pokefirered source revision in
+`data/games/frlg/battles/pret.json`. See `docs/battles/README.md` to reproduce it.
 
 The map importers accept a checkout path (`--repo` for the Sinnoh importer,
 a positional path for the FRLG importer). Real-checkout tests use

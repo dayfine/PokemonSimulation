@@ -22,3 +22,22 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Run the tests
         run: PYTHONPATH=src python -m unittest discover -v -s tests -t .
+
+  battle:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: engines/showdown/package-lock.json
+      - name: Install the pinned battle engine
+        run: npm ci --omit=optional --prefix engines/showdown
+      - name: Check FRLG mechanics boundaries
+        run: npm test --prefix engines/showdown
+      - name: Check Python policies and reproducible benchmarks
+        run: POKESIM_REQUIRE_BATTLE=1 PYTHONPATH=src python -m unittest -v tests.test_battle

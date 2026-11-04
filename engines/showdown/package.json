@@ -1,0 +1,17 @@
+{
+  "name": "pokesim-showdown",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local Gen 3 battle engine bridge for PokemonSimulation",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.cjs"
+  },
+  "dependencies": {
+    "@smogon/calc": "0.12.0",
+    "pokemon-showdown": "0.11.11"
+  }
+}

@@ -1,0 +1,3003 @@
+{
+  "format": "pokesim-frlg-report/1",
+  "seed": 1,
+  "turn_limit": 200,
+  "policy": "solo-greedy-heal/1",
+  "engine": {
+    "@smogon/calc": "0.12.0",
+    "pokemon-showdown": "0.11.11"
+  },
+  "engine_lock_sha256": "8f6f71ef6e98ac8475906d8c5468d559324ef84c8b461abb17e0e44697a1ec79",
+  "pret_source": {
+    "repository": "https://github.com/pret/pokefirered",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "sha256": {
+      "src/data/trainers.h": "b2105a3b1d1baec02d8f6a89f44bcdf6a05cbaac1d6d8872766eec49aa8555bc",
+      "src/data/trainer_parties.h": "cb135d9cbdfc52c87066374d582506830a8c93561eab2033d847331c2de00299",
+      "src/data/text/species_names.h": "73e87117c98828423b7fc15565bd2a839a0671665fb7c1c1b26264d7d7a8912f",
+      "charmap.txt": "4da662317b3b5109a52064f9012d85b644d1dbf0f3f24243374aeef4cf25f061",
+      "src/data/pokemon/level_up_learnsets.h": "d6563a88fa893d1433a02027cb13ba9574a6828a96b1a730b1d767fd7c5a0cc6",
+      "src/data/pokemon/level_up_learnset_pointers.h": "7a85513797da2a2ebdf7893ce58d94f99aee07deb1aec4f0d7a31422dc8040de",
+      "src/data/battle_moves.h": "54e08c749547afaf73eb2f1e4f4e3023f4d8e186d2f608c29bd6419c291b5384",
+      "data/battle_ai_scripts.s": "0971513157b28ba27ce272acaa2388afa7362a302711f737cad6c3598ca1b389"
+    }
+  },
+  "pret_snapshot_sha256": "a3ed29bbb2648136bc648d104d7f003b3ea8d9f7a1651e9b87b7e7c8945f1035",
+  "assumptions": [
+    "Solo lead: no player switching; a fainted lead loses.",
+    "pret scoring scripts; Smogon damage helpers approximate pret AI_CalcDmg.",
+    "No voluntary opponent switching; mandatory replacements use pret-derived rules.",
+    "Python AI RNG and Showdown battle RNG are separate seeded streams, not cartridge RNG emulation.",
+    "Only listed fixture stats are measured; remaining stats use the recorded assumptions.",
+    "Level, stats, and moves stay fixed within each battle; experience and mid-battle level-ups are not modeled.",
+    "Conditions at loss are descriptive, not proven causes of loss.",
+    "Turn-limit outcomes count as non-wins and are also reported separately."
+  ],
+  "results": [
+    {
+      "id": "misty-m51",
+      "inputs": {
+        "id": "misty-m51",
+        "trainer": {
+          "name": "MISTY",
+          "ai": [
+            "CHECK_BAD_MOVE",
+            "TRY_TO_FAINT",
+            "CHECK_VIABILITY"
+          ],
+          "party": [
+            {
+              "species": "STARYU",
+              "level": 18,
+              "iv": 0,
+              "pret_iv": 0,
+              "nature": "Hasty",
+              "personality": 572536,
+              "ability_slot": 0,
+              "moves": [
+                "TACKLE",
+                "HARDEN",
+                "RECOVER",
+                "WATER_PULSE"
+              ]
+            },
+            {
+              "species": "STARMIE",
+              "level": 21,
+              "iv": 0,
+              "pret_iv": 0,
+              "nature": "Naughty",
+              "personality": 1187704,
+              "ability_slot": 0,
+              "moves": [
+                "SWIFT",
+                "RECOVER",
+                "RAPID_SPIN",
+                "WATER_PULSE"
+              ]
+            }
+          ],
+          "items": [
+            "SUPER_POTION"
+          ],
+          "bag": {
+            "superpotion": 1
+          }
+        },
+        "player": {
+          "species": "WARTORTLE",
+          "level": 20,
+          "iv": 15,
+          "nature": "Hardy",
+          "stats": {
+            "hp": 60,
+            "atk": 33,
+            "def": 40,
+            "spa": 34,
+            "spd": 40,
+            "spe": 31
+          },
+          "moves": [
+            "BITE",
+            "TAIL_WHIP",
+            "BUBBLE",
+            "WITHDRAW"
+          ]
+        },
+        "bag": {
+          "potion": 2
+        },
+        "badges": [
+          "boulder"
+        ],
+        "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryBattleSim_Tests.cpp",
+        "input_notes": "m51: species, level, max HP and moves from summary; other stats assumed neutral nature, IV 15, EV 0. No PP Ups; full HP and PP at entry."
+      },
+      "battles": 1000,
+      "wins": 787,
+      "win_probability": 0.787,
+      "wilson_95": [
+        0.7605503974702781,
+        0.8112530431590133
+      ],
+      "outcomes": {
+        "win": 787,
+        "loss": 213
+      },
+      "mean_turns": 9.074,
+      "mean_hp_remaining": 13.863,
+      "mean_items_used": {
+        "potion": 1.704
+      },
+      "mean_trainer_items_used": {
+        "superpotion": 0.997
+      },
+      "losses_by_foe": {
+        "starmie": 211,
+        "staryu": 2
+      },
+      "conditions_present_at_loss": {
+        "confusion": 81
+      },
+      "final_damage_effects": {
+        "swift": 107,
+        "confused": 22,
+        "waterpulse": 73,
+        "rapidspin": 10,
+        "tackle": 1
+      },
+      "examples": {
+        "win": {
+          "outcome": "win",
+          "turns": 9,
+          "items_used": {
+            "potion": 2
+          },
+          "trainer_items_used": {
+            "superpotion": 1
+          },
+          "foe_at_end": "starmie",
+          "status_at_end": "",
+          "volatiles_at_end": [],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "final_damage_effect": null,
+          "hp_remaining": 25,
+          "seed": {
+            "master": 1,
+            "trial": 0,
+            "engine": [
+              61893,
+              39813,
+              25360,
+              48070
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 60,
+              "foe": "staryu",
+              "foe_hp": 38,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 60,
+              "foe": "staryu",
+              "foe_hp": 21,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 54,
+              "foe": "staryu",
+              "foe_hp": 5,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "item",
+                "item": "superpotion"
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 54,
+              "foe": "staryu",
+              "foe_hp": 19,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 48,
+              "foe": "staryu",
+              "foe_hp": 1,
+              "own": {
+                "kind": "move",
+                "slot": 2
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 42,
+              "foe": "staryu",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 42,
+              "foe": "starmie",
+              "foe_hp": 56,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 7,
+              "hp": 31,
+              "foe": "starmie",
+              "foe_hp": 32,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 8,
+              "hp": 20,
+              "foe": "starmie",
+              "foe_hp": 9,
+              "own": {
+                "kind": "item",
+                "item": "potion"
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 9,
+              "hp": 28,
+              "foe": "starmie",
+              "foe_hp": 9,
+              "own": {
+                "kind": "item",
+                "item": "potion"
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 10,
+              "hp": 36,
+              "foe": "starmie",
+              "foe_hp": 9,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|2",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L20, M|60/60",
+            "|switch|p1a: Wartortle|Wartortle, L20, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Staryu|Staryu, L18|38/38",
+            "|switch|p2a: Staryu|Staryu, L18|48/48",
+            "|turn|1",
+            "|",
+            "|move|p2a: Staryu|Harden|p2a: Staryu",
+            "|-boost|p2a: Staryu|def|1",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|21/38",
+            "|-damage|p2a: Staryu|26/48",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p2a: Staryu|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|54/60",
+            "|-damage|p1a: Wartortle|43/48",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|5/38",
+            "|-damage|p2a: Staryu|6/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|message|Trainer used superpotion",
+            "|split|p2",
+            "|-heal|p2a: Staryu|38/38|[from] Pokesim FRLG",
+            "|-heal|p2a: Staryu|48/48|[from] Pokesim FRLG",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|19/38",
+            "|-damage|p2a: Staryu|24/48",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p2a: Staryu|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|48/60",
+            "|-damage|p1a: Wartortle|38/48",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|1/38",
+            "|-damage|p2a: Staryu|1/48",
+            "|",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p2a: Staryu|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|42/60",
+            "|-damage|p1a: Wartortle|33/48",
+            "|move|p1a: Wartortle|Bubble|p2a: Staryu",
+            "|-resisted|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|0 fnt",
+            "|-damage|p2a: Staryu|0 fnt",
+            "|faint|p2a: Staryu",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Starmie|Starmie, L21|56/56",
+            "|switch|p2a: Starmie|Starmie, L21|48/48",
+            "|",
+            "|upkeep",
+            "|turn|6",
+            "|",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|31/60",
+            "|-damage|p1a: Wartortle|24/48",
+            "|move|p1a: Wartortle|Bite|p2a: Starmie",
+            "|-supereffective|p2a: Starmie",
+            "|split|p2",
+            "|-damage|p2a: Starmie|32/56",
+            "|-damage|p2a: Starmie|27/48",
+            "|",
+            "|upkeep",
+            "|turn|7",
+            "|",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|20/60",
+            "|-damage|p1a: Wartortle|16/48",
+            "|move|p1a: Wartortle|Bite|p2a: Starmie",
+            "|-supereffective|p2a: Starmie",
+            "|split|p2",
+            "|-damage|p2a: Starmie|9/56",
+            "|-damage|p2a: Starmie|7/48",
+            "|",
+            "|upkeep",
+            "|turn|8",
+            "|",
+            "|message|Player used potion",
+            "|split|p1",
+            "|-heal|p1a: Wartortle|40/60|[from] Pokesim FRLG",
+            "|-heal|p1a: Wartortle|32/48|[from] Pokesim FRLG",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|28/60",
+            "|-damage|p1a: Wartortle|22/48",
+            "|",
+            "|upkeep",
+            "|turn|9",
+            "|",
+            "|message|Player used potion",
+            "|split|p1",
+            "|-heal|p1a: Wartortle|48/60|[from] Pokesim FRLG",
+            "|-heal|p1a: Wartortle|38/48|[from] Pokesim FRLG",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|36/60",
+            "|-damage|p1a: Wartortle|28/48",
+            "|",
+            "|upkeep",
+            "|turn|10",
+            "|",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|25/60",
+            "|-damage|p1a: Wartortle|20/48",
+            "|move|p1a: Wartortle|Bite|p2a: Starmie",
+            "|-supereffective|p2a: Starmie",
+            "|split|p2",
+            "|-damage|p2a: Starmie|0 fnt",
+            "|-damage|p2a: Starmie|0 fnt",
+            "|faint|p2a: Starmie",
+            "|",
+            "|win|Player"
+          ]
+        },
+        "loss": {
+          "outcome": "loss",
+          "turns": 9,
+          "items_used": {
+            "potion": 2
+          },
+          "trainer_items_used": {
+            "superpotion": 1
+          },
+          "foe_at_end": "starmie",
+          "status_at_end": "",
+          "volatiles_at_end": [],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "final_damage_effect": "swift",
+          "hp_remaining": 0,
+          "seed": {
+            "master": 1,
+            "trial": 5,
+            "engine": [
+              15592,
+              20884,
+              45001,
+              57724
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 60,
+              "foe": "staryu",
+              "foe_hp": 38,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 60,
+              "foe": "staryu",
+              "foe_hp": 22,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 54,
+              "foe": "staryu",
+              "foe_hp": 5,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "item",
+                "item": "superpotion"
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 54,
+              "foe": "staryu",
+              "foe_hp": 20,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 48,
+              "foe": "staryu",
+              "foe_hp": 4,
+              "own": {
+                "kind": "move",
+                "slot": 2
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 42,
+              "foe": "staryu",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 42,
+              "foe": "starmie",
+              "foe_hp": 56,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 7,
+              "hp": 23,
+              "foe": "starmie",
+              "foe_hp": 56,
+              "own": {
+                "kind": "item",
+                "item": "potion"
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 8,
+              "hp": 21,
+              "foe": "starmie",
+              "foe_hp": 56,
+              "own": {
+                "kind": "item",
+                "item": "potion"
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 9,
+              "hp": 19,
+              "foe": "starmie",
+              "foe_hp": 56,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 10,
+              "hp": 8,
+              "foe": "starmie",
+              "foe_hp": 31,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|2",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L20, M|60/60",
+            "|switch|p1a: Wartortle|Wartortle, L20, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Staryu|Staryu, L18|38/38",
+            "|switch|p2a: Staryu|Staryu, L18|48/48",
+            "|turn|1",
+            "|",
+            "|move|p2a: Staryu|Harden|p2a: Staryu",
+            "|-boost|p2a: Staryu|def|1",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|22/38",
+            "|-damage|p2a: Staryu|27/48",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p2a: Staryu|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|54/60",
+            "|-damage|p1a: Wartortle|43/48",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|5/38",
+            "|-damage|p2a: Staryu|6/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|message|Trainer used superpotion",
+            "|split|p2",
+            "|-heal|p2a: Staryu|38/38|[from] Pokesim FRLG",
+            "|-heal|p2a: Staryu|48/48|[from] Pokesim FRLG",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|20/38",
+            "|-damage|p2a: Staryu|25/48",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p2a: Staryu|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|48/60",
+            "|-damage|p1a: Wartortle|38/48",
+            "|move|p1a: Wartortle|Bite|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|4/38",
+            "|-damage|p2a: Staryu|5/48",
+            "|",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p2a: Staryu|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|42/60",
+            "|-damage|p1a: Wartortle|33/48",
+            "|-start|p1a: Wartortle|confusion",
+            "|-activate|p1a: Wartortle|confusion",
+            "|move|p1a: Wartortle|Bubble|p2a: Staryu",
+            "|-resisted|p2a: Staryu",
+            "|split|p2",
+            "|-damage|p2a: Staryu|0 fnt",
+            "|-damage|p2a: Staryu|0 fnt",
+            "|faint|p2a: Staryu",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Starmie|Starmie, L21|56/56",
+            "|switch|p2a: Starmie|Starmie, L21|48/48",
+            "|",
+            "|upkeep",
+            "|turn|6",
+            "|",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|31/60",
+            "|-damage|p1a: Wartortle|24/48",
+            "|-activate|p1a: Wartortle|confusion",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|23/60|[from] confusion",
+            "|-damage|p1a: Wartortle|18/48|[from] confusion",
+            "|",
+            "|upkeep",
+            "|turn|7",
+            "|",
+            "|message|Player used potion",
+            "|split|p1",
+            "|-heal|p1a: Wartortle|43/60|[from] Pokesim FRLG",
+            "|-heal|p1a: Wartortle|34/48|[from] Pokesim FRLG",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|-crit|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|21/60",
+            "|-damage|p1a: Wartortle|16/48",
+            "|",
+            "|upkeep",
+            "|turn|8",
+            "|",
+            "|message|Player used potion",
+            "|split|p1",
+            "|-heal|p1a: Wartortle|41/60|[from] Pokesim FRLG",
+            "|-heal|p1a: Wartortle|32/48|[from] Pokesim FRLG",
+            "|move|p2a: Starmie|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|-crit|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|19/60",
+            "|-damage|p1a: Wartortle|15/48",
+            "|",
+            "|upkeep",
+            "|turn|9",
+            "|",
+            "|move|p2a: Starmie|Water Pulse|p1a: Wartortle",
+            "|-resisted|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|8/60",
+            "|-damage|p1a: Wartortle|6/48",
+            "|-end|p1a: Wartortle|confusion",
+            "|move|p1a: Wartortle|Bite|p2a: Starmie",
+            "|-supereffective|p2a: Starmie",
+            "|split|p2",
+            "|-damage|p2a: Starmie|31/56",
+            "|-damage|p2a: Starmie|26/48",
+            "|",
+            "|upkeep",
+            "|turn|10",
+            "|",
+            "|move|p2a: Starmie|Swift|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|faint|p1a: Wartortle",
+            "|",
+            "|win|Trainer"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cerulean-m56",
+      "inputs": {
+        "id": "cerulean-m56",
+        "trainer": {
+          "name": "TERRY",
+          "ai": [
+            "CHECK_BAD_MOVE",
+            "TRY_TO_FAINT",
+            "CHECK_VIABILITY"
+          ],
+          "party": [
+            {
+              "species": "PIDGEOTTO",
+              "level": 17,
+              "iv": 6,
+              "pret_iv": 50,
+              "nature": "Quiet",
+              "personality": 717192,
+              "ability_slot": 0,
+              "moves": [
+                "TACKLE",
+                "SAND_ATTACK",
+                "GUST",
+                "QUICK_ATTACK"
+              ]
+            },
+            {
+              "species": "ABRA",
+              "level": 16,
+              "iv": 6,
+              "pret_iv": 50,
+              "nature": "Lax",
+              "personality": 1173384,
+              "ability_slot": 0,
+              "moves": [
+                "TELEPORT"
+              ]
+            },
+            {
+              "species": "RATTATA",
+              "level": 15,
+              "iv": 6,
+              "pret_iv": 50,
+              "nature": "Adamant",
+              "personality": 1787528,
+              "ability_slot": 0,
+              "moves": [
+                "TACKLE",
+                "TAIL_WHIP",
+                "QUICK_ATTACK"
+              ]
+            },
+            {
+              "species": "BULBASAUR",
+              "level": 18,
+              "iv": 12,
+              "pret_iv": 100,
+              "nature": "Hardy",
+              "personality": 2501000,
+              "ability_slot": 0,
+              "moves": [
+                "SLEEP_POWDER",
+                "POISON_POWDER",
+                "VINE_WHIP",
+                "LEECH_SEED"
+              ]
+            }
+          ],
+          "items": [],
+          "bag": {}
+        },
+        "player": {
+          "species": "WARTORTLE",
+          "level": 22,
+          "iv": 15,
+          "nature": "Hardy",
+          "stats": {
+            "hp": 65,
+            "atk": 36,
+            "def": 43,
+            "spa": 36,
+            "spd": 43,
+            "spe": 33
+          },
+          "moves": [
+            "BITE",
+            "WATER_PULSE",
+            "BUBBLE",
+            "WITHDRAW"
+          ]
+        },
+        "bag": {
+          "potion": 15,
+          "awakening": 2,
+          "parlyzheal": 1
+        },
+        "badges": [
+          "boulder",
+          "cascade"
+        ],
+        "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryBattleSim_Tests.cpp",
+        "input_notes": "m56: species, level, max HP and moves from source fixture; other stats assumed neutral nature, IV 15, EV 0. Bag reflects the preparation scenario, not a complete observed bag. Full HP and PP at entry. Assumes Misty already defeated."
+      },
+      "battles": 1000,
+      "wins": 494,
+      "win_probability": 0.494,
+      "wilson_95": [
+        0.4630947794652077,
+        0.5249511416366189
+      ],
+      "outcomes": {
+        "win": 494,
+        "loss": 506
+      },
+      "mean_turns": 8.361,
+      "mean_hp_remaining": 20.951,
+      "mean_items_used": {
+        "potion": 1.262,
+        "awakening": 0.468
+      },
+      "mean_trainer_items_used": {},
+      "losses_by_foe": {
+        "bulbasaur": 412,
+        "abra": 27,
+        "rattata": 67
+      },
+      "conditions_present_at_loss": {
+        "accuracy_down": 189,
+        "leechseed": 393,
+        "slp": 54,
+        "psn": 234
+      },
+      "final_damage_effects": {
+        "vinewhip": 236,
+        "psn": 104,
+        "leechseed": 137,
+        "quickattack": 29
+      },
+      "examples": {
+        "win": {
+          "outcome": "win",
+          "turns": 7,
+          "items_used": {},
+          "trainer_items_used": {},
+          "foe_at_end": "abra",
+          "status_at_end": "",
+          "volatiles_at_end": [],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "final_damage_effect": null,
+          "hp_remaining": 39,
+          "seed": {
+            "master": 1,
+            "trial": 0,
+            "engine": [
+              61893,
+              39813,
+              25360,
+              48070
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 65,
+              "foe": "pidgeotto",
+              "foe_hp": 49,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 59,
+              "foe": "pidgeotto",
+              "foe_hp": 22,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 59,
+              "foe": "pidgeotto",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 59,
+              "foe": "bulbasaur",
+              "foe_hp": 46,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 59,
+              "foe": "bulbasaur",
+              "foe_hp": 31,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 59,
+              "foe": "bulbasaur",
+              "foe_hp": 17,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 39,
+              "foe": "bulbasaur",
+              "foe_hp": 3,
+              "own": {
+                "kind": "move",
+                "slot": 2
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 39,
+              "foe": "bulbasaur",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 7,
+              "hp": 39,
+              "foe": "rattata",
+              "foe_hp": 34,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 7,
+              "hp": 39,
+              "foe": "rattata",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 8,
+              "hp": 39,
+              "foe": "abra",
+              "foe_hp": 34,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|4",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L22, M|65/65",
+            "|switch|p1a: Wartortle|Wartortle, L22, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L17, M|49/49",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L17, M|48/48",
+            "|turn|1",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|22/49",
+            "|-damage|p2a: Pidgeotto|21/48",
+            "|move|p2a: Pidgeotto|Gust|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|59/65",
+            "|-damage|p1a: Wartortle|43/48",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|faint|p2a: Pidgeotto",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Bulbasaur|Bulbasaur, L18, M|46/46",
+            "|switch|p2a: Bulbasaur|Bulbasaur, L18, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|31/46",
+            "|-damage|p2a: Bulbasaur|32/48",
+            "|cant|p2a: Bulbasaur|flinch",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|17/46",
+            "|-damage|p2a: Bulbasaur|17/48",
+            "|move|p2a: Bulbasaur|Poison Powder|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Bulbasaur|p1a: Wartortle",
+            "|",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|3/46",
+            "|-damage|p2a: Bulbasaur|3/48",
+            "|move|p2a: Bulbasaur|Vine Whip|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|39/65",
+            "|-damage|p1a: Wartortle|28/48",
+            "|",
+            "|upkeep",
+            "|turn|6",
+            "|",
+            "|move|p1a: Wartortle|Bubble|p2a: Bulbasaur",
+            "|-resisted|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|0 fnt",
+            "|-damage|p2a: Bulbasaur|0 fnt",
+            "|faint|p2a: Bulbasaur",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Rattata|Rattata, L15, M|34/34",
+            "|switch|p2a: Rattata|Rattata, L15, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|7",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Rattata",
+            "|split|p2",
+            "|-damage|p2a: Rattata|0 fnt",
+            "|-damage|p2a: Rattata|0 fnt",
+            "|faint|p2a: Rattata",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Abra|Abra, L16, M|34/34",
+            "|switch|p2a: Abra|Abra, L16, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|8",
+            "|",
+            "|move|p2a: Abra|Teleport|p2a: Abra",
+            "|move|p1a: Wartortle|Bite|p2a: Abra",
+            "|-supereffective|p2a: Abra",
+            "|split|p2",
+            "|-damage|p2a: Abra|0 fnt",
+            "|-damage|p2a: Abra|0 fnt",
+            "|faint|p2a: Abra",
+            "|",
+            "|win|Player"
+          ]
+        },
+        "loss": {
+          "outcome": "loss",
+          "turns": 9,
+          "items_used": {},
+          "trainer_items_used": {},
+          "foe_at_end": "bulbasaur",
+          "status_at_end": "",
+          "volatiles_at_end": [
+            "leechseed"
+          ],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": -1,
+            "evasion": 0
+          },
+          "final_damage_effect": "vinewhip",
+          "hp_remaining": 0,
+          "seed": {
+            "master": 1,
+            "trial": 1,
+            "engine": [
+              46,
+              55011,
+              12836,
+              30441
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 65,
+              "foe": "pidgeotto",
+              "foe_hp": 49,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 65,
+              "foe": "pidgeotto",
+              "foe_hp": 22,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 60,
+              "foe": "pidgeotto",
+              "foe_hp": 5,
+              "own": {
+                "kind": "move",
+                "slot": 2
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 60,
+              "foe": "pidgeotto",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 60,
+              "foe": "bulbasaur",
+              "foe_hp": 46,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 52,
+              "foe": "bulbasaur",
+              "foe_hp": 46,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 44,
+              "foe": "bulbasaur",
+              "foe_hp": 40,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 7,
+              "hp": 36,
+              "foe": "bulbasaur",
+              "foe_hp": 34,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 8,
+              "hp": 28,
+              "foe": "bulbasaur",
+              "foe_hp": 42,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 9,
+              "hp": 20,
+              "foe": "bulbasaur",
+              "foe_hp": 46,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 10,
+              "hp": 12,
+              "foe": "bulbasaur",
+              "foe_hp": 39,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|4",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L22, M|65/65",
+            "|switch|p1a: Wartortle|Wartortle, L22, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L17, M|49/49",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L17, M|48/48",
+            "|turn|1",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|22/49",
+            "|-damage|p2a: Pidgeotto|21/48",
+            "|move|p2a: Pidgeotto|Sand Attack|p1a: Wartortle",
+            "|-unboost|p1a: Wartortle|accuracy|1",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|5/49",
+            "|-damage|p2a: Pidgeotto|4/48",
+            "|move|p2a: Pidgeotto|Gust|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|60/65",
+            "|-damage|p1a: Wartortle|44/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|move|p1a: Wartortle|Bubble|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|faint|p2a: Pidgeotto",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Bulbasaur|Bulbasaur, L18, M|46/46",
+            "|switch|p2a: Bulbasaur|Bulbasaur, L18, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur|[miss]",
+            "|-miss|p1a: Wartortle|p2a: Bulbasaur",
+            "|move|p2a: Bulbasaur|Leech Seed|p1a: Wartortle",
+            "|-start|p1a: Wartortle|move: Leech Seed",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|52/65|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|-damage|p1a: Wartortle|38/48|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|32/46",
+            "|-damage|p2a: Bulbasaur|33/48",
+            "|cant|p2a: Bulbasaur|flinch",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|44/65|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|-damage|p1a: Wartortle|32/48|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|split|p2",
+            "|-heal|p2a: Bulbasaur|40/46|[silent]",
+            "|-heal|p2a: Bulbasaur|41/48|[silent]",
+            "|upkeep",
+            "|turn|6",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|26/46",
+            "|-damage|p2a: Bulbasaur|27/48",
+            "|move|p2a: Bulbasaur|Sleep Powder|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Bulbasaur|p1a: Wartortle",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|36/65|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|-damage|p1a: Wartortle|26/48|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|split|p2",
+            "|-heal|p2a: Bulbasaur|34/46|[silent]",
+            "|-heal|p2a: Bulbasaur|35/48|[silent]",
+            "|upkeep",
+            "|turn|7",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur|[miss]",
+            "|-miss|p1a: Wartortle|p2a: Bulbasaur",
+            "|move|p2a: Bulbasaur|Sleep Powder|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Bulbasaur|p1a: Wartortle",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|28/65|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|-damage|p1a: Wartortle|20/48|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|split|p2",
+            "|-heal|p2a: Bulbasaur|42/46|[silent]",
+            "|-heal|p2a: Bulbasaur|43/48|[silent]",
+            "|upkeep",
+            "|turn|8",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur|[miss]",
+            "|-miss|p1a: Wartortle|p2a: Bulbasaur",
+            "|move|p2a: Bulbasaur|Sleep Powder|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Bulbasaur|p1a: Wartortle",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|20/65|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|-damage|p1a: Wartortle|14/48|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|split|p2",
+            "|-heal|p2a: Bulbasaur|46/46|[silent]",
+            "|-heal|p2a: Bulbasaur|48/48|[silent]",
+            "|upkeep",
+            "|turn|9",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|31/46",
+            "|-damage|p2a: Bulbasaur|32/48",
+            "|cant|p2a: Bulbasaur|flinch",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|12/65|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|-damage|p1a: Wartortle|8/48|[from] Leech Seed|[of] p2a: Bulbasaur",
+            "|split|p2",
+            "|-heal|p2a: Bulbasaur|39/46|[silent]",
+            "|-heal|p2a: Bulbasaur|40/48|[silent]",
+            "|upkeep",
+            "|turn|10",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Bulbasaur",
+            "|-resisted|p2a: Bulbasaur",
+            "|split|p2",
+            "|-damage|p2a: Bulbasaur|25/46",
+            "|-damage|p2a: Bulbasaur|26/48",
+            "|move|p2a: Bulbasaur|Vine Whip|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|faint|p1a: Wartortle",
+            "|",
+            "|win|Trainer"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ssanne-27",
+      "inputs": {
+        "id": "ssanne-27",
+        "trainer": {
+          "name": "TERRY",
+          "ai": [
+            "CHECK_BAD_MOVE",
+            "TRY_TO_FAINT",
+            "CHECK_VIABILITY"
+          ],
+          "party": [
+            {
+              "species": "PIDGEOTTO",
+              "level": 19,
+              "iv": 6,
+              "pret_iv": 50,
+              "nature": "Quiet",
+              "personality": 717192,
+              "ability_slot": 0,
+              "moves": [
+                "TACKLE",
+                "SAND_ATTACK",
+                "GUST",
+                "QUICK_ATTACK"
+              ]
+            },
+            {
+              "species": "RATICATE",
+              "level": 16,
+              "iv": 6,
+              "pret_iv": 50,
+              "nature": "Adamant",
+              "personality": 1377928,
+              "ability_slot": 0,
+              "moves": [
+                "TACKLE",
+                "TAIL_WHIP",
+                "QUICK_ATTACK",
+                "HYPER_FANG"
+              ]
+            },
+            {
+              "species": "KADABRA",
+              "level": 18,
+              "iv": 6,
+              "pret_iv": 50,
+              "nature": "Naive",
+              "personality": 1981064,
+              "ability_slot": 0,
+              "moves": [
+                "TELEPORT",
+                "KINESIS",
+                "CONFUSION",
+                "DISABLE"
+              ]
+            },
+            {
+              "species": "IVYSAUR",
+              "level": 20,
+              "iv": 12,
+              "pret_iv": 100,
+              "nature": "Serious",
+              "personality": 2603912,
+              "ability_slot": 0,
+              "moves": [
+                "LEECH_SEED",
+                "VINE_WHIP",
+                "POISON_POWDER",
+                "SLEEP_POWDER"
+              ]
+            }
+          ],
+          "items": [],
+          "bag": {}
+        },
+        "player": {
+          "species": "WARTORTLE",
+          "level": 27,
+          "iv": 15,
+          "nature": "Hardy",
+          "stats": {
+            "hp": 78,
+            "atk": 43,
+            "def": 52,
+            "spa": 44,
+            "spd": 52,
+            "spe": 40
+          },
+          "moves": [
+            "BITE",
+            "WATER_PULSE",
+            "BUBBLE",
+            "WITHDRAW"
+          ]
+        },
+        "bag": {
+          "potion": 15,
+          "antidote": 1
+        },
+        "badges": [
+          "boulder",
+          "cascade"
+        ],
+        "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryBattleSim_Tests.cpp",
+        "input_notes": "00.22 fixture: level 27 and 78 max HP; other stats assumed neutral nature, IV 15, EV 0. Full HP and PP at entry."
+      },
+      "battles": 1000,
+      "wins": 329,
+      "win_probability": 0.329,
+      "wilson_95": [
+        0.3005817152780353,
+        0.3587270361240246
+      ],
+      "outcomes": {
+        "win": 329,
+        "loss": 671
+      },
+      "mean_turns": 9.919,
+      "mean_hp_remaining": 15.999,
+      "mean_items_used": {
+        "potion": 2.024,
+        "antidote": 0.295
+      },
+      "mean_trainer_items_used": {},
+      "losses_by_foe": {
+        "ivysaur": 591,
+        "raticate": 53,
+        "kadabra": 27
+      },
+      "conditions_present_at_loss": {
+        "accuracy_down": 214,
+        "leechseed": 609,
+        "slp": 241,
+        "psn": 49,
+        "disable": 1
+      },
+      "final_damage_effects": {
+        "vinewhip": 360,
+        "leechseed": 245,
+        "confusion": 24,
+        "quickattack": 19,
+        "hyperfang": 2,
+        "psn": 21
+      },
+      "examples": {
+        "win": {
+          "outcome": "win",
+          "turns": 11,
+          "items_used": {
+            "potion": 3
+          },
+          "trainer_items_used": {},
+          "foe_at_end": "kadabra",
+          "status_at_end": "",
+          "volatiles_at_end": [],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "final_damage_effect": null,
+          "hp_remaining": 48,
+          "seed": {
+            "master": 1,
+            "trial": 0,
+            "engine": [
+              61893,
+              39813,
+              25360,
+              48070
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 78,
+              "foe": "pidgeotto",
+              "foe_hp": 54,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 72,
+              "foe": "pidgeotto",
+              "foe_hp": 18,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 72,
+              "foe": "pidgeotto",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 72,
+              "foe": "ivysaur",
+              "foe_hp": 56,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 72,
+              "foe": "ivysaur",
+              "foe_hp": 39,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 54,
+              "foe": "ivysaur",
+              "foe_hp": 23,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 30,
+              "foe": "ivysaur",
+              "foe_hp": 8,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 30,
+              "foe": "ivysaur",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 7,
+              "hp": 30,
+              "foe": "raticate",
+              "foe_hp": 44,
+              "own": {
+                "kind": "item",
+                "item": "potion"
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 8,
+              "hp": 36,
+              "foe": "raticate",
+              "foe_hp": 44,
+              "own": {
+                "kind": "item",
+                "item": "potion"
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 9,
+              "hp": 42,
+              "foe": "raticate",
+              "foe_hp": 44,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 10,
+              "hp": 28,
+              "foe": "raticate",
+              "foe_hp": 10,
+              "own": {
+                "kind": "move",
+                "slot": 2
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 10,
+              "hp": 28,
+              "foe": "raticate",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 11,
+              "hp": 28,
+              "foe": "kadabra",
+              "foe_hp": 43,
+              "own": {
+                "kind": "item",
+                "item": "potion"
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 12,
+              "hp": 48,
+              "foe": "kadabra",
+              "foe_hp": 43,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|4",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L27, M|78/78",
+            "|switch|p1a: Wartortle|Wartortle, L27, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L19, M|54/54",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L19, M|48/48",
+            "|turn|1",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|18/54",
+            "|-damage|p2a: Pidgeotto|16/48",
+            "|move|p2a: Pidgeotto|Gust|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|72/78",
+            "|-damage|p1a: Wartortle|44/48",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|faint|p2a: Pidgeotto",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Ivysaur|Ivysaur, L20, M|56/56",
+            "|switch|p2a: Ivysaur|Ivysaur, L20, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur",
+            "|split|p2",
+            "|-damage|p2a: Ivysaur|39/56",
+            "|-damage|p2a: Ivysaur|33/48",
+            "|cant|p2a: Ivysaur|flinch",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur",
+            "|split|p2",
+            "|-damage|p2a: Ivysaur|23/56",
+            "|-damage|p2a: Ivysaur|19/48",
+            "|move|p2a: Ivysaur|Vine Whip|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|54/78",
+            "|-damage|p1a: Wartortle|33/48",
+            "|",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur",
+            "|split|p2",
+            "|-damage|p2a: Ivysaur|8/56",
+            "|-damage|p2a: Ivysaur|6/48",
+            "|move|p2a: Ivysaur|Vine Whip|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|30/78",
+            "|-damage|p1a: Wartortle|18/48",
+            "|",
+            "|upkeep",
+            "|turn|6",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur",
+            "|split|p2",
+            "|-damage|p2a: Ivysaur|0 fnt",
+            "|-damage|p2a: Ivysaur|0 fnt",
+            "|faint|p2a: Ivysaur",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Raticate|Raticate, L16, M|44/44",
+            "|switch|p2a: Raticate|Raticate, L16, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|7",
+            "|",
+            "|message|Player used potion",
+            "|split|p1",
+            "|-heal|p1a: Wartortle|50/78|[from] Pokesim FRLG",
+            "|-heal|p1a: Wartortle|30/48|[from] Pokesim FRLG",
+            "|move|p2a: Raticate|Hyper Fang|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|36/78",
+            "|-damage|p1a: Wartortle|22/48",
+            "|",
+            "|upkeep",
+            "|turn|8",
+            "|",
+            "|message|Player used potion",
+            "|split|p1",
+            "|-heal|p1a: Wartortle|56/78|[from] Pokesim FRLG",
+            "|-heal|p1a: Wartortle|34/48|[from] Pokesim FRLG",
+            "|move|p2a: Raticate|Hyper Fang|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|42/78",
+            "|-damage|p1a: Wartortle|25/48",
+            "|",
+            "|upkeep",
+            "|turn|9",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Raticate",
+            "|split|p2",
+            "|-damage|p2a: Raticate|10/44",
+            "|-damage|p2a: Raticate|10/48",
+            "|move|p2a: Raticate|Hyper Fang|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|28/78",
+            "|-damage|p1a: Wartortle|17/48",
+            "|",
+            "|upkeep",
+            "|turn|10",
+            "|",
+            "|move|p1a: Wartortle|Bubble|p2a: Raticate",
+            "|split|p2",
+            "|-damage|p2a: Raticate|0 fnt",
+            "|-damage|p2a: Raticate|0 fnt",
+            "|faint|p2a: Raticate",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Kadabra|Kadabra, L18, M|43/43",
+            "|switch|p2a: Kadabra|Kadabra, L18, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|11",
+            "|",
+            "|message|Player used potion",
+            "|split|p1",
+            "|-heal|p1a: Wartortle|48/78|[from] Pokesim FRLG",
+            "|-heal|p1a: Wartortle|29/48|[from] Pokesim FRLG",
+            "|move|p2a: Kadabra|Disable|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Kadabra|p1a: Wartortle",
+            "|",
+            "|upkeep",
+            "|turn|12",
+            "|",
+            "|move|p2a: Kadabra|Disable|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Kadabra|p1a: Wartortle",
+            "|move|p1a: Wartortle|Bite|p2a: Kadabra",
+            "|-supereffective|p2a: Kadabra",
+            "|split|p2",
+            "|-damage|p2a: Kadabra|0 fnt",
+            "|-damage|p2a: Kadabra|0 fnt",
+            "|faint|p2a: Kadabra",
+            "|",
+            "|win|Player"
+          ]
+        },
+        "loss": {
+          "outcome": "loss",
+          "turns": 7,
+          "items_used": {},
+          "trainer_items_used": {},
+          "foe_at_end": "ivysaur",
+          "status_at_end": "",
+          "volatiles_at_end": [
+            "leechseed"
+          ],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": -1,
+            "evasion": 0
+          },
+          "final_damage_effect": "vinewhip",
+          "hp_remaining": 0,
+          "seed": {
+            "master": 1,
+            "trial": 1,
+            "engine": [
+              46,
+              55011,
+              12836,
+              30441
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 78,
+              "foe": "pidgeotto",
+              "foe_hp": 54,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 78,
+              "foe": "pidgeotto",
+              "foe_hp": 18,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 78,
+              "foe": "pidgeotto",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 78,
+              "foe": "ivysaur",
+              "foe_hp": 56,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 78,
+              "foe": "ivysaur",
+              "foe_hp": 56,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 69,
+              "foe": "ivysaur",
+              "foe_hp": 50,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 60,
+              "foe": "ivysaur",
+              "foe_hp": 26,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 7,
+              "hp": 34,
+              "foe": "ivysaur",
+              "foe_hp": 35,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 8,
+              "hp": 8,
+              "foe": "ivysaur",
+              "foe_hp": 44,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|4",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L27, M|78/78",
+            "|switch|p1a: Wartortle|Wartortle, L27, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L19, M|54/54",
+            "|switch|p2a: Pidgeotto|Pidgeotto, L19, M|48/48",
+            "|turn|1",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|18/54",
+            "|-damage|p2a: Pidgeotto|16/48",
+            "|move|p2a: Pidgeotto|Sand Attack|p1a: Wartortle",
+            "|-unboost|p1a: Wartortle|accuracy|1",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Pidgeotto",
+            "|split|p2",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|-damage|p2a: Pidgeotto|0 fnt",
+            "|faint|p2a: Pidgeotto",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Ivysaur|Ivysaur, L20, M|56/56",
+            "|switch|p2a: Ivysaur|Ivysaur, L20, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur|[miss]",
+            "|-miss|p1a: Wartortle|p2a: Ivysaur",
+            "|move|p2a: Ivysaur|Leech Seed|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Ivysaur|p1a: Wartortle",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur",
+            "|split|p2",
+            "|-damage|p2a: Ivysaur|41/56",
+            "|-damage|p2a: Ivysaur|35/48",
+            "|move|p2a: Ivysaur|Leech Seed|p1a: Wartortle",
+            "|-start|p1a: Wartortle|move: Leech Seed",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|69/78|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|-damage|p1a: Wartortle|42/48|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|split|p2",
+            "|-heal|p2a: Ivysaur|50/56|[silent]",
+            "|-heal|p2a: Ivysaur|42/48|[silent]",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur",
+            "|-crit|p2a: Ivysaur",
+            "|split|p2",
+            "|-damage|p2a: Ivysaur|17/56",
+            "|-damage|p2a: Ivysaur|14/48",
+            "|move|p2a: Ivysaur|Sleep Powder|p1a: Wartortle",
+            "|-status|p1a: Wartortle|slp|[from] move: Sleep Powder",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|60/78 slp|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|-damage|p1a: Wartortle|36/48 slp|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|split|p2",
+            "|-heal|p2a: Ivysaur|26/56|[silent]",
+            "|-heal|p2a: Ivysaur|22/48|[silent]",
+            "|upkeep",
+            "|turn|6",
+            "|",
+            "|cant|p1a: Wartortle|slp",
+            "|move|p2a: Ivysaur|Vine Whip|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|43/78 slp",
+            "|-damage|p1a: Wartortle|26/48 slp",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|34/78 slp|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|-damage|p1a: Wartortle|20/48 slp|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|split|p2",
+            "|-heal|p2a: Ivysaur|35/56|[silent]",
+            "|-heal|p2a: Ivysaur|30/48|[silent]",
+            "|upkeep",
+            "|turn|7",
+            "|",
+            "|-curestatus|p1a: Wartortle|slp|[msg]",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur|[miss]",
+            "|-miss|p1a: Wartortle|p2a: Ivysaur",
+            "|move|p2a: Ivysaur|Vine Whip|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|17/78",
+            "|-damage|p1a: Wartortle|10/48",
+            "|",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|8/78|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|-damage|p1a: Wartortle|4/48|[from] Leech Seed|[of] p2a: Ivysaur",
+            "|split|p2",
+            "|-heal|p2a: Ivysaur|44/56|[silent]",
+            "|-heal|p2a: Ivysaur|37/48|[silent]",
+            "|upkeep",
+            "|turn|8",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Ivysaur|[miss]",
+            "|-miss|p1a: Wartortle|p2a: Ivysaur",
+            "|move|p2a: Ivysaur|Vine Whip|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|-crit|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|faint|p1a: Wartortle",
+            "|",
+            "|win|Trainer"
+          ]
+        }
+      }
+    },
+    {
+      "id": "surge-m73",
+      "inputs": {
+        "id": "surge-m73",
+        "trainer": {
+          "name": "LT. SURGE",
+          "ai": [
+            "CHECK_BAD_MOVE",
+            "TRY_TO_FAINT",
+            "CHECK_VIABILITY"
+          ],
+          "party": [
+            {
+              "species": "VOLTORB",
+              "level": 21,
+              "iv": 0,
+              "pret_iv": 0,
+              "nature": "Lax",
+              "personality": 763784,
+              "ability_slot": 0,
+              "moves": [
+                "SONIC_BOOM",
+                "TACKLE",
+                "SCREECH",
+                "SHOCK_WAVE"
+              ]
+            },
+            {
+              "species": "PIKACHU",
+              "level": 18,
+              "iv": 0,
+              "pret_iv": 0,
+              "nature": "Sassy",
+              "personality": 1518472,
+              "ability_slot": 0,
+              "moves": [
+                "QUICK_ATTACK",
+                "THUNDER_WAVE",
+                "DOUBLE_TEAM",
+                "SHOCK_WAVE"
+              ]
+            },
+            {
+              "species": "RAICHU",
+              "level": 24,
+              "iv": 0,
+              "pret_iv": 0,
+              "nature": "Modest",
+              "personality": 2223240,
+              "ability_slot": 0,
+              "moves": [
+                "QUICK_ATTACK",
+                "THUNDER_WAVE",
+                "DOUBLE_TEAM",
+                "SHOCK_WAVE"
+              ]
+            }
+          ],
+          "items": [
+            "SUPER_POTION",
+            "FULL_HEAL"
+          ],
+          "bag": {
+            "superpotion": 1,
+            "fullheal": 1
+          }
+        },
+        "player": {
+          "species": "WARTORTLE",
+          "level": 29,
+          "iv": 15,
+          "nature": "Hardy",
+          "stats": {
+            "hp": 83,
+            "atk": 44,
+            "def": 59,
+            "spa": 51,
+            "spd": 64,
+            "spe": 49
+          },
+          "moves": [
+            "BITE",
+            "WATER_PULSE",
+            "BUBBLE",
+            "DIG"
+          ]
+        },
+        "bag": {
+          "potion": 14
+        },
+        "badges": [
+          "boulder",
+          "cascade"
+        ],
+        "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryVermilionGym_Tests.cpp",
+        "input_notes": "m73: all six stats, species, level and moves from the measured summary fixture; full HP and PP at entry. Boulder badge applied in battle; Thunder badge not yet earned."
+      },
+      "battles": 1000,
+      "wins": 481,
+      "win_probability": 0.481,
+      "wilson_95": [
+        0.4501645630755934,
+        0.5119808537468576
+      ],
+      "outcomes": {
+        "loss": 519,
+        "win": 481
+      },
+      "mean_turns": 8.345,
+      "mean_hp_remaining": 14.185,
+      "mean_items_used": {
+        "potion": 1.0
+      },
+      "mean_trainer_items_used": {
+        "superpotion": 0.55,
+        "fullheal": 0.314
+      },
+      "losses_by_foe": {
+        "raichu": 519
+      },
+      "conditions_present_at_loss": {
+        "par": 308
+      },
+      "final_damage_effects": {
+        "shockwave": 514,
+        "quickattack": 5
+      },
+      "examples": {
+        "loss": {
+          "outcome": "loss",
+          "turns": 4,
+          "items_used": {},
+          "trainer_items_used": {},
+          "foe_at_end": "raichu",
+          "status_at_end": "",
+          "volatiles_at_end": [],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "final_damage_effect": "shockwave",
+          "hp_remaining": 0,
+          "seed": {
+            "master": 1,
+            "trial": 0,
+            "engine": [
+              61893,
+              39813,
+              25360,
+              48070
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 83,
+              "foe": "voltorb",
+              "foe_hp": 47,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 83,
+              "foe": "voltorb",
+              "foe_hp": 17,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 83,
+              "foe": "voltorb",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 83,
+              "foe": "pikachu",
+              "foe_hp": 40,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 83,
+              "foe": "pikachu",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 83,
+              "foe": "raichu",
+              "foe_hp": 62,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 17,
+              "foe": "raichu",
+              "foe_hp": 23,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|3",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L29, M|83/83",
+            "|switch|p1a: Wartortle|Wartortle, L29, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Voltorb|Voltorb, L21|47/47",
+            "|switch|p2a: Voltorb|Voltorb, L21|48/48",
+            "|turn|1",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Voltorb",
+            "|split|p2",
+            "|-damage|p2a: Voltorb|17/47",
+            "|-damage|p2a: Voltorb|17/48",
+            "|move|p2a: Voltorb|Screech|p1a: Wartortle|[miss]",
+            "|-miss|p2a: Voltorb|p1a: Wartortle",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Voltorb",
+            "|split|p2",
+            "|-damage|p2a: Voltorb|0 fnt",
+            "|-damage|p2a: Voltorb|0 fnt",
+            "|faint|p2a: Voltorb",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Pikachu|Pikachu, L18, M|40/40",
+            "|switch|p2a: Pikachu|Pikachu, L18, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Pikachu",
+            "|split|p2",
+            "|-damage|p2a: Pikachu|0 fnt",
+            "|-damage|p2a: Pikachu|0 fnt",
+            "|faint|p2a: Pikachu",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Raichu|Raichu, L24, M|62/62",
+            "|switch|p2a: Raichu|Raichu, L24, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p2a: Raichu|Shock Wave|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|-crit|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|17/83",
+            "|-damage|p1a: Wartortle|9/48",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Raichu",
+            "|split|p2",
+            "|-damage|p2a: Raichu|23/62",
+            "|-damage|p2a: Raichu|17/48",
+            "|",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p2a: Raichu|Shock Wave|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|-damage|p1a: Wartortle|0 fnt",
+            "|faint|p1a: Wartortle",
+            "|",
+            "|win|Trainer"
+          ]
+        },
+        "win": {
+          "outcome": "win",
+          "turns": 5,
+          "items_used": {},
+          "trainer_items_used": {},
+          "foe_at_end": "raichu",
+          "status_at_end": "par",
+          "volatiles_at_end": [],
+          "boosts_at_end": {
+            "atk": 0,
+            "def": 0,
+            "spa": 0,
+            "spd": 0,
+            "spe": 0,
+            "accuracy": 0,
+            "evasion": 0
+          },
+          "final_damage_effect": null,
+          "hp_remaining": 51,
+          "seed": {
+            "master": 1,
+            "trial": 2,
+            "engine": [
+              51967,
+              22541,
+              57810,
+              45018
+            ]
+          },
+          "decisions": [
+            {
+              "turn": 1,
+              "hp": 83,
+              "foe": "voltorb",
+              "foe_hp": 47,
+              "own": {
+                "kind": "move",
+                "slot": 0
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 0
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 83,
+              "foe": "voltorb",
+              "foe_hp": 14,
+              "own": {
+                "kind": "move",
+                "slot": 2
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            },
+            {
+              "turn": 2,
+              "hp": 83,
+              "foe": "voltorb",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 83,
+              "foe": "pikachu",
+              "foe_hp": 40,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 3,
+              "hp": 83,
+              "foe": "pikachu",
+              "foe_hp": 0,
+              "own": {
+                "kind": "pass"
+              },
+              "opponent": {
+                "kind": "switch",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 4,
+              "hp": 83,
+              "foe": "raichu",
+              "foe_hp": 62,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 2
+              }
+            },
+            {
+              "turn": 5,
+              "hp": 83,
+              "foe": "raichu",
+              "foe_hp": 62,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 1
+              }
+            },
+            {
+              "turn": 6,
+              "hp": 83,
+              "foe": "raichu",
+              "foe_hp": 32,
+              "own": {
+                "kind": "move",
+                "slot": 1
+              },
+              "opponent": {
+                "kind": "move",
+                "slot": 3
+              }
+            }
+          ],
+          "log": [
+            "|gametype|singles",
+            "|player|p1|Player||",
+            "|player|p2|Trainer||",
+            "|gen|3",
+            "|tier|Pokesim FRLG",
+            "|",
+            "|teamsize|p1|1",
+            "|teamsize|p2|3",
+            "|start",
+            "|split|p1",
+            "|switch|p1a: Wartortle|Wartortle, L29, M|83/83",
+            "|switch|p1a: Wartortle|Wartortle, L29, M|48/48",
+            "|split|p2",
+            "|switch|p2a: Voltorb|Voltorb, L21|47/47",
+            "|switch|p2a: Voltorb|Voltorb, L21|48/48",
+            "|turn|1",
+            "|",
+            "|move|p1a: Wartortle|Bite|p2a: Voltorb",
+            "|split|p2",
+            "|-damage|p2a: Voltorb|14/47",
+            "|-damage|p2a: Voltorb|14/48",
+            "|cant|p2a: Voltorb|flinch",
+            "|",
+            "|upkeep",
+            "|turn|2",
+            "|",
+            "|move|p1a: Wartortle|Bubble|p2a: Voltorb",
+            "|split|p2",
+            "|-damage|p2a: Voltorb|0 fnt",
+            "|-damage|p2a: Voltorb|0 fnt",
+            "|faint|p2a: Voltorb",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Pikachu|Pikachu, L18, M|40/40",
+            "|switch|p2a: Pikachu|Pikachu, L18, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|3",
+            "|",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Pikachu",
+            "|split|p2",
+            "|-damage|p2a: Pikachu|0 fnt",
+            "|-damage|p2a: Pikachu|0 fnt",
+            "|faint|p2a: Pikachu",
+            "|",
+            "|split|p2",
+            "|switch|p2a: Raichu|Raichu, L24, M|62/62",
+            "|switch|p2a: Raichu|Raichu, L24, M|48/48",
+            "|",
+            "|upkeep",
+            "|turn|4",
+            "|",
+            "|move|p2a: Raichu|Double Team|p2a: Raichu",
+            "|-boost|p2a: Raichu|evasion|1",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Raichu|[miss]",
+            "|-miss|p1a: Wartortle|p2a: Raichu",
+            "|",
+            "|upkeep",
+            "|turn|5",
+            "|",
+            "|move|p2a: Raichu|Thunder Wave|p1a: Wartortle",
+            "|-status|p1a: Wartortle|par",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Raichu",
+            "|split|p2",
+            "|-damage|p2a: Raichu|32/62",
+            "|-damage|p2a: Raichu|24/48",
+            "|",
+            "|upkeep",
+            "|turn|6",
+            "|",
+            "|move|p2a: Raichu|Shock Wave|p1a: Wartortle",
+            "|-supereffective|p1a: Wartortle",
+            "|split|p1",
+            "|-damage|p1a: Wartortle|51/83 par",
+            "|-damage|p1a: Wartortle|29/48 par",
+            "|move|p1a: Wartortle|Water Pulse|p2a: Raichu",
+            "|-crit|p2a: Raichu",
+            "|split|p2",
+            "|-damage|p2a: Raichu|0 fnt",
+            "|-damage|p2a: Raichu|0 fnt",
+            "|faint|p2a: Raichu",
+            "|",
+            "|win|Player"
+          ]
+        }
+      }
+    }
+  ]
+}
