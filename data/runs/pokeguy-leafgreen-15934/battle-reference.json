@@ -1,0 +1,9191 @@
+{
+  "format": "pokesim-frlg-pret/1",
+  "source": {
+    "repository": "https://github.com/pret/pokefirered",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "sha256": {
+      "src/data/trainers.h": "b2105a3b1d1baec02d8f6a89f44bcdf6a05cbaac1d6d8872766eec49aa8555bc",
+      "src/data/trainer_parties.h": "cb135d9cbdfc52c87066374d582506830a8c93561eab2033d847331c2de00299",
+      "src/data/text/species_names.h": "73e87117c98828423b7fc15565bd2a839a0671665fb7c1c1b26264d7d7a8912f",
+      "charmap.txt": "4da662317b3b5109a52064f9012d85b644d1dbf0f3f24243374aeef4cf25f061",
+      "src/data/pokemon/level_up_learnsets.h": "d6563a88fa893d1433a02027cb13ba9574a6828a96b1a730b1d767fd7c5a0cc6",
+      "src/data/pokemon/level_up_learnset_pointers.h": "7a85513797da2a2ebdf7893ce58d94f99aee07deb1aec4f0d7a31422dc8040de",
+      "src/data/battle_moves.h": "54e08c749547afaf73eb2f1e4f4e3023f4d8e186d2f608c29bd6419c291b5384",
+      "data/battle_ai_scripts.s": "0971513157b28ba27ce272acaa2388afa7362a302711f737cad6c3598ca1b389"
+    }
+  },
+  "trainers": {
+    "TRAINER_RIVAL_OAKS_LAB_BULBASAUR": {
+      "name": "TERRY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "BULBASAUR",
+          "level": 5,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Impish",
+          "personality": 713608,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "GROWL"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BUG_CATCHER_SAMMY": {
+      "name": "SAMMY",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "WEEDLE",
+          "level": 9,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Serious",
+          "personality": 555912,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_STING",
+            "STRING_SHOT"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_CAMPER_LIAM": {
+      "name": "LIAM",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Jolly",
+          "personality": 548488,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "DEFENSE_CURL"
+          ]
+        },
+        {
+          "species": "SANDSHREW",
+          "level": 11,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 1204872,
+          "ability_slot": 0,
+          "moves": [
+            "SCRATCH",
+            "DEFENSE_CURL",
+            "SAND_ATTACK"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LEADER_BROCK": {
+      "name": "BROCK",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 12,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Jolly",
+          "personality": 599688,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "DEFENSE_CURL"
+          ]
+        },
+        {
+          "species": "ONIX",
+          "level": 14,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Careful",
+          "personality": 1056648,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "BIND",
+            "ROCK_TOMB"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BUG_CATCHER_COLTON": {
+      "name": "COLTON",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 706696,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "WEEDLE",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 1312136,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_STING",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "CATERPIE",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 2018696,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "STRING_SHOT"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BUG_CATCHER_GREG": {
+      "name": "GREG",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "WEEDLE",
+          "level": 9,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Quiet",
+          "personality": 499592,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_STING",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "KAKUNA",
+          "level": 9,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Adamant",
+          "personality": 1000328,
+          "ability_slot": 0,
+          "moves": [
+            "HARDEN"
+          ]
+        },
+        {
+          "species": "CATERPIE",
+          "level": 9,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 1600904,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "METAPOD",
+          "level": 9,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 2153096,
+          "ability_slot": 0,
+          "moves": [
+            "HARDEN"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BUG_CATCHER_JAMES": {
+      "name": "JAMES",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 11,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Rash",
+          "personality": 651144,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "METAPOD",
+          "level": 11,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Bashful",
+          "personality": 1253768,
+          "ability_slot": 0,
+          "moves": [
+            "HARDEN"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_YOUNGSTER_JOSH": {
+      "name": "JOSH",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "RATTATA",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Timid",
+          "personality": 557960,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "TAIL_WHIP",
+            "QUICK_ATTACK"
+          ]
+        },
+        {
+          "species": "RATTATA",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lax",
+          "personality": 1115784,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "TAIL_WHIP",
+            "QUICK_ATTACK"
+          ]
+        },
+        {
+          "species": "ZUBAT",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Timid",
+          "personality": 1575560,
+          "ability_slot": 0,
+          "moves": [
+            "LEECH_LIFE",
+            "ASTONISH"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "RATTATA",
+          "level": 13,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Rash",
+          "personality": 612744,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "TAIL_WHIP",
+            "QUICK_ATTACK",
+            "HYPER_FANG"
+          ]
+        },
+        {
+          "species": "ZUBAT",
+          "level": 13,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 1127304,
+          "ability_slot": 0,
+          "moves": [
+            "LEECH_LIFE",
+            "ASTONISH",
+            "SUPERSONIC"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_SUPER_NERD_MIGUEL": {
+      "name": "MIGUEL",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "GRIMER",
+          "level": 12,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hardy",
+          "personality": 606600,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_GAS",
+            "POUND",
+            "HARDEN",
+            "DISABLE"
+          ]
+        },
+        {
+          "species": "VOLTORB",
+          "level": 12,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lax",
+          "personality": 1269384,
+          "ability_slot": 0,
+          "moves": [
+            "CHARGE",
+            "TACKLE",
+            "SCREECH"
+          ]
+        },
+        {
+          "species": "KOFFING",
+          "level": 12,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Brave",
+          "personality": 1922952,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_GAS",
+            "TACKLE",
+            "SMOG"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LEADER_MISTY": {
+      "name": "MISTY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "STARYU",
+          "level": 18,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 572536,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "HARDEN",
+            "RECOVER",
+            "WATER_PULSE"
+          ]
+        },
+        {
+          "species": "STARMIE",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 1187704,
+          "ability_slot": 0,
+          "moves": [
+            "SWIFT",
+            "RECOVER",
+            "RAPID_SPIN",
+            "WATER_PULSE"
+          ]
+        }
+      ],
+      "items": [
+        "SUPER_POTION"
+      ]
+    },
+    "TRAINER_RIVAL_CERULEAN_BULBASAUR": {
+      "name": "TERRY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 17,
+          "iv": 6,
+          "pret_iv": 50,
+          "nature": "Quiet",
+          "personality": 717192,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "SAND_ATTACK",
+            "GUST",
+            "QUICK_ATTACK"
+          ]
+        },
+        {
+          "species": "ABRA",
+          "level": 16,
+          "iv": 6,
+          "pret_iv": 50,
+          "nature": "Lax",
+          "personality": 1173384,
+          "ability_slot": 0,
+          "moves": [
+            "TELEPORT"
+          ]
+        },
+        {
+          "species": "RATTATA",
+          "level": 15,
+          "iv": 6,
+          "pret_iv": 50,
+          "nature": "Adamant",
+          "personality": 1787528,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "TAIL_WHIP",
+            "QUICK_ATTACK"
+          ]
+        },
+        {
+          "species": "BULBASAUR",
+          "level": 18,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Hardy",
+          "personality": 2501000,
+          "ability_slot": 0,
+          "moves": [
+            "SLEEP_POWDER",
+            "POISON_POWDER",
+            "VINE_WHIP",
+            "LEECH_SEED"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BUG_CATCHER_CALE": {
+      "name": "CALE",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Mild",
+          "personality": 596616,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "WEEDLE",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 1091976,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_STING",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "METAPOD",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 1640072,
+          "ability_slot": 0,
+          "moves": [
+            "HARDEN"
+          ]
+        },
+        {
+          "species": "KAKUNA",
+          "level": 10,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Serious",
+          "personality": 2136712,
+          "ability_slot": 0,
+          "moves": [
+            "HARDEN"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LASS_ALI": {
+      "name": "ALI",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "PIDGEY",
+          "level": 12,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Quiet",
+          "personality": 451192,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "SAND_ATTACK",
+            "GUST"
+          ]
+        },
+        {
+          "species": "ODDISH",
+          "level": 12,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 900472,
+          "ability_slot": 0,
+          "moves": [
+            "ABSORB",
+            "SWEET_SCENT"
+          ]
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 12,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Brave",
+          "personality": 1560952,
+          "ability_slot": 0,
+          "moves": [
+            "VINE_WHIP",
+            "GROWTH",
+            "WRAP"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_YOUNGSTER_TIMMY": {
+      "name": "TIMMY",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "SANDSHREW",
+          "level": 14,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Docile",
+          "personality": 715656,
+          "ability_slot": 0,
+          "moves": [
+            "SCRATCH",
+            "DEFENSE_CURL",
+            "SAND_ATTACK"
+          ]
+        },
+        {
+          "species": "EKANS",
+          "level": 14,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 1225096,
+          "ability_slot": 0,
+          "moves": [
+            "WRAP",
+            "LEER",
+            "POISON_STING",
+            "BITE"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LASS_RELI": {
+      "name": "RELI",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "NIDORAN_M",
+          "level": 16,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 600696,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "PECK",
+            "FOCUS_ENERGY",
+            "DOUBLE_KICK"
+          ]
+        },
+        {
+          "species": "NIDORAN_F",
+          "level": 16,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Adamant",
+          "personality": 1201528,
+          "ability_slot": 0,
+          "moves": [
+            "GROWL",
+            "SCRATCH",
+            "TAIL_WHIP",
+            "DOUBLE_KICK"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_CAMPER_ETHAN": {
+      "name": "ETHAN",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "MANKEY",
+          "level": 18,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naive",
+          "personality": 553864,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "LOW_KICK",
+            "KARATE_CHOP",
+            "FURY_SWIPES"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_6": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "EKANS",
+          "level": 15,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 509576,
+          "ability_slot": 0,
+          "moves": [
+            "WRAP",
+            "LEER",
+            "POISON_STING",
+            "BITE"
+          ]
+        },
+        {
+          "species": "ZUBAT",
+          "level": 15,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 1024136,
+          "ability_slot": 0,
+          "moves": [
+            "LEECH_LIFE",
+            "ASTONISH",
+            "SUPERSONIC"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_HIKER_WAYNE": {
+      "name": "WAYNE",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 17,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Timid",
+          "personality": 461960,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "SCREECH",
+            "BIND",
+            "ROCK_THROW"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_PICNICKER_KELSEY": {
+      "name": "KELSEY",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "NIDORAN_M",
+          "level": 15,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 704376,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "PECK",
+            "FOCUS_ENERGY",
+            "DOUBLE_KICK"
+          ]
+        },
+        {
+          "species": "NIDORAN_F",
+          "level": 15,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Jolly",
+          "personality": 1408888,
+          "ability_slot": 0,
+          "moves": [
+            "GROWL",
+            "SCRATCH",
+            "TAIL_WHIP",
+            "DOUBLE_KICK"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_CAMPER_FLINT": {
+      "name": "FLINT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "RATTATA",
+          "level": 14,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Bold",
+          "personality": 607880,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "TAIL_WHIP",
+            "QUICK_ATTACK",
+            "HYPER_FANG"
+          ]
+        },
+        {
+          "species": "EKANS",
+          "level": 14,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Docile",
+          "personality": 1112456,
+          "ability_slot": 0,
+          "moves": [
+            "WRAP",
+            "LEER",
+            "POISON_STING",
+            "BITE"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LASS_HALEY": {
+      "name": "HALEY",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ODDISH",
+          "level": 13,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Docile",
+          "personality": 552056,
+          "ability_slot": 0,
+          "moves": [
+            "ABSORB",
+            "SWEET_SCENT"
+          ]
+        },
+        {
+          "species": "PIDGEY",
+          "level": 13,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lax",
+          "personality": 1105784,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "SAND_ATTACK",
+            "GUST",
+            "QUICK_ATTACK"
+          ]
+        },
+        {
+          "species": "ODDISH",
+          "level": 13,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Calm",
+          "personality": 1657720,
+          "ability_slot": 0,
+          "moves": [
+            "ABSORB",
+            "SWEET_SCENT"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_5": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "MACHOP",
+          "level": 17,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Adamant",
+          "personality": 558728,
+          "ability_slot": 0,
+          "moves": [
+            "LOW_KICK",
+            "LEER",
+            "FOCUS_ENERGY",
+            "KARATE_CHOP"
+          ]
+        },
+        {
+          "species": "DROWZEE",
+          "level": 17,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 1175176,
+          "ability_slot": 0,
+          "moves": [
+            "HYPNOSIS",
+            "DISABLE",
+            "CONFUSION",
+            "HEADBUTT"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_CAMPER_JEFF": {
+      "name": "JEFF",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "SPEAROW",
+          "level": 16,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Docile",
+          "personality": 555656,
+          "ability_slot": 0,
+          "moves": [
+            "PECK",
+            "GROWL",
+            "LEER",
+            "FURY_ATTACK"
+          ]
+        },
+        {
+          "species": "RATICATE",
+          "level": 16,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 1153672,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "TAIL_WHIP",
+            "QUICK_ATTACK",
+            "HYPER_FANG"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_RIVAL_SS_ANNE_BULBASAUR": {
+      "name": "TERRY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 19,
+          "iv": 6,
+          "pret_iv": 50,
+          "nature": "Quiet",
+          "personality": 717192,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "SAND_ATTACK",
+            "GUST",
+            "QUICK_ATTACK"
+          ]
+        },
+        {
+          "species": "RATICATE",
+          "level": 16,
+          "iv": 6,
+          "pret_iv": 50,
+          "nature": "Adamant",
+          "personality": 1377928,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "TAIL_WHIP",
+            "QUICK_ATTACK",
+            "HYPER_FANG"
+          ]
+        },
+        {
+          "species": "KADABRA",
+          "level": 18,
+          "iv": 6,
+          "pret_iv": 50,
+          "nature": "Naive",
+          "personality": 1981064,
+          "ability_slot": 0,
+          "moves": [
+            "TELEPORT",
+            "KINESIS",
+            "CONFUSION",
+            "DISABLE"
+          ]
+        },
+        {
+          "species": "IVYSAUR",
+          "level": 20,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Serious",
+          "personality": 2603912,
+          "ability_slot": 0,
+          "moves": [
+            "LEECH_SEED",
+            "VINE_WHIP",
+            "POISON_POWDER",
+            "SLEEP_POWDER"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_GENTLEMAN_TUCKER": {
+      "name": "TUCKER",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "PIKACHU",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 656776,
+          "ability_slot": 0,
+          "moves": [
+            "THUNDER_WAVE",
+            "QUICK_ATTACK",
+            "DOUBLE_TEAM",
+            "SLAM"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LEADER_LT_SURGE": {
+      "name": "LT. SURGE",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "VOLTORB",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lax",
+          "personality": 763784,
+          "ability_slot": 0,
+          "moves": [
+            "SONIC_BOOM",
+            "TACKLE",
+            "SCREECH",
+            "SHOCK_WAVE"
+          ]
+        },
+        {
+          "species": "PIKACHU",
+          "level": 18,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 1518472,
+          "ability_slot": 0,
+          "moves": [
+            "QUICK_ATTACK",
+            "THUNDER_WAVE",
+            "DOUBLE_TEAM",
+            "SHOCK_WAVE"
+          ]
+        },
+        {
+          "species": "RAICHU",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Modest",
+          "personality": 2223240,
+          "ability_slot": 0,
+          "moves": [
+            "QUICK_ATTACK",
+            "THUNDER_WAVE",
+            "DOUBLE_TEAM",
+            "SHOCK_WAVE"
+          ]
+        }
+      ],
+      "items": [
+        "SUPER_POTION",
+        "FULL_HEAL"
+      ]
+    },
+    "TRAINER_PICNICKER_ALICIA": {
+      "name": "ALICIA",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ODDISH",
+          "level": 18,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 595576,
+          "ability_slot": 0,
+          "moves": [
+            "SWEET_SCENT",
+            "POISON_POWDER",
+            "STUN_SPORE",
+            "SLEEP_POWDER"
+          ]
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 18,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Relaxed",
+          "personality": 1402232,
+          "ability_slot": 0,
+          "moves": [
+            "GROWTH",
+            "WRAP",
+            "SLEEP_POWDER",
+            "POISON_POWDER"
+          ]
+        },
+        {
+          "species": "ODDISH",
+          "level": 18,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Jolly",
+          "personality": 1997688,
+          "ability_slot": 0,
+          "moves": [
+            "SWEET_SCENT",
+            "POISON_POWDER",
+            "STUN_SPORE",
+            "SLEEP_POWDER"
+          ]
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 18,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Rash",
+          "personality": 2804344,
+          "ability_slot": 0,
+          "moves": [
+            "GROWTH",
+            "WRAP",
+            "SLEEP_POWDER",
+            "POISON_POWDER"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BUG_CATCHER_CONNER": {
+      "name": "CONNER",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 704136,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "WEEDLE",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Mild",
+          "personality": 1307016,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_STING",
+            "STRING_SHOT"
+          ]
+        },
+        {
+          "species": "VENONAT",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lax",
+          "personality": 1966984,
+          "ability_slot": 0,
+          "moves": [
+            "FORESIGHT",
+            "SUPERSONIC",
+            "CONFUSION",
+            "POISON_POWDER"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_POKEMANIAC_ASHTON": {
+      "name": "ASHTON",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "CUBONE",
+          "level": 23,
+          "iv": 3,
+          "pret_iv": 30,
+          "nature": "Hardy",
+          "personality": 606600,
+          "ability_slot": 0,
+          "moves": [
+            "BONE_CLUB",
+            "HEADBUTT",
+            "LEER",
+            "FOCUS_ENERGY"
+          ]
+        },
+        {
+          "species": "SLOWPOKE",
+          "level": 23,
+          "iv": 3,
+          "pret_iv": 30,
+          "nature": "Relaxed",
+          "personality": 1322632,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "GROWL",
+            "WATER_GUN",
+            "CONFUSION"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_POKEMANIAC_WINSTON": {
+      "name": "WINSTON",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "SLOWPOKE",
+          "level": 25,
+          "iv": 3,
+          "pret_iv": 30,
+          "nature": "Docile",
+          "personality": 773256,
+          "ability_slot": 0,
+          "moves": [
+            "GROWL",
+            "WATER_GUN",
+            "CONFUSION",
+            "DISABLE"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_PICNICKER_MARTHA": {
+      "name": "MARTHA",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ODDISH",
+          "level": 22,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Relaxed",
+          "personality": 602232,
+          "ability_slot": 0,
+          "moves": [
+            "SWEET_SCENT",
+            "POISON_POWDER",
+            "STUN_SPORE",
+            "SLEEP_POWDER"
+          ]
+        },
+        {
+          "species": "BULBASAUR",
+          "level": 22,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Calm",
+          "personality": 1356920,
+          "ability_slot": 0,
+          "moves": [
+            "VINE_WHIP",
+            "POISON_POWDER",
+            "SLEEP_POWDER",
+            "RAZOR_LEAF"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_HIKER_ALLEN": {
+      "name": "ALLEN",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 25,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Impish",
+          "personality": 598408,
+          "ability_slot": 0,
+          "moves": [
+            "MAGNITUDE",
+            "ROCK_THROW",
+            "MUD_SPORT",
+            "DEFENSE_CURL"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_HIKER_OLIVER": {
+      "name": "OLIVER",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 512904,
+          "ability_slot": 0,
+          "moves": [
+            "SCREECH",
+            "BIND",
+            "ROCK_THROW",
+            "HARDEN"
+          ]
+        },
+        {
+          "species": "ONIX",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 1025672,
+          "ability_slot": 0,
+          "moves": [
+            "SCREECH",
+            "BIND",
+            "ROCK_THROW",
+            "HARDEN"
+          ]
+        },
+        {
+          "species": "GEODUDE",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Relaxed",
+          "personality": 1681032,
+          "ability_slot": 0,
+          "moves": [
+            "DEFENSE_CURL",
+            "MUD_SPORT",
+            "ROCK_THROW",
+            "MAGNITUDE"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_PICNICKER_SOFIA": {
+      "name": "SOFIA",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "JIGGLYPUFF",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Quirky",
+          "personality": 757624,
+          "ability_slot": 0,
+          "moves": [
+            "DEFENSE_CURL",
+            "POUND",
+            "DISABLE",
+            "ROLLOUT"
+          ]
+        },
+        {
+          "species": "PIDGEY",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 1311096,
+          "ability_slot": 0,
+          "moves": [
+            "SAND_ATTACK",
+            "GUST",
+            "QUICK_ATTACK",
+            "WHIRLWIND"
+          ]
+        },
+        {
+          "species": "MEOWTH",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 1869176,
+          "ability_slot": 0,
+          "moves": [
+            "SCRATCH",
+            "GROWL",
+            "BITE",
+            "PAY_DAY"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_HIKER_DUDLEY": {
+      "name": "DUDLEY",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 652936,
+          "ability_slot": 0,
+          "moves": [
+            "MAGNITUDE",
+            "ROCK_THROW",
+            "MUD_SPORT",
+            "DEFENSE_CURL"
+          ]
+        },
+        {
+          "species": "GEODUDE",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 1305736,
+          "ability_slot": 0,
+          "moves": [
+            "MAGNITUDE",
+            "ROCK_THROW",
+            "MUD_SPORT",
+            "DEFENSE_CURL"
+          ]
+        },
+        {
+          "species": "GRAVELER",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naive",
+          "personality": 2013064,
+          "ability_slot": 0,
+          "moves": [
+            "MAGNITUDE",
+            "ROCK_THROW",
+            "MUD_SPORT",
+            "DEFENSE_CURL"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_PICNICKER_DANA": {
+      "name": "DANA",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "MEOWTH",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 502904,
+          "ability_slot": 0,
+          "moves": [
+            "SCRATCH",
+            "GROWL",
+            "BITE",
+            "PAY_DAY"
+          ]
+        },
+        {
+          "species": "ODDISH",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Jolly",
+          "personality": 999288,
+          "ability_slot": 0,
+          "moves": [
+            "SWEET_SCENT",
+            "POISON_POWDER",
+            "STUN_SPORE",
+            "SLEEP_POWDER"
+          ]
+        },
+        {
+          "species": "PIDGEY",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naive",
+          "personality": 1497464,
+          "ability_slot": 0,
+          "moves": [
+            "SAND_ATTACK",
+            "GUST",
+            "QUICK_ATTACK",
+            "WHIRLWIND"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_GAMER_RICH": {
+      "name": "RICH",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "GROWLITHE",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Quirky",
+          "personality": 658824,
+          "ability_slot": 0,
+          "moves": [
+            "ROAR",
+            "EMBER",
+            "LEER",
+            "ODOR_SLEUTH"
+          ]
+        },
+        {
+          "species": "VULPIX",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 1171336,
+          "ability_slot": 0,
+          "moves": [
+            "ROAR",
+            "QUICK_ATTACK",
+            "WILL_O_WISP",
+            "CONFUSE_RAY"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_7": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "RATICATE",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 659336,
+          "ability_slot": 0,
+          "moves": [
+            "TAIL_WHIP",
+            "QUICK_ATTACK",
+            "HYPER_FANG",
+            "SCARY_FACE"
+          ]
+        },
+        {
+          "species": "ZUBAT",
+          "level": 20,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 1173896,
+          "ability_slot": 0,
+          "moves": [
+            "LEECH_LIFE",
+            "ASTONISH",
+            "SUPERSONIC",
+            "BITE"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_18": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "KOFFING",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Mild",
+          "personality": 609416,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "SMOG",
+            "SELF_DESTRUCT",
+            "SLUDGE"
+          ]
+        },
+        {
+          "species": "ZUBAT",
+          "level": 21,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 1123976,
+          "ability_slot": 0,
+          "moves": [
+            "ASTONISH",
+            "SUPERSONIC",
+            "BITE",
+            "WING_ATTACK"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_16": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "SANDSHREW",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Docile",
+          "personality": 715656,
+          "ability_slot": 0,
+          "moves": [
+            "DEFENSE_CURL",
+            "SAND_ATTACK",
+            "POISON_STING",
+            "SLASH"
+          ]
+        },
+        {
+          "species": "EKANS",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 1225096,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "POISON_STING",
+            "BITE",
+            "GLARE"
+          ]
+        },
+        {
+          "species": "SANDSLASH",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Relaxed",
+          "personality": 1937032,
+          "ability_slot": 0,
+          "moves": [
+            "SCRATCH",
+            "DEFENSE_CURL",
+            "SAND_ATTACK",
+            "POISON_STING"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_17": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "EKANS",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 509576,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "POISON_STING",
+            "BITE",
+            "GLARE"
+          ]
+        },
+        {
+          "species": "SANDSHREW",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 1225096,
+          "ability_slot": 0,
+          "moves": [
+            "DEFENSE_CURL",
+            "SAND_ATTACK",
+            "POISON_STING",
+            "SLASH"
+          ]
+        },
+        {
+          "species": "ARBOK",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Bashful",
+          "personality": 1733768,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "POISON_STING",
+            "BITE",
+            "GLARE"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BOSS_GIOVANNI": {
+      "name": "GIOVANNI",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 25,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Gentle",
+          "personality": 610696,
+          "ability_slot": 0,
+          "moves": [
+            "BIND",
+            "ROCK_THROW",
+            "HARDEN",
+            "RAGE"
+          ]
+        },
+        {
+          "species": "RHYHORN",
+          "level": 24,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Bashful",
+          "personality": 1375368,
+          "ability_slot": 0,
+          "moves": [
+            "TAIL_WHIP",
+            "STOMP",
+            "FURY_ATTACK",
+            "SCARY_FACE"
+          ]
+        },
+        {
+          "species": "KANGASKHAN",
+          "level": 29,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Quirky",
+          "personality": 2278024,
+          "ability_slot": 0,
+          "moves": [
+            "BITE",
+            "TAIL_WHIP",
+            "FAKE_OUT",
+            "MEGA_PUNCH"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR": {
+      "name": "TERRY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 25,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Quiet",
+          "personality": 717192,
+          "ability_slot": 0,
+          "moves": [
+            "SAND_ATTACK",
+            "GUST",
+            "QUICK_ATTACK",
+            "WHIRLWIND"
+          ]
+        },
+        {
+          "species": "GYARADOS",
+          "level": 23,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Docile",
+          "personality": 1381256,
+          "ability_slot": 0,
+          "moves": [
+            "THRASH",
+            "BITE"
+          ]
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 22,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Careful",
+          "personality": 2099848,
+          "ability_slot": 0,
+          "moves": [
+            "ROAR",
+            "EMBER",
+            "LEER",
+            "ODOR_SLEUTH"
+          ]
+        },
+        {
+          "species": "KADABRA",
+          "level": 20,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Lax",
+          "personality": 2702984,
+          "ability_slot": 0,
+          "moves": [
+            "TELEPORT",
+            "KINESIS",
+            "CONFUSION",
+            "DISABLE"
+          ]
+        },
+        {
+          "species": "IVYSAUR",
+          "level": 25,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Relaxed",
+          "personality": 3325832,
+          "ability_slot": 0,
+          "moves": [
+            "VINE_WHIP",
+            "POISON_POWDER",
+            "SLEEP_POWDER",
+            "RAZOR_LEAF"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_CHANNELER_TAMMY": {
+      "name": "TAMMY",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "HAUNTER",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Mild",
+          "personality": 612216,
+          "ability_slot": 0,
+          "moves": [
+            "SPITE",
+            "CURSE",
+            "NIGHT_SHADE",
+            "CONFUSE_RAY"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_CHANNELER_JENNIFER": {
+      "name": "JENNIFER",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "GASTLY",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lax",
+          "personality": 708984,
+          "ability_slot": 0,
+          "moves": [
+            "SPITE",
+            "CURSE",
+            "NIGHT_SHADE",
+            "CONFUSE_RAY"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_CHANNELER_EMILIA": {
+      "name": "EMILIA",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "GASTLY",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Timid",
+          "personality": 605560,
+          "ability_slot": 0,
+          "moves": [
+            "SPITE",
+            "CURSE",
+            "NIGHT_SHADE",
+            "CONFUSE_RAY"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_19": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ZUBAT",
+          "level": 25,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 514696,
+          "ability_slot": 0,
+          "moves": [
+            "ASTONISH",
+            "SUPERSONIC",
+            "BITE",
+            "WING_ATTACK"
+          ]
+        },
+        {
+          "species": "ZUBAT",
+          "level": 25,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Docile",
+          "personality": 1029256,
+          "ability_slot": 0,
+          "moves": [
+            "ASTONISH",
+            "SUPERSONIC",
+            "BITE",
+            "WING_ATTACK"
+          ]
+        },
+        {
+          "species": "GOLBAT",
+          "level": 25,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 1588104,
+          "ability_slot": 0,
+          "moves": [
+            "ASTONISH",
+            "SUPERSONIC",
+            "BITE",
+            "WING_ATTACK"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_20": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "KOFFING",
+          "level": 26,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Mild",
+          "personality": 609416,
+          "ability_slot": 0,
+          "moves": [
+            "SMOG",
+            "SELF_DESTRUCT",
+            "SLUDGE",
+            "SMOKESCREEN"
+          ]
+        },
+        {
+          "species": "DROWZEE",
+          "level": 26,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naive",
+          "personality": 1225864,
+          "ability_slot": 0,
+          "moves": [
+            "DISABLE",
+            "CONFUSION",
+            "HEADBUTT",
+            "POISON_GAS"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_21": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "ZUBAT",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 514696,
+          "ability_slot": 0,
+          "moves": [
+            "ASTONISH",
+            "SUPERSONIC",
+            "BITE",
+            "WING_ATTACK"
+          ]
+        },
+        {
+          "species": "RATTATA",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 1127304,
+          "ability_slot": 0,
+          "moves": [
+            "TAIL_WHIP",
+            "QUICK_ATTACK",
+            "HYPER_FANG",
+            "FOCUS_ENERGY"
+          ]
+        },
+        {
+          "species": "RATICATE",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naughty",
+          "personality": 1786504,
+          "ability_slot": 0,
+          "moves": [
+            "TAIL_WHIP",
+            "QUICK_ATTACK",
+            "HYPER_FANG",
+            "SCARY_FACE"
+          ]
+        },
+        {
+          "species": "ZUBAT",
+          "level": 23,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naive",
+          "personality": 2301064,
+          "ability_slot": 0,
+          "moves": [
+            "ASTONISH",
+            "SUPERSONIC",
+            "BITE",
+            "WING_ATTACK"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_JUGGLER_KIRK": {
+      "name": "KIRK",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "DROWZEE",
+          "level": 31,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Relaxed",
+          "personality": 561032,
+          "ability_slot": 0,
+          "moves": [
+            "HEADBUTT",
+            "POISON_GAS",
+            "MEDITATE",
+            "PSYCHIC"
+          ]
+        },
+        {
+          "species": "DROWZEE",
+          "level": 31,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Adamant",
+          "personality": 1121928,
+          "ability_slot": 0,
+          "moves": [
+            "HEADBUTT",
+            "POISON_GAS",
+            "MEDITATE",
+            "PSYCHIC"
+          ]
+        },
+        {
+          "species": "KADABRA",
+          "level": 31,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lonely",
+          "personality": 1667976,
+          "ability_slot": 0,
+          "moves": [
+            "PSYBEAM",
+            "REFLECT",
+            "RECOVER",
+            "FUTURE_SIGHT"
+          ]
+        },
+        {
+          "species": "DROWZEE",
+          "level": 31,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 2228872,
+          "ability_slot": 0,
+          "moves": [
+            "HEADBUTT",
+            "POISON_GAS",
+            "MEDITATE",
+            "PSYCHIC"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LEADER_KOGA": {
+      "name": "KOGA",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "KOFFING",
+          "level": 37,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Quirky",
+          "personality": 550024,
+          "ability_slot": 0,
+          "moves": [
+            "SELF_DESTRUCT",
+            "SLUDGE",
+            "SMOKESCREEN",
+            "TOXIC"
+          ]
+        },
+        {
+          "species": "MUK",
+          "level": 39,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Timid",
+          "personality": 903560,
+          "ability_slot": 0,
+          "moves": [
+            "MINIMIZE",
+            "SLUDGE",
+            "ACID_ARMOR",
+            "TOXIC"
+          ]
+        },
+        {
+          "species": "KOFFING",
+          "level": 37,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Careful",
+          "personality": 1453448,
+          "ability_slot": 0,
+          "moves": [
+            "SELF_DESTRUCT",
+            "SLUDGE",
+            "SMOKESCREEN",
+            "TOXIC"
+          ]
+        },
+        {
+          "species": "WEEZING",
+          "level": 43,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Serious",
+          "personality": 2008712,
+          "ability_slot": 0,
+          "moves": [
+            "TACKLE",
+            "SLUDGE",
+            "SMOKESCREEN",
+            "TOXIC"
+          ]
+        }
+      ],
+      "items": [
+        "HYPER_POTION",
+        "HYPER_POTION",
+        "FULL_HEAL"
+      ]
+    },
+    "TRAINER_LEADER_BLAINE": {
+      "name": "BLAINE",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "GROWLITHE",
+          "level": 42,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hasty",
+          "personality": 755336,
+          "ability_slot": 0,
+          "moves": [
+            "BITE",
+            "ROAR",
+            "TAKE_DOWN",
+            "FIRE_BLAST"
+          ]
+        },
+        {
+          "species": "PONYTA",
+          "level": 40,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Relaxed",
+          "personality": 1361032,
+          "ability_slot": 0,
+          "moves": [
+            "STOMP",
+            "BOUNCE",
+            "FIRE_SPIN",
+            "FIRE_BLAST"
+          ]
+        },
+        {
+          "species": "RAPIDASH",
+          "level": 42,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Calm",
+          "personality": 2058120,
+          "ability_slot": 0,
+          "moves": [
+            "STOMP",
+            "BOUNCE",
+            "FIRE_SPIN",
+            "FIRE_BLAST"
+          ]
+        },
+        {
+          "species": "ARCANINE",
+          "level": 47,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Quiet",
+          "personality": 2752392,
+          "ability_slot": 0,
+          "moves": [
+            "BITE",
+            "ROAR",
+            "TAKE_DOWN",
+            "FIRE_BLAST"
+          ]
+        }
+      ],
+      "items": [
+        "HYPER_POTION",
+        "HYPER_POTION",
+        "FULL_HEAL"
+      ]
+    },
+    "TRAINER_BEAUTY_TAMIA": {
+      "name": "TAMIA",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "BELLSPROUT",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naive",
+          "personality": 761464,
+          "ability_slot": 0,
+          "moves": [
+            "SLEEP_POWDER",
+            "POISON_POWDER",
+            "STUN_SPORE",
+            "ACID"
+          ]
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Impish",
+          "personality": 1522808,
+          "ability_slot": 0,
+          "moves": [
+            "SLEEP_POWDER",
+            "POISON_POWDER",
+            "STUN_SPORE",
+            "ACID"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BEAUTY_LORI": {
+      "name": "LORI",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "EXEGGCUTE",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Lax",
+          "personality": 657784,
+          "ability_slot": 0,
+          "moves": [
+            "HYPNOSIS",
+            "REFLECT",
+            "LEECH_SEED",
+            "CONFUSION"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LEADER_ERIKA": {
+      "name": "ERIKA",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "VICTREEBEL",
+          "level": 29,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Bold",
+          "personality": 751480,
+          "ability_slot": 0,
+          "moves": [
+            "STUN_SPORE",
+            "ACID",
+            "POISON_POWDER",
+            "GIGA_DRAIN"
+          ]
+        },
+        {
+          "species": "TANGELA",
+          "level": 24,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Gentle",
+          "personality": 1349496,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_POWDER",
+            "CONSTRICT",
+            "INGRAIN",
+            "GIGA_DRAIN"
+          ]
+        },
+        {
+          "species": "VILEPLUME",
+          "level": 29,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Quirky",
+          "personality": 2056824,
+          "ability_slot": 0,
+          "moves": [
+            "SLEEP_POWDER",
+            "ACID",
+            "STUN_SPORE",
+            "GIGA_DRAIN"
+          ]
+        }
+      ],
+      "items": [
+        "HYPER_POTION",
+        "FULL_HEAL"
+      ]
+    },
+    "TRAINER_RIVAL_SILPH_BULBASAUR": {
+      "name": "TERRY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "PIDGEOT",
+          "level": 37,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Hardy",
+          "personality": 613000,
+          "ability_slot": 0,
+          "moves": [
+            "QUICK_ATTACK",
+            "WHIRLWIND",
+            "WING_ATTACK",
+            "FEATHER_DANCE"
+          ]
+        },
+        {
+          "species": "GYARADOS",
+          "level": 38,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Naive",
+          "personality": 1277064,
+          "ability_slot": 0,
+          "moves": [
+            "BITE",
+            "DRAGON_RAGE",
+            "LEER",
+            "TWISTER"
+          ]
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 35,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Docile",
+          "personality": 1995656,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "ODOR_SLEUTH",
+            "TAKE_DOWN",
+            "FLAME_WHEEL"
+          ]
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 35,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Lonely",
+          "personality": 2653576,
+          "ability_slot": 0,
+          "moves": [
+            "REFLECT",
+            "RECOVER",
+            "FUTURE_SIGHT",
+            "CALM_MIND"
+          ]
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 40,
+          "iv": 18,
+          "pret_iv": 150,
+          "nature": "Lonely",
+          "personality": 3325576,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_POWDER",
+            "SLEEP_POWDER",
+            "RAZOR_LEAF",
+            "SWEET_SCENT"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_41": {
+      "name": "GRUNT",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "CUBONE",
+          "level": 32,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Brave",
+          "personality": 559752,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "FOCUS_ENERGY",
+            "BONEMERANG",
+            "RAGE"
+          ]
+        },
+        {
+          "species": "DROWZEE",
+          "level": 32,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hardy",
+          "personality": 1176200,
+          "ability_slot": 0,
+          "moves": [
+            "HEADBUTT",
+            "POISON_GAS",
+            "MEDITATE",
+            "PSYCHIC"
+          ]
+        },
+        {
+          "species": "MAROWAK",
+          "level": 32,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Naive",
+          "personality": 1789064,
+          "ability_slot": 0,
+          "moves": [
+            "LEER",
+            "FOCUS_ENERGY",
+            "BONEMERANG",
+            "RAGE"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_BOSS_GIOVANNI_2": {
+      "name": "GIOVANNI",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "NIDORINO",
+          "level": 37,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Lonely",
+          "personality": 810376,
+          "ability_slot": 0,
+          "moves": [
+            "POISON_STING",
+            "HORN_ATTACK",
+            "HELPING_HAND",
+            "FURY_ATTACK"
+          ]
+        },
+        {
+          "species": "KANGASKHAN",
+          "level": 35,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Relaxed",
+          "personality": 1713032,
+          "ability_slot": 0,
+          "moves": [
+            "TAIL_WHIP",
+            "FAKE_OUT",
+            "MEGA_PUNCH",
+            "RAGE"
+          ]
+        },
+        {
+          "species": "RHYHORN",
+          "level": 37,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Naughty",
+          "personality": 2477704,
+          "ability_slot": 0,
+          "moves": [
+            "STOMP",
+            "FURY_ATTACK",
+            "SCARY_FACE",
+            "ROCK_BLAST"
+          ]
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 41,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Gentle",
+          "personality": 3337096,
+          "ability_slot": 0,
+          "moves": [
+            "TAIL_WHIP",
+            "DOUBLE_KICK",
+            "POISON_STING",
+            "BODY_SLAM"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_LEADER_SABRINA": {
+      "name": "SABRINA",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "KADABRA",
+          "level": 38,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Docile",
+          "personality": 692856,
+          "ability_slot": 0,
+          "moves": [
+            "PSYBEAM",
+            "REFLECT",
+            "FUTURE_SIGHT",
+            "CALM_MIND"
+          ]
+        },
+        {
+          "species": "MR_MIME",
+          "level": 37,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Serious",
+          "personality": 1390712,
+          "ability_slot": 0,
+          "moves": [
+            "BARRIER",
+            "PSYBEAM",
+            "BATON_PASS",
+            "CALM_MIND"
+          ]
+        },
+        {
+          "species": "VENOMOTH",
+          "level": 38,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Impish",
+          "personality": 2150008,
+          "ability_slot": 0,
+          "moves": [
+            "PSYBEAM",
+            "GUST",
+            "LEECH_LIFE",
+            "SUPERSONIC"
+          ]
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 43,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Adamant",
+          "personality": 2897528,
+          "ability_slot": 0,
+          "moves": [
+            "PSYCHIC",
+            "RECOVER",
+            "FUTURE_SIGHT",
+            "CALM_MIND"
+          ]
+        }
+      ],
+      "items": [
+        "HYPER_POTION",
+        "HYPER_POTION",
+        "FULL_HEAL"
+      ]
+    },
+    "TRAINER_BLACK_BELT_TAKASHI": {
+      "name": "TAKASHI",
+      "ai": [
+        "CHECK_BAD_MOVE"
+      ],
+      "party": [
+        {
+          "species": "MACHOKE",
+          "level": 38,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Timid",
+          "personality": 698760,
+          "ability_slot": 0,
+          "moves": [
+            "SEISMIC_TOSS",
+            "FORESIGHT",
+            "REVENGE",
+            "VITAL_THROW"
+          ],
+          "held_item": "BLACK_BELT"
+        },
+        {
+          "species": "MACHOP",
+          "level": 38,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Bashful",
+          "personality": 1349768,
+          "ability_slot": 0,
+          "moves": [
+            "FORESIGHT",
+            "REVENGE",
+            "VITAL_THROW",
+            "SUBMISSION"
+          ],
+          "held_item": "BLACK_BELT"
+        },
+        {
+          "species": "MACHOKE",
+          "level": 38,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Quiet",
+          "personality": 2048392,
+          "ability_slot": 0,
+          "moves": [
+            "SEISMIC_TOSS",
+            "FORESIGHT",
+            "REVENGE",
+            "VITAL_THROW"
+          ],
+          "held_item": "BLACK_BELT"
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_COOLTRAINER_WARREN": {
+      "name": "WARREN",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "MAROWAK",
+          "level": 37,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Timid",
+          "personality": 660360,
+          "ability_slot": 0,
+          "moves": [
+            "BONEMERANG",
+            "HEADBUTT",
+            "LEER",
+            "GROWL"
+          ]
+        },
+        {
+          "species": "MAROWAK",
+          "level": 37,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Lax",
+          "personality": 1320584,
+          "ability_slot": 0,
+          "moves": [
+            "BONEMERANG",
+            "HEADBUTT",
+            "LEER",
+            "GROWL"
+          ]
+        },
+        {
+          "species": "RHYHORN",
+          "level": 38,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Brave",
+          "personality": 1986952,
+          "ability_slot": 0,
+          "moves": [
+            "TAKE_DOWN",
+            "ROCK_BLAST",
+            "FURY_ATTACK",
+            "SCARY_FACE"
+          ]
+        },
+        {
+          "species": "NIDORINA",
+          "level": 39,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Naughty",
+          "personality": 2695304,
+          "ability_slot": 0,
+          "moves": [
+            "FURY_SWIPES",
+            "BITE",
+            "POISON_STING",
+            "DOUBLE_KICK"
+          ]
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 39,
+          "iv": 12,
+          "pret_iv": 100,
+          "nature": "Quiet",
+          "personality": 3456392,
+          "ability_slot": 0,
+          "moves": [
+            "BODY_SLAM",
+            "BITE",
+            "POISON_STING",
+            "DOUBLE_KICK"
+          ]
+        }
+      ],
+      "items": [
+        "HYPER_POTION"
+      ]
+    },
+    "TRAINER_LEADER_GIOVANNI": {
+      "name": "GIOVANNI",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "RHYHORN",
+          "level": 45,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Impish",
+          "personality": 764808,
+          "ability_slot": 0,
+          "moves": [
+            "TAKE_DOWN",
+            "ROCK_BLAST",
+            "SCARY_FACE",
+            "EARTHQUAKE"
+          ]
+        },
+        {
+          "species": "DUGTRIO",
+          "level": 42,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Impish",
+          "personality": 1526408,
+          "ability_slot": 0,
+          "moves": [
+            "SLASH",
+            "SAND_TOMB",
+            "MUD_SLAP",
+            "EARTHQUAKE"
+          ]
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 44,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hardy",
+          "personality": 2385800,
+          "ability_slot": 0,
+          "moves": [
+            "BODY_SLAM",
+            "DOUBLE_KICK",
+            "POISON_STING",
+            "EARTHQUAKE"
+          ]
+        },
+        {
+          "species": "NIDOKING",
+          "level": 45,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Hardy",
+          "personality": 3192200,
+          "ability_slot": 0,
+          "moves": [
+            "THRASH",
+            "DOUBLE_KICK",
+            "POISON_STING",
+            "EARTHQUAKE"
+          ]
+        },
+        {
+          "species": "RHYHORN",
+          "level": 50,
+          "iv": 0,
+          "pret_iv": 0,
+          "nature": "Sassy",
+          "personality": 3956872,
+          "ability_slot": 0,
+          "moves": [
+            "TAKE_DOWN",
+            "ROCK_BLAST",
+            "SCARY_FACE",
+            "EARTHQUAKE"
+          ]
+        }
+      ],
+      "items": [
+        "HYPER_POTION",
+        "HYPER_POTION",
+        "FULL_HEAL"
+      ]
+    },
+    "TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR": {
+      "name": "TERRY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "PIDGEOT",
+          "level": 47,
+          "iv": 18,
+          "pret_iv": 150,
+          "nature": "Hardy",
+          "personality": 613000,
+          "ability_slot": 0,
+          "moves": [
+            "FEATHER_DANCE",
+            "WING_ATTACK",
+            "GUST",
+            "QUICK_ATTACK"
+          ]
+        },
+        {
+          "species": "RHYHORN",
+          "level": 45,
+          "iv": 18,
+          "pret_iv": 150,
+          "nature": "Rash",
+          "personality": 1233544,
+          "ability_slot": 0,
+          "moves": [
+            "TAKE_DOWN",
+            "HORN_DRILL",
+            "ROCK_BLAST",
+            "FURY_ATTACK"
+          ]
+        },
+        {
+          "species": "GYARADOS",
+          "level": 45,
+          "iv": 18,
+          "pret_iv": 150,
+          "nature": "Impish",
+          "personality": 1897608,
+          "ability_slot": 0,
+          "moves": [
+            "HYDRO_PUMP",
+            "TWISTER",
+            "LEER",
+            "RAIN_DANCE"
+          ]
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 45,
+          "iv": 18,
+          "pret_iv": 150,
+          "nature": "Hardy",
+          "personality": 2616200,
+          "ability_slot": 0,
+          "moves": [
+            "FLAME_WHEEL",
+            "TAKE_DOWN",
+            "LEER",
+            "AGILITY"
+          ]
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 47,
+          "iv": 18,
+          "pret_iv": 150,
+          "nature": "Calm",
+          "personality": 3274120,
+          "ability_slot": 0,
+          "moves": [
+            "PSYCHIC",
+            "CALM_MIND",
+            "FUTURE_SIGHT",
+            "DISABLE"
+          ]
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 53,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Calm",
+          "personality": 3946120,
+          "ability_slot": 0,
+          "moves": [
+            "RAZOR_LEAF",
+            "SWEET_SCENT",
+            "GROWTH",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "items": []
+    },
+    "TRAINER_ELITE_FOUR_LORELEI": {
+      "name": "LORELEI",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "DEWGONG",
+          "level": 52,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Hardy",
+          "personality": 705400,
+          "ability_slot": 0,
+          "moves": [
+            "ICE_BEAM",
+            "SURF",
+            "HAIL",
+            "SAFEGUARD"
+          ]
+        },
+        {
+          "species": "CLOYSTER",
+          "level": 51,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Careful",
+          "personality": 1469048,
+          "ability_slot": 0,
+          "moves": [
+            "SPIKES",
+            "PROTECT",
+            "HAIL",
+            "DIVE"
+          ]
+        },
+        {
+          "species": "SLOWBRO",
+          "level": 52,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Brave",
+          "personality": 2181752,
+          "ability_slot": 0,
+          "moves": [
+            "ICE_BEAM",
+            "SURF",
+            "AMNESIA",
+            "YAWN"
+          ]
+        },
+        {
+          "species": "JYNX",
+          "level": 54,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Sassy",
+          "personality": 2743672,
+          "ability_slot": 0,
+          "moves": [
+            "ICE_PUNCH",
+            "DOUBLE_SLAP",
+            "LOVELY_KISS",
+            "ATTRACT"
+          ]
+        },
+        {
+          "species": "LAPRAS",
+          "level": 54,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Jolly",
+          "personality": 3399288,
+          "ability_slot": 0,
+          "moves": [
+            "CONFUSE_RAY",
+            "ICE_BEAM",
+            "SURF",
+            "BODY_SLAM"
+          ],
+          "held_item": "SITRUS_BERRY"
+        }
+      ],
+      "items": [
+        "FULL_RESTORE",
+        "FULL_RESTORE"
+      ]
+    },
+    "TRAINER_ELITE_FOUR_BRUNO": {
+      "name": "BRUNO",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 51,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Sassy",
+          "personality": 462472,
+          "ability_slot": 0,
+          "moves": [
+            "EARTHQUAKE",
+            "ROCK_TOMB",
+            "IRON_TAIL",
+            "ROAR"
+          ]
+        },
+        {
+          "species": "HITMONCHAN",
+          "level": 53,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Serious",
+          "personality": 1221512,
+          "ability_slot": 0,
+          "moves": [
+            "SKY_UPPERCUT",
+            "MACH_PUNCH",
+            "ROCK_TOMB",
+            "COUNTER"
+          ]
+        },
+        {
+          "species": "HITMONLEE",
+          "level": 53,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Serious",
+          "personality": 1931912,
+          "ability_slot": 0,
+          "moves": [
+            "MEGA_KICK",
+            "FORESIGHT",
+            "BRICK_BREAK",
+            "FACADE"
+          ]
+        },
+        {
+          "species": "ONIX",
+          "level": 54,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Careful",
+          "personality": 2394248,
+          "ability_slot": 0,
+          "moves": [
+            "DOUBLE_EDGE",
+            "EARTHQUAKE",
+            "IRON_TAIL",
+            "SAND_TOMB"
+          ]
+        },
+        {
+          "species": "MACHAMP",
+          "level": 56,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Modest",
+          "personality": 2997640,
+          "ability_slot": 0,
+          "moves": [
+            "CROSS_CHOP",
+            "BULK_UP",
+            "SCARY_FACE",
+            "ROCK_TOMB"
+          ],
+          "held_item": "SITRUS_BERRY"
+        }
+      ],
+      "items": [
+        "FULL_RESTORE",
+        "FULL_RESTORE"
+      ]
+    },
+    "TRAINER_ELITE_FOUR_AGATHA": {
+      "name": "AGATHA",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "GENGAR",
+          "level": 54,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Brave",
+          "personality": 594552,
+          "ability_slot": 0,
+          "moves": [
+            "SHADOW_PUNCH",
+            "CONFUSE_RAY",
+            "TOXIC",
+            "DOUBLE_TEAM"
+          ]
+        },
+        {
+          "species": "GOLBAT",
+          "level": 54,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Naive",
+          "personality": 1190264,
+          "ability_slot": 0,
+          "moves": [
+            "CONFUSE_RAY",
+            "POISON_FANG",
+            "AIR_CUTTER",
+            "BITE"
+          ]
+        },
+        {
+          "species": "HAUNTER",
+          "level": 53,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Sassy",
+          "personality": 1841272,
+          "ability_slot": 0,
+          "moves": [
+            "HYPNOSIS",
+            "DREAM_EATER",
+            "CURSE",
+            "MEAN_LOOK"
+          ]
+        },
+        {
+          "species": "ARBOK",
+          "level": 56,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Impish",
+          "personality": 2386808,
+          "ability_slot": 0,
+          "moves": [
+            "SLUDGE_BOMB",
+            "SCREECH",
+            "IRON_TAIL",
+            "BITE"
+          ]
+        },
+        {
+          "species": "GENGAR",
+          "level": 58,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Modest",
+          "personality": 2981240,
+          "ability_slot": 0,
+          "moves": [
+            "SHADOW_BALL",
+            "SLUDGE_BOMB",
+            "HYPNOSIS",
+            "NIGHTMARE"
+          ],
+          "held_item": "SITRUS_BERRY"
+        }
+      ],
+      "items": [
+        "FULL_RESTORE",
+        "FULL_RESTORE"
+      ]
+    },
+    "TRAINER_ELITE_FOUR_LANCE": {
+      "name": "LANCE",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "GYARADOS",
+          "level": 56,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Rash",
+          "personality": 651144,
+          "ability_slot": 0,
+          "moves": [
+            "HYPER_BEAM",
+            "DRAGON_RAGE",
+            "TWISTER",
+            "BITE"
+          ]
+        },
+        {
+          "species": "DRAGONAIR",
+          "level": 54,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Hardy",
+          "personality": 1349000,
+          "ability_slot": 0,
+          "moves": [
+            "HYPER_BEAM",
+            "SAFEGUARD",
+            "DRAGON_RAGE",
+            "OUTRAGE"
+          ]
+        },
+        {
+          "species": "DRAGONAIR",
+          "level": 54,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Docile",
+          "personality": 2046856,
+          "ability_slot": 0,
+          "moves": [
+            "HYPER_BEAM",
+            "SAFEGUARD",
+            "THUNDER_WAVE",
+            "OUTRAGE"
+          ]
+        },
+        {
+          "species": "AERODACTYL",
+          "level": 58,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Bold",
+          "personality": 2796680,
+          "ability_slot": 0,
+          "moves": [
+            "HYPER_BEAM",
+            "ANCIENT_POWER",
+            "WING_ATTACK",
+            "SCARY_FACE"
+          ]
+        },
+        {
+          "species": "DRAGONITE",
+          "level": 60,
+          "iv": 30,
+          "pret_iv": 250,
+          "nature": "Sassy",
+          "personality": 3496072,
+          "ability_slot": 0,
+          "moves": [
+            "HYPER_BEAM",
+            "SAFEGUARD",
+            "OUTRAGE",
+            "WING_ATTACK"
+          ],
+          "held_item": "SITRUS_BERRY"
+        }
+      ],
+      "items": [
+        "FULL_RESTORE",
+        "FULL_RESTORE"
+      ]
+    },
+    "TRAINER_CHAMPION_FIRST_BULBASAUR": {
+      "name": "TERRY",
+      "ai": [
+        "CHECK_BAD_MOVE",
+        "TRY_TO_FAINT",
+        "CHECK_VIABILITY"
+      ],
+      "party": [
+        {
+          "species": "PIDGEOT",
+          "level": 59,
+          "iv": 31,
+          "pret_iv": 255,
+          "nature": "Hardy",
+          "personality": 613000,
+          "ability_slot": 0,
+          "moves": [
+            "AERIAL_ACE",
+            "FEATHER_DANCE",
+            "SAND_ATTACK",
+            "WHIRLWIND"
+          ]
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 57,
+          "iv": 31,
+          "pret_iv": 255,
+          "nature": "Calm",
+          "personality": 1270920,
+          "ability_slot": 0,
+          "moves": [
+            "PSYCHIC",
+            "FUTURE_SIGHT",
+            "RECOVER",
+            "REFLECT"
+          ]
+        },
+        {
+          "species": "RHYDON",
+          "level": 59,
+          "iv": 31,
+          "pret_iv": 255,
+          "nature": "Mild",
+          "personality": 1838216,
+          "ability_slot": 0,
+          "moves": [
+            "TAKE_DOWN",
+            "EARTHQUAKE",
+            "ROCK_TOMB",
+            "SCARY_FACE"
+          ]
+        },
+        {
+          "species": "GYARADOS",
+          "level": 59,
+          "iv": 31,
+          "pret_iv": 255,
+          "nature": "Bold",
+          "personality": 2502280,
+          "ability_slot": 0,
+          "moves": [
+            "HYDRO_PUMP",
+            "DRAGON_RAGE",
+            "BITE",
+            "THRASH"
+          ]
+        },
+        {
+          "species": "ARCANINE",
+          "level": 61,
+          "iv": 31,
+          "pret_iv": 255,
+          "nature": "Rash",
+          "personality": 3159944,
+          "ability_slot": 0,
+          "moves": [
+            "EXTREME_SPEED",
+            "FLAMETHROWER",
+            "ROAR",
+            "BITE"
+          ]
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 63,
+          "iv": 31,
+          "pret_iv": 255,
+          "nature": "Rash",
+          "personality": 3831944,
+          "ability_slot": 0,
+          "moves": [
+            "SOLAR_BEAM",
+            "SYNTHESIS",
+            "SUNNY_DAY",
+            "GROWTH"
+          ],
+          "held_item": "SITRUS_BERRY"
+        }
+      ],
+      "items": [
+        "FULL_RESTORE",
+        "FULL_RESTORE",
+        "FULL_RESTORE",
+        "FULL_RESTORE"
+      ]
+    }
+  },
+  "moves": {
+    "ABSORB": {
+      "effect": "EFFECT_ABSORB",
+      "power": 20,
+      "type": "TYPE_GRASS",
+      "pp": 20
+    },
+    "ACID": {
+      "effect": "EFFECT_DEFENSE_DOWN_HIT",
+      "power": 40,
+      "type": "TYPE_POISON",
+      "pp": 30
+    },
+    "ACID_ARMOR": {
+      "effect": "EFFECT_DEFENSE_UP_2",
+      "power": 0,
+      "type": "TYPE_POISON",
+      "pp": 40
+    },
+    "AERIAL_ACE": {
+      "effect": "EFFECT_ALWAYS_HIT",
+      "power": 60,
+      "type": "TYPE_FLYING",
+      "pp": 20
+    },
+    "AGILITY": {
+      "effect": "EFFECT_SPEED_UP_2",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 30
+    },
+    "AIR_CUTTER": {
+      "effect": "EFFECT_HIGH_CRITICAL",
+      "power": 55,
+      "type": "TYPE_FLYING",
+      "pp": 25
+    },
+    "AMNESIA": {
+      "effect": "EFFECT_SPECIAL_DEFENSE_UP_2",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 20
+    },
+    "ANCIENT_POWER": {
+      "effect": "EFFECT_ALL_STATS_UP_HIT",
+      "power": 60,
+      "type": "TYPE_ROCK",
+      "pp": 5
+    },
+    "ASTONISH": {
+      "effect": "EFFECT_FLINCH_MINIMIZE_HIT",
+      "power": 30,
+      "type": "TYPE_GHOST",
+      "pp": 15
+    },
+    "ATTRACT": {
+      "effect": "EFFECT_ATTRACT",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "BARRIER": {
+      "effect": "EFFECT_DEFENSE_UP_2",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 30
+    },
+    "BATON_PASS": {
+      "effect": "EFFECT_BATON_PASS",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "BIND": {
+      "effect": "EFFECT_TRAP",
+      "power": 15,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "BITE": {
+      "effect": "EFFECT_FLINCH_HIT",
+      "power": 60,
+      "type": "TYPE_DARK",
+      "pp": 25
+    },
+    "BLIZZARD": {
+      "effect": "EFFECT_FREEZE_HIT",
+      "power": 120,
+      "type": "TYPE_ICE",
+      "pp": 5
+    },
+    "BODY_SLAM": {
+      "effect": "EFFECT_PARALYZE_HIT",
+      "power": 85,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "BONEMERANG": {
+      "effect": "EFFECT_DOUBLE_HIT",
+      "power": 50,
+      "type": "TYPE_GROUND",
+      "pp": 10
+    },
+    "BONE_CLUB": {
+      "effect": "EFFECT_FLINCH_HIT",
+      "power": 65,
+      "type": "TYPE_GROUND",
+      "pp": 20
+    },
+    "BOUNCE": {
+      "effect": "EFFECT_SEMI_INVULNERABLE",
+      "power": 85,
+      "type": "TYPE_FLYING",
+      "pp": 5
+    },
+    "BRICK_BREAK": {
+      "effect": "EFFECT_BRICK_BREAK",
+      "power": 75,
+      "type": "TYPE_FIGHTING",
+      "pp": 15
+    },
+    "BUBBLE": {
+      "effect": "EFFECT_SPEED_DOWN_HIT",
+      "power": 20,
+      "type": "TYPE_WATER",
+      "pp": 30
+    },
+    "BULK_UP": {
+      "effect": "EFFECT_BULK_UP",
+      "power": 0,
+      "type": "TYPE_FIGHTING",
+      "pp": 20
+    },
+    "CALM_MIND": {
+      "effect": "EFFECT_CALM_MIND",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 20
+    },
+    "CHARGE": {
+      "effect": "EFFECT_CHARGE",
+      "power": 0,
+      "type": "TYPE_ELECTRIC",
+      "pp": 20
+    },
+    "CONFUSE_RAY": {
+      "effect": "EFFECT_CONFUSE",
+      "power": 0,
+      "type": "TYPE_GHOST",
+      "pp": 10
+    },
+    "CONFUSION": {
+      "effect": "EFFECT_CONFUSE_HIT",
+      "power": 50,
+      "type": "TYPE_PSYCHIC",
+      "pp": 25
+    },
+    "CONSTRICT": {
+      "effect": "EFFECT_SPEED_DOWN_HIT",
+      "power": 10,
+      "type": "TYPE_NORMAL",
+      "pp": 35
+    },
+    "COUNTER": {
+      "effect": "EFFECT_COUNTER",
+      "power": 1,
+      "type": "TYPE_FIGHTING",
+      "pp": 20
+    },
+    "CROSS_CHOP": {
+      "effect": "EFFECT_HIGH_CRITICAL",
+      "power": 100,
+      "type": "TYPE_FIGHTING",
+      "pp": 5
+    },
+    "CURSE": {
+      "effect": "EFFECT_CURSE",
+      "power": 0,
+      "type": "TYPE_MYSTERY",
+      "pp": 10
+    },
+    "DEFENSE_CURL": {
+      "effect": "EFFECT_DEFENSE_CURL",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "DIG": {
+      "effect": "EFFECT_SEMI_INVULNERABLE",
+      "power": 60,
+      "type": "TYPE_GROUND",
+      "pp": 10
+    },
+    "DISABLE": {
+      "effect": "EFFECT_DISABLE",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "DIVE": {
+      "effect": "EFFECT_SEMI_INVULNERABLE",
+      "power": 60,
+      "type": "TYPE_WATER",
+      "pp": 10
+    },
+    "DOUBLE_EDGE": {
+      "effect": "EFFECT_DOUBLE_EDGE",
+      "power": 120,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "DOUBLE_KICK": {
+      "effect": "EFFECT_DOUBLE_HIT",
+      "power": 30,
+      "type": "TYPE_FIGHTING",
+      "pp": 30
+    },
+    "DOUBLE_SLAP": {
+      "effect": "EFFECT_MULTI_HIT",
+      "power": 15,
+      "type": "TYPE_NORMAL",
+      "pp": 10
+    },
+    "DOUBLE_TEAM": {
+      "effect": "EFFECT_EVASION_UP",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "DRAGON_RAGE": {
+      "effect": "EFFECT_DRAGON_RAGE",
+      "power": 1,
+      "type": "TYPE_DRAGON",
+      "pp": 10
+    },
+    "DREAM_EATER": {
+      "effect": "EFFECT_DREAM_EATER",
+      "power": 100,
+      "type": "TYPE_PSYCHIC",
+      "pp": 15
+    },
+    "EARTHQUAKE": {
+      "effect": "EFFECT_EARTHQUAKE",
+      "power": 100,
+      "type": "TYPE_GROUND",
+      "pp": 10
+    },
+    "EMBER": {
+      "effect": "EFFECT_BURN_HIT",
+      "power": 40,
+      "type": "TYPE_FIRE",
+      "pp": 25
+    },
+    "EXTREME_SPEED": {
+      "effect": "EFFECT_QUICK_ATTACK",
+      "power": 80,
+      "type": "TYPE_NORMAL",
+      "pp": 5
+    },
+    "FACADE": {
+      "effect": "EFFECT_FACADE",
+      "power": 70,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "FAKE_OUT": {
+      "effect": "EFFECT_FAKE_OUT",
+      "power": 40,
+      "type": "TYPE_NORMAL",
+      "pp": 10
+    },
+    "FEATHER_DANCE": {
+      "effect": "EFFECT_ATTACK_DOWN_2",
+      "power": 0,
+      "type": "TYPE_FLYING",
+      "pp": 15
+    },
+    "FIRE_BLAST": {
+      "effect": "EFFECT_BURN_HIT",
+      "power": 120,
+      "type": "TYPE_FIRE",
+      "pp": 5
+    },
+    "FIRE_SPIN": {
+      "effect": "EFFECT_TRAP",
+      "power": 15,
+      "type": "TYPE_FIRE",
+      "pp": 15
+    },
+    "FLAMETHROWER": {
+      "effect": "EFFECT_BURN_HIT",
+      "power": 95,
+      "type": "TYPE_FIRE",
+      "pp": 15
+    },
+    "FLAME_WHEEL": {
+      "effect": "EFFECT_THAW_HIT",
+      "power": 60,
+      "type": "TYPE_FIRE",
+      "pp": 25
+    },
+    "FOCUS_ENERGY": {
+      "effect": "EFFECT_FOCUS_ENERGY",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 30
+    },
+    "FORESIGHT": {
+      "effect": "EFFECT_FORESIGHT",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "FURY_ATTACK": {
+      "effect": "EFFECT_MULTI_HIT",
+      "power": 15,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "FURY_SWIPES": {
+      "effect": "EFFECT_MULTI_HIT",
+      "power": 18,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "FUTURE_SIGHT": {
+      "effect": "EFFECT_FUTURE_SIGHT",
+      "power": 80,
+      "type": "TYPE_PSYCHIC",
+      "pp": 15
+    },
+    "GIGA_DRAIN": {
+      "effect": "EFFECT_ABSORB",
+      "power": 60,
+      "type": "TYPE_GRASS",
+      "pp": 5
+    },
+    "GLARE": {
+      "effect": "EFFECT_PARALYZE",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 30
+    },
+    "GROWL": {
+      "effect": "EFFECT_ATTACK_DOWN",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "GROWTH": {
+      "effect": "EFFECT_SPECIAL_ATTACK_UP",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "GUST": {
+      "effect": "EFFECT_GUST",
+      "power": 40,
+      "type": "TYPE_FLYING",
+      "pp": 35
+    },
+    "HAIL": {
+      "effect": "EFFECT_HAIL",
+      "power": 0,
+      "type": "TYPE_ICE",
+      "pp": 10
+    },
+    "HARDEN": {
+      "effect": "EFFECT_DEFENSE_UP",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 30
+    },
+    "HEADBUTT": {
+      "effect": "EFFECT_FLINCH_HIT",
+      "power": 70,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "HELPING_HAND": {
+      "effect": "EFFECT_HELPING_HAND",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "HORN_ATTACK": {
+      "effect": "EFFECT_HIT",
+      "power": 65,
+      "type": "TYPE_NORMAL",
+      "pp": 25
+    },
+    "HORN_DRILL": {
+      "effect": "EFFECT_OHKO",
+      "power": 1,
+      "type": "TYPE_NORMAL",
+      "pp": 5
+    },
+    "HYDRO_PUMP": {
+      "effect": "EFFECT_HIT",
+      "power": 120,
+      "type": "TYPE_WATER",
+      "pp": 5
+    },
+    "HYPER_BEAM": {
+      "effect": "EFFECT_RECHARGE",
+      "power": 150,
+      "type": "TYPE_NORMAL",
+      "pp": 5
+    },
+    "HYPER_FANG": {
+      "effect": "EFFECT_FLINCH_HIT",
+      "power": 80,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "HYPNOSIS": {
+      "effect": "EFFECT_SLEEP",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 20
+    },
+    "ICE_BEAM": {
+      "effect": "EFFECT_FREEZE_HIT",
+      "power": 95,
+      "type": "TYPE_ICE",
+      "pp": 10
+    },
+    "ICE_PUNCH": {
+      "effect": "EFFECT_FREEZE_HIT",
+      "power": 75,
+      "type": "TYPE_ICE",
+      "pp": 15
+    },
+    "INGRAIN": {
+      "effect": "EFFECT_INGRAIN",
+      "power": 0,
+      "type": "TYPE_GRASS",
+      "pp": 20
+    },
+    "IRON_TAIL": {
+      "effect": "EFFECT_DEFENSE_DOWN_HIT",
+      "power": 100,
+      "type": "TYPE_STEEL",
+      "pp": 15
+    },
+    "KARATE_CHOP": {
+      "effect": "EFFECT_HIGH_CRITICAL",
+      "power": 50,
+      "type": "TYPE_FIGHTING",
+      "pp": 25
+    },
+    "KINESIS": {
+      "effect": "EFFECT_ACCURACY_DOWN",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 15
+    },
+    "LEECH_LIFE": {
+      "effect": "EFFECT_ABSORB",
+      "power": 20,
+      "type": "TYPE_BUG",
+      "pp": 15
+    },
+    "LEECH_SEED": {
+      "effect": "EFFECT_LEECH_SEED",
+      "power": 0,
+      "type": "TYPE_GRASS",
+      "pp": 10
+    },
+    "LEER": {
+      "effect": "EFFECT_DEFENSE_DOWN",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 30
+    },
+    "LOVELY_KISS": {
+      "effect": "EFFECT_SLEEP",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 10
+    },
+    "LOW_KICK": {
+      "effect": "EFFECT_LOW_KICK",
+      "power": 1,
+      "type": "TYPE_FIGHTING",
+      "pp": 20
+    },
+    "MACH_PUNCH": {
+      "effect": "EFFECT_QUICK_ATTACK",
+      "power": 40,
+      "type": "TYPE_FIGHTING",
+      "pp": 30
+    },
+    "MAGNITUDE": {
+      "effect": "EFFECT_MAGNITUDE",
+      "power": 1,
+      "type": "TYPE_GROUND",
+      "pp": 30
+    },
+    "MEAN_LOOK": {
+      "effect": "EFFECT_MEAN_LOOK",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 5
+    },
+    "MEDITATE": {
+      "effect": "EFFECT_ATTACK_UP",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 40
+    },
+    "MEGA_KICK": {
+      "effect": "EFFECT_HIT",
+      "power": 120,
+      "type": "TYPE_NORMAL",
+      "pp": 5
+    },
+    "MEGA_PUNCH": {
+      "effect": "EFFECT_HIT",
+      "power": 80,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "MINIMIZE": {
+      "effect": "EFFECT_MINIMIZE",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "MUD_SLAP": {
+      "effect": "EFFECT_ACCURACY_DOWN_HIT",
+      "power": 20,
+      "type": "TYPE_GROUND",
+      "pp": 10
+    },
+    "MUD_SPORT": {
+      "effect": "EFFECT_MUD_SPORT",
+      "power": 0,
+      "type": "TYPE_GROUND",
+      "pp": 15
+    },
+    "NIGHTMARE": {
+      "effect": "EFFECT_NIGHTMARE",
+      "power": 0,
+      "type": "TYPE_GHOST",
+      "pp": 15
+    },
+    "NIGHT_SHADE": {
+      "effect": "EFFECT_LEVEL_DAMAGE",
+      "power": 1,
+      "type": "TYPE_GHOST",
+      "pp": 15
+    },
+    "ODOR_SLEUTH": {
+      "effect": "EFFECT_FORESIGHT",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "OUTRAGE": {
+      "effect": "EFFECT_RAMPAGE",
+      "power": 90,
+      "type": "TYPE_DRAGON",
+      "pp": 15
+    },
+    "PAY_DAY": {
+      "effect": "EFFECT_PAY_DAY",
+      "power": 40,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "PECK": {
+      "effect": "EFFECT_HIT",
+      "power": 35,
+      "type": "TYPE_FLYING",
+      "pp": 35
+    },
+    "POISON_FANG": {
+      "effect": "EFFECT_POISON_FANG",
+      "power": 50,
+      "type": "TYPE_POISON",
+      "pp": 15
+    },
+    "POISON_GAS": {
+      "effect": "EFFECT_POISON",
+      "power": 0,
+      "type": "TYPE_POISON",
+      "pp": 40
+    },
+    "POISON_POWDER": {
+      "effect": "EFFECT_POISON",
+      "power": 0,
+      "type": "TYPE_POISON",
+      "pp": 35
+    },
+    "POISON_STING": {
+      "effect": "EFFECT_POISON_HIT",
+      "power": 15,
+      "type": "TYPE_POISON",
+      "pp": 35
+    },
+    "POUND": {
+      "effect": "EFFECT_HIT",
+      "power": 40,
+      "type": "TYPE_NORMAL",
+      "pp": 35
+    },
+    "PROTECT": {
+      "effect": "EFFECT_PROTECT",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 10
+    },
+    "PSYBEAM": {
+      "effect": "EFFECT_CONFUSE_HIT",
+      "power": 65,
+      "type": "TYPE_PSYCHIC",
+      "pp": 20
+    },
+    "PSYCHIC": {
+      "effect": "EFFECT_SPECIAL_DEFENSE_DOWN_HIT",
+      "power": 90,
+      "type": "TYPE_PSYCHIC",
+      "pp": 10
+    },
+    "QUICK_ATTACK": {
+      "effect": "EFFECT_QUICK_ATTACK",
+      "power": 40,
+      "type": "TYPE_NORMAL",
+      "pp": 30
+    },
+    "RAGE": {
+      "effect": "EFFECT_RAGE",
+      "power": 20,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "RAIN_DANCE": {
+      "effect": "EFFECT_RAIN_DANCE",
+      "power": 0,
+      "type": "TYPE_WATER",
+      "pp": 5
+    },
+    "RAPID_SPIN": {
+      "effect": "EFFECT_RAPID_SPIN",
+      "power": 20,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "RAZOR_LEAF": {
+      "effect": "EFFECT_HIGH_CRITICAL",
+      "power": 55,
+      "type": "TYPE_GRASS",
+      "pp": 25
+    },
+    "RECOVER": {
+      "effect": "EFFECT_RESTORE_HP",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "REFLECT": {
+      "effect": "EFFECT_REFLECT",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 20
+    },
+    "REVENGE": {
+      "effect": "EFFECT_REVENGE",
+      "power": 60,
+      "type": "TYPE_FIGHTING",
+      "pp": 10
+    },
+    "ROAR": {
+      "effect": "EFFECT_ROAR",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "ROCK_BLAST": {
+      "effect": "EFFECT_MULTI_HIT",
+      "power": 25,
+      "type": "TYPE_ROCK",
+      "pp": 10
+    },
+    "ROCK_THROW": {
+      "effect": "EFFECT_HIT",
+      "power": 50,
+      "type": "TYPE_ROCK",
+      "pp": 15
+    },
+    "ROCK_TOMB": {
+      "effect": "EFFECT_SPEED_DOWN_HIT",
+      "power": 50,
+      "type": "TYPE_ROCK",
+      "pp": 10
+    },
+    "ROLLOUT": {
+      "effect": "EFFECT_ROLLOUT",
+      "power": 30,
+      "type": "TYPE_ROCK",
+      "pp": 20
+    },
+    "SAFEGUARD": {
+      "effect": "EFFECT_SAFEGUARD",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 25
+    },
+    "SAND_ATTACK": {
+      "effect": "EFFECT_ACCURACY_DOWN",
+      "power": 0,
+      "type": "TYPE_GROUND",
+      "pp": 15
+    },
+    "SAND_TOMB": {
+      "effect": "EFFECT_TRAP",
+      "power": 15,
+      "type": "TYPE_GROUND",
+      "pp": 15
+    },
+    "SCARY_FACE": {
+      "effect": "EFFECT_SPEED_DOWN_2",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 10
+    },
+    "SCRATCH": {
+      "effect": "EFFECT_HIT",
+      "power": 40,
+      "type": "TYPE_NORMAL",
+      "pp": 35
+    },
+    "SCREECH": {
+      "effect": "EFFECT_DEFENSE_DOWN_2",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 40
+    },
+    "SEISMIC_TOSS": {
+      "effect": "EFFECT_LEVEL_DAMAGE",
+      "power": 1,
+      "type": "TYPE_FIGHTING",
+      "pp": 20
+    },
+    "SELF_DESTRUCT": {
+      "effect": "EFFECT_EXPLOSION",
+      "power": 200,
+      "type": "TYPE_NORMAL",
+      "pp": 5
+    },
+    "SHADOW_BALL": {
+      "effect": "EFFECT_SPECIAL_DEFENSE_DOWN_HIT",
+      "power": 80,
+      "type": "TYPE_GHOST",
+      "pp": 15
+    },
+    "SHADOW_PUNCH": {
+      "effect": "EFFECT_ALWAYS_HIT",
+      "power": 60,
+      "type": "TYPE_GHOST",
+      "pp": 20
+    },
+    "SHOCK_WAVE": {
+      "effect": "EFFECT_ALWAYS_HIT",
+      "power": 60,
+      "type": "TYPE_ELECTRIC",
+      "pp": 20
+    },
+    "SKULL_BASH": {
+      "effect": "EFFECT_SKULL_BASH",
+      "power": 100,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "SKY_UPPERCUT": {
+      "effect": "EFFECT_SKY_UPPERCUT",
+      "power": 85,
+      "type": "TYPE_FIGHTING",
+      "pp": 15
+    },
+    "SLAM": {
+      "effect": "EFFECT_HIT",
+      "power": 80,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "SLASH": {
+      "effect": "EFFECT_HIGH_CRITICAL",
+      "power": 70,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "SLEEP_POWDER": {
+      "effect": "EFFECT_SLEEP",
+      "power": 0,
+      "type": "TYPE_GRASS",
+      "pp": 15
+    },
+    "SLUDGE": {
+      "effect": "EFFECT_POISON_HIT",
+      "power": 65,
+      "type": "TYPE_POISON",
+      "pp": 20
+    },
+    "SLUDGE_BOMB": {
+      "effect": "EFFECT_POISON_HIT",
+      "power": 90,
+      "type": "TYPE_POISON",
+      "pp": 10
+    },
+    "SMOG": {
+      "effect": "EFFECT_POISON_HIT",
+      "power": 20,
+      "type": "TYPE_POISON",
+      "pp": 20
+    },
+    "SMOKESCREEN": {
+      "effect": "EFFECT_ACCURACY_DOWN",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "SOLAR_BEAM": {
+      "effect": "EFFECT_SOLAR_BEAM",
+      "power": 120,
+      "type": "TYPE_GRASS",
+      "pp": 10
+    },
+    "SONIC_BOOM": {
+      "effect": "EFFECT_SONICBOOM",
+      "power": 1,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "SPIKES": {
+      "effect": "EFFECT_SPIKES",
+      "power": 0,
+      "type": "TYPE_GROUND",
+      "pp": 20
+    },
+    "SPITE": {
+      "effect": "EFFECT_SPITE",
+      "power": 0,
+      "type": "TYPE_GHOST",
+      "pp": 10
+    },
+    "STOMP": {
+      "effect": "EFFECT_FLINCH_MINIMIZE_HIT",
+      "power": 65,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "STRENGTH": {
+      "effect": "EFFECT_HIT",
+      "power": 80,
+      "type": "TYPE_NORMAL",
+      "pp": 15
+    },
+    "STRING_SHOT": {
+      "effect": "EFFECT_SPEED_DOWN",
+      "power": 0,
+      "type": "TYPE_BUG",
+      "pp": 40
+    },
+    "STUN_SPORE": {
+      "effect": "EFFECT_PARALYZE",
+      "power": 0,
+      "type": "TYPE_GRASS",
+      "pp": 30
+    },
+    "SUBMISSION": {
+      "effect": "EFFECT_RECOIL",
+      "power": 80,
+      "type": "TYPE_FIGHTING",
+      "pp": 25
+    },
+    "SUNNY_DAY": {
+      "effect": "EFFECT_SUNNY_DAY",
+      "power": 0,
+      "type": "TYPE_FIRE",
+      "pp": 5
+    },
+    "SUPERSONIC": {
+      "effect": "EFFECT_CONFUSE",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "SURF": {
+      "effect": "EFFECT_HIT",
+      "power": 95,
+      "type": "TYPE_WATER",
+      "pp": 15
+    },
+    "SWEET_SCENT": {
+      "effect": "EFFECT_EVASION_DOWN",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "SWIFT": {
+      "effect": "EFFECT_ALWAYS_HIT",
+      "power": 60,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "SYNTHESIS": {
+      "effect": "EFFECT_SYNTHESIS",
+      "power": 0,
+      "type": "TYPE_GRASS",
+      "pp": 5
+    },
+    "TACKLE": {
+      "effect": "EFFECT_HIT",
+      "power": 35,
+      "type": "TYPE_NORMAL",
+      "pp": 35
+    },
+    "TAIL_WHIP": {
+      "effect": "EFFECT_DEFENSE_DOWN",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 30
+    },
+    "TAKE_DOWN": {
+      "effect": "EFFECT_RECOIL",
+      "power": 90,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "TELEPORT": {
+      "effect": "EFFECT_TELEPORT",
+      "power": 0,
+      "type": "TYPE_PSYCHIC",
+      "pp": 20
+    },
+    "THRASH": {
+      "effect": "EFFECT_RAMPAGE",
+      "power": 90,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "THUNDER_WAVE": {
+      "effect": "EFFECT_PARALYZE",
+      "power": 0,
+      "type": "TYPE_ELECTRIC",
+      "pp": 20
+    },
+    "TOXIC": {
+      "effect": "EFFECT_TOXIC",
+      "power": 0,
+      "type": "TYPE_POISON",
+      "pp": 10
+    },
+    "TWISTER": {
+      "effect": "EFFECT_TWISTER",
+      "power": 40,
+      "type": "TYPE_DRAGON",
+      "pp": 20
+    },
+    "VINE_WHIP": {
+      "effect": "EFFECT_HIT",
+      "power": 35,
+      "type": "TYPE_GRASS",
+      "pp": 10
+    },
+    "VITAL_THROW": {
+      "effect": "EFFECT_VITAL_THROW",
+      "power": 70,
+      "type": "TYPE_FIGHTING",
+      "pp": 10
+    },
+    "WATER_GUN": {
+      "effect": "EFFECT_HIT",
+      "power": 40,
+      "type": "TYPE_WATER",
+      "pp": 25
+    },
+    "WATER_PULSE": {
+      "effect": "EFFECT_CONFUSE_HIT",
+      "power": 60,
+      "type": "TYPE_WATER",
+      "pp": 20
+    },
+    "WHIRLWIND": {
+      "effect": "EFFECT_ROAR",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "WILL_O_WISP": {
+      "effect": "EFFECT_WILL_O_WISP",
+      "power": 0,
+      "type": "TYPE_FIRE",
+      "pp": 15
+    },
+    "WING_ATTACK": {
+      "effect": "EFFECT_HIT",
+      "power": 60,
+      "type": "TYPE_FLYING",
+      "pp": 35
+    },
+    "WITHDRAW": {
+      "effect": "EFFECT_DEFENSE_UP",
+      "power": 0,
+      "type": "TYPE_WATER",
+      "pp": 40
+    },
+    "WRAP": {
+      "effect": "EFFECT_TRAP",
+      "power": 15,
+      "type": "TYPE_NORMAL",
+      "pp": 20
+    },
+    "YAWN": {
+      "effect": "EFFECT_YAWN",
+      "power": 0,
+      "type": "TYPE_NORMAL",
+      "pp": 10
+    }
+  },
+  "ai": {
+    "roots": {
+      "CHECK_BAD_MOVE": "AI_CheckBadMove",
+      "CHECK_VIABILITY": "AI_CheckViability",
+      "TRY_TO_FAINT": "AI_TryToFaint"
+    },
+    "labels": {
+      "gBattleAI_ScriptsTable": 0,
+      "AI_CheckBadMove": 0,
+      "AI_CBM_CheckIfNegatesType": 2,
+      "CheckIfVoltAbsorbCancelsElectric": 10,
+      "CheckIfWaterAbsorbCancelsWater": 13,
+      "CheckIfFlashFireCancelsFire": 16,
+      "CheckIfWonderGuardCancelsMove": 19,
+      "CheckIfLevitateCancelsGroundMove": 21,
+      "AI_CheckBadMove_CheckSoundproof": 23,
+      "AI_CheckBadMove_CheckEffect": 34,
+      "AI_CBM_Sleep": 92,
+      "AI_CBM_Explosion": 97,
+      "AI_CBM_Explosion_End": 105,
+      "AI_CBM_Nightmare": 106,
+      "AI_CBM_DreamEater": 109,
+      "AI_CBM_AttackUp": 112,
+      "AI_CBM_DefenseUp": 114,
+      "AI_CBM_SpeedUp": 116,
+      "AI_CBM_SpAtkUp": 118,
+      "AI_CBM_SpDefUp": 120,
+      "AI_CBM_EvasionUp": 122,
+      "AI_CBM_AttackDown": 124,
+      "AI_CBM_DefenseDown": 128,
+      "AI_CBM_SpeedDown": 130,
+      "AI_CBM_AccDown": 132,
+      "AI_CBM_EvasionDown": 136,
+      "CheckIfAbilityBlocksStatChange": 137,
+      "AI_CBM_Roar": 141,
+      "AI_CBM_Poison": 146,
+      "AI_CBM_OneHitKO": 156,
+      "AI_CBM_Magnitude": 161,
+      "AI_CBM_HighRiskForDamage": 163,
+      "AI_CBM_HighRiskForDamage_End": 168,
+      "AI_CBM_FocusEnergy": 169,
+      "AI_CBM_Confuse": 171,
+      "AI_CBM_Reflect": 175,
+      "AI_CBM_Paralyze": 177,
+      "AI_CBM_LeechSeed": 182,
+      "AI_CBM_Disable": 188,
+      "AI_CBM_CantEscape": 190,
+      "AI_CBM_Curse": 192,
+      "AI_CBM_Spikes": 195,
+      "AI_CBM_Foresight": 197,
+      "AI_CBM_Attract": 199,
+      "AI_CBM_Attract_CheckIfTargetIsFemale": 206,
+      "AI_CBM_Attract_CheckIfTargetIsMale": 209,
+      "AI_CBM_Attract_End": 212,
+      "AI_CBM_Safeguard": 213,
+      "AI_CBM_BatonPass": 215,
+      "AI_CBM_RainDance": 218,
+      "AI_CBM_SunnyDay": 221,
+      "AI_CBM_FutureSight": 224,
+      "AI_CBM_FakeOut": 226,
+      "AI_CBM_Hail": 229,
+      "AI_CBM_WillOWisp": 232,
+      "AI_CBM_HelpingHand": 239,
+      "AI_CBM_Ingrain": 241,
+      "AI_CBM_MudSport": 243,
+      "AI_CBM_BulkUp": 245,
+      "AI_CBM_CalmMind": 248,
+      "Score_Minus1": 251,
+      "Score_Minus3": 253,
+      "Score_Minus5": 255,
+      "Score_Minus8": 257,
+      "Score_Minus10": 259,
+      "Score_Minus12": 261,
+      "AI_CheckViability": 263,
+      "AI_CV_Sleep": 320,
+      "AI_CV_SleepEncourageSlpDamage": 323,
+      "AI_CV_Sleep_End": 325,
+      "AI_CV_Absorb": 326,
+      "AI_CV_AbsorbEncourageMaybe": 329,
+      "AI_CV_Absorb_End": 331,
+      "AI_CV_SelfKO": 332,
+      "AI_CV_SelfKO_Encourage1": 337,
+      "AI_CV_SelfKO_Encourage2": 341,
+      "AI_CV_SelfKO_Encourage3": 344,
+      "AI_CV_SelfKO_Encourage4": 348,
+      "AI_CV_SelfKO_End": 350,
+      "AI_CV_DreamEater": 351,
+      "AI_CV_DreamEater_ScoreDown1": 354,
+      "AI_CV_DreamEater_End": 355,
+      "AI_CV_AttackUp": 356,
+      "AI_CV_AttackUp2": 360,
+      "AI_CV_AttackUp3": 363,
+      "AI_CV_AttackUp_ScoreDown2": 366,
+      "AI_CV_AttackUp_End": 367,
+      "AI_CV_DefenseUp": 368,
+      "AI_CV_DefenseUp2": 372,
+      "AI_CV_DefenseUp3": 375,
+      "AI_CV_DefenseUp4": 377,
+      "AI_CV_DefenseUp5": 385,
+      "AI_CV_DefenseUp_ScoreDown2": 386,
+      "AI_CV_DefenseUp_End": 387,
+      "AI_CV_DefenseUp_PhysicalTypes": 388,
+      "AI_CV_SpeedUp": 398,
+      "AI_CV_SpeedUp2": 401,
+      "AI_CV_SpeedUp_End": 403,
+      "AI_CV_SpAtkUp": 404,
+      "AI_CV_SpAtkUp2": 408,
+      "AI_CV_SpAtkUp3": 411,
+      "AI_CV_SpAtkUp_ScoreDown2": 414,
+      "AI_CV_SpAtkUp_End": 415,
+      "AI_CV_SpDefUp": 416,
+      "AI_CV_SpDefUp2": 420,
+      "AI_CV_SpDefUp3": 423,
+      "AI_CV_SpDefUp4": 425,
+      "AI_CV_SpDefUp5": 433,
+      "AI_CV_SpDefUp_ScoreDown2": 434,
+      "AI_CV_SpDefUp_End": 435,
+      "AI_CV_SpDefUp_PhysicalTypes": 436,
+      "AI_CV_EvasionUp": 446,
+      "AI_CV_EvasionUp2": 449,
+      "AI_CV_EvasionUp3": 452,
+      "AI_CV_EvasionUp4": 455,
+      "AI_CV_EvasionUp5": 457,
+      "AI_CV_EvasionUp6": 460,
+      "AI_CV_EvasionUp7": 463,
+      "AI_CV_EvasionUp8": 466,
+      "AI_CV_EvasionUp_ScoreDown2": 471,
+      "AI_CV_EvasionUp_End": 472,
+      "AI_CV_AlwaysHit": 473,
+      "AI_CV_AlwaysHit_ScoreUp1": 478,
+      "AI_CV_AlwaysHit2": 479,
+      "AI_CV_AlwaysHit_End": 481,
+      "AI_CV_AttackDown": 482,
+      "AI_CV_AttackDown2": 486,
+      "AI_CV_AttackDown3": 489,
+      "AI_CV_AttackDown4": 491,
+      "AI_CV_AttackDown_End": 497,
+      "AI_CV_AttackDown_PhysicalTypeList": 498,
+      "AI_CV_DefenseDown": 505,
+      "AI_CV_DefenseDown2": 507,
+      "AI_CV_DefenseDown3": 509,
+      "AI_CV_DefenseDown_End": 511,
+      "AI_CV_SpeedDownFromChance": 512,
+      "AI_CV_SpeedDown": 516,
+      "AI_CV_SpeedDown2": 519,
+      "AI_CV_SpeedDown_End": 521,
+      "AI_CV_AccuracyDown": 522,
+      "AI_CV_AccuracyDown2": 524,
+      "AI_CV_AccuracyDown3": 526,
+      "AI_CV_AccuracyDown4": 529,
+      "AI_CV_AccuracyDown5": 532,
+      "AI_CV_AccuracyDown6": 535,
+      "AI_CV_AccuracyDown7": 538,
+      "AI_CV_AccuracyDown8": 541,
+      "AI_CV_AccuracyDown_ScoreDown2": 546,
+      "AI_CV_AccuracyDown_End": 547,
+      "AI_CV_EvasionDown": 548,
+      "AI_CV_EvasionDown2": 550,
+      "AI_CV_EvasionDown3": 552,
+      "AI_CV_EvasionDown_End": 554,
+      "AI_CV_Roar": 555,
+      "AI_CV_Roar2": 562,
+      "AI_CV_Roar_End": 564,
+      "AI_CV_HealWeather": 565,
+      "AI_CV_HealWeather_ScoreDown2": 570,
+      "AI_CV_Heal": 571,
+      "AI_CV_Heal3": 575,
+      "AI_CV_Heal4": 577,
+      "AI_CV_Heal5": 581,
+      "AI_CV_Heal6": 583,
+      "AI_CV_Heal_End": 585,
+      "AI_CV_Toxic": 586,
+      "AI_CV_Toxic2": 590,
+      "AI_CV_Toxic3": 593,
+      "AI_CV_Toxic4": 596,
+      "AI_CV_Toxic_End": 598,
+      "AI_CV_OneHitKO": 599,
+      "AI_CV_Trap": 600,
+      "AI_CV_Trap2": 605,
+      "AI_CV_Trap_End": 607,
+      "AI_CV_HighCrit": 608,
+      "AI_CV_HighCrit2": 613,
+      "AI_CV_HighCrit_End": 615,
+      "AI_CV_Confuse": 616,
+      "AI_CV_Confuse2": 619,
+      "AI_CV_Confuse_End": 623,
+      "AI_CV_Reflect": 624,
+      "AI_CV_Reflect_ScoreDown2": 630,
+      "AI_CV_Reflect_End": 631,
+      "AI_CV_Reflect_PhysicalTypeList": 632,
+      "AI_CV_Poison": 642,
+      "AI_CV_Poison_ScoreDown1": 644,
+      "AI_CV_Poison_End": 645,
+      "AI_CV_Paralyze": 646,
+      "AI_CV_Paralyze2": 650,
+      "AI_CV_Paralyze_End": 652,
+      "AI_CV_VitalThrow": 653,
+      "AI_CV_VitalThrow2": 657,
+      "AI_CV_VitalThrow_End": 659,
+      "AI_CV_Recharge": 660,
+      "AI_CV_Recharge2": 665,
+      "AI_CV_Recharge_ScoreDown1": 666,
+      "AI_CV_Recharge_End": 667,
+      "AI_CV_Disable": 668,
+      "AI_CV_Disable2": 674,
+      "AI_CV_Disable_End": 676,
+      "AI_CV_Counter": 677,
+      "AI_CV_Counter2": 683,
+      "AI_CV_Counter3": 686,
+      "AI_CV_Counter4": 692,
+      "AI_CV_Counter5": 698,
+      "AI_CV_Counter6": 701,
+      "AI_CV_Counter_ScoreDown1": 706,
+      "AI_CV_Counter_End": 707,
+      "AI_CV_Counter_PhysicalTypeList": 708,
+      "AI_CV_Curse": 718,
+      "AI_CV_Curse2": 725,
+      "AI_CV_Curse3": 728,
+      "AI_CV_Curse4": 732,
+      "AI_CV_Curse_End": 734,
+      "AI_CV_Protect": 735,
+      "AI_CV_Protect_ScoreUp2": 755,
+      "AI_CV_Protect2": 756,
+      "AI_CV_Protect4": 756,
+      "AI_CV_Protect3": 762,
+      "AI_CV_Protect_ScoreDown2": 765,
+      "AI_CV_Protect_End": 766,
+      "AI_CV_Foresight": 767,
+      "AI_CV_Foresight2": 774,
+      "AI_CV_Foresight3": 775,
+      "AI_CV_Foresight_End": 777,
+      "AI_CV_BatonPass": 778,
+      "AI_CV_BatonPass2": 784,
+      "AI_CV_BatonPass3": 787,
+      "AI_CV_BatonPass4": 788,
+      "AI_CV_BatonPass5": 791,
+      "AI_CV_BatonPass7": 797,
+      "AI_CV_BatonPass8": 800,
+      "AI_CV_BatonPass_ScoreDown2": 801,
+      "AI_CV_BatonPass_End": 802,
+      "AI_CV_RainDance": 803,
+      "AI_CV_RainDance2": 806,
+      "AI_CV_RainDance3": 814,
+      "AI_CV_RainDance_ScoreDown1": 816,
+      "AI_CV_RainDance_End": 817,
+      "AI_CV_SunnyDay": 818,
+      "AI_CV_SunnyDay2": 824,
+      "AI_CV_SunnyDay_ScoreDown1": 826,
+      "AI_CV_SunnyDay_End": 827,
+      "AI_CV_ChargeUpMove": 828,
+      "AI_CV_ChargeUpMove_ScoreDown2": 834,
+      "AI_CV_ChargeUpMove_End": 835,
+      "AI_CV_SemiInvulnerable": 836,
+      "AI_CV_SemiInvulnerable2": 839,
+      "AI_CV_SemiInvulnerable_CheckSandstormTypes": 846,
+      "AI_CV_SemiInvulnerable_CheckIceType": 851,
+      "AI_CV_SemiInvulnerable5": 855,
+      "AI_CV_SemiInvulnerable_TryEncourage": 860,
+      "AI_CV_SemiInvulnerable_End": 862,
+      "AI_CV_SandstormResistantTypes": 863,
+      "AI_CV_FakeOut": 867,
+      "AI_CV_Hail": 869,
+      "AI_CV_Hail2": 875,
+      "AI_CV_Hail_ScoreDown1": 877,
+      "AI_CV_Hail_End": 878,
+      "AI_CV_Facade": 879,
+      "AI_CV_Facade_End": 881,
+      "AI_CV_Revenge": 882,
+      "AI_CV_Revenge_ScoreDown2": 888,
+      "AI_CV_Revenge_End": 889,
+      "AI_CV_BrickBreak": 890,
+      "AI_CV_BrickBreak_ScoreUp1": 892,
+      "AI_CV_BrickBreak_End": 893,
+      "AI_CV_MudSport": 894,
+      "AI_CV_MudSport2": 900,
+      "AI_CV_MudSport_ScoreDown1": 902,
+      "AI_CV_MudSport_End": 903,
+      "AI_TryToFaint": 904,
+      "AI_TryToFaint_TryToEncourageQuickAttack": 908,
+      "AI_TryToFaint_ScoreUp4": 911,
+      "AI_TryToFaint_End": 912
+    },
+    "instructions": [
+      [
+        "get_how_powerful_move_is"
+      ],
+      [
+        "if_equal",
+        "MOVE_POWER_DISCOURAGED",
+        "AI_CheckBadMove_CheckSoundproof"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_VOLT_ABSORB",
+        "CheckIfVoltAbsorbCancelsElectric"
+      ],
+      [
+        "if_equal",
+        "ABILITY_WATER_ABSORB",
+        "CheckIfWaterAbsorbCancelsWater"
+      ],
+      [
+        "if_equal",
+        "ABILITY_FLASH_FIRE",
+        "CheckIfFlashFireCancelsFire"
+      ],
+      [
+        "if_equal",
+        "ABILITY_WONDER_GUARD",
+        "CheckIfWonderGuardCancelsMove"
+      ],
+      [
+        "if_equal",
+        "ABILITY_LEVITATE",
+        "CheckIfLevitateCancelsGroundMove"
+      ],
+      [
+        "goto",
+        "AI_CheckBadMove_CheckSoundproof"
+      ],
+      [
+        "get_curr_move_type"
+      ],
+      [
+        "if_equal_",
+        "TYPE_ELECTRIC",
+        "Score_Minus12"
+      ],
+      [
+        "goto",
+        "AI_CheckBadMove_CheckSoundproof"
+      ],
+      [
+        "get_curr_move_type"
+      ],
+      [
+        "if_equal_",
+        "TYPE_WATER",
+        "Score_Minus12"
+      ],
+      [
+        "goto",
+        "AI_CheckBadMove_CheckSoundproof"
+      ],
+      [
+        "get_curr_move_type"
+      ],
+      [
+        "if_equal_",
+        "TYPE_FIRE",
+        "Score_Minus12"
+      ],
+      [
+        "goto",
+        "AI_CheckBadMove_CheckSoundproof"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x2",
+        "AI_CheckBadMove_CheckSoundproof"
+      ],
+      [
+        "goto",
+        "Score_Minus10"
+      ],
+      [
+        "get_curr_move_type"
+      ],
+      [
+        "if_equal_",
+        "TYPE_GROUND",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_not_equal",
+        "ABILITY_SOUNDPROOF",
+        "AI_CheckBadMove_CheckEffect"
+      ],
+      [
+        "if_move",
+        "MOVE_GROWL",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_ROAR",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_SING",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_SUPERSONIC",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_SCREECH",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_SNORE",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_UPROAR",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_METAL_SOUND",
+        "Score_Minus10"
+      ],
+      [
+        "if_move",
+        "MOVE_GRASS_WHISTLE",
+        "Score_Minus10"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SLEEP",
+        "AI_CBM_Sleep"
+      ],
+      [
+        "if_effect",
+        "EFFECT_EXPLOSION",
+        "AI_CBM_Explosion"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DREAM_EATER",
+        "AI_CBM_DreamEater"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ATTACK_UP",
+        "AI_CBM_AttackUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_UP",
+        "AI_CBM_DefenseUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPECIAL_ATTACK_UP",
+        "AI_CBM_SpAtkUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_EVASION_UP",
+        "AI_CBM_EvasionUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ATTACK_DOWN",
+        "AI_CBM_AttackDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_DOWN",
+        "AI_CBM_DefenseDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPEED_DOWN",
+        "AI_CBM_SpeedDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ACCURACY_DOWN",
+        "AI_CBM_AccDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_EVASION_DOWN",
+        "AI_CBM_EvasionDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ROAR",
+        "AI_CBM_Roar"
+      ],
+      [
+        "if_effect",
+        "EFFECT_TOXIC",
+        "AI_CBM_Poison"
+      ],
+      [
+        "if_effect",
+        "EFFECT_OHKO",
+        "AI_CBM_OneHitKO"
+      ],
+      [
+        "if_effect",
+        "EFFECT_FOCUS_ENERGY",
+        "AI_CBM_FocusEnergy"
+      ],
+      [
+        "if_effect",
+        "EFFECT_CONFUSE",
+        "AI_CBM_Confuse"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_UP_2",
+        "AI_CBM_DefenseUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPEED_UP_2",
+        "AI_CBM_SpeedUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPECIAL_DEFENSE_UP_2",
+        "AI_CBM_SpDefUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ATTACK_DOWN_2",
+        "AI_CBM_AttackDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_DOWN_2",
+        "AI_CBM_DefenseDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPEED_DOWN_2",
+        "AI_CBM_SpeedDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_REFLECT",
+        "AI_CBM_Reflect"
+      ],
+      [
+        "if_effect",
+        "EFFECT_POISON",
+        "AI_CBM_Poison"
+      ],
+      [
+        "if_effect",
+        "EFFECT_PARALYZE",
+        "AI_CBM_Paralyze"
+      ],
+      [
+        "if_effect",
+        "EFFECT_RECHARGE",
+        "AI_CBM_HighRiskForDamage"
+      ],
+      [
+        "if_effect",
+        "EFFECT_LEECH_SEED",
+        "AI_CBM_LeechSeed"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DISABLE",
+        "AI_CBM_Disable"
+      ],
+      [
+        "if_effect",
+        "EFFECT_LEVEL_DAMAGE",
+        "AI_CBM_HighRiskForDamage"
+      ],
+      [
+        "if_effect",
+        "EFFECT_COUNTER",
+        "AI_CBM_HighRiskForDamage"
+      ],
+      [
+        "if_effect",
+        "EFFECT_MEAN_LOOK",
+        "AI_CBM_CantEscape"
+      ],
+      [
+        "if_effect",
+        "EFFECT_NIGHTMARE",
+        "AI_CBM_Nightmare"
+      ],
+      [
+        "if_effect",
+        "EFFECT_MINIMIZE",
+        "AI_CBM_EvasionUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_CURSE",
+        "AI_CBM_Curse"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPIKES",
+        "AI_CBM_Spikes"
+      ],
+      [
+        "if_effect",
+        "EFFECT_FORESIGHT",
+        "AI_CBM_Foresight"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ATTRACT",
+        "AI_CBM_Attract"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SAFEGUARD",
+        "AI_CBM_Safeguard"
+      ],
+      [
+        "if_effect",
+        "EFFECT_MAGNITUDE",
+        "AI_CBM_Magnitude"
+      ],
+      [
+        "if_effect",
+        "EFFECT_BATON_PASS",
+        "AI_CBM_BatonPass"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SONICBOOM",
+        "AI_CBM_HighRiskForDamage"
+      ],
+      [
+        "if_effect",
+        "EFFECT_RAIN_DANCE",
+        "AI_CBM_RainDance"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SUNNY_DAY",
+        "AI_CBM_SunnyDay"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SKULL_BASH",
+        "AI_CBM_HighRiskForDamage"
+      ],
+      [
+        "if_effect",
+        "EFFECT_FUTURE_SIGHT",
+        "AI_CBM_FutureSight"
+      ],
+      [
+        "if_effect",
+        "EFFECT_TELEPORT",
+        "Score_Minus10"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_CURL",
+        "AI_CBM_DefenseUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_FAKE_OUT",
+        "AI_CBM_FakeOut"
+      ],
+      [
+        "if_effect",
+        "EFFECT_HAIL",
+        "AI_CBM_Hail"
+      ],
+      [
+        "if_effect",
+        "EFFECT_WILL_O_WISP",
+        "AI_CBM_WillOWisp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_HELPING_HAND",
+        "AI_CBM_HelpingHand"
+      ],
+      [
+        "if_effect",
+        "EFFECT_INGRAIN",
+        "AI_CBM_Ingrain"
+      ],
+      [
+        "if_effect",
+        "EFFECT_LOW_KICK",
+        "AI_CBM_HighRiskForDamage"
+      ],
+      [
+        "if_effect",
+        "EFFECT_MUD_SPORT",
+        "AI_CBM_MudSport"
+      ],
+      [
+        "if_effect",
+        "EFFECT_BULK_UP",
+        "AI_CBM_BulkUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_CALM_MIND",
+        "AI_CBM_CalmMind"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_INSOMNIA",
+        "Score_Minus10"
+      ],
+      [
+        "if_equal",
+        "ABILITY_VITAL_SPIRIT",
+        "Score_Minus10"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_ANY",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_DAMP",
+        "Score_Minus10"
+      ],
+      [
+        "count_alive_pokemon",
+        "AI_USER"
+      ],
+      [
+        "if_not_equal",
+        "0",
+        "AI_CBM_Explosion_End"
+      ],
+      [
+        "count_alive_pokemon",
+        "AI_TARGET"
+      ],
+      [
+        "if_not_equal",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "goto",
+        "Score_Minus1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_NIGHTMARE",
+        "Score_Minus10"
+      ],
+      [
+        "if_not_status",
+        "AI_TARGET",
+        "STATUS1_SLEEP",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_not_status",
+        "AI_TARGET",
+        "STATUS1_SLEEP",
+        "Score_Minus8"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_ATK",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_DEF",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_SPEED",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_SPATK",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_SPDEF",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_EVASION",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_TARGET",
+        "STAT_ATK",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_HYPER_CUTTER",
+        "Score_Minus10"
+      ],
+      [
+        "goto",
+        "CheckIfAbilityBlocksStatChange"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_TARGET",
+        "STAT_DEF",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "goto",
+        "CheckIfAbilityBlocksStatChange"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_TARGET",
+        "STAT_SPEED",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "goto",
+        "CheckIfAbilityBlocksStatChange"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_TARGET",
+        "STAT_ACC",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_KEEN_EYE",
+        "Score_Minus10"
+      ],
+      [
+        "goto",
+        "CheckIfAbilityBlocksStatChange"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_TARGET",
+        "STAT_EVASION",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_CLEAR_BODY",
+        "Score_Minus10"
+      ],
+      [
+        "if_equal",
+        "ABILITY_WHITE_SMOKE",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "count_alive_pokemon",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_SUCTION_CUPS",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_target_type1"
+      ],
+      [
+        "if_equal",
+        "TYPE_STEEL",
+        "Score_Minus10"
+      ],
+      [
+        "if_equal",
+        "TYPE_POISON",
+        "Score_Minus10"
+      ],
+      [
+        "get_target_type2"
+      ],
+      [
+        "if_equal",
+        "TYPE_STEEL",
+        "Score_Minus10"
+      ],
+      [
+        "if_equal",
+        "TYPE_POISON",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_IMMUNITY",
+        "Score_Minus10"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_ANY",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_STURDY",
+        "Score_Minus10"
+      ],
+      [
+        "if_level_cond",
+        "1",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_LEVITATE",
+        "Score_Minus10"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_not_equal",
+        "ABILITY_WONDER_GUARD",
+        "AI_CBM_HighRiskForDamage_End"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x2",
+        "AI_CBM_HighRiskForDamage_End"
+      ],
+      [
+        "goto",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status2",
+        "AI_USER",
+        "STATUS2_FOCUS_ENERGY",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_CONFUSION",
+        "Score_Minus5"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_OWN_TEMPO",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_side_affecting",
+        "AI_USER",
+        "SIDE_STATUS_REFLECT",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_LIMBER",
+        "Score_Minus10"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_ANY",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status3",
+        "AI_TARGET",
+        "STATUS3_LEECHSEED",
+        "Score_Minus10"
+      ],
+      [
+        "get_target_type1"
+      ],
+      [
+        "if_equal",
+        "TYPE_GRASS",
+        "Score_Minus10"
+      ],
+      [
+        "get_target_type2"
+      ],
+      [
+        "if_equal",
+        "TYPE_GRASS",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_any_move_disabled",
+        "AI_TARGET",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_ESCAPE_PREVENTION",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_ATK",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_DEF",
+        "12",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_side_affecting",
+        "AI_TARGET",
+        "SIDE_STATUS_SPIKES",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_FORESIGHT",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_INFATUATION",
+        "Score_Minus10"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_OBLIVIOUS",
+        "Score_Minus10"
+      ],
+      [
+        "get_gender",
+        "AI_USER"
+      ],
+      [
+        "if_equal",
+        "MON_MALE",
+        "AI_CBM_Attract_CheckIfTargetIsFemale"
+      ],
+      [
+        "if_equal",
+        "MON_FEMALE",
+        "AI_CBM_Attract_CheckIfTargetIsMale"
+      ],
+      [
+        "goto",
+        "Score_Minus10"
+      ],
+      [
+        "get_gender",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "MON_FEMALE",
+        "AI_CBM_Attract_End"
+      ],
+      [
+        "goto",
+        "Score_Minus10"
+      ],
+      [
+        "get_gender",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "MON_MALE",
+        "AI_CBM_Attract_End"
+      ],
+      [
+        "goto",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_side_affecting",
+        "AI_USER",
+        "SIDE_STATUS_SAFEGUARD",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "count_alive_pokemon",
+        "AI_USER"
+      ],
+      [
+        "if_equal",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_RAIN",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SUN",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_side_affecting",
+        "AI_TARGET",
+        "SIDE_STATUS_FUTUREATTACK",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "is_first_turn_for",
+        "AI_USER"
+      ],
+      [
+        "if_equal",
+        "0",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_HAIL",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_ability",
+        "AI_TARGET"
+      ],
+      [
+        "if_equal",
+        "ABILITY_WATER_VEIL",
+        "Score_Minus10"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_ANY",
+        "Score_Minus10"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0",
+        "Score_Minus10"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_5",
+        "Score_Minus10"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_25",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_not_double_battle",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status3",
+        "AI_USER",
+        "STATUS3_ROOTED",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status3",
+        "AI_USER",
+        "STATUS3_MUDSPORT",
+        "Score_Minus10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_ATK",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_DEF",
+        "12",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_SPATK",
+        "12",
+        "Score_Minus10"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_SPDEF",
+        "12",
+        "Score_Minus8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "end"
+      ],
+      [
+        "score",
+        "-5"
+      ],
+      [
+        "end"
+      ],
+      [
+        "score",
+        "-8"
+      ],
+      [
+        "end"
+      ],
+      [
+        "score",
+        "-10"
+      ],
+      [
+        "end"
+      ],
+      [
+        "score",
+        "-12"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SLEEP",
+        "AI_CV_Sleep"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ABSORB",
+        "AI_CV_Absorb"
+      ],
+      [
+        "if_effect",
+        "EFFECT_EXPLOSION",
+        "AI_CV_SelfKO"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DREAM_EATER",
+        "AI_CV_DreamEater"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ATTACK_UP",
+        "AI_CV_AttackUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_UP",
+        "AI_CV_DefenseUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPECIAL_ATTACK_UP",
+        "AI_CV_SpAtkUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_EVASION_UP",
+        "AI_CV_EvasionUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ALWAYS_HIT",
+        "AI_CV_AlwaysHit"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ATTACK_DOWN",
+        "AI_CV_AttackDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_DOWN",
+        "AI_CV_DefenseDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPEED_DOWN",
+        "AI_CV_SpeedDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ACCURACY_DOWN",
+        "AI_CV_AccuracyDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_EVASION_DOWN",
+        "AI_CV_EvasionDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ROAR",
+        "AI_CV_Roar"
+      ],
+      [
+        "if_effect",
+        "EFFECT_RESTORE_HP",
+        "AI_CV_Heal"
+      ],
+      [
+        "if_effect",
+        "EFFECT_TOXIC",
+        "AI_CV_Toxic"
+      ],
+      [
+        "if_effect",
+        "EFFECT_OHKO",
+        "AI_CV_OneHitKO"
+      ],
+      [
+        "if_effect",
+        "EFFECT_TRAP",
+        "AI_CV_Trap"
+      ],
+      [
+        "if_effect",
+        "EFFECT_HIGH_CRITICAL",
+        "AI_CV_HighCrit"
+      ],
+      [
+        "if_effect",
+        "EFFECT_CONFUSE",
+        "AI_CV_Confuse"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_UP_2",
+        "AI_CV_DefenseUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPEED_UP_2",
+        "AI_CV_SpeedUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPECIAL_DEFENSE_UP_2",
+        "AI_CV_SpDefUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_ATTACK_DOWN_2",
+        "AI_CV_AttackDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DEFENSE_DOWN_2",
+        "AI_CV_DefenseDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPEED_DOWN_2",
+        "AI_CV_SpeedDown"
+      ],
+      [
+        "if_effect",
+        "EFFECT_REFLECT",
+        "AI_CV_Reflect"
+      ],
+      [
+        "if_effect",
+        "EFFECT_POISON",
+        "AI_CV_Poison"
+      ],
+      [
+        "if_effect",
+        "EFFECT_PARALYZE",
+        "AI_CV_Paralyze"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SPEED_DOWN_HIT",
+        "AI_CV_SpeedDownFromChance"
+      ],
+      [
+        "if_effect",
+        "EFFECT_VITAL_THROW",
+        "AI_CV_VitalThrow"
+      ],
+      [
+        "if_effect",
+        "EFFECT_RECHARGE",
+        "AI_CV_Recharge"
+      ],
+      [
+        "if_effect",
+        "EFFECT_LEECH_SEED",
+        "AI_CV_Toxic"
+      ],
+      [
+        "if_effect",
+        "EFFECT_DISABLE",
+        "AI_CV_Disable"
+      ],
+      [
+        "if_effect",
+        "EFFECT_COUNTER",
+        "AI_CV_Counter"
+      ],
+      [
+        "if_effect",
+        "EFFECT_MEAN_LOOK",
+        "AI_CV_Trap"
+      ],
+      [
+        "if_effect",
+        "EFFECT_MINIMIZE",
+        "AI_CV_EvasionUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_CURSE",
+        "AI_CV_Curse"
+      ],
+      [
+        "if_effect",
+        "EFFECT_PROTECT",
+        "AI_CV_Protect"
+      ],
+      [
+        "if_effect",
+        "EFFECT_FORESIGHT",
+        "AI_CV_Foresight"
+      ],
+      [
+        "if_effect",
+        "EFFECT_BATON_PASS",
+        "AI_CV_BatonPass"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SYNTHESIS",
+        "AI_CV_HealWeather"
+      ],
+      [
+        "if_effect",
+        "EFFECT_RAIN_DANCE",
+        "AI_CV_RainDance"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SUNNY_DAY",
+        "AI_CV_SunnyDay"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SKULL_BASH",
+        "AI_CV_ChargeUpMove"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SOLAR_BEAM",
+        "AI_CV_ChargeUpMove"
+      ],
+      [
+        "if_effect",
+        "EFFECT_SEMI_INVULNERABLE",
+        "AI_CV_SemiInvulnerable"
+      ],
+      [
+        "if_effect",
+        "EFFECT_FAKE_OUT",
+        "AI_CV_FakeOut"
+      ],
+      [
+        "if_effect",
+        "EFFECT_HAIL",
+        "AI_CV_Hail"
+      ],
+      [
+        "if_effect",
+        "EFFECT_FACADE",
+        "AI_CV_Facade"
+      ],
+      [
+        "if_effect",
+        "EFFECT_REVENGE",
+        "AI_CV_Revenge"
+      ],
+      [
+        "if_effect",
+        "EFFECT_BRICK_BREAK",
+        "AI_CV_BrickBreak"
+      ],
+      [
+        "if_effect",
+        "EFFECT_MUD_SPORT",
+        "AI_CV_MudSport"
+      ],
+      [
+        "if_effect",
+        "EFFECT_BULK_UP",
+        "AI_CV_DefenseUp"
+      ],
+      [
+        "if_effect",
+        "EFFECT_CALM_MIND",
+        "AI_CV_SpDefUp"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_has_move_with_effect",
+        "AI_TARGET",
+        "EFFECT_DREAM_EATER",
+        "AI_CV_SleepEncourageSlpDamage"
+      ],
+      [
+        "if_has_move_with_effect",
+        "AI_TARGET",
+        "EFFECT_NIGHTMARE",
+        "AI_CV_SleepEncourageSlpDamage"
+      ],
+      [
+        "goto",
+        "AI_CV_Sleep_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Sleep_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_5",
+        "AI_CV_AbsorbEncourageMaybe"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_25",
+        "AI_CV_AbsorbEncourageMaybe"
+      ],
+      [
+        "goto",
+        "AI_CV_Absorb_End"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_Absorb_End"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_TARGET",
+        "STAT_EVASION",
+        "7",
+        "AI_CV_SelfKO_Encourage1"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_TARGET",
+        "STAT_EVASION",
+        "10",
+        "AI_CV_SelfKO_Encourage1"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_SelfKO_Encourage1"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "80",
+        "AI_CV_SelfKO_Encourage2"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_SelfKO_Encourage2"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_SelfKO_End"
+      ],
+      [
+        "goto",
+        "Score_Minus3"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "50",
+        "AI_CV_SelfKO_Encourage4"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_SelfKO_Encourage3"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "30",
+        "AI_CV_SelfKO_End"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_SelfKO_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_SelfKO_End"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_SelfKO_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_25",
+        "AI_CV_DreamEater_ScoreDown1"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_5",
+        "AI_CV_DreamEater_ScoreDown1"
+      ],
+      [
+        "goto",
+        "AI_CV_DreamEater_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_USER",
+        "STAT_ATK",
+        "9",
+        "AI_CV_AttackUp2"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_AttackUp3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_AttackUp3"
+      ],
+      [
+        "if_hp_not_equal",
+        "AI_USER",
+        "100",
+        "AI_CV_AttackUp3"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_AttackUp3"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "70",
+        "AI_CV_AttackUp_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_AttackUp_ScoreDown2"
+      ],
+      [
+        "if_random_less_than",
+        "40",
+        "AI_CV_AttackUp_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_USER",
+        "STAT_DEF",
+        "9",
+        "AI_CV_DefenseUp2"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_DefenseUp3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_DefenseUp3"
+      ],
+      [
+        "if_hp_not_equal",
+        "AI_USER",
+        "100",
+        "AI_CV_DefenseUp3"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_DefenseUp3"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "70",
+        "AI_CV_DefenseUp4"
+      ],
+      [
+        "if_random_less_than",
+        "200",
+        "AI_CV_DefenseUp_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_DefenseUp_ScoreDown2"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_power_from_result"
+      ],
+      [
+        "if_equal",
+        "0",
+        "AI_CV_DefenseUp5"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_type_from_result"
+      ],
+      [
+        "if_not_in_bytes",
+        "AI_CV_DefenseUp_PhysicalTypes",
+        "AI_CV_DefenseUp_ScoreDown2"
+      ],
+      [
+        "if_random_less_than",
+        "60",
+        "AI_CV_DefenseUp_End"
+      ],
+      [
+        "if_random_less_than",
+        "60",
+        "AI_CV_DefenseUp_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        ".byte",
+        "TYPE_NORMAL"
+      ],
+      [
+        ".byte",
+        "TYPE_FIGHTING"
+      ],
+      [
+        ".byte",
+        "TYPE_POISON"
+      ],
+      [
+        ".byte",
+        "TYPE_GROUND"
+      ],
+      [
+        ".byte",
+        "TYPE_FLYING"
+      ],
+      [
+        ".byte",
+        "TYPE_ROCK"
+      ],
+      [
+        ".byte",
+        "TYPE_BUG"
+      ],
+      [
+        ".byte",
+        "TYPE_GHOST"
+      ],
+      [
+        ".byte",
+        "TYPE_STEEL"
+      ],
+      [
+        ".byte",
+        "-1"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_SpeedUp2"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "goto",
+        "AI_CV_SpeedUp_End"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_SpeedUp_End"
+      ],
+      [
+        "score",
+        "+3"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_USER",
+        "STAT_SPATK",
+        "9",
+        "AI_CV_SpAtkUp2"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_SpAtkUp3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_SpAtkUp3"
+      ],
+      [
+        "if_hp_not_equal",
+        "AI_USER",
+        "100",
+        "AI_CV_SpAtkUp3"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_SpAtkUp3"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "70",
+        "AI_CV_SpAtkUp_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_SpAtkUp_ScoreDown2"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_SpAtkUp_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_USER",
+        "STAT_SPDEF",
+        "9",
+        "AI_CV_SpDefUp2"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_SpDefUp3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_SpDefUp3"
+      ],
+      [
+        "if_hp_not_equal",
+        "AI_USER",
+        "100",
+        "AI_CV_SpDefUp3"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_SpDefUp3"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "70",
+        "AI_CV_SpDefUp4"
+      ],
+      [
+        "if_random_less_than",
+        "200",
+        "AI_CV_SpDefUp_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_SpDefUp_ScoreDown2"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_power_from_result"
+      ],
+      [
+        "if_equal",
+        "0",
+        "AI_CV_SpDefUp5"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_type_from_result"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_SpDefUp_PhysicalTypes",
+        "AI_CV_SpDefUp_ScoreDown2"
+      ],
+      [
+        "if_random_less_than",
+        "60",
+        "AI_CV_SpDefUp_End"
+      ],
+      [
+        "if_random_less_than",
+        "60",
+        "AI_CV_SpDefUp_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        ".byte",
+        "TYPE_NORMAL"
+      ],
+      [
+        ".byte",
+        "TYPE_FIGHTING"
+      ],
+      [
+        ".byte",
+        "TYPE_POISON"
+      ],
+      [
+        ".byte",
+        "TYPE_GROUND"
+      ],
+      [
+        ".byte",
+        "TYPE_FLYING"
+      ],
+      [
+        ".byte",
+        "TYPE_ROCK"
+      ],
+      [
+        ".byte",
+        "TYPE_BUG"
+      ],
+      [
+        ".byte",
+        "TYPE_GHOST"
+      ],
+      [
+        ".byte",
+        "TYPE_STEEL"
+      ],
+      [
+        ".byte",
+        "-1"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "90",
+        "AI_CV_EvasionUp2"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_EvasionUp2"
+      ],
+      [
+        "score",
+        "+3"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_USER",
+        "STAT_EVASION",
+        "9",
+        "AI_CV_EvasionUp3"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_EvasionUp3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_not_status",
+        "AI_TARGET",
+        "STATUS1_TOXIC_POISON",
+        "AI_CV_EvasionUp5"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "50",
+        "AI_CV_EvasionUp4"
+      ],
+      [
+        "if_random_less_than",
+        "80",
+        "AI_CV_EvasionUp5"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_EvasionUp5"
+      ],
+      [
+        "score",
+        "+3"
+      ],
+      [
+        "if_not_status3",
+        "AI_TARGET",
+        "STATUS3_LEECHSEED",
+        "AI_CV_EvasionUp6"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_EvasionUp6"
+      ],
+      [
+        "score",
+        "+3"
+      ],
+      [
+        "if_not_status3",
+        "AI_USER",
+        "STATUS3_ROOTED",
+        "AI_CV_EvasionUp7"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_EvasionUp7"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_not_status2",
+        "AI_TARGET",
+        "STATUS2_CURSED",
+        "AI_CV_EvasionUp8"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_EvasionUp8"
+      ],
+      [
+        "score",
+        "+3"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "70",
+        "AI_CV_EvasionUp_End"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_USER",
+        "STAT_EVASION",
+        "6",
+        "AI_CV_EvasionUp_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_EvasionUp_ScoreDown2"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_TARGET",
+        "40",
+        "AI_CV_EvasionUp_ScoreDown2"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_EvasionUp_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_EVASION",
+        "10",
+        "AI_CV_AlwaysHit_ScoreUp1"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_USER",
+        "STAT_ACC",
+        "2",
+        "AI_CV_AlwaysHit_ScoreUp1"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_EVASION",
+        "8",
+        "AI_CV_AlwaysHit2"
+      ],
+      [
+        "if_stat_level_less_than",
+        "AI_USER",
+        "STAT_ACC",
+        "4",
+        "AI_CV_AlwaysHit2"
+      ],
+      [
+        "goto",
+        "AI_CV_AlwaysHit_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_AlwaysHit_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_TARGET",
+        "STAT_ATK",
+        "6",
+        "AI_CV_AttackDown3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "90",
+        "AI_CV_AttackDown2"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_ATK",
+        "3",
+        "AI_CV_AttackDown3"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_AttackDown3"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "70",
+        "AI_CV_AttackDown4"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "get_target_type1"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_AttackDown_PhysicalTypeList",
+        "AI_CV_AttackDown_End"
+      ],
+      [
+        "get_target_type2"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_AttackDown_PhysicalTypeList",
+        "AI_CV_AttackDown_End"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_AttackDown_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        ".byte",
+        "TYPE_NORMAL"
+      ],
+      [
+        ".byte",
+        "TYPE_FIGHTING"
+      ],
+      [
+        ".byte",
+        "TYPE_GROUND"
+      ],
+      [
+        ".byte",
+        "TYPE_ROCK"
+      ],
+      [
+        ".byte",
+        "TYPE_BUG"
+      ],
+      [
+        ".byte",
+        "TYPE_STEEL"
+      ],
+      [
+        ".byte",
+        "-1"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "70",
+        "AI_CV_DefenseDown2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_DEF",
+        "3",
+        "AI_CV_DefenseDown3"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_DefenseDown3"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "70",
+        "AI_CV_DefenseDown_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_move",
+        "MOVE_ICY_WIND",
+        "AI_CV_SpeedDown"
+      ],
+      [
+        "if_move",
+        "MOVE_ROCK_TOMB",
+        "AI_CV_SpeedDown"
+      ],
+      [
+        "if_move",
+        "MOVE_MUD_SHOT",
+        "AI_CV_SpeedDown"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_SpeedDown2"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "goto",
+        "AI_CV_SpeedDown_End"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_SpeedDown_End"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "70",
+        "AI_CV_AccuracyDown2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "70",
+        "AI_CV_AccuracyDown3"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_AccuracyDown3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_ACC",
+        "4",
+        "AI_CV_AccuracyDown4"
+      ],
+      [
+        "if_random_less_than",
+        "80",
+        "AI_CV_AccuracyDown4"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "if_not_status",
+        "AI_TARGET",
+        "STATUS1_TOXIC_POISON",
+        "AI_CV_AccuracyDown5"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_AccuracyDown5"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_not_status3",
+        "AI_TARGET",
+        "STATUS3_LEECHSEED",
+        "AI_CV_AccuracyDown6"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_AccuracyDown6"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_not_status3",
+        "AI_USER",
+        "STATUS3_ROOTED",
+        "AI_CV_AccuracyDown7"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_AccuracyDown7"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "if_not_status2",
+        "AI_TARGET",
+        "STATUS2_CURSED",
+        "AI_CV_AccuracyDown8"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_AccuracyDown8"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "70",
+        "AI_CV_AccuracyDown_End"
+      ],
+      [
+        "if_stat_level_equal",
+        "AI_TARGET",
+        "STAT_ACC",
+        "6",
+        "AI_CV_AccuracyDown_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_AccuracyDown_ScoreDown2"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_TARGET",
+        "40",
+        "AI_CV_AccuracyDown_ScoreDown2"
+      ],
+      [
+        "if_random_less_than",
+        "70",
+        "AI_CV_AccuracyDown_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "70",
+        "AI_CV_EvasionDown2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_EVASION",
+        "3",
+        "AI_CV_EvasionDown3"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_EvasionDown3"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "70",
+        "AI_CV_EvasionDown_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_ATK",
+        "8",
+        "AI_CV_Roar2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_DEF",
+        "8",
+        "AI_CV_Roar2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_SPATK",
+        "8",
+        "AI_CV_Roar2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_SPDEF",
+        "8",
+        "AI_CV_Roar2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_TARGET",
+        "STAT_EVASION",
+        "8",
+        "AI_CV_Roar2"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "goto",
+        "AI_CV_Roar_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Roar_End"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_HAIL",
+        "AI_CV_HealWeather_ScoreDown2"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_RAIN",
+        "AI_CV_HealWeather_ScoreDown2"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SANDSTORM",
+        "AI_CV_HealWeather_ScoreDown2"
+      ],
+      [
+        "goto",
+        "AI_CV_Heal"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "if_hp_equal",
+        "AI_USER",
+        "100",
+        "AI_CV_Heal3"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_Heal4"
+      ],
+      [
+        "score",
+        "-8"
+      ],
+      [
+        "goto",
+        "AI_CV_Heal_End"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "goto",
+        "AI_CV_Heal_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "70",
+        "AI_CV_Heal5"
+      ],
+      [
+        "if_random_less_than",
+        "30",
+        "AI_CV_Heal5"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "goto",
+        "AI_CV_Heal_End"
+      ],
+      [
+        "if_doesnt_have_move_with_effect",
+        "AI_TARGET",
+        "EFFECT_SNATCH",
+        "AI_CV_Heal6"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_Heal_End"
+      ],
+      [
+        "if_random_less_than",
+        "20",
+        "AI_CV_Heal_End"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_user_has_no_attacking_moves",
+        "AI_CV_Toxic3"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "50",
+        "AI_CV_Toxic2"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_Toxic2"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "50",
+        "AI_CV_Toxic3"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_Toxic3"
+      ],
+      [
+        "score",
+        "-3"
+      ],
+      [
+        "if_has_move_with_effect",
+        "AI_USER",
+        "EFFECT_SPECIAL_DEFENSE_UP",
+        "AI_CV_Toxic4"
+      ],
+      [
+        "if_has_move_with_effect",
+        "AI_USER",
+        "EFFECT_PROTECT",
+        "AI_CV_Toxic4"
+      ],
+      [
+        "goto",
+        "AI_CV_Toxic_End"
+      ],
+      [
+        "if_random_less_than",
+        "60",
+        "AI_CV_Toxic_End"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_TOXIC_POISON",
+        "AI_CV_Trap2"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_CURSED",
+        "AI_CV_Trap2"
+      ],
+      [
+        "if_status3",
+        "AI_TARGET",
+        "STATUS3_PERISH_SONG",
+        "AI_CV_Trap2"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_INFATUATION",
+        "AI_CV_Trap2"
+      ],
+      [
+        "goto",
+        "AI_CV_Trap_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Trap_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_25",
+        "AI_CV_HighCrit_End"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_5",
+        "AI_CV_HighCrit_End"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x2",
+        "AI_CV_HighCrit2"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x4",
+        "AI_CV_HighCrit2"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_HighCrit_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_HighCrit_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "70",
+        "AI_CV_Confuse_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Confuse2"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "50",
+        "AI_CV_Confuse_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "30",
+        "AI_CV_Confuse_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "50",
+        "AI_CV_Reflect_ScoreDown2"
+      ],
+      [
+        "get_target_type1"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_Reflect_PhysicalTypeList",
+        "AI_CV_Reflect_End"
+      ],
+      [
+        "get_target_type2"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_Reflect_PhysicalTypeList",
+        "AI_CV_Reflect_End"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_Reflect_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        ".byte",
+        "TYPE_NORMAL"
+      ],
+      [
+        ".byte",
+        "TYPE_FIGHTING"
+      ],
+      [
+        ".byte",
+        "TYPE_FLYING"
+      ],
+      [
+        ".byte",
+        "TYPE_POISON"
+      ],
+      [
+        ".byte",
+        "TYPE_GROUND"
+      ],
+      [
+        ".byte",
+        "TYPE_ROCK"
+      ],
+      [
+        ".byte",
+        "TYPE_BUG"
+      ],
+      [
+        ".byte",
+        "TYPE_GHOST"
+      ],
+      [
+        ".byte",
+        "TYPE_STEEL"
+      ],
+      [
+        ".byte",
+        "-1"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "50",
+        "AI_CV_Poison_ScoreDown1"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_TARGET",
+        "50",
+        "AI_CV_Poison_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_Paralyze2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "70",
+        "AI_CV_Paralyze_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_Paralyze_End"
+      ],
+      [
+        "if_random_less_than",
+        "20",
+        "AI_CV_Paralyze_End"
+      ],
+      [
+        "score",
+        "+3"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_VitalThrow_End"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "60",
+        "AI_CV_VitalThrow_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_VitalThrow2"
+      ],
+      [
+        "if_random_less_than",
+        "180",
+        "AI_CV_VitalThrow_End"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_VitalThrow_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_25",
+        "AI_CV_Recharge_ScoreDown1"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_5",
+        "AI_CV_Recharge_ScoreDown1"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_Recharge2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "40",
+        "AI_CV_Recharge_ScoreDown1"
+      ],
+      [
+        "goto",
+        "AI_CV_Recharge_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "60",
+        "AI_CV_Recharge_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_Disable_End"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_power_from_result"
+      ],
+      [
+        "if_equal",
+        "0",
+        "AI_CV_Disable2"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_Disable_End"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_Disable_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_SLEEP",
+        "AI_CV_Counter_ScoreDown1"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_INFATUATION",
+        "AI_CV_Counter_ScoreDown1"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_CONFUSION",
+        "AI_CV_Counter_ScoreDown1"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "30",
+        "AI_CV_Counter2"
+      ],
+      [
+        "if_random_less_than",
+        "10",
+        "AI_CV_Counter2"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "50",
+        "AI_CV_Counter3"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_Counter3"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_power_from_result"
+      ],
+      [
+        "if_equal",
+        "0",
+        "AI_CV_Counter5"
+      ],
+      [
+        "if_target_not_taunted",
+        "AI_CV_Counter4"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_Counter4"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_type_from_result"
+      ],
+      [
+        "if_not_in_bytes",
+        "AI_CV_Counter_PhysicalTypeList",
+        "AI_CV_Counter_ScoreDown1"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_Counter_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_Counter_End"
+      ],
+      [
+        "if_target_not_taunted",
+        "AI_CV_Counter6"
+      ],
+      [
+        "if_random_less_than",
+        "100",
+        "AI_CV_Counter6"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "get_target_type1"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_Counter_PhysicalTypeList",
+        "AI_CV_Counter_End"
+      ],
+      [
+        "get_target_type2"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_Counter_PhysicalTypeList",
+        "AI_CV_Counter_End"
+      ],
+      [
+        "if_random_less_than",
+        "50",
+        "AI_CV_Counter_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        ".byte",
+        "TYPE_NORMAL"
+      ],
+      [
+        ".byte",
+        "TYPE_FIGHTING"
+      ],
+      [
+        ".byte",
+        "TYPE_FLYING"
+      ],
+      [
+        ".byte",
+        "TYPE_POISON"
+      ],
+      [
+        ".byte",
+        "TYPE_GROUND"
+      ],
+      [
+        ".byte",
+        "TYPE_ROCK"
+      ],
+      [
+        ".byte",
+        "TYPE_BUG"
+      ],
+      [
+        ".byte",
+        "TYPE_GHOST"
+      ],
+      [
+        ".byte",
+        "TYPE_STEEL"
+      ],
+      [
+        ".byte",
+        "-1"
+      ],
+      [
+        "get_user_type1"
+      ],
+      [
+        "if_equal",
+        "TYPE_GHOST",
+        "AI_CV_Curse4"
+      ],
+      [
+        "get_user_type2"
+      ],
+      [
+        "if_equal",
+        "TYPE_GHOST",
+        "AI_CV_Curse4"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_DEF",
+        "9",
+        "AI_CV_Curse_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Curse2"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_DEF",
+        "7",
+        "AI_CV_Curse_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Curse3"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_DEF",
+        "6",
+        "AI_CV_Curse_End"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Curse_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_Curse_End"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "80",
+        "AI_CV_Curse_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_protect_count",
+        "AI_USER"
+      ],
+      [
+        "if_more_than",
+        "1",
+        "AI_CV_Protect_ScoreDown2"
+      ],
+      [
+        "if_status",
+        "AI_USER",
+        "STATUS1_TOXIC_POISON",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_status2",
+        "AI_USER",
+        "STATUS2_CURSED",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_status3",
+        "AI_USER",
+        "STATUS3_PERISH_SONG",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_status2",
+        "AI_USER",
+        "STATUS2_INFATUATION",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_status3",
+        "AI_USER",
+        "STATUS3_LEECHSEED",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_status3",
+        "AI_USER",
+        "STATUS3_YAWN",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_has_move_with_effect",
+        "AI_TARGET",
+        "EFFECT_RESTORE_HP",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_has_move_with_effect",
+        "AI_TARGET",
+        "EFFECT_DEFENSE_CURL",
+        "AI_CV_Protect3"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_TOXIC_POISON",
+        "AI_CV_Protect_ScoreUp2"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_CURSED",
+        "AI_CV_Protect_ScoreUp2"
+      ],
+      [
+        "if_status3",
+        "AI_TARGET",
+        "STATUS3_PERISH_SONG",
+        "AI_CV_Protect_ScoreUp2"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_INFATUATION",
+        "AI_CV_Protect_ScoreUp2"
+      ],
+      [
+        "if_status3",
+        "AI_TARGET",
+        "STATUS3_LEECHSEED",
+        "AI_CV_Protect_ScoreUp2"
+      ],
+      [
+        "if_status3",
+        "AI_TARGET",
+        "STATUS3_YAWN",
+        "AI_CV_Protect_ScoreUp2"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_effect_from_result"
+      ],
+      [
+        "if_not_equal",
+        "EFFECT_LOCK_ON",
+        "AI_CV_Protect_ScoreUp2"
+      ],
+      [
+        "goto",
+        "AI_CV_Protect2"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "get_protect_count",
+        "AI_USER"
+      ],
+      [
+        "if_equal",
+        "0",
+        "AI_CV_Protect_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "if_random_less_than",
+        "128",
+        "AI_CV_Protect_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_Protect_End"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_effect_from_result"
+      ],
+      [
+        "if_not_equal",
+        "EFFECT_LOCK_ON",
+        "AI_CV_Protect_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "get_user_type1"
+      ],
+      [
+        "if_equal",
+        "TYPE_GHOST",
+        "AI_CV_Foresight2"
+      ],
+      [
+        "get_user_type2"
+      ],
+      [
+        "if_equal",
+        "TYPE_GHOST",
+        "AI_CV_Foresight2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_EVASION",
+        "8",
+        "AI_CV_Foresight3"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "goto",
+        "AI_CV_Foresight_End"
+      ],
+      [
+        "if_random_less_than",
+        "80",
+        "AI_CV_Foresight_End"
+      ],
+      [
+        "if_random_less_than",
+        "80",
+        "AI_CV_Foresight_End"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_ATK",
+        "8",
+        "AI_CV_BatonPass2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_DEF",
+        "8",
+        "AI_CV_BatonPass2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_SPATK",
+        "8",
+        "AI_CV_BatonPass2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_SPDEF",
+        "8",
+        "AI_CV_BatonPass2"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_EVASION",
+        "8",
+        "AI_CV_BatonPass2"
+      ],
+      [
+        "goto",
+        "AI_CV_BatonPass5"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_BatonPass3"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "60",
+        "AI_CV_BatonPass_End"
+      ],
+      [
+        "goto",
+        "AI_CV_BatonPass4"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "70",
+        "AI_CV_BatonPass_End"
+      ],
+      [
+        "if_random_less_than",
+        "80",
+        "AI_CV_BatonPass_End"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "goto",
+        "AI_CV_BatonPass_End"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_ATK",
+        "7",
+        "AI_CV_BatonPass7"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_DEF",
+        "7",
+        "AI_CV_BatonPass7"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_SPATK",
+        "7",
+        "AI_CV_BatonPass7"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_SPDEF",
+        "7",
+        "AI_CV_BatonPass7"
+      ],
+      [
+        "if_stat_level_more_than",
+        "AI_USER",
+        "STAT_EVASION",
+        "7",
+        "AI_CV_BatonPass7"
+      ],
+      [
+        "goto",
+        "AI_CV_BatonPass_ScoreDown2"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_BatonPass8"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "60",
+        "AI_CV_BatonPass_ScoreDown2"
+      ],
+      [
+        "goto",
+        "AI_CV_BatonPass_End"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "70",
+        "AI_CV_BatonPass_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_user_faster",
+        "AI_CV_RainDance2"
+      ],
+      [
+        "get_ability",
+        "AI_USER"
+      ],
+      [
+        "if_equal",
+        "ABILITY_SWIFT_SWIM",
+        "AI_CV_RainDance3"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_RainDance_ScoreDown1"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_HAIL",
+        "AI_CV_RainDance3"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SUN",
+        "AI_CV_RainDance3"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SANDSTORM",
+        "AI_CV_RainDance3"
+      ],
+      [
+        "get_ability",
+        "AI_USER"
+      ],
+      [
+        "if_equal",
+        "ABILITY_RAIN_DISH",
+        "AI_CV_RainDance3"
+      ],
+      [
+        "goto",
+        "AI_CV_RainDance_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_RainDance_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_SunnyDay_ScoreDown1"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_HAIL",
+        "AI_CV_SunnyDay2"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_RAIN",
+        "AI_CV_SunnyDay2"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SANDSTORM",
+        "AI_CV_SunnyDay2"
+      ],
+      [
+        "goto",
+        "AI_CV_SunnyDay_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_SunnyDay_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_25",
+        "AI_CV_ChargeUpMove_ScoreDown2"
+      ],
+      [
+        "if_type_effectiveness",
+        "AI_EFFECTIVENESS_x0_5",
+        "AI_CV_ChargeUpMove_ScoreDown2"
+      ],
+      [
+        "if_has_move_with_effect",
+        "AI_TARGET",
+        "EFFECT_PROTECT",
+        "AI_CV_ChargeUpMove_ScoreDown2"
+      ],
+      [
+        "if_hp_more_than",
+        "AI_USER",
+        "38",
+        "AI_CV_ChargeUpMove_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_ChargeUpMove_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_doesnt_have_move_with_effect",
+        "AI_TARGET",
+        "EFFECT_PROTECT",
+        "AI_CV_SemiInvulnerable2"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "goto",
+        "AI_CV_SemiInvulnerable_End"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_TOXIC_POISON",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_CURSED",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "if_status3",
+        "AI_TARGET",
+        "STATUS3_LEECHSEED",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_HAIL",
+        "AI_CV_SemiInvulnerable_CheckSandstormTypes"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SANDSTORM",
+        "AI_CV_SemiInvulnerable_CheckIceType"
+      ],
+      [
+        "goto",
+        "AI_CV_SemiInvulnerable5"
+      ],
+      [
+        "get_user_type1"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_SandstormResistantTypes",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "get_user_type2"
+      ],
+      [
+        "if_in_bytes",
+        "AI_CV_SandstormResistantTypes",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "goto",
+        "AI_CV_SemiInvulnerable5"
+      ],
+      [
+        "get_user_type1"
+      ],
+      [
+        "if_equal",
+        "TYPE_ICE",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "get_user_type2"
+      ],
+      [
+        "if_equal",
+        "TYPE_ICE",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "if_target_faster",
+        "AI_CV_SemiInvulnerable_End"
+      ],
+      [
+        "get_last_used_move",
+        "AI_TARGET"
+      ],
+      [
+        "get_move_effect_from_result"
+      ],
+      [
+        "if_not_equal",
+        "EFFECT_LOCK_ON",
+        "AI_CV_SemiInvulnerable_TryEncourage"
+      ],
+      [
+        "goto",
+        "AI_CV_SemiInvulnerable_End"
+      ],
+      [
+        "if_random_less_than",
+        "80",
+        "AI_CV_SemiInvulnerable_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "end"
+      ],
+      [
+        ".byte",
+        "TYPE_GROUND"
+      ],
+      [
+        ".byte",
+        "TYPE_ROCK"
+      ],
+      [
+        ".byte",
+        "TYPE_STEEL"
+      ],
+      [
+        ".byte",
+        "-1"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "40",
+        "AI_CV_Hail_ScoreDown1"
+      ],
+      [
+        "get_weather"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SUN",
+        "AI_CV_Hail2"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_RAIN",
+        "AI_CV_Hail2"
+      ],
+      [
+        "if_equal",
+        "AI_WEATHER_SANDSTORM",
+        "AI_CV_Hail2"
+      ],
+      [
+        "goto",
+        "AI_CV_Hail_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_Hail_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_not_status",
+        "AI_TARGET",
+        "STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON",
+        "AI_CV_Facade_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_status",
+        "AI_TARGET",
+        "STATUS1_SLEEP",
+        "AI_CV_Revenge_ScoreDown2"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_INFATUATION",
+        "AI_CV_Revenge_ScoreDown2"
+      ],
+      [
+        "if_status2",
+        "AI_TARGET",
+        "STATUS2_CONFUSION",
+        "AI_CV_Revenge_ScoreDown2"
+      ],
+      [
+        "if_random_less_than",
+        "180",
+        "AI_CV_Revenge_ScoreDown2"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "goto",
+        "AI_CV_Revenge_End"
+      ],
+      [
+        "score",
+        "-2"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_side_affecting",
+        "AI_TARGET",
+        "SIDE_STATUS_REFLECT",
+        "AI_CV_BrickBreak_ScoreUp1"
+      ],
+      [
+        "goto",
+        "AI_CV_BrickBreak_End"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_hp_less_than",
+        "AI_USER",
+        "50",
+        "AI_CV_MudSport_ScoreDown1"
+      ],
+      [
+        "get_target_type1"
+      ],
+      [
+        "if_equal",
+        "TYPE_ELECTRIC",
+        "AI_CV_MudSport2"
+      ],
+      [
+        "get_target_type2"
+      ],
+      [
+        "if_equal",
+        "TYPE_ELECTRIC",
+        "AI_CV_MudSport2"
+      ],
+      [
+        "goto",
+        "AI_CV_MudSport_ScoreDown1"
+      ],
+      [
+        "score",
+        "+1"
+      ],
+      [
+        "goto",
+        "AI_CV_MudSport_End"
+      ],
+      [
+        "score",
+        "-1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_can_faint",
+        "AI_TryToFaint_TryToEncourageQuickAttack"
+      ],
+      [
+        "get_how_powerful_move_is"
+      ],
+      [
+        "if_equal",
+        "MOVE_NOT_MOST_POWERFUL",
+        "Score_Minus1"
+      ],
+      [
+        "end"
+      ],
+      [
+        "if_effect",
+        "EFFECT_EXPLOSION",
+        "AI_TryToFaint_End"
+      ],
+      [
+        "if_not_effect",
+        "EFFECT_QUICK_ATTACK",
+        "AI_TryToFaint_ScoreUp4"
+      ],
+      [
+        "score",
+        "+2"
+      ],
+      [
+        "score",
+        "+4"
+      ],
+      [
+        "end"
+      ]
+    ]
+  }
+}

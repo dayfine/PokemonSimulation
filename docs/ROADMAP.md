@@ -20,8 +20,10 @@ Details of the existing models live in [navigation/](navigation/).
 
 ## Battle simulation
 
-The [first milestone](battles/README.md) runs Misty, the Cerulean rival,
-the S.S. Anne rival, and Lt. Surge. Python owns policies and repeated seeded
+The [full trainer benchmark](battles/pokeguy-benchmark.md) now runs all 69
+trainer fights in Pokeguy’s reviewed route, using recorded entry states, live
+progression, setup-item actions, and adaptive sampling. The original
+[four-case milestone](battles/README.md) remains a separate experiment. Python owns policies and repeated seeded
 trials; a pinned local Showdown adapter owns Gen 3 mechanics, with Smogon's
 calculator for decision previews. The imported pret trainer parties and
 scoring scripts are revision-stamped.
@@ -38,8 +40,11 @@ of that validation; do not expand to other games yet.
 The [Pokeguy LeafGreen audit](progression/README.md) now logs the complete
 reviewed battle sequence and computes EXP after each opponent and battle.
 It compares a flee-all-random-wild route with the documented wild-win control,
-preserving Rare Candies and reporting every discrepant observation. Full
-stats/EVs, inventory, and route-wide battle win probabilities remain future work.
+preserving Rare Candies and reporting every discrepant observation. The
+state ledger also reconstructs EVs, raw stats, HP/status, PP and consumables.
+Conditional trainer win rates now run through the battle benchmark. Wild and
+capture/escape objectives, input sensitivity, better NPC parity, and a simulation
+carrying random outcomes across the whole route remain future work.
 
 ## pret map data
 

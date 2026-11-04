@@ -2,19 +2,33 @@
 'use strict';
 const {Battle, Dex, toID} = require('pokemon-showdown');
 const {movePreview} = require('./damage.cjs');
+const {defeat} = require('./progression.cjs');
 const GEN = Dex.mod('gen3');
 const HEALS = {potion: 20, superpotion: 50, hyperpotion: 200, maxpotion: Infinity, fullrestore: Infinity};
 const CURES = {awakening: ['slp'], antidote: ['psn', 'tox'], parlyzheal: ['par'],
   burnheal: ['brn'], iceheal: ['frz'], fullheal: ['slp', 'psn', 'tox', 'par', 'brn', 'frz'],
   fullrestore: ['slp', 'psn', 'tox', 'par', 'brn', 'frz']};
+const X_ITEMS = {xattack: 'atk', xdefend: 'def', xspecial: 'spa', xspeed: 'spe', xaccuracy: 'accuracy'};
+const PP_ITEMS = {ether: 10, maxether: Infinity, elixir: 10, maxelixir: Infinity};
 
-function applyBag(battle, pokemon, item) {
+function applyBag(battle, pokemon, item, slot) {
   if (!(pokemon.side.pokesimBag[item] > 0)) throw new Error(`No ${item} left`);
   pokemon.side.pokesimBag[item]--;
   battle.add('message', `${pokemon.side.name} used ${item}`);
   if (HEALS[item]) battle.heal(HEALS[item] === Infinity ? pokemon.maxhp : HEALS[item], pokemon);
   if ((CURES[item] || []).includes(pokemon.status)) pokemon.cureStatus();
   if (['fullheal', 'fullrestore'].includes(item)) pokemon.removeVolatile('confusion');
+  if (item === 'oranberry') battle.heal(10, pokemon);
+  if (X_ITEMS[item]) battle.boost({[X_ITEMS[item]]: 1}, pokemon, pokemon);
+  if (item === 'guardspec') pokemon.side.addSideCondition('mist', pokemon);
+  if (item === 'direhit') pokemon.addVolatile('focusenergy');
+  if (PP_ITEMS[item]) {
+    for (let i = 0; i < pokemon.moveSlots.length; i++) {
+      if ((item === 'ether' || item === 'maxether') && i !== slot) continue;
+      const move = pokemon.moveSlots[i];
+      move.pp = Math.min(move.maxpp, move.pp + PP_ITEMS[item]);
+    }
+  }
   pokemon.side.pokesimUsed[item] = (pokemon.side.pokesimUsed[item] || 0) + 1;
 }
 
@@ -29,7 +43,8 @@ function teamMember(input) {
   const ivs = input.ivs || Object.fromEntries(['hp', 'atk', 'def', 'spa', 'spd', 'spe'].map(s => [s, input.iv ?? 15]));
   return {species: species.name, name: species.name, level: input.level,
     nature: input.nature || 'Hardy', ability: input.ability || species.abilities[input.ability_slot || 0],
-    gender: input.gender || (species.gender || 'M'), item: input.held_item || '',
+    gender: input.gender || species.gender || (input.personality !== undefined &&
+      (input.personality & 255) < Math.floor((species.genderRatio?.F || 0) * 254) ? 'F' : 'M'), item: input.held_item || '',
     ivs, evs: input.evs || {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0}, moves};
 }
 
@@ -63,10 +78,23 @@ function initialize(pokemon, input, badges = []) {
 function createBattle(scenario, seed) {
   const format = new Dex.Format({
     name: 'Pokesim FRLG', mod: 'gen3', gameType: 'singles', ruleset: [],
+    onModifyMove(move, pokemon) {
+      if (!scenario.tutorial) return;
+      if (!this.pokesimTutorialDamage) move.willCrit = false;
+      if (pokemon.side === this.p1 && !(move.category === 'Status' ?
+          this.pokesimTutorialStat : this.pokesimTutorialDamage)) move.accuracy = true;
+    },
+    onDamagingHit(damage, target, source) {
+      if (scenario.tutorial && target.side === this.p2 && source.side === this.p1) this.pokesimTutorialDamage = true;
+    },
+    onAfterEachBoost(boosts, target, source) {
+      if (scenario.tutorial && source?.side === this.p1) this.pokesimTutorialStat = true;
+    },
     // Bag priority 6 is above moves. Running an event bypasses BeforeMove:
     // no sleep countdown, confusion roll, paralysis roll, or move PP cost.
-    onPokesimBag(pokemon) { applyBag(this, pokemon, pokemon.side.pokesimPending); },
+    onPokesimBag(pokemon) { const action = pokemon.side.pokesimPending; applyBag(this, pokemon, action.item, action.slot); },
     onFaint(pokemon, source, effect) {
+      defeat(this, pokemon);
       // Showdown clears volatiles immediately after Faint. Preserve evidence
       // before cleanup, without changing the battle or drawing randomness.
       pokemon.pokesimFaint = {status: pokemon.status,
@@ -82,6 +110,9 @@ function createBattle(scenario, seed) {
         for (let i = 0; i < side.pokemon.length; i++) {
           initialize(side.pokemon[i], inputs[i], side === this.p1 ? scenario.badges : []);
           side.pokemon[i].pokesimPartyIndex = i;
+          if (side === this.p1 && scenario.progression) {
+            side.pokemon[i].pokesimProgression = {...structuredClone(scenario.progression), awards: []};
+          }
         }
       }
     },
@@ -98,14 +129,17 @@ function choose(battle, side, action) {
   if (!action) throw new Error(`Missing action for ${side.id}`);
   if (action.kind === 'item') {
     const item = toID(action.item);
-    if (!HEALS[item] && !CURES[item]) throw new Error(`Unsupported bag item ${item}`);
+    if (!HEALS[item] && !CURES[item] && !X_ITEMS[item] && !PP_ITEMS[item] &&
+        !['guardspec', 'direhit', 'oranberry'].includes(item)) throw new Error(`Unsupported bag item ${item}`);
+    if (['ether', 'maxether'].includes(item) && (!Number.isInteger(action.slot) ||
+        action.slot < 0 || action.slot >= side.active[0].moveSlots.length)) throw new Error('Ether requires a move slot');
     if (!(side.pokesimBag[item] > 0)) throw new Error(`No ${item} left`);
     if (side.active[0].getLockedMove()) throw new Error('A two-turn move cannot be interrupted by a bag item');
     side.choose('default');
-    side.pokesimPending = item;
+    side.pokesimPending = {...action, item};
     side.choice.actions = [{choice: 'event', pokemon: side.active[0], event: 'PokesimBag', priority: 6}];
   } else if (action.kind === 'move') {
-    side.choose(`move ${action.slot + 1}`);
+    side.choose(`move ${side.active[0].getLockedMove() ? 1 : action.slot + 1}`);
   } else if (action.kind === 'switch') {
     side.choose(`switch ${action.slot + 1}`);
   } else if (action.kind === 'pass') {
@@ -130,6 +164,13 @@ function monState(pokemon, target, previews = true) {
     volatiles: Object.keys(pokemon.volatiles), last_move: pokemon.lastMove?.id || '',
     locked_move: pokemon.getLockedMove() || '', position: pokemon.position, party_index: pokemon.pokesimPartyIndex,
     moves: pokemon.moveSlots.map(s => ({id: s.id, pp: s.pp, disabled: !!s.disabled}))};
+  state.gender = pokemon.gender || 'N';
+  state.reserves_alive = pokemon.side.pokemon.filter(p => p !== pokemon && p.hp > 0).length;
+  state.first_turn = pokemon.activeTurns <= 1;
+  state.protect_count = Math.log2(pokemon.volatiles.stall?.counter || 1);
+  state.side_conditions = Object.keys(pokemon.side.sideConditions);
+  state.weather = {raindance: 'AI_WEATHER_RAIN', sunnyday: 'AI_WEATHER_SUN',
+    sandstorm: 'AI_WEATHER_SANDSTORM', hail: 'AI_WEATHER_HAIL'}[pokemon.battle.field.weather] || 0;
   if (previews && target?.hp && pokemon.hp) {
     state.moves = pokemon.moveSlots.map(slot => movePreview(pokemon, target, slot));
   }
@@ -146,12 +187,31 @@ function snapshot(battle, traceFrom = 0) {
   const own = battle.p1.active[0];
   const foe = battle.p2.active[0];
   const needsSwitch = !!battle.p2.activeRequest?.forceSwitch;
+  const setup = [];
+  if (battle.pokesimScenario.progression && !battle.ended && !needsSwitch && own.hp) {
+    for (const [item, stat] of Object.entries(X_ITEMS)) {
+      if (!(battle.p1.pokesimBag[item] > 0) || own.boosts[stat] >= 6) continue;
+      const targets = battle.p2.pokemon.filter(p => p.hp > 0);
+      const incoming = targets.map(p => Math.max(0, ...monState(p, own).moves.map(m =>
+        m.damage.reduce((a, b) => a + b, 0) / m.damage.length * m.accuracy)));
+      const before = targets.map(p => monState(own, p).moves);
+      own.boosts[stat]++;
+      const after = targets.map(p => monState(own, p).moves);
+      const speed = own.getStat('spe');
+      own.boosts[stat]--;
+      setup.push({item, speed, targets: targets.map((p, i) =>
+        ({hp: p.hp, speed: p.getStat('spe'), incoming: incoming[i], before: before[i], after: after[i]}))});
+    }
+  }
   return {turn: battle.turn, ended: battle.ended, winner: battle.winner || null,
     request: battle.requestState, needs_switch: needsSwitch,
     own: monState(own, foe, !needsSwitch), foe: monState(foe, own),
     party: battle.p2.pokemon.map(p => monState(p, own, needsSwitch)),
     bag: {...battle.p1.pokesimBag}, trainer_bag: {...battle.p2.pokesimBag},
     items_used: {...battle.p1.pokesimUsed}, trainer_items_used: {...battle.p2.pokesimUsed},
+    progression: own.pokesimProgression ? {exp: own.pokesimProgression.exp,
+      evs: own.pokesimProgression.evs, awards: own.pokesimProgression.awards} : null,
+    setup,
     log: battle.log.slice(traceFrom).filter(line => !line.startsWith('|t:|'))};
 }
 module.exports = {createBattle, playTurn, snapshot, applyBag, initialize, teamMember};

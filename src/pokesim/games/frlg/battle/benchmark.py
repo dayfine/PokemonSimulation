@@ -72,16 +72,20 @@ def trial(engine, scenario, ai, master_seed, index, turn_limit):
         "volatiles_at_end": evidence["volatiles"], "boosts_at_end": evidence["boosts"],
         "final_damage_effect": evidence.get("effect"), "hp_remaining": state["own"]["hp"],
         "seed": {"master": master_seed, "trial": index, "engine": engine_seed},
+        "progression": state.get("progression"),
         "decisions": decisions, "log": log}
 
 
-def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None, sampling=None):
+def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None, sampling=None, family_size=None):
     """Report probabilities conditional on this model, inputs, and policies."""
     if not isinstance(battles, int) or isinstance(battles, bool) or battles < 1:
         raise ValueError("battles must be a positive integer")
     if not isinstance(turn_limit, int) or turn_limit < 1:
         raise ValueError("turn_limit must be a positive integer")
     validate_cases(cases, pret)
+    family_size = len(cases) if family_size is None else family_size
+    if type(family_size) is not int or family_size < len(cases):
+        raise ValueError('Sampling family must include all requested cases')
     if sampling is not None and sampling.minimum > battles:
         raise ValueError("Minimum trials exceeds maximum trial budget")
     ai = NPCTrainerAI(pret)
@@ -114,7 +118,7 @@ def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None, s
                 if progress and (index + 1) % min(100, battles) == 0:
                     progress(case["id"], index + 1, battles)
                 if sampling is not None:
-                    checked = sampling.check(wins, index + 1, battles, len(cases))
+                    checked = sampling.check(wins, index + 1, battles, family_size)
                     if checked is not None:
                         sampling_result = checked
                         if checked["stop_reason"]:
@@ -143,11 +147,11 @@ def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None, s
             "No voluntary opponent switching; mandatory replacements use pret-derived rules.",
             "Python AI RNG and Showdown battle RNG are separate seeded streams, not cartridge RNG emulation.",
             "Only listed fixture stats are measured; remaining stats use the recorded assumptions.",
-            "Level, stats, and moves stay fixed within each battle; experience and mid-battle level-ups are not modeled.",
+            "Cases with progression data award solo EXP/EVs and learn moves after actual knockouts; legacy fixtures keep level/stats/moves fixed.",
             "Conditions at loss are descriptive, not proven causes of loss.",
             "Turn-limit outcomes count as non-wins and are also reported separately."],
         "results": results}
     if sampling is not None:
-        report["sampling"] = sampling.describe(len(cases))
+        report["sampling"] = sampling.describe(family_size)
         report["assumptions"].append("Confidence sequences cover modeled win-within-turn-limit probabilities across all requested cases and all sampling looks; they do not cover input or engine error.")
     return report

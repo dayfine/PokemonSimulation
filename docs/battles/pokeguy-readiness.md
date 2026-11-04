@@ -4,30 +4,24 @@ The [recorded starting-state ledger](../progression/pokeguy-states.md) now
 reconciles player inputs for all 69 trainer battles and nine wild/scripted
 encounters, under its declared profile and event assumptions. It corrects
 approximate PP summaries and resolves the late Elixir and Bruno item-use
-questions using focused video review. The source catalog below records the
-earlier readiness audit; the remaining gate is engine/AI/policy coverage,
-not silently substituting the old four full-HP fixtures.
+questions using focused video review. The source catalog below preserves the
+input audit; the coverage table records implemented behavior and remaining
+approximations.
 
-We can reconstruct the route, but **we do not yet have 69 validated,
-run-specific battle scenarios**. The current four-case benchmark uses older
-AutoStory fixtures. Adaptive sampling now works on those fixtures; it does
-not make them a reconstruction of Pokeguy's run.
+The [full trainer benchmark](pokeguy-benchmark.md) now constructs and executes
+all 69 run-specific trainer scenarios. The four AutoStory fixtures remain
+separate experiments, with different stats, HP, moves and supplies.
 
-## Available versus missing
+## Current coverage
 
-| Input | Current evidence | Work still required |
+| Input | Current support | Remaining scope |
 |---|---|---|
-| Battle identity and order | 69 trainers / 199 trainer Pokémon in the route ledger | Add the two wild wins and scripted Tower Marowak to the combat objective; capture/escape encounters have different success criteria. |
-| Trainer species and levels | All 69 trainer parties resolved against pinned pret | The battle snapshot includes complete battle data for only four trainers; import the other 65 trainers' moves, stats, abilities, items, flags, and reachable NPC AI paths. |
-| Player EXP and level | Recorded-route reconciliation matches the notes | Connect awards to live battles, including HP/stat changes and move-learning decisions between enemy Pokémon. |
-| Player nature / IVs / EVs | EV/stat builder now exports raw stats for all encounters using Mild and overlay Attack25; IV24 alternatives retained | Connect those inputs and live updates to the engine. Use EVs from the last stat recalculation when relevant. |
-| Player moves | Nine changes / four refusals tracked for all 69 trainers | Feed the route-derived sets into battle scenarios; expand the battle move snapshot. Two slot-reorder times remain unknown but do not change membership. |
-| Player HP / status | State builder carries source checkpoints/no-damage observations and applies recorded preparation | Use those conditional starting states; battle-end HP is observed, not a simulated result. |
-| Player PP | Executed move counts, teaching, and recovery reconcile for all encounters | Use name-keyed PP; the late Elixir is now observed before Champion. Controller slot-order gaps do not alter membership. |
-| Bag inventory | New state history conserves tracked consumables through all encounters; old source catalog remains partial | Feed these counts to the expanded engine; quest/TM pockets are outside the tracked consumable scope. Keep inferred quantity/target/turn timing provenance. |
-| Badges / held item / party | Badge order, BlackGlasses equip, and Plateau deposits documented | Export their state at each fight; receiving BlackGlasses is not the same as equipping it. HM helpers are present before the League but the observed lead fights solo. |
-| Our player policy | Existing greedy move/heal policy | It cannot use X items, PP medicine, or setup turns. Add tested bag actions and define a state-dependent setup/heal strategy before claiming to evaluate the runner's approach. |
-| NPC / mechanics coverage | Four-trainer script interpreter and tested Gen 3 adapter boundaries | Add the required AI instructions, field-aware previews, and encounter-specific mechanics checks as the imported move set expands; track approximations. |
+| Trainer identity, parties, moves, IVs, personalities, held items and AI | Full 69-trainer pinned import | NPC helpers and voluntary switching remain approximate/omitted. |
+| Player entry state | Reconciled HP/status, raw stats, PP, badges, held item and tracked bag | Sensitivity to the alternative Attack IV24 profile is separate. |
+| Live EXP/EVs/level-ups | Knockout awards, stat/HP refresh and level-up move decisions | Evolution happens after battle; the next recorded entry state supplies it. |
+| Our player policy | Move/heal/cure, safe PP recovery and X-item setup heuristic | Not optimal play or the runner’s recorded strategy; Guard Spec/Dire Hit actions are not selected. |
+| Sampling | Adaptive anytime-valid intervals, joint confidence correction and independent workers | Sampling bounds exclude engine/input/model error. |
+| Wild/scripted encounters | Player states recorded | Combat rates and capture/escape objectives are not in the trainer report. |
 
 There are **72 fights with a defeat-the-opponent objective**: 69 trainers,
 two random wild wins, and the scripted Marowak. Two captures and four escapes
@@ -77,8 +71,7 @@ The original observations are now annotated with these resolutions:
 - Ether's target is constrained to Mega Kick by subsequent uses and unchanged
   Water Pulse PP; the menu target is still not directly read.
 - Lorelei's narrative says two X Specials, but readings progress from 15 before
-  the fight to 13, 12, then 11. Resolve the item count and turn timing against
-  the video before choosing a setup strategy. The starting-state ledger
+  the fight to 13, 12, then 11. The starting-state ledger
   conserves four consumed items without inventing their exact turn placement.
 - Focused Bruno frames confirm two X Specials, one X Speed, and no X Accuracy.
   Later pre-Lance counts confirm the carry-forward.
@@ -105,20 +98,9 @@ probability: carrying simulated HP/PP/bag outcomes into later fights is a
 separate route simulation. Do not multiply the observed-state estimates and
 present the product as the run's completion probability.
 
-Build in this order:
-
-1. Completed: reconcile source-backed tracked consumables, HP/status, and PP
-   snapshots for every fight under declared recorded-event assumptions.
-2. Completed: generate raw stats from progression, nature/IV choice, and EVs,
-   retaining an alternative Attack IV and the last stat-refresh EVs.
-3. Expand trainer/move/AI import; make unsupported behavior explicit per encounter.
-4. Implement and test live level-ups, X-item/setup turns, held items, and PP items.
-5. Replay representative early, setup-heavy, and League battles against video
-   checkpoints before running every scenario.
-6. Use the [adaptive sampler](adaptive-sampling.md) on each validated scenario;
-   report bounds, sample count, stop reason, assumptions, and example losses.
-
-The sampler and recorded-route player-state builder are ready. Full trainer
-import and engine/policy coverage remain gating work; these milestones do not
-report win rates for all 69 yet. See the state ledger's reviewed corrections
-before treating the original unresolved observations above as still open.
+The full trainer runner implements the import, live progression, bag actions
+and adaptive sampling. Every trainer matchup executes in integration checks;
+its live awards and stat changes are cross-checked against the independent
+Python progression model. This is implementation validation, not proof of
+cartridge-equivalent NPC behavior or video-equivalent turn outcomes. See
+[remaining gaps](GAPS.md) before interpreting the rates.

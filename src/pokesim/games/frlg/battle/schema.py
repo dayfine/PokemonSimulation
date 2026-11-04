@@ -1,11 +1,14 @@
 """Validate FireRed/LeafGreen (Gen 3) solo-battle experiment inputs."""
 
 from pokesim.games.frlg.battle.npc_ai import move_id
+from pokesim.games.frlg.progression.experience import level_at
 
 STATS = {"hp", "atk", "def", "spa", "spd", "spe"}
 STAGES = {"atk", "def", "spa", "spd", "spe", "accuracy", "evasion"}
 ITEMS = {"potion", "superpotion", "hyperpotion", "maxpotion", "fullrestore",
          "awakening", "antidote", "parlyzheal", "burnheal", "iceheal", "fullheal"}
+ITEMS |= {"xattack", "xdefend", "xspecial", "xspeed", "xaccuracy", "direhit", "guardspec",
+          "ether", "maxether", "elixir", "maxelixir", "oranberry"}
 BADGES = {"boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"}
 
 
@@ -26,7 +29,7 @@ def validate_cases(cases, pret):
     move_data = {move_id(k): v for k, v in pret["moves"].items()}
     for case in cases:
         if case.get("trainer") not in pret["trainers"]:
-            raise ValueError("Trainer outside milestone snapshot: " + str(case.get("trainer")))
+            raise ValueError("Trainer outside imported snapshot: " + str(case.get("trainer")))
         player = case["player"]
         if move_id(player["species"]) not in ("squirtle", "wartortle", "blastoise"):
             raise ValueError("First milestone supports the Squirtle line as the solo lead")
@@ -63,3 +66,24 @@ def validate_cases(cases, pret):
         badges = case.get("badges", [])
         if len(set(badges)) != len(badges) or set(badges) - BADGES:
             raise ValueError("Badges must be unique FRLG badge names")
+        if 'progression' in case:
+            data = case['progression']
+            integer(data['exp'], 0, 2 ** 32 - 1, 'total EXP')
+            thresholds = data['thresholds']
+            if len(thresholds) != 101 or any(type(n) is not int for n in thresholds) or any(
+                    a >= b for a, b in zip(thresholds, thresholds[1:])):
+                raise ValueError('Progression requires 101 increasing EXP thresholds')
+            if level_at(data['exp'], thresholds) != player['level']:
+                raise ValueError('Starting level disagrees with total EXP')
+            if set(data['evs']) != STATS or set(data['ivs']) != STATS:
+                raise ValueError('Live progression requires all six EVs and IVs')
+            for stat in STATS:
+                integer(data['evs'][stat], 0, 255, 'EV')
+                integer(data['ivs'][stat], 0, 31, 'IV')
+            if sum(data['evs'].values()) > 510 or data['ivs'] != player.get('ivs'):
+                raise ValueError('Invalid EV total or inconsistent IV profile')
+            if data['badges'] != badges:
+                raise ValueError('Live progression must use the starting badge set')
+            needed = [player['species']] + [m['species'] for m in pret['trainers'][case['trainer']]['party']]
+            if any(move_id(name) not in data['species'] for name in needed):
+                raise ValueError('Missing species progression data')

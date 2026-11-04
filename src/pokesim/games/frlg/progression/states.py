@@ -201,7 +201,7 @@ def reconstruct_states(route, reference, moves, history):
         "battles": snapshots, "transactions": transactions, "checks_passed": passed, "move_pp": reference["move_pp"],
         "video_reviews": history["video_reviews"], "corrections": history.get("corrections", []), "final_state": current(),
         "simulation_ready": False,
-        "remaining_engine_work": ["Full trainer/AI import", "Live EXP/EV/stat updates", "X-item/setup and PP-item battle actions"]}
+        "combat_inputs": "Player states only; battle.run.trainer_cases adds NPC and live-progression inputs."}
 
 
 def states_markdown(report):
@@ -232,5 +232,5 @@ def states_markdown(report):
     lines += ["", "## Reconciled note discrepancies", ""]
     for correction in report["corrections"]:
         lines.append("- {}: {}".format(correction["topic"], correction.get("basis") or correction["reconciled"]))
-    lines += ["", "These inputs still require the trainer importer and live-battle mechanics listed in the readiness audit before they can produce full-run win rates.", ""]
+    lines += ["", "The [trainer benchmark](../battles/pokeguy-benchmark.md) combines these player states with full NPC parties and live progression to estimate conditional per-battle win rates. These state snapshots alone are not complete engine scenarios.", ""]
     return "\n".join(lines)

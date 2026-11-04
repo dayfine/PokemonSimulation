@@ -1,66 +1,53 @@
-# Battle simulation gaps and next work
+# FRLG battle simulation coverage and remaining gaps
 
-This review describes the implementation in PR #31. The benchmark answers a
-fixed-state, solo-lead question. Reconstructing Pokeguy's full run needs more
-than expanding the trainer list. The priorities below distinguish missing
-model behavior from choices made by our player strategy.
+The [Pokeguy trainer benchmark](pokeguy-benchmark.md) imports all 69 trainer
+parties, uses reconciled starting states, awards live solo EXP/EVs, handles
+level-up stats/HP/moves, and supports setup/PP bag actions. It is a model-based
+benchmark with a named player policy; it is not cartridge-equivalent emulation.
 
-## Stat stages: supported and checked
+## Covered boundaries
 
-All seven stages are carried in Showdown state. `damage.cjs` passes the
-attacking and defending stages to Smogon alongside measured raw stats; it
-does not manually multiply raw stats by stages. Double-applying stages would
-give incorrect damage and critical-hit behavior.
+| Area | Implementation and checks |
+|---|---|
+| Seven stat stages | Physical/special stages -6 through +6; critical bypass rules; actual speed order; accuracy/evasion previews |
+| Live progression | Simulated faint events award EXP/EVs before replacement, refresh stats/HP on level increase, and apply recorded move-learning choices; all 69 matchups cross-checked against independent Python calculations |
+| Inventory actions | Healing/cures, Oran Berry, Gen 3 X items, Guard Spec, Dire Hit, PP restoration; turn cost, PP preservation, stage caps and five-turn Mist checked |
+| Full trainer import | All route parties, held items, IVs, deterministic personalities/natures, moves, AI flags and reachable scoring instructions; revision/hash-stamped and reproducible |
+| Fields and multi-hit moves | Weather/screens feed damage previews; multi-hit policy previews use distributions; Showdown samples actual hits |
+| Compulsory choices | Locked moves in any slot, recharge, faint replacements and switch-move replacements |
+| Opening tutorial | Guaranteed initial player hit and suppression of critical hits before first damage |
+| Sampling | Anytime-valid intervals with a joint confidence correction across the requested case family, including process-parallel execution |
 
-| Change | Current calculation | Verification |
+## Gaps that affect interpretation
+
+| Priority | Gap | Consequence / next work |
 |---|---|---|
-| Attack / Defense | Smogon Gen 3 physical damage | Each stage -6 through +6, hand-calculated damage, live Tail Whip/Withdraw |
-| Sp. Atk / Sp. Def | Smogon Gen 3 special damage | Each stage -6 through +6, hand-calculated damage |
-| Speed | Showdown `getStat('spe')` and action queue | Positive/negative initial stages change exported speed and actual move order |
-| Accuracy / Evasion | Adapter's pret accuracy-stage table; Showdown resolves actual hits | Positive/negative stages, cancellation, combined caps, always-hit Shock Wave |
-| Critical hits | Smogon/Showdown Gen 3 damage rules | Negative attack and positive defense stages ignored; favorable stages retained |
+| 1 | Wild/scripted and capture/escape objectives | This report covers trainers. Add the two wild wins and Tower Marowak, with explicit wild stat/personality assumptions. Define success for captures and escapes before reporting rates. |
+| 1 | NPC helper and history parity | Scoring scripts are source-derived, but damage, first-turn/protection/history/weather queries and knowledge of abilities remain approximate. Compare individual scores/choices with pret traces before claiming cartridge parity. |
+| 1 | HM helpers and forced player switches | Before the Plateau deposits, the recorded party has helpers. The solo-lead model omits them, so Roar/Whirlwind can fail where the real party would force a switch. Add their states and a return-to-lead policy for party-accurate results. |
+| 1 | NPC voluntary switching | No `ShouldSwitch` policy. Baton Pass and other move-forced requests execute, but a trainer cannot proactively retreat from a poor matchup or Perish Song. |
+| 1 | Accuracy parity | Preview uses pret's combined accuracy-minus-evasion stage table; Showdown can apply separate factors. Ability/item/volatile hit modifiers are incompletely represented in previews. Align actual hit and preview arithmetic with cartridge cases. |
+| 2 | Threat estimates | The player heuristic assumes a 1/16 critical rate and simplifies residual/status effects. High-critical moves, escalating toxic damage and volatile interactions can bias healing/setup choices even though actual turns resolve them. |
+| 2 | Policy quality and information | Full roster knowledge, greedy attack/heal/setup choices, no player switching. It is neither optimal play nor Pokeguy's policy. Guard Spec/Dire Hit actions exist but are not chosen by this heuristic. |
+| 2 | Input sensitivity | The report selects overlay Attack IV25 and recorded preparation assumptions. Compare the surviving IV24 profile and any uncertain inputs separately. |
+| 2 | Whole-route outcome | Fights reset to recorded entry states. Carrying random HP/PP/bag outcomes and preparation policy forward is a different experiment; conditional rates must not be multiplied as a route-clear probability. |
 
-Initial player stages are validated as integers in [-6, +6] for the seven
-supported keys. Raw HP is independent and has no stage. These checks do not
-claim parity for every ability, field effect, or accuracy modifier.
-
-## Next priorities
-
-| Priority | Gap | Why it matters / required follow-up |
-|---|---|---|
-| 1 | Reconstruct the run's actual starting stats, HP, moves, PP, and bag | Most current fixtures have assumed stats and start fully healed. They are AutoStory experiments, not Pokeguy reconstructions. Use the run ledger and measured video checkpoints; retain uncertainty where unread. |
-| 1 | EXP, EVs, and mid-battle level-ups | `benchmark.py` holds levels/stats/moves fixed for the entire battle. The separate EXP ledger does not update live Showdown combatants. Wire awards into faint/replacement handling, recalculate stats/HP, and handle move learning before evaluating the full route. |
-| 1 | X-item actions and a setup strategy | The schema and `applyBag` currently accept healing/cure items only. Pokeguy uses X Special, X Speed, X Accuracy, and other setup supplies. Add tested turn actions and duration/cap behavior, then a player strategy that can choose them. Initial boosts are not a substitute for spending a setup turn. |
-| 2 | NPC damage helpers and information history | `NPCTrainerAI` follows imported pret branches but substitutes Smogon damage for `AI_CalcDmg` and uses engine-derived queries. Port the helpers/history and compare individual scores/choices against pret traces before claiming cartridge-equivalent NPC decisions. |
-| 2 | NPC voluntary switches | Only compulsory replacements are implemented. Add the relevant `ShouldSwitch` logic and correct action priority before expanding to encounters where switching changes outcomes. |
-| 2 | Field-aware previews | `damage.cjs:rolls` does not pass a `calc.Field`; weather, Reflect, Light Screen, and other field effects can affect actual turns without affecting policy previews. The NPC interpreter's `get_weather` opcode currently returns no weather for the named encounter set. Map supported live field state and test preview-versus-engine damage before adding weather/screen encounters. |
-| 2 | Accuracy parity with FRLG | The preview uses pret's combined accuracy-minus-evasion stage and integer table. Showdown's Gen 3 hit routine applies separate stage factors. These can disagree when both stages change or at rounding boundaries. The preview also omits ability/item/volatile hit modifiers. Align actual hits and previews, with cartridge-derived cases, before treating general accuracy results as exact. |
-| 3 | Critical probabilities and residual threat estimates | `policy.py:threat` assumes a 1/16 critical rate and a flat poison/Leech Seed estimate. It omits changing critical rates, escalating toxic damage, and several volatile/turn interactions. Showdown resolves actual turns, but the player's heal decision can be biased. Derive these probabilities/state effects or use explicit turn rollouts. |
-| 3 | Wider move/effect coverage | The imported AI scripts cover the current move snapshot. Multi-hit previews explicitly fail; more moves require expanded import coverage, relevant field/state translation, and mechanics checks. Do not silently treat unimplemented effects as ordinary attacks. |
-
-The player policy is another source of variation: `player_action` is a greedy
-move/heal heuristic, not an optimal battle solver or a transcription of the
-runner's choices. Its threat samples may consult the modeled NPC's full move
-set. Decide whether the next experiment measures that policy, a recorded
-runner strategy, or a policy restricted to information available to a real
-player, and label the resulting win probability accordingly.
-
-The NPC interpreter also uses a separate seeded RNG stream from Showdown.
-It preserves reproducibility, not the cartridge's shared, frame-dependent RNG
-sequence. More Monte Carlo samples shrink sampling error but do not resolve
-any of the model gaps above.
+Increasing trials shrinks sampling uncertainty, not model error. The Python AI
+and Showdown engine have separate seeded streams rather than the cartridge's
+shared, frame-dependent RNG.
 
 ## Code ownership
 
-- `npc_ai.py:NPCTrainerAI`: game NPC move scoring/selection from imported pret scripts.
-- `policy.py:player_action`, `attack`, `threat`: our player move, cure, and healing strategy.
-- `policy.py:trainer_item`, `replacement`: NPC item and compulsory replacement helpers.
-- `engine.cjs`: actual Showdown turns, live stats/effects, bag actions, and state export.
-- `damage.cjs`: Smogon damage previews plus the FRLG accuracy-stage preview.
+- `npc_ai.py:NPCTrainerAI`: opposing game NPC move scoring from pret scripts.
+- `policy.py:player_action`, `attack`, `threat`, `setup_action`: our player's choices.
+- `policy.py:trainer_item`, `replacement`: NPC medicines and replacement choices.
+- `run.py`: recorded-state trainer case builder, independent of trial outcomes.
+- `engine.cjs`: actual turns, bag actions, fields, locks and state export.
+- `progression.cjs`: live knockout awards, raw-stat refresh and move learning.
+- `damage.cjs`: Smogon previews and FRLG accuracy-stage preview.
 
-Primary implementation references: pinned local npm sources
-`@smogon/calc/dist/mechanics/gen3.js` and
-`pokemon-showdown/data/mods/gen3/scripts.ts`; pret's
-[`Cmd_accuracycheck` and EXP/damage commands](https://github.com/pret/pokefirered/blob/ce6406d8c2eaf46d543c8a2606de0c3cb1951982/src/battle_script_commands.c),
+Sources: pinned npm implementations, pret's
+[`battle_main.c`](https://github.com/pret/pokefirered/blob/ce6406d8c2eaf46d543c8a2606de0c3cb1951982/src/battle_main.c),
+[`battle_script_commands.c`](https://github.com/pret/pokefirered/blob/ce6406d8c2eaf46d543c8a2606de0c3cb1951982/src/battle_script_commands.c),
 [`battle_ai_script_commands.c`](https://github.com/pret/pokefirered/blob/ce6406d8c2eaf46d543c8a2606de0c3cb1951982/src/battle_ai_script_commands.c), and
 [`battle_ai_switch_items.c`](https://github.com/pret/pokefirered/blob/ce6406d8c2eaf46d543c8a2606de0c3cb1951982/src/battle_ai_switch_items.c).

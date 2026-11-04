@@ -1,14 +1,14 @@
 """Import FRLG NPC parties and reachable AI scripts from pret/pokefirered.
 
-The snapshot covers Misty, the Cerulean rival with Bulbasaur, the S.S. Anne
-rival with Ivysaur, and Lt. Surge in FireRed/LeafGreen (Gen 3).
+The default snapshot covers the original four AutoStory experiments. Pass
+--run-data to import every trainer and player move from a run reference.
 
 Run from the repo root:
     PYTHONPATH=src python3 -m pokesim.games.frlg.battle.pret --repo external/pokefirered \
         --out data/games/frlg/battles/pret.json
 
 Produces a revision-stamped JSON snapshot. No ROM or decomp build is needed.
-Only single battles without trainer-held items are supported by this importer.
+Only single battles are supported. Trainer held items are preserved.
 """
 
 import argparse
@@ -90,8 +90,8 @@ def compile_scripts(text, effects):
             "instructions": [instructions[i] for i in kept]}
 
 
-def import_checkout(repo):
-    """Build the milestone snapshot, recording every input's hash and revision."""
+def import_checkout(repo, trainer_ids=TRAINERS, player_moves=()):
+    """Import requested trainers and moves, recording input hashes and revision."""
     inputs = {}
 
     def read(name):
@@ -111,13 +111,14 @@ def import_checkout(repo):
     pointers = dict(re.findall(r"\[SPECIES_(\w+)\]\s*=\s*(s\w+)", read("src/data/pokemon/level_up_learnset_pointers.h")))
     moves = blocks(read("src/data/battle_moves.h"), "MOVE")
     trainers, used_moves = {}, set()
-    for key in TRAINERS:
+    for key in trainer_ids:
+        key = key[len("TRAINER_"):] if key.startswith("TRAINER_") else key
         body = trainer_data[key]
         if field(body, "doubleBattle") != "FALSE":
             raise ValueError("Only single trainer battles are supported")
         party_name = re.search(r"\.party\s*=\s*(\w+)\((s\w+)\)", body)
-        if not party_name or not party_name[1].startswith("NO_ITEM_"):
-            raise ValueError("Only trainer parties without held items are supported")
+        if not party_name:
+            raise ValueError("Unknown trainer party layout")
         party = re.search(r"\b" + party_name[2] + r"\[\]\s*=\s*\{(.*?)\n\};", parties, re.S)[1]
         trainer_name = re.search(r'\.trainerName\s*=\s*_\("(.*?)"\)', body)[1]
         name_hash, members = 0, []
@@ -137,15 +138,21 @@ def import_checkout(repo):
             name_hash += sum(chars[c] for c in trainer_name + names[species])
             personality = ((0x78 if "F_TRAINER_FEMALE" in body else 0x88) + (name_hash << 8)) & 0xFFFFFFFF
             raw_iv = int(field(mon, "iv"))
-            members.append({"species": species, "level": level, "iv": raw_iv * 31 // 255,
+            held = re.search(r"\.heldItem\s*=\s*ITEM_(\w+)", mon)
+            held_item = held[1] if held and held[1] != "NONE" else ""
+            member = {"species": species, "level": level, "iv": raw_iv * 31 // 255,
                             "pret_iv": raw_iv, "nature": NATURES[personality % 25],
-                            "personality": personality, "ability_slot": 0, "moves": known})
+                            "personality": personality, "ability_slot": 0, "moves": known}
+            if held_item:
+                member['held_item'] = held_item
+            members.append(member)
         flags = constants(field(body, "aiFlags"), "AI_SCRIPT")
         if set(flags) - ROOTS.keys():
             raise ValueError("Unsupported trainer AI flags: " + str(flags))
         trainers["TRAINER_" + key] = {"name": trainer_name, "ai": flags, "party": members,
             "items": [i for i in constants(re.search(r"\.items\s*=\s*\{(.*?)\}", body)[1], "ITEM") if i != "NONE"]}
     # Include effects of our fixture moves for the AI's move-history queries.
+    used_moves.update(player_moves)
     used_moves.update(("BITE", "TAIL_WHIP", "BUBBLE", "WITHDRAW", "WATER_PULSE", "DIG", "MEGA_KICK", "TACKLE"))
     metadata = {move: {"effect": field(moves[move], "effect"), "power": int(field(moves[move], "power")),
                        "type": field(moves[move], "type"), "pp": int(field(moves[move], "pp"))} for move in sorted(used_moves)}
@@ -159,8 +166,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--run-data", type=Path, help="Run directory containing reference.json")
     args = parser.parse_args()
-    data = import_checkout(args.repo)
+    if args.run_data:
+        reference = json.loads((args.run_data / 'reference.json').read_text())
+        data = import_checkout(args.repo, reference['trainers'], reference['move_pp'])
+    else:
+        data = import_checkout(args.repo)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(data, indent=2) + "\n")
 
