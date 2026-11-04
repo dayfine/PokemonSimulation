@@ -1,4 +1,4 @@
-"""Generate a small EXP data snapshot for a curated FRLG route.
+"""Generate EXP data and starter-family learnsets for a curated FRLG route.
 
     PYTHONPATH=src python3 -m pokesim.games.frlg.progression.pret --repo external/pokefirered \
         --route data/runs/pokeguy-leafgreen-15934/events.json --out /tmp/reference.json
@@ -36,6 +36,12 @@ def import_reference(repo, route):
     species = dict(re.findall(r"\[SPECIES_(\w+)\]\s*=\s*\{\n(.*?)\n    \},",
                              read("src/data/pokemon/species_info.h"), re.S))
     curves = read("src/data/pokemon/experience_tables.h")
+    learned_text = read("src/data/pokemon/level_up_learnsets.h")
+    learned = {name: [{"level": int(level), "move": move} for level, move in re.findall(
+        r"LEVEL_UP_MOVE\(\s*(\d+),\s*MOVE_(\w+)\)", body)]
+        for name, body in re.findall(r"static const u16 (s\w+)\[\]\s*=\s*\{(.*?)\};", learned_text, re.S)}
+    pointers = dict(re.findall(r"\[SPECIES_(\w+)\]\s*=\s*(s\w+)",
+        read("src/data/pokemon/level_up_learnset_pointers.h")))
     if "#define EXP_MEDIUM_SLOW(n)((6 * CUBE(n)) / 5 - (15 * SQUARE(n)) + (100 * n) - 140)" not in curves:
         raise ValueError("Review changed pret Medium Slow growth formula before importing")
     for source in RULE_SOURCES:
@@ -70,6 +76,7 @@ def import_reference(repo, route):
     for name in ("SQUIRTLE", "WARTORTLE", "BLASTOISE"):
         if pokemon[name]["growth_rate"] != "GROWTH_MEDIUM_SLOW":
             raise ValueError("Review changed Squirtle family growth rate")
+        pokemon[name]["learnset"] = learned[pointers[name]]
     revision = subprocess.check_output(["git", "-C", str(repo), "rev-parse", "HEAD"], text=True).strip()
     return {"format": "pokesim-frlg-exp-data/1",
         "source": {"repository": "https://github.com/pret/pokefirered", "revision": revision, "sha256": hashes},

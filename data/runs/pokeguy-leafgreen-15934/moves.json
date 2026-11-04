@@ -1,0 +1,403 @@
+{
+  "format": "pokesim-frlg-moves/1",
+  "source": {
+    "notes_repository": "https://github.com/dayfine/Arduino-Source",
+    "notes_commit": "11cbf77e0271e97b3639f9d5d419d0549ebec0bf",
+    "notes_path": "pokemon_sv/FRLG_POKEGUY_15934_VIDEO_NOTES.md",
+    "notes_sha256": "79c45ebea93f68b6bc4a893dd2ed2801ca5d7c018d36b161d8e09de2266d2f3c",
+    "video": "https://www.youtube.com/watch?v=CbfjWuRWH10",
+    "verified_run": "https://www.speedrun.com/pkmnfrlg/runs/z5kkjogz",
+    "clock": "video playback seconds, not the run timer",
+    "method": "Curated from the existing visual-review notes; not a new continuous video transcription."
+  },
+  "initial_moves": [
+    "TACKLE",
+    "TAIL_WHIP"
+  ],
+  "scope": "Recorded run with its two wild wins; move membership only, not PP or controller slot positions.",
+  "decisions": [
+    {
+      "id": "learn-bubble",
+      "when": {
+        "event": "route1-pidgey-defeated",
+        "at": "after_foe",
+        "foe_index": 0
+      },
+      "video_start": 255,
+      "video_end": 262,
+      "action": "learn",
+      "move": "BUBBLE",
+      "replaces": null,
+      "method": "level_up",
+      "level": 7,
+      "evidence": [
+        {
+          "line": 157,
+          "text": "| [04:15\u201304:22](https://www.youtube.com/watch?v=CbfjWuRWH10&t=255) | Receive **15 EXP**, grow to **Lv.7**, learn **Bubble**. | Level-up HP becomes **19/25**. Bubble is added without a four-move replacement prompt. Its final slot has not yet been read from a later move menu. |"
+        }
+      ]
+    },
+    {
+      "id": "learn-withdraw",
+      "when": {
+        "event": "pewter-liam",
+        "at": "after_foe",
+        "foe_index": 1
+      },
+      "video_start": 715,
+      "video_end": 728,
+      "action": "learn",
+      "move": "WITHDRAW",
+      "replaces": null,
+      "method": "level_up",
+      "level": 10,
+      "evidence": [
+        {
+          "line": 263,
+          "text": "| 11:55\u201312:08 | A reaches Lv.10 and learns Withdraw into the empty fourth slot, then reaches Lv.11. Defeat Liam; win 220. | HP increases to 9/31 then 11/33. Both level increases occur after Sandshrew; do not drop the second one. |"
+        }
+      ]
+    },
+    {
+      "id": "learn-water-gun",
+      "when": {
+        "event": "brock",
+        "at": "after_foe",
+        "foe_index": 1
+      },
+      "video_start": 775,
+      "video_end": 792,
+      "action": "learn",
+      "move": "WATER_GUN",
+      "replaces": "TAIL_WHIP",
+      "method": "level_up",
+      "level": 13,
+      "evidence": [
+        {
+          "line": 266,
+          "text": "| 12:55\u201313:12 | A reaches Lv.12 (3/35 HP), then Lv.13 (6/38); replace **Tail Whip with Water Gun**. | Quarter-second menu inspection confirms deletion of slot 1. Before deletion: Tail Whip 30/30, Tackle 26/35, Bubble 20/30, Withdraw 40/40. Water Gun starts 25/25. |"
+        }
+      ]
+    },
+    {
+      "id": "tutor-mega-kick",
+      "when": {
+        "event": "cerulean-candy1",
+        "at": "before"
+      },
+      "video_start": 1327,
+      "video_end": 1345,
+      "action": "learn",
+      "move": "MEGA_KICK",
+      "replaces": "WITHDRAW",
+      "method": "tutor",
+      "evidence": [
+        {
+          "line": 335,
+          "text": "| [22:07\u201322:25](https://www.youtube.com/watch?v=CbfjWuRWH10&t=1327) | Teach **Mega Kick** to A, replacing **Withdraw**. | Detailed menu inspection confirms Withdraw selected. Menu order is now Tackle / Water Gun / Bubble / Withdraw before replacement; exact earlier reorder input has not been isolated. Water Gun 5/25, Bubble 19/30, Tackle 26/35. Party shows Rattata Lv.3, **10/15 HP** and Pidgey Lv.7, **5/24 HP**. |"
+        }
+      ]
+    },
+    {
+      "id": "learn-bite",
+      "when": {
+        "event": "cerulean-candy1",
+        "at": "after"
+      },
+      "video_start": 1381,
+      "video_end": 1394,
+      "action": "learn",
+      "move": "BITE",
+      "replaces": "BUBBLE",
+      "method": "level_up",
+      "level": 19,
+      "evidence": [
+        {
+          "line": 339,
+          "text": "| 23:01\u201323:14 | Use first Rare Candy on A: Lv.18\u219219; learn **Bite over Bubble**. | A becomes 11/56 HP. Confirmation names forgotten Bubble. |"
+        }
+      ]
+    },
+    {
+      "id": "tm-water-pulse",
+      "when": {
+        "event": "cerulean-rival",
+        "at": "before"
+      },
+      "video_start": 1483,
+      "video_end": 1496,
+      "action": "learn",
+      "move": "WATER_PULSE",
+      "replaces": "TACKLE",
+      "method": "TM03",
+      "evidence": [
+        {
+          "line": 346,
+          "text": "| 24:43\u201324:56 | Use TM03 to teach **Water Pulse**, replacing **Tackle**. | Forgotten Tackle and learned Water Pulse confirmed. TM39 remains in TM Case. |"
+        }
+      ]
+    },
+    {
+      "id": "decline-rapid-spin",
+      "when": {
+        "event": "route25-haley",
+        "at": "after_foe",
+        "foe_index": 0
+      },
+      "video_start": 1999,
+      "video_end": 2005,
+      "action": "decline",
+      "move": "RAPID_SPIN",
+      "replaces": null,
+      "method": "level_up",
+      "level": 25,
+      "evidence": [
+        {
+          "line": 409,
+          "text": "| 33:19\u201333:25 | Decline learning **Rapid Spin**. | \u201cA did not learn RAPID SPIN\u201d confirmation. Keep existing moves. |"
+        }
+      ]
+    },
+    {
+      "id": "decline-protect",
+      "when": {
+        "event": "rocktunnel-oliver",
+        "at": "after_foe",
+        "foe_index": 1
+      },
+      "video_start": 3021,
+      "video_end": 3083,
+      "action": "decline",
+      "move": "PROTECT",
+      "replaces": null,
+      "method": "level_up",
+      "level": 31,
+      "evidence": [
+        {
+          "line": 557,
+          "text": "| 50:21\u201351:23 | Traverse ladder and battle Hiker Oliver: first Onix Lv.20 takes two Bites, using Harden between; second Onix Lv.20 falls to Water Pulse; Geodude Lv.20 falls to Bite. | A reaches Lv.31, 41/86 HP, after second Onix; **decline Protect**. Prize 720. |"
+        }
+      ]
+    },
+    {
+      "id": "hm-surf",
+      "when": {
+        "event": "fuchsia-kirk",
+        "at": "before"
+      },
+      "video_start": 4495,
+      "video_end": 4513,
+      "action": "learn",
+      "move": "SURF",
+      "replaces": "WATER_GUN",
+      "method": "HM03",
+      "evidence": [
+        {
+          "line": 713,
+          "text": "| [1:15:00\u20131:15:13](https://www.youtube.com/watch?v=CbfjWuRWH10&t=4500) | Finish teaching **Surf**, replacing **Water Gun**. Close menus. | Next battle confirms move slots **Surf / Water Pulse / Bite / Mega Kick**. Surf starts 15 PP. |"
+        }
+      ]
+    },
+    {
+      "id": "decline-rain-dance",
+      "when": {
+        "event": "celadon-tamia",
+        "at": "after_foe",
+        "foe_index": 1
+      },
+      "video_start": 5070,
+      "video_end": 5099,
+      "action": "decline",
+      "move": "RAIN_DANCE",
+      "replaces": null,
+      "method": "level_up",
+      "level": 42,
+      "evidence": [
+        {
+          "line": 753,
+          "text": "| 1:24:30\u20131:24:59 | Tamia: two **Bellsprout Lv.24**, **one Bite each**. Grow **Lv.42, 29/131 HP**; decline **Rain Dance**; win **1728**. | Bite 5/25 before first, 4/25 before second. No damage. Overworld fade at boundary. |"
+        }
+      ]
+    },
+    {
+      "id": "tm-blizzard",
+      "when": {
+        "event": "celadon-lori",
+        "at": "before"
+      },
+      "video_start": 5100,
+      "video_end": 5129,
+      "action": "learn",
+      "move": "BLIZZARD",
+      "replaces": "MEGA_KICK",
+      "method": "TM14",
+      "evidence": [
+        {
+          "line": 774,
+          "text": "| [1:25:00\u20131:25:29](https://www.youtube.com/watch?v=CbfjWuRWH10&t=5100) | Use both **Rare Candies** on A: **Lv.43, 32/134 HP**, then **Lv.44, 35/137 HP**. Teach **TM14 Blizzard**, replacing **Mega Kick**. | Before replacement: Surf 1/15, Water Pulse 2/20, Bite 3/25, Mega Kick 1/5 directly visible. Blizzard starts 5/5. |"
+        }
+      ]
+    },
+    {
+      "id": "hm-strength",
+      "when": {
+        "event": "lorelei",
+        "at": "before"
+      },
+      "video_start": 6204,
+      "video_end": 6221,
+      "action": "learn",
+      "move": "STRENGTH",
+      "replaces": "WATER_PULSE",
+      "method": "HM04",
+      "evidence": [
+        {
+          "line": 888,
+          "text": "| 1:43:24\u20131:43:41 | Open the bag, then the **TM case**: teach **HM04 Strength**. The move-forget screen shows Surf **2/15**, Water Pulse **6/20**, Bite **20/25**, Blizzard **1/5**; one move is forgotten (\"1, 2 and\u2026 Poof!\"). | The forgotten slot is not readable at 1 fps. The Lorelei move menu at 1:47:13 shows **Surf / Strength / Bite / Blizzard**, so **Water Pulse** was replaced. |"
+        }
+      ]
+    },
+    {
+      "id": "decline-skull-bash",
+      "when": {
+        "event": "lance",
+        "at": "after_foe",
+        "foe_index": 2
+      },
+      "video_start": 6883,
+      "video_end": 6890,
+      "action": "decline",
+      "move": "SKULL_BASH",
+      "replaces": null,
+      "method": "level_up",
+      "level": 55,
+      "evidence": [
+        {
+          "line": 963,
+          "text": "| 1:54:43\u20131:54:50 | A tries to learn **Skull Bash**; answer **Yes** to \"Stop learning Skull Bash?\" | Moves unchanged. |"
+        }
+      ]
+    }
+  ],
+  "menu_checks": [
+    {
+      "event": "misty",
+      "moves": [
+        "TACKLE",
+        "WATER_GUN",
+        "BITE",
+        "MEGA_KICK"
+      ],
+      "evidence": [
+        {
+          "line": 342,
+          "text": "| 23:29\u201323:51 | Follow Gym path around pool to Misty; bypass both Gym trainers and begin leader battle. | Moves visibly Tackle / Water Gun / Bite / Mega Kick. |"
+        }
+      ]
+    },
+    {
+      "event": "cerulean-rival",
+      "moves": [
+        "WATER_PULSE",
+        "WATER_GUN",
+        "BITE",
+        "MEGA_KICK"
+      ],
+      "evidence": [
+        {
+          "line": 370,
+          "text": "| 25:18\u201325:33 | Rival RED approaches at bridge entrance and starts battle. | A Lv.21, 32/61 HP. Menu confirms Water Pulse / Water Gun / Bite / Mega Kick. |"
+        }
+      ]
+    },
+    {
+      "event": "rocktunnel-sofia",
+      "moves": [
+        "WATER_GUN",
+        "WATER_PULSE",
+        "BITE",
+        "MEGA_KICK"
+      ],
+      "evidence": [
+        {
+          "line": 559,
+          "text": "| 51:39\u201352:19 | Sofia: Jigglypuff, Pidgey and Meowth, all Lv.21, each defeated with one Water Pulse. Prize 420. | Menu at 51:48 shows **Water Gun / Water Pulse / Bite / Mega Kick**; the two water moves have swapped relative to earlier menus. Exact swap input not isolated. |"
+        }
+      ]
+    },
+    {
+      "event": "fuchsia-kirk",
+      "moves": [
+        "SURF",
+        "WATER_PULSE",
+        "BITE",
+        "MEGA_KICK"
+      ],
+      "evidence": [
+        {
+          "line": 713,
+          "text": "| [1:15:00\u20131:15:13](https://www.youtube.com/watch?v=CbfjWuRWH10&t=4500) | Finish teaching **Surf**, replacing **Water Gun**. Close menus. | Next battle confirms move slots **Surf / Water Pulse / Bite / Mega Kick**. Surf starts 15 PP. |"
+        }
+      ]
+    },
+    {
+      "event": "celadon-lori",
+      "moves": [
+        "SURF",
+        "WATER_PULSE",
+        "BITE",
+        "BLIZZARD"
+      ],
+      "evidence": [
+        {
+          "line": 774,
+          "text": "| [1:25:00\u20131:25:29](https://www.youtube.com/watch?v=CbfjWuRWH10&t=5100) | Use both **Rare Candies** on A: **Lv.43, 32/134 HP**, then **Lv.44, 35/137 HP**. Teach **TM14 Blizzard**, replacing **Mega Kick**. | Before replacement: Surf 1/15, Water Pulse 2/20, Bite 3/25, Mega Kick 1/5 directly visible. Blizzard starts 5/5. |"
+        }
+      ]
+    },
+    {
+      "event": "lorelei",
+      "moves": [
+        "SURF",
+        "STRENGTH",
+        "BITE",
+        "BLIZZARD"
+      ],
+      "evidence": [
+        {
+          "line": 888,
+          "text": "| 1:43:24\u20131:43:41 | Open the bag, then the **TM case**: teach **HM04 Strength**. The move-forget screen shows Surf **2/15**, Water Pulse **6/20**, Bite **20/25**, Blizzard **1/5**; one move is forgotten (\"1, 2 and\u2026 Poof!\"). | The forgotten slot is not readable at 1 fps. The Lorelei move menu at 1:47:13 shows **Surf / Strength / Bite / Blizzard**, so **Water Pulse** was replaced. |"
+        }
+      ]
+    }
+  ],
+  "slot_order_notes": [
+    {
+      "detail": "Tackle and Tail Whip are swapped during the Pidgey fight at 4:01\u20134:02; membership is unchanged.",
+      "evidence": [
+        {
+          "line": 155,
+          "text": "| [04:01\u201304:02](https://www.youtube.com/watch?v=CbfjWuRWH10&t=241) | Reorder the move list: exchange Tackle and Tail Whip. | Quarter-second frames show the switch: **Tail Whip becomes slot 1; Tackle becomes slot 2**. Tackle remains selected and is used. Exact controller button for move swapping is not visible. |"
+        }
+      ]
+    },
+    {
+      "detail": "After Water Gun replaces slot 1 at Brock, Tackle and Water Gun are reordered before the 22:07 tutor menu. The exact reorder input/time is not isolated.",
+      "evidence": [
+        {
+          "line": 335,
+          "text": "| [22:07\u201322:25](https://www.youtube.com/watch?v=CbfjWuRWH10&t=1327) | Teach **Mega Kick** to A, replacing **Withdraw**. | Detailed menu inspection confirms Withdraw selected. Menu order is now Tackle / Water Gun / Bubble / Withdraw before replacement; exact earlier reorder input has not been isolated. Water Gun 5/25, Bubble 19/30, Tackle 26/35. Party shows Rattata Lv.3, **10/15 HP** and Pidgey Lv.7, **5/24 HP**. |"
+        }
+      ]
+    },
+    {
+      "detail": "Water Pulse and Water Gun have swapped by the 51:48 Sofia menu. The exact reorder input/time is not isolated.",
+      "evidence": [
+        {
+          "line": 559,
+          "text": "| 51:39\u201352:19 | Sofia: Jigglypuff, Pidgey and Meowth, all Lv.21, each defeated with one Water Pulse. Prize 420. | Menu at 51:48 shows **Water Gun / Water Pulse / Bite / Mega Kick**; the two water moves have swapped relative to earlier menus. Exact swap input not isolated. |"
+        }
+      ]
+    }
+  ]
+}
