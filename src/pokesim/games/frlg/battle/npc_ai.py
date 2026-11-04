@@ -1,18 +1,19 @@
 """Game NPC move-selection AI, interpreted from pret's FRLG scoring scripts.
 
-The current snapshot covers Misty, the Cerulean rival (Bulbasaur team), the
-S.S. Anne rival (Ivysaur team), and Lt. Surge. This module selects the enemy
-trainer's moves; our solo player's move/healing strategy is player_action()
+The imported snapshot selects trainer and move coverage: either the original
+four AutoStory experiments or all 69 trainers in Pokeguy's route. This module
+selects the enemy trainer's moves; our solo player's strategy is player_action()
 in policy.py. NPC item use and compulsory replacement are also in policy.py.
 
 The instruction branches and score changes come from the pinned decomp.
 Damage helpers use Smogon previews rather than pret's AI_CalcDmg. This is a
 script-policy approximation, not a cartridge RNG or full AI emulation.
-Voluntary switching is outside the first milestone.
+Voluntary switching is not modeled; switch moves such as Baton Pass run in Showdown.
 """
 
 import operator
 import re
+from functools import lru_cache
 
 
 def move_id(name):
@@ -23,8 +24,23 @@ STAT = {"ATK": "atk", "DEF": "def", "SPEED": "spe", "SPATK": "spa",
         "SPDEF": "spd", "ACC": "accuracy", "EVASION": "evasion"}
 COMPARE = {"equal": operator.eq, "not_equal": operator.ne, "less_than": operator.lt,
            "more_than": operator.gt}
+STAT_OPS = {'if_stat_level_' + name for name in COMPARE}
+HP_OPS = {'if_hp_' + name for name in COMPARE}
+STATUS_OPS = {'if_status', 'if_status2', 'if_status3', 'if_not_status', 'if_not_status2', 'if_not_status3'}
 DISCOURAGED = {"EFFECT_" + e for e in ("EXPLOSION", "DREAM_EATER", "RAZOR_WIND", "SKY_ATTACK",
     "RECHARGE", "SKULL_BASH", "SOLAR_BEAM", "SPIT_UP", "FOCUS_PUNCH", "SUPERPOWER", "ERUPTION", "OVERHEAT")}
+
+
+@lru_cache(maxsize=None)
+def script_value(token):
+    """Decode immutable script operands once, preserving symbolic constants."""
+    try:
+        return int(token, 0)
+    except ValueError:
+        if token.startswith('ABILITY_'):
+            return move_id(token[len('ABILITY_'):])
+        return {'MOVE_POWER_DISCOURAGED': 0, 'MOVE_NOT_MOST_POWERFUL': 1,
+                'MOVE_MOST_POWERFUL': 2}.get(token, token)
 
 
 class NPCTrainerAI:
@@ -67,14 +83,7 @@ class NPCTrainerAI:
         def mon(which):
             return user if which == "AI_USER" else target
 
-        def value(token):
-            try:
-                return int(token, 0)
-            except ValueError:
-                if token.startswith("ABILITY_"):
-                    return move_id(token[len("ABILITY_"):])
-                return {"MOVE_POWER_DISCOURAGED": 0, "MOVE_NOT_MOST_POWERFUL": 1,
-                        "MOVE_MOST_POWERFUL": 2}.get(token, token)
+        value = script_value
 
         for _ in range(2000):
             op, *args = code[pc]
@@ -107,14 +116,33 @@ class NPCTrainerAI:
                 key = {"get_move_effect_from_result": "effect", "get_move_power_from_result": "power", "get_move_type_from_result": "type"}[op]
                 result = previous[key] if previous else 0
             elif op == "get_weather":
-                result = 0  # Misty, the two imported rivals, and Surge have no weather-setting moves.
-            elif op.startswith("if_stat_level_"):
+                result = user.get("weather", 0)
+            elif op == "get_gender":
+                result = {"M": "MON_MALE", "F": "MON_FEMALE", "N": "MON_GENDERLESS"}[mon(args[0])["gender"]]
+            elif op == "count_alive_pokemon":
+                result = mon(args[0])["reserves_alive"]
+            elif op == "is_first_turn_for":
+                result = int(mon(args[0])["first_turn"])
+            elif op == "get_protect_count":
+                result = mon(args[0])["protect_count"]
+            elif op == "if_level_cond":
+                jump = (operator.gt, operator.lt, operator.eq)[int(args[0])](user["level"], target["level"])
+            elif op == "if_not_double_battle":
+                jump = True
+            elif op == "if_target_not_taunted":
+                jump = "taunt" not in target["volatiles"]
+            elif op == "if_side_affecting":
+                condition = args[1][len("SIDE_STATUS_"):].lower()
+                jump = condition in mon(args[0])["side_conditions"]
+            elif op == "if_more_than":
+                jump = result > value(args[0])
+            elif op in STAT_OPS:
                 stat = STAT[args[1][len("STAT_"):]]
                 jump = COMPARE[op[len("if_stat_level_"):]](mon(args[0])["boosts"][stat] + 6, int(args[2]))
-            elif op.startswith("if_hp_"):
+            elif op in HP_OPS:
                 p = mon(args[0])
                 jump = COMPARE[op[len("if_hp_"):]](p["hp"] * 100 // p["max_hp"], int(args[1]))
-            elif op.startswith(("if_status", "if_not_status")):
+            elif op in STATUS_OPS:
                 jump = self.has_status(mon(args[0]), args[1])
                 if "not_status" in op:
                     jump = not jump
@@ -142,8 +170,9 @@ class NPCTrainerAI:
                     values.extend(value(v) for v in code[index][1:])
                     index += 1
                 jump = (result in values) == (op == "if_in_bytes")
-            elif op == "if_target_faster":
-                jump = target["speed"] > user["speed"] or (target["speed"] == user["speed"] and bool(rng.randrange(2)))
+            elif op in ("if_target_faster", "if_user_faster"):
+                faster = target["speed"] > user["speed"] or (target["speed"] == user["speed"] and bool(rng.randrange(2)))
+                jump = faster if op == "if_target_faster" else not faster
             elif op in ("if_has_move_with_effect", "if_doesnt_have_move_with_effect"):
                 # Only moves already revealed to the trainer are known for AI_TARGET.
                 known = mon(args[0])["moves"] if args[0] == "AI_USER" else target.get("revealed_moves", [])
@@ -162,9 +191,21 @@ class NPCTrainerAI:
     @staticmethod
     def has_status(mon, flag):
         """Translate supported symbolic pret status masks to Showdown state."""
+        if " | " in flag:
+            return any(NPCTrainerAI.has_status(mon, part) for part in flag.split(" | "))
         conditions = {"STATUS1_ANY": bool(mon["status"]), "STATUS1_TOXIC_POISON": mon["status"] == "tox",
             "STATUS3_LEECHSEED": "leechseed" in mon["volatiles"], "STATUS3_ROOTED": "ingrain" in mon["volatiles"],
             "STATUS2_CURSED": "curse" in mon["volatiles"]}
+        conditions.update({"STATUS1_" + name: mon["status"] == status for name, status in
+            (("SLEEP", "slp"), ("POISON", "psn"), ("BURN", "brn"), ("PARALYSIS", "par"), ("FREEZE", "frz"))})
+        conditions.update({"STATUS" + group + "_" + name: volatile in mon["volatiles"] for group, name, volatile in
+            (("2", "CONFUSION", "confusion"), ("2", "INFATUATION", "attract"),
+             ("2", "FOCUS_ENERGY", "focusenergy"), ("2", "SUBSTITUTE", "substitute"),
+             ("2", "ESCAPE_PREVENTION", "trapped"), ("2", "FORESIGHT", "foresight"),
+             ("2", "NIGHTMARE", "nightmare"), ("2", "TORMENT", "torment"),
+             ("3", "PERISH_SONG", "perishsong"), ("3", "YAWN", "yawn"),
+             ("3", "IMPRISONED_OTHERS", "imprison"), ("3", "MUDSPORT", "mudsport"),
+             ("3", "WATERSPORT", "watersport"))})
         if flag not in conditions:
             raise ValueError("Unsupported AI status mask " + flag)
         return conditions[flag]

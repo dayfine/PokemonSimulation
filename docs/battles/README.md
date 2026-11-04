@@ -1,17 +1,23 @@
-# FRLG battle benchmark milestone
+# FRLG battle benchmarks
 
 Answer: given a solo Squirtle-line lead, its stats, HP, moves and PP, the bag,
 and a named trainer, how often does this policy win under this model?
 
-The four cases are Misty, the Cerulean rival, the S.S. Anne rival, and Lt.
+The [Pokeguy trainer benchmark](pokeguy-benchmark.md) now runs all 69 trainer
+battles from reconciled entry states, with live progression and setup items.
+See [the complete results table](pokeguy-trainers.md).
+Its conditional win rates are separate from the original AutoStory experiments
+below.
+
+The original four cases are Misty, the Cerulean rival, the S.S. Anne rival, and Lt.
 Surge. They come from the FRLG AutoStory source fixtures. This milestone
 keeps evaluation and policies in Python and reuses existing battle mechanics.
 It runs locally without a Showdown server, account, or network connection.
 
 [Adaptive sampling](adaptive-sampling.md) can stop easy cases early while
 reporting anytime-valid uncertainty bounds and unresolved budget limits.
-The [Pokeguy readiness audit](pokeguy-readiness.md) lists the missing inputs
-and mechanics before the four old fixtures can become a full-run benchmark.
+The [Pokeguy input audit](pokeguy-readiness.md) records the provenance and
+remaining model limitations of the full trainer benchmark.
 
 Our adapter lives in [`engines/frlg-showdown/`](../../engines/frlg-showdown/README.md)
 and targets **FireRed / LeafGreen (Gen 3)**. Showdown and Smogon's calculator

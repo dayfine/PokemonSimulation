@@ -40,4 +40,4 @@ jobs:
       - name: Check FRLG mechanics boundaries
         run: npm test --prefix engines/frlg-showdown
       - name: Check Python policies and reproducible benchmarks
-        run: POKESIM_REQUIRE_BATTLE=1 PYTHONPATH=src python -m unittest -v pokesim.games.frlg.battle.test_battle
+        run: POKESIM_REQUIRE_BATTLE=1 PYTHONPATH=src python -m unittest discover -v -s src -t src

@@ -105,4 +105,4 @@ PP is keyed by move identity; display order is not a claim about controller slot
 - Late Elixir: Observed before Champion,6939.5–6942.5; player enters with Surf13/15 and Blizzard5/5.
 - Bruno X Speed: Observed X Speed action while first Onix is active; finish with3. X Special consumes2, X Accuracy consumes0.
 
-These inputs still require the trainer importer and live-battle mechanics listed in the readiness audit before they can produce full-run win rates.
+The [trainer benchmark](../battles/pokeguy-benchmark.md) combines these player states with full NPC parties and live progression to estimate conditional per-battle win rates. These state snapshots alone are not complete engine scenarios.

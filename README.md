@@ -6,10 +6,10 @@ before spending time on a console run.
 
 The existing library covers maps, tile movement, routing under uncertainty,
 and movement physics for FireRed / LeafGreen and Brilliant Diamond /
-Shining Pearl. The first battle milestone runs four FRLG trainer encounters
+Shining Pearl. The battle benchmark runs all 69 trainer encounters in Pokeguy’s FRLG route
 with Python policies, pret data, and a local Pokémon Showdown engine.
-See [the battle benchmark guide](docs/battles/README.md) for inputs, limitations,
-and reproducible results.
+See [the full trainer benchmark](docs/battles/pokeguy-benchmark.md) for inputs, limitations,
+and [the complete results table](docs/battles/pokeguy-trainers.md).
 
 The [full-route EXP audit](docs/progression/README.md) logs Pokeguy's LeafGreen
 battles, calculates the starter's level after each one, and compares it with
@@ -67,11 +67,11 @@ points at it:
 POKEFIRERED_DIR="$PWD/external/pokefirered" PYTHONPATH=src python3 -m unittest discover -s src -t src
 ```
 
-Run the battle milestone:
+Run the full trainer benchmark:
 
 ```sh
 npm ci --omit=optional --prefix engines/frlg-showdown
-PYTHONPATH=src python3 -m pokesim.cli.frlg_battle --battles 1000 --out /tmp/frlg.json
+PYTHONPATH=src python3 -m pokesim.cli.frlg_run_battles --out /tmp/pokeguy-battles.json
 ```
 
 See [external/README.md](external/README.md) for source checkout conventions,
