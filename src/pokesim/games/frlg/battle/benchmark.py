@@ -75,13 +75,15 @@ def trial(engine, scenario, ai, master_seed, index, turn_limit):
         "decisions": decisions, "log": log}
 
 
-def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None):
+def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None, sampling=None):
     """Report probabilities conditional on this model, inputs, and policies."""
     if not isinstance(battles, int) or isinstance(battles, bool) or battles < 1:
         raise ValueError("battles must be a positive integer")
     if not isinstance(turn_limit, int) or turn_limit < 1:
         raise ValueError("turn_limit must be a positive integer")
     validate_cases(cases, pret)
+    if sampling is not None and sampling.minimum > battles:
+        raise ValueError("Minimum trials exceeds maximum trial budget")
     ai = NPCTrainerAI(pret)
     results = []
     with Engine() as engine:
@@ -90,6 +92,7 @@ def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None):
             wins, turns, hp = 0, 0, 0
             losses, states, outcomes = Counter(), Counter(), Counter()
             final_effects, used, trainer_used, examples = Counter(), Counter(), Counter(), {}
+            sampling_result = None
             for index in range(battles):
                 played = trial(engine, scenario, ai, seed, index, turn_limit)
                 outcomes[played["outcome"]] += 1
@@ -110,16 +113,28 @@ def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None):
                 examples.setdefault(played["outcome"], played)
                 if progress and (index + 1) % min(100, battles) == 0:
                     progress(case["id"], index + 1, battles)
-            results.append({"id": case["id"], "inputs": scenario, "battles": battles,
-                "wins": wins, "win_probability": wins / battles, "wilson_95": wilson(wins, battles),
-                "outcomes": dict(outcomes), "mean_turns": turns / battles, "mean_hp_remaining": hp / battles,
-                "mean_items_used": {k: v / battles for k, v in used.items()},
-                "mean_trainer_items_used": {k: v / battles for k, v in trainer_used.items()},
+                if sampling is not None:
+                    checked = sampling.check(wins, index + 1, battles, len(cases))
+                    if checked is not None:
+                        sampling_result = checked
+                        if checked["stop_reason"]:
+                            break
+            completed = index + 1
+            result = {"id": case["id"], "inputs": scenario, "battles": completed,
+                "wins": wins, "win_probability": wins / completed,
+                "outcomes": dict(outcomes), "mean_turns": turns / completed, "mean_hp_remaining": hp / completed,
+                "mean_items_used": {k: v / completed for k, v in used.items()},
+                "mean_trainer_items_used": {k: v / completed for k, v in trainer_used.items()},
                 "losses_by_foe": dict(losses), "conditions_present_at_loss": dict(states),
                 "final_damage_effects": dict(final_effects),
-                "examples": examples})
+                "examples": examples}
+            if sampling is not None:
+                result.update(confidence_sequence=sampling_result, maximum_battles=battles)
+            else:
+                result["wilson_95"] = wilson(wins, completed)
+            results.append(result)
     fingerprint = hashlib.sha256(json.dumps(pret, sort_keys=True).encode()).hexdigest()
-    return {"format": "pokesim-frlg-report/1", "seed": seed, "turn_limit": turn_limit,
+    report = {"format": "pokesim-frlg-report/1", "seed": seed, "turn_limit": turn_limit,
         "policy": POLICY, "engine": json.loads((BRIDGE / "package.json").read_text())["dependencies"],
         "engine_lock_sha256": hashlib.sha256((BRIDGE / "package-lock.json").read_bytes()).hexdigest(),
         "pret_source": pret["source"], "pret_snapshot_sha256": fingerprint,
@@ -132,3 +147,7 @@ def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None):
             "Conditions at loss are descriptive, not proven causes of loss.",
             "Turn-limit outcomes count as non-wins and are also reported separately."],
         "results": results}
+    if sampling is not None:
+        report["sampling"] = sampling.describe(len(cases))
+        report["assumptions"].append("Confidence sequences cover modeled win-within-turn-limit probabilities across all requested cases and all sampling looks; they do not cover input or engine error.")
+    return report
