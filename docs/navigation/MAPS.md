@@ -142,7 +142,7 @@ reads a local checkout. `decomp.frlg.Checkout(root, game)` reads
 tile), the tilesets' `metatile_attributes.bin` (behavior) and each map's
 `map.json` (connections, warps, objects, signs). The game-specific numbers
 (primary tileset size, behavior table, elevation rules, viewport) are in
-`pokesim/data/games/frlg.py`; the command line is `pokesim.cli.import_frlg`.
+`src/pokesim/games/frlg/__init__.py`; the command line is `pokesim.cli.import_frlg`.
 
 ```sh
 PYTHONPATH=src python3 -m pokesim.cli.import_frlg ~/pokefirered Route1 PalletTown --out /tmp/frlg

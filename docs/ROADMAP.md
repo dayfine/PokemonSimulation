@@ -1,8 +1,8 @@
 # Roadmap
 
 PokemonSimulation is expanding from navigation into offline simulation and
-planning for Pokémon automation. This refactor establishes naming and layout;
-the integrations below are future work.
+planning for Pokémon automation. The first battle benchmark milestone is
+implemented; broader integrations remain future work.
 
 ## Existing foundation
 
@@ -20,11 +20,18 @@ Details of the existing models live in [navigation/](navigation/).
 
 ## Battle simulation
 
-Choose a public battle simulation library and build a Python interface for
-our first workload. Evaluate generation support, trainer AI, items, state
-representation, reproducibility, and how closely it models FireRed battles.
-Reuse an existing engine rather than growing another mechanics implementation.
-No engine or runtime dependency has been selected yet.
+The [first milestone](battles/README.md) runs Misty, the Cerulean rival,
+the S.S. Anne rival, and Lt. Surge. Python owns policies and repeated seeded
+trials; a pinned local Showdown adapter owns Gen 3 mechanics, with Smogon's
+calculator for decision previews. The imported pret trainer parties and
+scoring scripts are revision-stamped.
+
+Reports include confidence intervals, item consumption, conditions at loss,
+and example traces. This is an approximation of FRLG trainer behavior:
+AI damage helpers differ from pret, voluntary switching is omitted, and
+some source-fixture stats are assumed. Validate against console runs before
+using these estimates as a readiness gate. Next work depends on the outcome
+of that validation; do not expand to other games yet.
 
 ## pret map data
 

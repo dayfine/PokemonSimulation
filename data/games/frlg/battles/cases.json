@@ -1,0 +1,139 @@
+{
+  "format": "pokesim-frlg-cases/1",
+  "cases": [
+    {
+      "id": "misty-m51",
+      "trainer": "TRAINER_LEADER_MISTY",
+      "player": {
+        "species": "WARTORTLE",
+        "level": 20,
+        "iv": 15,
+        "nature": "Hardy",
+        "stats": {
+          "hp": 60,
+          "atk": 33,
+          "def": 40,
+          "spa": 34,
+          "spd": 40,
+          "spe": 31
+        },
+        "moves": [
+          "BITE",
+          "TAIL_WHIP",
+          "BUBBLE",
+          "WITHDRAW"
+        ]
+      },
+      "bag": {
+        "potion": 2
+      },
+      "badges": [
+        "boulder"
+      ],
+      "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryBattleSim_Tests.cpp",
+      "input_notes": "m51: species, level, max HP and moves from summary; other stats assumed neutral nature, IV 15, EV 0. No PP Ups; full HP and PP at entry."
+    },
+    {
+      "id": "cerulean-m56",
+      "trainer": "TRAINER_RIVAL_CERULEAN_BULBASAUR",
+      "player": {
+        "species": "WARTORTLE",
+        "level": 22,
+        "iv": 15,
+        "nature": "Hardy",
+        "stats": {
+          "hp": 65,
+          "atk": 36,
+          "def": 43,
+          "spa": 36,
+          "spd": 43,
+          "spe": 33
+        },
+        "moves": [
+          "BITE",
+          "WATER_PULSE",
+          "BUBBLE",
+          "WITHDRAW"
+        ]
+      },
+      "bag": {
+        "potion": 15,
+        "awakening": 2,
+        "parlyzheal": 1
+      },
+      "badges": [
+        "boulder",
+        "cascade"
+      ],
+      "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryBattleSim_Tests.cpp",
+      "input_notes": "m56: species, level, max HP and moves from source fixture; other stats assumed neutral nature, IV 15, EV 0. Bag reflects the preparation scenario, not a complete observed bag. Full HP and PP at entry. Assumes Misty already defeated."
+    },
+    {
+      "id": "ssanne-27",
+      "trainer": "TRAINER_RIVAL_SS_ANNE_BULBASAUR",
+      "player": {
+        "species": "WARTORTLE",
+        "level": 27,
+        "iv": 15,
+        "nature": "Hardy",
+        "stats": {
+          "hp": 78,
+          "atk": 43,
+          "def": 52,
+          "spa": 44,
+          "spd": 52,
+          "spe": 40
+        },
+        "moves": [
+          "BITE",
+          "WATER_PULSE",
+          "BUBBLE",
+          "WITHDRAW"
+        ]
+      },
+      "bag": {
+        "potion": 15,
+        "antidote": 1
+      },
+      "badges": [
+        "boulder",
+        "cascade"
+      ],
+      "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryBattleSim_Tests.cpp",
+      "input_notes": "00.22 fixture: level 27 and 78 max HP; other stats assumed neutral nature, IV 15, EV 0. Full HP and PP at entry."
+    },
+    {
+      "id": "surge-m73",
+      "trainer": "TRAINER_LEADER_LT_SURGE",
+      "player": {
+        "species": "WARTORTLE",
+        "level": 29,
+        "iv": 15,
+        "nature": "Hardy",
+        "stats": {
+          "hp": 83,
+          "atk": 44,
+          "def": 59,
+          "spa": 51,
+          "spd": 64,
+          "spe": 49
+        },
+        "moves": [
+          "BITE",
+          "WATER_PULSE",
+          "BUBBLE",
+          "DIG"
+        ]
+      },
+      "bag": {
+        "potion": 14
+      },
+      "badges": [
+        "boulder",
+        "cascade"
+      ],
+      "source": "https://github.com/dayfine/Arduino-Source/blob/b48afbc830f4b4c34cf94eb1aba85c2654a69938/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryVermilionGym_Tests.cpp",
+      "input_notes": "m73: all six stats, species, level and moves from the measured summary fixture; full HP and PP at entry. Boulder badge applied in battle; Thunder badge not yet earned."
+    }
+  ]
+}

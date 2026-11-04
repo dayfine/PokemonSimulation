@@ -9,8 +9,8 @@ import unittest
 from pokesim.cli import textgrid as cli
 from pokesim.grid.maps import schema, textgrid
 
-from tests.paths import DOCS_EXAMPLES
-from tests.test_maps_textgrid import SMALL
+from pokesim._test_paths import DOCS_EXAMPLES
+from pokesim.grid.maps.test_textgrid import SMALL
 
 
 class CommandLineTest(unittest.TestCase):

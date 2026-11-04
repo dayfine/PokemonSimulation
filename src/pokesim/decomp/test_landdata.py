@@ -7,7 +7,7 @@ from pokesim.decomp import landdata
 from pokesim.decomp.landdata import LandGrid, matrix_from_binary, matrix_from_json
 from pokesim.grid.maps.model import Behavior, Cell
 
-from tests.test_decomp_repos import (DOOR, DOUBLE_NORTH, GRASS, LEDGE_SOUTH, OPEN, RIVER, ROUTE_TILES, TOWN_TILES,
+from pokesim.decomp.test_repos import (DOOR, DOUBLE_NORTH, GRASS, LEDGE_SOUTH, OPEN, RIVER, ROUTE_TILES, TOWN_TILES,
                                      WALL, WARP_NORTH, dp_matrix_bytes, land_bytes)
 
 

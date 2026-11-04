@@ -1,4 +1,7 @@
-"""Pokemon FireRed / LeafGreen: what the core model's numbers mean here.
+"""Pokemon FireRed / LeafGreen (Gen 3) rules and offline simulation.
+
+Navigation constants remain available directly from pokesim.games.frlg.
+The battle subpackage owns FRLG battle experiments and NPC/player policies.
 
 Source: the pokefirered decompilation. Elevation rules are in
 src/event_object_movement.c (IsElevationMismatchAt and
