@@ -21,14 +21,14 @@ generation, battle evaluation, and route validation.
 
 | Path | Purpose |
 |---|---|
-| `src/pokesim/battle/` | Python battle policies, pret import, engine client, and benchmark reports. |
+| `src/pokesim/games/frlg/battle/` | Python battle policies, pret import, engine client, and benchmark reports. |
 | `engines/frlg-showdown/` | FireRed/LeafGreen (Gen 3) adapter using pinned Showdown and Smogon packages. |
 | `src/pokesim/grid/` | Map models, movement rules, rendering, and route planning. |
 | `src/pokesim/physics/` | Movement uncertainty models. |
 | `src/pokesim/decomp/` | pret map importers: FRLG (`frlg`) and Sinnoh (`landdata`, `events`, `repos`, `generate`). |
 | `src/pokesim/games/` | Game-specific rules and data loaders. |
 | `src/pokesim/cli/` | Commands for importing, converting, and rendering maps. |
-| `tests/` | Python unit tests and synthetic decomp fixtures. |
+| `src/pokesim/**/test_*.py` | Python tests and synthetic decomp fixtures, beside the modules they exercise. |
 | `data/games/<game>/` | Reference maps, route fixtures, and game data. |
 | `data/measurements/` | Raw console measurements for fitting models. |
 | `external/` | Ignored local checkouts of upstream data sources. |
@@ -42,8 +42,8 @@ also requires Node 22+ and the pinned npm packages; navigation works without
 them. From the repository root:
 
 ```sh
-PYTHONPATH=src python3 -m unittest discover -s tests -t .
-PYTHONPATH=src python3 -m unittest tests.test_package
+PYTHONPATH=src python3 -m unittest discover -s src -t src
+PYTHONPATH=src python3 -m unittest pokesim.test_package
 PYTHONPATH=src python3 -m pokesim.cli.textgrid show docs/examples/tiny_town.json
 ```
 
@@ -54,14 +54,14 @@ Tests against a real pret/pokefirered checkout run when `POKEFIRERED_DIR`
 points at it:
 
 ```sh
-POKEFIRERED_DIR="$PWD/external/pokefirered" PYTHONPATH=src python3 -m unittest discover -s tests -t .
+POKEFIRERED_DIR="$PWD/external/pokefirered" PYTHONPATH=src python3 -m unittest discover -s src -t src
 ```
 
 Run the battle milestone:
 
 ```sh
 npm ci --omit=optional --prefix engines/frlg-showdown
-PYTHONPATH=src python3 -m pokesim.cli.battle --battles 1000 --out /tmp/frlg.json
+PYTHONPATH=src python3 -m pokesim.cli.frlg_battle --battles 1000 --out /tmp/frlg.json
 ```
 
 See [external/README.md](external/README.md) for source checkout conventions,
@@ -71,13 +71,15 @@ See [external/README.md](external/README.md) for source checkout conventions,
 ## Migration from PokemonNavigation
 
 - Python imports and commands use `pokesim` instead of `pokenav`.
-- `python/pokenav/` moved to `src/pokesim/`; `python/tests/` moved to `tests/`.
+- `python/pokenav/` moved to `src/pokesim/`; Python tests now live beside their source modules.
 - `games/` and `measurements/` moved under `data/`.
 - The FRLG importer moved from `pokenav.grid.maps.pret` to `pokesim.decomp.frlg`.
 - The saved map format remains `pokenav-map/1`, so existing JSON maps still load.
 
 ## Conventions
 
+- Keep Python `test_*.py` files beside the modules they exercise; discovery starts at `src/`.
+- Put FRLG-specific simulation under `pokesim.games.frlg`; CLI names include `frlg`.
 - Start modules and classes with a comment explaining their purpose.
 - Give meaningful numbers a name and record their source.
 - Keep functions short and flat.

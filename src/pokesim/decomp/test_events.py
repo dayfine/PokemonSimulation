@@ -7,7 +7,7 @@ from pokesim.decomp import events
 from pokesim.decomp.events import Kind, ObjectEvent, SignEvent, WarpEvent, facing_of
 from pokesim.grid.geometry import Direction
 
-from tests.test_decomp_repos import DP_OBJECTS, PT_EVENTS, dp_events_bytes
+from pokesim.decomp.test_repos import DP_OBJECTS, PT_EVENTS, dp_events_bytes
 
 N, E, S, W = Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST
 

@@ -12,7 +12,7 @@ from pokesim.grid.maps import textgrid
 from pokesim.grid.maps.model import Behavior, Cell, GridMap2D
 from pokesim.grid.maps.schema import Building, Connection, Encounter, MapFile, NamedPoint, Note, Npc, Wander, Warp
 
-from tests.test_decomp_repos import write_diamond, write_platinum
+from pokesim.decomp.test_repos import write_diamond, write_platinum
 
 TOWN = Selection(0, [(0, 0)], ["tiny_town"])
 ROUTE = Selection(0, [(0, 1)], ["tiny_route"])

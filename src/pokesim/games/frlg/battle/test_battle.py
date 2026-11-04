@@ -8,13 +8,13 @@ import random
 import shutil
 import unittest
 
-from pokesim.battle.npc_ai import NPCTrainerAI
-from pokesim.battle.benchmark import evaluate, scenario_for, wilson
-from pokesim.battle.engine import BRIDGE, Engine
-from pokesim.battle.policy import player_action, trainer_item, replacement
-from pokesim.battle.pret import compile_scripts, import_checkout
-from pokesim.battle.schema import validate_cases
-from pokesim.cli.battle import DATA
+from pokesim.games.frlg.battle.npc_ai import NPCTrainerAI
+from pokesim.games.frlg.battle.benchmark import evaluate, scenario_for, wilson
+from pokesim.games.frlg.battle.engine import BRIDGE, Engine
+from pokesim.games.frlg.battle.policy import player_action, trainer_item, replacement
+from pokesim.games.frlg.battle.pret import compile_scripts, import_checkout
+from pokesim.games.frlg.battle.schema import validate_cases
+from pokesim.cli.frlg_battle import DATA
 
 PRET = json.loads((DATA / "pret.json").read_text())
 CASES = json.loads((DATA / "cases.json").read_text())["cases"]

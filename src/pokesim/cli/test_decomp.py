@@ -8,7 +8,7 @@ from pokesim.cli import decomp
 from pokesim.grid.maps import schema
 from pokesim.grid.maps.model import Behavior
 
-from tests.test_decomp_repos import write_platinum
+from pokesim.decomp.test_repos import write_platinum
 
 
 class CommandLineTest(unittest.TestCase):

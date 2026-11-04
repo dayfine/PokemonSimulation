@@ -4,7 +4,7 @@ The snapshot covers Misty, the Cerulean rival with Bulbasaur, the S.S. Anne
 rival with Ivysaur, and Lt. Surge in FireRed/LeafGreen (Gen 3).
 
 Run from the repo root:
-    PYTHONPATH=src python3 -m pokesim.battle.pret --repo external/pokefirered \
+    PYTHONPATH=src python3 -m pokesim.games.frlg.battle.pret --repo external/pokefirered \
         --out data/games/frlg/battles/pret.json
 
 Produces a revision-stamped JSON snapshot. No ROM or decomp build is needed.

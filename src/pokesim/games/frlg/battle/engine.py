@@ -6,7 +6,7 @@ import select
 import shutil
 import subprocess
 
-REPO = Path(__file__).resolve().parents[3]
+REPO = Path(__file__).resolve().parents[5]
 BRIDGE = REPO / "engines" / "frlg-showdown"
 
 

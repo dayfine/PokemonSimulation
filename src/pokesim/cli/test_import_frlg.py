@@ -9,7 +9,7 @@ from pokesim.cli.import_frlg import import_maps
 from pokesim.grid.maps import schema
 from pokesim.decomp.frlg import Checkout
 
-from tests.test_decomp_frlg import LEDGE, TINY_BLOCKS, TINY_GAME, block, write_fixture
+from pokesim.decomp.test_frlg import LEDGE, TINY_BLOCKS, TINY_GAME, block, write_fixture
 
 #   The pret test's blocks with its ledges blocked, as FRLG's are, so every
 #   cell has a character in the standard legend that map files are written

@@ -14,8 +14,8 @@ from pokesim.grid.maps.world import Place, World
 from pokesim.grid.movement import WorldState
 from pokesim.grid.routing.shortest import Costs, MoveKind, follow, shortest_path
 
-from tests.paths import GAMES
-from tests.test_maps_world import two_towns
+from pokesim._test_paths import GAMES
+from pokesim.grid.maps.test_world import two_towns
 
 N, E, S, W = Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST
 

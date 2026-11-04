@@ -7,10 +7,10 @@ import json
 import math
 import random
 
-from pokesim.battle.npc_ai import NPCTrainerAI, move_id
-from pokesim.battle.engine import BRIDGE, Engine
-from pokesim.battle.schema import validate_cases
-from pokesim.battle.policy import POLICY, locked, player_action, replacement, trainer_item
+from pokesim.games.frlg.battle.npc_ai import NPCTrainerAI, move_id
+from pokesim.games.frlg.battle.engine import BRIDGE, Engine
+from pokesim.games.frlg.battle.schema import validate_cases
+from pokesim.games.frlg.battle.policy import POLICY, locked, player_action, replacement, trainer_item
 
 
 def wilson(wins, total):

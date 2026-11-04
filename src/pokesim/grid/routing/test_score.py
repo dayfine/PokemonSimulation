@@ -21,7 +21,7 @@ from pokesim.grid.routing.score import (
 from pokesim.grid.routing.shortest import Costs, follow, shortest_path
 from pokesim.physics.model import TileError
 
-from tests.paths import GAMES
+from pokesim._test_paths import GAMES
 
 N, E, S, W = Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST
 

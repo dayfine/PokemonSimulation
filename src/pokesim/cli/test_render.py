@@ -11,8 +11,8 @@ from pokesim.grid.geometry import Tile
 from pokesim.grid.maps import render
 from pokesim.png import Image
 
-from tests.paths import REPO
-from tests.test_maps_render import BACKGROUND
+from pokesim._test_paths import REPO
+from pokesim.grid.maps.test_render import BACKGROUND
 
 
 class ParseTileTest(unittest.TestCase):

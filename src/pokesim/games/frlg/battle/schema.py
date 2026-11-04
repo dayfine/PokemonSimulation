@@ -1,6 +1,6 @@
 """Validate FireRed/LeafGreen (Gen 3) solo-battle experiment inputs."""
 
-from pokesim.battle.npc_ai import move_id
+from pokesim.games.frlg.battle.npc_ai import move_id
 
 STATS = {"hp", "atk", "def", "spa", "spd", "spe"}
 STAGES = {"atk", "def", "spa", "spd", "spe", "accuracy", "evasion"}

@@ -10,7 +10,7 @@ from pokesim.grid.maps import schema
 from pokesim.grid.maps.model import OPEN, WALL, Behavior, Cell, GridMap2D
 from pokesim.grid.maps.schema import Encounter, MapFile, MapImage, Npc, Wander, wild_battle_possible
 
-from tests.paths import DOCS_EXAMPLES
+from pokesim._test_paths import DOCS_EXAMPLES
 
 TINY_TOWN = os.path.join(DOCS_EXAMPLES, "tiny_town.json")
 

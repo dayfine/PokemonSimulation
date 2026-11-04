@@ -19,13 +19,13 @@ Install Node 22+ and Python 3.8+, then from the repository root:
 
 ```sh
 npm ci --omit=optional --prefix engines/frlg-showdown
-PYTHONPATH=src python3 -m pokesim.cli.battle --battles 1000 --seed 1 --out /tmp/frlg.json
+PYTHONPATH=src python3 -m pokesim.cli.frlg_battle --battles 1000 --seed 1 --out /tmp/frlg.json
 ```
 
 For one encounter:
 
 ```sh
-PYTHONPATH=src python3 -m pokesim.cli.battle --case surge-m73 --battles 1000 --seed 1 --out /tmp/surge.json
+PYTHONPATH=src python3 -m pokesim.cli.frlg_battle --case surge-m73 --battles 1000 --seed 1 --out /tmp/surge.json
 ```
 
 The CLI prints wins and a 95% Wilson interval for each encounter. The JSON
@@ -108,7 +108,7 @@ To regenerate the exact source snapshot:
 ```sh
 git clone https://github.com/pret/pokefirered.git external/pokefirered
 git -C external/pokefirered checkout ce6406d8c2eaf46d543c8a2606de0c3cb1951982
-PYTHONPATH=src python3 -m pokesim.battle.pret --repo external/pokefirered --out /tmp/pret.json
+PYTHONPATH=src python3 -m pokesim.games.frlg.battle.pret --repo external/pokefirered --out /tmp/pret.json
 cmp /tmp/pret.json data/games/frlg/battles/pret.json
 ```
 
@@ -134,7 +134,7 @@ Python experiment + policies  <--- JSON lines --->  local Node bridge
 - No npm dependency is patched, and the bridge remains pinned and independently
   tested because it uses Showdown's Side/action-queue interfaces.
 
-`src/pokesim/battle/npc_ai.py` / `NPCTrainerAI` is the **game NPC trainer's
+`src/pokesim/games/frlg/battle/npc_ai.py` / `NPCTrainerAI` is the **game NPC trainer's
 move-selection policy**. Its current snapshot covers Misty, the Cerulean rival
 with Bulbasaur, the S.S. Anne rival with Ivysaur, and Lt. Surge. It is not our
 player AI. The interpreter executes the imported `CHECK_BAD_MOVE`,
@@ -189,8 +189,8 @@ its effect on these estimates, and the next work needed for the Pokeguy route.
 
 ```sh
 npm test --prefix engines/frlg-showdown
-POKESIM_REQUIRE_BATTLE=1 PYTHONPATH=src python3 -m unittest tests.test_battle
-POKEFIRERED_DIR=external/pokefirered PYTHONPATH=src python3 -m unittest tests.test_battle.BattleDataTest.test_reimport_real_pret_snapshot
+POKESIM_REQUIRE_BATTLE=1 PYTHONPATH=src python3 -m unittest pokesim.games.frlg.battle.test_battle
+POKEFIRERED_DIR=external/pokefirered PYTHONPATH=src python3 -m unittest pokesim.games.frlg.battle.test_battle.BattleDataTest.test_reimport_real_pret_snapshot
 ```
 
 The standard Python suite runs data checks without npm and skips the

@@ -18,10 +18,10 @@ Run from the repository root:
 ```sh
 npm ci --omit=optional --prefix engines/frlg-showdown
 npm test --prefix engines/frlg-showdown
-PYTHONPATH=src python3 -m pokesim.cli.battle --battles 1000 --out /tmp/frlg.json
+PYTHONPATH=src python3 -m pokesim.cli.frlg_battle --battles 1000 --out /tmp/frlg.json
 ```
 
-The Python client is `src/pokesim/battle/engine.py`; the experiment inputs and
+The Python client is `src/pokesim/games/frlg/battle/engine.py`; the experiment inputs and
 NPC AI snapshot are under `data/games/frlg/battles/`. See the
 [battle guide](../../docs/battles/README.md) and
 [gap review](../../docs/battles/GAPS.md) for supported behavior and limits.
