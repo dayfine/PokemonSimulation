@@ -1,0 +1,3404 @@
+{
+  "format": "pokesim-frlg-run-summary/1",
+  "seed": 1,
+  "turn_limit": 300,
+  "policy": "solo-greedy-heal/1; progression cases: solo-setup-heal/4",
+  "engine": {
+    "@smogon/calc": "0.12.0",
+    "pokemon-showdown": "0.11.11"
+  },
+  "engine_lock_sha256": "ea33888fa27ae3e4a8b3b1fda1b73b51fa4015686a39773d4468707009625add",
+  "pret_source": {
+    "repository": "https://github.com/pret/pokefirered",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "sha256": {
+      "src/data/trainers.h": "b2105a3b1d1baec02d8f6a89f44bcdf6a05cbaac1d6d8872766eec49aa8555bc",
+      "src/data/trainer_parties.h": "cb135d9cbdfc52c87066374d582506830a8c93561eab2033d847331c2de00299",
+      "src/data/text/species_names.h": "73e87117c98828423b7fc15565bd2a839a0671665fb7c1c1b26264d7d7a8912f",
+      "charmap.txt": "4da662317b3b5109a52064f9012d85b644d1dbf0f3f24243374aeef4cf25f061",
+      "src/data/pokemon/level_up_learnsets.h": "d6563a88fa893d1433a02027cb13ba9574a6828a96b1a730b1d767fd7c5a0cc6",
+      "src/data/pokemon/level_up_learnset_pointers.h": "7a85513797da2a2ebdf7893ce58d94f99aee07deb1aec4f0d7a31422dc8040de",
+      "src/data/battle_moves.h": "54e08c749547afaf73eb2f1e4f4e3023f4d8e186d2f608c29bd6419c291b5384",
+      "data/battle_ai_scripts.s": "0971513157b28ba27ce272acaa2388afa7362a302711f737cad6c3598ca1b389"
+    }
+  },
+  "pret_snapshot_sha256": "0db0210afd02f286530614c97355f2f966b1772e231f1202919f2a7bfdbf9f88",
+  "assumptions": [
+    "Solo lead: no player switching; a fainted lead loses.",
+    "pret scoring scripts; Smogon damage helpers approximate pret AI_CalcDmg.",
+    "No voluntary opponent switching; mandatory replacements use pret-derived rules.",
+    "Python AI RNG and Showdown battle RNG are separate seeded streams, not cartridge RNG emulation.",
+    "Only listed fixture stats are measured; remaining stats use the recorded assumptions.",
+    "Cases with progression data award solo EXP/EVs and learn moves after actual knockouts; legacy fixtures keep level/stats/moves fixed.",
+    "Conditions at loss are descriptive, not proven causes of loss.",
+    "Turn-limit outcomes count as non-wins and are also reported separately.",
+    "Confidence sequences cover modeled win-within-turn-limit probabilities across all requested cases and all sampling looks; they do not cover input or engine error."
+  ],
+  "sampling": {
+    "method": "jeffreys-beta-mixture-confidence-sequence",
+    "confidence_all_cases_all_looks": 0.95,
+    "alpha_per_case": 0.000724637681159421,
+    "target_interval_width": 0.1,
+    "minimum_trials": 20,
+    "batch_size": 20
+  },
+  "run_inputs": {
+    "source_sha256": {
+      "route": "d3890012f93ac1758c13ae9ece83826f6cd101884f4ef39c45b94cb1253e7e74",
+      "progression_reference": "de507307843e5639477754f56279019a4d1f2a6e432ad2a0068894a1b29e695c",
+      "moves": "a1c98f6922e25581efd9101ce1c28995f3bbebfc7bb0541d44297e71512f7df0",
+      "state_history": "975aa44e02d0333e802b5e3d75f607192cc24e3da5bcf31dcd6013aeec70f727"
+    },
+    "checks_passed": 38
+  },
+  "conditioning": "Each battle starts independently at its recorded entry state; no whole-run completion probability is claimed.",
+  "implementation_sha256": {
+    "engines/frlg-showdown/damage.cjs": "aa5fa9e9b9dd1dbbd0431acbc38a854de0afba521a06ad598ed985c76eac3949",
+    "engines/frlg-showdown/engine.cjs": "add7f57cfc6dc0c6f47b881af0e7b9e0743b0e9e50e830e47e6124c63424df94",
+    "engines/frlg-showdown/progression.cjs": "34edca7964c9aeef1491286dd63e2ce954b118c3ad3fed8e6ef40fa3451a1beb",
+    "engines/frlg-showdown/runner.cjs": "6776f97da0d35d20a99eef666c4c8e4115bd4edb6ac84334726d47c503bf9122",
+    "src/pokesim/cli/frlg_run_battles.py": "fa987be169a4ea6e3db7fe80a769a6adfd16d4b002a924783d03c339b91a213e",
+    "src/pokesim/games/frlg/__init__.py": "1c3e042047159299e3676d19611d99c081de04e490fb686ebf32589a63d273ac",
+    "src/pokesim/games/frlg/battle/__init__.py": "c3353c56ffd0ef6d2ef8824138788d25b3f44a9b3dc1df5d6e77cd94b1710f27",
+    "src/pokesim/games/frlg/battle/benchmark.py": "bfc51b259d72462382314ee0939d797a1f95f412eb155ef0910abfb4533abd13",
+    "src/pokesim/games/frlg/battle/engine.py": "4f82142d9b16bc1fdadeb4ef2e9a57721fe5dc70000eafe6919ef76a7170871c",
+    "src/pokesim/games/frlg/battle/npc_ai.py": "19ef89f6dd7c07e2b415436aaeb8420e5c271ad4c5e94873dd7ce83ec138ee8e",
+    "src/pokesim/games/frlg/battle/policy.py": "59f43db9e6c068629381410e22e0ff2dd2cd30eceef131d624fe4ca527104744",
+    "src/pokesim/games/frlg/battle/pret.py": "217aff701426ff5d02dc403abd9547dbf3c5e44bc0184c87b24619fa9c30210c",
+    "src/pokesim/games/frlg/battle/run.py": "bb1fe85ab181e3330799c6128563f08c53826c5d7a3d831319fb84bce5ee1695",
+    "src/pokesim/games/frlg/battle/sampling.py": "e2bdbd7f351ca34be669e1b6f022b2f2f40479503d54c602d4df0263e22a39ee",
+    "src/pokesim/games/frlg/battle/schema.py": "d89a4d9750aebc99966992bcf1c3aff79ec6f7256a09e70018424a3a7158698d",
+    "src/pokesim/games/frlg/progression/__init__.py": "425ce6274a1b1c1dab556ed02af3e6eb474cbfa825f12907fefc62c0490e6dab",
+    "src/pokesim/games/frlg/progression/experience.py": "1bfcbddb1c428dc03ca626e1ea5b8dc16776678d61a55570f567556b7c084f53",
+    "src/pokesim/games/frlg/progression/ledger.py": "f541b4d59a1f1d08204d6c1d165ec16c3d56dd4f96237b4f4f6e9c7b575ca13d",
+    "src/pokesim/games/frlg/progression/moves.py": "91f38bcae7ecdaddab7ab3e371d5bb19fc8bb32291f4d4dc9854cd467ff7b0fd",
+    "src/pokesim/games/frlg/progression/pret.py": "5c4391ff6fd2a71dcb45e6d0d81d9229ffb76e9898576113129e64163fddf230",
+    "src/pokesim/games/frlg/progression/states.py": "a290408e0a787a3d0463e886b087cdc8a118d4e8ccd0800ef456ada3798f944d",
+    "src/pokesim/games/frlg/progression/stats.py": "7b715bbff5b63738f3c513a9feb1a580a1d1a5807816fe3db0e3a7c536a5f4fb"
+  },
+  "results": [
+    {
+      "id": "lab-rival",
+      "battles": 360,
+      "maximum_battles": 3000,
+      "wins": 345,
+      "win_probability": 0.9583333333333334,
+      "outcomes": {
+        "win": 345,
+        "loss": 15
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.892235911450408,
+          0.990180872873562
+        ],
+        "width": 0.09794496142315401,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 4.141666666666667,
+      "mean_items_used": {},
+      "losses_by_foe": {
+        "bulbasaur": 15
+      },
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 5,
+        "hp": 20,
+        "max_hp": 20
+      },
+      "video_start": 117,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 2,
+          "engine": [
+            51967,
+            22541,
+            57810,
+            45018
+          ]
+        }
+      }
+    },
+    {
+      "id": "forest-sammy",
+      "battles": 880,
+      "maximum_battles": 3000,
+      "wins": 781,
+      "win_probability": 0.8875,
+      "outcomes": {
+        "win": 781,
+        "loss": 99
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.8316792710210373,
+          0.9306992733789436
+        ],
+        "width": 0.09902000235790631,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.546590909090909,
+      "mean_items_used": {
+        "antidote": 0.3181818181818182
+      },
+      "losses_by_foe": {
+        "weedle": 99
+      },
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 7,
+        "hp": 16,
+        "max_hp": 25
+      },
+      "video_start": 575,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 3,
+          "engine": [
+            4813,
+            14702,
+            59755,
+            48463
+          ]
+        }
+      }
+    },
+    {
+      "id": "pewter-liam",
+      "battles": 2000,
+      "maximum_battles": 3000,
+      "wins": 1332,
+      "win_probability": 0.666,
+      "outcomes": {
+        "loss": 668,
+        "win": 1332
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.6148525658049968,
+          0.7146646086508281
+        ],
+        "width": 0.09981204284583134,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.9135,
+      "mean_items_used": {},
+      "losses_by_foe": {
+        "sandshrew": 668
+      },
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 8,
+        "hp": 5,
+        "max_hp": 27
+      },
+      "video_start": 656,
+      "example_seeds": {
+        "loss": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "win": {
+          "master": 1,
+          "trial": 2,
+          "engine": [
+            51967,
+            22541,
+            57810,
+            45018
+          ]
+        }
+      }
+    },
+    {
+      "id": "brock",
+      "battles": 2260,
+      "maximum_battles": 3000,
+      "wins": 1176,
+      "win_probability": 0.5203539823008849,
+      "outcomes": {
+        "loss": 1084,
+        "win": 1176
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.4703465349809025,
+          0.5700904431107319
+        ],
+        "width": 0.09974390812982936,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.3026548672566372,
+      "mean_items_used": {},
+      "losses_by_foe": {
+        "onix": 1084
+      },
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 11,
+        "hp": 11,
+        "max_hp": 33
+      },
+      "video_start": 730,
+      "example_seeds": {
+        "loss": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "win": {
+          "master": 1,
+          "trial": 2,
+          "engine": [
+            51967,
+            22541,
+            57810,
+            45018
+          ]
+        }
+      }
+    },
+    {
+      "id": "route3-colton",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 2.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 13,
+        "hp": 6,
+        "max_hp": 38
+      },
+      "video_start": 873,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route3-greg",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 14,
+        "hp": 8,
+        "max_hp": 40
+      },
+      "video_start": 925,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route3-james",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 15,
+        "hp": 10,
+        "max_hp": 42
+      },
+      "video_start": 985,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "mtmoon-josh",
+      "battles": 1140,
+      "maximum_battles": 3000,
+      "wins": 966,
+      "win_probability": 0.8473684210526315,
+      "outcomes": {
+        "win": 966,
+        "loss": 174
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.7931749905003354,
+          0.8927021396301034
+        ],
+        "width": 0.09952714912976801,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.4947368421052634,
+      "mean_items_used": {
+        "potion": 0.8710526315789474
+      },
+      "losses_by_foe": {
+        "rattata": 174
+      },
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 15,
+        "hp": 10,
+        "max_hp": 42
+      },
+      "video_start": 1096,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 5,
+          "engine": [
+            15592,
+            20884,
+            45001,
+            57724
+          ]
+        }
+      }
+    },
+    {
+      "id": "mtmoon-rocket",
+      "battles": 160,
+      "maximum_battles": 3000,
+      "wins": 158,
+      "win_probability": 0.9875,
+      "outcomes": {
+        "win": 158,
+        "loss": 2
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9031374155914661,
+          0.9999689705830866
+        ],
+        "width": 0.09683155499162055,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.9875,
+      "mean_items_used": {},
+      "losses_by_foe": {
+        "rattata": 2
+      },
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 16,
+        "hp": 10,
+        "max_hp": 49
+      },
+      "video_start": 1200,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 38,
+          "engine": [
+            50774,
+            35953,
+            17521,
+            29840
+          ]
+        }
+      }
+    },
+    {
+      "id": "mtmoon-miguel",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 8.08,
+      "mean_items_used": {
+        "potion": 1.77,
+        "antidote": 0.44
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 16,
+        "hp": 10,
+        "max_hp": 49
+      },
+      "video_start": 1240,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "misty",
+      "battles": 180,
+      "maximum_battles": 3000,
+      "wins": 177,
+      "win_probability": 0.9833333333333333,
+      "outcomes": {
+        "win": 177,
+        "loss": 3
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9013954293819179,
+          0.9997814741732516
+        ],
+        "width": 0.09838604479133373,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 6.894444444444445,
+      "mean_items_used": {
+        "potion": 2.422222222222222
+      },
+      "losses_by_foe": {
+        "starmie": 3
+      },
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 20,
+        "hp": 54,
+        "max_hp": 59
+      },
+      "video_start": 1409,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 30,
+          "engine": [
+            26935,
+            56502,
+            20630,
+            18250
+          ]
+        }
+      }
+    },
+    {
+      "id": "cerulean-rival",
+      "battles": 2200,
+      "maximum_battles": 3000,
+      "wins": 917,
+      "win_probability": 0.4168181818181818,
+      "outcomes": {
+        "loss": 1283,
+        "win": 917
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.367533253610334,
+          0.4672393151713079
+        ],
+        "width": 0.09970606156097389,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 8.576363636363636,
+      "mean_items_used": {
+        "potion": 3.1204545454545456,
+        "awakening": 0.9554545454545454,
+        "antidote": 0.16954545454545455
+      },
+      "losses_by_foe": {
+        "abra": 200,
+        "bulbasaur": 742,
+        "rattata": 340,
+        "pidgeotto": 1
+      },
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 21,
+        "hp": 32,
+        "max_hp": 61
+      },
+      "video_start": 1518,
+      "example_seeds": {
+        "loss": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "win": {
+          "master": 1,
+          "trial": 2,
+          "engine": [
+            51967,
+            22541,
+            57810,
+            45018
+          ]
+        }
+      }
+    },
+    {
+      "id": "bridge-cale",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 22,
+        "hp": 22,
+        "max_hp": 64
+      },
+      "video_start": 1609,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "bridge-ali",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.62,
+      "mean_items_used": {
+        "potion": 1.2
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 22,
+        "hp": 22,
+        "max_hp": 64
+      },
+      "video_start": 1665,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "bridge-timmy",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 23,
+        "hp": 24,
+        "max_hp": 66
+      },
+      "video_start": 1713,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "bridge-reli",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 23,
+        "hp": 24,
+        "max_hp": 66
+      },
+      "video_start": 1750,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "bridge-ethan",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 23,
+        "hp": 24,
+        "max_hp": 66
+      },
+      "video_start": 1783,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "bridge-rocket",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 23,
+        "hp": 24,
+        "max_hp": 66
+      },
+      "video_start": 1821,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route25-wayne",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 24,
+        "hp": 27,
+        "max_hp": 69
+      },
+      "video_start": 1869,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route25-kelsey",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 24,
+        "hp": 27,
+        "max_hp": 69
+      },
+      "video_start": 1897,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route25-flint",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 24,
+        "hp": 27,
+        "max_hp": 69
+      },
+      "video_start": 1932,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route25-haley",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.82,
+      "mean_items_used": {
+        "potion": 1.13
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 24,
+        "hp": 27,
+        "max_hp": 69
+      },
+      "video_start": 1977,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "cerulean-dig-rocket",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 2.98,
+      "mean_items_used": {
+        "potion": 1.21,
+        "awakening": 0.33
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 25,
+        "hp": 27,
+        "max_hp": 72
+      },
+      "video_start": 2110,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route6-jeff",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 25,
+        "hp": 21,
+        "max_hp": 72
+      },
+      "video_start": 2208,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "ssanne-rival",
+      "battles": 2260,
+      "maximum_battles": 3000,
+      "wins": 1100,
+      "win_probability": 0.48672566371681414,
+      "outcomes": {
+        "loss": 1160,
+        "win": 1100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.4369183476271188,
+          0.5367097102132133
+        ],
+        "width": 0.09979136258609456,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 14.656194690265487,
+      "mean_items_used": {
+        "potion": 3.2168141592920354,
+        "superpotion": 3.2172566371681417,
+        "awakening": 1.0973451327433628,
+        "antidote": 0.4615044247787611,
+        "elixir": 0.06725663716814159,
+        "oranberry": 0.0584070796460177
+      },
+      "losses_by_foe": {
+        "ivysaur": 830,
+        "raticate": 178,
+        "kadabra": 152
+      },
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 27,
+        "hp": 37,
+        "max_hp": 76
+      },
+      "video_start": 2286,
+      "example_seeds": {
+        "loss": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "win": {
+          "master": 1,
+          "trial": 3,
+          "engine": [
+            4813,
+            14702,
+            59755,
+            48463
+          ]
+        }
+      }
+    },
+    {
+      "id": "vermilion-tucker",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 28,
+        "hp": 79,
+        "max_hp": 79
+      },
+      "video_start": 2480,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "surge",
+      "battles": 2200,
+      "maximum_battles": 3000,
+      "wins": 1263,
+      "win_probability": 0.5740909090909091,
+      "outcomes": {
+        "win": 1263,
+        "loss": 937
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.5235858089852315,
+          0.6235839767376576
+        ],
+        "width": 0.09999816775242609,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 8.995909090909091,
+      "mean_items_used": {
+        "parlyzheal": 1.0513636363636363,
+        "potion": 1.221818181818182,
+        "superpotion": 1.0127272727272727,
+        "oranberry": 0.004545454545454545
+      },
+      "losses_by_foe": {
+        "raichu": 937
+      },
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 28,
+        "hp": 79,
+        "max_hp": 79
+      },
+      "video_start": 2544,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 1,
+          "engine": [
+            46,
+            55011,
+            12836,
+            30441
+          ]
+        }
+      }
+    },
+    {
+      "id": "route9-alicia",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 4.45,
+      "mean_items_used": {
+        "antidote": 0.15,
+        "potion": 0.2,
+        "parlyzheal": 0.24,
+        "awakening": 0.1
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 28,
+        "hp": 43,
+        "max_hp": 79
+      },
+      "video_start": 2727,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route9-conner",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.76,
+      "mean_items_used": {
+        "potion": 0.41,
+        "antidote": 0.07,
+        "superpotion": 0.05
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 29,
+        "hp": 45,
+        "max_hp": 81
+      },
+      "video_start": 2803,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-ashton",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.75,
+      "mean_items_used": {
+        "potion": 0.03
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 29,
+        "hp": 45,
+        "max_hp": 81
+      },
+      "video_start": 2867,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-winston",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.91,
+      "mean_items_used": {
+        "potion": 1.03
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 30,
+        "hp": 42,
+        "max_hp": 84
+      },
+      "video_start": 2932,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-martha",
+      "battles": 220,
+      "maximum_battles": 3000,
+      "wins": 215,
+      "win_probability": 0.9772727272727273,
+      "outcomes": {
+        "win": 215,
+        "loss": 5
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9007444794559021,
+          0.998834811893333
+        ],
+        "width": 0.09809033243743093,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 7.340909090909091,
+      "mean_items_used": {
+        "potion": 2.131818181818182,
+        "parlyzheal": 0.34545454545454546,
+        "antidote": 0.45454545454545453,
+        "awakening": 0.8863636363636364,
+        "superpotion": 0.5318181818181819
+      },
+      "losses_by_foe": {
+        "bulbasaur": 5
+      },
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 30,
+        "hp": 39,
+        "max_hp": 84
+      },
+      "video_start": 2952,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 53,
+          "engine": [
+            27080,
+            3384,
+            15838,
+            2852
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-allen",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 30,
+        "hp": 39,
+        "max_hp": 84
+      },
+      "video_start": 2986,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-oliver",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 2.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 30,
+        "hp": 39,
+        "max_hp": 84
+      },
+      "video_start": 3021,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-sofia",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.73,
+      "mean_items_used": {
+        "potion": 1.09
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 31,
+        "hp": 41,
+        "max_hp": 86
+      },
+      "video_start": 3099,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-dudley",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 2.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 31,
+        "hp": 41,
+        "max_hp": 86
+      },
+      "video_start": 3140,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocktunnel-dana",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 4.09,
+      "mean_items_used": {
+        "potion": 1.02,
+        "parlyzheal": 0.17,
+        "antidote": 0.23,
+        "awakening": 0.3
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 32,
+        "hp": 44,
+        "max_hp": 89
+      },
+      "video_start": 3190,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route8-rich",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 32,
+        "hp": 39,
+        "max_hp": 89
+      },
+      "video_start": 3270,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "hideout-poster-guard",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 2.89,
+      "mean_items_used": {
+        "potion": 1.36,
+        "superpotion": 0.13
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 32,
+        "hp": 39,
+        "max_hp": 89
+      },
+      "video_start": 3347,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "hideout-key-grunt",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 32,
+        "hp": 39,
+        "max_hp": 89
+      },
+      "video_start": 3411,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "hideout-left-guard",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 2.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 33,
+        "hp": 42,
+        "max_hp": 92
+      },
+      "video_start": 3490,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "hideout-right-guard",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 4.42,
+      "mean_items_used": {
+        "potion": 1.1,
+        "parlyzheal": 0.31,
+        "antidote": 0.06
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 33,
+        "hp": 42,
+        "max_hp": 92
+      },
+      "video_start": 3542,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "hideout-giovanni",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 6.31,
+      "mean_items_used": {
+        "potion": 1.0,
+        "superpotion": 1.39
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 36,
+        "hp": 38,
+        "max_hp": 114
+      },
+      "video_start": 3665,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "tower-rival",
+      "battles": 180,
+      "maximum_battles": 3000,
+      "wins": 177,
+      "win_probability": 0.9833333333333333,
+      "outcomes": {
+        "win": 177,
+        "loss": 3
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9013954293819179,
+          0.9997814741732516
+        ],
+        "width": 0.09838604479133373,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 13.261111111111111,
+      "mean_items_used": {
+        "potion": 4.35,
+        "xaccuracy": 1.788888888888889,
+        "superpotion": 0.7888888888888889,
+        "awakening": 0.08333333333333333,
+        "antidote": 0.05
+      },
+      "losses_by_foe": {
+        "ivysaur": 3
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 36,
+        "hp": 38,
+        "max_hp": 114
+      },
+      "video_start": 3852,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 79,
+          "engine": [
+            2689,
+            52730,
+            58481,
+            665
+          ]
+        }
+      }
+    },
+    {
+      "id": "tower-tammy",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 37,
+        "hp": 24,
+        "max_hp": 116
+      },
+      "video_start": 3996,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "tower-jennifer",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 37,
+        "hp": 24,
+        "max_hp": 116
+      },
+      "video_start": 4020,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "tower-emilia",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 37,
+        "hp": 24,
+        "max_hp": 116
+      },
+      "video_start": 4048,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "tower-rocket1",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 2.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 38,
+        "hp": 27,
+        "max_hp": 119
+      },
+      "video_start": 4112,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "tower-rocket2",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 38,
+        "hp": 27,
+        "max_hp": 119
+      },
+      "video_start": 4160,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "tower-rocket3",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 38,
+        "hp": 27,
+        "max_hp": 119
+      },
+      "video_start": 4212,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "fuchsia-kirk",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 38,
+        "hp": 31,
+        "max_hp": 119
+      },
+      "video_start": 4514,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "koga",
+      "battles": 2200,
+      "maximum_battles": 3000,
+      "wins": 916,
+      "win_probability": 0.4163636363636364,
+      "outcomes": {
+        "win": 916,
+        "loss": 1284
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.3670895702883776,
+          0.4667801161904451
+        ],
+        "width": 0.09969054590206755,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 13.62409090909091,
+      "mean_items_used": {
+        "superpotion": 4.150909090909091,
+        "xaccuracy": 1.4731818181818181,
+        "fullrestore": 0.9009090909090909,
+        "xspecial": 1.6618181818181819,
+        "antidote": 0.8727272727272727,
+        "potion": 1.2418181818181817
+      },
+      "losses_by_foe": {
+        "muk": 733,
+        "weezing": 551
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 39,
+        "hp": 34,
+        "max_hp": 122
+      },
+      "video_start": 4594,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 3,
+          "engine": [
+            4813,
+            14702,
+            59755,
+            48463
+          ]
+        }
+      }
+    },
+    {
+      "id": "blaine",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 6.43,
+      "mean_items_used": {
+        "superpotion": 1.63,
+        "parlyzheal": 0.5,
+        "elixir": 0.05,
+        "fullrestore": 0.03
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 40,
+        "hp": 24,
+        "max_hp": 126
+      },
+      "video_start": 4904,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "celadon-tamia",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 1.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 41,
+        "hp": 26,
+        "max_hp": 128
+      },
+      "video_start": 5051,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "celadon-lori",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 0.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 44,
+        "hp": 35,
+        "max_hp": 137
+      },
+      "video_start": 5130,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "erika",
+      "battles": 480,
+      "maximum_battles": 3000,
+      "wins": 453,
+      "win_probability": 0.94375,
+      "outcomes": {
+        "win": 453,
+        "loss": 27
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.882373220101124,
+          0.9796558810756802
+        ],
+        "width": 0.09728266097455629,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 3.564583333333333,
+      "mean_items_used": {
+        "xspecial": 1.0,
+        "parlyzheal": 0.7333333333333333
+      },
+      "losses_by_foe": {
+        "victreebel": 27
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 44,
+        "hp": 35,
+        "max_hp": 137
+      },
+      "video_start": 5164,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 5,
+          "engine": [
+            15592,
+            20884,
+            45001,
+            57724
+          ]
+        }
+      }
+    },
+    {
+      "id": "silph-rival",
+      "battles": 780,
+      "maximum_battles": 3000,
+      "wins": 704,
+      "win_probability": 0.9025641025641026,
+      "outcomes": {
+        "win": 704,
+        "loss": 76
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.8459632103725494,
+          0.9444761867068642
+        ],
+        "width": 0.09851297633431477,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 9.97948717948718,
+      "mean_items_used": {
+        "xspecial": 1.9961538461538462,
+        "superpotion": 2.7653846153846153,
+        "xaccuracy": 0.8692307692307693,
+        "antidote": 0.06794871794871794,
+        "fullrestore": 0.2935897435897436,
+        "awakening": 0.09487179487179487,
+        "potion": 0.002564102564102564
+      },
+      "losses_by_foe": {
+        "venusaur": 64,
+        "pidgeot": 10,
+        "gyarados": 2
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 44,
+        "hp": 85,
+        "max_hp": 137
+      },
+      "video_start": 5334,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 11,
+          "engine": [
+            23822,
+            49737,
+            44476,
+            5328
+          ]
+        }
+      }
+    },
+    {
+      "id": "silph-boardroom-grunt",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 5.35,
+      "mean_items_used": {
+        "potion": 2.52,
+        "superpotion": 0.65
+      },
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 45,
+        "hp": 30,
+        "max_hp": 140
+      },
+      "video_start": 5460,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "silph-giovanni",
+      "battles": 700,
+      "maximum_battles": 3000,
+      "wins": 638,
+      "win_probability": 0.9114285714285715,
+      "outcomes": {
+        "win": 638,
+        "loss": 62
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.8533907828454304,
+          0.9528468989050655
+        ],
+        "width": 0.09945611605963511,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 7.714285714285714,
+      "mean_items_used": {
+        "potion": 2.6014285714285714,
+        "xspecial": 0.9828571428571429,
+        "superpotion": 0.66,
+        "antidote": 0.21428571428571427,
+        "fullrestore": 0.11714285714285715
+      },
+      "losses_by_foe": {
+        "kangaskhan": 46,
+        "nidoqueen": 15,
+        "rhyhorn": 1
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 46,
+        "hp": 33,
+        "max_hp": 143
+      },
+      "video_start": 5514,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 30,
+          "engine": [
+            26935,
+            56502,
+            20630,
+            18250
+          ]
+        }
+      }
+    },
+    {
+      "id": "sabrina",
+      "battles": 180,
+      "maximum_battles": 3000,
+      "wins": 177,
+      "win_probability": 0.9833333333333333,
+      "outcomes": {
+        "win": 177,
+        "loss": 3
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9013954293819179,
+          0.9997814741732516
+        ],
+        "width": 0.09838604479133373,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 8.71111111111111,
+      "mean_items_used": {
+        "xspeed": 1.0,
+        "potion": 3.2777777777777777,
+        "fullrestore": 0.43333333333333335,
+        "superpotion": 0.7166666666666667,
+        "xspecial": 0.027777777777777776
+      },
+      "losses_by_foe": {
+        "kadabra": 3
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 46,
+        "hp": 33,
+        "max_hp": 143
+      },
+      "video_start": 5610,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 70,
+          "engine": [
+            28919,
+            20496,
+            23320,
+            27282
+          ]
+        }
+      }
+    },
+    {
+      "id": "viridian-takashi",
+      "battles": 140,
+      "maximum_battles": 3000,
+      "wins": 139,
+      "win_probability": 0.9928571428571429,
+      "outcomes": {
+        "win": 139,
+        "loss": 1
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9072682086129632,
+          0.9999998762636038
+        ],
+        "width": 0.09273166765064056,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 4.914285714285715,
+      "mean_items_used": {
+        "superpotion": 2.6142857142857143,
+        "fullrestore": 0.04285714285714286
+      },
+      "losses_by_foe": {
+        "machoke": 1
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 47,
+        "hp": 25,
+        "max_hp": 146
+      },
+      "video_start": 5713,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 77,
+          "engine": [
+            44688,
+            48138,
+            4602,
+            30509
+          ]
+        }
+      }
+    },
+    {
+      "id": "viridian-warren",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 4.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 48,
+        "hp": 28,
+        "max_hp": 149
+      },
+      "video_start": 5768,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "giovanni-gym",
+      "battles": 100,
+      "maximum_battles": 3000,
+      "wins": 100,
+      "win_probability": 1.0,
+      "outcomes": {
+        "win": 100
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.9038784477459323,
+          1.0
+        ],
+        "width": 0.09612155225406771,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 4.0,
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 48,
+        "hp": 28,
+        "max_hp": 149
+      },
+      "video_start": 5851,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        }
+      }
+    },
+    {
+      "id": "route22-rival",
+      "battles": 2080,
+      "maximum_battles": 3000,
+      "wins": 757,
+      "win_probability": 0.3639423076923077,
+      "outcomes": {
+        "loss": 1323,
+        "win": 757
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.314955008791628,
+          0.41489001972952144
+        ],
+        "width": 0.09993501093789342,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 11.108653846153846,
+      "mean_items_used": {
+        "xaccuracy": 1.0,
+        "xspeed": 1.0024038461538463,
+        "potion": 1.6341346153846155,
+        "superpotion": 0.666826923076923,
+        "xspecial": 0.43846153846153846,
+        "elixir": 0.0125
+      },
+      "losses_by_foe": {
+        "alakazam": 606,
+        "venusaur": 466,
+        "gyarados": 172,
+        "growlithe": 79
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 49,
+        "hp": 153,
+        "max_hp": 153
+      },
+      "video_start": 5990,
+      "example_seeds": {
+        "loss": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "win": {
+          "master": 1,
+          "trial": 7,
+          "engine": [
+            7126,
+            46661,
+            65383,
+            1884
+          ]
+        }
+      }
+    },
+    {
+      "id": "lorelei",
+      "battles": 320,
+      "maximum_battles": 3000,
+      "wins": 309,
+      "win_probability": 0.965625,
+      "outcomes": {
+        "win": 309,
+        "loss": 11
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.8985386499862215,
+          0.994059965889872
+        ],
+        "width": 0.09552131590365054,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 17.084375,
+      "mean_items_used": {
+        "xspecial": 4.0,
+        "superpotion": 2.578125,
+        "parlyzheal": 1.05,
+        "fullrestore": 1.53125
+      },
+      "losses_by_foe": {
+        "lapras": 11
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 51,
+        "hp": 159,
+        "max_hp": 159
+      },
+      "video_start": 6397,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 32,
+          "engine": [
+            4402,
+            36080,
+            47490,
+            16117
+          ]
+        }
+      }
+    },
+    {
+      "id": "bruno",
+      "battles": 1900,
+      "maximum_battles": 3000,
+      "wins": 582,
+      "win_probability": 0.3063157894736842,
+      "outcomes": {
+        "loss": 1318,
+        "win": 582
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.25785355784328845,
+          0.3578198272961661
+        ],
+        "width": 0.09996626945287768,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 7.288947368421053,
+      "mean_items_used": {
+        "xspecial": 1.0136842105263157,
+        "xspeed": 0.7447368421052631,
+        "fullrestore": 0.9715789473684211,
+        "potion": 0.7189473684210527,
+        "superpotion": 0.5263157894736842
+      },
+      "losses_by_foe": {
+        "machamp": 1276,
+        "hitmonlee": 31,
+        "hitmonchan": 11
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 52,
+        "hp": 130,
+        "max_hp": 162
+      },
+      "video_start": 6555,
+      "example_seeds": {
+        "loss": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "win": {
+          "master": 1,
+          "trial": 14,
+          "engine": [
+            26772,
+            35372,
+            12824,
+            28068
+          ]
+        }
+      }
+    },
+    {
+      "id": "agatha",
+      "battles": 420,
+      "maximum_battles": 3000,
+      "wins": 399,
+      "win_probability": 0.95,
+      "outcomes": {
+        "win": 399,
+        "loss": 21
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.8861599502762951,
+          0.9846217835481564
+        ],
+        "width": 0.09846183327186131,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 14.407142857142857,
+      "mean_items_used": {
+        "superpotion": 2.073809523809524,
+        "xspeed": 1.0,
+        "fullrestore": 1.8142857142857143,
+        "xspecial": 2.0,
+        "xaccuracy": 1.026190476190476,
+        "antidote": 0.6,
+        "awakening": 0.06428571428571428
+      },
+      "losses_by_foe": {
+        "golbat": 3,
+        "arbok": 6,
+        "gengar": 9,
+        "haunter": 3
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 53,
+        "hp": 45,
+        "max_hp": 165
+      },
+      "video_start": 6672,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 22,
+          "engine": [
+            58764,
+            8271,
+            37772,
+            31288
+          ]
+        }
+      }
+    },
+    {
+      "id": "lance",
+      "battles": 1580,
+      "maximum_battles": 3000,
+      "wins": 1215,
+      "win_probability": 0.7689873417721519,
+      "outcomes": {
+        "win": 1215,
+        "loss": 365
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.7165675835338577,
+          0.8163730217421962
+        ],
+        "width": 0.09980543820833843,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 12.682278481012657,
+      "mean_items_used": {
+        "xspecial": 1.7329113924050632,
+        "xaccuracy": 1.7765822784810126,
+        "fullrestore": 1.4981012658227848,
+        "xspeed": 0.8322784810126582,
+        "parlyzheal": 1.1765822784810127,
+        "potion": 0.5683544303797469,
+        "superpotion": 0.3689873417721519,
+        "elixir": 0.0006329113924050633
+      },
+      "losses_by_foe": {
+        "gyarados": 334,
+        "dragonite": 15,
+        "dragonair": 16
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 54,
+        "hp": 168,
+        "max_hp": 168
+      },
+      "video_start": 6787,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 2,
+          "engine": [
+            51967,
+            22541,
+            57810,
+            45018
+          ]
+        }
+      }
+    },
+    {
+      "id": "champion",
+      "battles": 2220,
+      "maximum_battles": 3000,
+      "wins": 1246,
+      "win_probability": 0.5612612612612613,
+      "outcomes": {
+        "win": 1246,
+        "loss": 974
+      },
+      "confidence_sequence": {
+        "bounds": [
+          0.5108859946323085,
+          0.6108069218752751
+        ],
+        "width": 0.09992092724296653,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_turns": 16.675675675675677,
+      "mean_items_used": {
+        "xspecial": 2.8261261261261263,
+        "xaccuracy": 1.5045045045045045,
+        "xspeed": 1.0166666666666666,
+        "fullrestore": 2.55,
+        "superpotion": 1.2518018018018018,
+        "potion": 0.38738738738738737
+      },
+      "losses_by_foe": {
+        "gyarados": 39,
+        "venusaur": 596,
+        "alakazam": 79,
+        "rhydon": 187,
+        "arcanine": 68,
+        "pidgeot": 5
+      },
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 55,
+        "hp": 171,
+        "max_hp": 171
+      },
+      "video_start": 6944,
+      "example_seeds": {
+        "win": {
+          "master": 1,
+          "trial": 0,
+          "engine": [
+            61893,
+            39813,
+            25360,
+            48070
+          ]
+        },
+        "loss": {
+          "master": 1,
+          "trial": 1,
+          "engine": [
+            46,
+            55011,
+            12836,
+            30441
+          ]
+        }
+      }
+    }
+  ]
+}

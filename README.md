@@ -6,16 +6,18 @@ before spending time on a console run.
 
 The existing library covers maps, tile movement, routing under uncertainty,
 and movement physics for FireRed / LeafGreen and Brilliant Diamond /
-Shining Pearl. The first battle milestone runs four FRLG trainer encounters
+Shining Pearl. The battle benchmark runs all 69 trainer encounters in Pokeguy’s FRLG route
 with Python policies, pret data, and a local Pokémon Showdown engine.
-See [the battle benchmark guide](docs/battles/README.md) for inputs, limitations,
-and reproducible results.
+See [the full trainer benchmark](docs/battles/pokeguy-benchmark.md) for inputs, limitations,
+and [the complete results table](docs/battles/pokeguy-trainers.md).
 
 The [full-route EXP audit](docs/progression/README.md) logs Pokeguy's LeafGreen
 battles, calculates the starter's level after each one, and compares it with
 the video notes, including a route that flees all random wild encounters.
 See the [trainer route guide](docs/progression/pokeguy-route.md) for the full
 trainer sequence grouped by segment and the level targets before major battles.
+The [starting-state ledger](docs/progression/pokeguy-states.md) adds HP/status,
+raw stats, PP, held items, badges, and tracked consumables for every encounter.
 
 The console programs live in
 [Arduino-Source](https://github.com/PokemonAutomation/Arduino-Source).
@@ -28,7 +30,7 @@ generation, battle evaluation, and route validation.
 | Path | Purpose |
 |---|---|
 | `src/pokesim/games/frlg/battle/` | Python battle policies, pret import, engine client, and benchmark reports. |
-| `src/pokesim/games/frlg/progression/` | EXP arithmetic, trainer/species import, and video-route audits. |
+| `src/pokesim/games/frlg/progression/` | EXP/EV/stat models, move and inventory ledgers, and video-route audits. |
 | `engines/frlg-showdown/` | FireRed/LeafGreen (Gen 3) adapter using pinned Showdown and Smogon packages. |
 | `src/pokesim/grid/` | Map models, movement rules, rendering, and route planning. |
 | `src/pokesim/physics/` | Movement uncertainty models. |
@@ -65,11 +67,11 @@ points at it:
 POKEFIRERED_DIR="$PWD/external/pokefirered" PYTHONPATH=src python3 -m unittest discover -s src -t src
 ```
 
-Run the battle milestone:
+Run the full trainer benchmark:
 
 ```sh
 npm ci --omit=optional --prefix engines/frlg-showdown
-PYTHONPATH=src python3 -m pokesim.cli.frlg_battle --battles 1000 --out /tmp/frlg.json
+PYTHONPATH=src python3 -m pokesim.cli.frlg_run_battles --out /tmp/pokeguy-battles.json
 ```
 
 See [external/README.md](external/README.md) for source checkout conventions,

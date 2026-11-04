@@ -19,6 +19,8 @@ before Hideout Giovanni.
 
 See the [move history](pokeguy-moves.md) for the lead's move set on entry and
 exit for every battle, including learning after individual knockouts.
+The [starting-state ledger](pokeguy-states.md) adds each battle's HP, PP,
+tracked bag quantities, generated raw stats, held item, and badges.
 
 ## Major battle targets
 

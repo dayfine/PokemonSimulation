@@ -1,0 +1,132 @@
+{
+  "format": "pokesim-frlg-player-strategies/1",
+  "default": "recovery",
+  "scope": "Only these twelve previously classified Type C fights enable complex planning; A/B use default recovery.",
+  "goal_provenance": {
+    "observed_setup_counts": "state-history.json: Tower/Silph/Route22 rivals and League setup counts inform minimum Sp. Atk/Accuracy goals.",
+    "proposed_targets": "Koga spa2, Erika spa1/accuracy1, and Silph Giovanni spa1 are proposed goals, not observed Pokeguy item use. Outspeed/accuracy repair and Guard Spec are state-dependent additions.",
+    "bruno": "Two X Specials, X Speed compensating Rock Tomb, and 42/162 HP activate Torrent in the video. The planner commits to stages and targets Torrent rather than healing to full."
+  },
+  "fights": {
+    "tower-rival": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "koga": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "erika": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 1,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "silph-rival": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 1,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "silph-giovanni": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "sabrina": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 0,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "route22-rival": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 1,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "lorelei": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 4,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "bruno": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": true
+      }
+    },
+    "agatha": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "lance": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 1,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    },
+    "champion": {
+      "enable_complex_planning": true,
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 1,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      }
+    }
+  }
+}

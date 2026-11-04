@@ -1,0 +1,490 @@
+{
+  "format": "pokesim-frlg-baseline-replay-checks/1",
+  "scope": "Frozen example traces for the 57 A/B fights; regression evidence for the strategy-layer refactor, not new probability estimates.",
+  "baseline_summary_sha256": "af3f53581e7e32525abc82bb3a58e0436a8d3378dc6adaf89fdf76293350ca08",
+  "checks": [
+    {
+      "case": "lab-rival",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "7128f055882d4c4d3997e45ec56a0735ad76ec6a0c4d2f2aeb296db14e4336a9"
+    },
+    {
+      "case": "lab-rival",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 2,
+      "trace_sha256": "21381654f050a7bc63c4fe7dcab21def08b9ad3250ff45c049e90acf9c2e45df"
+    },
+    {
+      "case": "forest-sammy",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "4ab258a6542dd759887b4b834b050dac6845bf0daef46afce0efbbaca7a235f8"
+    },
+    {
+      "case": "forest-sammy",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 3,
+      "trace_sha256": "c7e6b498f445e662bbf8681c2b3e8a5a024c4a67842e08624dab30d13c64ffa6"
+    },
+    {
+      "case": "pewter-liam",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "ea11baf441aeb2721d06e7ee753d6bbbfad53ab9755e58eabd2f215dcb25b8cf"
+    },
+    {
+      "case": "pewter-liam",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 2,
+      "trace_sha256": "5e2a782bbe41d9d8076b62d06d155c0fbb4a9895fcc45999e7242dae2662924a"
+    },
+    {
+      "case": "brock",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "9889cbdc48de809fa5694a09238a59c6405f7ee0e87f63a57b5201cb1072de07"
+    },
+    {
+      "case": "brock",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 2,
+      "trace_sha256": "4857b23054fb1320f297d0f57b784b4d9c73539786a29bde59fb46c8af22549b"
+    },
+    {
+      "case": "route3-colton",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "e4cc84990eb776b099b8b25198f4e71f34e3f7efc88c7e10b5c59043a5576f69"
+    },
+    {
+      "case": "route3-greg",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "1d1877fb4f0b9c62d5b1b3fa6c7cd555cb459f6be35fc29842eb2e3406f4c9dc"
+    },
+    {
+      "case": "route3-james",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "4da391fc41ef4e097b8f37c06e8b0a0d5f922e11a9c03f7a0b524d5edf55ecee"
+    },
+    {
+      "case": "mtmoon-josh",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "b7166cec80eced5dd46e34a34ef13f34115fb68a404c429cdbac9c3e03adfab9"
+    },
+    {
+      "case": "mtmoon-josh",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 5,
+      "trace_sha256": "0f3699f217223485b69e93e1321db355bd998a0dbd238c8ca9e8d3abb61afe14"
+    },
+    {
+      "case": "mtmoon-rocket",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "613a16e182571efe864e439b83b9b7fdb4b40158ee34faf3127bd111533f970b"
+    },
+    {
+      "case": "mtmoon-rocket",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 38,
+      "trace_sha256": "ee469ccbbd318176fc53264e49d5172eb09dae414e5dd3cfd1077c8d27ff25ea"
+    },
+    {
+      "case": "mtmoon-miguel",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "13c78c6c30f4be80387fb9d75a4cff80375b0922708c7b56c7bb932cb5c0dadf"
+    },
+    {
+      "case": "misty",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "6a2665cee10fa0bd3be9f577ee95939c68d4786b4e82380438e3c4606a122db5"
+    },
+    {
+      "case": "misty",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 30,
+      "trace_sha256": "bb7714ece8c82fe579acfaa27345417d50b5ae573b6c98ed5c9d168b1578f6e5"
+    },
+    {
+      "case": "cerulean-rival",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "3339c3a65eb4890a072fb9d7c10b67e12f911e0f077077c2685b322a1a2a3e28"
+    },
+    {
+      "case": "cerulean-rival",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 2,
+      "trace_sha256": "fb7cbe5fea64d961c09155fab5dcdc39ce57165cbc91f006434a3732ac672ae7"
+    },
+    {
+      "case": "bridge-cale",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "1b6d12951d6aa932b7c6d37c534892f071b4156851f052afad4fd3185f0b94d3"
+    },
+    {
+      "case": "bridge-ali",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "cab37514dedaf3fe1b91ae680890040d2ceed8c13e7cab6788fc0a154e3f7328"
+    },
+    {
+      "case": "bridge-timmy",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "36df5f9b3af96d7cf3db28727eb2d480a690d4b9a28b201a5938ed624115796f"
+    },
+    {
+      "case": "bridge-reli",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "ffe8874311cd7486aa5bcd197dddf15846bb5e49ca03d95e9383eb16f906df13"
+    },
+    {
+      "case": "bridge-ethan",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "50edbec4f8c3379e1db269835db3e629309a65a96a5da6d6759bf2f3dae96949"
+    },
+    {
+      "case": "bridge-rocket",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "1f0a255d2a748526098323929a1eb38e9c74f88a937472524f367d03027d0615"
+    },
+    {
+      "case": "route25-wayne",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "0e4866f4346821725ff591a8b52de78d176e100676fb50eb3b3cbdca54aa932b"
+    },
+    {
+      "case": "route25-kelsey",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "7172593610c1db35b915c96c91782170284baa475181057be5bd208261b8e507"
+    },
+    {
+      "case": "route25-flint",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "713389a2788b193f70562bbae8e647bb8656598b3d8deb7c3faf388b09318494"
+    },
+    {
+      "case": "route25-haley",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "36922d96cbec9ffb240ade227a3a49d0c7020231a7f44df2efe2f2e61b58d261"
+    },
+    {
+      "case": "cerulean-dig-rocket",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "9a40f3da2df4bb1ee1f64caefe5c4cab9c44c2cb9bd0b0d55bf23ba900697ab4"
+    },
+    {
+      "case": "route6-jeff",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "5d091ad539f5c25f23e2cad1f5a834e188eefd203191731e3a5edd0abb916903"
+    },
+    {
+      "case": "ssanne-rival",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "cad6d1afa7c698527e320c41361869a4f30d74d972c327b645d514c4de71db75"
+    },
+    {
+      "case": "ssanne-rival",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 3,
+      "trace_sha256": "5469607fa7a70ecb82bad43b90c0dac97d4a82e37bfee89b425c6a921d7bd321"
+    },
+    {
+      "case": "vermilion-tucker",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "db38dd0c55c1ea231875a4ed6b87b4860ba61de16207803a82563a1f47ed3a8e"
+    },
+    {
+      "case": "surge",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "50ec8e31957de91f93e9ea6b04207a43548e941cc794d5e3be09d61e05c1cf1e"
+    },
+    {
+      "case": "surge",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 1,
+      "trace_sha256": "1ae7355ddc0d9737c889f1dfbe1b2de4cf3d7657817958394b5194d4a6adc993"
+    },
+    {
+      "case": "route9-alicia",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "8f3f5e1487c11b62955f26c4268884c3ab37fd050cba613c92a81aaf77030687"
+    },
+    {
+      "case": "route9-conner",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "e12beb8e1d043d8c4020167ac8555947933ef56ff8c33d56266d7adedbdea387"
+    },
+    {
+      "case": "rocktunnel-ashton",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "117ef36d6083abbcbd2f3a05533eb1e01ac949bff59aaeb1540742e9ff9c6634"
+    },
+    {
+      "case": "rocktunnel-winston",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "78fdd8df7132b5bcb491402c2d9f45d4b41204870a109d4e7d03fd6064bbb094"
+    },
+    {
+      "case": "rocktunnel-martha",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "6dd4059d3c9595692f11ace44e01204fd1eabf51a6d9fd743af819c2f792bb2d"
+    },
+    {
+      "case": "rocktunnel-martha",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 53,
+      "trace_sha256": "2d162956d9c159e3a0407470c27731ddf1a804554565add38f4ec144288e428a"
+    },
+    {
+      "case": "rocktunnel-allen",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "397517cbc5090888a3d3188555479a7e108bb396ca251b6fef04bcc3dba083c6"
+    },
+    {
+      "case": "rocktunnel-oliver",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "7bb258338a7d079e6c3a3b9c23567029340c44b11574d0011c34587d3d0ccbed"
+    },
+    {
+      "case": "rocktunnel-sofia",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "d81879a424fffd1adf71b28f32d902f0fb699d2d19315cfd5a935aa17c081ddc"
+    },
+    {
+      "case": "rocktunnel-dudley",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "8b3a25f5ad3ee40c47236475c178b8de7f615549d0ea3ee74c92cbe06c51da90"
+    },
+    {
+      "case": "rocktunnel-dana",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "35176ef056bd9e2ca67a17696cd27a7f1125b3b4c0d5211cb967bf94fb03aa4f"
+    },
+    {
+      "case": "route8-rich",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "9a66f853fbbe727203998ba1df2c7160cb0034f5d048dc079af413d594fcef07"
+    },
+    {
+      "case": "hideout-poster-guard",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "f2942c79e57f586269f89ec4e0c8d85feb01ae21e5d878c39e3fab4fe45db6c5"
+    },
+    {
+      "case": "hideout-key-grunt",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "7736d56c75ce4c8e4b7bbf8f3f9fd2452197b0112e47a579a2841697ff453e5e"
+    },
+    {
+      "case": "hideout-left-guard",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "39149e1e1d20d5ccc661ed38b4e0842b5cd67bae37020f1f30f3534b7114c2d7"
+    },
+    {
+      "case": "hideout-right-guard",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "57d663c58ea026cbb3aa473062ef826896d579a2ccf00ecfdceebf1f54d3e769"
+    },
+    {
+      "case": "hideout-giovanni",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "3c907bd258d3b83acc10cdcd29b3615b7e7f5e6f735bdb11179e8700a62f98f8"
+    },
+    {
+      "case": "tower-tammy",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "9bc9029a15e9ea7ea02696b34f0f7e097fd66fc3267388601e40ee5cdd8a45b6"
+    },
+    {
+      "case": "tower-jennifer",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "c53071550162ff95130841dd089e0e55b668b248fabf3c30addf262c4e003fc6"
+    },
+    {
+      "case": "tower-emilia",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "5a2e149578668f2d20d8eb1a2a8a55850a79020a7b3c4a7a5731819a6f418f6f"
+    },
+    {
+      "case": "tower-rocket1",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "cb0fc3afb2e14c6a5ab75eeac80ebb9d507fe1dcfca47c619bb9089ec9785bdd"
+    },
+    {
+      "case": "tower-rocket2",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "e26f4593600474f866bf1d0d95de9599c817e0c94d8ce81074b72ee5b519b9e2"
+    },
+    {
+      "case": "tower-rocket3",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "8870b19f7367600be0e134f4ebf2a0e13c9322acaeae70f4cef5ea1030d51219"
+    },
+    {
+      "case": "fuchsia-kirk",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "2ffba7cdbb869b8e727494c358e824b067305c90db25ab74addb46d76ed463f0"
+    },
+    {
+      "case": "blaine",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "44bb30dc3155755e32fb4504b865be46f1d134bb75d2506cc7fa208d3b33894b"
+    },
+    {
+      "case": "celadon-tamia",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "35299262ad59c4f0e14cc8a43ec387371df85b80d66eb420d25a6a096e918acb"
+    },
+    {
+      "case": "celadon-lori",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "3012f74e3b471e68adfcf0c86283fa9ca59e8c456a1aca9c609fd092405b887e"
+    },
+    {
+      "case": "silph-boardroom-grunt",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "e565622ea1a3d6ffd1cb8ba2ea6c6f651457728c719b0fdfa5f65cfbe00f63e7"
+    },
+    {
+      "case": "viridian-takashi",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "8be6ec3ce35cd731e6e22ef6397402494bd124bc6168d4e221179c06e962179c"
+    },
+    {
+      "case": "viridian-takashi",
+      "outcome": "loss",
+      "master_seed": 1,
+      "trial": 77,
+      "trace_sha256": "c09ee66c88fd9b3b116128066b428118d0bcc8c555ade3d9728d54d69d5387b1"
+    },
+    {
+      "case": "viridian-warren",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "13a265802d044b1a1b964ee191fcc2092e9d84fb9f721c61f7e5ea4c821141ab"
+    },
+    {
+      "case": "giovanni-gym",
+      "outcome": "win",
+      "master_seed": 1,
+      "trial": 0,
+      "trace_sha256": "7ebf840153f0260dfc703341d275aee95064269a8dad87bd3c3b1b3d465db1a3"
+    }
+  ]
+}

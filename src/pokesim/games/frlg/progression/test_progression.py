@@ -107,10 +107,12 @@ class RouteAuditTest(unittest.TestCase):
             self.assertEqual((output / "report.md").read_text(), markdown_report(report))
             self.assertEqual(json.loads((output / "moves.json").read_text())["format"], "pokesim-frlg-moves-report/1")
             self.assertTrue((output / "moves.md").is_file())
+            self.assertEqual(len(json.loads((output / "states.json").read_text())["battles"]), 78)
+            self.assertTrue((output / "states.md").is_file())
 
     @unittest.skipUnless(os.environ.get("POKEFIRERED_DIR"), "Set POKEFIRERED_DIR for source integration")
     def test_snapshot_reproduces_from_pinned_pret(self):
-        actual = import_reference(Path(os.environ["POKEFIRERED_DIR"]), ROUTE)
+        actual = import_reference(Path(os.environ["POKEFIRERED_DIR"]), ROUTE, json.loads((DATA / "moves.json").read_text()))
         self.assertEqual(actual, REFERENCE)
         self.assertIn("BULBASAUR", actual["species"])
 
