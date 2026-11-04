@@ -1,4 +1,10 @@
-/** Damage previews from Smogon's Gen 3 calculator, preserving measured stats. */
+/** Live Gen 3 damage previews, including stat stages and measured raw stats.
+ * Attack/Sp. Atk and Defense/Sp. Def stages are applied by Smogon, with its
+ * Gen 3 critical-hit rules. Do not pre-apply stages to storedStats: that would
+ * count them twice and prevent critical hits from ignoring the right stages.
+ * Speed stages feed Showdown's getStat('spe') in engine.cjs, not damage rolls.
+ * Accuracy/evasion use the separate FRLG stage table below; HP has no stage.
+ */
 'use strict';
 const calc = require('@smogon/calc');
 const GEN = calc.Generations.get(3);
@@ -8,7 +14,7 @@ class MeasuredPokemon extends calc.Pokemon {
     super(GEN, pokemon.species.name, {
       level: pokemon.level, ability: pokemon.getAbility().name,
       nature: pokemon.set.nature, gender: pokemon.gender, item: pokemon.getItem().name,
-      status: pokemon.status, boosts: pokemon.boosts, curHP: pokemon.hp,
+      status: pokemon.status, boosts: {...pokemon.boosts}, curHP: pokemon.hp,
     });
     this.source = pokemon;
     this.rawStats = {hp: pokemon.maxhp, ...pokemon.storedStats};

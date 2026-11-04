@@ -81,6 +81,16 @@ stats. Bag item counts are explicit, including potion types. The first
 milestone validates against the imported trainer and move set; extending
 that set requires importing and testing the new AI paths.
 
+Optional initial `player.boosts` supplies temporary stages independently of
+the six summary stats, for example `{"atk": -1, "def": 2, "spe": 1}`.
+The supported stage keys are `atk`, `def`, `spa`, `spd`, `spe`, `accuracy`,
+and `evasion`, each an integer from -6 through +6. HP has no stage. Move
+effects update these stages during the battle. Attack and defensive stages
+are passed to Smogon with raw stats; Speed and turn order come from Showdown;
+accuracy/evasion use the adapter's pret stage table. Gen 3 critical previews
+ignore negative attacking stages and positive defending stages while retaining
+favorable stages. Supplying a stage does not implement an X-item bag action.
+
 The pret snapshot includes parties, moves, level-up default moves, IV scaling,
 name-derived natures, trainer item order, AI flags, and reachable script
 instructions. It keeps provenance hashes for each source file. No ROM or
@@ -117,7 +127,10 @@ Python experiment + policies  <--- JSON lines --->  local Node bridge
 - No npm dependency is patched, and the bridge remains pinned and independently
   tested because it uses Showdown's Side/action-queue interfaces.
 
-The opponent interpreter executes the imported `CHECK_BAD_MOVE`,
+`src/pokesim/battle/npc_ai.py` / `NPCTrainerAI` is the **game NPC trainer's
+move-selection policy**. Its current snapshot covers Misty, the Cerulean rival
+with Bulbasaur, the S.S. Anne rival with Ivysaur, and Lt. Surge. It is not our
+player AI. The interpreter executes the imported `CHECK_BAD_MOVE`,
 `CHECK_VIABILITY`, and `TRY_TO_FAINT` branches. It samples the AI's per-move
 simulated damage rolls, follows its randomized scoring, and preserves its
 best-score selection behavior. It tracks revealed player moves. Unknown
@@ -125,13 +138,16 @@ instructions raise an error instead of silently falling back to a generic AI.
 Trainer items use pret's HP thresholds, status cures, single-use inventory,
 and item-slot restrictions as the enemy party shrinks.
 
-The player policy, `solo-greedy-heal/1`, chooses a move by expected turns to
+Our player policy, `policy.py:player_action`, named `solo-greedy-heal/1`, chooses a move by expected turns to
 KO, accuracy, and PP conservation. It prioritizes a reliable finishing hit,
 uses available status cures when the turn is survivable, and selects the
 smallest useful healing item when hurt. It estimates next-turn damage from
 32 samples of the opponent policy and existing poison/Leech Seed damage,
 using the 80th percentile to avoid Potion loops that heal less than each hit.
 It does not optimize the whole battle or reproduce every historical C++ choice.
+`policy.py:trainer_item` and `policy.py:replacement` are NPC helpers for bag
+items and compulsory replacements; the benchmark calls these separately from
+`NPCTrainerAI`'s move scoring.
 
 ## Fidelity limits and next decision
 
@@ -158,6 +174,9 @@ confusion, Torrent, different healing choices, and source assumptions can
 change the answer. Before expansion, replay the recorded console cases with
 fully read inputs, inspect representative losses, and decide whether improving
 AI fidelity or player policy gives the most useful next result.
+
+See the [implementation gap review](GAPS.md) for concrete missing behavior,
+its effect on these estimates, and the next work needed for the Pokeguy route.
 
 ## Verification
 

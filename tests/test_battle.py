@@ -8,7 +8,7 @@ import random
 import shutil
 import unittest
 
-from pokesim.battle.ai import TrainerAI
+from pokesim.battle.npc_ai import NPCTrainerAI
 from pokesim.battle.benchmark import evaluate, scenario_for, wilson
 from pokesim.battle.engine import BRIDGE, Engine
 from pokesim.battle.policy import player_action, trainer_item, replacement
@@ -53,6 +53,19 @@ class BattleDataTest(unittest.TestCase):
                 validate_cases(cases, PRET)
         with self.assertRaises(ValueError):
             evaluate(CASES, PRET, battles=0)
+
+    def test_initial_stat_stages_validate_all_seven_without_changing_summary_stats(self):
+        cases = copy.deepcopy(CASES[:1])
+        original = copy.deepcopy(cases[0]["player"]["stats"])
+        cases[0]["player"]["boosts"] = {"atk": -6, "def": 6, "spa": -2,
+            "spd": 2, "spe": 1, "accuracy": -1, "evasion": 3}
+        validate_cases(cases, PRET)
+        self.assertEqual(cases[0]["player"]["stats"], original)
+        for boosts in ({"hp": 1}, {"attack": 1}, {"atk": 7}, {"def": -7},
+                       {"spe": 1.5}, {"accuracy": True}, []):
+            cases[0]["player"]["boosts"] = boosts
+            with self.subTest(boosts=boosts), self.assertRaises(ValueError):
+                validate_cases(cases, PRET)
 
     def test_badges_and_bag_are_not_silently_duplicated(self):
         cases = copy.deepcopy(CASES[:1])
@@ -102,7 +115,7 @@ class BattleIntegrationTest(unittest.TestCase):
     """Exercise policies against actual Showdown state, including replacements."""
 
     def setUp(self):
-        self.ai = TrainerAI(PRET)
+        self.ai = NPCTrainerAI(PRET)
         self.context = Engine()
         self.engine = self.context.__enter__()
         self.addCleanup(self.context.__exit__, None, None, None)

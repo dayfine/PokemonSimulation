@@ -7,7 +7,7 @@ import json
 import math
 import random
 
-from pokesim.battle.ai import TrainerAI, move_id
+from pokesim.battle.npc_ai import NPCTrainerAI, move_id
 from pokesim.battle.engine import BRIDGE, Engine
 from pokesim.battle.schema import validate_cases
 from pokesim.battle.policy import POLICY, locked, player_action, replacement, trainer_item
@@ -82,7 +82,7 @@ def evaluate(cases, pret, battles=1000, seed=1, turn_limit=200, progress=None):
     if not isinstance(turn_limit, int) or turn_limit < 1:
         raise ValueError("turn_limit must be a positive integer")
     validate_cases(cases, pret)
-    ai = TrainerAI(pret)
+    ai = NPCTrainerAI(pret)
     results = []
     with Engine() as engine:
         for case in cases:

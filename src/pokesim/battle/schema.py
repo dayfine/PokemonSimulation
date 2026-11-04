@@ -1,8 +1,9 @@
 """Validate the deliberately small first-milestone experiment format."""
 
-from pokesim.battle.ai import move_id
+from pokesim.battle.npc_ai import move_id
 
 STATS = {"hp", "atk", "def", "spa", "spd", "spe"}
+STAGES = {"atk", "def", "spa", "spd", "spe", "accuracy", "evasion"}
 ITEMS = {"potion", "superpotion", "hyperpotion", "maxpotion", "fullrestore",
          "awakening", "antidote", "parlyzheal", "burnheal", "iceheal", "fullheal"}
 BADGES = {"boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"}
@@ -39,6 +40,11 @@ def validate_cases(cases, pret):
             raise ValueError("Unsupported initial status")
         if "sleep_turns" in player:
             integer(player["sleep_turns"], 1, 5, "sleep counter")
+        boosts = player.get("boosts", {})
+        if not isinstance(boosts, dict) or set(boosts) - STAGES:
+            raise ValueError("Initial boosts must use the seven supported stat stages")
+        for stat, stage in boosts.items():
+            integer(stage, -6, 6, stat + " stage")
         moves = player["moves"]
         if not 1 <= len(moves) <= 4:
             raise ValueError("Player must have one to four moves")

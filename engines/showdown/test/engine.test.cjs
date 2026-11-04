@@ -6,6 +6,14 @@ const {createBattle, playTurn, snapshot} = require('../engine.cjs');
 const {rolls} = require('../damage.cjs');
 const SEED = [1, 2, 3, 4];
 
+function stageScenario(player = {}, foe = {}) {
+  const stats = {hp: 500, atk: 80, def: 80, spa: 80, spd: 80, spe: 40};
+  return {...scenario(), badges: [], player: {species: 'Wartortle', level: 40,
+    stats: {...stats}, moves: ['Tackle', 'Bite', 'Tail Whip'], ...player},
+    trainer: {party: [{species: 'Wartortle', level: 40,
+      stats: {...stats, spe: 60}, moves: ['Splash'], ...foe}], bag: {}}};
+}
+
 function scenario(player = {}, foe = {}) {
   return {player: {species: 'Wartortle', level: 20, moves: ['Bite'],
     stats: {hp: 60, atk: 33, def: 40, spa: 34, spd: 40, spe: 31}, ...player},
@@ -158,4 +166,85 @@ test('loss evidence survives Showdown faint cleanup, including Leech Seed and ac
   assert.equal(s.own.faint.status, 'psn');
   assert.equal(s.own.faint.effect, 'shockwave');
   b.destroy();
+});
+
+for (const [stat, side, name] of [
+  ['atk', 'p1', 'Tackle'], ['def', 'p2', 'Tackle'],
+  ['spa', 'p1', 'Bite'], ['spd', 'p2', 'Bite'],
+]) {
+  test(`${stat} stages -6 through +6 affect previews once and preserve raw stats`, () => {
+    const b = createBattle(stageScenario(), SEED);
+    const own = b.p1.active[0], foe = b.p2.active[0];
+    const original = {...own.storedStats};
+    for (let stage = -6; stage <= 6; stage++) {
+      b[side].active[0].setBoost({[stat]: stage});
+      // Independent Gen 3 example: Lv40, raw stats80, no STAB/effectiveness,
+      // power35 (Tackle) or60 (Bite). Maximum damage = floor(18*BP*A/D/50)+2.
+      const changed = Math.floor(80 * (stage >= 0 ? (2 + stage) / 2 : 2 / (2 - stage)));
+      const attack = side === 'p1' ? changed : 80;
+      const defense = side === 'p2' ? changed : 80;
+      const expected = Math.floor(Math.floor(18 * (name === 'Tackle' ? 35 : 60) * attack / defense) / 50) + 2;
+      assert.equal(Math.max(...rolls(own, foe, name)), expected, `stage ${stage}`);
+      assert.deepEqual(own.storedStats, original);
+      assert.equal(b[side].active[0].boosts[stat], stage);
+    }
+    b.destroy();
+  });
+}
+
+test('Gen 3 critical previews ignore negative attack/positive defense but retain favorable stages', () => {
+  const b = createBattle(stageScenario(), SEED);
+  const own = b.p1.active[0], foe = b.p2.active[0];
+  for (const [attack, defense, name] of [['atk', 'def', 'Tackle'], ['spa', 'spd', 'Bite']]) {
+    own.clearBoosts(); foe.clearBoosts();
+    const baseline = rolls(own, foe, name, true);
+    own.setBoost({[attack]: -4}); foe.setBoost({[defense]: 4});
+    assert.deepEqual(rolls(own, foe, name, true), baseline);
+    assert.ok(Math.max(...rolls(own, foe, name)) < Math.max(...baseline) / 2);
+    own.setBoost({[attack]: 2}); foe.setBoost({[defense]: -2});
+    assert.ok(Math.max(...rolls(own, foe, name, true)) > Math.max(...baseline));
+  }
+  b.destroy();
+});
+
+test('initial Speed stages change both exported speed and actual turn order', () => {
+  for (const [stage, speed, first] of [[-6, 10, 'p2a:'], [-2, 20, 'p2a:'], [2, 80, 'p1a:'], [6, 160, 'p1a:']]) {
+    const b = createBattle(stageScenario({boosts: {spe: stage}}), SEED);
+    assert.equal(snapshot(b).own.speed, speed);
+    playTurn(b, move(0), move(0));
+    assert.ok(snapshot(b).log.find(line => line.startsWith('|move|')).startsWith(`|move|${first}`));
+    b.destroy();
+  }
+});
+
+test('Accuracy and Evasion stages cover both signs, cancellation, and combined stage caps', () => {
+  const b = createBattle(stageScenario(), SEED);
+  const own = b.p1.active[0], foe = b.p2.active[0];
+  for (const [acc, eva, expected] of [[-6, 0, 0.33], [0, 6, 0.33], [0, -2, 1],
+    [2, 2, 1], [-1, 1, 0.6], [-6, 6, 0.33], [6, -6, 1]]) {
+    own.setBoost({accuracy: acc}); foe.setBoost({evasion: eva});
+    assert.equal(snapshot(b).own.moves[2].accuracy, expected);
+  }
+  b.destroy();
+});
+
+test('Tail Whip and Withdraw update the next physical preview and actual attack damage', () => {
+  const b = createBattle(stageScenario(), SEED);
+  withoutCrits(b);
+  const own = b.p1.active[0], foe = b.p2.active[0];
+  const baseline = Math.max(...rolls(own, foe, 'Tackle'));
+  playTurn(b, move(2), move(0));
+  assert.equal(foe.boosts.def, -1);
+  assert.ok(Math.max(...rolls(own, foe, 'Tackle')) > baseline);
+  const preview = rolls(own, foe, 'Tackle');
+  const hp = foe.hp;
+  playTurn(b, move(0), move(0));
+  assert.ok(preview.includes(hp - foe.hp));
+  b.destroy();
+
+  const withdrawn = createBattle(stageScenario({}, {moves: ['Withdraw']}), SEED);
+  playTurn(withdrawn, move(2), move(0));
+  assert.equal(withdrawn.p2.active[0].boosts.def, 0); // +1 Withdraw cancels -1 Tail Whip.
+  assert.equal(Math.max(...rolls(withdrawn.p1.active[0], withdrawn.p2.active[0], 'Tackle')), baseline);
+  withdrawn.destroy();
 });

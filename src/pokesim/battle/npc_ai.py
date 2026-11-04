@@ -1,4 +1,9 @@
-"""Execute the imported pret scoring scripts for the four milestone trainers.
+"""Game NPC move-selection AI, interpreted from pret's FRLG scoring scripts.
+
+The current snapshot covers Misty, the Cerulean rival (Bulbasaur team), the
+S.S. Anne rival (Ivysaur team), and Lt. Surge. This module selects the enemy
+trainer's moves; our solo player's move/healing strategy is player_action()
+in policy.py. NPC item use and compulsory replacement are also in policy.py.
 
 The instruction branches and score changes come from the pinned decomp.
 Damage helpers use Smogon previews rather than pret's AI_CalcDmg. This is a
@@ -22,8 +27,8 @@ DISCOURAGED = {"EFFECT_" + e for e in ("EXPLOSION", "DREAM_EATER", "RAZOR_WIND",
     "RECHARGE", "SKULL_BASH", "SOLAR_BEAM", "SPIT_UP", "FOCUS_PUNCH", "SUPERPOWER", "ERUPTION", "OVERHEAT")}
 
 
-class TrainerAI:
-    """An interpreter over one revision-stamped snapshot, with explicit helpers."""
+class NPCTrainerAI:
+    """Choose enemy trainer moves using a revision-stamped pret script snapshot."""
 
     def __init__(self, snapshot):
         self.script = snapshot["ai"]
@@ -102,7 +107,7 @@ class TrainerAI:
                 key = {"get_move_effect_from_result": "effect", "get_move_power_from_result": "power", "get_move_type_from_result": "type"}[op]
                 result = previous[key] if previous else 0
             elif op == "get_weather":
-                result = 0  # These four encounters have no weather-setting moves.
+                result = 0  # Misty, the two imported rivals, and Surge have no weather-setting moves.
             elif op.startswith("if_stat_level_"):
                 stat = STAT[args[1][len("STAT_"):]]
                 jump = COMPARE[op[len("if_stat_level_"):]](mon(args[0])["boosts"][stat] + 6, int(args[2]))

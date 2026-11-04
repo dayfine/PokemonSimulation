@@ -1,4 +1,8 @@
-"""Basic move, healing, and replacement policies for solo FRLG benchmarks.
+"""Our solo player's move/heal strategy, plus NPC item/replacement helpers.
+
+player_action(), attack(), and threat() choose our player's actions.
+trainer_item() and replacement() control the opposing game NPC trainer.
+The NPC's pret move scoring lives separately in npc_ai.py:NPCTrainerAI.
 
 Policies inspect current state, never the next RNG draw. Healing is chosen
 against a sampled opponent move distribution and current residual damage.
