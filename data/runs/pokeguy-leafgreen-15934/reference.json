@@ -1,0 +1,1611 @@
+{
+  "format": "pokesim-frlg-exp-data/1",
+  "source": {
+    "repository": "https://github.com/pret/pokefirered",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "sha256": {
+      "src/data/trainers.h": "b2105a3b1d1baec02d8f6a89f44bcdf6a05cbaac1d6d8872766eec49aa8555bc",
+      "src/data/trainer_parties.h": "cb135d9cbdfc52c87066374d582506830a8c93561eab2033d847331c2de00299",
+      "src/data/pokemon/species_info.h": "9c2da1284f7859700b315abda0499334c422f2c6776d576c788fcd1e4050f71e",
+      "src/data/pokemon/experience_tables.h": "9a236761640676e251b76b7950b86e5881ee23dfe920ca27bbe47b4541542731",
+      "src/battle_script_commands.c": "3b7341db8cd58c54fb0b54b47e6eef89c5c05e8a60ab4e9b45bdc907845c19b3",
+      "src/pokemon.c": "116a470cd9ebfa226aa8d85c2eb63591e176d726837c67baaa1ac6260d50f2ec",
+      "data/maps/PokemonTower_7F/scripts.inc": "3c9699000e2912afcb9833b07591271ffe24ce066331cf0a4a6e7e85f1d78dfd",
+      "data/maps/PokemonTower_6F/scripts.inc": "9b761b8470ee034f3c3fea2c2e293ef631e75c2b848e3bf81daedc0ff30b2a90"
+    }
+  },
+  "growth_curves": {
+    "GROWTH_MEDIUM_SLOW": [
+      0,
+      1,
+      9,
+      57,
+      96,
+      135,
+      179,
+      236,
+      314,
+      419,
+      560,
+      742,
+      973,
+      1261,
+      1612,
+      2035,
+      2535,
+      3120,
+      3798,
+      4575,
+      5460,
+      6458,
+      7577,
+      8825,
+      10208,
+      11735,
+      13411,
+      15244,
+      17242,
+      19411,
+      21760,
+      24294,
+      27021,
+      29949,
+      33084,
+      36435,
+      40007,
+      43808,
+      47846,
+      52127,
+      56660,
+      61450,
+      66505,
+      71833,
+      77440,
+      83335,
+      89523,
+      96012,
+      102810,
+      109923,
+      117360,
+      125126,
+      133229,
+      141677,
+      150476,
+      159635,
+      169159,
+      179056,
+      189334,
+      199999,
+      211060,
+      222522,
+      234393,
+      246681,
+      259392,
+      272535,
+      286115,
+      300140,
+      314618,
+      329555,
+      344960,
+      360838,
+      377197,
+      394045,
+      411388,
+      429235,
+      447591,
+      466464,
+      485862,
+      505791,
+      526260,
+      547274,
+      568841,
+      590969,
+      613664,
+      636935,
+      660787,
+      685228,
+      710266,
+      735907,
+      762160,
+      789030,
+      816525,
+      844653,
+      873420,
+      902835,
+      932903,
+      963632,
+      995030,
+      1027103,
+      1059860
+    ]
+  },
+  "trainers": {
+    "TRAINER_RIVAL_OAKS_LAB_BULBASAUR": {
+      "name": "TERRY",
+      "party": [
+        {
+          "species": "BULBASAUR",
+          "level": 5
+        }
+      ]
+    },
+    "TRAINER_BUG_CATCHER_SAMMY": {
+      "name": "SAMMY",
+      "party": [
+        {
+          "species": "WEEDLE",
+          "level": 9
+        }
+      ]
+    },
+    "TRAINER_CAMPER_LIAM": {
+      "name": "LIAM",
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 10
+        },
+        {
+          "species": "SANDSHREW",
+          "level": 11
+        }
+      ]
+    },
+    "TRAINER_LEADER_BROCK": {
+      "name": "BROCK",
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 12
+        },
+        {
+          "species": "ONIX",
+          "level": 14
+        }
+      ]
+    },
+    "TRAINER_BUG_CATCHER_COLTON": {
+      "name": "COLTON",
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 10
+        },
+        {
+          "species": "WEEDLE",
+          "level": 10
+        },
+        {
+          "species": "CATERPIE",
+          "level": 10
+        }
+      ]
+    },
+    "TRAINER_BUG_CATCHER_GREG": {
+      "name": "GREG",
+      "party": [
+        {
+          "species": "WEEDLE",
+          "level": 9
+        },
+        {
+          "species": "KAKUNA",
+          "level": 9
+        },
+        {
+          "species": "CATERPIE",
+          "level": 9
+        },
+        {
+          "species": "METAPOD",
+          "level": 9
+        }
+      ]
+    },
+    "TRAINER_BUG_CATCHER_JAMES": {
+      "name": "JAMES",
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 11
+        },
+        {
+          "species": "METAPOD",
+          "level": 11
+        }
+      ]
+    },
+    "TRAINER_YOUNGSTER_JOSH": {
+      "name": "JOSH",
+      "party": [
+        {
+          "species": "RATTATA",
+          "level": 10
+        },
+        {
+          "species": "RATTATA",
+          "level": 10
+        },
+        {
+          "species": "ZUBAT",
+          "level": 10
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "RATTATA",
+          "level": 13
+        },
+        {
+          "species": "ZUBAT",
+          "level": 13
+        }
+      ]
+    },
+    "TRAINER_SUPER_NERD_MIGUEL": {
+      "name": "MIGUEL",
+      "party": [
+        {
+          "species": "GRIMER",
+          "level": 12
+        },
+        {
+          "species": "VOLTORB",
+          "level": 12
+        },
+        {
+          "species": "KOFFING",
+          "level": 12
+        }
+      ]
+    },
+    "TRAINER_LEADER_MISTY": {
+      "name": "MISTY",
+      "party": [
+        {
+          "species": "STARYU",
+          "level": 18
+        },
+        {
+          "species": "STARMIE",
+          "level": 21
+        }
+      ]
+    },
+    "TRAINER_RIVAL_CERULEAN_BULBASAUR": {
+      "name": "TERRY",
+      "party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 17
+        },
+        {
+          "species": "ABRA",
+          "level": 16
+        },
+        {
+          "species": "RATTATA",
+          "level": 15
+        },
+        {
+          "species": "BULBASAUR",
+          "level": 18
+        }
+      ]
+    },
+    "TRAINER_BUG_CATCHER_CALE": {
+      "name": "CALE",
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 10
+        },
+        {
+          "species": "WEEDLE",
+          "level": 10
+        },
+        {
+          "species": "METAPOD",
+          "level": 10
+        },
+        {
+          "species": "KAKUNA",
+          "level": 10
+        }
+      ]
+    },
+    "TRAINER_LASS_ALI": {
+      "name": "ALI",
+      "party": [
+        {
+          "species": "PIDGEY",
+          "level": 12
+        },
+        {
+          "species": "ODDISH",
+          "level": 12
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 12
+        }
+      ]
+    },
+    "TRAINER_YOUNGSTER_TIMMY": {
+      "name": "TIMMY",
+      "party": [
+        {
+          "species": "SANDSHREW",
+          "level": 14
+        },
+        {
+          "species": "EKANS",
+          "level": 14
+        }
+      ]
+    },
+    "TRAINER_LASS_RELI": {
+      "name": "RELI",
+      "party": [
+        {
+          "species": "NIDORAN_M",
+          "level": 16
+        },
+        {
+          "species": "NIDORAN_F",
+          "level": 16
+        }
+      ]
+    },
+    "TRAINER_CAMPER_ETHAN": {
+      "name": "ETHAN",
+      "party": [
+        {
+          "species": "MANKEY",
+          "level": 18
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_6": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "EKANS",
+          "level": 15
+        },
+        {
+          "species": "ZUBAT",
+          "level": 15
+        }
+      ]
+    },
+    "TRAINER_HIKER_WAYNE": {
+      "name": "WAYNE",
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 17
+        }
+      ]
+    },
+    "TRAINER_PICNICKER_KELSEY": {
+      "name": "KELSEY",
+      "party": [
+        {
+          "species": "NIDORAN_M",
+          "level": 15
+        },
+        {
+          "species": "NIDORAN_F",
+          "level": 15
+        }
+      ]
+    },
+    "TRAINER_CAMPER_FLINT": {
+      "name": "FLINT",
+      "party": [
+        {
+          "species": "RATTATA",
+          "level": 14
+        },
+        {
+          "species": "EKANS",
+          "level": 14
+        }
+      ]
+    },
+    "TRAINER_LASS_HALEY": {
+      "name": "HALEY",
+      "party": [
+        {
+          "species": "ODDISH",
+          "level": 13
+        },
+        {
+          "species": "PIDGEY",
+          "level": 13
+        },
+        {
+          "species": "ODDISH",
+          "level": 13
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_5": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "MACHOP",
+          "level": 17
+        },
+        {
+          "species": "DROWZEE",
+          "level": 17
+        }
+      ]
+    },
+    "TRAINER_CAMPER_JEFF": {
+      "name": "JEFF",
+      "party": [
+        {
+          "species": "SPEAROW",
+          "level": 16
+        },
+        {
+          "species": "RATICATE",
+          "level": 16
+        }
+      ]
+    },
+    "TRAINER_RIVAL_SS_ANNE_BULBASAUR": {
+      "name": "TERRY",
+      "party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 19
+        },
+        {
+          "species": "RATICATE",
+          "level": 16
+        },
+        {
+          "species": "KADABRA",
+          "level": 18
+        },
+        {
+          "species": "IVYSAUR",
+          "level": 20
+        }
+      ]
+    },
+    "TRAINER_GENTLEMAN_TUCKER": {
+      "name": "TUCKER",
+      "party": [
+        {
+          "species": "PIKACHU",
+          "level": 23
+        }
+      ]
+    },
+    "TRAINER_LEADER_LT_SURGE": {
+      "name": "LT. SURGE",
+      "party": [
+        {
+          "species": "VOLTORB",
+          "level": 21
+        },
+        {
+          "species": "PIKACHU",
+          "level": 18
+        },
+        {
+          "species": "RAICHU",
+          "level": 24
+        }
+      ]
+    },
+    "TRAINER_PICNICKER_ALICIA": {
+      "name": "ALICIA",
+      "party": [
+        {
+          "species": "ODDISH",
+          "level": 18
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 18
+        },
+        {
+          "species": "ODDISH",
+          "level": 18
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 18
+        }
+      ]
+    },
+    "TRAINER_BUG_CATCHER_CONNER": {
+      "name": "CONNER",
+      "party": [
+        {
+          "species": "CATERPIE",
+          "level": 20
+        },
+        {
+          "species": "WEEDLE",
+          "level": 20
+        },
+        {
+          "species": "VENONAT",
+          "level": 20
+        }
+      ]
+    },
+    "TRAINER_POKEMANIAC_ASHTON": {
+      "name": "ASHTON",
+      "party": [
+        {
+          "species": "CUBONE",
+          "level": 23
+        },
+        {
+          "species": "SLOWPOKE",
+          "level": 23
+        }
+      ]
+    },
+    "TRAINER_POKEMANIAC_WINSTON": {
+      "name": "WINSTON",
+      "party": [
+        {
+          "species": "SLOWPOKE",
+          "level": 25
+        }
+      ]
+    },
+    "TRAINER_PICNICKER_MARTHA": {
+      "name": "MARTHA",
+      "party": [
+        {
+          "species": "ODDISH",
+          "level": 22
+        },
+        {
+          "species": "BULBASAUR",
+          "level": 22
+        }
+      ]
+    },
+    "TRAINER_HIKER_ALLEN": {
+      "name": "ALLEN",
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 25
+        }
+      ]
+    },
+    "TRAINER_HIKER_OLIVER": {
+      "name": "OLIVER",
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 20
+        },
+        {
+          "species": "ONIX",
+          "level": 20
+        },
+        {
+          "species": "GEODUDE",
+          "level": 20
+        }
+      ]
+    },
+    "TRAINER_PICNICKER_SOFIA": {
+      "name": "SOFIA",
+      "party": [
+        {
+          "species": "JIGGLYPUFF",
+          "level": 21
+        },
+        {
+          "species": "PIDGEY",
+          "level": 21
+        },
+        {
+          "species": "MEOWTH",
+          "level": 21
+        }
+      ]
+    },
+    "TRAINER_HIKER_DUDLEY": {
+      "name": "DUDLEY",
+      "party": [
+        {
+          "species": "GEODUDE",
+          "level": 21
+        },
+        {
+          "species": "GEODUDE",
+          "level": 21
+        },
+        {
+          "species": "GRAVELER",
+          "level": 21
+        }
+      ]
+    },
+    "TRAINER_PICNICKER_DANA": {
+      "name": "DANA",
+      "party": [
+        {
+          "species": "MEOWTH",
+          "level": 20
+        },
+        {
+          "species": "ODDISH",
+          "level": 20
+        },
+        {
+          "species": "PIDGEY",
+          "level": 20
+        }
+      ]
+    },
+    "TRAINER_GAMER_RICH": {
+      "name": "RICH",
+      "party": [
+        {
+          "species": "GROWLITHE",
+          "level": 24
+        },
+        {
+          "species": "VULPIX",
+          "level": 24
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_7": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "RATICATE",
+          "level": 20
+        },
+        {
+          "species": "ZUBAT",
+          "level": 20
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_18": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "KOFFING",
+          "level": 21
+        },
+        {
+          "species": "ZUBAT",
+          "level": 21
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_16": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "SANDSHREW",
+          "level": 23
+        },
+        {
+          "species": "EKANS",
+          "level": 23
+        },
+        {
+          "species": "SANDSLASH",
+          "level": 23
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_17": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "EKANS",
+          "level": 23
+        },
+        {
+          "species": "SANDSHREW",
+          "level": 23
+        },
+        {
+          "species": "ARBOK",
+          "level": 23
+        }
+      ]
+    },
+    "TRAINER_BOSS_GIOVANNI": {
+      "name": "GIOVANNI",
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 25
+        },
+        {
+          "species": "RHYHORN",
+          "level": 24
+        },
+        {
+          "species": "KANGASKHAN",
+          "level": 29
+        }
+      ]
+    },
+    "TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR": {
+      "name": "TERRY",
+      "party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 25
+        },
+        {
+          "species": "GYARADOS",
+          "level": 23
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 22
+        },
+        {
+          "species": "KADABRA",
+          "level": 20
+        },
+        {
+          "species": "IVYSAUR",
+          "level": 25
+        }
+      ]
+    },
+    "TRAINER_CHANNELER_TAMMY": {
+      "name": "TAMMY",
+      "party": [
+        {
+          "species": "HAUNTER",
+          "level": 23
+        }
+      ]
+    },
+    "TRAINER_CHANNELER_JENNIFER": {
+      "name": "JENNIFER",
+      "party": [
+        {
+          "species": "GASTLY",
+          "level": 24
+        }
+      ]
+    },
+    "TRAINER_CHANNELER_EMILIA": {
+      "name": "EMILIA",
+      "party": [
+        {
+          "species": "GASTLY",
+          "level": 24
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_19": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "ZUBAT",
+          "level": 25
+        },
+        {
+          "species": "ZUBAT",
+          "level": 25
+        },
+        {
+          "species": "GOLBAT",
+          "level": 25
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_20": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "KOFFING",
+          "level": 26
+        },
+        {
+          "species": "DROWZEE",
+          "level": 26
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_21": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "ZUBAT",
+          "level": 23
+        },
+        {
+          "species": "RATTATA",
+          "level": 23
+        },
+        {
+          "species": "RATICATE",
+          "level": 23
+        },
+        {
+          "species": "ZUBAT",
+          "level": 23
+        }
+      ]
+    },
+    "TRAINER_JUGGLER_KIRK": {
+      "name": "KIRK",
+      "party": [
+        {
+          "species": "DROWZEE",
+          "level": 31
+        },
+        {
+          "species": "DROWZEE",
+          "level": 31
+        },
+        {
+          "species": "KADABRA",
+          "level": 31
+        },
+        {
+          "species": "DROWZEE",
+          "level": 31
+        }
+      ]
+    },
+    "TRAINER_LEADER_KOGA": {
+      "name": "KOGA",
+      "party": [
+        {
+          "species": "KOFFING",
+          "level": 37
+        },
+        {
+          "species": "MUK",
+          "level": 39
+        },
+        {
+          "species": "KOFFING",
+          "level": 37
+        },
+        {
+          "species": "WEEZING",
+          "level": 43
+        }
+      ]
+    },
+    "TRAINER_LEADER_BLAINE": {
+      "name": "BLAINE",
+      "party": [
+        {
+          "species": "GROWLITHE",
+          "level": 42
+        },
+        {
+          "species": "PONYTA",
+          "level": 40
+        },
+        {
+          "species": "RAPIDASH",
+          "level": 42
+        },
+        {
+          "species": "ARCANINE",
+          "level": 47
+        }
+      ]
+    },
+    "TRAINER_BEAUTY_TAMIA": {
+      "name": "TAMIA",
+      "party": [
+        {
+          "species": "BELLSPROUT",
+          "level": 24
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 24
+        }
+      ]
+    },
+    "TRAINER_BEAUTY_LORI": {
+      "name": "LORI",
+      "party": [
+        {
+          "species": "EXEGGCUTE",
+          "level": 24
+        }
+      ]
+    },
+    "TRAINER_LEADER_ERIKA": {
+      "name": "ERIKA",
+      "party": [
+        {
+          "species": "VICTREEBEL",
+          "level": 29
+        },
+        {
+          "species": "TANGELA",
+          "level": 24
+        },
+        {
+          "species": "VILEPLUME",
+          "level": 29
+        }
+      ]
+    },
+    "TRAINER_RIVAL_SILPH_BULBASAUR": {
+      "name": "TERRY",
+      "party": [
+        {
+          "species": "PIDGEOT",
+          "level": 37
+        },
+        {
+          "species": "GYARADOS",
+          "level": 38
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 35
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 35
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 40
+        }
+      ]
+    },
+    "TRAINER_TEAM_ROCKET_GRUNT_41": {
+      "name": "GRUNT",
+      "party": [
+        {
+          "species": "CUBONE",
+          "level": 32
+        },
+        {
+          "species": "DROWZEE",
+          "level": 32
+        },
+        {
+          "species": "MAROWAK",
+          "level": 32
+        }
+      ]
+    },
+    "TRAINER_BOSS_GIOVANNI_2": {
+      "name": "GIOVANNI",
+      "party": [
+        {
+          "species": "NIDORINO",
+          "level": 37
+        },
+        {
+          "species": "KANGASKHAN",
+          "level": 35
+        },
+        {
+          "species": "RHYHORN",
+          "level": 37
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 41
+        }
+      ]
+    },
+    "TRAINER_LEADER_SABRINA": {
+      "name": "SABRINA",
+      "party": [
+        {
+          "species": "KADABRA",
+          "level": 38
+        },
+        {
+          "species": "MR_MIME",
+          "level": 37
+        },
+        {
+          "species": "VENOMOTH",
+          "level": 38
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 43
+        }
+      ]
+    },
+    "TRAINER_BLACK_BELT_TAKASHI": {
+      "name": "TAKASHI",
+      "party": [
+        {
+          "species": "MACHOKE",
+          "level": 38
+        },
+        {
+          "species": "MACHOP",
+          "level": 38
+        },
+        {
+          "species": "MACHOKE",
+          "level": 38
+        }
+      ]
+    },
+    "TRAINER_COOLTRAINER_WARREN": {
+      "name": "WARREN",
+      "party": [
+        {
+          "species": "MAROWAK",
+          "level": 37
+        },
+        {
+          "species": "MAROWAK",
+          "level": 37
+        },
+        {
+          "species": "RHYHORN",
+          "level": 38
+        },
+        {
+          "species": "NIDORINA",
+          "level": 39
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 39
+        }
+      ]
+    },
+    "TRAINER_LEADER_GIOVANNI": {
+      "name": "GIOVANNI",
+      "party": [
+        {
+          "species": "RHYHORN",
+          "level": 45
+        },
+        {
+          "species": "DUGTRIO",
+          "level": 42
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 44
+        },
+        {
+          "species": "NIDOKING",
+          "level": 45
+        },
+        {
+          "species": "RHYHORN",
+          "level": 50
+        }
+      ]
+    },
+    "TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR": {
+      "name": "TERRY",
+      "party": [
+        {
+          "species": "PIDGEOT",
+          "level": 47
+        },
+        {
+          "species": "RHYHORN",
+          "level": 45
+        },
+        {
+          "species": "GYARADOS",
+          "level": 45
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 45
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 47
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 53
+        }
+      ]
+    },
+    "TRAINER_ELITE_FOUR_LORELEI": {
+      "name": "LORELEI",
+      "party": [
+        {
+          "species": "DEWGONG",
+          "level": 52
+        },
+        {
+          "species": "CLOYSTER",
+          "level": 51
+        },
+        {
+          "species": "SLOWBRO",
+          "level": 52
+        },
+        {
+          "species": "JYNX",
+          "level": 54
+        },
+        {
+          "species": "LAPRAS",
+          "level": 54
+        }
+      ]
+    },
+    "TRAINER_ELITE_FOUR_BRUNO": {
+      "name": "BRUNO",
+      "party": [
+        {
+          "species": "ONIX",
+          "level": 51
+        },
+        {
+          "species": "HITMONCHAN",
+          "level": 53
+        },
+        {
+          "species": "HITMONLEE",
+          "level": 53
+        },
+        {
+          "species": "ONIX",
+          "level": 54
+        },
+        {
+          "species": "MACHAMP",
+          "level": 56
+        }
+      ]
+    },
+    "TRAINER_ELITE_FOUR_AGATHA": {
+      "name": "AGATHA",
+      "party": [
+        {
+          "species": "GENGAR",
+          "level": 54
+        },
+        {
+          "species": "GOLBAT",
+          "level": 54
+        },
+        {
+          "species": "HAUNTER",
+          "level": 53
+        },
+        {
+          "species": "ARBOK",
+          "level": 56
+        },
+        {
+          "species": "GENGAR",
+          "level": 58
+        }
+      ]
+    },
+    "TRAINER_ELITE_FOUR_LANCE": {
+      "name": "LANCE",
+      "party": [
+        {
+          "species": "GYARADOS",
+          "level": 56
+        },
+        {
+          "species": "DRAGONAIR",
+          "level": 54
+        },
+        {
+          "species": "DRAGONAIR",
+          "level": 54
+        },
+        {
+          "species": "AERODACTYL",
+          "level": 58
+        },
+        {
+          "species": "DRAGONITE",
+          "level": 60
+        }
+      ]
+    },
+    "TRAINER_CHAMPION_FIRST_BULBASAUR": {
+      "name": "TERRY",
+      "party": [
+        {
+          "species": "PIDGEOT",
+          "level": 59
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 57
+        },
+        {
+          "species": "RHYDON",
+          "level": 59
+        },
+        {
+          "species": "GYARADOS",
+          "level": 59
+        },
+        {
+          "species": "ARCANINE",
+          "level": 61
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 63
+        }
+      ]
+    }
+  },
+  "species": {
+    "ABRA": {
+      "exp_yield": 73,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "AERODACTYL": {
+      "exp_yield": 202,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "ALAKAZAM": {
+      "exp_yield": 186,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "ARBOK": {
+      "exp_yield": 147,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "ARCANINE": {
+      "exp_yield": 213,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "BELLSPROUT": {
+      "exp_yield": 84,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "BLASTOISE": {
+      "exp_yield": 210,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "BULBASAUR": {
+      "exp_yield": 64,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "CATERPIE": {
+      "exp_yield": 53,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "CLOYSTER": {
+      "exp_yield": 203,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "CUBONE": {
+      "exp_yield": 87,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "DEWGONG": {
+      "exp_yield": 176,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "DRAGONAIR": {
+      "exp_yield": 144,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "DRAGONITE": {
+      "exp_yield": 218,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "DROWZEE": {
+      "exp_yield": 102,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "DUGTRIO": {
+      "exp_yield": 153,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "EKANS": {
+      "exp_yield": 62,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "EXEGGCUTE": {
+      "exp_yield": 98,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "GASTLY": {
+      "exp_yield": 95,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "GENGAR": {
+      "exp_yield": 190,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "GEODUDE": {
+      "exp_yield": 86,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "GOLBAT": {
+      "exp_yield": 171,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "GRAVELER": {
+      "exp_yield": 134,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "GRIMER": {
+      "exp_yield": 90,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "GROWLITHE": {
+      "exp_yield": 91,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "GYARADOS": {
+      "exp_yield": 214,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "HAUNTER": {
+      "exp_yield": 126,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "HITMONCHAN": {
+      "exp_yield": 140,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "HITMONLEE": {
+      "exp_yield": 139,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "IVYSAUR": {
+      "exp_yield": 141,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "JIGGLYPUFF": {
+      "exp_yield": 76,
+      "growth_rate": "GROWTH_FAST"
+    },
+    "JYNX": {
+      "exp_yield": 137,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "KADABRA": {
+      "exp_yield": 145,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "KAKUNA": {
+      "exp_yield": 71,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "KANGASKHAN": {
+      "exp_yield": 175,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "KOFFING": {
+      "exp_yield": 114,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "LAPRAS": {
+      "exp_yield": 219,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "MACHAMP": {
+      "exp_yield": 193,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "MACHOKE": {
+      "exp_yield": 146,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "MACHOP": {
+      "exp_yield": 88,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "MANKEY": {
+      "exp_yield": 74,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "MAROWAK": {
+      "exp_yield": 124,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "MEOWTH": {
+      "exp_yield": 69,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "METAPOD": {
+      "exp_yield": 72,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "MR_MIME": {
+      "exp_yield": 136,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "MUK": {
+      "exp_yield": 157,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "NIDOKING": {
+      "exp_yield": 195,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "NIDOQUEEN": {
+      "exp_yield": 194,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "NIDORAN_F": {
+      "exp_yield": 59,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "NIDORAN_M": {
+      "exp_yield": 60,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "NIDORINA": {
+      "exp_yield": 117,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "NIDORINO": {
+      "exp_yield": 118,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "ODDISH": {
+      "exp_yield": 78,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "ONIX": {
+      "exp_yield": 108,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "PIDGEOT": {
+      "exp_yield": 172,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "PIDGEOTTO": {
+      "exp_yield": 113,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "PIDGEY": {
+      "exp_yield": 55,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "PIKACHU": {
+      "exp_yield": 82,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "PONYTA": {
+      "exp_yield": 152,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "RAICHU": {
+      "exp_yield": 122,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "RAPIDASH": {
+      "exp_yield": 192,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "RATICATE": {
+      "exp_yield": 116,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "RATTATA": {
+      "exp_yield": 57,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "RHYDON": {
+      "exp_yield": 204,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "RHYHORN": {
+      "exp_yield": 135,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "SANDSHREW": {
+      "exp_yield": 93,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "SANDSLASH": {
+      "exp_yield": 163,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "SLOWBRO": {
+      "exp_yield": 164,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "SLOWPOKE": {
+      "exp_yield": 99,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "SNORLAX": {
+      "exp_yield": 154,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "SPEAROW": {
+      "exp_yield": 58,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "SQUIRTLE": {
+      "exp_yield": 66,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "STARMIE": {
+      "exp_yield": 207,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "STARYU": {
+      "exp_yield": 106,
+      "growth_rate": "GROWTH_SLOW"
+    },
+    "TANGELA": {
+      "exp_yield": 166,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "VENOMOTH": {
+      "exp_yield": 138,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "VENONAT": {
+      "exp_yield": 75,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "VENUSAUR": {
+      "exp_yield": 208,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "VICTREEBEL": {
+      "exp_yield": 191,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "VILEPLUME": {
+      "exp_yield": 184,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "VOLTORB": {
+      "exp_yield": 103,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "VULPIX": {
+      "exp_yield": 63,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "WARTORTLE": {
+      "exp_yield": 143,
+      "growth_rate": "GROWTH_MEDIUM_SLOW"
+    },
+    "WEEDLE": {
+      "exp_yield": 52,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "WEEZING": {
+      "exp_yield": 173,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    },
+    "ZUBAT": {
+      "exp_yield": 54,
+      "growth_rate": "GROWTH_MEDIUM_FAST"
+    }
+  }
+}

@@ -1,0 +1,4991 @@
+{
+  "format": "pokesim-frlg-route/1",
+  "source": {
+    "notes_repository": "https://github.com/dayfine/Arduino-Source",
+    "notes_commit": "11cbf77e0271e97b3639f9d5d419d0549ebec0bf",
+    "notes_path": "pokemon_sv/FRLG_POKEGUY_15934_VIDEO_NOTES.md",
+    "notes_sha256": "79c45ebea93f68b6bc4a893dd2ed2801ca5d7c018d36b161d8e09de2266d2f3c",
+    "video": "https://www.youtube.com/watch?v=CbfjWuRWH10",
+    "verified_run": "https://www.speedrun.com/pkmnfrlg/runs/z5kkjogz",
+    "clock": "video playback seconds, not the run timer",
+    "method": "Curated from the existing visual-review notes; not a new continuous video transcription."
+  },
+  "lead": {
+    "species": "SQUIRTLE",
+    "level": 5,
+    "traded": false,
+    "lucky_egg": false,
+    "participants": 1,
+    "exp_share": false
+  },
+  "assumptions": [
+    "The starter wins every listed trainer battle and receives all EXP; no switching, traded bonus, Lucky Egg, or Exp. Share.",
+    "Only trainer battles on the reviewed route are included; skipped trainers are not inserted.",
+    "Requested mode omits random-wild EXP; control mode includes the two documented wild defeats. Captures and fleeing grant no EXP.",
+    "The mandatory Tower Marowak is a separate scripted defeat; Snorlax and the catching demonstration give no EXP.",
+    "Rare Candies follow their observed positions and reset EXP to the next threshold; observations never reset the model.",
+    "Observed foe order is recorded explicitly, including trainer replacements out of party order. Identical foes are equivalent for EXP.",
+    "Level observations are claims from the review notes; discrepancies require focused video review rather than adjusting EXP to fit.",
+    "Level checkpoints distinguish explicit level statements from levels carried forward from the notes (including unchanged maximum HP); continuity checks are not additional direct video readings."
+  ],
+  "events": [
+    {
+      "id": "lab-rival",
+      "kind": "trainer_battle",
+      "video_start": 117,
+      "video_end": 169,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 100,
+          "text": "| 00:00:00\u201300:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 126,
+          "text": "## 00:00\u201305:00 \u2014 opening, Squirtle and first Route 1 traversal"
+        },
+        {
+          "line": 146,
+          "text": "| [01:57\u201302:15](https://www.youtube.com/watch?v=CbfjWuRWH10&t=117) | Rival battle intro and Oak's battle tutorial. | Opponent: **Bulbasaur Lv.5**. Player: **Squirtle A Lv.5, 20/20 HP**. |"
+        },
+        {
+          "line": 147,
+          "text": "| [02:16\u201302:40](https://www.youtube.com/watch?v=CbfjWuRWH10&t=136) | Repeatedly choose **Tackle**, winning the tutorial fight. | Five player Tackle actions in the sampled sequence. Bulbasaur's first attack misses; later Tackles reduce A to **11/20 HP** before the level gain. No item use or Tail Whip by the player observed. |"
+        },
+        {
+          "line": 148,
+          "text": "| [02:41\u201302:49](https://www.youtube.com/watch?v=CbfjWuRWH10&t=161) | Receive **67 EXP**, grow to **Lv.6**, defeat RED and receive **80** prize money. | Level-up display shows **13/22 HP**. Do not confuse this with later full HP. |"
+        },
+        {
+          "line": 149,
+          "text": "| [02:49\u201303:00](https://www.youtube.com/watch?v=CbfjWuRWH10&t=169) | Finish Oak's end-of-battle explanation and rival departure; leave lab. | No manual healing action shown. |"
+        },
+        {
+          "line": 1017,
+          "text": "**Automation relevance (Elite Four and Champion, 1:45\u20132:00):**"
+        }
+      ],
+      "trainer": "TRAINER_RIVAL_OAKS_LAB_BULBASAUR",
+      "observed_party": [
+        {
+          "species": "BULBASAUR",
+          "level": 5
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 5,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 6,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 67
+        }
+      ]
+    },
+    {
+      "id": "route1-rattata-defeated",
+      "kind": "wild_battle",
+      "video_start": 190,
+      "video_end": 224,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 100,
+          "text": "| 00:00:00\u201300:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 126,
+          "text": "## 00:00\u201305:00 \u2014 opening, Squirtle and first Route 1 traversal"
+        },
+        {
+          "line": 150,
+          "text": "| [03:01\u201303:10](https://www.youtube.com/watch?v=CbfjWuRWH10&t=181) | Walk north from lab, leave Pallet, enter Route 1 grass. | First wild encounter transition begins near 03:10. |"
+        },
+        {
+          "line": 151,
+          "text": "| [03:10\u201303:18](https://www.youtube.com/watch?v=CbfjWuRWH10&t=190) | Enter wild battle against **Rattata Lv.3**. | A is **Lv.6, 22/22 HP**, Tackle **35/35 PP** when the move menu appears. Both HP and Tackle PP have been restored since the lab fight; no nurse or bag action intervened. |"
+        },
+        {
+          "line": 152,
+          "text": "| [03:18\u201303:44](https://www.youtube.com/watch?v=CbfjWuRWH10&t=198) | Fight Rattata with **Tackle**, rather than fleeing. | Four Tackle uses including one miss; Rattata repeatedly uses Tail Whip. Last hit is critical. Receive **24 EXP**; A remains **Lv.6, 22/22 HP**. Later visible Tackle **31/35** supports the four-use count. |"
+        }
+      ],
+      "opponent": {
+        "species": "RATTATA",
+        "level": 3
+      },
+      "outcome": "defeated",
+      "observations": [
+        {
+          "at": "before",
+          "level": 6,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 6,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": 24
+    },
+    {
+      "id": "route1-pidgey-defeated",
+      "kind": "wild_battle",
+      "video_start": 234,
+      "video_end": 262,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 100,
+          "text": "| 00:00:00\u201300:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 126,
+          "text": "## 00:00\u201305:00 \u2014 opening, Squirtle and first Route 1 traversal"
+        },
+        {
+          "line": 153,
+          "text": "| [03:45\u201303:54](https://www.youtube.com/watch?v=CbfjWuRWH10&t=225) | Continue north through Route 1's path/grass sections. | No pickup or conversation observed in this travel interval. Another wild transition starts around 03:54. |"
+        },
+        {
+          "line": 154,
+          "text": "| [03:54\u201304:01](https://www.youtube.com/watch?v=CbfjWuRWH10&t=234) | Enter battle against **Pidgey Lv.2**. | A starts **Lv.6, 22/22 HP**. |"
+        },
+        {
+          "line": 155,
+          "text": "| [04:01\u201304:02](https://www.youtube.com/watch?v=CbfjWuRWH10&t=241) | Reorder the move list: exchange Tackle and Tail Whip. | Quarter-second frames show the switch: **Tail Whip becomes slot 1; Tackle becomes slot 2**. Tackle remains selected and is used. Exact controller button for move swapping is not visible. |"
+        },
+        {
+          "line": 156,
+          "text": "| [04:02\u201304:14](https://www.youtube.com/watch?v=CbfjWuRWH10&t=242) | Use **Tackle three times** to defeat Pidgey. | Pidgey's Tackles reduce A from **22/22 to 19/22, then 16/22 HP**. No healing or capture attempt observed. |"
+        },
+        {
+          "line": 157,
+          "text": "| [04:15\u201304:22](https://www.youtube.com/watch?v=CbfjWuRWH10&t=255) | Receive **15 EXP**, grow to **Lv.7**, learn **Bubble**. | Level-up HP becomes **19/25**. Bubble is added without a four-move replacement prompt. Its final slot has not yet been read from a later move menu. |"
+        }
+      ],
+      "opponent": {
+        "species": "PIDGEY",
+        "level": 2
+      },
+      "outcome": "defeated",
+      "observations": [
+        {
+          "at": "before",
+          "level": 6,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 7,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": 15
+    },
+    {
+      "id": "route1-rattata-capture",
+      "kind": "wild_battle",
+      "video_start": 391,
+      "video_end": 423,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 89,
+          "text": "  Second clip: `pokeguy-0455-1000.mp4` (video 04:55\u201310:00, including overlap)."
+        },
+        {
+          "line": 101,
+          "text": "| 00:05:00\u201300:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 175,
+          "text": "- Resume around **04:55** for context, then annotate **05:00\u201310:00**."
+        },
+        {
+          "line": 190,
+          "text": "## 05:00\u201310:00 \u2014 Pokedex, Rattata capture and Viridian Forest"
+        },
+        {
+          "line": 204,
+          "text": "| [06:31\u201306:39](https://www.youtube.com/watch?v=CbfjWuRWH10&t=391) | Wild **Rattata Lv.3** encounter; send A and use **Bubble once**. | A begins **Lv.7, 19/25 HP**. Rattata survives the hit in green HP. This is a second Rattata encounter, distinct from the one defeated in the first chunk. |"
+        },
+        {
+          "line": 205,
+          "text": "| [06:40\u201306:43](https://www.youtube.com/watch?v=CbfjWuRWH10&t=400) | Rattata uses Tackle; open BAG. | A falls to **16/25 HP**. A's ITEMS pocket is visibly empty in the closer menu pass; this is the player's bag, unlike the old man's later demonstration. |"
+        },
+        {
+          "line": 206,
+          "text": "| [06:44\u201306:57](https://www.youtube.com/watch?v=CbfjWuRWH10&t=404) | Select and throw **one Poke Ball**; capture Rattata. | Explicit successful-catch message; no failed ball or second throw observed. No defeat/EXP event. |"
+        },
+        {
+          "line": 207,
+          "text": "| [06:58\u201307:03](https://www.youtube.com/watch?v=CbfjWuRWH10&t=418) | Advance Rattata Pokedex entry and dismiss nickname prompt; return to overworld. | No naming keyboard appears in the quarter-second pass. Treat species-name retention as inferred until a party-name view confirms it; exact cancel button is not visible. |"
+        },
+        {
+          "line": 208,
+          "text": "| [07:03\u201307:15](https://www.youtube.com/watch?v=CbfjWuRWH10&t=423) | Continue north to Viridian; pass west of the Center and approach the old-man trigger. | No shopping or nurse visit. Rattata has joined the traced party; no switch away from Squirtle observed. |"
+        }
+      ],
+      "opponent": {
+        "species": "RATTATA",
+        "level": 3
+      },
+      "outcome": "caught",
+      "observations": [
+        {
+          "at": "before",
+          "level": 7,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 7,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "old-man-demonstration",
+      "kind": "demonstration",
+      "video_start": 443,
+      "video_end": 476,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 89,
+          "text": "  Second clip: `pokeguy-0455-1000.mp4` (video 04:55\u201310:00, including overlap)."
+        },
+        {
+          "line": 101,
+          "text": "| 00:05:00\u201300:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 175,
+          "text": "- Resume around **04:55** for context, then annotate **05:00\u201310:00**."
+        },
+        {
+          "line": 190,
+          "text": "## 05:00\u201310:00 \u2014 Pokedex, Rattata capture and Viridian Forest"
+        },
+        {
+          "line": 210,
+          "text": "| [07:23\u201307:56](https://www.youtube.com/watch?v=CbfjWuRWH10&t=443) | Watch the old man's scripted **Weedle Lv.5** capture demonstration. | His demo bag shows Potion x1 and Poke Ball x1; these are **not** evidence of the player's inventory. Weedle is not a new member of the player's party. |"
+        }
+      ],
+      "opponent": {
+        "species": "WEEDLE",
+        "level": 5
+      },
+      "outcome": "caught",
+      "observations": []
+    },
+    {
+      "id": "forest-caterpie4-flee",
+      "kind": "wild_battle",
+      "video_start": 527,
+      "video_end": 539,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 89,
+          "text": "  Second clip: `pokeguy-0455-1000.mp4` (video 04:55\u201310:00, including overlap)."
+        },
+        {
+          "line": 101,
+          "text": "| 00:05:00\u201300:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 175,
+          "text": "- Resume around **04:55** for context, then annotate **05:00\u201310:00**."
+        },
+        {
+          "line": 190,
+          "text": "## 05:00\u201310:00 \u2014 Pokedex, Rattata capture and Viridian Forest"
+        },
+        {
+          "line": 215,
+          "text": "| [08:47\u201308:59](https://www.youtube.com/watch?v=CbfjWuRWH10&t=527) | Continue through grass; encounter **Caterpie Lv.4** and flee successfully. | A remains **Lv.7, 16/25 HP**; no attack, capture, EXP gain or escape failure observed. |"
+        }
+      ],
+      "opponent": {
+        "species": "CATERPIE",
+        "level": 4
+      },
+      "outcome": "fled",
+      "observations": [
+        {
+          "at": "before",
+          "level": 7,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "forest-kakuna-flee",
+      "kind": "wild_battle",
+      "video_start": 540,
+      "video_end": 555,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 89,
+          "text": "  Second clip: `pokeguy-0455-1000.mp4` (video 04:55\u201310:00, including overlap)."
+        },
+        {
+          "line": 101,
+          "text": "| 00:05:00\u201300:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 175,
+          "text": "- Resume around **04:55** for context, then annotate **05:00\u201310:00**."
+        },
+        {
+          "line": 190,
+          "text": "## 05:00\u201310:00 \u2014 Pokedex, Rattata capture and Viridian Forest"
+        },
+        {
+          "line": 216,
+          "text": "| [09:00\u201309:15](https://www.youtube.com/watch?v=CbfjWuRWH10&t=540) | Continue along forest paths/grass; encounter **Kakuna Lv.5** and flee. | Explicit safe-escape text; A still **16/25 HP**. |"
+        }
+      ],
+      "opponent": {
+        "species": "KAKUNA",
+        "level": 5
+      },
+      "outcome": "fled",
+      "observations": [
+        {
+          "at": "before",
+          "level": 7,
+          "basis": "notes_continuity"
+        }
+      ]
+    },
+    {
+      "id": "forest-caterpie5-flee",
+      "kind": "wild_battle",
+      "video_start": 556,
+      "video_end": 574,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 89,
+          "text": "  Second clip: `pokeguy-0455-1000.mp4` (video 04:55\u201310:00, including overlap)."
+        },
+        {
+          "line": 101,
+          "text": "| 00:05:00\u201300:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 175,
+          "text": "- Resume around **04:55** for context, then annotate **05:00\u201310:00**."
+        },
+        {
+          "line": 190,
+          "text": "## 05:00\u201310:00 \u2014 Pokedex, Rattata capture and Viridian Forest"
+        },
+        {
+          "line": 217,
+          "text": "| [09:16\u201309:34](https://www.youtube.com/watch?v=CbfjWuRWH10&t=556) | Continue toward the upper forest path; encounter **Caterpie Lv.5** and flee. | Third forest wild battle in this chunk; all three are fled, not fought for EXP. |"
+        }
+      ],
+      "opponent": {
+        "species": "CATERPIE",
+        "level": 5
+      },
+      "outcome": "fled",
+      "observations": [
+        {
+          "at": "before",
+          "level": 7,
+          "basis": "notes_continuity"
+        }
+      ]
+    },
+    {
+      "id": "forest-sammy",
+      "kind": "trainer_battle",
+      "video_start": 575,
+      "video_end": 622,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 89,
+          "text": "  Second clip: `pokeguy-0455-1000.mp4` (video 04:55\u201310:00, including overlap)."
+        },
+        {
+          "line": 101,
+          "text": "| 00:05:00\u201300:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 102,
+          "text": "| 00:10:00\u201300:15:00 | Reviewed; details below |"
+        },
+        {
+          "line": 175,
+          "text": "- Resume around **04:55** for context, then annotate **05:00\u201310:00**."
+        },
+        {
+          "line": 190,
+          "text": "## 05:00\u201310:00 \u2014 Pokedex, Rattata capture and Viridian Forest"
+        },
+        {
+          "line": 218,
+          "text": "| [09:35\u201309:51](https://www.youtube.com/watch?v=CbfjWuRWH10&t=575) | Walk into trainer sight line; trainer approaches; begin **Bug Catcher Sammy** battle. | Name and **Weedle Lv.9** shown. A starts **Lv.7, 16/25 HP**. |"
+        },
+        {
+          "line": 219,
+          "text": "| [09:52\u201309:57](https://www.youtube.com/watch?v=CbfjWuRWH10&t=592) | Select Bubble; Weedle acts first with Poison Sting; A uses Bubble. | Menu confirms **Tail Whip slot 1, Tackle slot 2, Bubble slot 3**, with Bubble **29/30 PP** before use. Poison Sting reduces A to **12/25 HP**; Bubble damages but does not defeat Weedle. |"
+        },
+        {
+          "line": 220,
+          "text": "| [09:58\u201310:00](https://www.youtube.com/watch?v=CbfjWuRWH10&t=598) | Weedle uses Poison Sting again; A begins a second Bubble. | At exact video **09:59.9**, A is **9/25 HP**, Lv.7, and text says A used Bubble. Its second hit's outcome is not yet visible. No trainer win, EXP, level gain or reward recorded in this chunk. |"
+        },
+        {
+          "line": 222,
+          "text": "### State carried into 10:00\u201315:00"
+        },
+        {
+          "line": 242,
+          "text": "- Resume at **09:55** for battle context; next annotation range **10:00\u201315:00**."
+        },
+        {
+          "line": 255,
+          "text": "## 10:00\u201315:00 \u2014 Sammy, Pewter Gym, supplies and Running Shoes"
+        },
+        {
+          "line": 259,
+          "text": "| [10:00\u201310:22](https://www.youtube.com/watch?v=CbfjWuRWH10&t=600) | Finish Sammy's Weedle with Bubble, four uses across the whole fight. Win 108. | The second Bubble is in progress at 10:00. Two more Poison Stings reduce HP 9\u21926\u21923; the fourth Bubble finishes it. A grows to Lv.8, 5/27 HP. No poison status or healing observed. |"
+        }
+      ],
+      "trainer": "TRAINER_BUG_CATCHER_SAMMY",
+      "observed_party": [
+        {
+          "species": "WEEDLE",
+          "level": 9
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 7,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 8,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "pewter-liam",
+      "kind": "trainer_battle",
+      "video_start": 656,
+      "video_end": 728,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 102,
+          "text": "| 00:10:00\u201300:15:00 | Reviewed; details below |"
+        },
+        {
+          "line": 222,
+          "text": "### State carried into 10:00\u201315:00"
+        },
+        {
+          "line": 242,
+          "text": "- Resume at **09:55** for battle context; next annotation range **10:00\u201315:00**."
+        },
+        {
+          "line": 255,
+          "text": "## 10:00\u201315:00 \u2014 Sammy, Pewter Gym, supplies and Running Shoes"
+        },
+        {
+          "line": 261,
+          "text": "| 10:56\u201311:22 | Trigger Camper Liam's sightline. One Bubble defeats Geodude Lv.10. | A begins Lv.8, 5/27 HP, Bubble 25/30 PP; gains 183 EXP and reaches Lv.9, 7/29 HP. |"
+        },
+        {
+          "line": 262,
+          "text": "| 11:24\u201311:53 | Against Sandshrew Lv.11: Bubble, Bubble, Tackle (miss), Tackle (KO). | Sandshrew uses Sand-Attack, Defense Curl, then Sand-Attack. First Bubble leaves yellow HP, second leaves red. |"
+        },
+        {
+          "line": 263,
+          "text": "| 11:55\u201312:08 | A reaches Lv.10 and learns Withdraw into the empty fourth slot, then reaches Lv.11. Defeat Liam; win 220. | HP increases to 9/31 then 11/33. Both level increases occur after Sandshrew; do not drop the second one. |"
+        }
+      ],
+      "trainer": "TRAINER_CAMPER_LIAM",
+      "observed_party": [
+        {
+          "species": "GEODUDE",
+          "level": 10
+        },
+        {
+          "species": "SANDSHREW",
+          "level": 11
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 8,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 9,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 11,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 183
+        }
+      ]
+    },
+    {
+      "id": "brock",
+      "kind": "trainer_battle",
+      "video_start": 730,
+      "video_end": 792,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 102,
+          "text": "| 00:10:00\u201300:15:00 | Reviewed; details below |"
+        },
+        {
+          "line": 222,
+          "text": "### State carried into 10:00\u201315:00"
+        },
+        {
+          "line": 242,
+          "text": "- Resume at **09:55** for battle context; next annotation range **10:00\u201315:00**."
+        },
+        {
+          "line": 255,
+          "text": "## 10:00\u201315:00 \u2014 Sammy, Pewter Gym, supplies and Running Shoes"
+        },
+        {
+          "line": 264,
+          "text": "| 12:10\u201312:35 | Approach Brock; one Bubble defeats Geodude Lv.12. | No intervening healing. A begins Brock at Lv.11, 11/33 HP. |"
+        },
+        {
+          "line": 265,
+          "text": "| 12:40\u201312:53 | Onix Lv.14 uses Rock Tomb; A answers with one Bubble, defeating it. | Rock Tomb reduces A from 11 to **1/33 HP** and lowers Speed. No Potion used. |"
+        },
+        {
+          "line": 266,
+          "text": "| 12:55\u201313:12 | A reaches Lv.12 (3/35 HP), then Lv.13 (6/38); replace **Tail Whip with Water Gun**. | Quarter-second menu inspection confirms deletion of slot 1. Before deletion: Tail Whip 30/30, Tackle 26/35, Bubble 20/30, Withdraw 40/40. Water Gun starts 25/25. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_BROCK",
+      "observed_party": [
+        {
+          "species": "GEODUDE",
+          "level": 12
+        },
+        {
+          "species": "ONIX",
+          "level": 14
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 11,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 13,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route3-colton",
+      "kind": "trainer_battle",
+      "video_start": 873,
+      "video_end": 924,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 102,
+          "text": "| 00:10:00\u201300:15:00 | Reviewed; details below |"
+        },
+        {
+          "line": 103,
+          "text": "| 00:15:00\u201300:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 222,
+          "text": "### State carried into 10:00\u201315:00"
+        },
+        {
+          "line": 242,
+          "text": "- Resume at **09:55** for battle context; next annotation range **10:00\u201315:00**."
+        },
+        {
+          "line": 255,
+          "text": "## 10:00\u201315:00 \u2014 Sammy, Pewter Gym, supplies and Running Shoes"
+        },
+        {
+          "line": 271,
+          "text": "| 14:33\u201314:48 | Enter Route 3; trigger Bug Catcher Colton. He sends Caterpie Lv.10. | A remains Lv.13, 6/38 HP. No post-shopping heal used. |"
+        },
+        {
+          "line": 272,
+          "text": "| 14:49\u201315:00 | Water Gun defeats Caterpie; Colton sends Weedle Lv.10. A begins another Water Gun. | Battle continues into next chunk. Do not count Weedle as defeated yet. |"
+        },
+        {
+          "line": 289,
+          "text": "## 15:00\u201320:00 \u2014 Route 3 training, Pidgey and Mt. Moon"
+        },
+        {
+          "line": 293,
+          "text": "| [15:00\u201315:24](https://www.youtube.com/watch?v=CbfjWuRWH10&t=900) | Finish Colton: Water Gun KOs Weedle Lv.10; one Water Gun KOs his second Caterpie Lv.10 (critical hit). Win 120. | A reaches Lv.14, 8/40 HP. All three Colton opponents fall to one Water Gun each across the chunk boundary. |"
+        }
+      ],
+      "trainer": "TRAINER_BUG_CATCHER_COLTON",
+      "observed_party": [
+        {
+          "species": "CATERPIE",
+          "level": 10
+        },
+        {
+          "species": "WEEDLE",
+          "level": 10
+        },
+        {
+          "species": "CATERPIE",
+          "level": 10
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 13,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 14,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route3-greg",
+      "kind": "trainer_battle",
+      "video_start": 925,
+      "video_end": 984,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 103,
+          "text": "| 00:15:00\u201300:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 289,
+          "text": "## 15:00\u201320:00 \u2014 Route 3 training, Pidgey and Mt. Moon"
+        },
+        {
+          "line": 294,
+          "text": "| 15:25\u201316:24 | Move east along upper Route 3 and battle Bug Catcher Greg. | Weedle, Caterpie, Kakuna and Metapod, all Lv.9: one Water Gun each, in that order. A reaches Lv.15, 10/42 HP after Metapod. Prize 108. |"
+        }
+      ],
+      "trainer": "TRAINER_BUG_CATCHER_GREG",
+      "observed_party": [
+        {
+          "species": "WEEDLE",
+          "level": 9
+        },
+        {
+          "species": "CATERPIE",
+          "level": 9
+        },
+        {
+          "species": "KAKUNA",
+          "level": 9
+        },
+        {
+          "species": "METAPOD",
+          "level": 9
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 15,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route3-james",
+      "kind": "trainer_battle",
+      "video_start": 985,
+      "video_end": 1019,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 103,
+          "text": "| 00:15:00\u201300:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 289,
+          "text": "## 15:00\u201320:00 \u2014 Route 3 training, Pidgey and Mt. Moon"
+        },
+        {
+          "line": 295,
+          "text": "| 16:25\u201316:59 | Battle Bug Catcher James farther east. | Caterpie Lv.11 and Metapod Lv.11 each fall to one Water Gun. Prize 132; A remains 10/42 HP. No heal between the three Bug Catchers. |"
+        }
+      ],
+      "trainer": "TRAINER_BUG_CATCHER_JAMES",
+      "observed_party": [
+        {
+          "species": "CATERPIE",
+          "level": 11
+        },
+        {
+          "species": "METAPOD",
+          "level": 11
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 15,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route3-pidgey-capture",
+      "kind": "wild_battle",
+      "video_start": 1020,
+      "video_end": 1055,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 103,
+          "text": "| 00:15:00\u201300:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 289,
+          "text": "## 15:00\u201320:00 \u2014 Route 3 training, Pidgey and Mt. Moon"
+        },
+        {
+          "line": 296,
+          "text": "| [17:00\u201317:35](https://www.youtube.com/watch?v=CbfjWuRWH10&t=1020) | Enter grass below the eastern bend; encounter and capture Pidgey Lv.7. | One **Bubble** leaves yellow HP; Pidgey uses Sand-Attack. One Poke Ball succeeds. Bag shows four balls before use, so three remain by subtraction. Nickname prompt dismissed without opening keyboard; species name retained provisionally. No capture EXP. |"
+        }
+      ],
+      "opponent": {
+        "species": "PIDGEY",
+        "level": 7
+      },
+      "outcome": "caught",
+      "observations": [
+        {
+          "at": "before",
+          "level": 15,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 15,
+          "basis": "notes_continuity"
+        }
+      ]
+    },
+    {
+      "id": "mtmoon-josh",
+      "kind": "trainer_battle",
+      "video_start": 1096,
+      "video_end": 1152,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 103,
+          "text": "| 00:15:00\u201300:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 289,
+          "text": "## 15:00\u201320:00 \u2014 Route 3 training, Pidgey and Mt. Moon"
+        },
+        {
+          "line": 301,
+          "text": "| 18:16\u201318:30 | Approach Youngster Josh near a ladder on the western side; start battle. | A still Lv.15, 10/42 HP. |"
+        },
+        {
+          "line": 302,
+          "text": "| 18:31\u201318:39 | First Rattata Lv.10 uses Quick Attack, reducing A 10\u21925/42; one Water Gun KOs it. | No Potion despite low HP. |"
+        },
+        {
+          "line": 303,
+          "text": "| 18:40\u201318:53 | Second Rattata Lv.10 falls to one Water Gun. | Water Gun 15/25 PP before this use. A reaches Lv.16, 7/44 HP. |"
+        },
+        {
+          "line": 304,
+          "text": "| 18:54\u201319:12 | Zubat Lv.10 takes two Water Guns, using Leech Life between them. Defeat Josh; win 160. | Leech Life reduces A 7\u21925/44. |"
+        }
+      ],
+      "trainer": "TRAINER_YOUNGSTER_JOSH",
+      "observed_party": [
+        {
+          "species": "RATTATA",
+          "level": 10
+        },
+        {
+          "species": "RATTATA",
+          "level": 10
+        },
+        {
+          "species": "ZUBAT",
+          "level": 10
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 15,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 1,
+          "level": 16,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 16,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "evolve-wartortle",
+      "kind": "evolution",
+      "video_start": 1153,
+      "video_end": 1177,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 103,
+          "text": "| 00:15:00\u201300:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 289,
+          "text": "## 15:00\u201320:00 \u2014 Route 3 training, Pidgey and Mt. Moon"
+        },
+        {
+          "line": 305,
+          "text": "| 19:13\u201319:37 | Allow Squirtle to evolve into **Wartortle**. | Confirmation visible at 19:34; evolution fully completes before movement resumes. No cancellation. |"
+        }
+      ],
+      "species": "WARTORTLE",
+      "minimum_level": 16
+    },
+    {
+      "id": "mtmoon-rocket",
+      "kind": "trainer_battle",
+      "video_start": 1200,
+      "video_end": 1239,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 103,
+          "text": "| 00:15:00\u201300:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 104,
+          "text": "| 00:20:00\u201300:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 289,
+          "text": "## 15:00\u201320:00 \u2014 Route 3 training, Pidgey and Mt. Moon"
+        },
+        {
+          "line": 307,
+          "text": "| 19:51\u201320:00 | Repel expires; use third Repel, then continue east around lower-floor walls. | Bag shows last Repel 1 before use, Potions 9, Awakenings 3, Antidote 1 and Rare Candy 1. No heal. |"
+        },
+        {
+          "line": 323,
+          "text": "## 20:00\u201325:00 \u2014 fossils, move tutoring, Cerulean preparation and Misty"
+        },
+        {
+          "line": 327,
+          "text": "| [20:00\u201320:18](https://www.youtube.com/watch?v=CbfjWuRWH10&t=1200) | Follow lower-floor passage and trigger Rocket Grunt near fossils. | Wartortle Lv.16 now visibly **10/49 HP**; refreshes the pre-evolution reading. |"
+        },
+        {
+          "line": 328,
+          "text": "| 20:19\u201320:39 | One Water Gun each defeats Rattata Lv.13 and Zubat Lv.13. Win 416. | No damage or healing; still 10/49 HP. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT",
+      "observed_party": [
+        {
+          "species": "RATTATA",
+          "level": 13
+        },
+        {
+          "species": "ZUBAT",
+          "level": 13
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 16,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 16,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "mtmoon-miguel",
+      "kind": "trainer_battle",
+      "video_start": 1240,
+      "video_end": 1305,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 104,
+          "text": "| 00:20:00\u201300:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 323,
+          "text": "## 20:00\u201325:00 \u2014 fossils, move tutoring, Cerulean preparation and Misty"
+        },
+        {
+          "line": 329,
+          "text": "| 20:40\u201320:53 | Approach Super Nerd Miguel at fossil platform and begin battle. | Grimer Lv.12 first. |"
+        },
+        {
+          "line": 330,
+          "text": "| 20:54\u201321:09 | Two Water Guns defeat Grimer; its Pound reduces A 10\u21926/49 HP. | A grows to Lv.17, 8/51 HP. |"
+        },
+        {
+          "line": 331,
+          "text": "| 21:10\u201321:29 | Two Water Guns defeat Voltorb Lv.12. | Voltorb uses Tackle (8\u21926/51 HP), then Screech before the second Water Gun. |"
+        },
+        {
+          "line": 332,
+          "text": "| 21:30\u201321:45 | One Water Gun defeats Koffing Lv.12. Win 288. | A grows to Lv.18, 9/54 HP. |"
+        }
+      ],
+      "trainer": "TRAINER_SUPER_NERD_MIGUEL",
+      "observed_party": [
+        {
+          "species": "GRIMER",
+          "level": 12
+        },
+        {
+          "species": "VOLTORB",
+          "level": 12
+        },
+        {
+          "species": "KOFFING",
+          "level": 12
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 16,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 17,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 18,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "cerulean-candy1",
+      "kind": "rare_candy",
+      "video_start": 1381,
+      "video_end": 1394,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 104,
+          "text": "| 00:20:00\u201300:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 323,
+          "text": "## 20:00\u201325:00 \u2014 fossils, move tutoring, Cerulean preparation and Misty"
+        },
+        {
+          "line": 339,
+          "text": "| 23:01\u201323:14 | Use first Rare Candy on A: Lv.18\u219219; learn **Bite over Bubble**. | A becomes 11/56 HP. Confirmation names forgotten Bubble. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 19,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "cerulean-candy2",
+      "kind": "rare_candy",
+      "video_start": 1395,
+      "video_end": 1399,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 104,
+          "text": "| 00:20:00\u201300:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 323,
+          "text": "## 20:00\u201325:00 \u2014 fossils, move tutoring, Cerulean preparation and Misty"
+        },
+        {
+          "line": 340,
+          "text": "| 23:15\u201323:19 | Use second Rare Candy: Lv.19\u219220, 14/59 HP. | Rare Candy removed from bag after final use. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 20,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "misty",
+      "kind": "trainer_battle",
+      "video_start": 1409,
+      "video_end": 1469,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 104,
+          "text": "| 00:20:00\u201300:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 323,
+          "text": "## 20:00\u201325:00 \u2014 fossils, move tutoring, Cerulean preparation and Misty"
+        },
+        {
+          "line": 342,
+          "text": "| 23:29\u201323:51 | Follow Gym path around pool to Misty; bypass both Gym trainers and begin leader battle. | Moves visibly Tackle / Water Gun / Bite / Mega Kick. |"
+        },
+        {
+          "line": 343,
+          "text": "| 23:52\u201324:04 | Staryu Lv.18 uses Harden; A's **Bite critical hit** KOs it. | A stays 54/59 HP. |"
+        },
+        {
+          "line": 344,
+          "text": "| 24:05\u201324:29 | Two Bites defeat Starmie Lv.21. | First Swift is a critical hit, 54\u219225/59 HP; second Swift reduces 25\u219210. A reaches Lv.21, 12/61 HP after winning. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_MISTY",
+      "observed_party": [
+        {
+          "species": "STARYU",
+          "level": 18
+        },
+        {
+          "species": "STARMIE",
+          "level": 21
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 20,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 21,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "cerulean-rival",
+      "kind": "trainer_battle",
+      "video_start": 1518,
+      "video_end": 1588,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 105,
+          "text": "| 00:25:00\u201300:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 365,
+          "text": "## 25:00\u201330:00 \u2014 Cerulean rival and Nugget Bridge"
+        },
+        {
+          "line": 370,
+          "text": "| 25:18\u201325:33 | Rival RED approaches at bridge entrance and starts battle. | A Lv.21, 32/61 HP. Menu confirms Water Pulse / Water Gun / Bite / Mega Kick. |"
+        },
+        {
+          "line": 371,
+          "text": "| 25:34\u201325:45 | Pidgeotto Lv.17 uses Quick Attack; A uses Bite, then Water Pulse to KO. | HP 32\u219224/61. Bite is selected initially, then Water Pulse on the second turn; do not summarize as two Water Pulses. |"
+        },
+        {
+          "line": 372,
+          "text": "| 25:46\u201325:59 | Bulbasaur Lv.18: Bite causes flinch, then Mega Kick KOs. | No attack from Bulbasaur after the flinch; no further damage. |"
+        },
+        {
+          "line": 373,
+          "text": "| 26:00\u201326:13 | One Water Pulse KOs Abra Lv.16. | A reaches Lv.22, 27/64 HP. Visible totals: Attack 38, Defense 39, Sp. Atk 44, Sp. Def 44, Speed 37. |"
+        },
+        {
+          "line": 374,
+          "text": "| 26:14\u201326:28 | Rattata Lv.15 uses Quick Attack; one Water Pulse KOs it. Win 288. | HP 27\u219222/64. Opponent order is Pidgeotto, Bulbasaur, Abra, Rattata. |"
+        }
+      ],
+      "trainer": "TRAINER_RIVAL_CERULEAN_BULBASAUR",
+      "observed_party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 17
+        },
+        {
+          "species": "BULBASAUR",
+          "level": 18
+        },
+        {
+          "species": "ABRA",
+          "level": 16
+        },
+        {
+          "species": "RATTATA",
+          "level": 15
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 21,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 2,
+          "level": 22,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 22,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "bridge-cale",
+      "kind": "trainer_battle",
+      "video_start": 1609,
+      "video_end": 1664,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 105,
+          "text": "| 00:25:00\u201300:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 365,
+          "text": "## 25:00\u201330:00 \u2014 Cerulean rival and Nugget Bridge"
+        },
+        {
+          "line": 376,
+          "text": "| 26:49\u201327:44 | Enter Route 24 and battle bridge trainer 1, Bug Catcher Cale. | Caterpie, Weedle, Metapod, Kakuna, all Lv.10, each defeated with one **Bite**. Prize 120. No healing/damage. |"
+        }
+      ],
+      "trainer": "TRAINER_BUG_CATCHER_CALE",
+      "observed_party": [
+        {
+          "species": "CATERPIE",
+          "level": 10
+        },
+        {
+          "species": "WEEDLE",
+          "level": 10
+        },
+        {
+          "species": "METAPOD",
+          "level": 10
+        },
+        {
+          "species": "KAKUNA",
+          "level": 10
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 22,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "bridge-ali",
+      "kind": "trainer_battle",
+      "video_start": 1665,
+      "video_end": 1712,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 105,
+          "text": "| 00:25:00\u201300:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 365,
+          "text": "## 25:00\u201330:00 \u2014 Cerulean rival and Nugget Bridge"
+        },
+        {
+          "line": 377,
+          "text": "| 27:45\u201328:32 | Battle bridge trainer 2, Lass Ali. | Pidgey Lv.12: one Bite; Oddish Lv.12: one Mega Kick; Bellsprout Lv.12: one Bite, **critical hit**. A reaches Lv.23, 24/66 HP. Prize 192. |"
+        }
+      ],
+      "trainer": "TRAINER_LASS_ALI",
+      "observed_party": [
+        {
+          "species": "PIDGEY",
+          "level": 12
+        },
+        {
+          "species": "ODDISH",
+          "level": 12
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 12
+        }
+      ],
+      "observations": [
+        {
+          "at": "after_foe",
+          "foe_index": 2,
+          "level": 23,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 23,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "bridge-timmy",
+      "kind": "trainer_battle",
+      "video_start": 1713,
+      "video_end": 1749,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 105,
+          "text": "| 00:25:00\u201300:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 365,
+          "text": "## 25:00\u201330:00 \u2014 Cerulean rival and Nugget Bridge"
+        },
+        {
+          "line": 378,
+          "text": "| 28:33\u201329:09 | Battle bridge trainer 3, Youngster Timmy. | Sandshrew Lv.14: one Bite; Ekans Lv.14: Intimidate triggers, then one Water Pulse KOs it. Prize 224. |"
+        }
+      ],
+      "trainer": "TRAINER_YOUNGSTER_TIMMY",
+      "observed_party": [
+        {
+          "species": "SANDSHREW",
+          "level": 14
+        },
+        {
+          "species": "EKANS",
+          "level": 14
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "bridge-reli",
+      "kind": "trainer_battle",
+      "video_start": 1750,
+      "video_end": 1782,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 105,
+          "text": "| 00:25:00\u201300:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 365,
+          "text": "## 25:00\u201330:00 \u2014 Cerulean rival and Nugget Bridge"
+        },
+        {
+          "line": 379,
+          "text": "| 29:10\u201329:42 | Battle bridge trainer 4, Lass Reli. | Nidoran male Lv.16 then Nidoran female Lv.16: one Water Pulse each. Prize 256. A stays 24/66 HP. |"
+        }
+      ],
+      "trainer": "TRAINER_LASS_RELI",
+      "observed_party": [
+        {
+          "species": "NIDORAN_M",
+          "level": 16
+        },
+        {
+          "species": "NIDORAN_F",
+          "level": 16
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 23,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "bridge-ethan",
+      "kind": "trainer_battle",
+      "video_start": 1783,
+      "video_end": 1807,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 105,
+          "text": "| 00:25:00\u201300:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 106,
+          "text": "| 00:30:00\u201300:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 365,
+          "text": "## 25:00\u201330:00 \u2014 Cerulean rival and Nugget Bridge"
+        },
+        {
+          "line": 380,
+          "text": "| 29:43\u201330:00 | Begin bridge trainer 5, Camper Ethan, against Mankey Lv.18. Use Water Pulse. | Water Pulse has 14/20 PP before this use. At 29:59 Mankey's HP bar has emptied; finish faint/EXP/victory sequence in next chunk. |"
+        },
+        {
+          "line": 396,
+          "text": "## 30:00\u201335:00 \u2014 bridge reward, Route 25 items and Bill"
+        },
+        {
+          "line": 400,
+          "text": "| [30:00\u201330:07](https://www.youtube.com/watch?v=CbfjWuRWH10&t=1800) | Complete Ethan's Mankey faint/EXP/win sequence. Prize 360. | Same Water Pulse and same opponent as the end of the preceding chunk. |"
+        }
+      ],
+      "trainer": "TRAINER_CAMPER_ETHAN",
+      "observed_party": [
+        {
+          "species": "MANKEY",
+          "level": 18
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 23,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "bridge-rocket",
+      "kind": "trainer_battle",
+      "video_start": 1821,
+      "video_end": 1859,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 106,
+          "text": "| 00:30:00\u201300:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 396,
+          "text": "## 30:00\u201335:00 \u2014 bridge reward, Route 25 items and Bill"
+        },
+        {
+          "line": 402,
+          "text": "| 30:21\u201330:59 | Rocket Grunt: Ekans Lv.15 and Zubat Lv.15 each fall to one Water Pulse. Win 480. | Ekans triggers Intimidate; A reaches Lv.24, 27/69 HP after it. Finish post-battle recruitment dialogue. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_6",
+      "observed_party": [
+        {
+          "species": "EKANS",
+          "level": 15
+        },
+        {
+          "species": "ZUBAT",
+          "level": 15
+        }
+      ],
+      "observations": [
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 24,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 24,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route25-wayne",
+      "kind": "trainer_battle",
+      "video_start": 1869,
+      "video_end": 1896,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 106,
+          "text": "| 00:30:00\u201300:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 396,
+          "text": "## 30:00\u201335:00 \u2014 bridge reward, Route 25 items and Bill"
+        },
+        {
+          "line": 404,
+          "text": "| 31:09\u201331:36 | Weave between shrubs and trainers; battle Hiker Wayne. | His Onix Lv.17 falls to one Water Pulse. Prize 612; no damage. |"
+        }
+      ],
+      "trainer": "TRAINER_HIKER_WAYNE",
+      "observed_party": [
+        {
+          "species": "ONIX",
+          "level": 17
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "route25-kelsey",
+      "kind": "trainer_battle",
+      "video_start": 1897,
+      "video_end": 1931,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 106,
+          "text": "| 00:30:00\u201300:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 396,
+          "text": "## 30:00\u201335:00 \u2014 bridge reward, Route 25 items and Bill"
+        },
+        {
+          "line": 405,
+          "text": "| 31:37\u201332:11 | Continue east and battle Picnicker Kelsey. | Nidoran male Lv.15, then female Lv.15, one Water Pulse each. Prize 300. |"
+        }
+      ],
+      "trainer": "TRAINER_PICNICKER_KELSEY",
+      "observed_party": [
+        {
+          "species": "NIDORAN_M",
+          "level": 15
+        },
+        {
+          "species": "NIDORAN_F",
+          "level": 15
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "route25-flint",
+      "kind": "trainer_battle",
+      "video_start": 1932,
+      "video_end": 1971,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 106,
+          "text": "| 00:30:00\u201300:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 396,
+          "text": "## 30:00\u201335:00 \u2014 bridge reward, Route 25 items and Bill"
+        },
+        {
+          "line": 406,
+          "text": "| 32:12\u201332:51 | Trigger Camper Flint's sightline and battle him. | Rattata Lv.14: one Water Pulse; Ekans Lv.14: Intimidate then one Water Pulse, **critical hit**. Prize 280. A still 27/69 HP. |"
+        }
+      ],
+      "trainer": "TRAINER_CAMPER_FLINT",
+      "observed_party": [
+        {
+          "species": "RATTATA",
+          "level": 14
+        },
+        {
+          "species": "EKANS",
+          "level": 14
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 24,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route25-haley",
+      "kind": "trainer_battle",
+      "video_start": 1977,
+      "video_end": 2029,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 106,
+          "text": "| 00:30:00\u201300:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 396,
+          "text": "## 30:00\u201335:00 \u2014 bridge reward, Route 25 items and Bill"
+        },
+        {
+          "line": 408,
+          "text": "| 32:57\u201333:18 | Start Lass Haley battle near Bill's approach; first Oddish Lv.13 falls to one Mega Kick, critical hit. | A reaches Lv.25, 30/72 HP. |"
+        },
+        {
+          "line": 409,
+          "text": "| 33:19\u201333:25 | Decline learning **Rapid Spin**. | \u201cA did not learn RAPID SPIN\u201d confirmation. Keep existing moves. |"
+        },
+        {
+          "line": 410,
+          "text": "| 33:26\u201333:49 | Second Oddish Lv.13 falls to one Mega Kick. Pidgey Lv.13 uses Quick Attack, then falls to one Bite. Win 208. | Quick Attack reduces HP 30\u219227/72. Both Mega Kicks hit; this does not establish a guaranteed hit policy. |"
+        }
+      ],
+      "trainer": "TRAINER_LASS_HALEY",
+      "observed_party": [
+        {
+          "species": "ODDISH",
+          "level": 13
+        },
+        {
+          "species": "ODDISH",
+          "level": 13
+        },
+        {
+          "species": "PIDGEY",
+          "level": 13
+        }
+      ],
+      "observations": [
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 25,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 25,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "cerulean-dig-rocket",
+      "kind": "trainer_battle",
+      "video_start": 2110,
+      "video_end": 2149,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 107,
+          "text": "| 00:35:00\u201300:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 433,
+          "text": "## 35:00\u201340:00 \u2014 Dig Rocket, Vermilion supplies and S.S. Anne"
+        },
+        {
+          "line": 438,
+          "text": "| 35:10\u201335:30 | Speak to Rocket behind house; one Water Pulse defeats Machop Lv.17. | No damage. |"
+        },
+        {
+          "line": 439,
+          "text": "| 35:31\u201335:49 | Drowzee Lv.17: Mega Kick misses; Drowzee uses Confusion; second Mega Kick hits and KOs. Win 544. | HP 27\u219221/72. Explicit miss/retry demonstrates why a fixed successful-hit sequence is insufficient. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_5",
+      "observed_party": [
+        {
+          "species": "MACHOP",
+          "level": 17
+        },
+        {
+          "species": "DROWZEE",
+          "level": 17
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "route6-jeff",
+      "kind": "trainer_battle",
+      "video_start": 2208,
+      "video_end": 2234,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 107,
+          "text": "| 00:35:00\u201300:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 433,
+          "text": "## 35:00\u201340:00 \u2014 Dig Rocket, Vermilion supplies and S.S. Anne"
+        },
+        {
+          "line": 444,
+          "text": "| 36:48\u201337:14 | Spearow Lv.16: one Water Pulse. Raticate Lv.16: Quick Attack, then one Water Pulse KOs. | HP 21\u219213/72, then A grows Lv.26, 15/74 HP. Reward text missed in one-second samples; next money total reconciles with a 320 reward, marked derived. |"
+        }
+      ],
+      "trainer": "TRAINER_CAMPER_JEFF",
+      "observed_party": [
+        {
+          "species": "SPEAROW",
+          "level": 16
+        },
+        {
+          "species": "RATICATE",
+          "level": 16
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 26,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "ssanne-candy",
+      "kind": "rare_candy",
+      "video_start": 2280,
+      "video_end": 2285,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 107,
+          "text": "| 00:35:00\u201300:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 433,
+          "text": "## 35:00\u201340:00 \u2014 Dig Rocket, Vermilion supplies and S.S. Anne"
+        },
+        {
+          "line": 449,
+          "text": "| 38:00\u201338:05 | Use Route 6 Rare Candy: A Lv.26\u219227, 37/76 HP. | Rare Candy consumed; no new move prompt observed. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 27,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "ssanne-rival",
+      "kind": "trainer_battle",
+      "video_start": 2286,
+      "video_end": 2369,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 107,
+          "text": "| 00:35:00\u201300:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 433,
+          "text": "## 35:00\u201340:00 \u2014 Dig Rocket, Vermilion supplies and S.S. Anne"
+        },
+        {
+          "line": 450,
+          "text": "| 38:06\u201338:28 | Traverse upper corridor east, then north toward captain; rival approaches and starts battle. | Water Pulse **3/20 PP** visible before choosing first attack; no PP refill on boarding. |"
+        },
+        {
+          "line": 451,
+          "text": "| 38:29\u201338:43 | Pidgeotto Lv.19: Bite, then Water Pulse (critical hit) KOs. | Opponent's Gust between them is also a critical hit, reducing HP 37\u219220/76. |"
+        },
+        {
+          "line": 452,
+          "text": "| 38:44\u201338:57 | Ivysaur Lv.20: Bite causes flinch, then Mega Kick KOs. | Same two-move pattern as prior rival Bulbasaur. |"
+        },
+        {
+          "line": 453,
+          "text": "| 38:58\u201339:08 | One Water Pulse KOs Raticate Lv.16. | Battle text confirms Water Pulse despite menu cursor briefly passing Water Gun. |"
+        },
+        {
+          "line": 454,
+          "text": "| 39:09\u201339:29 | Kadabra Lv.18 uses Disable on Water Pulse; one Bite KOs it. Win 720. | A grows Lv.28, 23/79 HP. Opponent order Pidgeotto, Ivysaur, Raticate, Kadabra. |"
+        }
+      ],
+      "trainer": "TRAINER_RIVAL_SS_ANNE_BULBASAUR",
+      "observed_party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 19
+        },
+        {
+          "species": "IVYSAUR",
+          "level": 20
+        },
+        {
+          "species": "RATICATE",
+          "level": 16
+        },
+        {
+          "species": "KADABRA",
+          "level": 18
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 27,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 28,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "vermilion-tucker",
+      "kind": "trainer_battle",
+      "video_start": 2480,
+      "video_end": 2503,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 108,
+          "text": "| 00:40:00\u201300:45:00 | Reviewed; details below |"
+        },
+        {
+          "line": 474,
+          "text": "## 40:00\u201345:00 \u2014 ship heal, Surge switches, Thunder Badge and Bicycle"
+        },
+        {
+          "line": 483,
+          "text": "| 41:20\u201341:43 | Trigger Gentleman Tucker by upper-right barrier; one Water Pulse defeats Pikachu Lv.23. Win **1,656**. | Reward confirmed with quarter-second inspection. A remains Lv.28, 79/79 HP. Only this ordinary Gym trainer fought here. |"
+        }
+      ],
+      "trainer": "TRAINER_GENTLEMAN_TUCKER",
+      "observed_party": [
+        {
+          "species": "PIKACHU",
+          "level": 23
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 28,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 28,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "surge",
+      "kind": "trainer_battle",
+      "video_start": 2544,
+      "video_end": 2608,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 108,
+          "text": "| 00:40:00\u201300:45:00 | Reviewed; details below |"
+        },
+        {
+          "line": 474,
+          "text": "## 40:00\u201345:00 \u2014 ship heal, Surge switches, Thunder Badge and Bicycle"
+        },
+        {
+          "line": 488,
+          "text": "| 42:24\u201342:40 | Approach Lt. Surge, advance introduction, begin battle. | A Lv.28, 79/79 HP. |"
+        },
+        {
+          "line": 489,
+          "text": "| 42:41\u201342:52 | Voltorb Lv.21 uses Screech; one Water Pulse KOs it. | No HP loss; Defense harshly lowered. |"
+        },
+        {
+          "line": 490,
+          "text": "| 42:53\u201343:02 | One Water Pulse KOs Pikachu Lv.18. | Water Pulse 18/20 PP before use, consistent with cabin refill and one use each on Tucker and Voltorb. |"
+        },
+        {
+          "line": 491,
+          "text": "| 43:03\u201343:12 | Raichu Lv.24 uses Double Team; A lands Water Pulse, leaving it green HP. | No miss on this Water Pulse. |"
+        },
+        {
+          "line": 492,
+          "text": "| 43:13\u201343:28 | Raichu uses Shock Wave; A lands Mega Kick and KOs it. Win 2,400 and Thunder Badge. | Shock Wave reduces A **79\u219243/79 HP**. Mega Kick hits despite raised evasion. No level increase. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_LT_SURGE",
+      "observed_party": [
+        {
+          "species": "VOLTORB",
+          "level": 21
+        },
+        {
+          "species": "PIKACHU",
+          "level": 18
+        },
+        {
+          "species": "RAICHU",
+          "level": 24
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 28,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 28,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route9-alicia",
+      "kind": "trainer_battle",
+      "video_start": 2727,
+      "video_end": 2783,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 109,
+          "text": "| 00:45:00\u201300:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 521,
+          "text": "## 45:00\u201350:00 \u2014 Bicycle, Route 9 and dark Rock Tunnel"
+        },
+        {
+          "line": 527,
+          "text": "| 45:27\u201346:23 | Battle Picnicker Alicia. Oddish Lv.18: Mega Kick; Bellsprout Lv.18: Bite; second Oddish Lv.18: Mega Kick; second Bellsprout Lv.18: Bite. | One hit each. A reaches Lv.29, 45/81 HP after first Bellsprout. Prize 360. |"
+        }
+      ],
+      "trainer": "TRAINER_PICNICKER_ALICIA",
+      "observed_party": [
+        {
+          "species": "ODDISH",
+          "level": 18
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 18
+        },
+        {
+          "species": "ODDISH",
+          "level": 18
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 18
+        }
+      ],
+      "observations": [
+        {
+          "at": "after_foe",
+          "foe_index": 1,
+          "level": 29,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 29,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route9-conner",
+      "kind": "trainer_battle",
+      "video_start": 2803,
+      "video_end": 2839,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 109,
+          "text": "| 00:45:00\u201300:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 521,
+          "text": "## 45:00\u201350:00 \u2014 Bicycle, Route 9 and dark Rock Tunnel"
+        },
+        {
+          "line": 529,
+          "text": "| 46:43\u201347:19 | Caterpie Lv.20 and Weedle Lv.20 each fall to one Bite. Venonat Lv.20: Mega Kick misses, Supersonic confuses A, second Mega Kick hits and KOs. | No self-hit or HP loss; Mega Kick shows 1/5 before retry and is exhausted afterward. Prize 240. |"
+        }
+      ],
+      "trainer": "TRAINER_BUG_CATCHER_CONNER",
+      "observed_party": [
+        {
+          "species": "CATERPIE",
+          "level": 20
+        },
+        {
+          "species": "WEEDLE",
+          "level": 20
+        },
+        {
+          "species": "VENONAT",
+          "level": 20
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-ashton",
+      "kind": "trainer_battle",
+      "video_start": 2867,
+      "video_end": 2912,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 109,
+          "text": "| 00:45:00\u201300:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 521,
+          "text": "## 45:00\u201350:00 \u2014 Bicycle, Route 9 and dark Rock Tunnel"
+        },
+        {
+          "line": 533,
+          "text": "| 47:47\u201348:32 | Pokemaniac Ashton: Cubone Lv.23 falls to one Water Pulse; Slowpoke Lv.23 takes two Bites, using Tackle between them. | A loses 6 HP, then grows Lv.30, **42/84 HP**. Prize 1,104. |"
+        }
+      ],
+      "trainer": "TRAINER_POKEMANIAC_ASHTON",
+      "observed_party": [
+        {
+          "species": "CUBONE",
+          "level": 23
+        },
+        {
+          "species": "SLOWPOKE",
+          "level": 23
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 30,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-winston",
+      "kind": "trainer_battle",
+      "video_start": 2932,
+      "video_end": 2951,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 109,
+          "text": "| 00:45:00\u201300:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 521,
+          "text": "## 45:00\u201350:00 \u2014 Bicycle, Route 9 and dark Rock Tunnel"
+        },
+        {
+          "line": 535,
+          "text": "| 48:52\u201349:11 | Slowpoke Lv.25 takes two Bites; Water Gun between them reduces A 42\u219239/84 HP. | Win; reward text not captured in baseline frames, amount unverified here. |"
+        }
+      ],
+      "trainer": "TRAINER_POKEMANIAC_WINSTON",
+      "observed_party": [
+        {
+          "species": "SLOWPOKE",
+          "level": 25
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-martha",
+      "kind": "trainer_battle",
+      "video_start": 2952,
+      "video_end": 2985,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 109,
+          "text": "| 00:45:00\u201300:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 521,
+          "text": "## 45:00\u201350:00 \u2014 Bicycle, Route 9 and dark Rock Tunnel"
+        },
+        {
+          "line": 536,
+          "text": "| 49:12\u201349:45 | Picnicker Martha: Oddish Lv.22 and Bulbasaur Lv.22 each fall to one Mega Kick. Prize 440. | Mega Kick 5/5 before Oddish, 4/5 before Bulbasaur, confirms Elixir refill. |"
+        }
+      ],
+      "trainer": "TRAINER_PICNICKER_MARTHA",
+      "observed_party": [
+        {
+          "species": "ODDISH",
+          "level": 22
+        },
+        {
+          "species": "BULBASAUR",
+          "level": 22
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-allen",
+      "kind": "trainer_battle",
+      "video_start": 2986,
+      "video_end": 3020,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 109,
+          "text": "| 00:45:00\u201300:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 110,
+          "text": "| 00:50:00\u201300:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 521,
+          "text": "## 45:00\u201350:00 \u2014 Bicycle, Route 9 and dark Rock Tunnel"
+        },
+        {
+          "line": 537,
+          "text": "| 49:46\u201349:59 | Repel expires; use second Repel (two in bag before use), continue and trigger Hiker. | Battle transition underway at 50:00; trainer identity not yet displayed. |"
+        },
+        {
+          "line": 552,
+          "text": "## 50:00\u201355:00 \u2014 Rock Tunnel exit, Lavender supplies and Route 8"
+        },
+        {
+          "line": 556,
+          "text": "| [50:00\u201350:20](https://www.youtube.com/watch?v=CbfjWuRWH10&t=3000) | Hiker Allen's Geodude Lv.25 falls to one Water Pulse. Prize 900. | A remains 39/84 HP. Water Pulse 19/20 before use confirms preceding count. |"
+        }
+      ],
+      "trainer": "TRAINER_HIKER_ALLEN",
+      "observed_party": [
+        {
+          "species": "GEODUDE",
+          "level": 25
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 30,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-oliver",
+      "kind": "trainer_battle",
+      "video_start": 3021,
+      "video_end": 3083,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 110,
+          "text": "| 00:50:00\u201300:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 552,
+          "text": "## 50:00\u201355:00 \u2014 Rock Tunnel exit, Lavender supplies and Route 8"
+        },
+        {
+          "line": 557,
+          "text": "| 50:21\u201351:23 | Traverse ladder and battle Hiker Oliver: first Onix Lv.20 takes two Bites, using Harden between; second Onix Lv.20 falls to Water Pulse; Geodude Lv.20 falls to Bite. | A reaches Lv.31, 41/86 HP, after second Onix; **decline Protect**. Prize 720. |"
+        }
+      ],
+      "trainer": "TRAINER_HIKER_OLIVER",
+      "observed_party": [
+        {
+          "species": "ONIX",
+          "level": 20
+        },
+        {
+          "species": "ONIX",
+          "level": 20
+        },
+        {
+          "species": "GEODUDE",
+          "level": 20
+        }
+      ],
+      "observations": [
+        {
+          "at": "after_foe",
+          "foe_index": 1,
+          "level": 31,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 31,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-sofia",
+      "kind": "trainer_battle",
+      "video_start": 3099,
+      "video_end": 3139,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 110,
+          "text": "| 00:50:00\u201300:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 552,
+          "text": "## 50:00\u201355:00 \u2014 Rock Tunnel exit, Lavender supplies and Route 8"
+        },
+        {
+          "line": 559,
+          "text": "| 51:39\u201352:19 | Sofia: Jigglypuff, Pidgey and Meowth, all Lv.21, each defeated with one Water Pulse. Prize 420. | Menu at 51:48 shows **Water Gun / Water Pulse / Bite / Mega Kick**; the two water moves have swapped relative to earlier menus. Exact swap input not isolated. |"
+        }
+      ],
+      "trainer": "TRAINER_PICNICKER_SOFIA",
+      "observed_party": [
+        {
+          "species": "JIGGLYPUFF",
+          "level": 21
+        },
+        {
+          "species": "PIDGEY",
+          "level": 21
+        },
+        {
+          "species": "MEOWTH",
+          "level": 21
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-dudley",
+      "kind": "trainer_battle",
+      "video_start": 3140,
+      "video_end": 3189,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 110,
+          "text": "| 00:50:00\u201300:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 552,
+          "text": "## 50:00\u201355:00 \u2014 Rock Tunnel exit, Lavender supplies and Route 8"
+        },
+        {
+          "line": 560,
+          "text": "| 52:20\u201353:09 | Hiker Dudley: two Geodude Lv.21, one Bite each; Graveler Lv.21, one **Water Gun**. Prize 756. | A reaches Lv.32, 44/89 HP. Different water move deliberately selected for Graveler; no damage. |"
+        }
+      ],
+      "trainer": "TRAINER_HIKER_DUDLEY",
+      "observed_party": [
+        {
+          "species": "GEODUDE",
+          "level": 21
+        },
+        {
+          "species": "GEODUDE",
+          "level": 21
+        },
+        {
+          "species": "GRAVELER",
+          "level": 21
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 32,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "rocktunnel-dana",
+      "kind": "trainer_battle",
+      "video_start": 3190,
+      "video_end": 3241,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 110,
+          "text": "| 00:50:00\u201300:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 552,
+          "text": "## 50:00\u201355:00 \u2014 Rock Tunnel exit, Lavender supplies and Route 8"
+        },
+        {
+          "line": 561,
+          "text": "| 53:10\u201354:01 | Traverse another ladder, battle Picnicker Dana: Meowth Lv.20, Bite; Oddish Lv.20, Mega Kick; Pidgey Lv.20, Bite after its Quick Attack. | One hit each; HP 44\u219239/89. Reward text missed; amount unverified in this pass. |"
+        }
+      ],
+      "trainer": "TRAINER_PICNICKER_DANA",
+      "observed_party": [
+        {
+          "species": "MEOWTH",
+          "level": 20
+        },
+        {
+          "species": "ODDISH",
+          "level": 20
+        },
+        {
+          "species": "PIDGEY",
+          "level": 20
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "route8-rich",
+      "kind": "trainer_battle",
+      "video_start": 3270,
+      "video_end": 3315,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 110,
+          "text": "| 00:50:00\u201300:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 111,
+          "text": "| 00:55:00\u201301:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 552,
+          "text": "## 50:00\u201355:00 \u2014 Rock Tunnel exit, Lavender supplies and Route 8"
+        },
+        {
+          "line": 564,
+          "text": "| 54:30\u201354:50 | Cycle west onto Route 8; trigger Gamer Rich. Growlithe Lv.24 triggers Intimidate. | A still Lv.32, 39/89 HP. |"
+        },
+        {
+          "line": 565,
+          "text": "| 54:51\u201355:00 | One **Water Gun** defeats Growlithe. Rich battle continues. | 24/25 Water Gun PP before use. Next opponent not yet displayed. |"
+        },
+        {
+          "line": 581,
+          "text": "## 55:00\u20131:00:00 \u2014 Celadon Rocket Hideout and Arbok trouble"
+        },
+        {
+          "line": 585,
+          "text": "| [55:00\u201355:15](https://www.youtube.com/watch?v=CbfjWuRWH10&t=3300) | Gamer Rich sends Vulpix Lv.24; one Water Gun KOs it. Finish battle. | Prize text not captured in baseline; no damage. |"
+        }
+      ],
+      "trainer": "TRAINER_GAMER_RICH",
+      "observed_party": [
+        {
+          "species": "GROWLITHE",
+          "level": 24
+        },
+        {
+          "species": "VULPIX",
+          "level": 24
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 32,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "hideout-poster-guard",
+      "kind": "trainer_battle",
+      "video_start": 3347,
+      "video_end": 3385,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 111,
+          "text": "| 00:55:00\u201301:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 581,
+          "text": "## 55:00\u20131:00:00 \u2014 Celadon Rocket Hideout and Arbok trouble"
+        },
+        {
+          "line": 587,
+          "text": "| 55:47\u201356:25 | Fight poster guard: Raticate Lv.20, one Mega Kick; Zubat Lv.20, one Water Pulse. Prize 640. | A remains Lv.32, 39/89 HP. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_7",
+      "observed_party": [
+        {
+          "species": "RATICATE",
+          "level": 20
+        },
+        {
+          "species": "ZUBAT",
+          "level": 20
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 32,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "hideout-key-grunt",
+      "kind": "trainer_battle",
+      "video_start": 3411,
+      "video_end": 3450,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 111,
+          "text": "| 00:55:00\u201301:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 581,
+          "text": "## 55:00\u20131:00:00 \u2014 Celadon Rocket Hideout and Arbok trouble"
+        },
+        {
+          "line": 590,
+          "text": "| 56:51\u201357:30 | Fight Lift Key Grunt: Koffing Lv.21 and Zubat Lv.21, one Water Pulse each. Prize 672. | A reaches Lv.33, 42/92 HP after Koffing. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_18",
+      "observed_party": [
+        {
+          "species": "KOFFING",
+          "level": 21
+        },
+        {
+          "species": "ZUBAT",
+          "level": 21
+        }
+      ],
+      "observations": [
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 33,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 33,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "hideout-left-guard",
+      "kind": "trainer_battle",
+      "video_start": 3490,
+      "video_end": 3541,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 111,
+          "text": "| 00:55:00\u201301:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 581,
+          "text": "## 55:00\u20131:00:00 \u2014 Celadon Rocket Hideout and Arbok trouble"
+        },
+        {
+          "line": 594,
+          "text": "| 58:10\u201359:01 | Fight left door guard: Sandshrew Lv.23, Bite; Sandslash Lv.23, Water Gun; Ekans Lv.23, Water Pulse. Prize 736. | One hit each; Ekans Intimidate. No damage. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_16",
+      "observed_party": [
+        {
+          "species": "SANDSHREW",
+          "level": 23
+        },
+        {
+          "species": "SANDSLASH",
+          "level": 23
+        },
+        {
+          "species": "EKANS",
+          "level": 23
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "hideout-right-guard",
+      "kind": "trainer_battle",
+      "video_start": 3542,
+      "video_end": 3624,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 111,
+          "text": "| 00:55:00\u201301:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 112,
+          "text": "| 01:00:00\u201301:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 581,
+          "text": "## 55:00\u20131:00:00 \u2014 Celadon Rocket Hideout and Arbok trouble"
+        },
+        {
+          "line": 595,
+          "text": "| 59:02\u201359:43 | Start right door guard: Ekans Lv.23 falls to Water Pulse; Sandshrew Lv.23 to Water Gun; Arbok Lv.23 enters and triggers Intimidate. | Water Pulse 10/20 before Ekans, 9/20 afterward. |"
+        },
+        {
+          "line": 596,
+          "text": "| 59:44\u201359:59 | Bite damages Arbok. Its Glare paralyzes A; subsequent Bite makes A flinch, then Poison Sting damages A while full paralysis prevents the selected attack. | HP 42\u219234 from Bite, then 34\u219229 from Poison Sting. Water Pulse selected but no successful use in these turns. Another Poison Sting begins at 59:59. Fight unresolved. |"
+        },
+        {
+          "line": 611,
+          "text": "## 1:00:00\u20131:05:00 \u2014 Blastoise, Giovanni, Fly and Tower rival setup"
+        },
+        {
+          "line": 615,
+          "text": "| [1:00:00\u20131:00:24](https://www.youtube.com/watch?v=CbfjWuRWH10&t=3600) | Finish Arbok fight: Poison Sting reduces HP 29\u219224; full paralysis; Bite reduces 24\u219216 and flinches A; Arbok uses Leer, then A finally lands Water Pulse and KOs. Prize 736. | A reaches Lv.34, 18/94 HP, still paralyzed. Same battle as preceding block. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_17",
+      "observed_party": [
+        {
+          "species": "EKANS",
+          "level": 23
+        },
+        {
+          "species": "SANDSHREW",
+          "level": 23
+        },
+        {
+          "species": "ARBOK",
+          "level": 23
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 34,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "hideout-candy1",
+      "kind": "rare_candy",
+      "video_start": 3625,
+      "video_end": 3638,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 112,
+          "text": "| 01:00:00\u201301:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 611,
+          "text": "## 1:00:00\u20131:05:00 \u2014 Blastoise, Giovanni, Fly and Tower rival setup"
+        },
+        {
+          "line": 616,
+          "text": "| 1:00:25\u20131:00:38 | Use **one Parlyz Heal**, then both Rare Candies: Lv.34\u219235\u219236. | Paralysis cured; two Parlyz Heals remain. HP becomes 21/97 then 23/99. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 35,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "hideout-candy2",
+      "kind": "rare_candy",
+      "video_start": 3625,
+      "video_end": 3638,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 112,
+          "text": "| 01:00:00\u201301:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 611,
+          "text": "## 1:00:00\u20131:05:00 \u2014 Blastoise, Giovanni, Fly and Tower rival setup"
+        },
+        {
+          "line": 616,
+          "text": "| 1:00:25\u20131:00:38 | Use **one Parlyz Heal**, then both Rare Candies: Lv.34\u219235\u219236. | Paralysis cured; two Parlyz Heals remain. HP becomes 21/97 then 23/99. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 36,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "evolve-blastoise",
+      "kind": "evolution",
+      "video_start": 3639,
+      "video_end": 3664,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 112,
+          "text": "| 01:00:00\u201301:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 611,
+          "text": "## 1:00:00\u20131:05:00 \u2014 Blastoise, Giovanni, Fly and Tower rival setup"
+        },
+        {
+          "line": 617,
+          "text": "| 1:00:39\u20131:01:04 | Allow Wartortle to evolve into **Blastoise**. | Next battle confirms **38/114 HP**; no Potion used. |"
+        }
+      ],
+      "species": "BLASTOISE",
+      "minimum_level": 36
+    },
+    {
+      "id": "hideout-giovanni",
+      "kind": "trainer_battle",
+      "video_start": 3665,
+      "video_end": 3724,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 112,
+          "text": "| 01:00:00\u201301:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 611,
+          "text": "## 1:00:00\u20131:05:00 \u2014 Blastoise, Giovanni, Fly and Tower rival setup"
+        },
+        {
+          "line": 618,
+          "text": "| 1:01:05\u20131:02:04 | Battle Giovanni: Onix Lv.25 and Rhyhorn Lv.24 each fall to one Water Gun; Kangaskhan Lv.29 takes two Water Pulses, using Tail Whip between. Prize 2,900. | No HP loss; A stays Lv.36, 38/114. |"
+        }
+      ],
+      "trainer": "TRAINER_BOSS_GIOVANNI",
+      "observed_party": [
+        {
+          "species": "ONIX",
+          "level": 25
+        },
+        {
+          "species": "RHYHORN",
+          "level": 24
+        },
+        {
+          "species": "KANGASKHAN",
+          "level": 29
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 36,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 36,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "tower-rival",
+      "kind": "trainer_battle",
+      "video_start": 3852,
+      "video_end": 3961,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 112,
+          "text": "| 01:00:00\u201301:05:00 | Reviewed; details below |"
+        },
+        {
+          "line": 113,
+          "text": "| 01:05:00\u201301:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 611,
+          "text": "## 1:00:00\u20131:05:00 \u2014 Blastoise, Giovanni, Fly and Tower rival setup"
+        },
+        {
+          "line": 626,
+          "text": "| 1:04:12\u20131:04:35 | Climb to rival floor; trigger RED, who sends Pidgeotto Lv.25. | A begins 38/114 HP. |"
+        },
+        {
+          "line": 627,
+          "text": "| 1:04:36\u20131:04:54 | Use **two X Specials**, taking Gust then Quick Attack (38\u219230\u219222/114). One Water Gun KOs Pidgeotto. | X Special 21\u219220 shown between uses; boosts persist for this battle. |"
+        },
+        {
+          "line": 628,
+          "text": "| 1:04:55\u20131:05:00 | Ivysaur Lv.25 enters; A uses Water Pulse. | Damage animation underway at boundary; do not count Ivysaur defeated yet. |"
+        },
+        {
+          "line": 644,
+          "text": "## 1:05:00\u20131:10:00 \u2014 Tower rival finish, Marowak and upstairs Rockets"
+        },
+        {
+          "line": 648,
+          "text": "| [1:05:00\u20131:05:07](https://www.youtube.com/watch?v=CbfjWuRWH10&t=3900) | Water Pulse finishes Ivysaur Lv.25 from previous block. | One attack total against it; no damage to A. |"
+        },
+        {
+          "line": 649,
+          "text": "| 1:05:08\u20131:05:29 | Gyarados Lv.23 triggers Intimidate; two Bites defeat it, first causing flinch. | A grows Lv.37, **24/116 HP**. |"
+        },
+        {
+          "line": 650,
+          "text": "| 1:05:30\u20131:06:01 | Growlithe Lv.22: one Bite after Intimidate. Kadabra Lv.20: one Water Gun. Win 900; finish rival departure dialogue. | No further damage. Opponent order across blocks: Pidgeotto, Ivysaur, Gyarados, Growlithe, Kadabra. |"
+        }
+      ],
+      "trainer": "TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR",
+      "observed_party": [
+        {
+          "species": "PIDGEOTTO",
+          "level": 25
+        },
+        {
+          "species": "IVYSAUR",
+          "level": 25
+        },
+        {
+          "species": "GYARADOS",
+          "level": 23
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 22
+        },
+        {
+          "species": "KADABRA",
+          "level": 20
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 36,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 2,
+          "level": 37,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 37,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "tower-tammy",
+      "kind": "trainer_battle",
+      "video_start": 3996,
+      "video_end": 4019,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 113,
+          "text": "| 01:05:00\u201301:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 644,
+          "text": "## 1:05:00\u20131:10:00 \u2014 Tower rival finish, Marowak and upstairs Rockets"
+        },
+        {
+          "line": 652,
+          "text": "| 1:06:36\u20131:06:59 | Channeler Tammy: Haunter Lv.23 falls to one Water Gun. | No damage; reward text not captured. |"
+        }
+      ],
+      "trainer": "TRAINER_CHANNELER_TAMMY",
+      "observed_party": [
+        {
+          "species": "HAUNTER",
+          "level": 23
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "tower-jennifer",
+      "kind": "trainer_battle",
+      "video_start": 4020,
+      "video_end": 4047,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 113,
+          "text": "| 01:05:00\u201301:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 644,
+          "text": "## 1:05:00\u20131:10:00 \u2014 Tower rival finish, Marowak and upstairs Rockets"
+        },
+        {
+          "line": 653,
+          "text": "| 1:07:00\u20131:07:27 | Channeler Jennifer: Gastly Lv.24 falls to one Water Gun. Prize 768. | Water Gun 15/25 before use. |"
+        }
+      ],
+      "trainer": "TRAINER_CHANNELER_JENNIFER",
+      "observed_party": [
+        {
+          "species": "GASTLY",
+          "level": 24
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "tower-emilia",
+      "kind": "trainer_battle",
+      "video_start": 4048,
+      "video_end": 4072,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 113,
+          "text": "| 01:05:00\u201301:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 644,
+          "text": "## 1:05:00\u20131:10:00 \u2014 Tower rival finish, Marowak and upstairs Rockets"
+        },
+        {
+          "line": 654,
+          "text": "| 1:07:28\u20131:07:52 | Channeler Emilia: Gastly Lv.24 falls to one Water Gun. | No damage; reward text not captured. |"
+        }
+      ],
+      "trainer": "TRAINER_CHANNELER_EMILIA",
+      "observed_party": [
+        {
+          "species": "GASTLY",
+          "level": 24
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "tower-marowak",
+      "kind": "scripted_battle",
+      "video_start": 4084,
+      "video_end": 4111,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 113,
+          "text": "| 01:05:00\u201301:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 644,
+          "text": "## 1:05:00\u20131:10:00 \u2014 Tower rival finish, Marowak and upstairs Rockets"
+        },
+        {
+          "line": 656,
+          "text": "| 1:08:04\u20131:08:31 | Silph Scope reveals ghost as **Marowak Lv.30**; one Water Pulse KOs it. Finish spirit-departure dialogue. | A grows Lv.38, **27/119 HP**. No capture attempt. |"
+        }
+      ],
+      "opponent": {
+        "species": "MAROWAK",
+        "level": 30
+      },
+      "outcome": "defeated",
+      "observations": [
+        {
+          "at": "after",
+          "level": 38,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "tower-rocket1",
+      "kind": "trainer_battle",
+      "video_start": 4112,
+      "video_end": 4159,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 113,
+          "text": "| 01:05:00\u201301:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 644,
+          "text": "## 1:05:00\u20131:10:00 \u2014 Tower rival finish, Marowak and upstairs Rockets"
+        },
+        {
+          "line": 657,
+          "text": "| 1:08:32\u20131:09:19 | Climb top floor; first Rocket Grunt: two Zubat Lv.25, one Water Gun each; Golbat Lv.25, one Water Pulse. Prize 800. | No damage; Water Pulse 4/20 before Golbat. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_19",
+      "observed_party": [
+        {
+          "species": "ZUBAT",
+          "level": 25
+        },
+        {
+          "species": "ZUBAT",
+          "level": 25
+        },
+        {
+          "species": "GOLBAT",
+          "level": 25
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "tower-rocket2",
+      "kind": "trainer_battle",
+      "video_start": 4160,
+      "video_end": 4200,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 113,
+          "text": "| 01:05:00\u201301:10:00 | Reviewed; details below |"
+        },
+        {
+          "line": 114,
+          "text": "| 01:10:00\u201301:15:00 | Reviewed; details below |"
+        },
+        {
+          "line": 644,
+          "text": "## 1:05:00\u20131:10:00 \u2014 Tower rival finish, Marowak and upstairs Rockets"
+        },
+        {
+          "line": 658,
+          "text": "| 1:09:20\u20131:10:00 | Trigger next Rocket Grunt: Koffing Lv.26, one Water Gun; Drowzee Lv.26, one Water Pulse. Win 832. | Water Gun 11/25 before Koffing, Water Pulse 3/20 before Drowzee. Fading back to overworld at boundary. |"
+        },
+        {
+          "line": 674,
+          "text": "## 1:10:00\u20131:15:00 \u2014 Fuji, Tea, Cycling Road and Safari rewards"
+        },
+        {
+          "line": 678,
+          "text": "| [1:10:00\u20131:10:11](https://www.youtube.com/watch?v=CbfjWuRWH10&t=4200) | Second Rocket departs; trigger third Rocket near Fuji. | Continues previous block's victory. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_20",
+      "observed_party": [
+        {
+          "species": "KOFFING",
+          "level": 26
+        },
+        {
+          "species": "DROWZEE",
+          "level": 26
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 38,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "tower-rocket3",
+      "kind": "trainer_battle",
+      "video_start": 4212,
+      "video_end": 4263,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 114,
+          "text": "| 01:10:00\u201301:15:00 | Reviewed; details below |"
+        },
+        {
+          "line": 674,
+          "text": "## 1:10:00\u20131:15:00 \u2014 Fuji, Tea, Cycling Road and Safari rewards"
+        },
+        {
+          "line": 679,
+          "text": "| 1:10:12\u20131:11:03 | Third Rocket: two Zubat Lv.23, one Bite each; Rattata Lv.23, one critical Bite; Raticate Lv.23, one critical Water Gun. Win **736**. | Rattata's Quick Attack reduces A **27\u219221/119 HP**. Water Gun 10/25 before Raticate. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_21",
+      "observed_party": [
+        {
+          "species": "ZUBAT",
+          "level": 23
+        },
+        {
+          "species": "ZUBAT",
+          "level": 23
+        },
+        {
+          "species": "RATTATA",
+          "level": 23
+        },
+        {
+          "species": "RATICATE",
+          "level": 23
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "route16-snorlax",
+      "kind": "scripted_battle",
+      "video_start": 4317,
+      "video_end": 4346,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 114,
+          "text": "| 01:10:00\u201301:15:00 | Reviewed; details below |"
+        },
+        {
+          "line": 674,
+          "text": "## 1:10:00\u20131:15:00 \u2014 Fuji, Tea, Cycling Road and Safari rewards"
+        },
+        {
+          "line": 683,
+          "text": "| 1:11:57\u20131:12:26 | Approach Route 16 Snorlax, play flute through interaction; enter **Snorlax Lv.30** battle and **RUN successfully**. Finish its departure text. | No attack or capture. Overworld obstacle disappears after fleeing. |"
+        }
+      ],
+      "opponent": {
+        "species": "SNORLAX",
+        "level": 30
+      },
+      "outcome": "fled",
+      "observations": [
+        {
+          "at": "before",
+          "level": 38,
+          "basis": "notes_continuity"
+        }
+      ]
+    },
+    {
+      "id": "fuchsia-kirk",
+      "kind": "trainer_battle",
+      "video_start": 4514,
+      "video_end": 4577,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 115,
+          "text": "| 01:15:00\u201301:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 709,
+          "text": "## 1:15:00\u20131:20:00 \u2014 Koga at low HP, Strength and Cinnabar approach"
+        },
+        {
+          "line": 714,
+          "text": "| 1:15:14\u20131:16:17 | Juggler Kirk: Drowzee Lv.31, Drowzee Lv.31, Kadabra Lv.31, Drowzee Lv.31. **One Surf each**; Kadabra hit is critical. | A grows **Lv.39, 34/122 HP** after first Drowzee. No damage. Prize number not captured. |"
+        }
+      ],
+      "trainer": "TRAINER_JUGGLER_KIRK",
+      "observed_party": [
+        {
+          "species": "DROWZEE",
+          "level": 31
+        },
+        {
+          "species": "DROWZEE",
+          "level": 31
+        },
+        {
+          "species": "KADABRA",
+          "level": 31
+        },
+        {
+          "species": "DROWZEE",
+          "level": 31
+        }
+      ],
+      "observations": [
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 39,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 39,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "koga",
+      "kind": "trainer_battle",
+      "video_start": 4594,
+      "video_end": 4683,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 115,
+          "text": "| 01:15:00\u201301:20:00 | Reviewed; details below |"
+        },
+        {
+          "line": 709,
+          "text": "## 1:15:00\u20131:20:00 \u2014 Koga at low HP, Strength and Cinnabar approach"
+        },
+        {
+          "line": 716,
+          "text": "| 1:16:34\u20131:17:23 | Koga: **Koffing Lv.37**, one Surf; **Muk Lv.39**, two Surfs with enemy **Minimize** between them; second **Koffing Lv.37**, one Surf. | A grows **Lv.40, 38/126 HP** after Muk; neither Surf misses after Minimize. No player setup item used. |"
+        },
+        {
+          "line": 717,
+          "text": "| 1:17:24\u20131:17:42 | **Weezing Lv.43** survives Surf in red HP; its **Sludge** reduces A **38\u21924/126 HP**. Koga uses **Hyper Potion**; A uses **Bite** on that turn. | Weezing is restored to full before Bite damage. No player healing or status cure. |"
+        },
+        {
+          "line": 718,
+          "text": "| 1:17:43\u20131:18:03 | **Critical Surf** defeats Weezing. Win **4300**; receive **Soul Badge** and **TM06**. | A survives at **4/126 HP**. This is the observed outcome, not a generally safe battle recipe. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_KOGA",
+      "observed_party": [
+        {
+          "species": "KOFFING",
+          "level": 37
+        },
+        {
+          "species": "MUK",
+          "level": 39
+        },
+        {
+          "species": "KOFFING",
+          "level": 37
+        },
+        {
+          "species": "WEEZING",
+          "level": 43
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 39,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 1,
+          "level": 40,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 40,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "blaine",
+      "kind": "trainer_battle",
+      "video_start": 4904,
+      "video_end": 4989,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 116,
+          "text": "| 01:20:00\u201301:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 740,
+          "text": "## 1:20:00\u20131:25:00 \u2014 Secret Key, Blaine and return for Erika"
+        },
+        {
+          "line": 747,
+          "text": "| 1:21:44\u20131:22:13 | Trigger Blaine; **Growlithe Lv.42** uses Intimidate, then falls to one **Surf**. | A begins **Lv.40, 24/126 HP**. No setup items. |"
+        },
+        {
+          "line": 748,
+          "text": "| 1:22:14\u20131:22:42 | **Ponyta Lv.40**, one Surf; **Rapidash Lv.42**, one Surf. | A grows **Lv.41, 26/128 HP** after Ponyta. Surf **3/15** before Rapidash. |"
+        },
+        {
+          "line": 749,
+          "text": "| 1:22:43\u20131:23:09 | **Arcanine Lv.47** uses Intimidate, falls to one Surf. Receive **Volcano Badge**, **4700**, and **TM38 Fire Blast**. | No enemy damaging turn or player item use; A remains 26/128 HP. Surf now 1/15, derived. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_BLAINE",
+      "observed_party": [
+        {
+          "species": "GROWLITHE",
+          "level": 42
+        },
+        {
+          "species": "PONYTA",
+          "level": 40
+        },
+        {
+          "species": "RAPIDASH",
+          "level": 42
+        },
+        {
+          "species": "ARCANINE",
+          "level": 47
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 40,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 1,
+          "level": 41,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 41,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "celadon-tamia",
+      "kind": "trainer_battle",
+      "video_start": 5051,
+      "video_end": 5099,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 116,
+          "text": "| 01:20:00\u201301:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 740,
+          "text": "## 1:20:00\u20131:25:00 \u2014 Secret Key, Blaine and return for Erika"
+        },
+        {
+          "line": 752,
+          "text": "| 1:24:11\u20131:24:29 | Take west aisle; Beauty Tamia approaches and triggers battle. | Her sightline triggers on the way toward the northern area. |"
+        },
+        {
+          "line": 753,
+          "text": "| 1:24:30\u20131:24:59 | Tamia: two **Bellsprout Lv.24**, **one Bite each**. Grow **Lv.42, 29/131 HP**; decline **Rain Dance**; win **1728**. | Bite 5/25 before first, 4/25 before second. No damage. Overworld fade at boundary. |"
+        }
+      ],
+      "trainer": "TRAINER_BEAUTY_TAMIA",
+      "observed_party": [
+        {
+          "species": "BELLSPROUT",
+          "level": 24
+        },
+        {
+          "species": "BELLSPROUT",
+          "level": 24
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 42,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "celadon-candy1",
+      "kind": "rare_candy",
+      "video_start": 5100,
+      "video_end": 5129,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 116,
+          "text": "| 01:20:00\u201301:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 117,
+          "text": "| 01:25:00\u201301:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 740,
+          "text": "## 1:20:00\u20131:25:00 \u2014 Secret Key, Blaine and return for Erika"
+        },
+        {
+          "line": 770,
+          "text": "## 1:25:00\u20131:30:00 \u2014 Erika, Saffron access and Silph rival setup"
+        },
+        {
+          "line": 774,
+          "text": "| [1:25:00\u20131:25:29](https://www.youtube.com/watch?v=CbfjWuRWH10&t=5100) | Use both **Rare Candies** on A: **Lv.43, 32/134 HP**, then **Lv.44, 35/137 HP**. Teach **TM14 Blizzard**, replacing **Mega Kick**. | Before replacement: Surf 1/15, Water Pulse 2/20, Bite 3/25, Mega Kick 1/5 directly visible. Blizzard starts 5/5. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 43,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "celadon-candy2",
+      "kind": "rare_candy",
+      "video_start": 5100,
+      "video_end": 5129,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 116,
+          "text": "| 01:20:00\u201301:25:00 | Reviewed; details below |"
+        },
+        {
+          "line": 117,
+          "text": "| 01:25:00\u201301:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 740,
+          "text": "## 1:20:00\u20131:25:00 \u2014 Secret Key, Blaine and return for Erika"
+        },
+        {
+          "line": 770,
+          "text": "## 1:25:00\u20131:30:00 \u2014 Erika, Saffron access and Silph rival setup"
+        },
+        {
+          "line": 774,
+          "text": "| [1:25:00\u20131:25:29](https://www.youtube.com/watch?v=CbfjWuRWH10&t=5100) | Use both **Rare Candies** on A: **Lv.43, 32/134 HP**, then **Lv.44, 35/137 HP**. Teach **TM14 Blizzard**, replacing **Mega Kick**. | Before replacement: Surf 1/15, Water Pulse 2/20, Bite 3/25, Mega Kick 1/5 directly visible. Blizzard starts 5/5. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 44,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    },
+    {
+      "id": "celadon-lori",
+      "kind": "trainer_battle",
+      "video_start": 5130,
+      "video_end": 5163,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 117,
+          "text": "| 01:25:00\u201301:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 770,
+          "text": "## 1:25:00\u20131:30:00 \u2014 Erika, Saffron access and Silph rival setup"
+        },
+        {
+          "line": 775,
+          "text": "| 1:25:30\u20131:26:03 | Cut inner Gym tree; Beauty Lori approaches. **Exeggcute Lv.24**, one **Bite**, wins. | No damage. Prize number missed in sampled text. |"
+        }
+      ],
+      "trainer": "TRAINER_BEAUTY_LORI",
+      "observed_party": [
+        {
+          "species": "EXEGGCUTE",
+          "level": 24
+        }
+      ],
+      "observations": [],
+      "observed_exp": []
+    },
+    {
+      "id": "erika",
+      "kind": "trainer_battle",
+      "video_start": 5164,
+      "video_end": 5226,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 117,
+          "text": "| 01:25:00\u201301:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 770,
+          "text": "## 1:25:00\u20131:30:00 \u2014 Erika, Saffron access and Silph rival setup"
+        },
+        {
+          "line": 776,
+          "text": "| 1:26:04\u20131:26:41 | Challenge Erika: **Victreebel Lv.29**, one **Surf**; **Tangela Lv.24**, one **Bite**. | No damage. Last Surf PP consumed; Bite 2/25 before Tangela. |"
+        },
+        {
+          "line": 777,
+          "text": "| 1:26:42\u20131:27:06 | **Vileplume Lv.29**, one **Blizzard**; win **2900**, receive **Rainbow Badge** and **TM19**. | Blizzard hits; A remains **35/137 HP**. No setup items or healing. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_ERIKA",
+      "observed_party": [
+        {
+          "species": "VICTREEBEL",
+          "level": 29
+        },
+        {
+          "species": "TANGELA",
+          "level": 24
+        },
+        {
+          "species": "VILEPLUME",
+          "level": 29
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 44,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after",
+          "level": 44,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "silph-rival",
+      "kind": "trainer_battle",
+      "video_start": 5334,
+      "video_end": 5434,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 117,
+          "text": "| 01:25:00\u201301:30:00 | Reviewed; details below |"
+        },
+        {
+          "line": 118,
+          "text": "| 01:30:00\u201301:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 770,
+          "text": "## 1:25:00\u20131:30:00 \u2014 Erika, Saffron access and Silph rival setup"
+        },
+        {
+          "line": 783,
+          "text": "| 1:28:54\u20131:29:10 | Rival dialogue and battle; **Pidgeot Lv.37** first. | A starts **Lv.44, 85/137 HP**. |"
+        },
+        {
+          "line": 784,
+          "text": "| 1:29:11\u20131:29:27 | Use **two X Specials**, then **one X Accuracy**, while Pidgeot repeatedly uses **Wing Attack**. | Bag X Specials **19\u219218\u219217**; X Accuracy **5\u21924**. HP after the three enemy turns **85\u219265\u219247\u219227/137**; intermediate animation values should not be counted as separate attacks. |"
+        },
+        {
+          "line": 785,
+          "text": "| 1:29:28\u20131:29:38 | **Critical Water Pulse** KOs Pidgeot. | One attack against it after setup. No additional damage. |"
+        },
+        {
+          "line": 786,
+          "text": "| 1:29:39\u20131:29:54 | **Venusaur Lv.40**, one **Blizzard** KOs; A grows **Lv.45, 30/140 HP**. | Water Pulse 19/20 directly visible before changing selection. Blizzard hits after X Accuracy. |"
+        },
+        {
+          "line": 787,
+          "text": "| 1:29:55\u20131:30:00 | **Gyarados Lv.38** sent out; **Intimidate** resolves. | Rival battle continues; Gyarados is still at full HP and A has not attacked it. |"
+        },
+        {
+          "line": 809,
+          "text": "## 1:30:00\u20131:35:00 \u2014 Silph rival finish, Giovanni, Sabrina"
+        },
+        {
+          "line": 813,
+          "text": "| [1:30:00\u20131:30:09](https://www.youtube.com/watch?v=CbfjWuRWH10&t=5400) | Continue the 7F rival fight: one **Blizzard** KOs **Gyarados Lv.38**; gain 1741 EXP. | Gyarados's Intimidate resolved at 1:29:59. A stays **30/140 HP**; Gyarados did not attack. |"
+        },
+        {
+          "line": 814,
+          "text": "| 1:30:10\u20131:30:24 | **Growlithe Lv.35** (Intimidate again); one **Bite** KOs it; gain 682 EXP. | Bite 25/25 before use (move menu 1:30:16). |"
+        },
+        {
+          "line": 815,
+          "text": "| 1:30:25\u20131:30:34 | **Alakazam Lv.35**; one **Surf** KOs it; gain 1395 EXP. | No damage taken in the whole rival fight after the setup turns. |"
+        }
+      ],
+      "trainer": "TRAINER_RIVAL_SILPH_BULBASAUR",
+      "observed_party": [
+        {
+          "species": "PIDGEOT",
+          "level": 37
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 40
+        },
+        {
+          "species": "GYARADOS",
+          "level": 38
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 35
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 35
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 44,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 1,
+          "level": 45,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 45,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 2,
+          "exp": 1741
+        },
+        {
+          "foe_index": 3,
+          "exp": 682
+        },
+        {
+          "foe_index": 4,
+          "exp": 1395
+        }
+      ]
+    },
+    {
+      "id": "silph-boardroom-grunt",
+      "kind": "trainer_battle",
+      "video_start": 5460,
+      "video_end": 5501,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 118,
+          "text": "| 01:30:00\u201301:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 809,
+          "text": "## 1:30:00\u20131:35:00 \u2014 Silph rival finish, Giovanni, Sabrina"
+        },
+        {
+          "line": 818,
+          "text": "| 1:31:00\u20131:31:41 | Grunt: **Cubone Lv.32** (Bite), **Marowak Lv.32** (Water Pulse), **Drowzee Lv.32** (Water Pulse), one hit each. A grows **Lv.46, 33/143 HP**. Win **1024**. | EXP 595, 849, 699. No damage taken. |"
+        }
+      ],
+      "trainer": "TRAINER_TEAM_ROCKET_GRUNT_41",
+      "observed_party": [
+        {
+          "species": "CUBONE",
+          "level": 32
+        },
+        {
+          "species": "MAROWAK",
+          "level": 32
+        },
+        {
+          "species": "DROWZEE",
+          "level": 32
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 46,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 595
+        },
+        {
+          "foe_index": 1,
+          "exp": 849
+        },
+        {
+          "foe_index": 2,
+          "exp": 699
+        }
+      ],
+      "video_review": {
+        "method": "Focused frame inspection at 1 fps; confirms notes defeat order independently of EXP arithmetic.",
+        "playback_seconds": [
+          5470,
+          5483,
+          5497
+        ],
+        "result": "Cubone 595 EXP, Marowak 849 EXP (then Lv46), Drowzee 699 EXP."
+      }
+    },
+    {
+      "id": "silph-giovanni",
+      "kind": "trainer_battle",
+      "video_start": 5514,
+      "video_end": 5570,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 118,
+          "text": "| 01:30:00\u201301:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 809,
+          "text": "## 1:30:00\u20131:35:00 \u2014 Silph rival finish, Giovanni, Sabrina"
+        },
+        {
+          "line": 820,
+          "text": "| 1:31:54\u20131:32:50 | **Giovanni (Silph)**: **Nidorino Lv.37** Surf, **Nidoqueen Lv.41** Surf, **Kangaskhan Lv.35** Surf, **Rhyhorn Lv.37** Water Pulse; one hit each. Win **4100**. | Surf 12/15 before Kangaskhan (move menu 1:32:26). A stays **33/143 HP** throughout. |"
+        }
+      ],
+      "trainer": "TRAINER_BOSS_GIOVANNI_2",
+      "observed_party": [
+        {
+          "species": "NIDORINO",
+          "level": 37
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 41
+        },
+        {
+          "species": "KANGASKHAN",
+          "level": 35
+        },
+        {
+          "species": "RHYHORN",
+          "level": 37
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 46,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "sabrina",
+      "kind": "trainer_battle",
+      "video_start": 5610,
+      "video_end": 5678,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 118,
+          "text": "| 01:30:00\u201301:35:00 | Reviewed; details below |"
+        },
+        {
+          "line": 809,
+          "text": "## 1:30:00\u20131:35:00 \u2014 Silph rival finish, Giovanni, Sabrina"
+        },
+        {
+          "line": 825,
+          "text": "| 1:33:30\u20131:34:05 | **Sabrina**: **Kadabra Lv.38**, one Surf (A \u2192 **Lv.47, 36/146**); **Mr. Mime Lv.37**, one Surf. | EXP 1180, 1077. |"
+        },
+        {
+          "line": 826,
+          "text": "| 1:34:07\u20131:34:22 | **Venomoth Lv.38**: use one **X Speed** (6\u21925); Venomoth's **Psybeam** takes A **36\u219225/146**; one Surf KOs. | Surf **9/15** before the attack (1:34:14). |"
+        },
+        {
+          "line": 827,
+          "text": "| 1:34:23\u20131:34:38 | **Alakazam Lv.43**, one Surf; Sabrina defeated, win **4300**, **Marsh Badge**. | EXP 1713. A **Lv.47, 25/146 HP**. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_SABRINA",
+      "observed_party": [
+        {
+          "species": "KADABRA",
+          "level": 38
+        },
+        {
+          "species": "MR_MIME",
+          "level": 37
+        },
+        {
+          "species": "VENOMOTH",
+          "level": 38
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 43
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 46,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 47,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 47,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 1180
+        },
+        {
+          "foe_index": 1,
+          "exp": 1077
+        },
+        {
+          "foe_index": 3,
+          "exp": 1713
+        }
+      ]
+    },
+    {
+      "id": "viridian-takashi",
+      "kind": "trainer_battle",
+      "video_start": 5713,
+      "video_end": 5767,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 119,
+          "text": "| 01:35:00\u201301:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 844,
+          "text": "## 1:35:00\u20131:40:00 \u2014 Viridian Gym, Earth Badge and Route 22"
+        },
+        {
+          "line": 849,
+          "text": "| 1:35:05\u20131:35:13 | Bike south-east to the **Viridian Gym** and enter. | No Center visit. |"
+        },
+        {
+          "line": 850,
+          "text": "| 1:35:13\u20131:35:22 | Ride the spinner tiles; **Black Belt Takashi** stops the player. | Spinner path not measured. |"
+        },
+        {
+          "line": 851,
+          "text": "| 1:35:23\u20131:36:07 | Takashi: **Machoke Lv.38**, **Machop Lv.38**, **Machoke Lv.38**, one Surf each. A grows **Lv.48, 28/149 HP**. | EXP 1188, 715, then the third. No damage taken. |"
+        }
+      ],
+      "trainer": "TRAINER_BLACK_BELT_TAKASHI",
+      "observed_party": [
+        {
+          "species": "MACHOKE",
+          "level": 38
+        },
+        {
+          "species": "MACHOP",
+          "level": 38
+        },
+        {
+          "species": "MACHOKE",
+          "level": 38
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 48,
+          "basis": "explicit_level_in_notes"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 1188
+        },
+        {
+          "foe_index": 1,
+          "exp": 715
+        }
+      ]
+    },
+    {
+      "id": "viridian-warren",
+      "kind": "trainer_battle",
+      "video_start": 5768,
+      "video_end": 5850,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 119,
+          "text": "| 01:35:00\u201301:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 844,
+          "text": "## 1:35:00\u20131:40:00 \u2014 Viridian Gym, Earth Badge and Route 22"
+        },
+        {
+          "line": 852,
+          "text": "| 1:36:08\u20131:36:20 | More spinners; **Cooltrainer Warren** sees the player (!) and approaches. | |"
+        },
+        {
+          "line": 853,
+          "text": "| 1:36:21\u20131:37:30 | Warren: **Marowak Lv.37** \u00d72, **Rhyhorn Lv.38**, **Nidorina Lv.39**, **Nidoqueen Lv.39**, one **Water Pulse** each. | Water Pulse **13/20** before Nidorina (1:37:07). EXP 982, 982, \u2014, 976, 1620. A stays **28/149**. |"
+        }
+      ],
+      "trainer": "TRAINER_COOLTRAINER_WARREN",
+      "observed_party": [
+        {
+          "species": "MAROWAK",
+          "level": 37
+        },
+        {
+          "species": "MAROWAK",
+          "level": 37
+        },
+        {
+          "species": "RHYHORN",
+          "level": 38
+        },
+        {
+          "species": "NIDORINA",
+          "level": 39
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 39
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 48,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 982
+        },
+        {
+          "foe_index": 1,
+          "exp": 982
+        },
+        {
+          "foe_index": 3,
+          "exp": 976
+        },
+        {
+          "foe_index": 4,
+          "exp": 1620
+        }
+      ]
+    },
+    {
+      "id": "giovanni-gym",
+      "kind": "trainer_battle",
+      "video_start": 5851,
+      "video_end": 5939,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 119,
+          "text": "| 01:35:00\u201301:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 844,
+          "text": "## 1:35:00\u20131:40:00 \u2014 Viridian Gym, Earth Badge and Route 22"
+        },
+        {
+          "line": 854,
+          "text": "| 1:37:31\u20131:37:46 | Spinners to **Giovanni**; dialogue. | |"
+        },
+        {
+          "line": 855,
+          "text": "| 1:37:47\u20131:38:59 | **Giovanni (Gym)**: **Rhyhorn Lv.45**, **Dugtrio Lv.42**, **Nidoqueen Lv.44**, **Nidoking Lv.45**, **Rhyhorn Lv.50**, one Water Pulse each. A grows **Lv.49, 32/153 HP** after the first. | Water Pulse **9/20** before Nidoqueen (1:38:24) and **7/20** before the last Rhyhorn (1:38:51). No damage taken. |"
+        }
+      ],
+      "trainer": "TRAINER_LEADER_GIOVANNI",
+      "observed_party": [
+        {
+          "species": "RHYHORN",
+          "level": 45
+        },
+        {
+          "species": "DUGTRIO",
+          "level": 42
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 44
+        },
+        {
+          "species": "NIDOKING",
+          "level": 45
+        },
+        {
+          "species": "RHYHORN",
+          "level": 50
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 48,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 49,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 49,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": []
+    },
+    {
+      "id": "route22-rival",
+      "kind": "trainer_battle",
+      "video_start": 5990,
+      "video_end": 6130,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 119,
+          "text": "| 01:35:00\u201301:40:00 | Reviewed; details below |"
+        },
+        {
+          "line": 120,
+          "text": "| 01:40:00\u201301:45:00 | Reviewed; details below |"
+        },
+        {
+          "line": 844,
+          "text": "## 1:35:00\u20131:40:00 \u2014 Viridian Gym, Earth Badge and Route 22"
+        },
+        {
+          "line": 861,
+          "text": "| 1:39:50\u20131:39:59 | Bike west; the **rival** walks over (\"You collected all the BADGES\u2026 warm-up\") and the battle starts. | |"
+        },
+        {
+          "line": 873,
+          "text": "## 1:40:00\u20131:45:00 \u2014 Route 22 rival, Badge Gates and Victory Road"
+        },
+        {
+          "line": 877,
+          "text": "| [1:40:00\u20131:40:09](https://www.youtube.com/watch?v=CbfjWuRWH10&t=6000) | Route 22 rival: **Pidgeot Lv.47** sent out. | A starts **Lv.49, 153/153 HP**. |"
+        },
+        {
+          "line": 878,
+          "text": "| 1:40:10\u20131:40:28 | Use **one X Accuracy** (4\u21923) and **one X Special** (17\u219216). Pidgeot uses **Wing Attack** (153\u2192126), **FeatherDance** \u00d72 (Attack harshly fell). | Bag lists confirm both counts. |"
+        },
+        {
+          "line": 879,
+          "text": "| 1:40:26\u20131:40:39 | Pidgeot's Wing Attack (126\u219299). One **Surf** KOs Pidgeot; A grows **Lv.50, 102/156 HP**. | Surf **4/15** before use (1:40:29). Stats at Lv.50 shown: HP 156, Atk 105, Def 107, SpA 121, SpD 122, Spe 105. |"
+        },
+        {
+          "line": 880,
+          "text": "| 1:40:43\u20131:40:55 | **Venusaur Lv.53**: one **Blizzard**, KO. | EXP 2361. |"
+        },
+        {
+          "line": 881,
+          "text": "| 1:40:57\u20131:41:08 | **Rhyhorn Lv.45**: one **Bite**, KO. | EXP 1300. |"
+        },
+        {
+          "line": 882,
+          "text": "| 1:41:08\u20131:41:29 | **Gyarados Lv.45** (Intimidate): Bite (not very effective); Gyarados's **Hydro Pump** 102\u219288; one **Blizzard** KOs. | Bite **21/25** before the Blizzard selection (1:41:21). |"
+        },
+        {
+          "line": 883,
+          "text": "| 1:41:30\u20131:41:56 | **Growlithe Lv.45** (Intimidate): use **X Speed** (5\u21924); Growlithe uses Agility; one **Bite** KOs. A grows **Lv.51, 91/159**. | X Special now 15 in the bag view: a second X Special was used at an unsampled moment (16\u219215). |"
+        },
+        {
+          "line": 884,
+          "text": "| 1:41:57\u20131:42:10 | **Alakazam Lv.47**: one **Surf**, KO. Rival defeated; win **1908**. | Surf about 3/15 left (derived). |"
+        }
+      ],
+      "trainer": "TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR",
+      "observed_party": [
+        {
+          "species": "PIDGEOT",
+          "level": 47
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 53
+        },
+        {
+          "species": "RHYHORN",
+          "level": 45
+        },
+        {
+          "species": "GYARADOS",
+          "level": 45
+        },
+        {
+          "species": "GROWLITHE",
+          "level": 45
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 47
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 49,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 0,
+          "level": 50,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 4,
+          "level": 51,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 51,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 1,
+          "exp": 2361
+        },
+        {
+          "foe_index": 2,
+          "exp": 1300
+        }
+      ]
+    },
+    {
+      "id": "lorelei",
+      "kind": "trainer_battle",
+      "video_start": 6397,
+      "video_end": 6533,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 121,
+          "text": "| 01:45:00\u201301:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 902,
+          "text": "## 1:45:00\u20131:50:00 \u2014 Victory Road exit, Indigo Plateau, Lorelei, Bruno starts"
+        },
+        {
+          "line": 912,
+          "text": "| 1:46:37\u20131:46:47 | Lorelei: **Dewgong Lv.52**. Open the bag on turn 1 (cursor on **X Speed**, 4 left); whether it was used is not readable. | Dewgong uses **Surf**: **159\u2192152\u2192140** (not very effective). |"
+        },
+        {
+          "line": 913,
+          "text": "| 1:46:53\u20131:47:09 | Use **X Special** twice (15\u219213\u219212, \"A's Sp. Atk rose!\"). Dewgong's **Ice Beam** (140\u2192121), **Surf** (121\u2192101), then **Safeguard**. | Bag counts read at 1:47:01 (13) and 1:47:08 (12). |"
+        },
+        {
+          "line": 914,
+          "text": "| 1:47:13\u20131:47:27 | Dewgong: **Bite** \u00d72 (one flinch), KO. | Move menu at 1:47:13: **Surf / Strength / Bite / Blizzard**, Bite **25/25**. EXP 1960. |"
+        },
+        {
+          "line": 915,
+          "text": "| 1:47:28\u20131:47:37 | **Cloyster Lv.51**: Bite, KO. | EXP 2218. |"
+        },
+        {
+          "line": 916,
+          "text": "| 1:47:40\u20131:47:54 | **Slowbro Lv.52**: Bite (critical hit), KO. | EXP 1827. |"
+        },
+        {
+          "line": 917,
+          "text": "| 1:47:55\u20131:48:09 | **Jynx Lv.54**: Surf, KO. A grows **Lv.52, 104/162**. | Safeguard ends. EXP 1584. |"
+        },
+        {
+          "line": 918,
+          "text": "| 1:48:14\u20131:48:29 | **Lapras Lv.54**: Bite; Lapras's **Body Slam** \u00d72 (104\u219271, **paralysis**; 71\u219233). Lapras's Sitrus Berry restores it. | Bite **21/25** before (1:48:16). |"
+        },
+        {
+          "line": 919,
+          "text": "| 1:48:34\u20131:48:39 | Use **Full Restore** (13\u219212): **33\u2192162/162**, paralysis cured. | X Special **11** in the same bag view (one more X Special used earlier, unsampled). |"
+        },
+        {
+          "line": 920,
+          "text": "| 1:48:41\u20131:48:53 | Lapras's Body Slam (162\u2192130); one Bite (critical hit) KOs. Lorelei defeated; win **5400**. | |"
+        }
+      ],
+      "trainer": "TRAINER_ELITE_FOUR_LORELEI",
+      "observed_party": [
+        {
+          "species": "DEWGONG",
+          "level": 52
+        },
+        {
+          "species": "CLOYSTER",
+          "level": 51
+        },
+        {
+          "species": "SLOWBRO",
+          "level": 52
+        },
+        {
+          "species": "JYNX",
+          "level": 54
+        },
+        {
+          "species": "LAPRAS",
+          "level": 54
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 51,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 3,
+          "level": 52,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 52,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 1960
+        },
+        {
+          "foe_index": 1,
+          "exp": 2218
+        },
+        {
+          "foe_index": 2,
+          "exp": 1827
+        },
+        {
+          "foe_index": 3,
+          "exp": 1584
+        }
+      ]
+    },
+    {
+      "id": "bruno",
+      "kind": "trainer_battle",
+      "video_start": 6555,
+      "video_end": 6649,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 121,
+          "text": "| 01:45:00\u201301:50:00 | Reviewed; details below |"
+        },
+        {
+          "line": 122,
+          "text": "| 01:50:00\u201301:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 902,
+          "text": "## 1:45:00\u20131:50:00 \u2014 Victory Road exit, Indigo Plateau, Lorelei, Bruno starts"
+        },
+        {
+          "line": 922,
+          "text": "| 1:49:15\u20131:49:33 | Bruno: **Onix Lv.51**. Use **X Accuracy**? (bag on X Accuracy 3 at 1:49:25) then **X Special** (11\u219210\u21929). Onix's **Rock Tomb** (130\u2192118\u2192114, Speed fell) and **Earthquake** (114\u219279\u219242). | Counts read at 1:49:34 (10) and 1:49:40 (9). Whether X Accuracy was used is not certain. |"
+        },
+        {
+          "line": 923,
+          "text": "| 1:49:45\u20131:49:55 | One **Surf** KOs Onix. | A stays **42/162**. |"
+        },
+        {
+          "line": 924,
+          "text": "| 1:49:56\u20131:49:59 | **Hitmonchan Lv.53** sent out; A uses Surf. | Outcome in the next block. |"
+        },
+        {
+          "line": 937,
+          "text": "## 1:50:00\u20131:55:00 \u2014 Bruno, Agatha and Lance"
+        },
+        {
+          "line": 941,
+          "text": "| [1:50:00\u20131:50:07](https://www.youtube.com/watch?v=CbfjWuRWH10&t=6600) | The Surf from the last block KOs **Hitmonchan Lv.53**. | EXP 1590. A **42/162**. |"
+        },
+        {
+          "line": 942,
+          "text": "| 1:50:08\u20131:50:18 | **Hitmonlee Lv.53**: one Surf, KO. | |"
+        },
+        {
+          "line": 943,
+          "text": "| 1:50:20\u20131:50:34 | **Machamp Lv.56**: one Surf, KO. A grows **Lv.53, 45/165**. | |"
+        },
+        {
+          "line": 944,
+          "text": "| 1:50:35\u20131:50:49 | **Onix Lv.54**: one Surf, KO. Bruno defeated; win **5600**. | EXP 1249. No damage taken after the first Onix. |"
+        }
+      ],
+      "trainer": "TRAINER_ELITE_FOUR_BRUNO",
+      "observed_party": [
+        {
+          "species": "ONIX",
+          "level": 51
+        },
+        {
+          "species": "HITMONCHAN",
+          "level": 53
+        },
+        {
+          "species": "HITMONLEE",
+          "level": 53
+        },
+        {
+          "species": "MACHAMP",
+          "level": 56
+        },
+        {
+          "species": "ONIX",
+          "level": 54
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 52,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 3,
+          "level": 53,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 53,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 1,
+          "exp": 1590
+        },
+        {
+          "foe_index": 4,
+          "exp": 1249
+        }
+      ]
+    },
+    {
+      "id": "agatha",
+      "kind": "trainer_battle",
+      "video_start": 6672,
+      "video_end": 6759,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 122,
+          "text": "| 01:50:00\u201301:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 937,
+          "text": "## 1:50:00\u20131:55:00 \u2014 Bruno, Agatha and Lance"
+        },
+        {
+          "line": 946,
+          "text": "| 1:51:12\u20131:51:31 | Agatha: **Gengar Lv.54**. Use **X Speed** (3\u21922) and **X Special** (9\u21928, \"Sp. Atk rose\"). Gengar uses **Double Team** twice. | Counts read at 1:51:18 (X Speed 3, USE) and 1:51:25 (X Speed 2). |"
+        },
+        {
+          "line": 947,
+          "text": "| 1:51:33\u20131:51:39 | One **Surf** KOs Gengar. | EXP 2197. |"
+        },
+        {
+          "line": 948,
+          "text": "| 1:51:43\u20131:51:54 | **Golbat Lv.54**: one Surf, KO. | EXP 1978. |"
+        },
+        {
+          "line": 949,
+          "text": "| 1:51:55\u20131:52:14 | **Arbok Lv.56** (Intimidate): one Surf (critical), KO. A grows **Lv.54, 48/168**. | Stats at Lv.54: HP 168, Atk 114, Def 116, SpA 130, SpD 131, Spe 113. |"
+        },
+        {
+          "line": 950,
+          "text": "| 1:52:16\u20131:52:26 | **Gengar Lv.58**: one Surf, KO. | Surf **6/15** before use (1:52:17). EXP 2361. |"
+        },
+        {
+          "line": 951,
+          "text": "| 1:52:28\u20131:52:39 | **Haunter Lv.53**: one Surf, KO. Agatha defeated; win **5800**. | A **48/168**. |"
+        }
+      ],
+      "trainer": "TRAINER_ELITE_FOUR_AGATHA",
+      "observed_party": [
+        {
+          "species": "GENGAR",
+          "level": 54
+        },
+        {
+          "species": "GOLBAT",
+          "level": 54
+        },
+        {
+          "species": "ARBOK",
+          "level": 56
+        },
+        {
+          "species": "GENGAR",
+          "level": 58
+        },
+        {
+          "species": "HAUNTER",
+          "level": 53
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 53,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 2,
+          "level": 54,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 54,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 2197
+        },
+        {
+          "foe_index": 1,
+          "exp": 1978
+        },
+        {
+          "foe_index": 3,
+          "exp": 2361
+        }
+      ]
+    },
+    {
+      "id": "lance",
+      "kind": "trainer_battle",
+      "video_start": 6787,
+      "video_end": 6929,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 122,
+          "text": "| 01:50:00\u201301:55:00 | Reviewed; details below |"
+        },
+        {
+          "line": 123,
+          "text": "| 01:55:00\u201302:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 937,
+          "text": "## 1:50:00\u20131:55:00 \u2014 Bruno, Agatha and Lance"
+        },
+        {
+          "line": 954,
+          "text": "| 1:53:07\u20131:53:23 | Lance's dialogue; battle starts. **Gyarados Lv.56** (Intimidate). | |"
+        },
+        {
+          "line": 955,
+          "text": "| 1:53:31\u20131:53:36 | A uses **Bite**; Gyarados uses **Dragon Rage** (168\u2192128). | |"
+        },
+        {
+          "line": 956,
+          "text": "| 1:53:38\u20131:53:44 | Bag opened on **Guard Spec.** (2); not used. Gyarados's **Bite** (128\u2192121\u219289, critical). | |"
+        },
+        {
+          "line": 957,
+          "text": "| 1:53:46\u20131:53:50 | Use **X Accuracy** (3\u21922). Dragon Rage (89\u219264\u219249). | Bag at 1:53:52 shows X Accuracy 2. |"
+        },
+        {
+          "line": 958,
+          "text": "| 1:53:54\u20131:53:56 | **Full Restore** (11\u219210): **49\u2192168/168** (\"restored by 119\"). | |"
+        },
+        {
+          "line": 959,
+          "text": "| 1:53:58\u20131:54:01 | Gyarados's **Hyper Beam**: **168\u219278/168**. | |"
+        },
+        {
+          "line": 960,
+          "text": "| 1:54:02\u20131:54:14 | A uses **Blizzard** (Gyarados must recharge), then again; Gyarados KO. | EXP 2568. |"
+        },
+        {
+          "line": 961,
+          "text": "| 1:54:16\u20131:54:29 | **Dragonair Lv.54**: one Blizzard, KO. | EXP 1665. |"
+        },
+        {
+          "line": 962,
+          "text": "| 1:54:30\u20131:54:42 | Second **Dragonair Lv.54**: one Blizzard, KO. A grows **Lv.55, 81/171**. | |"
+        },
+        {
+          "line": 963,
+          "text": "| 1:54:43\u20131:54:50 | A tries to learn **Skull Bash**; answer **Yes** to \"Stop learning Skull Bash?\" | Moves unchanged. |"
+        },
+        {
+          "line": 964,
+          "text": "| 1:54:51\u20131:54:59 | **Dragonite Lv.60** sent out; A uses **Blizzard** (super effective). | Outcome in the next block. A **81/171**. |"
+        },
+        {
+          "line": 976,
+          "text": "## 1:55:00\u20132:00:00 \u2014 Lance finish, Champion, Hall of Fame"
+        },
+        {
+          "line": 980,
+          "text": "| [1:55:00\u20131:55:05](https://www.youtube.com/watch?v=CbfjWuRWH10&t=6900) | The Blizzard from the last block KOs **Dragonite Lv.60**. | |"
+        },
+        {
+          "line": 981,
+          "text": "| 1:55:06\u20131:55:19 | **Aerodactyl Lv.58**: its **AncientPower** takes A **81\u219274\u219237/171**; one **Surf** KOs it. | Surf **4/15** before use (1:55:08). |"
+        },
+        {
+          "line": 982,
+          "text": "| 1:55:20\u20131:55:29 | Lance defeated; win **6000**. Lance's closing text. | |"
+        }
+      ],
+      "trainer": "TRAINER_ELITE_FOUR_LANCE",
+      "observed_party": [
+        {
+          "species": "GYARADOS",
+          "level": 56
+        },
+        {
+          "species": "DRAGONAIR",
+          "level": 54
+        },
+        {
+          "species": "DRAGONAIR",
+          "level": 54
+        },
+        {
+          "species": "DRAGONITE",
+          "level": 60
+        },
+        {
+          "species": "AERODACTYL",
+          "level": 58
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 54,
+          "basis": "notes_continuity"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 2,
+          "level": 55,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 55,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 2568
+        },
+        {
+          "foe_index": 1,
+          "exp": 1665
+        }
+      ]
+    },
+    {
+      "id": "champion",
+      "kind": "trainer_battle",
+      "video_start": 6944,
+      "video_end": 7122,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 123,
+          "text": "| 01:55:00\u201302:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 976,
+          "text": "## 1:55:00\u20132:00:00 \u2014 Lance finish, Champion, Hall of Fame"
+        },
+        {
+          "line": 984,
+          "text": "| 1:55:44\u20131:55:58 | Walk to the Champion room; rival's speech; battle starts. | No save. |"
+        },
+        {
+          "line": 985,
+          "text": "| 1:56:02\u20131:56:09 | **Champion**: **Pidgeot Lv.59**. | A **Lv.55, 171/171**. |"
+        },
+        {
+          "line": 986,
+          "text": "| 1:56:11\u20131:56:12 | Use **Guard Spec.** (2\u21921): \"Ally became shrouded in Mist\". | |"
+        },
+        {
+          "line": 987,
+          "text": "| 1:56:13\u20131:56:24 | Pidgeot's **Aerial Ace**: **171\u2192128\u219284** (critical), **84\u219282**. | |"
+        },
+        {
+          "line": 988,
+          "text": "| 1:56:20\u20131:56:21 | Bag on **X Accuracy** (2); a use is not readable at 1 fps. | |"
+        },
+        {
+          "line": 989,
+          "text": "| 1:56:25\u20131:56:34 | Use **X Speed** (2\u21921) and **X Special** (7\u21926); Pidgeot's Sand-Attack blocked by Mist. A at **42/171**. | Counts at 1:56:27 and 1:56:33. |"
+        },
+        {
+          "line": 990,
+          "text": "| 1:56:35\u20131:56:37 | Pidgeot's **Aerial Ace**: **42\u21926\u21923/171**. | No heal: the run continues at **3 HP**. |"
+        },
+        {
+          "line": 991,
+          "text": "| 1:56:38\u20131:56:46 | One **Surf** KOs Pidgeot. | EXP 2173. |"
+        },
+        {
+          "line": 992,
+          "text": "| 1:56:49\u20131:56:54 | **Venusaur Lv.63**; Mist wears off. Use **X Special** (6\u21925) and **X Accuracy** (2\u21921? \"A's accuracy rose!\"). | Bag at 1:56:53 shows X Special 5, then 1:56:54 \"A's accuracy rose!\" with X Accuracy 2 listed before the use. |"
+        },
+        {
+          "line": 993,
+          "text": "| 1:56:57\u20131:57:09 | Venusaur takes in sunlight (SolarBeam); **Blizzard** (5/5 shown at 1:56:59) KOs it first. A grows **Lv.56, 6/174**. | Survives at 3 HP because Venusaur charges. |"
+        },
+        {
+          "line": 994,
+          "text": "| 1:57:15\u20131:57:27 | **Alakazam Lv.57**: one **Surf** (critical), KO. | Surf **12/15** (1:57:18): the Elixir was used at an unsampled moment between Lance and here. |"
+        },
+        {
+          "line": 995,
+          "text": "| 1:57:30\u20131:57:43 | **Rhydon Lv.59**: one Surf, KO. | |"
+        },
+        {
+          "line": 996,
+          "text": "| 1:57:44\u20131:57:56 | **Gyarados Lv.59** (Intimidate). **Full Restore** (9\u21928): **6\u2192174/174** (\"restored by 168\"). | Bag at 1:57:51 shows X Accuracy **1**. |"
+        },
+        {
+          "line": 997,
+          "text": "| 1:57:58\u20131:58:11 | Gyarados's **Hydro Pump misses**. One **Blizzard** (critical) KOs it. | Bite 25/25 shown while choosing (1:58:01). |"
+        },
+        {
+          "line": 998,
+          "text": "| 1:58:14\u20131:58:31 | **Arcanine Lv.61** (Intimidate): **ExtremeSpeed** 174\u2192155\u2192131; one **Surf** KOs. A grows **Lv.57, 134/177**. | |"
+        },
+        {
+          "line": 999,
+          "text": "| 1:58:38\u20131:58:42 | Champion defeated (\"My reign is over already?\"). | |"
+        }
+      ],
+      "trainer": "TRAINER_CHAMPION_FIRST_BULBASAUR",
+      "observed_party": [
+        {
+          "species": "PIDGEOT",
+          "level": 59
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 63
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 57
+        },
+        {
+          "species": "RHYDON",
+          "level": 59
+        },
+        {
+          "species": "GYARADOS",
+          "level": 59
+        },
+        {
+          "species": "ARCANINE",
+          "level": 61
+        }
+      ],
+      "observations": [
+        {
+          "at": "before",
+          "level": 55,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 1,
+          "level": 56,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after_foe",
+          "foe_index": 5,
+          "level": 57,
+          "basis": "explicit_level_in_notes"
+        },
+        {
+          "at": "after",
+          "level": 57,
+          "basis": "notes_continuity"
+        }
+      ],
+      "observed_exp": [
+        {
+          "foe_index": 0,
+          "exp": 2173
+        }
+      ]
+    },
+    {
+      "id": "hall-of-fame",
+      "kind": "checkpoint",
+      "video_start": 7168,
+      "video_end": 7181,
+      "evidence": [
+        {
+          "line": 85,
+          "text": "- Completed chunks: **00:00\u20132:03:57**, the whole video, reviewed in separate five-minute visual passes."
+        },
+        {
+          "line": 123,
+          "text": "| 01:55:00\u201302:00:00 | Reviewed; details below |"
+        },
+        {
+          "line": 976,
+          "text": "## 1:55:00\u20132:00:00 \u2014 Lance finish, Champion, Hall of Fame"
+        },
+        {
+          "line": 1002,
+          "text": "| 1:59:28\u20131:59:41 | Hall of Fame: **A / BLASTOISE, Lv.57, IDNo.39569**; \"Welcome to the HALL OF FAME!\". Trainer card: **TIME 1:54** (in-game clock). | The run timer stops at the Hall of Fame. |"
+        }
+      ],
+      "observations": [
+        {
+          "at": "after",
+          "level": 57,
+          "basis": "explicit_level_in_notes"
+        }
+      ]
+    }
+  ]
+}
