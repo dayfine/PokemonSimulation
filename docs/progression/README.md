@@ -1,5 +1,12 @@
 # Pokeguy's LeafGreen route and EXP audit
 
+The [battle starting-state ledger](pokeguy-states.md) now reconstructs the
+player inputs for all 69 trainer fights and nine wild/scripted encounters:
+level, raw stats, HP/status, move PP, held item, badges, and tracked inventory.
+It passes 38 source checkpoints and retains the IV24 Attack alternative to
+the selected overlay IV25. These are recorded-route inputs; full trainer/AI
+import and live-battle features are still required before simulating the run.
+
 The [trainer route and level targets](pokeguy-route.md) groups all 69 trainer
 battles into 17 route segments, with entry levels for every rival, Gym Leader,
 and League battle. It includes the two early wild wins, all seven Rare Candies,
@@ -90,6 +97,13 @@ move reconstruction. Its inputs are the sourced decisions in
 come from the pinned starter-family learnsets. Alternate routes remain EXP-only
 unless `--moves /path/to/moves.json` supplies a matching history. This move
 trace follows the observed wild wins, not the flee-all counterfactual.
+`states.json` and `states.md` additionally reconstruct the recorded player
+states using [state-history.json](../../data/runs/pokeguy-leafgreen-15934/state-history.json).
+That file records preparation actions, executed move counts, item quantities,
+ending HP observations/carry-forwards, source checks, and focused video reviews.
+For another route, explicitly supply both `--moves` and `--state-history` with
+matching data. Generated state JSON is kept outside the repository because the
+source events and checked-in Markdown regenerate it deterministically.
 
 Regenerate the reference snapshot from the recorded pret revision:
 
@@ -130,6 +144,8 @@ Every listed fight is assumed won by the starter alone. This audit calculates
 progression conditional on those wins; it does not establish that the lower
 early levels can win the same battles. The separate move-history module
 reconstructs known moves without PP or controller slot positions. The EXP
-audit does not calculate EVs, full stats, battle win probabilities, money, or item inventory. Those
-can build on the ledger once this EXP baseline is accepted. Observed levels
+audit remains separate from the state builder, which now calculates EVs and
+raw stats and reconciles HP/PP and consumables. Neither computes battle win
+probabilities or money. The state builder carries observed battle-end HP;
+it does not simulate damage or a policy. Observed levels
 are assertions to compare against and never inputs used to reset EXP.

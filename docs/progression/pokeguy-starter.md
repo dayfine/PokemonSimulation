@@ -46,6 +46,8 @@ claim, not a Summary-screen reading or an input to the candidate search.
 It is consistent with the independent result and chooses Attack 25 from the
 remaining pair; the three gameplay stat readings alone do not distinguish it.
 
-These are investigation results under the stated route assumptions. The
-current progression CLI audits EXP and move membership; it does not yet
-provide an EV/IV solver or feed reconstructed stats into live battles.
+The [starting-state builder](pokeguy-states.md) now implements the EV/stat
+calculation using the overlay's Attack IV25, while retaining raw-stat results
+for the gameplay-compatible IV24 alternative. It tracks when EVs actually
+refresh the stored stats. It does not implement an IV search or feed live
+EXP/stat updates into the battle engine yet.

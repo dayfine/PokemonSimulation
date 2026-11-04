@@ -10,7 +10,7 @@
     "clock": "video playback seconds, not the run timer",
     "method": "Curated from the existing visual-review notes; not a new continuous video transcription."
   },
-  "status": "Catalog of purchases and partial checkpoints; not a reconciled bag ledger.",
+  "status": "Earlier purchase/partial-checkpoint catalog. Reconciled starting states now come from state-history.json; original uncertainties are retained below with resolution notes.",
   "purchases": [
     {
       "place": "Pewter Mart",
@@ -288,7 +288,8 @@
           "line": 416,
           "text": "| 34:55\u201335:00 | Open bag, move Potion down the item list, then **use Ether on A**. | Bag confirms Potions 6, Awakenings 3, Antidote 1, Nugget 1, Elixir 1, Ether 1. A remains 27/72 HP. Denser inspection confirms Ether selected at 34:57.5 and PP-restored message at 34:59.9. The move-selection cursor moves too quickly to identify its final target directly; subsequent PP use supports Mega Kick. |"
         }
-      ]
+      ],
+      "resolution": "Resolved under recorded-event constraints: later Mega Kick uses and unchanged Water Pulse PP require the Ether to restore Mega Kick. Still an inference rather than a direct target-frame reading."
     },
     {
       "topic": "Lorelei setup item turns",
@@ -302,7 +303,8 @@
           "line": 919,
           "text": "| 1:48:34\u20131:48:39 | Use **Full Restore** (13\u219212): **33\u2192162/162**, paralysis cured. | X Special **11** in the same bag view (one more X Special used earlier, unsampled). |"
         }
-      ]
+      ],
+      "resolution": "Total reconciled as four X Specials from15 before to11 afterward. Exact turn placement is not represented by a starting-state ledger."
     },
     {
       "topic": "X Speed / X Accuracy timing around the League",
@@ -316,7 +318,8 @@
           "line": 922,
           "text": "| 1:49:15\u20131:49:33 | Bruno: **Onix Lv.51**. Use **X Accuracy**? (bag on X Accuracy 3 at 1:49:25) then **X Special** (11\u219210\u21929). Onix's **Rock Tomb** (130\u2192118\u2192114, Speed fell) and **Earthquake** (114\u219279\u219242). | Counts read at 1:49:34 (10) and 1:49:40 (9). Whether X Accuracy was used is not certain. |"
         }
-      ]
+      ],
+      "resolution": "Focused Bruno frames show X Special11\u219210\u21929 then X Speed4\u21923; X Accuracy stays3. Pre-Lance bag confirms remaining counts. No Lorelei X Speed is consumed under those constraints."
     },
     {
       "topic": "Late Elixir timing",
@@ -326,7 +329,8 @@
           "line": 994,
           "text": "| 1:57:15\u20131:57:27 | **Alakazam Lv.57**: one **Surf** (critical), KO. | Surf **12/15** (1:57:18): the Elixir was used at an unsampled moment between Lance and here. |"
         }
-      ]
+      ],
+      "resolution": "Focused review6939.5\u20136942.5 confirms the Elixir is used outside battle before entering the Champion room."
     },
     {
       "topic": "Old man demo inventory",
@@ -336,7 +340,9 @@
           "line": 210,
           "text": "| [07:23\u201307:56](https://www.youtube.com/watch?v=CbfjWuRWH10&t=443) | Watch the old man's scripted **Weedle Lv.5** capture demonstration. | His demo bag shows Potion x1 and Poke Ball x1; these are **not** evidence of the player's inventory. Weedle is not a new member of the player's party. |"
         }
-      ]
+      ],
+      "resolution": "Excluded from player inventory throughout the state builder."
     }
-  ]
+  ],
+  "superseded_by": "state-history.json and docs/progression/pokeguy-states.md"
 }

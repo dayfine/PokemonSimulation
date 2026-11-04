@@ -1,5 +1,13 @@
 # Pokeguy full-run battle benchmark: input readiness
 
+The [recorded starting-state ledger](../progression/pokeguy-states.md) now
+reconciles player inputs for all 69 trainer battles and nine wild/scripted
+encounters, under its declared profile and event assumptions. It corrects
+approximate PP summaries and resolves the late Elixir and Bruno item-use
+questions using focused video review. The source catalog below records the
+earlier readiness audit; the remaining gate is engine/AI/policy coverage,
+not silently substituting the old four full-HP fixtures.
+
 We can reconstruct the route, but **we do not yet have 69 validated,
 run-specific battle scenarios**. The current four-case benchmark uses older
 AutoStory fixtures. Adaptive sampling now works on those fixtures; it does
@@ -12,11 +20,11 @@ not make them a reconstruction of Pokeguy's run.
 | Battle identity and order | 69 trainers / 199 trainer Pokémon in the route ledger | Add the two wild wins and scripted Tower Marowak to the combat objective; capture/escape encounters have different success criteria. |
 | Trainer species and levels | All 69 trainer parties resolved against pinned pret | The battle snapshot includes complete battle data for only four trainers; import the other 65 trainers' moves, stats, abilities, items, flags, and reachable NPC AI paths. |
 | Player EXP and level | Recorded-route reconciliation matches the notes | Connect awards to live battles, including HP/stat changes and move-learning decisions between enemy Pokémon. |
-| Player nature / IVs / EVs | Mild; five IVs resolved, Attack 24–25 from gameplay (overlay says 25); EV checkpoints reconciled in investigation notes | Implement the EV/stat builder and generate each battle's raw stats. Use EVs from the last stat recalculation when relevant, not automatically all EVs earned since then. Record the Attack choice or run both candidates. |
+| Player nature / IVs / EVs | EV/stat builder now exports raw stats for all encounters using Mild and overlay Attack25; IV24 alternatives retained | Connect those inputs and live updates to the engine. Use EVs from the last stat recalculation when relevant. |
 | Player moves | Nine changes / four refusals tracked for all 69 trainers | Feed the route-derived sets into battle scenarios; expand the battle move snapshot. Two slot-reorder times remain unknown but do not change membership. |
-| Player HP / status | Many direct readings and before/after damage/healing observations | Reconcile a starting-state checkpoint before each fight; do not assume full HP. |
-| Player PP | Move-menu readings, attack counts, teaching events, cabin heal, and PP medicines are documented | Reconcile PP before every fight, including inferred Ether target and unsampled Elixir use. Do not assume full PP. |
-| Bag inventory | Five shopping stops and many receipts, uses, and bag views | Build a quantity ledger for purchases, pickups, gifts, item uses, teaching, equipping, discards, and sales. Unknown counts remain unknown. Current catalog is partial. |
+| Player HP / status | State builder carries source checkpoints/no-damage observations and applies recorded preparation | Use those conditional starting states; battle-end HP is observed, not a simulated result. |
+| Player PP | Executed move counts, teaching, and recovery reconcile for all encounters | Use name-keyed PP; the late Elixir is now observed before Champion. Controller slot-order gaps do not alter membership. |
+| Bag inventory | New state history conserves tracked consumables through all encounters; old source catalog remains partial | Feed these counts to the expanded engine; quest/TM pockets are outside the tracked consumable scope. Keep inferred quantity/target/turn timing provenance. |
 | Badges / held item / party | Badge order, BlackGlasses equip, and Plateau deposits documented | Export their state at each fight; receiving BlackGlasses is not the same as equipping it. HM helpers are present before the League but the observed lead fights solo. |
 | Our player policy | Existing greedy move/heal policy | It cannot use X items, PP medicine, or setup turns. Add tested bag actions and define a state-dependent setup/heal strategy before claiming to evaluate the runner's approach. |
 | NPC / mechanics coverage | Four-trainer script interpreter and tested Gen 3 adapter boundaries | Add the required AI instructions, field-aware previews, and encounter-specific mechanics checks as the imported move set expands; track approximations. |
@@ -55,7 +63,7 @@ scenario file or a complete bag at every battle.
 | 37:24–37:37 | Vermilion | 5 Super Potions, 3 Parlyz Heals, 3 Repels |
 | 54:18–54:29 | Lavender | 4 Escape Ropes, 7 Super Repels |
 | 1:02:42–1:02:55 | Celadon 5F | 6 X Speeds, 21 X Specials, 5 X Accuracies, 2 Guard Specs |
-| 1:46:15–1:46:21 | Indigo Plateau | Full Restores; likely 13 by reconciliation, quantity not directly read in purchase menu |
+| 1:46:15–1:46:21 | Indigo Plateau | 13 Full Restores by quantity/money reconciliation; purchase-menu quantity not directly read |
 
 Purchases alone do not give the bag. The ledger also needs, for example,
 the early Antidote pickup, seven Rare Candies, Ether/Elixir pickups and uses,
@@ -64,15 +72,17 @@ TM/HM teaching consumes or retains items according to FRLG rules. Healing at
 the S.S. Anne cabin restores HP/PP/status without consuming bag medicine.
 The old man's demo bag must not be copied into the player's inventory.
 
-Concrete unresolved observations include:
+The original observations are now annotated with these resolutions:
 
-- Ether's target is inferred to be Mega Kick; the menu target is not directly read.
+- Ether's target is constrained to Mega Kick by subsequent uses and unchanged
+  Water Pulse PP; the menu target is still not directly read.
 - Lorelei's narrative says two X Specials, but readings progress from 15 before
   the fight to 13, 12, then 11. Resolve the item count and turn timing against
-  the video; do not encode the prose as exactly two setup turns.
-- X Speed / X Accuracy selections around the League do not always show a
-  completed use. Keep exact turn timing separate from later quantity constraints.
-- The late Elixir is inferred from restored PP at an unsampled point.
+  the video before choosing a setup strategy. The starting-state ledger
+  conserves four consumed items without inventing their exact turn placement.
+- Focused Bruno frames confirm two X Specials, one X Speed, and no X Accuracy.
+  Later pre-Lance counts confirm the carry-forward.
+- The late Elixir is now directly reviewed before entering the Champion room.
 - The Plateau heal is supported by full HP and PP, while the nurse interaction
   itself is not directly captured in the sampled review.
 
@@ -97,8 +107,10 @@ present the product as the run's completion probability.
 
 Build in this order:
 
-1. Reconcile source-backed inventory, HP/status, and PP snapshots at every fight.
-2. Generate raw stats from the reconciled progression, nature/IV choice, and EVs.
+1. Completed: reconcile source-backed tracked consumables, HP/status, and PP
+   snapshots for every fight under declared recorded-event assumptions.
+2. Completed: generate raw stats from progression, nature/IV choice, and EVs,
+   retaining an alternative Attack IV and the last stat-refresh EVs.
 3. Expand trainer/move/AI import; make unsupported behavior explicit per encounter.
 4. Implement and test live level-ups, X-item/setup turns, held items, and PP items.
 5. Replay representative early, setup-heavy, and League battles against video
@@ -106,5 +118,7 @@ Build in this order:
 6. Use the [adaptive sampler](adaptive-sampling.md) on each validated scenario;
    report bounds, sample count, stop reason, assumptions, and example losses.
 
-The sampler is ready. The full-run scenario inputs and engine/policy coverage
-remain the gating work; this milestone does not report win rates for all 69.
+The sampler and recorded-route player-state builder are ready. Full trainer
+import and engine/policy coverage remain gating work; these milestones do not
+report win rates for all 69 yet. See the state ledger's reviewed corrections
+before treating the original unresolved observations above as still open.
