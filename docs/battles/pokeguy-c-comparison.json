@@ -1,0 +1,984 @@
+{
+  "format": "pokesim-frlg-strategy-comparison/1",
+  "baseline_summary_fingerprint": "f304c749b5bbd59aeaf2bd3ebb2296f0fd824b6fdf157589233bf81eb3d4b3cf",
+  "baseline_policy": "solo-greedy-heal/1; progression cases: solo-setup-heal/4",
+  "updated_policy": "B:solo-recovery/1; C:goal-based-setup/2",
+  "validation_seed": 4,
+  "updated_implementation_sha256": {
+    "engines/frlg-showdown/damage.cjs": "aa5fa9e9b9dd1dbbd0431acbc38a854de0afba521a06ad598ed985c76eac3949",
+    "engines/frlg-showdown/engine.cjs": "53f9cd30b1471085291c203314819600d939e581728ad207fbafa2006e50ab58",
+    "engines/frlg-showdown/progression.cjs": "34edca7964c9aeef1491286dd63e2ce954b118c3ad3fed8e6ef40fa3451a1beb",
+    "engines/frlg-showdown/runner.cjs": "6776f97da0d35d20a99eef666c4c8e4115bd4edb6ac84334726d47c503bf9122",
+    "src/pokesim/cli/frlg_run_battles.py": "d07d62e1953386c1373219317dd28fa521d44c679e2124e4c1d6af6f56719967",
+    "src/pokesim/games/frlg/__init__.py": "1c3e042047159299e3676d19611d99c081de04e490fb686ebf32589a63d273ac",
+    "src/pokesim/games/frlg/battle/__init__.py": "c3353c56ffd0ef6d2ef8824138788d25b3f44a9b3dc1df5d6e77cd94b1710f27",
+    "src/pokesim/games/frlg/battle/benchmark.py": "ce2159fdfe22bcf4b353bb51d9224335e0371d52438c8c4fed67141b452867fa",
+    "src/pokesim/games/frlg/battle/comparison.py": "00ebd80a60874e085d979eb187508655bd2013e6f33b2822bcb34ec4cb75580a",
+    "src/pokesim/games/frlg/battle/engine.py": "4f82142d9b16bc1fdadeb4ef2e9a57721fe5dc70000eafe6919ef76a7170871c",
+    "src/pokesim/games/frlg/battle/items.py": "a61fbed0f2888bfc42187209cf4826ecb8349572f84fd4af3b90a2419b79eb15",
+    "src/pokesim/games/frlg/battle/npc_actions.py": "8eb52470543b1b971d789085c28d16f61bef32300fd09eca2fc63b19851dc9c4",
+    "src/pokesim/games/frlg/battle/npc_ai.py": "19ef89f6dd7c07e2b415436aaeb8420e5c271ad4c5e94873dd7ce83ec138ee8e",
+    "src/pokesim/games/frlg/battle/player_strategy/__init__.py": "8e6022bf8bf895fa19ca039c3fa3439e39bc9d42de7aac7ab44025fea20c48e2",
+    "src/pokesim/games/frlg/battle/player_strategy/attacks.py": "13da5b3f8036fca9b06eec43503cfd7da9dc7425ee6e6517aae36680c3e98c92",
+    "src/pokesim/games/frlg/battle/player_strategy/planning.py": "ba0c9a1ae61424a5dd75a2de3f6e8f3446d4e3258a6dc713b45129de980014e5",
+    "src/pokesim/games/frlg/battle/player_strategy/recovery.py": "3847c131f10506b5545ca4ac33bd593b8664f1b46512614b313af6c790b94ab6",
+    "src/pokesim/games/frlg/battle/player_strategy/threat.py": "8f0571b9b8f342b054bd0673c7e6fd0caf6d7969168827531c3e025f77c139d5",
+    "src/pokesim/games/frlg/battle/policy.py": "8bf2dedfcca6eaa7a523be930e46278b649058f08af7d5994a2a3d8e5c89ec63",
+    "src/pokesim/games/frlg/battle/pret.py": "217aff701426ff5d02dc403abd9547dbf3c5e44bc0184c87b24619fa9c30210c",
+    "src/pokesim/games/frlg/battle/run.py": "c50dce23c8598fbb0ed09258c7f2b60cdda722804b7286826e8f75eccf135dc0",
+    "src/pokesim/games/frlg/battle/sampling.py": "e2bdbd7f351ca34be669e1b6f022b2f2f40479503d54c602d4df0263e22a39ee",
+    "src/pokesim/games/frlg/battle/schema.py": "820a79cac6c30b1cb900a797f14c0cfec9e6f30748c379d00d38aecce87b2d32",
+    "src/pokesim/games/frlg/progression/__init__.py": "425ce6274a1b1c1dab556ed02af3e6eb474cbfa825f12907fefc62c0490e6dab",
+    "src/pokesim/games/frlg/progression/experience.py": "1bfcbddb1c428dc03ca626e1ea5b8dc16776678d61a55570f567556b7c084f53",
+    "src/pokesim/games/frlg/progression/ledger.py": "f541b4d59a1f1d08204d6c1d165ec16c3d56dd4f96237b4f4f6e9c7b575ca13d",
+    "src/pokesim/games/frlg/progression/moves.py": "91f38bcae7ecdaddab7ab3e371d5bb19fc8bb32291f4d4dc9854cd467ff7b0fd",
+    "src/pokesim/games/frlg/progression/pret.py": "5c4391ff6fd2a71dcb45e6d0d81d9229ffb76e9898576113129e64163fddf230",
+    "src/pokesim/games/frlg/progression/states.py": "a290408e0a787a3d0463e886b087cdc8a118d4e8ccd0800ef456ada3798f944d",
+    "src/pokesim/games/frlg/progression/stats.py": "7b715bbff5b63738f3c513a9feb1a580a1d1a5807816fe3db0e3a7c536a5f4fb"
+  },
+  "updated_run_inputs": {
+    "source_sha256": {
+      "route": "d3890012f93ac1758c13ae9ece83826f6cd101884f4ef39c45b94cb1253e7e74",
+      "progression_reference": "de507307843e5639477754f56279019a4d1f2a6e432ad2a0068894a1b29e695c",
+      "moves": "a1c98f6922e25581efd9101ce1c28995f3bbebfc7bb0541d44297e71512f7df0",
+      "state_history": "975aa44e02d0333e802b5e3d75f607192cc24e3da5bcf31dcd6013aeec70f727"
+    },
+    "checks_passed": 38,
+    "strategy_config_sha256": "f4d9baf5dddfb6c35359cfdafb4c37e9ec9357dce92dd6a7ec2c5ecd9d3fa489"
+  },
+  "pret_snapshot_sha256": "0db0210afd02f286530614c97355f2f966b1772e231f1202919f2a7bfdbf9f88",
+  "confidence": {
+    "simultaneous_all_retained_and_updated": 0.95,
+    "original_family_size": 69,
+    "original_alpha_per_case": 0.00036231884057971015,
+    "updated_alpha_per_case": 0.002083333333333335,
+    "note": "Original bounds recomputed with 97.5% family coverage; fresh C family has at least 97.5%. The union bound covers the combined ranking and change intervals at 95%, including data-dependent C selection. Retained bounds may exceed the old 10-point precision target."
+  },
+  "retained_case_ids": [
+    "lab-rival",
+    "forest-sammy",
+    "pewter-liam",
+    "brock",
+    "route3-colton",
+    "route3-greg",
+    "route3-james",
+    "mtmoon-josh",
+    "mtmoon-rocket",
+    "mtmoon-miguel",
+    "misty",
+    "cerulean-rival",
+    "bridge-cale",
+    "bridge-ali",
+    "bridge-timmy",
+    "bridge-reli",
+    "bridge-ethan",
+    "bridge-rocket",
+    "route25-wayne",
+    "route25-kelsey",
+    "route25-flint",
+    "route25-haley",
+    "cerulean-dig-rocket",
+    "route6-jeff",
+    "ssanne-rival",
+    "vermilion-tucker",
+    "surge",
+    "route9-alicia",
+    "route9-conner",
+    "rocktunnel-ashton",
+    "rocktunnel-winston",
+    "rocktunnel-martha",
+    "rocktunnel-allen",
+    "rocktunnel-oliver",
+    "rocktunnel-sofia",
+    "rocktunnel-dudley",
+    "rocktunnel-dana",
+    "route8-rich",
+    "hideout-poster-guard",
+    "hideout-key-grunt",
+    "hideout-left-guard",
+    "hideout-right-guard",
+    "hideout-giovanni",
+    "tower-tammy",
+    "tower-jennifer",
+    "tower-emilia",
+    "tower-rocket1",
+    "tower-rocket2",
+    "tower-rocket3",
+    "fuchsia-kirk",
+    "blaine",
+    "celadon-tamia",
+    "celadon-lori",
+    "silph-boardroom-grunt",
+    "viridian-takashi",
+    "viridian-warren",
+    "giovanni-gym"
+  ],
+  "new_trials": 5520,
+  "turn_limit_outcomes": 0,
+  "changes": [
+    {
+      "id": "tower-rival",
+      "old_probability": 0.9833333333333333,
+      "new_probability": 0.9,
+      "delta_percentage_points": -8.333333333333325,
+      "old_bounds": [
+        0.8972451944404635,
+        0.9998270214965322
+      ],
+      "new_bounds": [
+        0.84289500317059,
+        0.9425143133511726
+      ],
+      "delta_percentage_point_bounds": [
+        -15.693201832594228,
+        4.526911891070917
+      ],
+      "comparison": "unresolved",
+      "old_trials": 180,
+      "new_trials": 700,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "guardspec": 1.0085714285714287,
+        "xspecial": 3.047142857142857,
+        "superpotion": 1.4028571428571428,
+        "potion": 0.24,
+        "awakening": 0.28714285714285714,
+        "antidote": 0.041428571428571426,
+        "xaccuracy": 0.007142857142857143
+      },
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false,
+        "torrent_power": true
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 15,
+          "engine": [
+            55479,
+            1440,
+            4817,
+            7733
+          ]
+        }
+      }
+    },
+    {
+      "id": "koga",
+      "old_probability": 0.4163636363636364,
+      "new_probability": 0.7005882352941176,
+      "delta_percentage_points": 28.422459893048124,
+      "old_bounds": [
+        0.365626943252182,
+        0.46831256548749267
+      ],
+      "new_bounds": [
+        0.6491661539619002,
+        0.7488380811303292
+      ],
+      "delta_percentage_point_bounds": [
+        18.08535884744076,
+        38.321113787814724
+      ],
+      "comparison": "improved",
+      "old_trials": 2200,
+      "new_trials": 1700,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "superpotion": 2.215294117647059,
+        "xspecial": 0.9741176470588235,
+        "xaccuracy": 1.393529411764706,
+        "fullrestore": 0.6923529411764706,
+        "antidote": 0.4264705882352941,
+        "potion": 0.11411764705882353
+      },
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": false,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 2,
+          "engine": [
+            48011,
+            36010,
+            33978,
+            49497
+          ]
+        }
+      }
+    },
+    {
+      "id": "erika",
+      "old_probability": 0.94375,
+      "new_probability": 0.9145161290322581,
+      "delta_percentage_points": -2.923387096774188,
+      "old_bounds": [
+        0.8799570503152037,
+        0.9804338393067917
+      ],
+      "new_bounds": [
+        0.8568142651793627,
+        0.9552848818598669
+      ],
+      "delta_percentage_point_bounds": [
+        -12.361957412742907,
+        7.532783154466327
+      ],
+      "comparison": "unresolved",
+      "old_trials": 480,
+      "new_trials": 620,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspecial": 1.0,
+        "parlyzheal": 1.770967741935484,
+        "fullrestore": 0.7048387096774194,
+        "xaccuracy": 1.9096774193548387,
+        "xspeed": 0.635483870967742,
+        "superpotion": 0.5403225806451613,
+        "antidote": 0.016129032258064516,
+        "potion": 0.08709677419354839
+      },
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 2,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 16,
+          "engine": [
+            64453,
+            20868,
+            36556,
+            23865
+          ]
+        }
+      }
+    },
+    {
+      "id": "silph-rival",
+      "old_probability": 0.9025641025641026,
+      "new_probability": 0.9633333333333334,
+      "delta_percentage_points": 6.07692307692308,
+      "old_bounds": [
+        0.843942389477769,
+        0.9455636371458581
+      ],
+      "new_bounds": [
+        0.8970053970907648,
+        0.992846321915898
+      ],
+      "delta_percentage_point_bounds": [
+        -4.855824005509335,
+        14.890393243812895
+      ],
+      "comparison": "unresolved",
+      "old_trials": 780,
+      "new_trials": 300,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspecial": 2.0,
+        "xaccuracy": 2.0,
+        "superpotion": 1.0266666666666666
+      },
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 2,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 13,
+          "engine": [
+            53525,
+            56941,
+            55867,
+            4672
+          ]
+        }
+      }
+    },
+    {
+      "id": "silph-giovanni",
+      "old_probability": 0.9114285714285715,
+      "new_probability": 1.0,
+      "delta_percentage_points": 8.857142857142852,
+      "old_bounds": [
+        0.8512817169467783,
+        0.9538963047099501
+      ],
+      "new_bounds": [
+        0.913474460557718,
+        1.0
+      ],
+      "delta_percentage_point_bounds": [
+        -4.042184415223216,
+        14.871828305322165
+      ],
+      "comparison": "unresolved",
+      "old_trials": 700,
+      "new_trials": 100,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspecial": 1.0,
+        "superpotion": 0.64,
+        "potion": 0.48,
+        "fullrestore": 0.11,
+        "antidote": 0.03
+      },
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        }
+      }
+    },
+    {
+      "id": "sabrina",
+      "old_probability": 0.9833333333333333,
+      "new_probability": 0.9833333333333333,
+      "delta_percentage_points": 0.0,
+      "old_bounds": [
+        0.8972451944404635,
+        0.9998270214965322
+      ],
+      "new_bounds": [
+        0.9078268188265555,
+        0.9996875435357121
+      ],
+      "delta_percentage_point_bounds": [
+        -9.200020266997678,
+        10.244234909524863
+      ],
+      "comparison": "unresolved",
+      "old_trials": 180,
+      "new_trials": 180,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspeed": 1.0,
+        "superpotion": 0.03888888888888889,
+        "fullrestore": 0.03333333333333333
+      },
+      "planning_goals": {
+        "spa": 0,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 4,
+          "engine": [
+            3781,
+            8628,
+            35445,
+            37042
+          ]
+        }
+      }
+    },
+    {
+      "id": "route22-rival",
+      "old_probability": 0.3639423076923077,
+      "new_probability": 0.9558823529411765,
+      "delta_percentage_points": 59.19400452488688,
+      "old_bounds": [
+        0.31351041135176616,
+        0.4164547069674726
+      ],
+      "new_bounds": [
+        0.890823417746998,
+        0.9885556763342718
+      ],
+      "delta_percentage_point_bounds": [
+        47.43687107795254,
+        67.50452649825056
+      ],
+      "comparison": "improved",
+      "old_trials": 2080,
+      "new_trials": 340,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspecial": 2.0,
+        "xspeed": 1.0,
+        "xaccuracy": 2.0,
+        "superpotion": 0.9852941176470589,
+        "potion": 0.011764705882352941
+      },
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 2,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 2,
+          "engine": [
+            48011,
+            36010,
+            33978,
+            49497
+          ]
+        }
+      }
+    },
+    {
+      "id": "lorelei",
+      "old_probability": 0.965625,
+      "new_probability": 0.9431818181818182,
+      "delta_percentage_points": -2.2443181818181723,
+      "old_bounds": [
+        0.8956209364637114,
+        0.9944900830928208
+      ],
+      "new_bounds": [
+        0.8824539789589587,
+        0.9790386740374392
+      ],
+      "delta_percentage_point_bounds": [
+        -11.203610413386212,
+        8.341773757372772
+      ],
+      "comparison": "unresolved",
+      "old_trials": 320,
+      "new_trials": 440,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspecial": 4.0,
+        "superpotion": 0.39545454545454545,
+        "fullrestore": 0.8545454545454545,
+        "parlyzheal": 0.40454545454545454,
+        "potion": 0.004545454545454545
+      },
+      "planning_goals": {
+        "spa": 4,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 15,
+          "engine": [
+            55479,
+            1440,
+            4817,
+            7733
+          ]
+        }
+      }
+    },
+    {
+      "id": "bruno",
+      "old_probability": 0.3063157894736842,
+      "new_probability": 0.959375,
+      "delta_percentage_points": 65.30592105263158,
+      "old_bounds": [
+        0.25643632367041264,
+        0.35942407567901785
+      ],
+      "new_bounds": [
+        0.8936012562477741,
+        0.9906856158562427
+      ],
+      "delta_percentage_point_bounds": [
+        53.41771805687563,
+        73.42492921858302
+      ],
+      "comparison": "improved",
+      "old_trials": 1900,
+      "new_trials": 320,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspecial": 2.296875,
+        "xspeed": 1.60625,
+        "fullrestore": 1.384375,
+        "superpotion": 0.025
+      },
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": true
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 15,
+          "engine": [
+            55479,
+            1440,
+            4817,
+            7733
+          ]
+        }
+      }
+    },
+    {
+      "id": "agatha",
+      "old_probability": 0.95,
+      "new_probability": 0.9527777777777777,
+      "delta_percentage_points": 0.2777777777777768,
+      "old_bounds": [
+        0.8835784498363805,
+        0.9853201960190289
+      ],
+      "new_bounds": [
+        0.8885273353540317,
+        0.9864874408188242
+      ],
+      "delta_percentage_point_bounds": [
+        -9.679286066499715,
+        10.290899098244378
+      ],
+      "comparison": "unresolved",
+      "old_trials": 420,
+      "new_trials": 360,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "potion": 1.2861111111111112,
+        "superpotion": 1.3583333333333334,
+        "xspecial": 2.9305555555555554,
+        "antidote": 0.7138888888888889,
+        "xspeed": 0.9888888888888889,
+        "xaccuracy": 2.9555555555555557,
+        "fullrestore": 2.525
+      },
+      "planning_goals": {
+        "spa": 1,
+        "accuracy": 0,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false,
+        "torrent_power": true
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 16,
+          "engine": [
+            64453,
+            20868,
+            36556,
+            23865
+          ]
+        }
+      }
+    },
+    {
+      "id": "lance",
+      "old_probability": 0.7689873417721519,
+      "new_probability": 0.9916666666666667,
+      "delta_percentage_points": 22.267932489451482,
+      "old_bounds": [
+        0.7148916017905647,
+        0.8177372225746908
+      ],
+      "new_bounds": [
+        0.9018286272102064,
+        0.9999995514962355
+      ],
+      "delta_percentage_point_bounds": [
+        8.409140463551557,
+        28.510794970567087
+      ],
+      "comparison": "improved",
+      "old_trials": 1580,
+      "new_trials": 120,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "xspecial": 3.0,
+        "superpotion": 1.8083333333333333,
+        "xspeed": 0.9916666666666667,
+        "fullrestore": 3.4833333333333334,
+        "xaccuracy": 1.9833333333333334
+      },
+      "planning_goals": {
+        "spa": 3,
+        "accuracy": 2,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 83,
+          "engine": [
+            5639,
+            28199,
+            61296,
+            32221
+          ]
+        }
+      }
+    },
+    {
+      "id": "champion",
+      "old_probability": 0.5612612612612613,
+      "new_probability": 0.9558823529411765,
+      "delta_percentage_points": 39.46210916799152,
+      "old_bounds": [
+        0.5093602241644218,
+        0.6122820068323122
+      ],
+      "new_bounds": [
+        0.890823417746998,
+        0.9885556763342718
+      ],
+      "delta_percentage_point_bounds": [
+        27.854141091468588,
+        47.91954521698499
+      ],
+      "comparison": "improved",
+      "old_trials": 2220,
+      "new_trials": 340,
+      "stop_reason": "interval_width",
+      "mean_items_used": {
+        "guardspec": 2.0,
+        "xspecial": 2.0,
+        "xspeed": 1.0,
+        "xaccuracy": 2.0,
+        "fullrestore": 1.973529411764706,
+        "superpotion": 0.13529411764705881
+      },
+      "planning_goals": {
+        "spa": 2,
+        "accuracy": 2,
+        "outspeed": true,
+        "guard_accuracy": true,
+        "target_torrent": false
+      },
+      "example_seeds": {
+        "win": {
+          "master": 4,
+          "trial": 0,
+          "engine": [
+            12901,
+            6954,
+            14432,
+            531
+          ]
+        },
+        "loss": {
+          "master": 4,
+          "trial": 10,
+          "engine": [
+            27057,
+            50581,
+            58887,
+            58089
+          ]
+        }
+      }
+    }
+  ],
+  "top_ten": [
+    {
+      "id": "cerulean-rival",
+      "win_probability": 0.4168181818181818,
+      "bounds": [
+        0.36607020492908743,
+        0.46877180666561635
+      ],
+      "trials": 2200,
+      "tier": "B",
+      "result_origin": "retained baseline",
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 21,
+        "hp": 32,
+        "max_hp": 61
+      }
+    },
+    {
+      "id": "ssanne-rival",
+      "win_probability": 0.48672566371681414,
+      "bounds": [
+        0.435426341285695,
+        0.5382125062095814
+      ],
+      "trials": 2260,
+      "tier": "B",
+      "result_origin": "retained baseline",
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 27,
+        "hp": 37,
+        "max_hp": 76
+      }
+    },
+    {
+      "id": "brock",
+      "win_probability": 0.5203539823008849,
+      "bounds": [
+        0.46884157048005853,
+        0.5715788634885103
+      ],
+      "trials": 2260,
+      "tier": "A",
+      "result_origin": "retained baseline",
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 11,
+        "hp": 11,
+        "max_hp": 33
+      }
+    },
+    {
+      "id": "surge",
+      "win_probability": 0.5740909090909091,
+      "bounds": [
+        0.5220527456979145,
+        0.6250551862395529
+      ],
+      "trials": 2200,
+      "tier": "B",
+      "result_origin": "retained baseline",
+      "starting_state": {
+        "species": "WARTORTLE",
+        "level": 28,
+        "hp": 79,
+        "max_hp": 79
+      }
+    },
+    {
+      "id": "pewter-liam",
+      "win_probability": 0.666,
+      "bounds": [
+        0.6132711714790808,
+        0.7160936706968546
+      ],
+      "trials": 2000,
+      "tier": "A",
+      "result_origin": "retained baseline",
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 8,
+        "hp": 5,
+        "max_hp": 27
+      }
+    },
+    {
+      "id": "koga",
+      "win_probability": 0.7005882352941176,
+      "bounds": [
+        0.6491661539619002,
+        0.7488380811303292
+      ],
+      "trials": 1700,
+      "tier": "C",
+      "result_origin": "fresh C trials",
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 39,
+        "hp": 34,
+        "max_hp": 122
+      }
+    },
+    {
+      "id": "mtmoon-josh",
+      "win_probability": 0.8473684210526315,
+      "bounds": [
+        0.7913588896843765,
+        0.8939626140993399
+      ],
+      "trials": 1140,
+      "tier": "B",
+      "result_origin": "retained baseline",
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 15,
+        "hp": 10,
+        "max_hp": 42
+      }
+    },
+    {
+      "id": "forest-sammy",
+      "win_probability": 0.8875,
+      "bounds": [
+        0.8297288616042983,
+        0.9318508273321335
+      ],
+      "trials": 880,
+      "tier": "B",
+      "result_origin": "retained baseline",
+      "starting_state": {
+        "species": "SQUIRTLE",
+        "level": 7,
+        "hp": 16,
+        "max_hp": 25
+      }
+    },
+    {
+      "id": "tower-rival",
+      "win_probability": 0.9,
+      "bounds": [
+        0.84289500317059,
+        0.9425143133511726
+      ],
+      "trials": 700,
+      "tier": "C",
+      "result_origin": "fresh C trials",
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 36,
+        "hp": 38,
+        "max_hp": 114
+      }
+    },
+    {
+      "id": "erika",
+      "win_probability": 0.9145161290322581,
+      "bounds": [
+        0.8568142651793627,
+        0.9552848818598669
+      ],
+      "trials": 620,
+      "tier": "C",
+      "result_origin": "fresh C trials",
+      "starting_state": {
+        "species": "BLASTOISE",
+        "level": 44,
+        "hp": 35,
+        "max_hp": 137
+      }
+    }
+  ]
+}

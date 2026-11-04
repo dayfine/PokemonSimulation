@@ -31,14 +31,14 @@ def validate_cases(cases, pret):
         if type(case.get('enable_complex_planning', False)) is not bool:
             raise ValueError('enable_complex_planning must be a boolean')
         goals = case.get('planning_goals', {})
-        if not isinstance(goals, dict) or set(goals) - {'spa', 'accuracy', 'outspeed', 'guard_accuracy', 'target_torrent'}:
+        if not isinstance(goals, dict) or set(goals) - {'spa', 'accuracy', 'outspeed', 'guard_accuracy', 'target_torrent', 'torrent_power'}:
             raise ValueError('Unknown planning goal')
         if goals and not case.get('enable_complex_planning', False):
             raise ValueError('Planning goals require explicit complex-planning opt-in')
         for key in ('spa', 'accuracy'):
             if key in goals:
                 integer(goals[key], 0, 6, key + ' setup goal')
-        for key in ('outspeed', 'guard_accuracy', 'target_torrent'):
+        for key in ('outspeed', 'guard_accuracy', 'target_torrent', 'torrent_power'):
             if key in goals and type(goals[key]) is not bool:
                 raise ValueError(key + ' must be a boolean')
         if case.get("trainer") not in pret["trainers"]:

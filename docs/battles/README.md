@@ -1,5 +1,8 @@
 # FRLG battle benchmarks
 
+See the [updated C comparison and top ten](pokeguy-c-comparison.md) and
+[incremental player strategies](player-strategies.md) for the current controller.
+
 Answer: given a solo Squirtle-line lead, its stats, HP, moves and PP, the bag,
 and a named trainer, how often does this policy win under this model?
 

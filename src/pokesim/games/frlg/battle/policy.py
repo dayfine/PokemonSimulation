@@ -9,7 +9,7 @@ from pokesim.games.frlg.battle.player_strategy.attacks import attack, locked
 from pokesim.games.frlg.battle.player_strategy.threat import threat
 from pokesim.games.frlg.battle.player_strategy import recovery, planning
 
-POLICY = 'B:solo-recovery/1; C:goal-based-setup/1'
+POLICY = 'B:solo-recovery/1; C:goal-based-setup/2'
 
 
 def player_action(state, ai, flags, items, enable_complex_planning=False, planning_goals=None):

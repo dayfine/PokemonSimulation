@@ -90,10 +90,45 @@ class StrategyLayersTest(unittest.TestCase):
         self.assertGreaterEqual(min(state['own']['moves'][1]['damage']), state['foe']['hp'])
         self.assertEqual(self.choose_c(state, scenario), {'kind': 'move', 'slot': 1})
 
-    def test_setup_guard_precedes_boosts_against_smokescreen(self):
-        scenario = self.scenario('koga')
+    def test_setup_guard_precedes_boosts_against_accuracy_drops(self):
+        scenario = self.scenario('champion')
         state = self.start(scenario)
         self.assertEqual(self.choose_c(state, scenario), {'kind': 'item', 'item': 'guardspec'})
+
+    def test_koga_fast_ko_precedes_setup_in_front_of_self_destruct(self):
+        scenario = self.scenario('koga')
+        state = self.start(scenario)
+        self.assertEqual(self.choose_c(state, scenario)['kind'], 'move')
+
+    def test_planner_uses_recharge_as_a_safe_setup_window(self):
+        scenario = self.scenario('lance')
+        state = self.start(scenario)
+        state['foe']['locked_move'] = 'recharge'
+        danger = planning.planning_risk(state, self.ai, scenario['trainer']['ai'])
+        self.assertEqual(danger['normal_max'], 0)
+        self.assertEqual(danger['likely'], 0)
+
+    def test_counters_opponent_evasion_with_accuracy_items(self):
+        scenario = self.scenario('agatha')
+        state = self.start(scenario)
+        state['foe']['boosts']['evasion'] = 2
+        self.assertEqual(planning.setup_item(state, {'accuracy': 0}), {'kind': 'item', 'item': 'xaccuracy'})
+
+    def test_healing_preserves_planned_water_power_through_extra_stages(self):
+        own = {'ability': 'torrent', 'hp': 65, 'max_hp': 165}
+        self.assertEqual(planning.special_goal(own, {'spa': 1, 'torrent_power': True}), 3)
+        own['hp'] = 45
+        self.assertEqual(planning.special_goal(own, {'spa': 1, 'torrent_power': True}), 1)
+
+    def test_c_prefers_certain_surf_ko_to_a_risky_weaker_move(self):
+        scenario = self.scenario('agatha')
+        scenario['player']['boosts'] = {'spa': 1, 'spe': 1}
+        state = self.start(scenario)
+        bite = state['own']['moves'][0]
+        state['foe']['hp'] = (min(bite['damage']) + sum(bite['damage']) // len(bite['damage'])) // 2
+        self.assertEqual(attacks.attack(state)['slot'], 0)
+        self.assertGreaterEqual(min(state['own']['moves'][1]['damage']), state['foe']['hp'])
+        self.assertEqual(player_action(state, self.ai, [], [], enable_complex_planning=True)['slot'], 1)
 
     def test_torrent_activation_does_not_restart_on_later_opponents(self):
         scenario = self.scenario('bruno')
