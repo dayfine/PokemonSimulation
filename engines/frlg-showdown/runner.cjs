@@ -1,4 +1,4 @@
-/** JSON-lines subprocess protocol; stdout contains responses only. */
+/** FireRed/LeafGreen (Gen 3) adapter JSON-lines protocol; stdout contains responses only. */
 'use strict';
 const readline = require('node:readline');
 const {createBattle, playTurn, snapshot} = require('./engine.cjs');

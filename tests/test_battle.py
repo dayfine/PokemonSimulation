@@ -110,7 +110,7 @@ Unsupported::
         self.assertEqual(import_checkout(Path(os.environ["POKEFIRERED_DIR"]).expanduser()), PRET)
 
 
-@unittest.skipUnless(HAS_ENGINE, "Install engines/showdown dependencies for battle integration checks")
+@unittest.skipUnless(HAS_ENGINE, "Install engines/frlg-showdown dependencies for battle integration checks")
 class BattleIntegrationTest(unittest.TestCase):
     """Exercise policies against actual Showdown state, including replacements."""
 

@@ -1,8 +1,8 @@
 {
-  "name": "pokesim-showdown",
+  "name": "pokesim-frlg-showdown",
   "version": "0.1.0",
   "private": true,
-  "description": "Local Gen 3 battle engine bridge for PokemonSimulation",
+  "description": "Local FireRed/LeafGreen (Gen 3) adapter for Pokemon Showdown and Smogon damage previews",
   "license": "MIT",
   "engines": {
     "node": ">=22"

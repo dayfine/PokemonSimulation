@@ -1,4 +1,4 @@
-/** Live Gen 3 damage previews, including stat stages and measured raw stats.
+/** FireRed/LeafGreen (Gen 3) damage previews, including stat stages and measured raw stats.
  * Attack/Sp. Atk and Defense/Sp. Def stages are applied by Smogon, with its
  * Gen 3 critical-hit rules. Do not pre-apply stages to storedStats: that would
  * count them twice and prevent critical hits from ignoring the right stages.

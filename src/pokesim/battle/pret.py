@@ -1,4 +1,7 @@
-"""Import the four milestone trainer parties and reachable AI scripts from pret.
+"""Import FRLG NPC parties and reachable AI scripts from pret/pokefirered.
+
+The snapshot covers Misty, the Cerulean rival with Bulbasaur, the S.S. Anne
+rival with Ivysaur, and Lt. Surge in FireRed/LeafGreen (Gen 3).
 
 Run from the repo root:
     PYTHONPATH=src python3 -m pokesim.battle.pret --repo external/pokefirered \

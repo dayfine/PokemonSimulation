@@ -8,12 +8,17 @@ Surge. They come from the FRLG AutoStory source fixtures. This milestone
 keeps evaluation and policies in Python and reuses existing battle mechanics.
 It runs locally without a Showdown server, account, or network connection.
 
+Our adapter lives in [`engines/frlg-showdown/`](../../engines/frlg-showdown/README.md)
+and targets **FireRed / LeafGreen (Gen 3)**. Showdown and Smogon's calculator
+support many generations; this adapter fixes the generation to 3 and supplies
+FRLG-specific story-battle behavior. It is not a general cross-game bridge.
+
 ## Run
 
 Install Node 22+ and Python 3.8+, then from the repository root:
 
 ```sh
-npm ci --omit=optional --prefix engines/showdown
+npm ci --omit=optional --prefix engines/frlg-showdown
 PYTHONPATH=src python3 -m pokesim.cli.battle --battles 1000 --seed 1 --out /tmp/frlg.json
 ```
 
@@ -34,6 +39,8 @@ The standard 1,000-trial run takes a few minutes on a development laptop.
 The [checked-in baseline report](frlg-baseline.json) is an experiment under
 these policies and assumptions. It is not a measurement of console win rates.
 The interval describes sampling uncertainty, not inaccuracies in the model.
+The saved baseline retains the lockfile hash from before the adapter package
+rename; the pinned dependency versions did not change with that rename.
 
 ## Baseline results
 
@@ -181,7 +188,7 @@ its effect on these estimates, and the next work needed for the Pokeguy route.
 ## Verification
 
 ```sh
-npm test --prefix engines/showdown
+npm test --prefix engines/frlg-showdown
 POKESIM_REQUIRE_BATTLE=1 PYTHONPATH=src python3 -m unittest tests.test_battle
 POKEFIRERED_DIR=external/pokefirered PYTHONPATH=src python3 -m unittest tests.test_battle.BattleDataTest.test_reimport_real_pret_snapshot
 ```

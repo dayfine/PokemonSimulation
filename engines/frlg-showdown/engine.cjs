@@ -1,4 +1,4 @@
-/** Gen 3 Showdown adapter. Bag items are queued events, never fake moves. */
+/** FireRed/LeafGreen (Gen 3) adapter for Pokemon Showdown. Bag items are queued events, never fake moves. */
 'use strict';
 const {Battle, Dex, toID} = require('pokemon-showdown');
 const {movePreview} = require('./damage.cjs');

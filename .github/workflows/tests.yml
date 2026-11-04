@@ -34,10 +34,10 @@ jobs:
         with:
           node-version: "22"
           cache: npm
-          cache-dependency-path: engines/showdown/package-lock.json
+          cache-dependency-path: engines/frlg-showdown/package-lock.json
       - name: Install the pinned battle engine
-        run: npm ci --omit=optional --prefix engines/showdown
+        run: npm ci --omit=optional --prefix engines/frlg-showdown
       - name: Check FRLG mechanics boundaries
-        run: npm test --prefix engines/showdown
+        run: npm test --prefix engines/frlg-showdown
       - name: Check Python policies and reproducible benchmarks
         run: POKESIM_REQUIRE_BATTLE=1 PYTHONPATH=src python -m unittest -v tests.test_battle

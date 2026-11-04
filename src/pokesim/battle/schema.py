@@ -1,4 +1,4 @@
-"""Validate the deliberately small first-milestone experiment format."""
+"""Validate FireRed/LeafGreen (Gen 3) solo-battle experiment inputs."""
 
 from pokesim.battle.npc_ai import move_id
 

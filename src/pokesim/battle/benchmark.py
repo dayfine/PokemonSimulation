@@ -1,4 +1,4 @@
-"""Seeded Monte Carlo trials, Wilson intervals, and replayable example traces."""
+"""FireRed/LeafGreen (Gen 3) seeded trials, Wilson intervals, and replay traces."""
 
 from collections import Counter
 import copy

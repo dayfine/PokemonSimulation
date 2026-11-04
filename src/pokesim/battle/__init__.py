@@ -1,1 +1,1 @@
-"""Offline trainer-battle benchmarks backed by a local Showdown engine."""
+"""FireRed/LeafGreen (Gen 3) trainer-battle benchmarks using local Showdown."""

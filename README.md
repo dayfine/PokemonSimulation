@@ -22,7 +22,7 @@ generation, battle evaluation, and route validation.
 | Path | Purpose |
 |---|---|
 | `src/pokesim/battle/` | Python battle policies, pret import, engine client, and benchmark reports. |
-| `engines/showdown/` | Pinned Showdown and Smogon calculator adapter; runs locally through Node. |
+| `engines/frlg-showdown/` | FireRed/LeafGreen (Gen 3) adapter using pinned Showdown and Smogon packages. |
 | `src/pokesim/grid/` | Map models, movement rules, rendering, and route planning. |
 | `src/pokesim/physics/` | Movement uncertainty models. |
 | `src/pokesim/decomp/` | pret map importers: FRLG (`frlg`) and Sinnoh (`landdata`, `events`, `repos`, `generate`). |
@@ -60,7 +60,7 @@ POKEFIRERED_DIR="$PWD/external/pokefirered" PYTHONPATH=src python3 -m unittest d
 Run the battle milestone:
 
 ```sh
-npm ci --omit=optional --prefix engines/showdown
+npm ci --omit=optional --prefix engines/frlg-showdown
 PYTHONPATH=src python3 -m pokesim.cli.battle --battles 1000 --out /tmp/frlg.json
 ```
 

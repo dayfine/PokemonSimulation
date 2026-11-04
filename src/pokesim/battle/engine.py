@@ -1,4 +1,4 @@
-"""Persistent JSON-lines client for the pinned local Showdown bridge."""
+"""Persistent JSON-lines client for the local FireRed/LeafGreen (Gen 3) Showdown adapter."""
 
 import json
 from pathlib import Path
@@ -7,7 +7,7 @@ import shutil
 import subprocess
 
 REPO = Path(__file__).resolve().parents[3]
-BRIDGE = REPO / "engines" / "showdown"
+BRIDGE = REPO / "engines" / "frlg-showdown"
 
 
 class Engine:
@@ -16,7 +16,7 @@ class Engine:
     def __enter__(self):
         node = shutil.which("node")
         if not node or not (BRIDGE / "node_modules" / "pokemon-showdown").is_dir():
-            raise RuntimeError("Install Node 22+ and run: npm ci --omit=optional --prefix engines/showdown")
+            raise RuntimeError("Install Node 22+ and run: npm ci --omit=optional --prefix engines/frlg-showdown")
         self.process = subprocess.Popen([node, str(BRIDGE / "runner.cjs")], stdin=subprocess.PIPE,
             stdout=subprocess.PIPE, text=True, bufsize=1)
         return self

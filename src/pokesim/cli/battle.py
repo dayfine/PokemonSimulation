@@ -1,6 +1,6 @@
 """Run the four FRLG trainer benchmarks using Python policies and Showdown.
 
-    npm ci --omit=optional --prefix engines/showdown
+    npm ci --omit=optional --prefix engines/frlg-showdown
     PYTHONPATH=src python3 -m pokesim.cli.battle --battles 1000 --out /tmp/frlg.json
 
 Prints one win-rate line per case and writes a JSON report with confidence
