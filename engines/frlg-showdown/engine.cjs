@@ -187,22 +187,6 @@ function snapshot(battle, traceFrom = 0) {
   const own = battle.p1.active[0];
   const foe = battle.p2.active[0];
   const needsSwitch = !!battle.p2.activeRequest?.forceSwitch;
-  const setup = [];
-  if (battle.pokesimScenario.progression && !battle.ended && !needsSwitch && own.hp) {
-    for (const [item, stat] of Object.entries(X_ITEMS)) {
-      if (!(battle.p1.pokesimBag[item] > 0) || own.boosts[stat] >= 6) continue;
-      const targets = battle.p2.pokemon.filter(p => p.hp > 0);
-      const incoming = targets.map(p => Math.max(0, ...monState(p, own).moves.map(m =>
-        m.damage.reduce((a, b) => a + b, 0) / m.damage.length * m.accuracy)));
-      const before = targets.map(p => monState(own, p).moves);
-      own.boosts[stat]++;
-      const after = targets.map(p => monState(own, p).moves);
-      const speed = own.getStat('spe');
-      own.boosts[stat]--;
-      setup.push({item, speed, targets: targets.map((p, i) =>
-        ({hp: p.hp, speed: p.getStat('spe'), incoming: incoming[i], before: before[i], after: after[i]}))});
-    }
-  }
   return {turn: battle.turn, ended: battle.ended, winner: battle.winner || null,
     request: battle.requestState, needs_switch: needsSwitch,
     own: monState(own, foe, !needsSwitch), foe: monState(foe, own),
@@ -211,7 +195,6 @@ function snapshot(battle, traceFrom = 0) {
     items_used: {...battle.p1.pokesimUsed}, trainer_items_used: {...battle.p2.pokesimUsed},
     progression: own.pokesimProgression ? {exp: own.pokesimProgression.exp,
       evs: own.pokesimProgression.evs, awards: own.pokesimProgression.awards} : null,
-    setup,
     log: battle.log.slice(traceFrom).filter(line => !line.startsWith('|t:|'))};
 }
 module.exports = {createBattle, playTurn, snapshot, applyBag, initialize, teamMember};

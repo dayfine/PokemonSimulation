@@ -23,6 +23,22 @@ def implementation_hashes():
     return {str(p.relative_to(REPO)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
+def configure_strategies(cases, config):
+    """B is default; only explicitly enabled fights use tier C's goal planner."""
+    if config.get('format') != 'pokesim-frlg-player-strategies/1' or config.get('default') != 'recovery':
+        raise ValueError('Unsupported player strategy configuration')
+    unknown = set(config['fights']) - {c['id'] for c in cases}
+    if unknown:
+        raise ValueError('Strategy configuration names unknown fights: ' + ', '.join(sorted(unknown)))
+    result = copy.deepcopy(cases)
+    for case in result:
+        settings = config['fights'].get(case['id'], {})
+        case['enable_complex_planning'] = settings.get('enable_complex_planning', False)
+        if 'planning_goals' in settings:
+            case['planning_goals'] = copy.deepcopy(settings['planning_goals'])
+    return result
+
+
 def trainer_cases(route, reference, moves, history, battle_reference):
     """Use sourced HP, raw stats, PP, badges and inventory for every trainer."""
     states = reconstruct_states(route, reference, moves, history)
@@ -65,6 +81,9 @@ def summarize(report):
         row['starting_state'] = {k: player[k] for k in ('species', 'level', 'hp')}
         row['starting_state']['max_hp'] = player['stats']['hp']
         row['video_start'] = battle['inputs']['video_start']
+        row['player_strategy'] = 'C' if battle['inputs'].get('enable_complex_planning', False) else 'B'
+        if row['player_strategy'] == 'C':
+            row['planning_goals'] = battle['inputs'].get('planning_goals', {})
         row['example_seeds'] = {outcome: sample['seed'] for outcome, sample in battle['examples'].items()}
         rows.append(row)
     result['results'] = rows

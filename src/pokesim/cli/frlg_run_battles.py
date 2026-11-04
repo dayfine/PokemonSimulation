@@ -11,7 +11,8 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 
 from pokesim.games.frlg.battle.benchmark import evaluate
 from pokesim.games.frlg.battle.engine import REPO
-from pokesim.games.frlg.battle.run import trainer_cases, summarize, results_markdown, implementation_hashes
+from pokesim.games.frlg.battle.run import trainer_cases, summarize, results_markdown, implementation_hashes, configure_strategies
+from pokesim.games.frlg.progression.ledger import fingerprint
 from pokesim.games.frlg.battle.sampling import AdaptiveSampling
 
 DATA = REPO / 'data/runs/pokeguy-leafgreen-15934'
@@ -29,7 +30,8 @@ def main(argv=None):
     parser.add_argument('--case', action='append')
     parser.add_argument('--battles', type=int, default=3000, help='Maximum trials per battle')
     parser.add_argument('--interval-width', type=float, default=.10)
-    parser.add_argument('--seed', type=int, default=1)
+    parser.add_argument('--seed', type=int, help='Default 1, or fresh seed 2 for --complex-only')
+    parser.add_argument('--complex-only', action='store_true', help='Rerun only explicitly enabled C fights, retaining the full confidence family')
     parser.add_argument('--workers', type=int, default=3, help='Independent Python/Node workers')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args(argv)
@@ -41,15 +43,27 @@ def main(argv=None):
     pret = read('battle-reference')
     inputs = trainer_cases(read('events'), read('reference'), read('moves'), read('state-history'), pret)
     cases = inputs.pop('cases')
+    configuration = args.data / 'strategies.json'
+    if configuration.exists():
+        config = json.loads(configuration.read_text())
+        cases = configure_strategies(cases, config)
+        inputs['strategy_config_sha256'] = fingerprint(config)
+    full_family = len(cases)
+    if args.complex_only:
+        cases = [c for c in cases if c.get('enable_complex_planning', False)]
+        if not cases:
+            parser.error('No fights explicitly enable complex planning')
     if args.case:
         unknown = set(args.case) - {c['id'] for c in cases}
         if unknown:
             parser.error('Unknown case: ' + ', '.join(sorted(unknown)))
         cases = [c for c in cases if c['id'] in args.case]
+    seed = args.seed if args.seed is not None else (2 if args.complex_only else 1)
+    family = full_family if args.complex_only else len(cases)
     reports = {}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with ProcessPoolExecutor(max_workers=min(args.workers, len(cases))) as pool:
-        jobs = {pool.submit(evaluate_case, c, pret, args.battles, args.seed, args.interval_width, len(cases)): c['id'] for c in cases}
+        jobs = {pool.submit(evaluate_case, c, pret, args.battles, seed, args.interval_width, family): c['id'] for c in cases}
         for future in as_completed(jobs):
             result = future.result()
             reports[jobs[future]] = result
@@ -57,7 +71,7 @@ def main(argv=None):
             print('{}: {}/{} wins ({}/{})'.format(row['id'], row['wins'], row['battles'], len(reports), len(cases)), file=sys.stderr)
             checkpoint = args.out.with_suffix('.checkpoint.json')
             temporary = checkpoint.with_suffix('.tmp')
-            temporary.write_text(json.dumps({'partial': True, 'family_size': len(cases), 'seed': args.seed,
+            temporary.write_text(json.dumps({'partial': True, 'family_size': family, 'seed': seed,
                 'run_inputs': inputs, 'completed': list(reports), 'results': [r['results'][0] for r in reports.values()]}) + '\n')
             temporary.replace(checkpoint)
     report = reports[cases[0]['id']]

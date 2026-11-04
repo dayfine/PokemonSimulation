@@ -57,7 +57,9 @@ def trial(engine, scenario, ai, master_seed, index, turn_limit):
         if state["needs_switch"]:
             own, foe = {"kind": "pass"}, replacement(state)
         else:
-            own = player_action(state, ai, flags, items)
+            own = player_action(state, ai, flags, items,
+                enable_complex_planning=scenario.get('enable_complex_planning', False),
+                planning_goals=scenario.get('planning_goals'))
             foe = locked(state["foe"]) or trainer_item(state, items) or ai.choose_move(state, flags, rng)
         decisions.append({"turn": state["turn"], "hp": state["own"]["hp"],
             "foe": state["foe"]["species"], "foe_hp": state["foe"]["hp"], "own": own, "opponent": foe})
