@@ -17,11 +17,11 @@ from pokesim.games.frlg.battle.pret import blocks, field
 from pokesim.games.frlg.progression.experience import medium_slow_thresholds
 
 
-RULE_SOURCES = ("src/battle_script_commands.c", "src/pokemon.c",
+RULE_SOURCES = ("src/battle_script_commands.c", "src/pokemon.c", "src/script_pokemon_util.c",
     "data/maps/PokemonTower_7F/scripts.inc", "data/maps/PokemonTower_6F/scripts.inc")
 
 
-def import_reference(repo, route):
+def import_reference(repo, route, move_history=None):
     """Resolve trainer IDs and species independently of observed level claims."""
     hashes = {}
 
@@ -71,17 +71,36 @@ def import_reference(repo, route):
         selected[name] = {"name": re.search(r'\.trainerName\s*=\s*_\("(.*?)"\)', body)[1],
                           "party": members}
     pokemon = {name: {"exp_yield": int(field(species[name], "expYield")),
-                     "growth_rate": field(species[name], "growthRate")}
+                     "growth_rate": field(species[name], "growthRate"),
+                     "ev_yield": {stat: int(field(species[name], "evYield_" + suffix)) for stat, suffix in
+                         (("hp", "HP"), ("atk", "Attack"), ("def", "Defense"), ("spe", "Speed"), ("spa", "SpAttack"), ("spd", "SpDefense"))}}
                for name in sorted(used_species)}
     for name in ("SQUIRTLE", "WARTORTLE", "BLASTOISE"):
         if pokemon[name]["growth_rate"] != "GROWTH_MEDIUM_SLOW":
             raise ValueError("Review changed Squirtle family growth rate")
         pokemon[name]["learnset"] = learned[pointers[name]]
+        pokemon[name]["base_stats"] = {stat: int(field(species[name], "base" + suffix)) for stat, suffix in
+            (("hp", "HP"), ("atk", "Attack"), ("def", "Defense"), ("spe", "Speed"), ("spa", "SpAttack"), ("spd", "SpDefense"))}
+        pokemon[name]["abilities"] = re.findall(r"ABILITY_(\w+)", re.search(r"\.abilities\s*=\s*\{([^}]+)\}", species[name])[1])
+    pokemon_source = (repo / "src/pokemon.c").read_text()
+    nature_order = ("atk", "def", "spe", "spa", "spd")
+    natures = {name.title(): dict(zip(nature_order, [100 + 10 * int(n) for n in re.findall(r"[+-]?\d+", values)]))
+        for name, values in re.findall(r"\[NATURE_(\w+)\]\s*=\s*\{([+\-\d,\s]+)\}", pokemon_source)}
+    if len(natures) != 25:
+        raise ValueError("Review changed nature table")
+    move_names = {m["move"] for name in ("SQUIRTLE", "WARTORTLE", "BLASTOISE") for m in pokemon[name]["learnset"]}
+    if move_history:
+        move_names.update(c["move"] for c in move_history["decisions"])
+    move_data = blocks(read("src/data/battle_moves.h"), "MOVE")
+    pp = {name: int(field(move_data[name], "pp")) for name in sorted(move_names)}
+    limits = read("include/constants/pokemon.h")
+    ev_limits = {key: int(re.search(r"#define " + symbol + r"\s+(\d+)", limits)[1])
+        for key, symbol in (("per_stat", "MAX_PER_STAT_EVS"), ("total", "MAX_TOTAL_EVS"))}
     revision = subprocess.check_output(["git", "-C", str(repo), "rev-parse", "HEAD"], text=True).strip()
     return {"format": "pokesim-frlg-exp-data/1",
         "source": {"repository": "https://github.com/pret/pokefirered", "revision": revision, "sha256": hashes},
         "growth_curves": {"GROWTH_MEDIUM_SLOW": medium_slow_thresholds()},
-        "trainers": selected, "species": pokemon}
+        "trainers": selected, "species": pokemon, "natures": natures, "move_pp": pp, "ev_limits": ev_limits}
 
 
 def main():
@@ -89,8 +108,11 @@ def main():
     parser.add_argument("--repo", type=Path, required=True)
     parser.add_argument("--route", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--moves", type=Path, help="Move history; uses route sibling moves.json when present")
     args = parser.parse_args()
-    reference = import_reference(args.repo, json.loads(args.route.read_text()))
+    move_path = args.moves or args.route.with_name("moves.json")
+    history = json.loads(move_path.read_text()) if move_path.exists() else None
+    reference = import_reference(args.repo, json.loads(args.route.read_text()), history)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(reference, indent=2) + "\n")
 

@@ -16,6 +16,8 @@ battles, calculates the starter's level after each one, and compares it with
 the video notes, including a route that flees all random wild encounters.
 See the [trainer route guide](docs/progression/pokeguy-route.md) for the full
 trainer sequence grouped by segment and the level targets before major battles.
+The [starting-state ledger](docs/progression/pokeguy-states.md) adds HP/status,
+raw stats, PP, held items, badges, and tracked consumables for every encounter.
 
 The console programs live in
 [Arduino-Source](https://github.com/PokemonAutomation/Arduino-Source).
@@ -28,7 +30,7 @@ generation, battle evaluation, and route validation.
 | Path | Purpose |
 |---|---|
 | `src/pokesim/games/frlg/battle/` | Python battle policies, pret import, engine client, and benchmark reports. |
-| `src/pokesim/games/frlg/progression/` | EXP arithmetic, trainer/species import, and video-route audits. |
+| `src/pokesim/games/frlg/progression/` | EXP/EV/stat models, move and inventory ledgers, and video-route audits. |
 | `engines/frlg-showdown/` | FireRed/LeafGreen (Gen 3) adapter using pinned Showdown and Smogon packages. |
 | `src/pokesim/grid/` | Map models, movement rules, rendering, and route planning. |
 | `src/pokesim/physics/` | Movement uncertainty models. |
