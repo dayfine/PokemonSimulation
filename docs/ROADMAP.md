@@ -35,6 +35,18 @@ some source-fixture stats are assumed. Validate against console runs before
 using these estimates as a readiness gate. Next work depends on the outcome
 of that validation; do not expand to other games yet.
 
+## Future team-composition comparison
+
+Follow-up requested: repeat the battle-by-battle win-rate and player-action
+complexity analysis for **Charmander/fire-starter** and **Bulbasaur/grass-starter**
+teams with supporters. This is a recorded follow-up, not work started in the
+current Squirtle analysis.
+
+Reconstruct each team's route, EXP/EV allocation, levels/stats, moves/PP and bag
+before comparing results. Include supporter roles and both deliberate and forced
+switches, then compare attack-only, recovery and setup/team policies with adaptive
+sampling. Do not reuse Squirtle's recorded entry states as another team's inputs.
+
 ## Route progression
 
 The [Pokeguy LeafGreen audit](progression/README.md) now logs the complete

@@ -6,6 +6,9 @@ It estimates the success rate of our state-dependent player policy under the
 model below. It does not replay the video's winning button presses or estimate
 the probability of finishing the entire run.
 
+See the [top ten and player-action grouping](pokeguy-action-complexity.md) for
+the risk ranking and the attack/recovery/setup split.
+
 ## Run locally
 
 ```sh
