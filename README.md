@@ -11,6 +11,12 @@ with Python policies, pret data, and a local Pokémon Showdown engine.
 See [the battle benchmark guide](docs/battles/README.md) for inputs, limitations,
 and reproducible results.
 
+The [full-route EXP audit](docs/progression/README.md) logs Pokeguy's LeafGreen
+battles, calculates the starter's level after each one, and compares it with
+the video notes, including a route that flees all random wild encounters.
+See the [trainer route guide](docs/progression/pokeguy-route.md) for the full
+trainer sequence grouped by segment and the level targets before major battles.
+
 The console programs live in
 [Arduino-Source](https://github.com/PokemonAutomation/Arduino-Source).
 Its [FRLG AutoStory PR #213](https://github.com/dayfine/Arduino-Source/pull/213)
@@ -22,6 +28,7 @@ generation, battle evaluation, and route validation.
 | Path | Purpose |
 |---|---|
 | `src/pokesim/games/frlg/battle/` | Python battle policies, pret import, engine client, and benchmark reports. |
+| `src/pokesim/games/frlg/progression/` | EXP arithmetic, trainer/species import, and video-route audits. |
 | `engines/frlg-showdown/` | FireRed/LeafGreen (Gen 3) adapter using pinned Showdown and Smogon packages. |
 | `src/pokesim/grid/` | Map models, movement rules, rendering, and route planning. |
 | `src/pokesim/physics/` | Movement uncertainty models. |
@@ -31,6 +38,7 @@ generation, battle evaluation, and route validation.
 | `src/pokesim/**/test_*.py` | Python tests and synthetic decomp fixtures, beside the modules they exercise. |
 | `data/games/<game>/` | Reference maps, route fixtures, and game data. |
 | `data/measurements/` | Raw console measurements for fitting models. |
+| `data/runs/` | Timestamped battle ledgers and pinned progression reference data. |
 | `external/` | Ignored local checkouts of upstream data sources. |
 | `docs/navigation/` | Map, movement, physics, and routing documentation. |
 | `docs/examples/` | Small example inputs. |

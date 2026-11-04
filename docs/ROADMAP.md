@@ -33,6 +33,14 @@ some source-fixture stats are assumed. Validate against console runs before
 using these estimates as a readiness gate. Next work depends on the outcome
 of that validation; do not expand to other games yet.
 
+## Route progression
+
+The [Pokeguy LeafGreen audit](progression/README.md) now logs the complete
+reviewed battle sequence and computes EXP after each opponent and battle.
+It compares a flee-all-random-wild route with the documented wild-win control,
+preserving Rare Candies and reporting every discrepant observation. Full
+stats/EVs, inventory, and route-wide battle win probabilities remain future work.
+
 ## pret map data
 
 Use pret decompilations as upstream map data sources, building on the existing
