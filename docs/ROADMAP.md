@@ -1,43 +1,49 @@
 # Roadmap
 
-The library is built in Python as a chain of small PRs, each with its own
-tests and docs. The full plan, and the review that shaped it, is
-[issue #7](https://github.com/dayfine/PokemonNavigation/issues/7).
+PokemonSimulation is expanding from navigation into offline simulation and
+planning for Pokémon automation. This refactor establishes naming and layout;
+the integrations below are future work.
 
-## A. Foundations
+## Existing foundation
 
-1. Package skeleton and CI.
-2. `geometry`: directions, tiles, steps.
+- Tile geometry, map schemas, text grids, and rendering.
+- Movement rules, elevation, connected maps, warps, and NPC obstacles.
+- Shortest paths, movement legs, belief planning, scoring, and localization.
+- Movement uncertainty models.
+- Map imports from local pret/pokefirered, pret/pokediamond, and
+  pret/pokeplatinum checkouts.
+- BDSP reference maps and console measurements; FRLG route fixtures.
 
-## B. Map data
+The navigation design started in
+[issue #7](https://github.com/dayfine/PokemonSimulation/issues/7).
+Details of the existing models live in [navigation/](navigation/).
 
-3. `maps.model`: cells (collision, elevation, behavior) and one map.
-4. `maps.schema`: the JSON map file, the source of truth for a map.
-   `maps.textgrid`: the character legend as a two-way table, to parse, serialize
-   and show grids as text.
-5. `movement`: what one press does on one map (walls, ledges, elevation).
-6. `maps.world`: maps joined by connections and warps.
-7. `maps.objects`: NPCs, signs, trainers' sight, named points, the viewport.
-8. `maps.pret`: FRLG import from a local pokefirered checkout.
-9. BDSP maps: the console-checked grids as map files.
-10. `maps.render`: routes and belief sets drawn over the Bulbapedia map image;
-    ASCII for tests.
+## Battle simulation
 
-## C. Routing
+Choose a public battle simulation library and build a Python interface for
+our first workload. Evaluate generation support, trainer AI, items, state
+representation, reproducibility, and how closely it models FireRed battles.
+Reuse an existing engine rather than growing another mechanics implementation.
+No engine or runtime dependency has been selected yet.
 
-11. `routing.shortest`: shortest paths with turn and grass costs.
-12. `routing.legs`: steps joined into legs; legs that end at a wall preferred.
-13. `routing.belief`: the robust planner over sets of possible tiles.
-14. `routing.score`: routes ranked by unprotected moves, localizations, turns
-    and grass.
-15. `routing.localize`: leg sequences that bring a region to one tile.
+## pret map data
 
-## D. Physics and simulation
+Use pret decompilations as upstream map data sources, building on the existing
+importers in `pokesim.decomp`. Keep local source checkouts in `external/`,
+record revisions in derived data, and keep console corrections explicit.
+Broader map coverage and reproducible source setup are follow-up work.
 
-16. `physics`: the movement model as data, and `docs/MEASURING.md`.
-17. `sim`: the simulator and Monte Carlo runs.
+## Offload AutoStory work
 
-## E. Traces
+Review [Arduino-Source PR #213](https://github.com/dayfine/Arduino-Source/pull/213)
+workload by workload. Candidates include its map and battle-data generators,
+battle simulations and win-chance estimates, and route or strategy evaluation.
+For each project, define the input state, the offline result, and how the
+console program consumes it before moving code.
 
-18. `traces`: movement traces from console runs.
-19. Fitting physics parameters from traces.
+## Movement simulation and measurements
+
+Extend the existing movement and uncertainty models into repeated route
+simulations. Capture console traces and fit physics parameters from raw
+measurements in `data/measurements/`. Validate predictions against console
+runs and, where useful, an emulator.
