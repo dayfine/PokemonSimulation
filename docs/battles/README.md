@@ -8,6 +8,11 @@ Surge. They come from the FRLG AutoStory source fixtures. This milestone
 keeps evaluation and policies in Python and reuses existing battle mechanics.
 It runs locally without a Showdown server, account, or network connection.
 
+[Adaptive sampling](adaptive-sampling.md) can stop easy cases early while
+reporting anytime-valid uncertainty bounds and unresolved budget limits.
+The [Pokeguy readiness audit](pokeguy-readiness.md) lists the missing inputs
+and mechanics before the four old fixtures can become a full-run benchmark.
+
 Our adapter lives in [`engines/frlg-showdown/`](../../engines/frlg-showdown/README.md)
 and targets **FireRed / LeafGreen (Gen 3)**. Showdown and Smogon's calculator
 support many generations; this adapter fixes the generation to 3 and supplies
