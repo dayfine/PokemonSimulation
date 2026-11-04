@@ -1,63 +1,79 @@
-# PokemonNavigation
+# PokemonSimulation
 
-Navigation for bots that play 2D tile-based games through a controller and a
-capture card: they press buttons, hold a stick for some milliseconds, and see
-only the screen. Starting with Pokémon Brilliant Diamond / Shining Pearl
-(Switch) and FireRed / LeafGreen, but nothing here is tied to one game.
+Offline simulation, data preparation, and planning for Pokémon automation.
+This repo is where we can evaluate routes and battle strategies in Python
+before spending time on a console run.
 
-It covers four things:
+The existing library covers maps, tile movement, routing under uncertainty,
+and movement physics for FireRed / LeafGreen and Brilliant Diamond /
+Shining Pearl. We are expanding it to use public battle simulation libraries
+and pret decompilations as map data sources. Battle library integration and
+moving specific workloads here are follow-up projects.
 
-- **Maps**: tile grids built from map images and decompilation data, then
-  checked on the console (walls, signs, doors, exits, NPCs, ledges).
-- **Physics**: a measured model of how the player moves for each input: how
-  far a hold or a tap goes, turning, running and biking, collisions by
-  direction, half tiles and diagonals, and how late the "stopped moving"
-  check is.
-- **Planning**: routes over the grid that stay robust when a move goes a tile
-  long, scored by how many unprotected moves they take, how many times they
-  must localize, and how many turns.
-- **Simulation**: the same route code run against a simulated game many times,
-  so a route is scored before it costs a console run.
-
-The bots that use it live elsewhere; the first is
-[Arduino-Source](https://github.com/PokemonAutomation/Arduino-Source)'s
-AutoStory programs.
+The console programs live in
+[Arduino-Source](https://github.com/PokemonAutomation/Arduino-Source).
+Its [FRLG AutoStory PR #213](https://github.com/dayfine/Arduino-Source/pull/213)
+is the starting point for identifying work to run offline here, such as data
+generation, battle evaluation, and route validation.
 
 ## Layout
 
-| Path | What |
+| Path | Purpose |
 |---|---|
-| `python/pokenav/` | The library, Python 3.8+, standard library only. Navigation on flat 2D tile grids (geometry, maps, movement, routing) is in `pokenav/grid/`; later physics, simulation and traces sit next to it. Core modules know no game; game-specific code is in `pokenav/games/`. |
-| `python/tests/` | `unittest` tests, one file per module. |
-| `games/<game>/` | Per-game data: maps, named points, measured physics parameters. |
-| `measurements/` | Raw console measurements (what was pressed, what happened), so parameters can be refit. |
-| `docs/` | The mapping process, the physics to measure, prior art, and the roadmap. |
+| `src/pokesim/grid/` | Map models, movement rules, rendering, and route planning. |
+| `src/pokesim/physics/` | Movement uncertainty models. |
+| `src/pokesim/decomp/` | pret map importers: FRLG (`frlg`) and Sinnoh (`landdata`, `events`, `repos`, `generate`). |
+| `src/pokesim/games/` | Game-specific rules and data loaders. |
+| `src/pokesim/cli/` | Commands for importing, converting, and rendering maps. |
+| `tests/` | Python unit tests and synthetic decomp fixtures. |
+| `data/games/<game>/` | Reference maps, route fixtures, and game data. |
+| `data/measurements/` | Raw console measurements for fitting models. |
+| `external/` | Ignored local checkouts of upstream data sources. |
+| `docs/navigation/` | Map, movement, physics, and routing documentation. |
+| `docs/examples/` | Small example inputs. |
+
+Future battle modules will sit alongside `grid`, `physics`, and `decomp` once
+we choose a library and the first workload.
 
 ## Develop
 
-Needs only Python 3.8 or newer. From the repository root:
+The current code uses Python 3.8+ and the standard library. From the
+repository root:
 
 ```sh
-python3 -m unittest discover -s python/tests -t python          # all tests
-python3 -m unittest discover -s python/tests -t python -p 'test_package.py'  # one file
+PYTHONPATH=src python3 -m unittest discover -s tests -t .
+PYTHONPATH=src python3 -m unittest tests.test_package
+PYTHONPATH=src python3 -m pokesim.cli.textgrid show docs/examples/tiny_town.json
 ```
 
-Tests that read a real pokefirered checkout run only when
-`POKEFIRERED_DIR` points at one (`POKEFIRERED_DIR=~/pokefirered python3 -m
-unittest ...`); pret data is never committed.
+GitHub Actions runs the tests on Python 3.8 and 3.12. All commands currently
+run from a source checkout; keep `PYTHONPATH=src` when running tools.
 
-GitHub Actions runs the same command on Python 3.8 and 3.12 for every pull
-request (`.github/workflows/tests.yml`).
+Tests against a real pret/pokefirered checkout run when `POKEFIRERED_DIR`
+points at it:
 
-Conventions:
+```sh
+POKEFIRERED_DIR="$PWD/external/pokefirered" PYTHONPATH=src python3 -m unittest discover -s tests -t .
+```
 
-- Every module and class starts with a comment saying what it is for.
-- Numbers that mean something get a name and a note on where they come from.
-- Keep functions short and flat; split a long or deeply nested one.
-- Each command-line tool documents an example input, its output, and the
-  command that runs it.
+See [external/README.md](external/README.md) for source checkout conventions,
+[data/README.md](data/README.md) for reference data, and
+[docs/navigation/MAPS.md](docs/navigation/MAPS.md) for importer commands.
 
-## Status
+## Migration from PokemonNavigation
 
-Building the Python library one small PR at a time. See
-[docs/ROADMAP.md](docs/ROADMAP.md).
+- Python imports and commands use `pokesim` instead of `pokenav`.
+- `python/pokenav/` moved to `src/pokesim/`; `python/tests/` moved to `tests/`.
+- `games/` and `measurements/` moved under `data/`.
+- The FRLG importer moved from `pokenav.grid.maps.pret` to `pokesim.decomp.frlg`.
+- The saved map format remains `pokenav-map/1`, so existing JSON maps still load.
+
+## Conventions
+
+- Start modules and classes with a comment explaining their purpose.
+- Give meaningful numbers a name and record their source.
+- Keep functions short and flat.
+- Document command-line tools with an example input, output, and command.
+- Record source repositories, revisions, and measurements alongside derived data.
+
+See [docs/ROADMAP.md](docs/ROADMAP.md) for current capabilities and next work.
