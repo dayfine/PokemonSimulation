@@ -5,6 +5,13 @@ battles into 17 route segments, with entry levels for every rival, Gym Leader,
 and League battle. It includes the two early wild wins, all seven Rare Candies,
 and evolution checkpoints.
 
+The [move history](pokeguy-moves.md) records all nine move changes, four
+declined level-up moves, and the lead's move set for every battle. It checks
+the level-up offers against pret and six full-menu observations. Two slot
+reorders lack exact timestamps; move membership is known across those windows.
+The [starter reconstruction notes](pokeguy-starter.md) preserve the nature,
+EV, and IV findings separately from the battle-input assumptions.
+
 The [complete battle log](pokeguy-exp.md) calculates the starter's cumulative
 EXP and level after every battle from Oak's lab through the Champion. It
 contains 69 trainer fights / 199 trainer Pokémon, seven Rare Candies, and the
@@ -73,6 +80,12 @@ base yield, awarded EXP, cumulative EXP, level before/after, included/excluded
 status, and all observation comparisons. Outputs contain input fingerprints
 and source revisions; no timestamps or random seeds affect the calculation.
 Use `--route` and `--reference` for alternate inputs with the same format.
+For the bundled route, `moves.json` and `moves.md` also contain the recorded
+move reconstruction. Its inputs are the sourced decisions in
+[moves.json](../../data/runs/pokeguy-leafgreen-15934/moves.json); level-up offers
+come from the pinned starter-family learnsets. Alternate routes remain EXP-only
+unless `--moves /path/to/moves.json` supplies a matching history. This move
+trace follows the observed wild wins, not the flee-all counterfactual.
 
 Regenerate the reference snapshot from the recorded pret revision:
 
@@ -111,7 +124,8 @@ wilds" means random encounters, not omitting that required fight.
 
 Every listed fight is assumed won by the starter alone. This audit calculates
 progression conditional on those wins; it does not establish that the lower
-early levels can win the same battles. It does not calculate EVs, full stats,
-move availability, battle win probabilities, money, or item inventory. Those
+early levels can win the same battles. The separate move-history module
+reconstructs known moves without PP or controller slot positions. The EXP
+audit does not calculate EVs, full stats, battle win probabilities, money, or item inventory. Those
 can build on the ledger once this EXP baseline is accepted. Observed levels
 are assertions to compare against and never inputs used to reset EXP.

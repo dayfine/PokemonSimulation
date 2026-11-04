@@ -17,6 +17,9 @@ reading. Trainer links open the battle's approximate video start; Pokémon are
 listed in defeat order. Squirtle evolves after Josh, and Wartortle evolves
 before Hideout Giovanni.
 
+See the [move history](pokeguy-moves.md) for the lead's move set on entry and
+exit for every battle, including learning after individual knockouts.
+
 ## Major battle targets
 
 “Before” means at the start of that fight, after any listed Rare Candies.

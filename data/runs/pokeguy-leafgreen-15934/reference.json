@@ -8,6 +8,8 @@
       "src/data/trainer_parties.h": "cb135d9cbdfc52c87066374d582506830a8c93561eab2033d847331c2de00299",
       "src/data/pokemon/species_info.h": "9c2da1284f7859700b315abda0499334c422f2c6776d576c788fcd1e4050f71e",
       "src/data/pokemon/experience_tables.h": "9a236761640676e251b76b7950b86e5881ee23dfe920ca27bbe47b4541542731",
+      "src/data/pokemon/level_up_learnsets.h": "d6563a88fa893d1433a02027cb13ba9574a6828a96b1a730b1d767fd7c5a0cc6",
+      "src/data/pokemon/level_up_learnset_pointers.h": "7a85513797da2a2ebdf7893ce58d94f99aee07deb1aec4f0d7a31422dc8040de",
       "src/battle_script_commands.c": "3b7341db8cd58c54fb0b54b47e6eef89c5c05e8a60ab4e9b45bdc907845c19b3",
       "src/pokemon.c": "116a470cd9ebfa226aa8d85c2eb63591e176d726837c67baaa1ac6260d50f2ec",
       "data/maps/PokemonTower_7F/scripts.inc": "3c9699000e2912afcb9833b07591271ffe24ce066331cf0a4a6e7e85f1d78dfd",
@@ -1289,7 +1291,65 @@
     },
     "BLASTOISE": {
       "exp_yield": 210,
-      "growth_rate": "GROWTH_MEDIUM_SLOW"
+      "growth_rate": "GROWTH_MEDIUM_SLOW",
+      "learnset": [
+        {
+          "level": 1,
+          "move": "TACKLE"
+        },
+        {
+          "level": 1,
+          "move": "TAIL_WHIP"
+        },
+        {
+          "level": 1,
+          "move": "BUBBLE"
+        },
+        {
+          "level": 1,
+          "move": "WITHDRAW"
+        },
+        {
+          "level": 4,
+          "move": "TAIL_WHIP"
+        },
+        {
+          "level": 7,
+          "move": "BUBBLE"
+        },
+        {
+          "level": 10,
+          "move": "WITHDRAW"
+        },
+        {
+          "level": 13,
+          "move": "WATER_GUN"
+        },
+        {
+          "level": 19,
+          "move": "BITE"
+        },
+        {
+          "level": 25,
+          "move": "RAPID_SPIN"
+        },
+        {
+          "level": 31,
+          "move": "PROTECT"
+        },
+        {
+          "level": 42,
+          "move": "RAIN_DANCE"
+        },
+        {
+          "level": 55,
+          "move": "SKULL_BASH"
+        },
+        {
+          "level": 68,
+          "move": "HYDRO_PUMP"
+        }
+      ]
     },
     "BULBASAUR": {
       "exp_yield": 64,
@@ -1549,7 +1609,53 @@
     },
     "SQUIRTLE": {
       "exp_yield": 66,
-      "growth_rate": "GROWTH_MEDIUM_SLOW"
+      "growth_rate": "GROWTH_MEDIUM_SLOW",
+      "learnset": [
+        {
+          "level": 1,
+          "move": "TACKLE"
+        },
+        {
+          "level": 4,
+          "move": "TAIL_WHIP"
+        },
+        {
+          "level": 7,
+          "move": "BUBBLE"
+        },
+        {
+          "level": 10,
+          "move": "WITHDRAW"
+        },
+        {
+          "level": 13,
+          "move": "WATER_GUN"
+        },
+        {
+          "level": 18,
+          "move": "BITE"
+        },
+        {
+          "level": 23,
+          "move": "RAPID_SPIN"
+        },
+        {
+          "level": 28,
+          "move": "PROTECT"
+        },
+        {
+          "level": 33,
+          "move": "RAIN_DANCE"
+        },
+        {
+          "level": 40,
+          "move": "SKULL_BASH"
+        },
+        {
+          "level": 47,
+          "move": "HYDRO_PUMP"
+        }
+      ]
     },
     "STARMIE": {
       "exp_yield": 207,
@@ -1593,7 +1699,61 @@
     },
     "WARTORTLE": {
       "exp_yield": 143,
-      "growth_rate": "GROWTH_MEDIUM_SLOW"
+      "growth_rate": "GROWTH_MEDIUM_SLOW",
+      "learnset": [
+        {
+          "level": 1,
+          "move": "TACKLE"
+        },
+        {
+          "level": 1,
+          "move": "TAIL_WHIP"
+        },
+        {
+          "level": 1,
+          "move": "BUBBLE"
+        },
+        {
+          "level": 4,
+          "move": "TAIL_WHIP"
+        },
+        {
+          "level": 7,
+          "move": "BUBBLE"
+        },
+        {
+          "level": 10,
+          "move": "WITHDRAW"
+        },
+        {
+          "level": 13,
+          "move": "WATER_GUN"
+        },
+        {
+          "level": 19,
+          "move": "BITE"
+        },
+        {
+          "level": 25,
+          "move": "RAPID_SPIN"
+        },
+        {
+          "level": 31,
+          "move": "PROTECT"
+        },
+        {
+          "level": 37,
+          "move": "RAIN_DANCE"
+        },
+        {
+          "level": 45,
+          "move": "SKULL_BASH"
+        },
+        {
+          "level": 53,
+          "move": "HYDRO_PUMP"
+        }
+      ]
     },
     "WEEDLE": {
       "exp_yield": 52,
