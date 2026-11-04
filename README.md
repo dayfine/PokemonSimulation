@@ -14,6 +14,8 @@ and reproducible results.
 The [full-route EXP audit](docs/progression/README.md) logs Pokeguy's LeafGreen
 battles, calculates the starter's level after each one, and compares it with
 the video notes, including a route that flees all random wild encounters.
+See the [trainer route guide](docs/progression/pokeguy-route.md) for the full
+trainer sequence grouped by segment and the level targets before major battles.
 
 The console programs live in
 [Arduino-Source](https://github.com/PokemonAutomation/Arduino-Source).

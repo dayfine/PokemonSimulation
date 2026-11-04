@@ -1,5 +1,10 @@
 # Pokeguy's LeafGreen route and EXP audit
 
+The [trainer route and level targets](pokeguy-route.md) groups all 69 trainer
+battles into 17 route segments, with entry levels for every rival, Gym Leader,
+and League battle. It includes the two early wild wins, all seven Rare Candies,
+and evolution checkpoints.
+
 The [complete battle log](pokeguy-exp.md) calculates the starter's cumulative
 EXP and level after every battle from Oak's lab through the Champion. It
 contains 69 trainer fights / 199 trainer Pokémon, seven Rare Candies, and the
