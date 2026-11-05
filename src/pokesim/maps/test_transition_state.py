@@ -175,6 +175,14 @@ class TransitionStateTests(unittest.TestCase):
         self.assertIsNotNone(plan)
         self.assertEqual(plan.arrival.state.place.map, 'A')
 
+    def test_synthetic_warp_on_blocked_glyph_is_not_a_wall_anchor(self):
+        source = dict(decomp_file='', revision='synthetic', date='2026-11-05')
+        view = LocalMap(dict(name='DiagnosticWarp', source=source,
+            tiles=['#####', '#..##', '#####'], warps=[dict(x=3, y=1, enter='step_on')]), 'frlg')
+        world = RuntimeWorld([view])
+        belief = [pose('DiagnosticWarp', x, 1, D.EAST, 0) for x in (1, 2)]
+        self.assertIsNone(clip_plan(world, belief, D.EAST, 8))
+
     def test_synthetic_corridor_cannot_anchor_through_npcs(self):
         corridor = LocalMap(dict(name='Diagnostic', source=dict(decomp_file='', revision='synthetic', date='2026-11-05'), tiles=['#######', '#.....#', '#######'],
             objects=[dict(name='a', kind='npc', x=1, y=1), dict(name='b', kind='npc', x=5, y=1)]), 'bdsp')

@@ -237,6 +237,8 @@ def clip_plan(world, belief, direction, max_presses=32, encounter_policy='stop',
     for pose in initial:
         at = pose
         for count in range(1, max_presses + 1):
+            if _aims_at_warp(world, at, direction):
+                return None
             try:
                 after, result = _press(world, at, direction)
             except StateFailure:
@@ -288,6 +290,8 @@ def anchor_plan(world, belief, max_presses=32, max_states=512, forbidden=frozens
         for direction in CLOCKWISE:
             after = set()
             for pose in poses:
+                if _aims_at_warp(world, pose, direction):
+                    break
                 try:
                     moved, result = _press(world, pose, direction)
                 except StateFailure:
@@ -303,6 +307,13 @@ def anchor_plan(world, belief, max_presses=32, max_states=512, forbidden=frozens
                     seen.add(next_poses)
                     frontier.append((next_poses, actions + (direction,)))
     return None
+
+
+def _aims_at_warp(world, pose, direction):
+    view = world.views[pose.state.place.map]
+    # Metadata can declare a warp even on a blocked glyph. Do not use that
+    # mismatch as a wall anchor; the terrain/link must be reviewed first.
+    return pose.state.place.tile.step(direction) in view.warps
 
 
 def _safe_anchor_step(world, pose, result, forbidden):

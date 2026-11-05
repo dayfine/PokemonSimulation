@@ -70,6 +70,15 @@ class RuntimeWorldTests(unittest.TestCase):
         # BDSP has no arrival-facing contract in this pack: fail closed.
         self.assertIsInstance(out, Warp)
 
+    def test_frlg_door_entry_and_automatic_south_walkout(self):
+        world = RuntimeWorld([view('frlg', 'PalletTown'), view('frlg', 'PalletTown_PlayersHouse_1F')])
+        inside = world_step(world, state('PalletTown', 6, 8, 3), D.NORTH)
+        self.assertEqual(inside.state.place, Place('PalletTown_PlayersHouse_1F', Tile(4, 8)))
+        self.assertEqual(inside.facing, D.NORTH)
+        outside = world_step(world, inside.state, D.SOUTH)
+        self.assertEqual(outside.state.place, Place('PalletTown', Tile(6, 8)))
+        self.assertEqual(outside.facing, D.SOUTH)
+
     def test_mtmoon_step_on_ladder_can_be_left_after_arrival(self):
         world = RuntimeWorld([view('frlg', 'MtMoon_1F'), view('frlg', 'MtMoon_B1F')])
         result = world_step(world, state('MtMoon_1F', 5, 7, 3), D.NORTH)
