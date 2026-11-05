@@ -9,6 +9,8 @@ and a named trainer, how often does this policy win under this model?
 The [Pokeguy trainer benchmark](pokeguy-benchmark.md) now runs all 69 trainer
 battles from reconciled entry states, with live progression and setup items.
 See [the complete results table](pokeguy-trainers.md).
+For the latest rankings, see [both entry variants and every fight's preconditions](pokeguy-conditions.md),
+including the six required healing stops on the prepared route.
 Its conditional win rates are separate from the original AutoStory experiments
 below.
 

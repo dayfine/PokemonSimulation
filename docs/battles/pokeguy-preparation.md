@@ -4,6 +4,13 @@ Pokeguy's recorded low-HP entries are the speedrun case. These experiments keep
 that case and add alternatives for a run that can spend time healing, buying
 supplies, or teaching Dig. They do not replace the recorded-entry rankings.
 
+The adopted [recorded and prepared fight contracts](pokeguy-conditions.md)
+now require a full rest before Sammy, Liam, Brock, Josh, Cerulean rival and
+S.S. Anne rival. That document lists exact preconditions for every fight and
+both top-ten rankings. The HP-only and Speed/Dig experiments below remain
+separate sensitivity comparisons. Supplemental full-rest trials for Sammy,
+Liam and Brock are recorded in `battle-preparation.json` alongside the plan.
+
 ## What changes in each experiment
 
 The player uses the same B recovery policy throughout; it has no X-item setup.
