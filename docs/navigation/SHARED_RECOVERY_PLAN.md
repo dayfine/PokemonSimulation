@@ -18,13 +18,20 @@ Review in this order:
    both jobs fail on the same 69 missing-image FileException cases.
 3. [Arduino #229](https://github.com/dayfine/Arduino-Source/pull/229): BDSP
    interruption outcomes, safe common-wall recovery and real mine story-step
-   regressions. 33 focused native tests pass, including 9 consumer cases.
-   Original execution fails 6 of the initial 8 cases. Full patched CI is pending.
+   regressions. 47 focused native tests pass, including 9 consumer cases.
+   Original execution fails 6 of the initial 8 cases. Full patched Linux CI
+   passes all 90 BDSP AutoStory tests; its only 26 failures match the baseline
+   missing-image cases. Windows compiles the new files but is blocked by
+   initializer warnings in unchanged baseline StorySim tests.
 
 These are isolated owner handoffs based on pinned game stacks, not direct
 changes to the owning branches. Shared core macOS and Windows Clang full CI
 pass. The [native run record](https://github.com/dayfine/Arduino-Source/blob/nav/recovery-run-records/autostory/navigation/shared-recovery-2026-11-05.md)
 contains exact revisions, CI links, merge order and fidelity limits.
+Changes reach #226 through explicit parent merges, not automatically: #227
+lands in #114; BDSP adapter/walker/story/simulator pieces from #229 land with
+their owning PRs (#127/#129/#128/#167/#226), then merge forward through the
+existing stack. Nav-core alone does not activate the BDSP fix.
 
 The BDSP tests use real maps, planner, story table, StoryWalkSteps and RouteWalker.
 They inject normalized cleared encounter outcomes; they do not emulate detector
