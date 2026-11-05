@@ -5,14 +5,14 @@
 Owned by PokemonSimulation; export the JSON pack to console consumers.
 
 Usage:
-    PYTHONPATH=src python3 -m pokesim.maps.autostory.bdsp                  # rewrite every map in OUT
-    PYTHONPATH=src python3 -m pokesim.maps.autostory.bdsp Route202         # rewrite one
-    PYTHONPATH=src python3 -m pokesim.maps.autostory.bdsp --check          # regenerate, fail on any difference
+    PYTHONPATH=src python3 -m pokesim.maps.bdsp_decomp_map_builder                  # rewrite every map in OUT
+    PYTHONPATH=src python3 -m pokesim.maps.bdsp_decomp_map_builder Route202         # rewrite one
+    PYTHONPATH=src python3 -m pokesim.maps.bdsp_decomp_map_builder --check          # regenerate, fail on any difference
 
 Each map is a rectangle of the decompilation's world grid (MAPS below),
-decoded tile for tile by sinnoh_decomp.py from files cached in
+decoded tile for tile by dppt_map_decomp_parser.py from files cached in
 ~/.cache/maps/decomp (override with --cache). This script never fetches;
-it names any missing file. See docs/maps/autostory.md for provenance limits.
+it names any missing file. See docs/maps/runtime-maps.md for provenance limits.
 Diamond/Pearl provides a baseline; BDSP differences need explicit corrections.
 Diamond is read unless a map says otherwise.
 The tables below add what the decompilation doesn't say or BDSP changed:
@@ -60,9 +60,9 @@ import os
 import sys
 from pathlib import Path
 
-from pokesim.maps.autostory import sinnoh_decomp as decomp  # noqa: E402
+from pokesim.maps import dppt_map_decomp_parser as decomp
 
-OUT = 'data/games/bdsp/maps/autostory'
+OUT = 'data/games/bdsp/maps/runtime'
 CACHE = Path.home() / '.cache' / 'maps' / 'decomp'
 #   When the cache was filled from the decompilations' default branches.
 READ = '2026-10-31'
@@ -485,7 +485,7 @@ COORD_EVENTS = {
 
 
 def no_fetch(repo, path):
-    raise SystemExit(f'{repo}/{path} is not in {CACHE}. Populate the cache from the recorded pret source first; see docs/maps/autostory.md.')
+    raise SystemExit(f'{repo}/{path} is not in {CACHE}. Populate the cache from the recorded pret source first; see docs/maps/runtime-maps.md.')
 
 
 def glyph(attr):

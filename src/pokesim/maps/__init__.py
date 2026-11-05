@@ -1,1 +1,1 @@
-"""Map packs and their import pipelines."""
+"""Runtime map schema, packs and game-specific decomp parsers/builders."""

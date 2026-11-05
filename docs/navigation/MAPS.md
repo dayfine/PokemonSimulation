@@ -204,13 +204,13 @@ Cells are matrix (row, col); the events file is a narc number for Diamond
 (`route_204_south` for `res/field/events/events_route_204_south.json`).
 Diamond and Platinum provide source baselines for BDSP, not proof of remake
 parity. Console differences need explicit evidence and corrections. The
-[current AutoStory packs](../maps/autostory.md) record the source game,
+[current AutoStory packs](../maps/runtime-maps.md) record the source game,
 coordinate crop, applied patches and verification limits separately.
 
 ## BDSP maps (`data/games/bdsp/`, `games.bdsp`)
 
 This section describes the older eight `pokenav-map/1` reference fixtures.
-The newer 22-map AutoStory pack lives under `maps/autostory/` and uses a
+The newer 22-map AutoStory pack lives under `maps/runtime/` and uses a
 different runtime schema and coordinate crops; see the linked pack guide.
 
 The story's first maps are generated from pret/pokediamond and are map files

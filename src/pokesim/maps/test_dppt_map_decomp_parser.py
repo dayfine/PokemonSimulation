@@ -8,7 +8,7 @@ from pathlib import Path
 
 from unittest import mock
 
-from pokesim.maps.autostory import bdsp as bdsp_maps, sinnoh_decomp as decomp
+from pokesim.maps import bdsp_decomp_map_builder as bdsp_maps, dppt_map_decomp_parser as decomp
 
 #  One synthetic 32 x 32 cell, open ground but for the first row:
 #  wall, tall grass, ledge south, ledge east, door, warp tile, water, cave wall, cave floor.

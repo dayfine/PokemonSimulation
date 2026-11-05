@@ -23,7 +23,7 @@ semantics match and keep game-specific adapters where they differ.
 - [ ] Consolidate the older eight `pokenav-map/1` fixtures only after explicit
   frame conversion and parity checks; do not overwrite them with cropped maps.
 
-Inventory, commands and caveats: [maps/autostory.md](maps/autostory.md).
+Inventory, commands and caveats: [maps/runtime-maps.md](maps/runtime-maps.md).
 
 ## 2. Generic route planning and drawing
 

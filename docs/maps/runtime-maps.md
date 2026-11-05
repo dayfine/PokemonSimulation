@@ -1,4 +1,4 @@
-# AutoStory map ownership
+# Runtime map ownership
 
 PokemonSimulation owns the imported map packs, generation tables, corrections
 and offline checks. Arduino remains the consumer of generated JSON. Consumer
@@ -9,10 +9,10 @@ The staged work is tracked in [the integration plan](../autostory-plan.md).
 
 | Pack | Maps | Arduino snapshot |
 |---|---:|---|
-| `data/games/frlg/maps/autostory/` | 53 | `frlg/stage7-celadon`, `51c0ce6128e5981da56b370a770874b96a1e129f` |
-| `data/games/bdsp/maps/autostory/` | 22 | `bdsp/autostory-v4`, `040693c62486439b4b473732860b0d4c6632dc2a` |
+| `data/games/frlg/maps/runtime/` | 53 | `frlg/stage7-celadon`, `51c0ce6128e5981da56b370a770874b96a1e129f` |
+| `data/games/bdsp/maps/runtime/` | 22 | `bdsp/autostory-v4`, `040693c62486439b4b473732860b0d4c6632dc2a` |
 
-[The manifest](../../data/maps/autostory-manifest.json) lists every file,
+[The manifest](../../data/maps/runtime-manifest.json) lists every file,
 its SHA-256, original path and revision, target/source game, crop origin,
 source revision certainty, terrain patches, generator overrides and special
 preconditions. The BDSP consumer snapshot adds `OreburghMineB1F` and revises
@@ -31,14 +31,14 @@ from an arbitrary current pret checkout. Recover/pin these inputs before
 refreshing that cache or claiming reproducible BDSP source generation.
 
 Imported Python and map JSON retain their Arduino lineage; the original MIT
-notice is in [ARDUINO-LICENSE.txt](ARDUINO-LICENSE.txt).
+copyright notice is retained in the root [LICENSE](../../LICENSE).
 
 ## Runtime schema and frames
 
-The pack is called `autostory-map/1` by this repository. That identifier is
+The pack is called `pokesim-runtime-map/1` by this repository. That identifier is
 external metadata: no new field was injected into consumer JSON. The imported
 runtime contract comes from Arduino's `Pokemon_MapData.h/.cpp` at the pinned
-snapshots; [schema.py](../../src/pokesim/maps/autostory/schema.py) validates geometry
+snapshots; [runtime_map_schema.py](../../src/pokesim/maps/runtime_map_schema.py) validates geometry
 and navigation fields and preserves unknown extensions.
 
 | Field | Meaning |
@@ -83,7 +83,7 @@ from object/trigger/door interpretation overrides. A measured discrepancy is
 an applied navigation correction, not automatically proof of a remake change:
 baseline decoding and measurement error remain possible explanations.
 
-`bdsp.py` keeps the authored tables and explanatory evidence:
+`bdsp_decomp_map_builder.py` keeps the authored tables and explanatory evidence:
 
 - `MAPS`: source game/header, world crop and verification limits.
 - `PATCHES`: console terrain corrections.
@@ -107,16 +107,29 @@ by `OPENED_TILES` after `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`. The manifest
 labels this entry precondition. It is not an initial-state gym map. Story
 flag sets and NPC hide flags must eventually be replayed by the game adapter.
 
+## Parser and builder modules
+
+All map modules live directly in `src/pokesim/maps/`; they can serve any
+planner or simulator, independent of AutoStory.
+
+| Module | Responsibility |
+|---|---|
+| `dppt_map_decomp_parser.py` | Parse Diamond/Platinum source headers, matrices, land data and events. These are BDSP baselines, not BDSP-native files. |
+| `bdsp_decomp_map_builder.py` | Build BDSP runtime maps from those parsed sources, crops, console corrections and story assumptions. |
+| `frlg_decomp_map_builder.py` | Read pinned FireRed source maps/metatiles and build the FRLG runtime pack. |
+| `runtime_map_schema.py` | Validate the shared runtime format's structural and coordinate invariants. |
+| `runtime_map_pack.py` | Audit, apply patches to copies, and export packs. |
+
 ## Generate, validate and export
 
 Run from the repository root; Python stdlib only:
 
 ```sh
-PYTHONPATH=src python3 -m pokesim.maps.autostory.frlg --out data/games/frlg/maps/autostory --check
-PYTHONPATH=src python3 -m pokesim.maps.autostory.bdsp --check
-PYTHONPATH=src python3 -m pokesim.maps.autostory.pack
+PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out data/games/frlg/maps/runtime --check
+PYTHONPATH=src python3 -m pokesim.maps.bdsp_decomp_map_builder --check
+PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack
 PYTHONPATH=src python3 -m unittest discover -s src/pokesim/maps -t src
-PYTHONPATH=src python3 -m pokesim.maps.autostory.pack --export-game frlg --out /tmp/frlg-map-export
+PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack --export-game frlg --out /tmp/frlg-map-export
 ```
 
 FRLG fetches pinned raw files into `~/.cache/pokefirered/<commit>/` on cache

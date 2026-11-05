@@ -1,6 +1,6 @@
 {
   "format": "pokesim-map-pack/1",
-  "runtime_format": "autostory-map/1",
+  "runtime_format": "pokesim-runtime-map/1",
   "upstream_repository": "dayfine/Arduino-Source",
   "games": {
     "frlg": {
@@ -8,7 +8,7 @@
       "maps": [
         {
           "name": "CeruleanCave_1F",
-          "file": "data/games/frlg/maps/autostory/CeruleanCave_1F.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCave_1F.json",
           "sha256": "714192121ce823e910da76e707de4373246720fbea8329371c790b36928db087",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_1F.json",
           "source": {
@@ -38,7 +38,7 @@
         },
         {
           "name": "CeruleanCave_2F",
-          "file": "data/games/frlg/maps/autostory/CeruleanCave_2F.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCave_2F.json",
           "sha256": "8a07a65affdd014e336c8c216af71f99bdc750038b4ea660f2d04b56f3a09bc1",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_2F.json",
           "source": {
@@ -68,7 +68,7 @@
         },
         {
           "name": "CeruleanCave_B1F",
-          "file": "data/games/frlg/maps/autostory/CeruleanCave_B1F.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCave_B1F.json",
           "sha256": "0fe9b193ecd4441a360562446a403b9ba59c14daed94e799b45c8a50053648e9",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_B1F.json",
           "source": {
@@ -98,7 +98,7 @@
         },
         {
           "name": "CeruleanCity",
-          "file": "data/games/frlg/maps/autostory/CeruleanCity.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCity.json",
           "sha256": "a1190942de0b7179c47cfef9acbf200eff2e5140f2619005f6f183a3a7721e87",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity.json",
           "source": {
@@ -128,7 +128,7 @@
         },
         {
           "name": "CeruleanCity_BikeShop",
-          "file": "data/games/frlg/maps/autostory/CeruleanCity_BikeShop.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCity_BikeShop.json",
           "sha256": "3c50968f345149168ad1e8f05648e973c0231aa3b3c3ee6dd2e3adc45f02ca1a",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity_BikeShop.json",
           "source": {
@@ -158,7 +158,7 @@
         },
         {
           "name": "CeruleanCity_Gym",
-          "file": "data/games/frlg/maps/autostory/CeruleanCity_Gym.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCity_Gym.json",
           "sha256": "a906208f1384942a840144d922368b9e804e224d2c764000f385c296db501fb0",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity_Gym.json",
           "source": {
@@ -188,7 +188,7 @@
         },
         {
           "name": "CeruleanCity_House2",
-          "file": "data/games/frlg/maps/autostory/CeruleanCity_House2.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCity_House2.json",
           "sha256": "3801f0fab66754290ba7b84947792d44f8d41aa76193168d25ce6bdd5cd8cd8c",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity_House2.json",
           "source": {
@@ -218,7 +218,7 @@
         },
         {
           "name": "CeruleanCity_Mart",
-          "file": "data/games/frlg/maps/autostory/CeruleanCity_Mart.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCity_Mart.json",
           "sha256": "d181694bcf4aa8f110f63d6138b9bd82a5479d5a9cc739f047af249476de45aa",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity_Mart.json",
           "source": {
@@ -248,7 +248,7 @@
         },
         {
           "name": "CeruleanCity_PokemonCenter_1F",
-          "file": "data/games/frlg/maps/autostory/CeruleanCity_PokemonCenter_1F.json",
+          "file": "data/games/frlg/maps/runtime/CeruleanCity_PokemonCenter_1F.json",
           "sha256": "f4aad7004a4a78d0fcb7342a9c6b7e801a26b6f641faba5ba484cfd91be12d1c",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity_PokemonCenter_1F.json",
           "source": {
@@ -278,7 +278,7 @@
         },
         {
           "name": "MtMoon_1F",
-          "file": "data/games/frlg/maps/autostory/MtMoon_1F.json",
+          "file": "data/games/frlg/maps/runtime/MtMoon_1F.json",
           "sha256": "29dc27d92da1c1c13c1a249b6ffa2d8c10f1220514ee22bc353232fcaec8a622",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/MtMoon_1F.json",
           "source": {
@@ -308,7 +308,7 @@
         },
         {
           "name": "MtMoon_B1F",
-          "file": "data/games/frlg/maps/autostory/MtMoon_B1F.json",
+          "file": "data/games/frlg/maps/runtime/MtMoon_B1F.json",
           "sha256": "6826b4259806a2f0ed22a8cd21c3b7e962ee09d4a45686d12ccda319e886c38a",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/MtMoon_B1F.json",
           "source": {
@@ -338,7 +338,7 @@
         },
         {
           "name": "MtMoon_B2F",
-          "file": "data/games/frlg/maps/autostory/MtMoon_B2F.json",
+          "file": "data/games/frlg/maps/runtime/MtMoon_B2F.json",
           "sha256": "84f24a1d7bf792477542cb118b398d78b1e2a11a990862453a149bf8e0b6544d",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/MtMoon_B2F.json",
           "source": {
@@ -368,7 +368,7 @@
         },
         {
           "name": "PalletTown",
-          "file": "data/games/frlg/maps/autostory/PalletTown.json",
+          "file": "data/games/frlg/maps/runtime/PalletTown.json",
           "sha256": "1ca0358d59d889a07525d39f632409fc9aa9e5a7d24e5ecd26ad58d2c9b8156e",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PalletTown.json",
           "source": {
@@ -398,7 +398,7 @@
         },
         {
           "name": "PalletTown_PlayersHouse_1F",
-          "file": "data/games/frlg/maps/autostory/PalletTown_PlayersHouse_1F.json",
+          "file": "data/games/frlg/maps/runtime/PalletTown_PlayersHouse_1F.json",
           "sha256": "0d94f279ba2f5b4dfa9e71c42db41820cf278d5c57ddcae5ac242f486881a458",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PalletTown_PlayersHouse_1F.json",
           "source": {
@@ -428,7 +428,7 @@
         },
         {
           "name": "PalletTown_PlayersHouse_2F",
-          "file": "data/games/frlg/maps/autostory/PalletTown_PlayersHouse_2F.json",
+          "file": "data/games/frlg/maps/runtime/PalletTown_PlayersHouse_2F.json",
           "sha256": "ec1d596aea1fbd881294ad8cd8d543975097b04b01206f8c0d84e78444c220fe",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PalletTown_PlayersHouse_2F.json",
           "source": {
@@ -458,7 +458,7 @@
         },
         {
           "name": "PalletTown_ProfessorOaksLab",
-          "file": "data/games/frlg/maps/autostory/PalletTown_ProfessorOaksLab.json",
+          "file": "data/games/frlg/maps/runtime/PalletTown_ProfessorOaksLab.json",
           "sha256": "730f7a75100b5a7cc79c2fd7ee75242a2e4fee11fa7abc6e464f26be6f14647c",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PalletTown_ProfessorOaksLab.json",
           "source": {
@@ -488,7 +488,7 @@
         },
         {
           "name": "PalletTown_RivalsHouse",
-          "file": "data/games/frlg/maps/autostory/PalletTown_RivalsHouse.json",
+          "file": "data/games/frlg/maps/runtime/PalletTown_RivalsHouse.json",
           "sha256": "b4efe7cb9f46d1f138cd2083cbdb8976f265e6994a7f6f6f74444447a75f32cd",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PalletTown_RivalsHouse.json",
           "source": {
@@ -518,7 +518,7 @@
         },
         {
           "name": "PewterCity",
-          "file": "data/games/frlg/maps/autostory/PewterCity.json",
+          "file": "data/games/frlg/maps/runtime/PewterCity.json",
           "sha256": "5a564754c6934c528ee7abdaa371a49d7513d239bebaa62cc422445e6771e8a7",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PewterCity.json",
           "source": {
@@ -548,7 +548,7 @@
         },
         {
           "name": "PewterCity_Gym",
-          "file": "data/games/frlg/maps/autostory/PewterCity_Gym.json",
+          "file": "data/games/frlg/maps/runtime/PewterCity_Gym.json",
           "sha256": "6c91e398177f0a18b21a01f78a9984ff58ef774e94b6b125f62d67b4b3433441",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PewterCity_Gym.json",
           "source": {
@@ -578,7 +578,7 @@
         },
         {
           "name": "PewterCity_Mart",
-          "file": "data/games/frlg/maps/autostory/PewterCity_Mart.json",
+          "file": "data/games/frlg/maps/runtime/PewterCity_Mart.json",
           "sha256": "f9d73f6cd3fb9e24a88e1456869f5dbafdf49c30c34887d0e16ab4fae38089f3",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PewterCity_Mart.json",
           "source": {
@@ -608,7 +608,7 @@
         },
         {
           "name": "PewterCity_Museum_1F",
-          "file": "data/games/frlg/maps/autostory/PewterCity_Museum_1F.json",
+          "file": "data/games/frlg/maps/runtime/PewterCity_Museum_1F.json",
           "sha256": "ddc986b8b0eb23fa055902fddcf464ab8525e7c95b959437afa1adfb3a044df6",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PewterCity_Museum_1F.json",
           "source": {
@@ -638,7 +638,7 @@
         },
         {
           "name": "PewterCity_PokemonCenter_1F",
-          "file": "data/games/frlg/maps/autostory/PewterCity_PokemonCenter_1F.json",
+          "file": "data/games/frlg/maps/runtime/PewterCity_PokemonCenter_1F.json",
           "sha256": "f764951be31d587331804fe10994e4dd34255b5c4049e8f35b8a0e0892eeb7f5",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PewterCity_PokemonCenter_1F.json",
           "source": {
@@ -668,7 +668,7 @@
         },
         {
           "name": "Route1",
-          "file": "data/games/frlg/maps/autostory/Route1.json",
+          "file": "data/games/frlg/maps/runtime/Route1.json",
           "sha256": "3cb6adbf2ca96872e9d2773992fc38b565f8c48030071c6abff43dfcb5233551",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route1.json",
           "source": {
@@ -698,7 +698,7 @@
         },
         {
           "name": "Route10",
-          "file": "data/games/frlg/maps/autostory/Route10.json",
+          "file": "data/games/frlg/maps/runtime/Route10.json",
           "sha256": "45c12e869ae778a3f679f7b9e6eabb688bf444d59ccb7fb128c7fce5ab893f84",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route10.json",
           "source": {
@@ -728,7 +728,7 @@
         },
         {
           "name": "Route10_PokemonCenter_1F",
-          "file": "data/games/frlg/maps/autostory/Route10_PokemonCenter_1F.json",
+          "file": "data/games/frlg/maps/runtime/Route10_PokemonCenter_1F.json",
           "sha256": "c0e92f6b4cfbb2b31a69ca82008e60c0b225cb922a6370a227092d5b2cf1554b",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route10_PokemonCenter_1F.json",
           "source": {
@@ -758,7 +758,7 @@
         },
         {
           "name": "Route2",
-          "file": "data/games/frlg/maps/autostory/Route2.json",
+          "file": "data/games/frlg/maps/runtime/Route2.json",
           "sha256": "5404277c960c39c1d84174781364ab4d8268d1090e4e91a2ff8383876fc0536b",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route2.json",
           "source": {
@@ -788,7 +788,7 @@
         },
         {
           "name": "Route22",
-          "file": "data/games/frlg/maps/autostory/Route22.json",
+          "file": "data/games/frlg/maps/runtime/Route22.json",
           "sha256": "33cc887be6d0c44c49435fa284280264f376c0f8332946f1b8eb945dd4a88f31",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route22.json",
           "source": {
@@ -818,7 +818,7 @@
         },
         {
           "name": "Route24",
-          "file": "data/games/frlg/maps/autostory/Route24.json",
+          "file": "data/games/frlg/maps/runtime/Route24.json",
           "sha256": "20895a96d8372fc0e1f296e79f2942d788aefe1aa555d41eb2ec70a6a2d224a1",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route24.json",
           "source": {
@@ -848,7 +848,7 @@
         },
         {
           "name": "Route25",
-          "file": "data/games/frlg/maps/autostory/Route25.json",
+          "file": "data/games/frlg/maps/runtime/Route25.json",
           "sha256": "805d1040ebe5f052b2c6ebff77fff0acbe5967e0e694446ec606899af347f918",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route25.json",
           "source": {
@@ -878,7 +878,7 @@
         },
         {
           "name": "Route25_SeaCottage",
-          "file": "data/games/frlg/maps/autostory/Route25_SeaCottage.json",
+          "file": "data/games/frlg/maps/runtime/Route25_SeaCottage.json",
           "sha256": "7c50234ac0c8f6ce83eadd883fbe8f56ec76ac587a8b9f3aa7f31eb5ad27b57a",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route25_SeaCottage.json",
           "source": {
@@ -908,7 +908,7 @@
         },
         {
           "name": "Route2_ViridianForest_NorthEntrance",
-          "file": "data/games/frlg/maps/autostory/Route2_ViridianForest_NorthEntrance.json",
+          "file": "data/games/frlg/maps/runtime/Route2_ViridianForest_NorthEntrance.json",
           "sha256": "4812a4f212382ba53de5db155521f7d4e5bb65b206fd2d0b29a08c0ec918de91",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route2_ViridianForest_NorthEntrance.json",
           "source": {
@@ -938,7 +938,7 @@
         },
         {
           "name": "Route2_ViridianForest_SouthEntrance",
-          "file": "data/games/frlg/maps/autostory/Route2_ViridianForest_SouthEntrance.json",
+          "file": "data/games/frlg/maps/runtime/Route2_ViridianForest_SouthEntrance.json",
           "sha256": "8b58cf8ec5a0168dbcc2a00e0ba4fc67858fcfef96005c27f49fec435bc084e4",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route2_ViridianForest_SouthEntrance.json",
           "source": {
@@ -968,7 +968,7 @@
         },
         {
           "name": "Route3",
-          "file": "data/games/frlg/maps/autostory/Route3.json",
+          "file": "data/games/frlg/maps/runtime/Route3.json",
           "sha256": "ef536a317be09adcc3fd41d67aadb366c29ba5d12b6651fc1a9cd953558b3696",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route3.json",
           "source": {
@@ -998,7 +998,7 @@
         },
         {
           "name": "Route4",
-          "file": "data/games/frlg/maps/autostory/Route4.json",
+          "file": "data/games/frlg/maps/runtime/Route4.json",
           "sha256": "f08d49ed71413faf54c892c33e6366706fcbf625ede9f32396810f23762df08c",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route4.json",
           "source": {
@@ -1028,7 +1028,7 @@
         },
         {
           "name": "Route4_PokemonCenter_1F",
-          "file": "data/games/frlg/maps/autostory/Route4_PokemonCenter_1F.json",
+          "file": "data/games/frlg/maps/runtime/Route4_PokemonCenter_1F.json",
           "sha256": "d4e0face4d76029afb12ee091f4e97f784d0a225ec5cc7177595f1d9c7dc5f61",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route4_PokemonCenter_1F.json",
           "source": {
@@ -1058,7 +1058,7 @@
         },
         {
           "name": "Route5",
-          "file": "data/games/frlg/maps/autostory/Route5.json",
+          "file": "data/games/frlg/maps/runtime/Route5.json",
           "sha256": "d1ce8415aebed1c4b0900d859187fe68ef53681fa0521c3bb956be9013486f03",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route5.json",
           "source": {
@@ -1088,7 +1088,7 @@
         },
         {
           "name": "Route6",
-          "file": "data/games/frlg/maps/autostory/Route6.json",
+          "file": "data/games/frlg/maps/runtime/Route6.json",
           "sha256": "26b967be9b150406e2ba652e91485933eb6c40e7b67265ac8c520c691c44777a",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route6.json",
           "source": {
@@ -1118,7 +1118,7 @@
         },
         {
           "name": "Route9",
-          "file": "data/games/frlg/maps/autostory/Route9.json",
+          "file": "data/games/frlg/maps/runtime/Route9.json",
           "sha256": "9fb3f504b0a1786667d68e40779845a1c2002ef6527679b94d71c444e293200d",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route9.json",
           "source": {
@@ -1148,7 +1148,7 @@
         },
         {
           "name": "SSAnne_1F_Corridor",
-          "file": "data/games/frlg/maps/autostory/SSAnne_1F_Corridor.json",
+          "file": "data/games/frlg/maps/runtime/SSAnne_1F_Corridor.json",
           "sha256": "9409d330ad1490270cdbd752967f5eed81051e497b9361c9141dce28c2b59b38",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/SSAnne_1F_Corridor.json",
           "source": {
@@ -1178,7 +1178,7 @@
         },
         {
           "name": "SSAnne_2F_Corridor",
-          "file": "data/games/frlg/maps/autostory/SSAnne_2F_Corridor.json",
+          "file": "data/games/frlg/maps/runtime/SSAnne_2F_Corridor.json",
           "sha256": "31650c234ca0399cce56ce4f46f212bf7c21482f2977ca1e5105a0bcabdabd23",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/SSAnne_2F_Corridor.json",
           "source": {
@@ -1208,7 +1208,7 @@
         },
         {
           "name": "SSAnne_CaptainsOffice",
-          "file": "data/games/frlg/maps/autostory/SSAnne_CaptainsOffice.json",
+          "file": "data/games/frlg/maps/runtime/SSAnne_CaptainsOffice.json",
           "sha256": "8d2b69dc8dc07915190df1f406c2c11be79f3d1c9c0f749ae43c6090cecb3c3b",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/SSAnne_CaptainsOffice.json",
           "source": {
@@ -1238,7 +1238,7 @@
         },
         {
           "name": "SSAnne_Exterior",
-          "file": "data/games/frlg/maps/autostory/SSAnne_Exterior.json",
+          "file": "data/games/frlg/maps/runtime/SSAnne_Exterior.json",
           "sha256": "e07c0791a4db539b1f3f41c7ebc5476b8780a095d018e218cd8d2dde705c1b2e",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/SSAnne_Exterior.json",
           "source": {
@@ -1268,7 +1268,7 @@
         },
         {
           "name": "UndergroundPath_NorthEntrance",
-          "file": "data/games/frlg/maps/autostory/UndergroundPath_NorthEntrance.json",
+          "file": "data/games/frlg/maps/runtime/UndergroundPath_NorthEntrance.json",
           "sha256": "c7d8fff69ef4cd318795b8a55609f5180ebc38c3bcb7b9b4cb1ce513b33a5983",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/UndergroundPath_NorthEntrance.json",
           "source": {
@@ -1298,7 +1298,7 @@
         },
         {
           "name": "UndergroundPath_NorthSouthTunnel",
-          "file": "data/games/frlg/maps/autostory/UndergroundPath_NorthSouthTunnel.json",
+          "file": "data/games/frlg/maps/runtime/UndergroundPath_NorthSouthTunnel.json",
           "sha256": "6490a6788bf936ca63e0b4e763a973adb37e2452cc173ab7382950e6028cfadc",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/UndergroundPath_NorthSouthTunnel.json",
           "source": {
@@ -1328,7 +1328,7 @@
         },
         {
           "name": "UndergroundPath_SouthEntrance",
-          "file": "data/games/frlg/maps/autostory/UndergroundPath_SouthEntrance.json",
+          "file": "data/games/frlg/maps/runtime/UndergroundPath_SouthEntrance.json",
           "sha256": "5f7c6c5c0366768e469493fb51bcfe4555ed9209ebccd88c073ffd94618dbd92",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/UndergroundPath_SouthEntrance.json",
           "source": {
@@ -1358,7 +1358,7 @@
         },
         {
           "name": "VermilionCity",
-          "file": "data/games/frlg/maps/autostory/VermilionCity.json",
+          "file": "data/games/frlg/maps/runtime/VermilionCity.json",
           "sha256": "1bfab8baa61b3d0c8872298a49de6ab01fcdd2a2a42b0ff4bb01258e28b8ce84",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/VermilionCity.json",
           "source": {
@@ -1388,7 +1388,7 @@
         },
         {
           "name": "VermilionCity_Gym",
-          "file": "data/games/frlg/maps/autostory/VermilionCity_Gym.json",
+          "file": "data/games/frlg/maps/runtime/VermilionCity_Gym.json",
           "sha256": "3418e3877a5da1397ed184df0422618abe93d60e19c13c15e63e02732357503c",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/VermilionCity_Gym.json",
           "source": {
@@ -1445,7 +1445,7 @@
         },
         {
           "name": "VermilionCity_PokemonCenter_1F",
-          "file": "data/games/frlg/maps/autostory/VermilionCity_PokemonCenter_1F.json",
+          "file": "data/games/frlg/maps/runtime/VermilionCity_PokemonCenter_1F.json",
           "sha256": "893180059546101f7ae572b49bd62c42482d064e33fc3d6cce47e0e44259d0af",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/VermilionCity_PokemonCenter_1F.json",
           "source": {
@@ -1475,7 +1475,7 @@
         },
         {
           "name": "VermilionCity_PokemonFanClub",
-          "file": "data/games/frlg/maps/autostory/VermilionCity_PokemonFanClub.json",
+          "file": "data/games/frlg/maps/runtime/VermilionCity_PokemonFanClub.json",
           "sha256": "09f535cafe39932b9aef3530e25491ba00295cf60ebd96c18872eb822d60ae41",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/VermilionCity_PokemonFanClub.json",
           "source": {
@@ -1505,7 +1505,7 @@
         },
         {
           "name": "ViridianCity",
-          "file": "data/games/frlg/maps/autostory/ViridianCity.json",
+          "file": "data/games/frlg/maps/runtime/ViridianCity.json",
           "sha256": "76bcbd923eb1b38198e87bc0b09047ceebd881994f69c1c8e63755b2d47a8770",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/ViridianCity.json",
           "source": {
@@ -1535,7 +1535,7 @@
         },
         {
           "name": "ViridianCity_Mart",
-          "file": "data/games/frlg/maps/autostory/ViridianCity_Mart.json",
+          "file": "data/games/frlg/maps/runtime/ViridianCity_Mart.json",
           "sha256": "44bdc05c9fbca6f99ac59d0d84a1c0c8e73f2a5cedffabb34a893c2ad8ec1a93",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/ViridianCity_Mart.json",
           "source": {
@@ -1565,7 +1565,7 @@
         },
         {
           "name": "ViridianCity_PokemonCenter_1F",
-          "file": "data/games/frlg/maps/autostory/ViridianCity_PokemonCenter_1F.json",
+          "file": "data/games/frlg/maps/runtime/ViridianCity_PokemonCenter_1F.json",
           "sha256": "8c8d153162f572273274246fef6eae3a2ad36a9d61f83d441b5c217963999e9b",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/ViridianCity_PokemonCenter_1F.json",
           "source": {
@@ -1595,7 +1595,7 @@
         },
         {
           "name": "ViridianForest",
-          "file": "data/games/frlg/maps/autostory/ViridianForest.json",
+          "file": "data/games/frlg/maps/runtime/ViridianForest.json",
           "sha256": "f550fe9c983a769fa8886053c7cdcf1307c02ba5e94a6f9e9acd6013d0942222",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/ViridianForest.json",
           "source": {
@@ -1630,7 +1630,7 @@
       "maps": [
         {
           "name": "FloaromaTown",
-          "file": "data/games/bdsp/maps/autostory/FloaromaTown.json",
+          "file": "data/games/bdsp/maps/runtime/FloaromaTown.json",
           "sha256": "c30944b07e3728f309e2a7fa4f234f41b04e5be11a7002788206cf05e325723e",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/FloaromaTown.json",
           "source": {
@@ -1691,7 +1691,7 @@
                 "old_man"
               ],
               "difference": "Added console obstacles absent from Diamond event data",
-              "evidence": "r251a, 2026-10-31; bdsp.py OBJECTS/FloaromaTown",
+              "evidence": "r251a, 2026-10-31; bdsp_decomp_map_builder.py OBJECTS/FloaromaTown",
               "status": "console-observed"
             }
           ],
@@ -1699,7 +1699,7 @@
         },
         {
           "name": "JubilifeCity",
-          "file": "data/games/bdsp/maps/autostory/JubilifeCity.json",
+          "file": "data/games/bdsp/maps/runtime/JubilifeCity.json",
           "sha256": "9ca752c5444212560b0c1894a0bbcd7d18baf135deb0762df304997895645cbf",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/JubilifeCity.json",
           "source": {
@@ -1775,7 +1775,7 @@
                 26
               ],
               "difference": "Wander in Diamond; assumed still after three console runs of scene 00.05",
-              "evidence": "bdsp.py OBJECTS/JubilifeCity, 00.05 three runs",
+              "evidence": "bdsp_decomp_map_builder.py OBJECTS/JubilifeCity, 00.05 three runs",
               "status": "scenario observation; not proof of universally stationary NPCs"
             }
           ],
@@ -1783,7 +1783,7 @@
         },
         {
           "name": "LakeVerity",
-          "file": "data/games/bdsp/maps/autostory/LakeVerity.json",
+          "file": "data/games/bdsp/maps/runtime/LakeVerity.json",
           "sha256": "882bac4062147f9e1c05ffc2d4b7bfce8dc5bee98b39322e07ab40373670a622",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/LakeVerity.json",
           "source": {
@@ -1829,7 +1829,7 @@
         },
         {
           "name": "OreburghCity",
-          "file": "data/games/bdsp/maps/autostory/OreburghCity.json",
+          "file": "data/games/bdsp/maps/runtime/OreburghCity.json",
           "sha256": "2f19801fedb2e0adb5bb3fd1147052acfab356eaecfc3d7c3831597ff3c96867",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghCity.json",
           "source": {
@@ -1884,7 +1884,7 @@
         },
         {
           "name": "OreburghGate",
-          "file": "data/games/bdsp/maps/autostory/OreburghGate.json",
+          "file": "data/games/bdsp/maps/runtime/OreburghGate.json",
           "sha256": "fbbde4e0f53744454951753ec784be3f9edc4cc2b11fe76971530cb3680550cf",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghGate.json",
           "source": {
@@ -1918,7 +1918,7 @@
         },
         {
           "name": "OreburghGym",
-          "file": "data/games/bdsp/maps/autostory/OreburghGym.json",
+          "file": "data/games/bdsp/maps/runtime/OreburghGym.json",
           "sha256": "bdceef11207b50280bc97d2390928e94414fb33cc303c978b9af7902c01999a6",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghGym.json",
           "source": {
@@ -1952,7 +1952,7 @@
         },
         {
           "name": "OreburghMine",
-          "file": "data/games/bdsp/maps/autostory/OreburghMine.json",
+          "file": "data/games/bdsp/maps/runtime/OreburghMine.json",
           "sha256": "eee7de82201b04e6e2212dd7f0e91e1f947f8f14be0ae4acc78b75ce38416eff",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMine.json",
           "source": {
@@ -1996,7 +1996,7 @@
         },
         {
           "name": "OreburghMineB1F",
-          "file": "data/games/bdsp/maps/autostory/OreburghMineB1F.json",
+          "file": "data/games/bdsp/maps/runtime/OreburghMineB1F.json",
           "sha256": "1bb7aa2096eded46e165d818343ad256aad2560aa28d92ec2f4ac91b91794eed",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMineB1F.json",
           "source": {
@@ -2043,7 +2043,7 @@
         },
         {
           "name": "PlayerHouse1F",
-          "file": "data/games/bdsp/maps/autostory/PlayerHouse1F.json",
+          "file": "data/games/bdsp/maps/runtime/PlayerHouse1F.json",
           "sha256": "1f8a360b96af695303f5d38a8f1fd1061e350f70ba560bd9b2989c8a8acebca4",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/PlayerHouse1F.json",
           "source": {
@@ -2098,7 +2098,7 @@
         },
         {
           "name": "PlayerHouse2F",
-          "file": "data/games/bdsp/maps/autostory/PlayerHouse2F.json",
+          "file": "data/games/bdsp/maps/runtime/PlayerHouse2F.json",
           "sha256": "2e77b58f0d26b75fa4ea538c0e3918ce3d9d3e08ff6ef542d4d7566dafbda8f9",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/PlayerHouse2F.json",
           "source": {
@@ -2132,7 +2132,7 @@
         },
         {
           "name": "RavagedPath",
-          "file": "data/games/bdsp/maps/autostory/RavagedPath.json",
+          "file": "data/games/bdsp/maps/runtime/RavagedPath.json",
           "sha256": "ae8164248a3e3fe870e35299f1fddf3e2d811e3062e4b1a523440250c6305c50",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/RavagedPath.json",
           "source": {
@@ -2166,7 +2166,7 @@
         },
         {
           "name": "RivalHouse1F",
-          "file": "data/games/bdsp/maps/autostory/RivalHouse1F.json",
+          "file": "data/games/bdsp/maps/runtime/RivalHouse1F.json",
           "sha256": "ceff02165293d5a69b38d38a5b828ec2f97a2b3fc00074b7ba1258248fe9d39e",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/RivalHouse1F.json",
           "source": {
@@ -2200,7 +2200,7 @@
         },
         {
           "name": "RivalHouse2F",
-          "file": "data/games/bdsp/maps/autostory/RivalHouse2F.json",
+          "file": "data/games/bdsp/maps/runtime/RivalHouse2F.json",
           "sha256": "ad4ee3a83cabb067da9ac7538a54fc4f3d8b8fea48092cb4906a54efd27e54d6",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/RivalHouse2F.json",
           "source": {
@@ -2239,7 +2239,7 @@
         },
         {
           "name": "Route201",
-          "file": "data/games/bdsp/maps/autostory/Route201.json",
+          "file": "data/games/bdsp/maps/runtime/Route201.json",
           "sha256": "0995b532347a2d1cbfcdf53073dc86d69f0f0bd04a288a2fa902c5c3574341f0",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route201.json",
           "source": {
@@ -2323,7 +2323,7 @@
               "kind": "npc_movement",
               "source_object_index": 1,
               "difference": "Potion giver moves off her Diamond spawn; omitted from static routing, interaction approached separately",
-              "evidence": "bdsp.py OBJECTS/Route201 console comment; 2026-10-28 to 30 POINTS evidence",
+              "evidence": "bdsp_decomp_map_builder.py OBJECTS/Route201 console comment; 2026-10-28 to 30 POINTS evidence",
               "status": "console-observed"
             }
           ],
@@ -2331,7 +2331,7 @@
         },
         {
           "name": "Route202",
-          "file": "data/games/bdsp/maps/autostory/Route202.json",
+          "file": "data/games/bdsp/maps/runtime/Route202.json",
           "sha256": "360c0ae205293fadb0a98af30b8c2e5d002b10e159c9bef9ac49f0cb5f6e8eb2",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route202.json",
           "source": {
@@ -2446,7 +2446,7 @@
         },
         {
           "name": "Route203",
-          "file": "data/games/bdsp/maps/autostory/Route203.json",
+          "file": "data/games/bdsp/maps/runtime/Route203.json",
           "sha256": "01aa9ba04f2b81c3391adce8d182a01e1054a68c55d9c228f17728fe77e3232b",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route203.json",
           "source": {
@@ -2484,7 +2484,7 @@
               "kind": "npc_movement",
               "source_object_index": 0,
               "difference": "Stationary in Diamond; wanders near Gate in BDSP; omitted from static objects",
-              "evidence": "bdsp.py OBJECTS/Route203",
+              "evidence": "bdsp_decomp_map_builder.py OBJECTS/Route203",
               "status": "console-observed; run id unspecified"
             }
           ],
@@ -2492,7 +2492,7 @@
         },
         {
           "name": "Route204North",
-          "file": "data/games/bdsp/maps/autostory/Route204North.json",
+          "file": "data/games/bdsp/maps/runtime/Route204North.json",
           "sha256": "1b63cc4989c820dfd9fcf598775e9cf63d7702659e796c191b18909f40662058",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204North.json",
           "source": {
@@ -2542,7 +2542,7 @@
         },
         {
           "name": "Route204South",
-          "file": "data/games/bdsp/maps/autostory/Route204South.json",
+          "file": "data/games/bdsp/maps/runtime/Route204South.json",
           "sha256": "c80994b1f16865b90773b7127d0825e82a6ccfdc9a880fc4f97b868b93539362",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204South.json",
           "source": {
@@ -2581,7 +2581,7 @@
         },
         {
           "name": "RowansLab",
-          "file": "data/games/bdsp/maps/autostory/RowansLab.json",
+          "file": "data/games/bdsp/maps/runtime/RowansLab.json",
           "sha256": "57b1ca403316e145f5f6a227ba53a87b30f05b6c45fe33e79d836da40f0b0936",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/RowansLab.json",
           "source": {
@@ -2620,7 +2620,7 @@
         },
         {
           "name": "SandgemTown",
-          "file": "data/games/bdsp/maps/autostory/SandgemTown.json",
+          "file": "data/games/bdsp/maps/runtime/SandgemTown.json",
           "sha256": "c0c4d01e41b5fab9181fcfe5203c2d18cb6e7d166d1cc4fc0f4d0a64a7dc53dc",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/SandgemTown.json",
           "source": {
@@ -2666,7 +2666,7 @@
                 2
               ],
               "difference": "Stationary in Diamond; wander on console; omitted from static objects",
-              "evidence": "bdsp.py OBJECTS/SandgemTown",
+              "evidence": "bdsp_decomp_map_builder.py OBJECTS/SandgemTown",
               "status": "console-observed; run id unspecified"
             }
           ],
@@ -2674,7 +2674,7 @@
         },
         {
           "name": "TwinleafTown",
-          "file": "data/games/bdsp/maps/autostory/TwinleafTown.json",
+          "file": "data/games/bdsp/maps/runtime/TwinleafTown.json",
           "sha256": "50d3a3da800f6dd8bd7f45758df7e65f0e02ac9dfae3e5fb22d31388922a7965",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/TwinleafTown.json",
           "source": {
@@ -2710,7 +2710,7 @@
         },
         {
           "name": "VerityLakefront",
-          "file": "data/games/bdsp/maps/autostory/VerityLakefront.json",
+          "file": "data/games/bdsp/maps/runtime/VerityLakefront.json",
           "sha256": "05474ff2d9cf5c7be7b4e7ae38a25fc653fb9eb2eda4cea5578662cbede550e3",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/VerityLakefront.json",
           "source": {

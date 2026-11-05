@@ -2,7 +2,7 @@
 # Original path: devtools/maps/tests/test_frlg_maps.py
 import unittest
 
-from pokesim.maps.autostory import frlg as frlg_maps
+from pokesim.maps import frlg_decomp_map_builder as frlg_maps
 
 TILES = ['.....'] * 5
 

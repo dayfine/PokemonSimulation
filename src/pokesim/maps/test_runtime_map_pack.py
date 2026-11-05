@@ -8,7 +8,7 @@ import sys
 import tempfile
 import unittest
 
-from pokesim.maps.autostory import bdsp, frlg, pack
+from pokesim.maps import bdsp_decomp_map_builder as bdsp, frlg_decomp_map_builder as frlg, runtime_map_pack as pack
 
 
 class PackTest(unittest.TestCase):
@@ -30,7 +30,7 @@ class PackTest(unittest.TestCase):
                                      [list(p) for p in frlg.OPENED_TILES.get(entry['name'], [])])
 
     def test_corrections_apply_to_copy_and_keep_evidence_and_extensions(self):
-        raw = pack.load(pack.ROOT / 'data/games/bdsp/maps/autostory/Route202.json')
+        raw = pack.load(pack.ROOT / 'data/games/bdsp/maps/runtime/Route202.json')
         raw['future_extension'] = {'unknown': [1, 2]}
         before = copy.deepcopy(raw)
         effective = pack.effective_map(raw)
@@ -52,17 +52,20 @@ class PackTest(unittest.TestCase):
                 pack.validate(dict(raw, **change))
 
     def test_unresolved_warps_are_retained_not_walls(self):
-        raw = pack.load(pack.ROOT / 'data/games/frlg/maps/autostory/VermilionCity.json')
+        raw = pack.load(pack.ROOT / 'data/games/frlg/maps/runtime/VermilionCity.json')
         unresolved = [warp for warp in raw['warps'] if 'to_map' not in warp]
         self.assertTrue(unresolved)
         self.assertTrue(all(warp in pack.effective_map(raw)['warps'] for warp in unresolved))
 
     def test_consumer_export_is_byte_identical(self):
         with tempfile.TemporaryDirectory() as directory:
-            subprocess.run([sys.executable, '-m', 'pokesim.maps.autostory.pack',
+            subprocess.run([sys.executable, '-m', 'pokesim.maps.runtime_map_pack',
                             '--export-game', 'bdsp', '--out', directory], check=True, stdout=subprocess.PIPE)
-            sources = pack.ROOT / 'data/games/bdsp/maps/autostory'
-            for source in sources.glob('*.json'):
+            sources = pack.ROOT / 'data/games/bdsp/maps/runtime'
+            files = list(sources.glob('*.json'))
+            self.assertEqual(len(files), 22)
+            self.assertEqual(len(list(Path(directory).glob('*.json'))), 22)
+            for source in files:
                 self.assertEqual(source.read_bytes(), (Path(directory) / source.name).read_bytes())
             self.assertTrue((Path(directory) / 'OreburghMineB1F.json').exists())
 

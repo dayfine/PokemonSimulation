@@ -20,7 +20,7 @@ AutoStory plans as producers of battle histories and this repo as their evaluato
 with configurable minimum-win-rate and reliability-quota criteria.
 
 The [AutoStory integration plan](docs/autostory-plan.md) tracks map ownership,
-route planning and shared FRLG/BDSP simulation. The [imported map packs](docs/maps/autostory.md)
+route planning and shared FRLG/BDSP simulation. The [imported map packs](docs/maps/runtime-maps.md)
 include 53 FRLG and 22 BDSP maps, portable generators, corrections, provenance
 and a byte-identical export for Arduino consumers.
 

@@ -11,11 +11,11 @@ import json
 from pathlib import Path
 import shutil
 
+from .runtime_map_schema import validate
 
-ROOT = Path(__file__).resolve().parents[4]
-MANIFEST = ROOT / 'data/maps/autostory-manifest.json'
 
-from .schema import validate
+ROOT = Path(__file__).resolve().parents[3]
+MANIFEST = ROOT / 'data/maps/runtime-manifest.json'
 
 
 def load(path):
@@ -50,7 +50,7 @@ def audit(manifest_path=MANIFEST):
             if data['name'] != entry['name'] or data['source'] != entry['source']:
                 raise ValueError('manifest identity/source mismatch: ' + entry['file'])
             maps[entry['name']] = data
-        actual = {p.stem for p in (ROOT / 'data/games' / game / 'maps/autostory').glob('*.json')}
+        actual = {p.stem for p in (ROOT / 'data/games' / game / 'maps/runtime').glob('*.json')}
         if actual != set(maps):
             raise ValueError('pack inventory mismatch: ' + game)
         for name, data in maps.items():

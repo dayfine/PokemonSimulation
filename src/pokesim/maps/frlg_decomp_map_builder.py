@@ -5,10 +5,10 @@
 Owned by PokemonSimulation; export the JSON pack to console consumers.
 
 Usage:
-    PYTHONPATH=src python3 -m pokesim.maps.autostory.frlg --out data/games/frlg/maps/autostory \
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out data/games/frlg/maps/runtime \
         Route3 Route4 Route4_PokemonCenter_1F
-    PYTHONPATH=src python3 -m pokesim.maps.autostory.frlg --out <folder>
-    PYTHONPATH=src python3 -m pokesim.maps.autostory.frlg --out <folder> --check
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder>
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder> --check
 
 Downloads each map's data/maps/<map>/map.json, its layout's map.bin and its
 tilesets' metatile_attributes.bin at --commit into --cache, then writes
@@ -23,7 +23,7 @@ and flag sets come from POINTS and FLAG_SETS below.
 Without map names, the maps are the ones already in --out; with them, those
 maps are added to the ones in --out, so warps and connections still join
 them all. --check writes nothing: it regenerates them and fails if any file
-differs. Export the generated pack with pokesim.maps.autostory.pack for
+differs. Export the generated pack with pokesim.maps.runtime_map_pack for
 Arduino consumers.
 """
 import argparse

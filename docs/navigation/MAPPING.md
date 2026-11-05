@@ -11,7 +11,7 @@ decomp gives the collision, behaviors, objects, warps and connections
 exactly; the console then checks the differences the remake made (BDSP's
 Route 201 Potion giver wanders; the decomp has her standing still), which
 are recorded as evidenced corrections in the
-[AutoStory pack](../maps/autostory.md). Its generator tables distinguish
+[AutoStory pack](../maps/runtime-maps.md). Its generator tables distinguish
 terrain patches from object overrides and story assumptions; unresolved
 observations remain unresolved. Older reference maps keep their original
 notes and coordinate frames. Tracing a grid from a map image is the

@@ -1,4 +1,4 @@
-"""Structural contract for AutoStory runtime maps; see docs/maps/autostory.md.
+"""Structural contract for runtime maps; see docs/maps/runtime-maps.md.
 
 Unknown extensions remain intact. Geometric invariants are checked here;
 game-specific flag/trigger semantics belong to the replay adapter.
@@ -12,7 +12,7 @@ ENTRIES = {'walk_into', 'step_on', 'cave_entrance', 'walk_north',
 def validate(data):
     """Check grid geometry and navigation fields without discarding extensions.
 
-    Raises ValueError. Full field documentation is in docs/maps/autostory.md;
+    Raises ValueError. Full field documentation is in docs/maps/runtime-maps.md;
     this checks the pack's structural and coordinate invariants, not whether
     decomp terrain or console observations are correct.
     """
