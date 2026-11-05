@@ -4,6 +4,10 @@ PokemonSimulation owns the imported map packs, generation tables, corrections
 and offline checks. Arduino remains the consumer of generated JSON. Consumer
 branches have not been changed or had their generators deleted by this import.
 The staged work is tracked in [the integration plan](../autostory-plan.md).
+The [consumer process](consumer-process.md) specifies pinned exports and hash
+checks so future map corrections are authored here. The
+[check/update tools and CI action](../../integrations/arduino-source/README.md)
+are implemented; Arduino adoption and required status settings are pending.
 
 ## Inventory and provenance
 
