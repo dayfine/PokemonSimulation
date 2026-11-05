@@ -66,7 +66,9 @@ class LocalMap(World):
         wild = {Tile(*p) for p in self.data.get('regions', {}).get('wild', [])}
         for y, row in enumerate(self.data['tiles']):
             cells = []
-            levels = self.data.get('elevation', ['0' * len(row)] * len(self.data['tiles']))[y]
+            # Native FRLG uses ground level 3 when the optional grid is absent.
+            default_level = '3' if game == 'frlg' else '0'
+            levels = self.data.get('elevation', [default_level * len(row)] * len(self.data['tiles']))[y]
             for x, glyph in enumerate(row):
                 tile = Tile(x, y)
                 cell = cell_for(glyph, int(levels[x], 16))
