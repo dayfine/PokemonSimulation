@@ -66,6 +66,14 @@ class World:
     def grid(self, name: str) -> GridMap2D:
         return self.maps[name].grid
 
+    def try_step(self, state, direction, rules, objects):
+        """Optional game adapter; NotImplemented delegates to the grid rules.
+
+        Runtime packs can carry movement metadata outside the legacy cell
+        schema, such as closed tile sides and directional warp activation.
+        """
+        return NotImplemented
+
     def at(self, place: Place) -> Optional[Cell]:
         """The cell at `place`, or None if its map is unknown or the tile is
         off that map."""

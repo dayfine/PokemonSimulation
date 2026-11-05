@@ -31,6 +31,10 @@ Inventory, commands and caveats: [maps/runtime-maps.md](maps/runtime-maps.md).
 
 ## 2. Generic route planning and drawing
 
+- [x] First slice: [local routes on pinned runtime maps](navigation/RUNTIME_ROUTES.md),
+  using the shared router and renderer, with state/metadata-aware movement,
+  PNG/ASCII output and route/provenance JSON. Transitions remain excluded.
+
 - [ ] Adapt the imported map contract to existing routing with explicit
   treatment of closed sides, Gen 3 elevations, entry modes and unresolved warps.
 - [ ] Consolidate route generation/drawing tools here; accept waypoints,

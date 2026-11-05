@@ -265,6 +265,9 @@ def world_step(world: World, state: WorldState, direction: Direction,
     Returns Moved, Hop or Blocked like `step`, with WorldStates; Warped for a
     warp whose target is loaded; and, for a way out of the loaded maps, the
     unresolved Warp(tile) or Edge(direction)."""
+    custom = world.try_step(state, direction, rules, objects)
+    if custom is not NotImplemented:
+        return custom
     name = state.place.map
     local_objects = {p.tile for p in objects if p.map == name}
     local = PlayerState(state.place.tile, state.elevation)
