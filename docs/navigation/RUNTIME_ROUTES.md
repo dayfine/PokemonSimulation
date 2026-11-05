@@ -8,6 +8,12 @@ and BDSP maps to the existing Dijkstra search and PNG renderer. It plans
 its effective patched grid. Its `World.try_step` adapter handles runtime
 movement metadata without converting it to the older reference-file schema.
 Ordinary `World` instances continue using the existing grid movement rules.
+The runtime glyph definitions live in `pokesim.maps.runtime_symbols`, shared by
+schema validation, routing, drawing and builder helpers. The legacy text-grid
+legend remains separate because its numeric glyphs have different semantics.
+
+Checked-in [golden routes and PNGs](../../src/pokesim/maps/goldens/README.md)
+cover FRLG towns/closed sides and BDSP's unknown-versus-disarmed scene state.
 
 ## Run
 

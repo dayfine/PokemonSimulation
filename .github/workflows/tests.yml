@@ -60,6 +60,13 @@ jobs:
         run: PYTHONPATH=src python -m unittest discover -v -s src -t src
       - name: Audit published map inventory and hashes
         run: PYTHONPATH=src python -m pokesim.maps.runtime_map_pack
+      - name: Upload actual golden routes on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: route-goldens-python-${{ matrix.python-version }}
+          path: build/route-goldens/
+          if-no-files-found: ignore
 
   battle:
     runs-on: ubuntu-22.04

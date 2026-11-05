@@ -1,0 +1,82 @@
+{
+  "format": "pokesim-route-golden/1",
+  "game": "frlg",
+  "map": "VermilionCity_PokemonFanClub",
+  "map_sha256": "09f535cafe39932b9aef3530e25491ba00295cf60ebd96c18872eb822d60ae41",
+  "coordinate_frame": {
+    "kind": "local tiles",
+    "origin": [
+      0,
+      0
+    ],
+    "width": 12,
+    "height": 12,
+    "origin_space": "map layout"
+  },
+  "preconditions": [],
+  "context": {
+    "flags": [],
+    "variables": {},
+    "acknowledge_map_state": false
+  },
+  "start": {
+    "tile": [
+      5,
+      9
+    ],
+    "elevation": 3
+  },
+  "cost": 14.0,
+  "moves": [
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [4, 9, 3]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [3, 9, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [3, 8, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [3, 7, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [3, 6, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [3, 5, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [3, 4, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [3, 3, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [4, 3, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [5, 3, 3]
+    }
+  ]
+}

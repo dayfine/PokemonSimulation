@@ -1,0 +1,35 @@
+[
+  {
+    "id": "frlg-pallet-town",
+    "game": "frlg",
+    "map": "PalletTown",
+    "start": [6, 8],
+    "goal": [16, 14],
+    "purpose": "Route around the declared NPC wander areas to Oak's lab front."
+  },
+  {
+    "id": "frlg-fan-club",
+    "game": "frlg",
+    "map": "VermilionCity_PokemonFanClub",
+    "start": [5, 9],
+    "goal": [5, 3],
+    "purpose": "Detour around NPCs and closed sides; cannot walk north through the middle of the room."
+  },
+  {
+    "id": "bdsp-route202-unknown-scene",
+    "game": "bdsp",
+    "map": "Route202",
+    "start": [19, 27],
+    "goal": [30, 24],
+    "purpose": "Unknown tutorial state excludes the trigger rectangle and forces a long detour."
+  },
+  {
+    "id": "bdsp-route202-after-tutorial",
+    "game": "bdsp",
+    "map": "Route202",
+    "start": [19, 27],
+    "goal": [30, 24],
+    "variables": {"VAR_ROUTE_202_STATE": 1},
+    "purpose": "Known disarmed tutorial allows the direct path; includes the measured terrain patches."
+  }
+]
