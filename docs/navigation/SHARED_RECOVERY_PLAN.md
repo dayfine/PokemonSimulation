@@ -1,9 +1,38 @@
 # Share native recovery through nav-core, preserving FRLG before fixing BDSP
 
-Status: implementation plan only, November 5, 2026. This plan does not authorize
-console runs or changes to another agent's active worktree. The Python semantic
-slice in Simulation #45 supplies independent regression scenarios; it does not
-replace native C++ controller, detector or simulator tests.
+Status: first offline native slice published as fork drafts, November 5, 2026.
+No consoles, saves or other agents' active branches were changed. The Python
+semantic slice in Simulation #45 supplies independent scenarios; native C++
+tests below validate the actual game consumers. The larger acceptance matrix
+remains open where explicitly noted.
+
+## Implementation checkpoint
+
+Review in this order:
+
+1. [Arduino #227](https://github.com/dayfine/Arduino-Source/pull/227): pure wall
+   convergence search extracted to nav-core, with 9 portable native tests.
+2. [Arduino #228](https://github.com/dayfine/Arduino-Source/pull/228): FRLG adapter.
+   Original #224 and migrated versions pass the same 57 focused native tests.
+   Full Clang runs pass the same 83 Overworld and 30 AutoStorySimulation tests;
+   both jobs fail on the same 69 missing-image FileException cases.
+3. [Arduino #229](https://github.com/dayfine/Arduino-Source/pull/229): BDSP
+   interruption outcomes, safe common-wall recovery and real mine story-step
+   regressions. 33 focused native tests pass, including 9 consumer cases.
+   Original execution fails 6 of the initial 8 cases. Full patched CI is pending.
+
+These are isolated owner handoffs based on pinned game stacks, not direct
+changes to the owning branches. Shared core macOS and Windows Clang full CI
+pass. The [native run record](https://github.com/dayfine/Arduino-Source/blob/nav/recovery-run-records/autostory/navigation/shared-recovery-2026-11-05.md)
+contains exact revisions, CI links, merge order and fidelity limits.
+
+The BDSP tests use real maps, planner, story table, StoryWalkSteps and RouteWalker.
+They inject normalized cleared encounter outcomes; they do not emulate detector
+pixels, controller queue timing or sub-tile motion. Unknown first-input/late
+origins fail explicitly. Outbound mine, house transitions, full r55 replay and
+the generic LegInterrupt same-pose contract remain follow-ups. The ordered gates
+below retain their full scope; this checkpoint does not mark that whole matrix
+complete.
 
 ## Where the current implementation lives
 
