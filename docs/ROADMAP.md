@@ -1,5 +1,10 @@
 # Roadmap
 
+The active cross-game migration is tracked in the
+[AutoStory offline integration plan](autostory-plan.md), starting with map
+ownership. The [imported map packs](maps/runtime-maps.md) contain the current
+FRLG and BDSP AutoStory maps and generators.
+
 PokemonSimulation is expanding from navigation into offline simulation and
 planning for Pokémon automation. The first battle benchmark milestone is
 implemented; broader integrations remain future work.
