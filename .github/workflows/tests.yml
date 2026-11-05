@@ -9,6 +9,42 @@ on:
   pull_request:
 
 jobs:
+  map-consumer:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Initialize a consumer fixture from approved published maps
+        env:
+          PYTHONPATH: src
+        run: >-
+          python3 -m pokesim.maps.consumer_sync update
+          --consumer "$GITHUB_WORKSPACE" --source "$GITHUB_WORKSPACE" --offline
+          --game bdsp --game frlg --revision "$(git rev-parse origin/main)"
+      - name: Exercise the Arduino integration action
+        uses: ./integrations/arduino-source/verify-map-packs
+      - name: Ensure a local map edit fails the consumer check
+        env:
+          PYTHONPATH: src
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import sys
+          from pokesim.maps.consumer_sync import DESTINATIONS
+          target = next(Path(DESTINATIONS['bdsp']).glob('*.json'))
+          target.write_bytes(target.read_bytes() + b'\n')
+          result = subprocess.run([sys.executable, '-m', 'pokesim.maps.consumer_sync',
+              'check', '--consumer', '.', '--source', '.pokesim-map-source', '--offline'],
+              capture_output=True, text=True)
+          assert result.returncode == 1 and 'modified ' + target.name in result.stderr, result
+          print('Consumer correctly rejected local drift: ' + target.name)
+          PY
+
   unittest:
     runs-on: ubuntu-22.04
     strategy:
@@ -22,6 +58,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Run the tests
         run: PYTHONPATH=src python -m unittest discover -v -s src -t src
+      - name: Audit published map inventory and hashes
+        run: PYTHONPATH=src python -m pokesim.maps.runtime_map_pack
 
   battle:
     runs-on: ubuntu-22.04

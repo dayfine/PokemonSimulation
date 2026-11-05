@@ -19,10 +19,11 @@ semantics match and keep game-specific adapters where they differ.
   pinned exports, remote-manifest hash verification and map corrections here.
 - [ ] Recover exact pret revisions for BDSP inputs recorded as default branch;
   archive/pin inputs before refreshing them.
-- [ ] Implement the pinned consumer lock/update/integrity check, configure it
-  as required, and adopt it in the owning Arduino PRs. Remove duplicate offline
-  authoring there; preserve native controller/detector tests. Design is recorded;
-  implementation and consumer adoption remain pending.
+- [x] Implement pinned consumer lock/update/check commands, a reusable CI action
+  and regression coverage. See [the integration](../integrations/arduino-source/README.md).
+- [ ] Adopt the check in owning Arduino PRs and configure its required status.
+  Resolve pending map differences first, remove duplicate offline authoring
+  there and preserve native controller/detector tests.
 - [ ] Consolidate the older eight `pokenav-map/1` fixtures only after explicit
   frame conversion and parity checks; do not overwrite them with cropped maps.
 

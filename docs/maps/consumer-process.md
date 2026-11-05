@@ -1,7 +1,9 @@
 # Map changes and consumer updates
 
-Status: proposed process; implementation pending. This document does not
-install an Arduino check, import PR #226, or mark the consumer migration complete.
+Status: check/update tooling and a reusable CI action are implemented; adoption
+in Arduino and its required status settings remain pending. See the
+[integration commands and rollout](../../integrations/arduino-source/README.md).
+No changes from PR #226 are imported, and consumer migration is not complete.
 
 PokemonSimulation is the authoring repository for map data, source parsers,
 builders, schemas and corrections. Arduino-Source consumes a pinned export.
@@ -34,10 +36,10 @@ Audit dependent CLI wrappers before removing their decoder imports. Route
 drawing/planning tools are a separate migration; do not delete all of
 `devtools/maps` just because builders move.
 
-Use one consumer lock file, provisionally
+Use one consumer lock file,
 `devtools/maps/map-packs.lock.json`. Each selected game pins a full
-PokemonSimulation commit, the manifest path and its SHA-256. This is a proposed
-shape, with placeholders, not an existing working lock:
+PokemonSimulation commit, the manifest path and its SHA-256. The update command
+writes this shape; this example uses placeholders rather than a real lock:
 
 ```json
 {
@@ -160,13 +162,13 @@ generator/correction change and evidence. The required consumer check would
 reject all five edited JSON files under the old pin, even if Arduino's local
 simulations passed. Changing the local lock hash alone would still fail against
 the manifest fetched from the pinned source. None of these changes is imported
-by this design PR.
+by this implementation.
 
 ## Rollout and remaining milestone 1 work
 
-1. Implement this repo's publication checks and update tool contract. Existing
-   `runtime_map_pack` already validates bytes/inventory/links; it does not yet
-   publish a consumer lock or run reproducible source generation in CI.
+1. Implemented: source audit in CI, pinned lock/check/update commands,
+   consumer CI action and regression tests. Reproducible source generation in
+   CI and consumer adoption remain pending.
 2. Archive the exact BDSP source inputs used for current output with their file
    hashes. Recover pret commits where possible; if not recoverable, label the
    snapshot's original commit unresolved and pin its archived bytes. Do not
@@ -184,5 +186,5 @@ by this design PR.
    namespace after frame/parity checks; carry their measurements with them.
    Do not overwrite them with runtime crops or let consumer exports include them.
 
-Only then mark map ownership complete. This design completes the process
-decision, not the implementation or adoption steps above.
+Only then mark map ownership complete. The core tooling implements the process
+decision; source-input pinning and Arduino adoption above remain open.
