@@ -10,7 +10,7 @@ from typing import Mapping
 
 from pokesim.games.frlg import ELEVATION_RULES
 from pokesim.grid.geometry import Direction, Tile
-from pokesim.grid.maps.model import LEDGE_DIRECTION, Behavior, Cell, GridMap2D
+from pokesim.grid.maps.model import LEDGE_DIRECTION, Behavior, GridMap2D
 from pokesim.grid.maps.schema import MapFile, NamedPoint
 from pokesim.grid.maps.world import Place, World
 from pokesim.grid.movement import (FLAT, Blocked, BlockReason, Edge, Hop, Moved,
@@ -18,14 +18,9 @@ from pokesim.grid.movement import (FLAT, Blocked, BlockReason, Edge, Hop, Moved,
 from pokesim.grid.routing.shortest import Costs, shortest_path
 from .consumer_source import GitSource, lock_entry, published_pack, read_json
 from .runtime_map_pack import effective_map
+from .runtime_symbols import CLOSED_SIDES, cell_for
 
 
-CLOSED = {'8': Direction.NORTH, '2': Direction.SOUTH,
-          '4': Direction.WEST, '6': Direction.EAST}
-BEHAVIORS = {'~': Behavior.TALL_GRASS, 'w': Behavior.WATER,
-             '^': Behavior.LEDGE_NORTH, 'v': Behavior.LEDGE_SOUTH,
-             '<': Behavior.LEDGE_WEST, '>': Behavior.LEDGE_EAST,
-             'D': Behavior.DOOR, 'S': Behavior.SIGN, ' ': Behavior.UNKNOWN}
 DIRECTIONAL_WARPS = {'walk_' + direction.name.lower() for direction in Direction}
 
 
@@ -74,13 +69,14 @@ class LocalMap(World):
             levels = self.data.get('elevation', ['0' * len(row)] * len(self.data['tiles']))[y]
             for x, glyph in enumerate(row):
                 tile = Tile(x, y)
-                behavior = BEHAVIORS.get(glyph, Behavior.NONE)
+                cell = cell_for(glyph, int(levels[x], 16))
+                behavior = cell.behavior
                 if tile in wild:
                     behavior = Behavior.TALL_GRASS
                 warp = self.warps.get(tile)
                 if warp:
                     behavior = Behavior.NONE if warp.get('enter') in DIRECTIONAL_WARPS else Behavior.WARP
-                cells.append(Cell(glyph in '#Sw', int(levels[x], 16), behavior))
+                cells.append(cell._replace(behavior=behavior))
             rows.append(cells)
         self.map_file = MapFile(GridMap2D(self.data['name'], rows), game=game,
             points=[NamedPoint(name, Tile(*tile)) for name, tile in self.data.get('points', {}).items()])
@@ -127,11 +123,11 @@ class LocalMap(World):
         if warp and warp.get('enter') == 'walk_' + direction.name.lower():
             return Warp(current)
         target = current.step(direction)
-        if CLOSED.get(self.glyph(current)) is direction:
+        if CLOSED_SIDES.get(self.glyph(current)) is direction:
             return Blocked(BlockReason.WALL)
         if not grid.contains(target):
             return Edge(direction)
-        if CLOSED.get(self.glyph(target)) is direction.opposite:
+        if CLOSED_SIDES.get(self.glyph(target)) is direction.opposite:
             return Blocked(BlockReason.WALL)
         occupied = self.occupied | {place.tile for place in objects if place.map == self.map_file.name}
         if target in occupied:
@@ -144,7 +140,7 @@ class LocalMap(World):
             if (landing in self.scene_tiles or grid.at(landing).behavior is Behavior.UNKNOWN
                     or isinstance(result, Hop) and (landing in self.warps
                         or grid.at(landing).behavior in (Behavior.DOOR, Behavior.WARP)
-                        or CLOSED.get(self.glyph(landing)) is direction.opposite)):
+                        or CLOSED_SIDES.get(self.glyph(landing)) is direction.opposite)):
                 return Blocked(BlockReason.UNKNOWN)
             return type(result)(WorldState(Place(self.map_file.name, landing), result.state.elevation))
         return result

@@ -112,7 +112,7 @@ See [external/README.md](external/README.md) for source checkout conventions,
 - Start modules and classes with a comment explaining their purpose.
 - Give meaningful numbers a name and record their source.
 - Keep functions short and flat.
-- Document command-line tools with an example input, output, and command.
+- Document command-line tools with example input/output; include runnable commands in their module docstrings.
 - Record source repositories, revisions, and measurements alongside derived data.
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for current capabilities and next work.

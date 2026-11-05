@@ -1,4 +1,15 @@
-"""Check or update Arduino's pinned map exports. Check never modifies files."""
+r"""Check or update Arduino's pinned map exports. Check never modifies files.
+
+From the PokemonSimulation root, initialize an empty trial consumer directory:
+
+    PYTHONPATH=src python3 -m pokesim.maps.consumer_sync update \
+        --source . --consumer /tmp/pokesim-consumer --game bdsp --game frlg \
+        --revision d139398d48ee831da540b901e6700c6ba5dbb32c
+    PYTHONPATH=src python3 -m pokesim.maps.consumer_sync check \
+        --source . --consumer /tmp/pokesim-consumer
+
+Use --offline only with a trusted cache. See integrations/arduino-source/README.md.
+"""
 
 import argparse
 from contextlib import ExitStack
@@ -163,7 +174,7 @@ def update(root, source, games, revision):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('command', choices=('check', 'update', 'compare'))
     parser.add_argument('--consumer', type=Path, required=True)
     parser.add_argument('--source', type=Path, required=True, help='PokemonSimulation Git checkout/cache')

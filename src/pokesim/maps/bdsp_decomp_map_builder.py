@@ -61,13 +61,14 @@ import sys
 from pathlib import Path
 
 from pokesim.maps import dppt_map_decomp_parser as decomp
+from .runtime_symbols import LEDGE_GLYPHS
 
 OUT = 'data/games/bdsp/maps/runtime'
 CACHE = Path.home() / '.cache' / 'maps' / 'decomp'
 #   When the cache was filled from the decompilations' default branches.
 READ = '2026-10-31'
 
-LEDGES = {'north': '^', 'south': 'v', 'west': '<', 'east': '>'}
+LEDGES = {direction.name.lower(): glyph for direction, glyph in LEDGE_GLYPHS.items()}
 SIGN_GFX = ('MAILBOX',)
 OBSTACLE_GFX = ('CUT_TREE', 'ROCK_SMASH', 'STRENGTH_BOULDER', 'BERRY_SOIL', 'VENT')
 FACING = {'LOOK_NORTH': 'north', 'LOOK_SOUTH': 'south', 'LOOK_WEST': 'west', 'LOOK_EAST': 'east'}

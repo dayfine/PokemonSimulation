@@ -1,7 +1,13 @@
-"""Lossless runtime maps, correction application and audited pack export.
+r"""Lossless runtime maps, correction application and audited pack export.
 
 This is not the pokenav-map/1 loader. In particular, 8/2/4/6 mean closed
 tile sides here, not forced movement. Unknown JSON fields are preserved.
+
+From the repository root (export requires an empty destination):
+
+    PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack
+    PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack \
+        --export-game frlg --out /tmp/frlg-map-export
 """
 
 import argparse

@@ -1,4 +1,18 @@
-"""Plan and draw a local route on a pinned FRLG or BDSP runtime map."""
+r"""Plan and draw a local route on a pinned FRLG or BDSP runtime map.
+
+Run from the repository root with a full-history publishing checkout/cache:
+
+    PYTHONPATH=src python3 -m pokesim.cli.route \
+        --game frlg --map PalletTown --start 6,8 --goal oaks_lab_front \
+        --png /tmp/pallet-route.png --json /tmp/pallet-route.json
+
+    PYTHONPATH=src python3 -m pokesim.cli.route \
+        --game bdsp --map Route201 --start 44,3 --goal 53,3 \
+        --png /tmp/route201-route.png --json /tmp/route201-route.json
+
+The default pin is cached origin/main; --revision accepts a full approved SHA.
+Routes stay inside one map. See docs/navigation/RUNTIME_ROUTES.md for limits.
+"""
 
 import argparse
 import json
@@ -22,7 +36,7 @@ def position(view, text):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--game', choices=('frlg', 'bdsp'), required=True)
     parser.add_argument('--map', required=True)
     parser.add_argument('--start', required=True, help='named point or x,y')

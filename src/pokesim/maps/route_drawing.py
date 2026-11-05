@@ -1,10 +1,10 @@
 """Draw a computed local route with runtime glyphs and closed-side boundaries."""
 
-from pokesim.grid.geometry import Direction, Tile
+from pokesim.grid.geometry import Direction
 from pokesim.grid.maps import render
 from pokesim.grid.maps.render import Overlay
 from pokesim.grid.maps.schema import MapImage
-from .local_routing import CLOSED
+from .runtime_symbols import CLOSED_SIDES
 
 
 def ascii_route(view, path):
@@ -31,7 +31,7 @@ def route_image(view, path, tile_px=16):
     render.draw(image, MapImage('', 0, 0, tile_px), overlay)
     for y, row in enumerate(view.data['tiles']):
         for x, glyph in enumerate(row):
-            side = CLOSED.get(glyph)
+            side = CLOSED_SIDES.get(glyph)
             if side is None:
                 continue
             x0, y0 = x * tile_px, y * tile_px
