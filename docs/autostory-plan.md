@@ -72,6 +72,11 @@ optional until the simulation needs it.
 - [ ] Test ambiguous landmarks, moving NPCs, repeated interruptions, exhausted
   retry budgets and unknown transitions. Assert safe failure as well as success.
 
+The ordered native migration is tracked in [the shared recovery plan](navigation/SHARED_RECOVERY_PLAN.md):
+characterize the combined FRLG baseline, extract into nav-core #114, prove FRLG
+parity, then integrate and re-test BDSP. #224 inherits the recovery from #213
+and later fixes; it is not the original owning PR.
+
 Keep hardware timing/detector integration tests in Arduino. Shared semantic
 fixtures should be data, not Python tests extracting C++ source strings.
 
