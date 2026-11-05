@@ -15,11 +15,14 @@ semantics match and keep game-specific adapters where they differ.
 - [x] Record source/target games, coordinate crops, checksums, console
   corrections, object overrides, unresolved provenance and scenario conditions.
 - [x] Validate and export consumer-compatible JSON without an Arduino checkout.
+- [x] Specify the [map change and consumer process](maps/consumer-process.md):
+  pinned exports, remote-manifest hash verification and map corrections here.
 - [ ] Recover exact pret revisions for BDSP inputs recorded as default branch;
   archive/pin inputs before refreshing them.
-- [ ] Consumer handoff: agree how Arduino obtains these packs, switch builds
-  to that resource and remove duplicate offline generation there. Preserve
-  native controller/detector tests in Arduino. Coordinate with map owners.
+- [ ] Implement the pinned consumer lock/update/integrity check, configure it
+  as required, and adopt it in the owning Arduino PRs. Remove duplicate offline
+  authoring there; preserve native controller/detector tests. Design is recorded;
+  implementation and consumer adoption remain pending.
 - [ ] Consolidate the older eight `pokenav-map/1` fixtures only after explicit
   frame conversion and parity checks; do not overwrite them with cropped maps.
 
