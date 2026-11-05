@@ -117,8 +117,12 @@ class LocalMap(World):
         grid = self.map_file.grid
         if not grid.contains(current) or grid.at(current).behavior is Behavior.UNKNOWN:
             return Blocked(BlockReason.UNKNOWN)
-        if grid.at(current).behavior in (Behavior.DOOR, Behavior.WARP):
+        if (grid.at(current).behavior is Behavior.DOOR
+                or grid.at(current).behavior is Behavior.WARP
+                and self.warps.get(current, {}).get('enter') != 'step_on'):
             return Warp(current)
+        # A ladder fires on entry. After arriving on it, walking off does not
+        # immediately activate it again (used by RuntimeWorld cross-map routes).
         warp = self.warps.get(current)
         if warp and warp.get('enter') == 'walk_' + direction.name.lower():
             return Warp(current)

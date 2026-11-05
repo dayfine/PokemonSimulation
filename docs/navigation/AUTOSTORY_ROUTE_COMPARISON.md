@@ -50,3 +50,10 @@ These are Python candidates for native **goals**, not native planner replays.
 Next parity work should compare movement legs, stopping conditions, state and
 cost policy on the same exported task. A matching golden only locks down
 the current candidate; it does not validate the full game plan.
+
+
+The next [transition/localization slice](TRANSITION_SCENARIOS.md) now tests
+FRLG warp/edge arrival and reduced semantic interruption scenarios, including
+a BDSP mine south clip. These are not native planner replays: leg costs,
+dynamic trainer worlds, hardware observations and complete story execution
+remain open. No pending #226 map refinement was imported.
