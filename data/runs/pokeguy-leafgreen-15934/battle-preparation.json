@@ -1,0 +1,383 @@
+{
+  "format": "pokesim-frlg-preparation-plan/1",
+  "default_prepared_variant": "recorded",
+  "variant_definitions": {
+    "recorded": "Exact recorded independent entry state.",
+    "prepared": "Full rest at the six required stops; otherwise identical to recorded. No Speed EV, level, moveset or bag changes."
+  },
+  "requirements": {
+    "forest-sammy": {
+      "action": "full-rest",
+      "opportunity": "Restore HP and PP before the Forest trainer; a Viridian Center backtrack is allowed.",
+      "requires_full_hp": true,
+      "requires_full_pp": true,
+      "requires_clear_status": true,
+      "additional_battle_items": {}
+    },
+    "pewter-liam": {
+      "action": "full-rest",
+      "opportunity": "Pewter Center before entering the Gym.",
+      "requires_full_hp": true,
+      "requires_full_pp": true,
+      "requires_clear_status": true,
+      "additional_battle_items": {}
+    },
+    "brock": {
+      "action": "full-rest",
+      "opportunity": "Pewter Center after Liam and before Brock.",
+      "requires_full_hp": true,
+      "requires_full_pp": true,
+      "requires_clear_status": true,
+      "additional_battle_items": {}
+    },
+    "mtmoon-josh": {
+      "action": "full-rest",
+      "opportunity": "Route 4 Center before entering Mt. Moon; flee intervening wild encounters.",
+      "requires_full_hp": true,
+      "requires_full_pp": true,
+      "requires_clear_status": true,
+      "additional_battle_items": {}
+    },
+    "cerulean-rival": {
+      "action": "full-rest",
+      "opportunity": "Cerulean Center after Misty and before the bridge rival.",
+      "requires_full_hp": true,
+      "requires_full_pp": true,
+      "requires_clear_status": true,
+      "additional_battle_items": {}
+    },
+    "ssanne-rival": {
+      "action": "full-rest",
+      "opportunity": "Accept the 1F Room 6 cabin rest before the rival.",
+      "requires_full_hp": true,
+      "requires_full_pp": true,
+      "requires_clear_status": true,
+      "additional_battle_items": {}
+    }
+  },
+  "pending_full_hp_tests": [
+    "tower-rival",
+    "koga",
+    "erika",
+    "silph-rival",
+    "silph-giovanni",
+    "sabrina",
+    "blaine",
+    "giovanni-gym",
+    "bruno",
+    "agatha"
+  ],
+  "complex_results": {
+    "revision": "df4fece87aec6d3089a8802e4b6840bd47220549",
+    "path": "docs/battles/pokeguy-c-comparison.json",
+    "policy": "B:solo-recovery/1; C:goal-based-setup/2",
+    "seed": 4,
+    "source_sha256": {
+      "route": "d3890012f93ac1758c13ae9ece83826f6cd101884f4ef39c45b94cb1253e7e74",
+      "progression_reference": "de507307843e5639477754f56279019a4d1f2a6e432ad2a0068894a1b29e695c",
+      "moves": "a1c98f6922e25581efd9101ce1c28995f3bbebfc7bb0541d44297e71512f7df0",
+      "state_history": "975aa44e02d0333e802b5e3d75f607192cc24e3da5bcf31dcd6013aeec70f727"
+    },
+    "pret_snapshot_sha256": "0db0210afd02f286530614c97355f2f966b1772e231f1202919f2a7bfdbf9f88",
+    "results": [
+      {
+        "id": "tower-rival",
+        "wins": 630,
+        "battles": 700,
+        "planning_goals": {
+          "spa": 2,
+          "accuracy": 0,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false,
+          "torrent_power": true
+        }
+      },
+      {
+        "id": "koga",
+        "wins": 1191,
+        "battles": 1700,
+        "planning_goals": {
+          "spa": 1,
+          "accuracy": 0,
+          "outspeed": true,
+          "guard_accuracy": false,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "erika",
+        "wins": 567,
+        "battles": 620,
+        "planning_goals": {
+          "spa": 1,
+          "accuracy": 2,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "silph-rival",
+        "wins": 289,
+        "battles": 300,
+        "planning_goals": {
+          "spa": 2,
+          "accuracy": 2,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "silph-giovanni",
+        "wins": 100,
+        "battles": 100,
+        "planning_goals": {
+          "spa": 1,
+          "accuracy": 0,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "sabrina",
+        "wins": 177,
+        "battles": 180,
+        "planning_goals": {
+          "spa": 0,
+          "accuracy": 0,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "route22-rival",
+        "wins": 325,
+        "battles": 340,
+        "planning_goals": {
+          "spa": 2,
+          "accuracy": 2,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "lorelei",
+        "wins": 415,
+        "battles": 440,
+        "planning_goals": {
+          "spa": 4,
+          "accuracy": 0,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "bruno",
+        "wins": 307,
+        "battles": 320,
+        "planning_goals": {
+          "spa": 2,
+          "accuracy": 0,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": true
+        }
+      },
+      {
+        "id": "agatha",
+        "wins": 343,
+        "battles": 360,
+        "planning_goals": {
+          "spa": 1,
+          "accuracy": 0,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false,
+          "torrent_power": true
+        }
+      },
+      {
+        "id": "lance",
+        "wins": 119,
+        "battles": 120,
+        "planning_goals": {
+          "spa": 3,
+          "accuracy": 2,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      },
+      {
+        "id": "champion",
+        "wins": 325,
+        "battles": 340,
+        "planning_goals": {
+          "spa": 2,
+          "accuracy": 2,
+          "outspeed": true,
+          "guard_accuracy": true,
+          "target_torrent": false
+        }
+      }
+    ],
+    "source_document_sha256": "61d1345ae301071c9970383fa3eeed818d9b2cc2570dfbf0c194adb221931a5e"
+  },
+  "supplemental_rest_results": {
+    "seed": 12,
+    "family_size": 112,
+    "policy": "B:solo-recovery/1; C:goal-based-setup/1",
+    "pret_snapshot_sha256": "0db0210afd02f286530614c97355f2f966b1772e231f1202919f2a7bfdbf9f88",
+    "implementation_sha256": {
+      "engines/frlg-showdown/damage.cjs": "aa5fa9e9b9dd1dbbd0431acbc38a854de0afba521a06ad598ed985c76eac3949",
+      "engines/frlg-showdown/engine.cjs": "53f9cd30b1471085291c203314819600d939e581728ad207fbafa2006e50ab58",
+      "engines/frlg-showdown/progression.cjs": "34edca7964c9aeef1491286dd63e2ce954b118c3ad3fed8e6ef40fa3451a1beb",
+      "engines/frlg-showdown/runner.cjs": "6776f97da0d35d20a99eef666c4c8e4115bd4edb6ac84334726d47c503bf9122",
+      "src/pokesim/games/frlg/battle/benchmark.py": "ce2159fdfe22bcf4b353bb51d9224335e0371d52438c8c4fed67141b452867fa",
+      "src/pokesim/games/frlg/battle/npc_actions.py": "8eb52470543b1b971d789085c28d16f61bef32300fd09eca2fc63b19851dc9c4",
+      "src/pokesim/games/frlg/battle/npc_ai.py": "19ef89f6dd7c07e2b415436aaeb8420e5c271ad4c5e94873dd7ce83ec138ee8e",
+      "src/pokesim/games/frlg/battle/player_strategy/__init__.py": "8e6022bf8bf895fa19ca039c3fa3439e39bc9d42de7aac7ab44025fea20c48e2",
+      "src/pokesim/games/frlg/battle/player_strategy/attacks.py": "13da5b3f8036fca9b06eec43503cfd7da9dc7425ee6e6517aae36680c3e98c92",
+      "src/pokesim/games/frlg/battle/player_strategy/planning.py": "606265509ea04d0174470e3253a1609312be9eb94d949d34ff6f637092e1f821",
+      "src/pokesim/games/frlg/battle/player_strategy/recovery.py": "3847c131f10506b5545ca4ac33bd593b8664f1b46512614b313af6c790b94ab6",
+      "src/pokesim/games/frlg/battle/player_strategy/threat.py": "8f0571b9b8f342b054bd0673c7e6fd0caf6d7969168827531c3e025f77c139d5"
+    },
+    "results": [
+      {
+        "id": "forest-sammy",
+        "wins": 158,
+        "battles": 160,
+        "starting_hp": 25,
+        "moves": [
+          {
+            "name": "TACKLE",
+            "pp": 35
+          },
+          {
+            "name": "TAIL_WHIP",
+            "pp": 30
+          },
+          {
+            "name": "BUBBLE",
+            "pp": 30
+          }
+        ],
+        "stop_reason": "interval_width",
+        "example_seeds": {
+          "win": {
+            "master": 12,
+            "trial": 0,
+            "engine": [
+              1554,
+              48874,
+              55385,
+              43802
+            ]
+          },
+          "loss": {
+            "master": 12,
+            "trial": 58,
+            "engine": [
+              33182,
+              64835,
+              40394,
+              49902
+            ]
+          }
+        }
+      },
+      {
+        "id": "pewter-liam",
+        "wins": 120,
+        "battles": 120,
+        "starting_hp": 27,
+        "moves": [
+          {
+            "name": "TACKLE",
+            "pp": 35
+          },
+          {
+            "name": "TAIL_WHIP",
+            "pp": 30
+          },
+          {
+            "name": "BUBBLE",
+            "pp": 30
+          }
+        ],
+        "stop_reason": "interval_width",
+        "example_seeds": {
+          "win": {
+            "master": 12,
+            "trial": 0,
+            "engine": [
+              1554,
+              48874,
+              55385,
+              43802
+            ]
+          }
+        }
+      },
+      {
+        "id": "brock",
+        "wins": 120,
+        "battles": 120,
+        "starting_hp": 33,
+        "moves": [
+          {
+            "name": "TACKLE",
+            "pp": 35
+          },
+          {
+            "name": "TAIL_WHIP",
+            "pp": 30
+          },
+          {
+            "name": "BUBBLE",
+            "pp": 30
+          },
+          {
+            "name": "WITHDRAW",
+            "pp": 40
+          }
+        ],
+        "stop_reason": "interval_width",
+        "example_seeds": {
+          "win": {
+            "master": 12,
+            "trial": 0,
+            "engine": [
+              1554,
+              48874,
+              55385,
+              43802
+            ]
+          }
+        }
+      }
+    ],
+    "input_sha256_by_fight": {
+      "forest-sammy": "61652e4f85cb7e0274a85cfb0bafa6d8fd0973f750018e504e09f94d9c3027b0",
+      "pewter-liam": "0293c8f0f69394eb5284be14a2377117e43caca86c7a2e49dc76ea8bec8e53f7",
+      "brock": "a1148355604fb9c56f5c8d3a180830511d466e782d6dfa9f45eb8df3394e78c8"
+    },
+    "sampling": {
+      "method": "jeffreys-beta-mixture-confidence-sequence",
+      "confidence_all_cases_all_looks": 0.95,
+      "alpha_per_case": 0.00044642857142857185,
+      "target_interval_width": 0.1,
+      "minimum_trials": 20,
+      "batch_size": 20
+    },
+    "maximum_trials": 3000,
+    "turn_limit": 300,
+    "turn_limit_outcomes": 0
+  }
+}

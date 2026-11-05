@@ -1,0 +1,1544 @@
+{
+  "format": "pokesim-frlg-preparation/1",
+  "seed": 11,
+  "family_size": 28,
+  "confidence_all_variants": 0.95,
+  "target_interval_width": 0.1,
+  "implementation_sha256": {
+    "engines/frlg-showdown/damage.cjs": "aa5fa9e9b9dd1dbbd0431acbc38a854de0afba521a06ad598ed985c76eac3949",
+    "engines/frlg-showdown/engine.cjs": "53f9cd30b1471085291c203314819600d939e581728ad207fbafa2006e50ab58",
+    "engines/frlg-showdown/progression.cjs": "34edca7964c9aeef1491286dd63e2ce954b118c3ad3fed8e6ef40fa3451a1beb",
+    "engines/frlg-showdown/runner.cjs": "6776f97da0d35d20a99eef666c4c8e4115bd4edb6ac84334726d47c503bf9122",
+    "src/pokesim/cli/frlg_run_battles.py": "dc944d1a691aedbbea2223e2c8073640f2af26dc675419b31eb3a9700dccc947",
+    "src/pokesim/games/frlg/__init__.py": "1c3e042047159299e3676d19611d99c081de04e490fb686ebf32589a63d273ac",
+    "src/pokesim/games/frlg/battle/__init__.py": "c3353c56ffd0ef6d2ef8824138788d25b3f44a9b3dc1df5d6e77cd94b1710f27",
+    "src/pokesim/games/frlg/battle/benchmark.py": "ce2159fdfe22bcf4b353bb51d9224335e0371d52438c8c4fed67141b452867fa",
+    "src/pokesim/games/frlg/battle/engine.py": "4f82142d9b16bc1fdadeb4ef2e9a57721fe5dc70000eafe6919ef76a7170871c",
+    "src/pokesim/games/frlg/battle/items.py": "a61fbed0f2888bfc42187209cf4826ecb8349572f84fd4af3b90a2419b79eb15",
+    "src/pokesim/games/frlg/battle/npc_actions.py": "8eb52470543b1b971d789085c28d16f61bef32300fd09eca2fc63b19851dc9c4",
+    "src/pokesim/games/frlg/battle/npc_ai.py": "19ef89f6dd7c07e2b415436aaeb8420e5c271ad4c5e94873dd7ce83ec138ee8e",
+    "src/pokesim/games/frlg/battle/player_strategy/__init__.py": "8e6022bf8bf895fa19ca039c3fa3439e39bc9d42de7aac7ab44025fea20c48e2",
+    "src/pokesim/games/frlg/battle/player_strategy/attacks.py": "13da5b3f8036fca9b06eec43503cfd7da9dc7425ee6e6517aae36680c3e98c92",
+    "src/pokesim/games/frlg/battle/player_strategy/planning.py": "606265509ea04d0174470e3253a1609312be9eb94d949d34ff6f637092e1f821",
+    "src/pokesim/games/frlg/battle/player_strategy/recovery.py": "3847c131f10506b5545ca4ac33bd593b8664f1b46512614b313af6c790b94ab6",
+    "src/pokesim/games/frlg/battle/player_strategy/threat.py": "8f0571b9b8f342b054bd0673c7e6fd0caf6d7969168827531c3e025f77c139d5",
+    "src/pokesim/games/frlg/battle/policy.py": "fb0f881d32ffd663a4b3f7a8863c65b57d0f92a2a94e58bd2825fc58f0dda391",
+    "src/pokesim/games/frlg/battle/pret.py": "217aff701426ff5d02dc403abd9547dbf3c5e44bc0184c87b24619fa9c30210c",
+    "src/pokesim/games/frlg/battle/run.py": "c50dce23c8598fbb0ed09258c7f2b60cdda722804b7286826e8f75eccf135dc0",
+    "src/pokesim/games/frlg/battle/sampling.py": "e2bdbd7f351ca34be669e1b6f022b2f2f40479503d54c602d4df0263e22a39ee",
+    "src/pokesim/games/frlg/battle/schema.py": "69807811584a150a2512412918a54f2f36737b89a99d3e6037cdf0b51f08f665",
+    "src/pokesim/games/frlg/progression/__init__.py": "425ce6274a1b1c1dab556ed02af3e6eb474cbfa825f12907fefc62c0490e6dab",
+    "src/pokesim/games/frlg/progression/experience.py": "1bfcbddb1c428dc03ca626e1ea5b8dc16776678d61a55570f567556b7c084f53",
+    "src/pokesim/games/frlg/progression/ledger.py": "f541b4d59a1f1d08204d6c1d165ec16c3d56dd4f96237b4f4f6e9c7b575ca13d",
+    "src/pokesim/games/frlg/progression/moves.py": "91f38bcae7ecdaddab7ab3e371d5bb19fc8bb32291f4d4dc9854cd467ff7b0fd",
+    "src/pokesim/games/frlg/progression/pret.py": "5c4391ff6fd2a71dcb45e6d0d81d9229ffb76e9898576113129e64163fddf230",
+    "src/pokesim/games/frlg/progression/states.py": "a290408e0a787a3d0463e886b087cdc8a118d4e8ccd0800ef456ada3798f944d",
+    "src/pokesim/games/frlg/progression/stats.py": "7b715bbff5b63738f3c513a9feb1a580a1d1a5807816fe3db0e3a7c536a5f4fb"
+  },
+  "scenario_sha256": "d59c71da50964359457346f9e52b0e956de9a942c30425f3634ac37ac3ab301a",
+  "experiment_implementation_sha256": "98386714f4b29be497cdac42ac7fcade4c4468f40eab88fa7c577f261ec6e9cd",
+  "pret_source": {
+    "repository": "https://github.com/pret/pokefirered",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "sha256": {
+      "src/data/trainers.h": "b2105a3b1d1baec02d8f6a89f44bcdf6a05cbaac1d6d8872766eec49aa8555bc",
+      "src/data/trainer_parties.h": "cb135d9cbdfc52c87066374d582506830a8c93561eab2033d847331c2de00299",
+      "src/data/text/species_names.h": "73e87117c98828423b7fc15565bd2a839a0671665fb7c1c1b26264d7d7a8912f",
+      "charmap.txt": "4da662317b3b5109a52064f9012d85b644d1dbf0f3f24243374aeef4cf25f061",
+      "src/data/pokemon/level_up_learnsets.h": "d6563a88fa893d1433a02027cb13ba9574a6828a96b1a730b1d767fd7c5a0cc6",
+      "src/data/pokemon/level_up_learnset_pointers.h": "7a85513797da2a2ebdf7893ce58d94f99aee07deb1aec4f0d7a31422dc8040de",
+      "src/data/battle_moves.h": "54e08c749547afaf73eb2f1e4f4e3023f4d8e186d2f608c29bd6419c291b5384",
+      "data/battle_ai_scripts.s": "0971513157b28ba27ce272acaa2388afa7362a302711f737cad6c3598ca1b389"
+    }
+  },
+  "pret_snapshot_sha256": "0db0210afd02f286530614c97355f2f966b1772e231f1202919f2a7bfdbf9f88",
+  "engine": {
+    "@smogon/calc": "0.12.0",
+    "pokemon-showdown": "0.11.11"
+  },
+  "engine_lock_sha256": "ea33888fa27ae3e4a8b3b1fda1b73b51fa4015686a39773d4468707009625add",
+  "policy": "B:solo-recovery/1; C:goal-based-setup/1",
+  "conditioning": "Independent entry-state scenarios using unchanged B recovery policy. Full HP preserves recorded PP; full rest restores HP, status and PP. Speed variants are diagnostics, not a planned legal training route. Intervals cover this experiment, not previous benchmarks or model error.",
+  "results": [
+    {
+      "fight": "pewter-liam",
+      "variant": "recorded",
+      "starting_hp": 5,
+      "maximum_hp": 27,
+      "raw_speed": 14,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 25
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 1880,
+      "wins": 1225,
+      "win_probability": 0.651595744680851,
+      "confidence_sequence": {
+        "bounds": [
+          0.6006882705811274,
+          0.7002907965327914
+        ],
+        "width": 0.09960252595166397,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {},
+      "losses_by_foe": {
+        "sandshrew": 655
+      },
+      "outcomes": {
+        "win": 1225,
+        "loss": 655
+      }
+    },
+    {
+      "fight": "pewter-liam",
+      "variant": "full-hp",
+      "starting_hp": 27,
+      "maximum_hp": 27,
+      "raw_speed": 14,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 25
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 100,
+      "wins": 100,
+      "win_probability": 1.0,
+      "confidence_sequence": {
+        "bounds": [
+          0.9120674182280011,
+          1.0
+        ],
+        "width": 0.08793258177199892,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "outcomes": {
+        "win": 100
+      }
+    },
+    {
+      "fight": "pewter-liam",
+      "variant": "carry-potion",
+      "starting_hp": 5,
+      "maximum_hp": 27,
+      "raw_speed": 14,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 25
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "potion": 1
+      },
+      "battles": 160,
+      "wins": 158,
+      "win_probability": 0.9875,
+      "confidence_sequence": {
+        "bounds": [
+          0.9090293103117725,
+          0.9999512215354549
+        ],
+        "width": 0.09092191122368243,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 1.0
+      },
+      "losses_by_foe": {
+        "sandshrew": 2
+      },
+      "outcomes": {
+        "win": 158,
+        "loss": 2
+      }
+    },
+    {
+      "fight": "pewter-liam",
+      "variant": "pre-potion",
+      "potions_used_before_battle": 1,
+      "starting_hp": 25,
+      "maximum_hp": 27,
+      "raw_speed": 14,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 25
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 180,
+      "wins": 177,
+      "win_probability": 0.9833333333333333,
+      "confidence_sequence": {
+        "bounds": [
+          0.9068793166998292,
+          0.9997034720390664
+        ],
+        "width": 0.09282415533923716,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {},
+      "losses_by_foe": {
+        "sandshrew": 3
+      },
+      "outcomes": {
+        "win": 177,
+        "loss": 3
+      }
+    },
+    {
+      "fight": "pewter-liam",
+      "variant": "full-hp-carry-potion",
+      "starting_hp": 27,
+      "maximum_hp": 27,
+      "raw_speed": 14,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 25
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "potion": 1
+      },
+      "battles": 100,
+      "wins": 100,
+      "win_probability": 1.0,
+      "confidence_sequence": {
+        "bounds": [
+          0.9120674182280011,
+          1.0
+        ],
+        "width": 0.08793258177199892,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 0.35
+      },
+      "losses_by_foe": {},
+      "outcomes": {
+        "win": 100
+      }
+    },
+    {
+      "fight": "brock",
+      "variant": "recorded",
+      "starting_hp": 11,
+      "maximum_hp": 33,
+      "raw_speed": 17,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 26
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 22
+        },
+        {
+          "name": "WITHDRAW",
+          "pp": 40
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 2060,
+      "wins": 1109,
+      "win_probability": 0.5383495145631068,
+      "confidence_sequence": {
+        "bounds": [
+          0.4881985939336257,
+          0.5879872321921153
+        ],
+        "width": 0.09978863825848966,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {},
+      "losses_by_foe": {
+        "onix": 951
+      },
+      "outcomes": {
+        "win": 1109,
+        "loss": 951
+      }
+    },
+    {
+      "fight": "brock",
+      "variant": "full-hp",
+      "starting_hp": 33,
+      "maximum_hp": 33,
+      "raw_speed": 17,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 26
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 22
+        },
+        {
+          "name": "WITHDRAW",
+          "pp": 40
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 100,
+      "wins": 100,
+      "win_probability": 1.0,
+      "confidence_sequence": {
+        "bounds": [
+          0.9120674182280011,
+          1.0
+        ],
+        "width": 0.08793258177199892,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "outcomes": {
+        "win": 100
+      }
+    },
+    {
+      "fight": "brock",
+      "variant": "carry-potion",
+      "starting_hp": 11,
+      "maximum_hp": 33,
+      "raw_speed": 17,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 26
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 22
+        },
+        {
+          "name": "WITHDRAW",
+          "pp": 40
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "potion": 1
+      },
+      "battles": 100,
+      "wins": 100,
+      "win_probability": 1.0,
+      "confidence_sequence": {
+        "bounds": [
+          0.9120674182280011,
+          1.0
+        ],
+        "width": 0.08793258177199892,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 1.0
+      },
+      "losses_by_foe": {},
+      "outcomes": {
+        "win": 100
+      }
+    },
+    {
+      "fight": "brock",
+      "variant": "pre-potion",
+      "potions_used_before_battle": 1,
+      "starting_hp": 31,
+      "maximum_hp": 33,
+      "raw_speed": 17,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 26
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 22
+        },
+        {
+          "name": "WITHDRAW",
+          "pp": 40
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 100,
+      "wins": 100,
+      "win_probability": 1.0,
+      "confidence_sequence": {
+        "bounds": [
+          0.9120674182280011,
+          1.0
+        ],
+        "width": 0.08793258177199892,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "outcomes": {
+        "win": 100
+      }
+    },
+    {
+      "fight": "brock",
+      "variant": "full-hp-carry-potion",
+      "starting_hp": 33,
+      "maximum_hp": 33,
+      "raw_speed": 17,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 26
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 22
+        },
+        {
+          "name": "WITHDRAW",
+          "pp": 40
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "potion": 1
+      },
+      "battles": 100,
+      "wins": 100,
+      "win_probability": 1.0,
+      "confidence_sequence": {
+        "bounds": [
+          0.9120674182280011,
+          1.0
+        ],
+        "width": 0.08793258177199892,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {},
+      "losses_by_foe": {},
+      "outcomes": {
+        "win": 100
+      }
+    },
+    {
+      "fight": "cerulean-rival",
+      "variant": "recorded",
+      "starting_hp": 32,
+      "maximum_hp": 61,
+      "raw_speed": 35,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 5
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 5
+        },
+        {
+          "name": "BITE",
+          "pp": 22
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 20
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "potion": 6
+      },
+      "battles": 2060,
+      "wins": 932,
+      "win_probability": 0.4524271844660194,
+      "confidence_sequence": {
+        "bounds": [
+          0.4029306133017913,
+          0.5025603862996854
+        ],
+        "width": 0.09962977299789405,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 3.0868932038834953,
+        "awakening": 0.9524271844660194,
+        "antidote": 0.16067961165048544
+      },
+      "losses_by_foe": {
+        "bulbasaur": 624,
+        "rattata": 331,
+        "abra": 172,
+        "pidgeotto": 1
+      },
+      "outcomes": {
+        "loss": 1128,
+        "win": 932
+      }
+    },
+    {
+      "fight": "cerulean-rival",
+      "variant": "full-rest",
+      "starting_hp": 61,
+      "maximum_hp": 61,
+      "raw_speed": 35,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 25
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 5
+        },
+        {
+          "name": "BITE",
+          "pp": 25
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 20
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "potion": 6
+      },
+      "battles": 1520,
+      "wins": 1148,
+      "win_probability": 0.7552631578947369,
+      "confidence_sequence": {
+        "bounds": [
+          0.7032768485407468,
+          0.8026932837353077
+        ],
+        "width": 0.09941643519456089,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "awakening": 0.35460526315789476,
+        "potion": 1.1993421052631579,
+        "antidote": 0.1769736842105263
+      },
+      "losses_by_foe": {
+        "bulbasaur": 263,
+        "abra": 45,
+        "rattata": 64
+      },
+      "outcomes": {
+        "loss": 372,
+        "win": 1148
+      }
+    },
+    {
+      "fight": "ssanne-rival",
+      "variant": "recorded",
+      "starting_hp": 37,
+      "maximum_hp": 76,
+      "raw_speed": 45,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 5
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 3
+        },
+        {
+          "name": "BITE",
+          "pp": 12
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 3
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 2080,
+      "wins": 1025,
+      "win_probability": 0.49278846153846156,
+      "confidence_sequence": {
+        "bounds": [
+          0.4430284719525508,
+          0.5426440772276228
+        ],
+        "width": 0.09961560527507196,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 3.2413461538461537,
+        "awakening": 1.1091346153846153,
+        "superpotion": 3.19375,
+        "elixir": 0.07067307692307692,
+        "oranberry": 0.0625,
+        "antidote": 0.47451923076923075
+      },
+      "losses_by_foe": {
+        "ivysaur": 744,
+        "raticate": 176,
+        "kadabra": 135
+      },
+      "outcomes": {
+        "win": 1025,
+        "loss": 1055
+      }
+    },
+    {
+      "fight": "ssanne-rival",
+      "variant": "full-hp",
+      "starting_hp": 76,
+      "maximum_hp": 76,
+      "raw_speed": 45,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 5
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 3
+        },
+        {
+          "name": "BITE",
+          "pp": 12
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 3
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 1600,
+      "wins": 1178,
+      "win_probability": 0.73625,
+      "confidence_sequence": {
+        "bounds": [
+          0.6845179413290463,
+          0.7839650724439806
+        ],
+        "width": 0.0994471311149343,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 1.135,
+        "awakening": 0.65875,
+        "superpotion": 1.87375,
+        "antidote": 0.32625,
+        "elixir": 0.12875,
+        "oranberry": 0.013125
+      },
+      "losses_by_foe": {
+        "ivysaur": 339,
+        "raticate": 55,
+        "kadabra": 28
+      },
+      "outcomes": {
+        "loss": 422,
+        "win": 1178
+      }
+    },
+    {
+      "fight": "ssanne-rival",
+      "variant": "full-rest",
+      "starting_hp": 76,
+      "maximum_hp": 76,
+      "raw_speed": 45,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 25
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 5
+        },
+        {
+          "name": "BITE",
+          "pp": 25
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 20
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 1500,
+      "wins": 1136,
+      "win_probability": 0.7573333333333333,
+      "confidence_sequence": {
+        "bounds": [
+          0.7051304831919828,
+          0.8048850949870097
+        ],
+        "width": 0.09975461179502687,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "awakening": 0.6486666666666666,
+        "potion": 1.1853333333333333,
+        "superpotion": 1.85,
+        "antidote": 0.31666666666666665,
+        "oranberry": 0.016
+      },
+      "losses_by_foe": {
+        "kadabra": 53,
+        "raticate": 84,
+        "ivysaur": 227
+      },
+      "outcomes": {
+        "win": 1136,
+        "loss": 364
+      }
+    },
+    {
+      "fight": "ssanne-rival",
+      "variant": "dig",
+      "starting_hp": 37,
+      "maximum_hp": 76,
+      "raw_speed": 45,
+      "moves": [
+        {
+          "name": "DIG",
+          "pp": 10
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 3
+        },
+        {
+          "name": "BITE",
+          "pp": 12
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 3
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 2060,
+      "wins": 1085,
+      "win_probability": 0.5266990291262136,
+      "confidence_sequence": {
+        "bounds": [
+          0.4765502206967614,
+          0.5764905438470568
+        ],
+        "width": 0.09994032315029538,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 3.1980582524271846,
+        "awakening": 1.0699029126213593,
+        "superpotion": 3.030097087378641,
+        "antidote": 0.42572815533980585,
+        "oranberry": 0.062135922330097085,
+        "elixir": 0.06893203883495146
+      },
+      "losses_by_foe": {
+        "kadabra": 141,
+        "ivysaur": 691,
+        "raticate": 143
+      },
+      "outcomes": {
+        "win": 1085,
+        "loss": 975
+      }
+    },
+    {
+      "fight": "ssanne-rival",
+      "variant": "speed",
+      "speed_ev_before": 25,
+      "speed_ev_after": 68,
+      "diagnostic": "Speed EVs changed at fixed EXP; a legal training route has not been planned.",
+      "starting_hp": 37,
+      "maximum_hp": 76,
+      "raw_speed": 48,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 5
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 3
+        },
+        {
+          "name": "BITE",
+          "pp": 12
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 3
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 2060,
+      "wins": 1081,
+      "win_probability": 0.5247572815533981,
+      "confidence_sequence": {
+        "bounds": [
+          0.47461147505148205,
+          0.574571779285163
+        ],
+        "width": 0.09996030423368096,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 2.9359223300970876,
+        "awakening": 1.1072815533980582,
+        "superpotion": 3.086407766990291,
+        "elixir": 0.06165048543689321,
+        "oranberry": 0.04563106796116505,
+        "antidote": 0.4645631067961165
+      },
+      "losses_by_foe": {
+        "kadabra": 66,
+        "ivysaur": 738,
+        "raticate": 175
+      },
+      "outcomes": {
+        "loss": 979,
+        "win": 1081
+      }
+    },
+    {
+      "fight": "ssanne-rival",
+      "variant": "dig-speed",
+      "speed_ev_before": 25,
+      "speed_ev_after": 68,
+      "diagnostic": "Speed EVs changed at fixed EXP; a legal training route has not been planned.",
+      "starting_hp": 37,
+      "maximum_hp": 76,
+      "raw_speed": 48,
+      "moves": [
+        {
+          "name": "DIG",
+          "pp": 10
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 3
+        },
+        {
+          "name": "BITE",
+          "pp": 12
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 3
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 2040,
+      "wins": 1144,
+      "win_probability": 0.5607843137254902,
+      "confidence_sequence": {
+        "bounds": [
+          0.5104727501694986,
+          0.6102748840337111
+        ],
+        "width": 0.09980213386421255,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 2.880392156862745,
+        "awakening": 1.072549019607843,
+        "superpotion": 2.9313725490196076,
+        "antidote": 0.41862745098039217,
+        "oranberry": 0.05,
+        "elixir": 0.059803921568627454
+      },
+      "losses_by_foe": {
+        "ivysaur": 687,
+        "raticate": 141,
+        "kadabra": 68
+      },
+      "outcomes": {
+        "win": 1144,
+        "loss": 896
+      }
+    },
+    {
+      "fight": "surge",
+      "variant": "recorded",
+      "starting_hp": 79,
+      "maximum_hp": 79,
+      "raw_speed": 47,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 25
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 5
+        },
+        {
+          "name": "BITE",
+          "pp": 25
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 19
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 2040,
+      "wins": 1147,
+      "win_probability": 0.5622549019607843,
+      "confidence_sequence": {
+        "bounds": [
+          0.5119516974146755,
+          0.6117172507977106
+        ],
+        "width": 0.09976555338303505,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "parlyzheal": 1.0867647058823529,
+        "potion": 1.2769607843137254,
+        "superpotion": 1.0622549019607843,
+        "oranberry": 0.004901960784313725
+      },
+      "losses_by_foe": {
+        "raichu": 893
+      },
+      "outcomes": {
+        "win": 1147,
+        "loss": 893
+      }
+    },
+    {
+      "fight": "surge",
+      "variant": "dig",
+      "starting_hp": 79,
+      "maximum_hp": 79,
+      "raw_speed": 47,
+      "moves": [
+        {
+          "name": "DIG",
+          "pp": 10
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 5
+        },
+        {
+          "name": "BITE",
+          "pp": 25
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 19
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 2060,
+      "wins": 1098,
+      "win_probability": 0.5330097087378641,
+      "confidence_sequence": {
+        "bounds": [
+          0.4828563694139731,
+          0.5827213034078097
+        ],
+        "width": 0.09986493399383661,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "parlyzheal": 1.4364077669902913,
+        "potion": 1.3635922330097088,
+        "superpotion": 1.1786407766990292,
+        "oranberry": 0.007766990291262136
+      },
+      "losses_by_foe": {
+        "raichu": 962
+      },
+      "outcomes": {
+        "win": 1098,
+        "loss": 962
+      }
+    },
+    {
+      "fight": "surge",
+      "variant": "speed",
+      "speed_ev_before": 31,
+      "speed_ev_after": 128,
+      "diagnostic": "Speed EVs changed at fixed EXP; a legal training route has not been planned.",
+      "starting_hp": 79,
+      "maximum_hp": 79,
+      "raw_speed": 54,
+      "moves": [
+        {
+          "name": "WATER_GUN",
+          "pp": 25
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 5
+        },
+        {
+          "name": "BITE",
+          "pp": 25
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 19
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 1480,
+      "wins": 1127,
+      "win_probability": 0.7614864864864865,
+      "confidence_sequence": {
+        "bounds": [
+          0.7091922425356563,
+          0.8089941682986652
+        ],
+        "width": 0.09980192576300895,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "parlyzheal": 1.9858108108108108,
+        "potion": 0.5722972972972973,
+        "superpotion": 1.175
+      },
+      "losses_by_foe": {
+        "raichu": 353
+      },
+      "outcomes": {
+        "win": 1127,
+        "loss": 353
+      }
+    },
+    {
+      "fight": "surge",
+      "variant": "dig-speed",
+      "speed_ev_before": 31,
+      "speed_ev_after": 128,
+      "diagnostic": "Speed EVs changed at fixed EXP; a legal training route has not been planned.",
+      "starting_hp": 79,
+      "maximum_hp": 79,
+      "raw_speed": 54,
+      "moves": [
+        {
+          "name": "DIG",
+          "pp": 10
+        },
+        {
+          "name": "MEGA_KICK",
+          "pp": 5
+        },
+        {
+          "name": "BITE",
+          "pp": 25
+        },
+        {
+          "name": "WATER_PULSE",
+          "pp": 19
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "elixir": 1,
+        "oranberry": 1,
+        "parlyzheal": 3,
+        "potion": 5,
+        "superpotion": 5
+      },
+      "battles": 1620,
+      "wins": 1178,
+      "win_probability": 0.7271604938271605,
+      "confidence_sequence": {
+        "bounds": [
+          0.6752882512397341,
+          0.7752154350122541
+        ],
+        "width": 0.09992718377251997,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "parlyzheal": 2.2401234567901236,
+        "potion": 0.6283950617283951,
+        "superpotion": 1.3444444444444446
+      },
+      "losses_by_foe": {
+        "raichu": 442
+      },
+      "outcomes": {
+        "win": 1178,
+        "loss": 442
+      }
+    },
+    {
+      "fight": "forest-sammy",
+      "variant": "recorded",
+      "starting_hp": 16,
+      "maximum_hp": 25,
+      "raw_speed": 12,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 29
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 960,
+      "wins": 830,
+      "win_probability": 0.8645833333333334,
+      "confidence_sequence": {
+        "bounds": [
+          0.8103318420435056,
+          0.9087934655778537
+        ],
+        "width": 0.09846162353434806,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "antidote": 0.3697916666666667
+      },
+      "losses_by_foe": {
+        "weedle": 130
+      },
+      "outcomes": {
+        "win": 830,
+        "loss": 130
+      }
+    },
+    {
+      "fight": "forest-sammy",
+      "variant": "full-hp",
+      "starting_hp": 25,
+      "maximum_hp": 25,
+      "raw_speed": 12,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 29
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 180,
+      "wins": 177,
+      "win_probability": 0.9833333333333333,
+      "confidence_sequence": {
+        "bounds": [
+          0.9068793166998292,
+          0.9997034720390664
+        ],
+        "width": 0.09282415533923716,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "antidote": 0.43333333333333335
+      },
+      "losses_by_foe": {
+        "weedle": 3
+      },
+      "outcomes": {
+        "win": 177,
+        "loss": 3
+      }
+    },
+    {
+      "fight": "forest-sammy",
+      "variant": "carry-potion",
+      "starting_hp": 16,
+      "maximum_hp": 25,
+      "raw_speed": 12,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 29
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "potion": 1
+      },
+      "battles": 120,
+      "wins": 119,
+      "win_probability": 0.9916666666666667,
+      "confidence_sequence": {
+        "bounds": [
+          0.9005643246220607,
+          0.9999996155711331
+        ],
+        "width": 0.09943529094907244,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 0.6916666666666667,
+        "antidote": 0.44166666666666665
+      },
+      "losses_by_foe": {
+        "weedle": 1
+      },
+      "outcomes": {
+        "win": 119,
+        "loss": 1
+      }
+    },
+    {
+      "fight": "forest-sammy",
+      "variant": "speed",
+      "speed_ev_before": 2,
+      "speed_ev_after": 120,
+      "diagnostic": "Speed EVs changed at fixed EXP; a legal training route has not been planned.",
+      "starting_hp": 16,
+      "maximum_hp": 25,
+      "raw_speed": 15,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 28
+        },
+        {
+          "name": "TAIL_WHIP",
+          "pp": 30
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 29
+        }
+      ],
+      "bag": {
+        "antidote": 1
+      },
+      "battles": 880,
+      "wins": 769,
+      "win_probability": 0.8738636363636364,
+      "confidence_sequence": {
+        "bounds": [
+          0.8184864071759108,
+          0.9180651810468413
+        ],
+        "width": 0.0995787738709305,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "antidote": 0.3488636363636364
+      },
+      "losses_by_foe": {
+        "weedle": 111
+      },
+      "outcomes": {
+        "win": 769,
+        "loss": 111
+      }
+    },
+    {
+      "fight": "mtmoon-josh",
+      "variant": "recorded",
+      "starting_hp": 10,
+      "maximum_hp": 42,
+      "raw_speed": 22,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 26
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 19
+        },
+        {
+          "name": "WITHDRAW",
+          "pp": 40
+        },
+        {
+          "name": "WATER_GUN",
+          "pp": 16
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "potion": 9
+      },
+      "battles": 1100,
+      "wins": 919,
+      "win_probability": 0.8354545454545454,
+      "confidence_sequence": {
+        "bounds": [
+          0.7814025600097296,
+          0.8813791894402935
+        ],
+        "width": 0.09997662943056385,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 0.8636363636363636
+      },
+      "losses_by_foe": {
+        "rattata": 181
+      },
+      "outcomes": {
+        "win": 919,
+        "loss": 181
+      }
+    },
+    {
+      "fight": "mtmoon-josh",
+      "variant": "full-rest",
+      "starting_hp": 42,
+      "maximum_hp": 42,
+      "raw_speed": 22,
+      "moves": [
+        {
+          "name": "TACKLE",
+          "pp": 35
+        },
+        {
+          "name": "BUBBLE",
+          "pp": 30
+        },
+        {
+          "name": "WITHDRAW",
+          "pp": 40
+        },
+        {
+          "name": "WATER_GUN",
+          "pp": 25
+        }
+      ],
+      "bag": {
+        "antidote": 1,
+        "awakening": 3,
+        "potion": 9
+      },
+      "battles": 100,
+      "wins": 100,
+      "win_probability": 1.0,
+      "confidence_sequence": {
+        "bounds": [
+          0.9120674182280011,
+          1.0
+        ],
+        "width": 0.08793258177199892,
+        "precision_reached": true,
+        "stop_reason": "interval_width"
+      },
+      "mean_items_used": {
+        "potion": 0.07
+      },
+      "losses_by_foe": {},
+      "outcomes": {
+        "win": 100
+      }
+    }
+  ]
+}
