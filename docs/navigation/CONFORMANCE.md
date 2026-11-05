@@ -119,3 +119,24 @@ parity for the selected inputs. It does not establish these remaining gates:
   claim that a documented check command is already an active workflow.
 - Test real controller/detector timing and transition judgments in Arduino.
   Spatial prediction passing alone does not prove encounter recovery is safe.
+
+### Prepared native handoff
+
+The following branches are isolated in `~/Projects/wt/*-conformance`. They are
+locally committed and tested; initial native publication is pending explicit
+approval for the bootstrap pre-push gate, which currently falls back to main
+and reports inherited violations. Each diff against its intended parent passes
+code health. Do not bypass the hook without that approval.
+
+| Branch | Local tested commit | Parent |
+|---|---|---|
+| `nav/navigation-conformance` | `552cc9ac2b04443c23d9f11506130d8115fcad3b` | Current `nav/shared` lint cleanup (`1b769a43a`), #114. Shared catalog, pin/hash verification and embedding. |
+| `frlg/navigation-conformance` | `5724dac95` | #224 (`7eb651706`) plus the shared prerequisite. Six new registered tests; exposes the existing transition function. |
+| `bdsp/navigation-conformance` | `f90423b9a` | #226 (`8c6acefa3`) plus the shared prerequisite. Four new registered tests; no native movement behavior changes. |
+
+The game branches currently also show the shared parent's earlier lint cleanup
+until it is merged forward into the game chains. That inherited cleanup is not
+part of the fixture implementation. Review the shared prerequisite against
+`nav/shared`, then each game's adapter commit. FRLG route-format functions move
+unchanged into `OverworldRouteFormat.cpp` to keep the route implementation
+within the existing file-length limit.
