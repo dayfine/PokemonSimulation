@@ -111,6 +111,14 @@ class LocalRoutingTest(unittest.TestCase):
         view = LocalMap(fixture(), 'frlg', Context(acknowledge_map_state=True), ['barriers already open'])
         self.assertEqual(view.preconditions, ['barriers already open'])
 
+    def test_goal_region_reaches_nearest_stable_member_not_first_point(self):
+        view = LocalMap(fixture(points={'exit.1': [2, 0], 'exit.2': [1, 0]}), 'bdsp')
+        path = view.route_region(Tile(0, 0), 'exit')
+        self.assertEqual(path.end.place.tile, Tile(1, 0))
+        self.assertEqual(len(path.moves), 1)
+        with self.assertRaisesRegex(ValueError, 'region'):
+            view.route_region(Tile(0, 0), 'missing')
+
     def test_closed_side_encounter_region_has_grass_cost(self):
         view = LocalMap(fixture(['.8.'], regions={'wild': [[1, 0]]}), 'frlg')
         self.assertEqual(view.map_file.grid.at(Tile(1, 0)).behavior, Behavior.TALL_GRASS)

@@ -7,6 +7,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest import mock
+from xml.etree import ElementTree
 
 from pokesim.cli.route import main
 from pokesim.maps.local_routing import LocalMap
@@ -23,8 +24,9 @@ class RouteCliTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             report = Path(directory) / 'route.json'
             image = Path(directory) / 'route.png'
+            svg = Path(directory) / 'route.svg'
             args = ['--game', 'bdsp', '--map', 'room', '--start', 'start', '--goal', 'goal',
-                    '--revision', 'f' * 40, '--json', str(report), '--png', str(image)]
+                    '--revision', 'f' * 40, '--json', str(report), '--png', str(image), '--svg', str(svg)]
             with mock.patch('pokesim.cli.route.load_pinned_map', return_value=self.view()), redirect_stdout(io.StringIO()) as output:
                 self.assertEqual(main(args), 0)
             data = json.loads(report.read_text())
@@ -36,6 +38,12 @@ class RouteCliTest(unittest.TestCase):
             self.assertIn('@', output.getvalue())
             self.assertIn('X', output.getvalue())
             self.assertEqual(Image.read(str(image)).width, 48)
+            root = ElementTree.fromstring(svg.read_text())
+            self.assertEqual(root[0].attrib.get('fill'), 'white')
+            text = ' '.join(root.itertext())
+            self.assertIn('room', text)
+            self.assertIn('local tile coordinates', text)
+            self.assertIn('orange dot: object', text)
 
     def test_missing_route_and_invalid_cost_are_failures(self):
         view = self.view()

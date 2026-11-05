@@ -148,6 +148,31 @@ class LocalMap(World):
     def point(self, name):
         return self.map_file.point(name).tile
 
+    def region(self, name):
+        if name in self.data.get('regions', {}):
+            return {Tile(*tile) for tile in self.data['regions'][name]}
+        # BDSP's current runtime format encodes regions as numbered points.
+        numbered = {int(key[len(name) + 1:]): Tile(*tile)
+                    for key, tile in self.data.get('points', {}).items()
+                    if key.startswith(name + '.') and key[len(name) + 1:].isdigit()}
+        if not numbered or set(numbered) != set(range(1, len(numbered) + 1)):
+            raise ValueError('missing or incomplete region: ' + name)
+        return set(numbered.values())
+
+    def route_region(self, start, name, costs=Costs(), elevation=None):
+        """Reach any stable tile in the native goal region, not an arbitrary point."""
+        initial = self.route(start, start, costs, elevation).start
+        targets = set()
+        for tile in self.region(name):
+            cell = self.map_file.grid.at(tile)
+            if (cell is not None and not cell.blocked
+                    and cell.behavior not in (*LEDGE_DIRECTION, Behavior.UNKNOWN, Behavior.DOOR, Behavior.WARP)
+                    and tile not in self.occupied and tile not in self.scene_tiles):
+                targets.add(tile)
+        if not targets:
+            raise ValueError('goal region has no stable unoccupied tile: ' + name)
+        return shortest_path(self, initial, lambda state: state.place.tile in targets, costs, self.rules)
+
     def route(self, start, goal, costs=Costs(), elevation=None):
         grid = self.map_file.grid
         for label, tile in [('start', start), ('goal', goal)]:

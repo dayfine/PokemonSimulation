@@ -13,7 +13,9 @@ schema validation, routing, drawing and builder helpers. The legacy text-grid
 legend remains separate because its numeric glyphs have different semantics.
 
 Checked-in [golden routes and PNGs](../../src/pokesim/maps/goldens/README.md)
-cover FRLG towns/closed sides and BDSP's unknown-versus-disarmed scene state.
+use reviewed local route contracts from FRLG #224 and BDSP #226. The
+[comparison](AUTOSTORY_ROUTE_COMPARISON.md) records mismatches in the old examples
+and remaining differences from native planning.
 
 ## Run
 
@@ -21,15 +23,17 @@ From the repository root with a full-history PokemonSimulation checkout:
 
 ```sh
 PYTHONPATH=src python3 -m pokesim.cli.route \
-  --game frlg --map PalletTown --start 6,8 --goal oaks_lab_front \
-  --png /tmp/pallet-route.png --json /tmp/pallet-route.json
+  --game frlg --map PalletTown --start 6,8 --goal 12,2 \
+  --svg /tmp/pallet-route.svg --png /tmp/pallet-route.png --json /tmp/pallet-route.json
 
 PYTHONPATH=src python3 -m pokesim.cli.route \
-  --game bdsp --map Route201 --start 44,3 --goal 53,3 \
-  --png /tmp/route201-route.png --json /tmp/route201-route.json
+  --game bdsp --map Route202 --start save_spot --goal-region jubilife_exit \
+  --var VAR_ROUTE_202_STATE=1 --svg /tmp/route202-route.svg --json /tmp/route202-route.json
 ```
 
-Start/goal can be local `x,y` or a named point from that runtime map. A trainer
+Start/goal can be local `x,y` or a named point from that runtime map.
+Use `--goal-region` instead of `--goal` to reach any stable member of a native
+region (including BDSP's numbered-point regions). A trainer
 point occupied by an NPC is not a walking destination; choose an adjacent
 interaction tile. Coordinates belong to the runtime crop, not the older
 snake-case BDSP reference files.
@@ -68,7 +72,10 @@ The CLI writes no report or image for an unreachable goal.
 
 ASCII uses the runtime glyphs plus `@` start, `X` goal, `*` route, `O` object
 occupancy and `?` active/unknown scene areas. PNGs show the computed route in
-red, excluded object/scene areas in blue and closed tile sides as black lines.
+red, object spawn positions in orange, conservative NPC areas lightly tinted,
+scene exclusions in purple and closed tile sides as black lines. `--svg` adds
+a coordinate grid, endpoint labels, required legend and route statistics.
+The drawings are collision diagrams, not game artwork.
 
 ## Limits and next work
 

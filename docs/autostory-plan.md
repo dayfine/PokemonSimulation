@@ -41,6 +41,10 @@ Inventory, commands and caveats: [maps/runtime-maps.md](maps/runtime-maps.md).
   constraints and story state, and draw the planned route with frame labels.
 - [ ] Export route legs plus their preconditions; test against the current
   Arduino plans before replacing their offline planner copies.
+- [ ] Close the [native AutoStory route parity gap](navigation/AUTOSTORY_ROUTE_COMPARISON.md):
+  align exported checkpoint state/goals/facing and native leg/open-stop costs,
+  then compare traces including battle interruptions and replanning. Current
+  diagrams are Python candidates for sourced goals, not native planner replays.
 
 ## 3. Shared simulation and recovery
 

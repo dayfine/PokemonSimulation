@@ -1,0 +1,471 @@
+{
+  "format": "pokesim-route-golden/1",
+  "game": "bdsp",
+  "map": "Route202",
+  "map_sha256": "360c0ae205293fadb0a98af30b8c2e5d002b10e159c9bef9ac49f0cb5f6e8eb2",
+  "coordinate_frame": {
+    "kind": "local tiles",
+    "origin": [
+      159,
+      800
+    ],
+    "width": 36,
+    "height": 32,
+    "origin_space": "decomp matrix world (x,z)"
+  },
+  "preconditions": [],
+  "native_reference": {
+    "repository": "dayfine/Arduino-Source",
+    "pr": 226,
+    "revision": "4fc851b4783cbad6a50437056d56d658d8585335",
+    "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_StoryTable.cpp",
+    "checkpoint": "00.04d",
+    "step": "north_to_jubilife",
+    "note": "Native start is save_spot and goal is the jubilife_exit region. Value 1 here represents the disarmed tutorial; the row ordering establishes it has finished, but this numeric value is a modeling assumption. Native battle interruptions and robust leg costs are not replayed."
+  },
+  "goal": {
+    "region": "jubilife_exit"
+  },
+  "context": {
+    "flags": [],
+    "variables": {
+      "VAR_ROUTE_202_STATE": 1
+    },
+    "acknowledge_map_state": false
+  },
+  "start": {
+    "tile": [
+      30,
+      24
+    ],
+    "elevation": 0
+  },
+  "cost": 247.0,
+  "moves": [
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [29, 24, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [28, 24, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [27, 24, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [26, 24, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [25, 24, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [24, 24, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [23, 24, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [22, 24, 0]
+    },
+    {
+      "direction": "south",
+      "kind": "step",
+      "to": [22, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [21, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [20, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [19, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [18, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [17, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [16, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [15, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [14, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [13, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [12, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [11, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [10, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [9, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [8, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [7, 25, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [6, 25, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [6, 24, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [6, 23, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [6, 22, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [6, 21, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [6, 20, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [6, 19, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [6, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [7, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [8, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [9, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [10, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [11, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [12, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [13, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [14, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [15, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [16, 18, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [17, 18, 0]
+    },
+    {
+      "direction": "south",
+      "kind": "step",
+      "to": [17, 19, 0]
+    },
+    {
+      "direction": "south",
+      "kind": "step",
+      "to": [17, 20, 0]
+    },
+    {
+      "direction": "south",
+      "kind": "step",
+      "to": [17, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [18, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [19, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [20, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [21, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [22, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [23, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [24, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [25, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [26, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [27, 21, 0]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [28, 21, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 20, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 19, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 18, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 17, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 16, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 15, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 14, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 13, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 12, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 11, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 10, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [28, 9, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [27, 9, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [26, 9, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [25, 9, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [24, 9, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [23, 9, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [22, 9, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [22, 8, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [21, 8, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [20, 8, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [19, 8, 0]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [18, 8, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [18, 7, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [18, 6, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [18, 5, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [18, 4, 0]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [18, 3, 0]
+    }
+  ]
+}

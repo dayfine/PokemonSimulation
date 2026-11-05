@@ -14,6 +14,22 @@
     "origin_space": "map layout"
   },
   "preconditions": [],
+  "native_reference": {
+    "repository": "dayfine/Arduino-Source",
+    "pr": 224,
+    "revision": "51c0ce6128e5981da56b370a770874b96a1e129f",
+    "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryTableCeladon.cpp",
+    "checkpoint": "00.26",
+    "step": "beside_chairman",
+    "note": "Goal is explicit (4,4,EAST). Start is the local slice derived from warp_1 (5,10); walks_out_on_arrival is false for this directional mat. This does not replay the preceding cross-map route."
+  },
+  "goal": {
+    "tile": [
+      4,
+      4
+    ],
+    "facing": "east"
+  },
   "context": {
     "flags": [],
     "variables": {},
@@ -22,29 +38,34 @@
   "start": {
     "tile": [
       5,
-      9
+      10
     ],
     "elevation": 3
   },
-  "cost": 14.0,
+  "cost": 15.0,
   "moves": [
     {
-      "direction": "west",
+      "direction": "north",
       "kind": "step",
-      "to": [4, 9, 3]
-    },
-    {
-      "direction": "west",
-      "kind": "step",
-      "to": [3, 9, 3]
+      "to": [5, 9, 3]
     },
     {
       "direction": "north",
       "kind": "step",
-      "to": [3, 8, 3]
+      "to": [5, 8, 3]
     },
     {
       "direction": "north",
+      "kind": "step",
+      "to": [5, 7, 3]
+    },
+    {
+      "direction": "west",
+      "kind": "step",
+      "to": [4, 7, 3]
+    },
+    {
+      "direction": "west",
       "kind": "step",
       "to": [3, 7, 3]
     },
@@ -64,19 +85,9 @@
       "to": [3, 4, 3]
     },
     {
-      "direction": "north",
-      "kind": "step",
-      "to": [3, 3, 3]
-    },
-    {
       "direction": "east",
       "kind": "step",
-      "to": [4, 3, 3]
-    },
-    {
-      "direction": "east",
-      "kind": "step",
-      "to": [5, 3, 3]
+      "to": [4, 4, 0]
     }
   ]
 }
