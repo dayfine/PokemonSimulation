@@ -55,6 +55,30 @@ during swaps can require recovery; integrity fails rather than reporting success
 under an inconsistent lock. Restore exports from the previous locked revision
 before retrying. Review and commit exports and lock together.
 
+## Initial rollout revisions
+
+The merged tooling is available at
+`d139398d48ee831da540b901e6700c6ba5dbb32c` on PokemonSimulation main.
+The workflow template pins this exact action revision. The initial data pin
+can use the same commit, with manifest SHA-256
+`d2ee1c66222eee741103149c3a6db245ee51115ad6e87a79f7a3fe6e7a7b0176`.
+Generate the consumer lock with `update`; do not substitute PR #42's
+intermediate merge commit for a publishing commit verified on main.
+
+Read-only preflight against these specific Arduino revisions:
+
+| Consumer snapshot | Export status | Remaining adoption work |
+|---|---|---|
+| FRLG #224, `51c0ce6128e5981da56b370a770874b96a1e129f` | All 53 maps byte-identical; no missing/extra maps. | Retire `devtools/maps/frlg_maps.py` in its owning PR, then lock/export and install the check. |
+| BDSP #226, `398b8518ba7c6a74e7fd3bfc1116bdcba161dab5` | 22 maps present; five differ. | Review corrections here before adoption; retire `bdsp_maps.py` and dependent `decomp.py` authoring uses in the owning PRs. |
+
+BDSP differences are `JubilifeCity.json`, `OreburghMine.json`,
+`OreburghMineB1F.json`, `PlayerHouse1F.json`, and `Route201.json`.
+These observations neither import nor approve those changes. Re-run `compare`
+after a consumer branch advances; this table records snapshots, not a promise
+that a later head still matches. The Arduino workflow, required-status settings
+and duplicate-builder removal have not been applied by this handoff.
+
 ## Activate in the owning consumer branches
 
 1. Review pending map differences in PokemonSimulation first. In particular,
@@ -78,9 +102,9 @@ before retrying. Review and commit exports and lock together.
    ```
 
 5. Copy `map-pack-integrity.yml.example` to
-   `.github/workflows/map-pack-integrity.yml`, replacing
-   `IMPLEMENTATION_COMMIT` with the full merged PokemonSimulation commit that
-   contains this action. The workflow runs for drafts too. Default PR checkout
+   `.github/workflows/map-pack-integrity.yml`. The template already pins the
+   merged implementation; review any future action revision update separately
+   from the map-data pin. The workflow runs for drafts too. Default PR checkout
    checks the merge result; the action obtains full approved publishing history
    independently and compares it to the consumer lock.
 6. Run native reader/story tests against the selected exports and configure

@@ -1,5 +1,5 @@
 # Install as .github/workflows/map-pack-integrity.yml in the owning Arduino PR.
-# Replace IMPLEMENTATION_COMMIT with this implementation's full merged commit.
+# Pinned to the implementation published on PokemonSimulation main after #41/#42.
 name: Map pack integrity
 on:
   pull_request:
@@ -16,4 +16,4 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - uses: dayfine/PokemonSimulation/integrations/arduino-source/verify-map-packs@IMPLEMENTATION_COMMIT
+      - uses: dayfine/PokemonSimulation/integrations/arduino-source/verify-map-packs@d139398d48ee831da540b901e6700c6ba5dbb32c
