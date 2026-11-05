@@ -1,5 +1,71 @@
 # Transition and localization regression inventory
 
+## Problem and solution
+
+The shared problem is **continuing a route from a position the walker has not
+actually established**. A map transition, a battle interruption or a short leg
+can leave the character on a different map/tile, or facing a different way,
+than the route assumes. Later inputs then compound that error.
+
+Transition handling and recovery are related, but are not the same operation:
+
+| Operation | Question it answers | Responsibility |
+|---|---|---|
+| Transition handling | Did we change maps, and where/how did we arrive? | Model door/cave/mat/edge entry, arrival displacement, facing and coordinate offsets; confirm the actual destination from observations. A fade alone is insufficient. |
+| Recovery | Where could we be, and how can we safely continue? | Preserve every plausible pose after uncertainty; find a safe localization action, confirm its result and replan from that anchor. A completed input count alone is insufficient. |
+
+A correctly confirmed transition needs no recovery. An interrupted ordinary
+walk can need recovery without changing maps. An unconfirmed transition can
+need recovery too, but holding toward a wall is safe only when every remaining
+hypothesis supports that action. A warp, NPC or unknown edge is not a wall.
+
+### Example: FRLG Forest gate — transition handling
+
+From Forest `(5,10)`, north enters the cave warp and predicts arrival at the
+north gate's `(7,10)`, facing north. Another north input moves to `(7,9)` on the
+same gate map. Returning south from the mat at `(7,10)` warps to Forest and
+includes its south-facing cave walk-out.
+
+If a battle wipe is mistaken for the transition fade, the player may still be
+in Forest. Keep the possible source/destination poses until drained-input and
+map/position evidence distinguish them; do not begin the next map's route merely
+because the screen went dark. See `forest-north-gate` and
+`forest-interrupted-warp-approach` below and in the case catalog.
+
+### Example: BDSP mine corridor — recovery without a transition
+
+The reported `below_roark` route intended to reach row 17 before walking east.
+After encounters, the character was reported on row 15 and the east leg met
+Machop. The deployed revision and exact physical cause are unknown; tests
+explicitly inject both an interrupted step that moved and one that did not.
+
+Instead of crediting each interrupted input as movement, retain the possible
+rows. If the reviewed map proves they all share a safe south ray, clip south
+until the wall confirms a common anchor, then replan the east leg from there.
+Do not resume the old east leg while assuming row 17. Retry interrupted clips
+within a budget; stop if the anchor cannot be established. The exact native
+story-step tests and current map limitations are recorded below.
+
+### What this chain adds
+
+- **Python #45:** map-transition predictions, pose uncertainty, observation
+  confirmation and bounded recovery/clipping (`runtime_world.py` and
+  `transition_state.py`). **Arduino #227–229:** shared wall-anchor search and
+  FRLG/BDSP native integration, with actual walker regressions.
+- **#46:** eight exact spatial fixtures checked independently in Python/native.
+  [CONFORMANCE.md](CONFORMANCE.md) describes the native handoff and pin checks.
+- **#47:** four Python recovery diagnostics with exact state snapshots, plus a
+  trainer-sight import fix. [ENCOUNTER_RECOVERY.md](ENCOUNTER_RECOVERY.md) lists
+  those cases and what they prove. They are not yet native event-replay parity.
+- **Next:** replay actual native walker reports against the model, then verify
+  full confirmation and automatic route rejoin. Keep absent observations and
+  game-specific retry policies explicit. Timing and live detectors stay native.
+
+The remainder of this document is the detailed source/run inventory and its
+known gaps; start here for the problem, then use the examples below as evidence.
+
+## Fixture scope
+
 This slice separates **predicted movement**, **possible poses**, and **observed
 arrival**. It uses the unchanged maps published at PokemonSimulation
 `86cbad9144970e546a2fa4ee5d49cfea7905de3c` (#44). No #226 map correction is
