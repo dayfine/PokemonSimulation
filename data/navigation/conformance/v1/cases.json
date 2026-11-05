@@ -1,0 +1,471 @@
+{
+  "format": "pokesim-navigation-conformance/1",
+  "coordinate_frame": "runtime-local",
+  "map_revision": "4f6db528960e305cf49c53c89ec91adbffb168a9",
+  "maps": [
+    {
+      "game": "bdsp",
+      "name": "Route202",
+      "sha256": "360c0ae205293fadb0a98af30b8c2e5d002b10e159c9bef9ac49f0cb5f6e8eb2"
+    },
+    {
+      "game": "frlg",
+      "name": "CeruleanCity",
+      "sha256": "a1190942de0b7179c47cfef9acbf200eff2e5140f2619005f6f183a3a7721e87"
+    },
+    {
+      "game": "frlg",
+      "name": "Route2",
+      "sha256": "5404277c960c39c1d84174781364ab4d8268d1090e4e91a2ff8383876fc0536b"
+    },
+    {
+      "game": "frlg",
+      "name": "Route24",
+      "sha256": "20895a96d8372fc0e1f296e79f2942d788aefe1aa555d41eb2ec70a6a2d224a1"
+    },
+    {
+      "game": "frlg",
+      "name": "Route2_ViridianForest_NorthEntrance",
+      "sha256": "4812a4f212382ba53de5db155521f7d4e5bb65b206fd2d0b29a08c0ec918de91"
+    },
+    {
+      "game": "frlg",
+      "name": "Route2_ViridianForest_SouthEntrance",
+      "sha256": "8b58cf8ec5a0168dbcc2a00e0ba4fc67858fcfef96005c27f49fec435bc084e4"
+    },
+    {
+      "game": "frlg",
+      "name": "ViridianForest",
+      "sha256": "f550fe9c983a769fa8886053c7cdcf1307c02ba5e94a6f9e9acd6013d0942222"
+    }
+  ],
+  "cases": [
+    {
+      "input": {
+        "id": "frlg-forest-north-entry",
+        "game": "frlg",
+        "operation": "walk",
+        "maps": [
+          "ViridianForest",
+          "Route2_ViridianForest_NorthEntrance"
+        ],
+        "flags": [],
+        "variables": {},
+        "initial": [
+          {
+            "map": "ViridianForest",
+            "tile": [
+              5,
+              10
+            ],
+            "facing": "north",
+            "elevation": 3
+          }
+        ],
+        "legs": [
+          {
+            "kind": "press_tiles",
+            "direction": "north",
+            "tiles": 1
+          },
+          {
+            "kind": "press_tiles",
+            "direction": "north",
+            "tiles": 1
+          }
+        ]
+      },
+      "expectation": {
+        "status": "complete",
+        "trace": [
+          {
+            "outcome": "warped",
+            "pose": {
+              "map": "Route2_ViridianForest_NorthEntrance",
+              "tile": [
+                7,
+                10
+              ],
+              "facing": "north",
+              "elevation": 3
+            }
+          },
+          {
+            "outcome": "moved",
+            "pose": {
+              "map": "Route2_ViridianForest_NorthEntrance",
+              "tile": [
+                7,
+                9
+              ],
+              "facing": "north",
+              "elevation": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": "frlg-north-mat-north",
+        "game": "frlg",
+        "operation": "walk",
+        "maps": [
+          "ViridianForest",
+          "Route2_ViridianForest_NorthEntrance"
+        ],
+        "flags": [],
+        "variables": {},
+        "initial": [
+          {
+            "map": "Route2_ViridianForest_NorthEntrance",
+            "tile": [
+              7,
+              10
+            ],
+            "facing": "south",
+            "elevation": 3
+          }
+        ],
+        "legs": [
+          {
+            "kind": "press_tiles",
+            "direction": "north",
+            "tiles": 1
+          }
+        ]
+      },
+      "expectation": {
+        "status": "complete",
+        "trace": [
+          {
+            "outcome": "moved",
+            "pose": {
+              "map": "Route2_ViridianForest_NorthEntrance",
+              "tile": [
+                7,
+                9
+              ],
+              "facing": "north",
+              "elevation": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": "frlg-north-mat-return",
+        "game": "frlg",
+        "operation": "walk",
+        "maps": [
+          "ViridianForest",
+          "Route2_ViridianForest_NorthEntrance"
+        ],
+        "flags": [],
+        "variables": {},
+        "initial": [
+          {
+            "map": "Route2_ViridianForest_NorthEntrance",
+            "tile": [
+              7,
+              10
+            ],
+            "facing": "north",
+            "elevation": 3
+          }
+        ],
+        "legs": [
+          {
+            "kind": "press_tiles",
+            "direction": "south",
+            "tiles": 1
+          }
+        ]
+      },
+      "expectation": {
+        "status": "complete",
+        "trace": [
+          {
+            "outcome": "warped",
+            "pose": {
+              "map": "ViridianForest",
+              "tile": [
+                5,
+                10
+              ],
+              "facing": "south",
+              "elevation": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": "frlg-route2-gate-entry",
+        "game": "frlg",
+        "operation": "walk",
+        "maps": [
+          "Route2",
+          "Route2_ViridianForest_SouthEntrance"
+        ],
+        "flags": [],
+        "variables": {},
+        "initial": [
+          {
+            "map": "Route2",
+            "tile": [
+              5,
+              52
+            ],
+            "facing": "north",
+            "elevation": 3
+          }
+        ],
+        "legs": [
+          {
+            "kind": "press_tiles",
+            "direction": "north",
+            "tiles": 1
+          }
+        ]
+      },
+      "expectation": {
+        "status": "complete",
+        "trace": [
+          {
+            "outcome": "warped",
+            "pose": {
+              "map": "Route2_ViridianForest_SouthEntrance",
+              "tile": [
+                7,
+                10
+              ],
+              "facing": "north",
+              "elevation": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": "frlg-cerulean-edge-round-trip",
+        "game": "frlg",
+        "operation": "walk",
+        "maps": [
+          "CeruleanCity",
+          "Route24"
+        ],
+        "flags": [
+          "FLAG_HIDE_CERULEAN_RIVAL"
+        ],
+        "variables": {},
+        "initial": [
+          {
+            "map": "CeruleanCity",
+            "tile": [
+              22,
+              0
+            ],
+            "facing": "north",
+            "elevation": 3
+          }
+        ],
+        "legs": [
+          {
+            "kind": "press_tiles",
+            "direction": "north",
+            "tiles": 1
+          },
+          {
+            "kind": "press_tiles",
+            "direction": "south",
+            "tiles": 1
+          }
+        ]
+      },
+      "expectation": {
+        "status": "complete",
+        "trace": [
+          {
+            "outcome": "moved",
+            "pose": {
+              "map": "Route24",
+              "tile": [
+                10,
+                39
+              ],
+              "facing": "north",
+              "elevation": 3
+            }
+          },
+          {
+            "outcome": "moved",
+            "pose": {
+              "map": "CeruleanCity",
+              "tile": [
+                22,
+                0
+              ],
+              "facing": "south",
+              "elevation": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": "bdsp-route202-open-step",
+        "game": "bdsp",
+        "operation": "walk",
+        "maps": [
+          "Route202"
+        ],
+        "flags": [],
+        "variables": {
+          "VAR_ROUTE_202_STATE": 1
+        },
+        "initial": [
+          {
+            "map": "Route202",
+            "tile": [
+              27,
+              5
+            ],
+            "facing": "east",
+            "elevation": 0
+          }
+        ],
+        "legs": [
+          {
+            "kind": "press_tiles",
+            "direction": "east",
+            "tiles": 1
+          }
+        ]
+      },
+      "expectation": {
+        "status": "complete",
+        "trace": [
+          {
+            "outcome": "moved",
+            "pose": {
+              "map": "Route202",
+              "tile": [
+                28,
+                5
+              ],
+              "facing": "east",
+              "elevation": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": "bdsp-r55-east-anchor",
+        "game": "bdsp",
+        "operation": "clip",
+        "maps": [
+          "Route202"
+        ],
+        "flags": [],
+        "variables": {
+          "VAR_ROUTE_202_STATE": 1
+        },
+        "initial": [
+          {
+            "map": "Route202",
+            "tile": [
+              26,
+              5
+            ],
+            "facing": "west",
+            "elevation": 0
+          },
+          {
+            "map": "Route202",
+            "tile": [
+              27,
+              5
+            ],
+            "facing": "west",
+            "elevation": 0
+          }
+        ],
+        "legs": [
+          {
+            "kind": "hold_until_blocked",
+            "direction": "east",
+            "max_tiles": 8
+          }
+        ]
+      },
+      "expectation": {
+        "status": "anchor",
+        "pose": {
+          "map": "Route202",
+          "tile": [
+            30,
+            5
+          ],
+          "facing": "east",
+          "elevation": 0
+        },
+        "leg": {
+          "kind": "hold_until_blocked",
+          "direction": "east",
+          "walk_tiles": 4
+        }
+      }
+    },
+    {
+      "input": {
+        "id": "bdsp-r55-npc-is-not-wall",
+        "game": "bdsp",
+        "operation": "clip",
+        "maps": [
+          "Route202"
+        ],
+        "flags": [],
+        "variables": {
+          "VAR_ROUTE_202_STATE": 1
+        },
+        "initial": [
+          {
+            "map": "Route202",
+            "tile": [
+              26,
+              5
+            ],
+            "facing": "west",
+            "elevation": 0
+          },
+          {
+            "map": "Route202",
+            "tile": [
+              27,
+              5
+            ],
+            "facing": "west",
+            "elevation": 0
+          }
+        ],
+        "legs": [
+          {
+            "kind": "hold_until_blocked",
+            "direction": "north",
+            "max_tiles": 8
+          }
+        ]
+      },
+      "expectation": {
+        "status": "no_anchor"
+      }
+    }
+  ]
+}
