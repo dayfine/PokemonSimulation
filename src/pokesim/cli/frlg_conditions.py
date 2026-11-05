@@ -12,6 +12,8 @@ from pokesim.cli.frlg_run_battles import DATA
 from pokesim.cli.frlg_preparation import preparation_cases
 from pokesim.games.frlg.battle.engine import REPO
 from pokesim.games.frlg.battle.benchmark import scenario_for
+from pokesim.games.frlg.battle.handoff import (opening_contracts, action_text, fight_strategy,
+                                              POLICY_GUIDE, progression_guide, logistics_and_limits)
 from pokesim.games.frlg.battle.run import trainer_cases
 from pokesim.games.frlg.battle.sampling import confidence_sequence
 from pokesim.games.frlg.progression.ledger import fingerprint
@@ -98,9 +100,14 @@ def ranking(rows, variant):
     return sorted(rows, key=lambda row: row['results'][variant]['probability'])[:10]
 
 
-def conditions_markdown(report, pret, plan):
+def conditions_markdown(report, pret, plan, reference, moves, league, openings):
     rows = report['fights']
-    lines = ['# Pokeguy FRLG: fight preconditions and two variants', '',
+    lines = ['# FRLG AutoStory battle handoff: Pokeguy Squirtle route', '',
+        'This is the single file to give another agent or repository. It contains all 69 trainer '
+        'fights in route order, both entry variants and win rates, full player and opponent '
+        'conditions, the strategy to run for each fight, healing requirements, League PP '
+        'requirements and the limits of the estimates. Prefer the prepared variant for the '
+        'six designated rests; elsewhere it preserves the tested recorded state.', '',
         'The recorded variant uses the sourced speedrun entry. The prepared variant requires a full rest '
         'before six named fights; all other entries remain identical to recorded. These are independent '
         'battle contracts, not a newly reconciled continuous route.', '',
@@ -124,6 +131,15 @@ def conditions_markdown(report, pret, plan):
             a, b = row['recorded']['player'], row['prepared']['player']
             lines.append('| {} | {} → {}/{} | Full HP + full PP + clear status. {} |'.format(
                 row['id'], a['hp'], b['hp'], b['stats']['hp'], row['requirement']['opportunity']))
+    lines += ['', '## All fights in route order', '',
+        '| # | Fight | Tier | Level | Recorded HP | Prepared HP | Recorded win rate | Prepared win rate |',
+        '|---:|---|:---:|---:|---:|---:|---:|---:|']
+    for number, row in enumerate(rows, 1):
+        a, b = row['recorded']['player'], row['prepared']['player']
+        lines.append('| {} | [{}](#{}) | {} | {} | {}/{} | {}/{} | {:.1%} | {:.1%} |'.format(
+            number, row['id'], row['id'], row['strategy']['tier'], a['level'],
+            a['hp'], a['stats']['hp'], b['hp'], b['stats']['hp'],
+            row['results']['recorded']['probability'], row['results']['prepared']['probability']))
     for variant in ('prepared', 'recorded'):
         lines += ['', '## Top ten: ' + variant + ' variant', '',
                   '| Rank | Fight | Tier | Entry HP | Preparation | Win rate | Simultaneous interval |',
@@ -134,13 +150,13 @@ def conditions_markdown(report, pret, plan):
             lines.append('| {} | {} | {} | {}/{} | {} | {:.1%} | {:.1%}–{:.1%} |'.format(
                 rank, row['id'], row['strategy']['tier'], p['hp'], p['stats']['hp'], label,
                 r['probability'], *r['bounds']))
-    lines += ['', '## Contract for every fight', '',
+    lines += ['', POLICY_GUIDE, '', progression_guide(moves), '', '## Contract and strategy for every fight', '',
         'Stats are raw summary stats, before badge boosts, in HP/Atk/Def/SpA/SpD/Spe order. '
         'EVs are earned totals; the recorded summary stats remain authoritative until live recalculation. '
-        'Each trainer ID resolves its full party, moves, items and AI flags in '
-        '`data/runs/pokeguy-leafgreen-15934/battle-reference.json`. '
+        'The opponent tables below embed the party, moves, IV/nature/ability, stats and held items; '
+        'NPC medicine slots and AI flags are included for each fight. '
         'Solo lead, no player switching, and the NPC/engine approximations of the benchmark still apply.', '',
-        'Each entry starts a fresh battle with zero stat stages, no existing volatile conditions '
+        'Each entry starts a fresh battle with zero stat stages before switch-in ability effects, no existing volatile conditions '
         'or field effects, and the opposing party at full HP and PP. Badge boosts and Torrent '
         'are applied by the engine. EXP/EV awards and level-up learning occur after actual knockouts. '
         'The lab rival also enables the modeled tutorial behavior.', '',
@@ -155,26 +171,53 @@ def conditions_markdown(report, pret, plan):
         party = ', '.join('{} Lv{}'.format(m['species'], m['level']) for m in trainer['party'])
         lines += ['### ' + row['id'], '',
             'Opponent: `{}` — {}.'.format(case['trainer'], party), '',
+            'NPC medicine slots, in source order: {}. AI flags: {}.'.format(
+                ', '.join(trainer['items']) or 'none', ', '.join(trainer['ai']) or 'none'), '',
+            '| Opponent | Nature / IVs / gender / ability | Raw stats HP/Atk/Def/SpA/SpD/Spe | Moves (full entry PP) | Held item |',
+            '|---|---|---|---|---|']
+        for mon in sorted(openings[row['id']]['recorded']['opponents'], key=lambda m: m['party_index']):
+            source = trainer['party'][mon['party_index']]
+            stats = [mon['max_hp']] + [mon['stats'][s] for s in order[1:]]
+            moves = ', '.join('{} ({})'.format(name, move['pp'])
+                              for name, move in zip(source['moves'], mon['moves']))
+            lines.append('| {} Lv{} | {}; all IVs {}; {}; {} | {} | {} | {} |'.format(
+                source['species'] + ' (' + '/'.join(mon['types']) + ')', source['level'], source['nature'], source['iv'],
+                mon['gender'], mon['ability'], '/'.join(map(str, stats)), moves,
+                source.get('held_item') or 'none'))
+        lines += ['',
             '{} Lv{}; EXP {}; raw stats {}; earned EVs {}; status {}; held item {}; badges {}.'.format(
                 player['species'], player['level'], case['progression']['exp'],
                 '/'.join(str(player['stats'][s]) for s in order),
                 '/'.join(str(case['progression']['evs'][s]) for s in order),
                 player['status'] or 'clear', player['held_item'] or 'none', ', '.join(case['badges']) or 'none'), '',
             'Battle bag: ' + bag + '.', '',
-            'Player strategy: {}. Policy: `{}`.'.format(row['strategy']['tier'], row['strategy']['policy'])]
+            'Player strategy: {}. Policy: `{}`.'.format(row['strategy']['tier'], row['strategy']['policy']), '',
+            fight_strategy(row)]
         if 'planning_goals' in row['strategy']:
-            lines += ['Setup goals: `' + json.dumps(row['strategy']['planning_goals'], sort_keys=True) + '`.']
+            lines += ['', 'Setup goals: `' + json.dumps(row['strategy']['planning_goals'], sort_keys=True) + '`.']
         if row['pending_full_hp_test']:
-            lines += ['Full-heal comparison pending: retain this tested HP/setup condition for both variants.']
-        lines += ['', '| Variant | Entry HP | Exact moves and remaining PP | Win sample |', '|---|---:|---|---:|']
+            lines += ['', 'Full-heal comparison pending: retain this tested HP/setup condition for both variants.']
+        if row['requirement']:
+            lines += ['', 'Before prepared entry: ' + row['requirement']['opportunity'] + ' Full HP, full PP and clear status are required.']
+        else:
+            lines += ['', 'Prepared entry keeps the recorded HP, PP and bag; no additional heal is assumed.']
+        lines += ['', '| Variant | Entry HP / Torrent | Exact move PP (remaining/base) | Opening action | Win sample | Simultaneous interval |',
+                  '|---|---|---|---|---:|---:|']
         for variant in ('recorded', 'prepared'):
             p, r = row[variant]['player'], row['results'][variant]
-            moves = ', '.join('{}: {}'.format(m['name'], m['pp']) for m in p['moves'])
-            lines.append('| {} | {}/{} | {} | {}/{} ({:.1%}) |'.format(
-                variant, p['hp'], p['stats']['hp'], moves, r['wins'], r['trials'], r['probability']))
+            moves = ', '.join('{}: {}/{}'.format(m['name'], m['pp'], reference['move_pp'][m['name']]) for m in p['moves'])
+            health = 'full' if p['hp'] == p['stats']['hp'] else 'partial'
+            torrent = 'on' if p['hp'] * 3 <= p['stats']['hp'] else 'off'
+            action = action_text(openings[row['id']][variant]['action'], p['moves'])
+            lines.append('| {} | {}/{} {}; Torrent {} | {} | {} | {}/{} ({:.1%}) | {:.1%}–{:.1%} |'.format(
+                variant, p['hp'], p['stats']['hp'], health, torrent, moves, action,
+                r['wins'], r['trials'], r['probability'], *r['bounds']))
         lines += ['', 'Result source: recorded — {}; prepared — {}.'.format(
             row['results']['recorded']['source'], row['results']['prepared']['source']), '']
-    lines += ['## Reproduce', '', '```sh', 'PYTHONPATH=src python3 -m pokesim.cli.frlg_conditions', '```', '',
+    lines += [logistics_and_limits(league, pret), '', '## Regenerate this file in PokemonSimulation', '',
+        'Only regeneration requires the source repository, Python 3.8+, Node 22+ and the installed pinned engine packages. '
+        'Opening previews initialize battles but do not run turns or replace measured win rates.', '',
+        '```sh', 'PYTHONPATH=src python3 -m pokesim.cli.frlg_conditions', '```', '',
         'The preparation plan contains pinned C2 and supplemental rest counters. The latter used seed 12: '
         'Sammy 158/160, Liam 120/120, Brock 120/120. No top-ten reordering is presented as new simulation. '
         'The other results come from the existing original and preparation benchmark reports.', '']
@@ -191,7 +234,9 @@ def main(argv=None):
     baseline = json.loads((REPO / 'docs/battles/pokeguy-trainers.json').read_text())
     prep = json.loads((REPO / 'docs/battles/pokeguy-preparation.json').read_text())
     report = resolve_conditions(inputs, reference, pret, baseline, prep, plan)
-    args.out.write_text(conditions_markdown(report, pret, plan))
+    openings = opening_contracts(report, pret)
+    args.out.write_text(conditions_markdown(report, pret, plan, reference, read('moves'),
+                                          read('league-pp-requirements'), openings))
     for row in ranking(report['fights'], 'prepared'):
         print('{}: {:.1%} ({})'.format(row['id'], row['results']['prepared']['probability'],
                                      'full rest' if row['requirement'] else 'recorded entry'))
