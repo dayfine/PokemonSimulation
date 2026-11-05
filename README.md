@@ -10,6 +10,8 @@ Shining Pearl. The battle benchmark runs all 69 trainer encounters in Pokeguy’
 with Python policies, pret data, and a local Pokémon Showdown engine.
 See [the full trainer benchmark](docs/battles/pokeguy-benchmark.md) for inputs, limitations,
 and [the complete results table](docs/battles/pokeguy-trainers.md).
+The [preparation comparisons](docs/battles/pokeguy-preparation.md) test healthier
+entries, recovery supplies, Dig and Speed thresholds outside the speedrun.
 
 The [C-strategy comparison](docs/battles/pokeguy-c-comparison.md) reruns only
 the 12 setup fights and combines them with the retained baseline for a new
