@@ -130,3 +130,25 @@ adapters without requiring a pret decompilation or FRLG-shaped inputs.
 - [ ] Publish one conditions/strategy/win-rate handoff per game/run, analogous
   to [the FRLG battle reference](battles/pokeguy-conditions.md), and evaluate
   exported plans against the shared configurable quality criteria.
+
+## Navigation conformance checkpoint after #45
+
+The next slice is [shared exact navigation fixtures](navigation/CONFORMANCE.md):
+eight pinned real-map spatial cases, with independent Python and native FRLG /
+BDSP evaluation. It found and fixes Python's omitted-grid FRLG elevation default
+(ground 3). Fixtures include exact maps, initial hypotheses, flags/variables,
+typed input legs and complete arrival traces/anchor expectations.
+
+- [x] Define the first strict versioned data pack and exact Python replay.
+- [x] Prepare native registered consumers using real production movement APIs,
+  with byte checks and deliberate drift rejection (64 FRLG / 54 BDSP focused
+  tests locally). Native draft pins remain previews until publisher merge.
+- [x] Provide immutable export/check tooling; map approval remains mandatory.
+- [ ] Adopt the merged publishing revision and install native fixture pin CI.
+- [ ] Extend the same contract to uncertain encounter outcomes, bounded wall
+  recovery and route rejoin, then to matching-policy route/leg expectations.
+- [ ] Resolve mine/house map-version differences before shared BDSP cases.
+
+Arduino #227/#228/#229 and Simulation #45 are merged; earlier historical run
+counts in the recovery plan are retained as historical measurements, not the
+latest case totals. The conformance document records the new focused run scope.

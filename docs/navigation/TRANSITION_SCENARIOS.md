@@ -247,3 +247,11 @@ missing hazards are not proven safe. Cave encounter maps are explicit state,
 not inferred from a '.' glyph. Synthetic guards are labeled in tests and JSON.
 Native controller/detector regressions remain in Arduino; no console, save or
 active Arduino worktree was changed by this work.
+
+## Exact cross-repository fixtures after #45
+
+[CONFORMANCE.md](CONFORMANCE.md) adds eight shared exact spatial fixtures and
+native game consumers. This is a first subset, not replacement of this richer
+uncertainty/observation inventory or proof of full native planner parity. Its
+fixture and map-byte checks are separate from transition confirmation. Pending
+mine/house map differences and native interrupted-walk event replay remain open.

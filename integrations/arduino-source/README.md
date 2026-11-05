@@ -127,3 +127,12 @@ manifest/hash; unmerged/mutable pins; symlinks; retired generators; independent
 game updates; and rollback on a failed second directory swap. Simulation CI
 also exercises the composite action with a complete real published export and
 confirms that a subsequent local edit is rejected.
+
+## Shared navigation fixture adoption
+
+See [navigation conformance](../../docs/navigation/CONFORMANCE.md) for the
+versioned exact-pose pack, registered native adapters and
+`pokesim.maps.conformance_sync update/check` commands. Its preview flag applies
+only to candidate fixtures; it cannot approve pending map data. Promote to the
+merged publisher SHA before normal adoption. The native fixture CI check is
+still an installation task, not part of this map-only action.
