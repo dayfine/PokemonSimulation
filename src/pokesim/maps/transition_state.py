@@ -11,6 +11,7 @@ from typing import Optional, Tuple
 
 from pokesim.grid.geometry import CLOCKWISE, Direction, Tile
 from pokesim.grid.maps.model import Behavior
+from pokesim.grid.maps.world import Place
 from pokesim.grid.movement import Blocked, BlockReason, Edge, Hop, Moved, Warp, Warped, WorldState, world_step
 
 MAX_PRESSES = 128

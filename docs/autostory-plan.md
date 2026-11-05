@@ -144,7 +144,10 @@ typed input legs and complete arrival traces/anchor expectations.
   with byte checks and deliberate drift rejection (64 FRLG / 54 BDSP focused
   tests locally). Native draft pins remain previews until publisher merge.
 - [x] Provide immutable export/check tooling; map approval remains mandatory.
-- [ ] Adopt the merged publishing revision and install native fixture pin CI.
+- [x] Promote native fixture copies to merged #46 main revision; prepare the
+  native fixture-pin workflow and verify its command locally.
+- [ ] Publish the native branches and run/merge their prepared workflow (initial
+  push gate approval remains pending).
 - [ ] Extend the same contract to uncertain encounter outcomes, bounded wall
   recovery and route rejoin, then to matching-policy route/leg expectations.
 - [ ] Resolve mine/house map-version differences before shared BDSP cases.
@@ -152,3 +155,17 @@ typed input legs and complete arrival traces/anchor expectations.
 Arduino #227/#228/#229 and Simulation #45 are merged; earlier historical run
 counts in the recovery plan are retained as historical measurements, not the
 latest case totals. The conformance document records the new focused run scope.
+
+### Encounter-recovery oracle after #46
+
+[The next slice](navigation/ENCOUNTER_RECOVERY.md) strengthens Python assertions
+from candidate counts to complete state records. Four injected real-map cases
+cover interrupted/queued movement, lost facing, drained-input gating, advancing
+wall confirmation, retry exhaustion, NPC rejection and a Forest warp boundary.
+It also fixes an import error exposed by actual Forest trainer-sight metadata.
+
+- [x] Specify exact state checkpoints and verify the Python semantic oracle.
+- [ ] Export equivalent native walker reports and compare these checkpoints in
+  FRLG/BDSP. Existing native spatial fixtures remain the eight #46 cases.
+- [ ] Verify native automatic route rejoin/cursor semantics; the current Python
+  diagnostic supplies its post-anchor continuation leg explicitly.

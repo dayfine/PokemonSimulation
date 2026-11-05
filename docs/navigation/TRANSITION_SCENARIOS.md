@@ -255,3 +255,11 @@ native game consumers. This is a first subset, not replacement of this richer
 uncertainty/observation inventory or proof of full native planner parity. Its
 fixture and map-byte checks are separate from transition confirmation. Pending
 mine/house map differences and native interrupted-walk event replay remain open.
+
+## Exact encounter-recovery diagnostics after #46
+
+[ENCOUNTER_RECOVERY.md](ENCOUNTER_RECOVERY.md) documents four additional injected
+cases and complete expected-state checkpoints, including every map/tile/facing
+hypothesis, queue/awaiting state, retries and latched failures. They use the same
+unchanged pinned maps. Native interruption/event replay is still pending; do not
+count these as extra native conformance fixtures.

@@ -183,6 +183,16 @@ class TransitionStateTests(unittest.TestCase):
         belief = [pose('DiagnosticWarp', x, 1, D.EAST, 0) for x in (1, 2)]
         self.assertIsNone(clip_plan(world, belief, D.EAST, 8))
 
+    def test_synthetic_frlg_clip_rejects_declared_trainer_sight(self):
+        view = LocalMap(dict(name='SightDiagnostic',
+            source=dict(decomp_file='', revision='synthetic', date='2026-11-05'),
+            tiles=['########', '#......#', '########'],
+            objects=[dict(name='trainer', kind='npc', x=5, y=1, facing='west',
+                          trainer=dict(sight=3))]), 'frlg')
+        belief = [pose('SightDiagnostic', x, 1) for x in (3, 4)]
+        # The west wall is real, but its ray crosses (2,1) in trainer sight.
+        self.assertIsNone(clip_plan(RuntimeWorld([view]), belief, D.WEST, 8))
+
     def test_synthetic_corridor_cannot_anchor_through_npcs(self):
         corridor = LocalMap(dict(name='Diagnostic', source=dict(decomp_file='', revision='synthetic', date='2026-11-05'), tiles=['#######', '#.....#', '#######'],
             objects=[dict(name='a', kind='npc', x=1, y=1), dict(name='b', kind='npc', x=5, y=1)]), 'bdsp')
