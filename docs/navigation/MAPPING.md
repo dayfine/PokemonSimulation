@@ -10,7 +10,11 @@ and `pokesim.cli.import_frlg` reads pret/pokefirered (docs/navigation/MAPS.md). 
 decomp gives the collision, behaviors, objects, warps and connections
 exactly; the console then checks the differences the remake made (BDSP's
 Route 201 Potion giver wanders; the decomp has her standing still), which
-go into the map file's notes. Tracing a grid from a map image is the
+are recorded as evidenced corrections in the
+[AutoStory pack](../maps/autostory.md). Its generator tables distinguish
+terrain patches from object overrides and story assumptions; unresolved
+observations remain unresolved. Older reference maps keep their original
+notes and coordinate frames. Tracing a grid from a map image is the
 fallback for maps no decomp covers. It needs care: Bulbapedia's DP maps
 have 12 px rows for 16 px columns and paint cliffs taller than their tiles,
 so a grid traced from them has every vertical leg 25-35% short and no

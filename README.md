@@ -19,6 +19,11 @@ The [proposed replay interface](docs/battles/autostory-replay-interface.md) defi
 AutoStory plans as producers of battle histories and this repo as their evaluator,
 with configurable minimum-win-rate and reliability-quota criteria.
 
+The [AutoStory integration plan](docs/autostory-plan.md) tracks map ownership,
+route planning and shared FRLG/BDSP simulation. The [imported map packs](docs/maps/autostory.md)
+include 53 FRLG and 22 BDSP maps, portable generators, corrections, provenance
+and a byte-identical export for Arduino consumers.
+
 The [C-strategy comparison](docs/battles/pokeguy-c-comparison.md) reruns only
 the 12 setup fights and combines them with the retained baseline for a new
 risk ranking.

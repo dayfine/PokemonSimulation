@@ -202,11 +202,16 @@ PYTHONPATH=src python3 -m pokesim.cli.decomp --repo ~/pokediamond --source poked
 Cells are matrix (row, col); the events file is a narc number for Diamond
 (the zone events column of `arm9/src/map_header.c`) or a stem for Platinum
 (`route_204_south` for `res/field/events/events_route_204_south.json`).
-Diamond is the source for BDSP, which keeps Diamond/Pearl's layout; the
-story maps' land data is byte-identical between Diamond and Platinum apart
-from Jubilife's Global Trade Station block.
+Diamond and Platinum provide source baselines for BDSP, not proof of remake
+parity. Console differences need explicit evidence and corrections. The
+[current AutoStory packs](../maps/autostory.md) record the source game,
+coordinate crop, applied patches and verification limits separately.
 
 ## BDSP maps (`data/games/bdsp/`, `games.bdsp`)
+
+This section describes the older eight `pokenav-map/1` reference fixtures.
+The newer 22-map AutoStory pack lives under `maps/autostory/` and uses a
+different runtime schema and coordinate crops; see the linked pack guide.
 
 The story's first maps are generated from pret/pokediamond and are map files
 in `data/games/bdsp/maps/`: Route 201, Sandgem Town, Route 202, Jubilife City,
@@ -216,7 +221,9 @@ checks back it, and its notes carry the console-verified anchors and the
 known differences between BDSP and the decomp (the Route 201 Potion giver
 wanders in BDSP; one-row and one-column questions on Sandgem Town, Route
 202, Jubilife and Route 203; a wall column on Route 204 North) as notes,
-not patches. Route 204 is two maps because its halves meet only through
+not patches in these older fixtures. The imported AutoStory pack has explicit
+measured patches; unresolved fixture offsets are not automatically applied
+to it. Route 204 is two maps because its halves meet only through
 the Ravaged Path. The grids traced from Bulbapedia's DP images before
 (12 px rows for 16 px columns) are replaced; their console facts were
 translated into these frames.
