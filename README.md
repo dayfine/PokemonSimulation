@@ -15,6 +15,9 @@ entries, recovery supplies, Dig and Speed thresholds outside the speedrun.
 The [single-file FRLG AutoStory handoff](docs/battles/pokeguy-conditions.md) contains
 all 69 fights, both entry variants and rates, opponent teams, strategy rules and
 openings, required healing stops, and League PP requirements for another agent/repo.
+The [proposed replay interface](docs/battles/autostory-replay-interface.md) defines
+AutoStory plans as producers of battle histories and this repo as their evaluator,
+with configurable minimum-win-rate and reliability-quota criteria.
 
 The [C-strategy comparison](docs/battles/pokeguy-c-comparison.md) reruns only
 the 12 setup fights and combines them with the retained baseline for a new

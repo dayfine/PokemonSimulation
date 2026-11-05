@@ -2354,6 +2354,16 @@ These entry PP are requirements for the independent League fights. They are not 
 
 Before Champion, the observed run uses one Elixir: Bite 18→25, Surf 3→13, Blizzard 0→5, Strength stays 15. Observed League casts total 16 Surf and 7 Blizzard, exceeding their base 15 and 5 PP. Equivalent recovery capability could be supplied by one Max Elixir or two Ether/Max Ether actions targeting Surf and Blizzard, but those alternative entry bags have not been separately benchmarked. Acquire/replenish resources before the League; their pickup/shopping route and additional stochastic reserve remain unresolved.
 
+## AutoStory plan replay is the integration interface
+
+AutoStory owns the game plan: route, captures/training/evolutions, preparation and player policies. Replay that plan without console input to emit semantic logs and a battle history with the entering conditions and strategy for each fight. PokemonSimulation validates and evaluates that history, returning results to the plan author. This Pokeguy table is one reference fixture, not a fixed battle list every AutoStory plan must adopt.
+
+Export the complete party, levels/EXP/stats/IV-EV assumptions, HP/status, move PP, bag, badges, held items, exact opponent and versioned player policy for each entry. Preserve uncertainty and the effects of captures, training and item use; do not invent later full HP/PP or replenished items after a fake battle returns success. Independent-contract grading and carried full-route simulation are distinct scopes.
+
+A configurable quality profile can require a minimum fight win probability and fractions above 90% or a chosen near-certain threshold. The suggested 60%/70% floor and X/Y quotas remain user choices. Grade with simultaneous confidence bounds and report pass/fail/inconclusive; incomplete inputs/coverage cannot become a plan certificate. Zero losses in a finite sample is not proof of true 100% reliability. Exact-guarantee quotas require a separate proof capability; do not silently reinterpret them as 99%.
+
+Fire/Grass plans with supporters must export the actual capture/training/evolution history and full-party policy. The general replay exporter/importer, quality grader and supporter evaluation are future integration work, not implemented by this fixture. The detailed [proposed replay contract](autostory-replay-interface.md) gives the implementation slices; the ownership and grading requirements above are included here for a standalone handoff.
+
 ## Scope and limitations the receiving agent must preserve
 
 - This is Pokeguy's LeafGreen Squirtle route, modeled with FRLG Gen 3 mechanics: 69 trainer battles only. It does not claim to cover every mandatory game objective. Wild fights, captures/escapes and the Tower Marowak objective have no win-rate entries here.
