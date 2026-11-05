@@ -134,5 +134,6 @@ See [navigation conformance](../../docs/navigation/CONFORMANCE.md) for the
 versioned exact-pose pack, registered native adapters and
 `pokesim.maps.conformance_sync update/check` commands. Its preview flag applies
 only to candidate fixtures; it cannot approve pending map data. Promote to the
-merged publisher SHA before normal adoption. The native fixture CI check is
-still an installation task, not part of this map-only action.
+merged publisher SHA before normal adoption. A separate native `Navigation fixture pin` workflow is prepared on the local
+conformance branches and verifies the approved #46 pin. Native publication/CI
+is pending; this existing action remains map-only.

@@ -688,6 +688,761 @@
           ]
         }
       ]
+    },
+    {
+      "id": "logan-interrupted-queued-leg",
+      "game": "bdsp",
+      "maps": [
+        "Route202"
+      ],
+      "evidence": {
+        "pr": 226,
+        "revision": "f8bdd62b9df4dbf285f93853147295e0552a0367",
+        "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_PlannedRoute_Tests.cpp",
+        "symbol": "Test_OpenLegKnownTrainer",
+        "checkpoint": "00.04d",
+        "step": "north_to_jubilife",
+        "run": "r55"
+      },
+      "flags": [],
+      "variables": {
+        "VAR_ROUTE_202_STATE": 1
+      },
+      "initial": [
+        {
+          "map": "Route202",
+          "tile": [26, 5],
+          "facing": "west",
+          "elevation": 0
+        }
+      ],
+      "derivation": "Synthetic wild-interruption/queued-input diagnostic on the unchanged r55 map and scene context. The east 2 plus queued east 1 sequence is injected, not a recorded r55 controller trace. Full expected states are specified independently; native controller/event replay is pending.",
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "east",
+            "east"
+          ],
+          "queued": [
+            "east"
+          ]
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": true
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [26, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": null,
+                "elevation": 0
+              }
+            ],
+            "can_resume": false,
+            "screen": "battle",
+            "queue_drained": false,
+            "awaiting": true,
+            "remaining_recoveries": 3,
+            "failure": null
+          }
+        },
+        {
+          "event": "observation",
+          "screen": "overworld"
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [26, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": null,
+                "elevation": 0
+              }
+            ],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": false,
+            "awaiting": true,
+            "remaining_recoveries": 3,
+            "failure": null
+          }
+        },
+        {
+          "event": "clip",
+          "direction": "east",
+          "max_presses": 8,
+          "encounter_policy": "recover",
+          "expect_failure": "stable overworld observation and drained inputs"
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [26, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": null,
+                "elevation": 0
+              }
+            ],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": false,
+            "awaiting": true,
+            "remaining_recoveries": 3,
+            "failure": null
+          }
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [26, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": null,
+                "elevation": 0
+              }
+            ],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 3,
+            "failure": null
+          }
+        },
+        {
+          "event": "clip",
+          "direction": "east",
+          "max_presses": 8,
+          "encounter_policy": "recover"
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [26, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": "east",
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": "east",
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": "east",
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [30, 5],
+                "facing": "east",
+                "elevation": 0
+              }
+            ],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": false,
+            "awaiting": true,
+            "remaining_recoveries": 2,
+            "failure": null
+          }
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "queue_drained": true,
+          "still_direction": "east",
+          "video_advanced": false
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [26, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": "east",
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": "east",
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": "east",
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [30, 5],
+                "facing": "east",
+                "elevation": 0
+              }
+            ],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": true,
+            "remaining_recoveries": 2,
+            "failure": null
+          }
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "queue_drained": true,
+          "still_direction": "east",
+          "video_advanced": true
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [30, 5],
+                "facing": "east",
+                "elevation": 0
+              }
+            ],
+            "can_resume": true,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 2,
+            "failure": null
+          }
+        },
+        {
+          "event": "movement",
+          "actions": [
+            "west"
+          ],
+          "min_completed": 1
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route202",
+          "tiles": [
+            [29, 5]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": "west",
+                "elevation": 0
+              }
+            ],
+            "can_resume": true,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 2,
+            "failure": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "logan-recovery-budget",
+      "game": "bdsp",
+      "maps": [
+        "Route202"
+      ],
+      "evidence": {
+        "pr": 226,
+        "revision": "f8bdd62b9df4dbf285f93853147295e0552a0367",
+        "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_PlannedRoute_Tests.cpp",
+        "symbol": "Test_OpenLegKnownTrainer",
+        "checkpoint": "00.04d",
+        "step": "north_to_jubilife",
+        "run": "r55"
+      },
+      "flags": [],
+      "variables": {
+        "VAR_ROUTE_202_STATE": 1
+      },
+      "initial": [
+        {
+          "map": "Route202",
+          "tile": [26, 5],
+          "facing": null,
+          "elevation": 0
+        },
+        {
+          "map": "Route202",
+          "tile": [27, 5],
+          "facing": null,
+          "elevation": 0
+        }
+      ],
+      "derivation": "Synthetic repeated wild interruption of east wall clipping on the r55 map. No controller trace is inferred. The fourth recovery must fail after three interrupted attempts, retaining no trusted pose.",
+      "events": [
+        {
+          "event": "clip",
+          "direction": "east",
+          "max_presses": 8,
+          "encounter_policy": "recover"
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": true
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "queue_drained": true
+        },
+        {
+          "event": "clip",
+          "direction": "east",
+          "max_presses": 8,
+          "encounter_policy": "recover"
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": true
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "queue_drained": true
+        },
+        {
+          "event": "clip",
+          "direction": "east",
+          "max_presses": 8,
+          "encounter_policy": "recover"
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": true
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route202",
+                "tile": [26, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [27, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [28, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [29, 5],
+                "facing": null,
+                "elevation": 0
+              },
+              {
+                "map": "Route202",
+                "tile": [30, 5],
+                "facing": null,
+                "elevation": 0
+              }
+            ],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 0,
+            "failure": null
+          }
+        },
+        {
+          "event": "clip",
+          "direction": "east",
+          "max_presses": 8,
+          "encounter_policy": "recover",
+          "expect_failure": "recovery attempt budget exhausted"
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 0,
+            "failure": "recovery attempt budget exhausted"
+          }
+        }
+      ]
+    },
+    {
+      "id": "logan-npc-cannot-confirm-anchor",
+      "game": "bdsp",
+      "maps": [
+        "Route202"
+      ],
+      "evidence": {
+        "pr": 226,
+        "revision": "f8bdd62b9df4dbf285f93853147295e0552a0367",
+        "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_PlannedRoute_Tests.cpp",
+        "symbol": "Test_OpenLegKnownTrainer",
+        "checkpoint": "00.04d",
+        "step": "north_to_jubilife",
+        "run": "r55"
+      },
+      "flags": [],
+      "variables": {
+        "VAR_ROUTE_202_STATE": 1
+      },
+      "initial": [
+        {
+          "map": "Route202",
+          "tile": [26, 5],
+          "facing": null,
+          "elevation": 0
+        },
+        {
+          "map": "Route202",
+          "tile": [27, 5],
+          "facing": null,
+          "elevation": 0
+        }
+      ],
+      "derivation": "Synthetic north-clip diagnostic on the r55 map: Logan at (26,4) is a person, not a wall. Failed recovery latches even if a later caller supplies a precise pose.",
+      "events": [
+        {
+          "event": "clip",
+          "direction": "north",
+          "max_presses": 8,
+          "expect_failure": "clip does not converge safely to one known wall within budget"
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 3,
+            "failure": "clip does not converge safely to one known wall within budget"
+          }
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route202",
+          "tiles": [
+            [26, 5]
+          ],
+          "queue_drained": true,
+          "expect_failure": "clip does not converge safely to one known wall within budget"
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 3,
+            "failure": "clip does not converge safely to one known wall within budget"
+          }
+        }
+      ]
+    },
+    {
+      "id": "forest-interrupted-warp-approach",
+      "game": "frlg",
+      "maps": [
+        "ViridianForest",
+        "Route2_ViridianForest_NorthEntrance"
+      ],
+      "initial": [
+        {
+          "map": "ViridianForest",
+          "tile": [5, 11],
+          "facing": "north",
+          "elevation": 3
+        }
+      ],
+      "evidence": {
+        "pr": 216,
+        "revision": "831a22c423fc0ab1918fba85fb667d18c31c1691",
+        "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/PokemonFRLG_OverworldSim_Tests.cpp",
+        "symbol": "test_forest_north_gate / test_battle_on_warp_leg",
+        "checkpoint": "00.08",
+        "step": "forest_gate",
+        "run": "cp0007 m6f; r15; analogous missed-flash battle from 00.13"
+      },
+      "flags": [],
+      "variables": {},
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "north"
+          ],
+          "queued": [
+            "north"
+          ]
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": true
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "Route2_ViridianForest_NorthEntrance",
+                "tile": [7, 10],
+                "facing": null,
+                "elevation": 3
+              },
+              {
+                "map": "ViridianForest",
+                "tile": [5, 10],
+                "facing": null,
+                "elevation": 3
+              },
+              {
+                "map": "ViridianForest",
+                "tile": [5, 11],
+                "facing": null,
+                "elevation": 3
+              }
+            ],
+            "can_resume": false,
+            "screen": "battle",
+            "queue_drained": false,
+            "awaiting": true,
+            "remaining_recoveries": 3,
+            "failure": null
+          }
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "ViridianForest",
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [
+              {
+                "map": "ViridianForest",
+                "tile": [5, 10],
+                "facing": null,
+                "elevation": 3
+              },
+              {
+                "map": "ViridianForest",
+                "tile": [5, 11],
+                "facing": null,
+                "elevation": 3
+              }
+            ],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 3,
+            "failure": null
+          }
+        },
+        {
+          "event": "clip",
+          "direction": "north",
+          "max_presses": 8,
+          "encounter_policy": "recover",
+          "expect_failure": "clip does not converge safely to one known wall within budget"
+        },
+        {
+          "event": "expect",
+          "state": {
+            "belief": [],
+            "can_resume": false,
+            "screen": "overworld",
+            "queue_drained": true,
+            "awaiting": false,
+            "remaining_recoveries": 3,
+            "failure": "clip does not converge safely to one known wall within budget"
+          }
+        }
+      ],
+      "derivation": "Injected interrupted north leg plus queued north input near the real Forest gate. Battle alone does not prove whether the warp occurred. After drained overworld evidence confirms Forest, north clipping must fail before crossing the cave warp. This is a Python diagnostic, not native planner/controller replay."
     }
   ]
 }

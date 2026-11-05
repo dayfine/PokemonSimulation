@@ -53,6 +53,33 @@ def pose_json(pose):
                 elevation=pose.state.elevation, facing=pose.facing.name.lower() if pose.facing else None)
 
 
+def snapshot(session):
+    """Exact normalized state; an unknown facing remains null, never inferred."""
+    belief = sorted((pose_json(p) for p in session.belief),
+                    key=lambda p: (p['map'], p['tile'], p['elevation'], p['facing'] or ''))
+    return dict(belief=belief, can_resume=session.can_resume, screen=session.screen,
+                queue_drained=session.queue_drained, awaiting=session.awaiting,
+                remaining_recoveries=session.remaining_recoveries, failure=session.failure)
+
+
+def expect_state(case_id, index, event, session):
+    """Compare the whole state; legacy count assertions remain readable."""
+    if 'state' not in event:
+        if set(event) != {'event', 'candidates', 'can_resume'}:
+            raise ValueError('unsupported count expectation fields')
+        if len(session.belief) != event['candidates'] or session.can_resume != event['can_resume']:
+            raise AssertionError(f'{case_id} event {index}: unexpected pose count/resume state')
+        return
+    actual = snapshot(session)
+    expected = event['state']
+    if (set(event) != {'event', 'state'} or not isinstance(expected, dict)
+            or set(expected) != set(actual)):
+        raise ValueError('exact expectation requires all state fields and no extras')
+    # JSON comparison distinguishes false from 0, unlike Python dict equality.
+    if json.dumps(actual, sort_keys=True) != json.dumps(expected, sort_keys=True):
+        raise AssertionError(f'{case_id} event {index}: state mismatch: expected {expected!r}, got {actual!r}')
+
+
 def replay(case, world, map_revision):
     initial = [Pose(WorldState(place(p), p['elevation']), direction(p['facing']) if p['facing'] else None)
                for p in case['initial']]
@@ -83,8 +110,7 @@ def replay(case, world, map_revision):
                 details = dict(recovery_actions=[d.name.lower() for d in plan.actions],
                                predicted_arrival=pose_json(plan.arrival))
             elif kind == 'expect':
-                if len(session.belief) != event['candidates'] or session.can_resume != event['can_resume']:
-                    raise AssertionError(f'{case["id"]} event {index}: unexpected pose count/resume state')
+                expect_state(case['id'], index, event, session)
             else:
                 raise ValueError('unsupported semantic event: ' + kind)
         except StateFailure as exc:
@@ -94,9 +120,7 @@ def replay(case, world, map_revision):
         else:
             if expected_failure:
                 raise AssertionError('expected failure was not raised: ' + expected_failure)
-        belief = sorted((pose_json(p) for p in session.belief), key=lambda p: (p['map'], p['tile'], p['elevation'], p['facing'] or ''))
-        trace.append(dict(index=index, event=event, belief=belief, can_resume=session.can_resume,
-                          screen=session.screen, queue_drained=session.queue_drained, remaining_recoveries=session.remaining_recoveries, failure=session.failure, **details))
+        trace.append(dict(index=index, event=event, **snapshot(session), **details))
     return dict(format='pokesim-transition-trace/1', scenario=case['id'], map_revision=map_revision,
                 evidence=case['evidence'], derivation=case['derivation'],
                 context=dict(flags=case['flags'], variables=case['variables']),

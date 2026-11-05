@@ -66,11 +66,13 @@ and native `Hold.tiles` count only walking, so Python normalizes by subtracting
 one. A hold predicts the stop; confirming stillness still requires the runtime
 observation/input-drain contract from #45.
 
-The native draft copies initially pin candidate fixture commit
-`d4a191d1a6587d4728d15aa7ef9ff8fa344ab2e5`. This is explicitly a **preview**, not
-approved data on main. After this publisher PR merges, advance to its full main
-commit SHA and remove preview mode. Do not label a preview as main-approved by
-editing the pin manually.
+The prepared native copies now pin merged #46 main commit
+`1ebc6b935e2aca5d64e7c204f966ea054f23bf82` as **main-approved**, promoted with
+`conformance_sync update`. Their new `Navigation fixture pin` workflow checks
+that export using the verifier pinned to the same approved revision. These
+native branches are still local pending initial-push approval; the workflow is
+prepared but has not yet run on GitHub. Preview remains available for future
+explicit draft review, never as a substitute for map approval.
 
 ```sh
 # In this repo. Preview is opt-in on both operations during draft review.
@@ -115,8 +117,9 @@ parity for the selected inputs. It does not establish these remaining gates:
 - Add multi-leg route conformance with explicit route policy/cost settings.
   Optimal leg choices and costs remain unverified; equal endpoints do not prove
   those planners make identical decisions.
-- Install fixture pin checking in native owning-branch CI after adoption; do not
-  claim that a documented check command is already an active workflow.
+- Publish the prepared native fixture-pin workflow, run it and merge it into
+  the owning branches. Its exact verification command passes locally; native
+  GitHub CI has not run on these unpublished branches.
 - Test real controller/detector timing and transition judgments in Arduino.
   Spatial prediction passing alone does not prove encounter recovery is safe.
 
@@ -130,9 +133,9 @@ code health. Do not bypass the hook without that approval.
 
 | Branch | Local tested commit | Parent |
 |---|---|---|
-| `nav/navigation-conformance` | `552cc9ac2b04443c23d9f11506130d8115fcad3b` | Current `nav/shared` lint cleanup (`1b769a43a`), #114. Shared catalog, pin/hash verification and embedding. |
-| `frlg/navigation-conformance` | `5724dac95` | #224 (`7eb651706`) plus the shared prerequisite. Six new registered tests; exposes the existing transition function. |
-| `bdsp/navigation-conformance` | `f90423b9a` | #226 (`8c6acefa3`) plus the shared prerequisite. Four new registered tests; no native movement behavior changes. |
+| `nav/navigation-conformance` | `62df632d1` | Current `nav/shared` lint cleanup (`1b769a43a`), #114. Shared catalog, pin/hash verification and embedding. |
+| `frlg/navigation-conformance` | `ecf495712` | #224 (`7eb651706`) plus the shared prerequisite. Six new registered tests; exposes the existing transition function. |
+| `bdsp/navigation-conformance` | `ad2cad64e` | #226 (`8c6acefa3`) plus the shared prerequisite. Four new registered tests; no native movement behavior changes. |
 
 The game branches currently also show the shared parent's earlier lint cleanup
 until it is merged forward into the game chains. That inherited cleanup is not
@@ -140,3 +143,10 @@ part of the fixture implementation. Review the shared prerequisite against
 `nav/shared`, then each game's adapter commit. FRLG route-format functions move
 unchanged into `OverworldRouteFormat.cpp` to keep the route implementation
 within the existing file-length limit.
+
+## Encounter-recovery oracle after #46
+
+[Exact encounter-recovery state checks](ENCOUNTER_RECOVERY.md) add four Python
+diagnostics with full pose sets, unknown facing, queue state, confirmation and
+retry/failure expectations. They prepare the next native event adapter; they
+are not additional shared native fixtures or a claim of controller parity.
