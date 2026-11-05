@@ -31,12 +31,20 @@ Inventory, commands and caveats: [maps/runtime-maps.md](maps/runtime-maps.md).
 
 ## 2. Generic route planning and drawing
 
+- [x] First slice: [local routes on pinned runtime maps](navigation/RUNTIME_ROUTES.md),
+  using the shared router and renderer, with state/metadata-aware movement,
+  PNG/ASCII output and route/provenance JSON. Transitions remain excluded.
+
 - [ ] Adapt the imported map contract to existing routing with explicit
   treatment of closed sides, Gen 3 elevations, entry modes and unresolved warps.
 - [ ] Consolidate route generation/drawing tools here; accept waypoints,
   constraints and story state, and draw the planned route with frame labels.
 - [ ] Export route legs plus their preconditions; test against the current
   Arduino plans before replacing their offline planner copies.
+- [ ] Close the [native AutoStory route parity gap](navigation/AUTOSTORY_ROUTE_COMPARISON.md):
+  align exported checkpoint state/goals/facing and native leg/open-stop costs,
+  then compare traces including battle interruptions and replanning. Current
+  diagrams are Python candidates for sourced goals, not native planner replays.
 
 ## 3. Shared simulation and recovery
 
@@ -81,3 +89,32 @@ Start with a minimal common JSON event representation needed for replay.
 Game-specific events carry explicit game payloads/handlers. Native FRLG/BDSP
 story-type unification can follow proven semantics; it is not a prerequisite
 for importing either format. Full production walker relocation is deferred.
+
+## 5. Repeat the full-run analysis for BDSP and Let's Go Pikachu/Eevee
+
+Recorded follow-up; no new game implementation starts with this note. Repeat
+the FRLG exercise for **Brilliant Diamond/Shining Pearl (BDSP)** and
+**Let's Go Pikachu/Let's Go Eevee (LGPE)**, using each game's actual plan and
+data sources. The shared replay/evaluation interface should support these
+adapters without requiring a pret decompilation or FRLG-shaped inputs.
+
+- [ ] Identify and pin suitable map, trainer/team, species, move, item and
+  mechanics sources for each game/version. Record source provenance, coverage
+  and uncertainty; distinguish remake baselines from verified target-game data.
+  Do not assume DP data fully describes BDSP or FRLG data describes LGPE.
+- [ ] Reconstruct the full battle sequence and entering conditions from the
+  chosen run/AutoStory plan: party, progression/stats, moves/PP, HP/status,
+  inventory, purchases/pickups, healing and relevant game state. Reconcile
+  progression and observed stats against run evidence using game-specific rules.
+- [ ] Validate each game's battle mechanics and NPC AI adapter against known
+  cases before publishing win rates. Select the engine/data adapter per game;
+  sharing the orchestration does not imply reusing the Gen 3 battle engine.
+- [ ] Simulate every battle with adaptive sampling and confidence intervals;
+  rank the hardest fights and classify the required player policy complexity
+  using A/B/C where applicable: attacks, recovery, setup/team planning.
+- [ ] Compare observed-run entries with deliberate preparation variants and
+  report required healing, consumables and PP logistics. Carry unsupported
+  mechanics or uncertain inputs as explicit limits on the conclusions.
+- [ ] Publish one conditions/strategy/win-rate handoff per game/run, analogous
+  to [the FRLG battle reference](battles/pokeguy-conditions.md), and evaluate
+  exported plans against the shared configurable quality criteria.

@@ -34,6 +34,8 @@ import struct
 import subprocess
 import sys
 
+from .runtime_symbols import CLOSED_SIDES, LEDGE_GLYPHS
+
 COMMIT = 'ce6406d8c2eaf46d543c8a2606de0c3cb1951982'
 #   When COMMIT was pinned, for each map's "source".
 COMMIT_DATE = '2026-10-31'
@@ -41,8 +43,7 @@ COMMIT_DATE = '2026-10-31'
 #   Behaviors with a glyph of their own (Pokemon_MapData.h has the legend).
 TERRAIN = {
     'MB_TALL_GRASS': '~', 'MB_WARP_DOOR': 'D',
-    'MB_IMPASSABLE_NORTH': '8', 'MB_IMPASSABLE_SOUTH': '2',
-    'MB_IMPASSABLE_EAST': '6', 'MB_IMPASSABLE_WEST': '4',
+    **{'MB_IMPASSABLE_' + side.name: glyph for glyph, side in CLOSED_SIDES.items()},
 }
 #   Open tiles whose warp is taken other than by walking into it: how.
 WARP_ENTRIES = {
@@ -56,7 +57,7 @@ WARP_ENTRIES = {
     'MB_UP_LEFT_STAIR_WARP': 'walk_west', 'MB_DOWN_LEFT_STAIR_WARP': 'walk_west',
 }
 #   Ledges, by the way the player hops over them.
-LEDGES = {'MB_JUMP_NORTH': '^', 'MB_JUMP_SOUTH': 'v', 'MB_JUMP_WEST': '<', 'MB_JUMP_EAST': '>'}
+LEDGES = {'MB_JUMP_' + direction.name: glyph for direction, glyph in LEDGE_GLYPHS.items()}
 FLOOR = ('MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS')
 #   A metatile's encounter type (METATILE_ATTRIBUTE_ENCOUNTER_TYPE in
 #   include/fieldmap.h): on a map with land encounters, a step onto a LAND
@@ -65,7 +66,7 @@ ENCOUNTER_TYPE_SHIFT, ENCOUNTER_TYPE_MASK = 24, 0x7
 TILE_ENCOUNTER_LAND = 1
 #   Open tiles closed on one side, and the region that lists those of them
 #   with wild encounters, which their glyph can't say.
-CLOSED_GLYPHS = '8264'
+CLOSED_GLYPHS = frozenset(CLOSED_SIDES)
 WILD_REGION = 'wild'
 DIRECTIONS = {'up': 'north', 'down': 'south', 'left': 'west', 'right': 'east'}
 

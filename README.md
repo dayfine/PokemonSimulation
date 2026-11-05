@@ -23,6 +23,8 @@ The [AutoStory integration plan](docs/autostory-plan.md) tracks map ownership,
 route planning and shared FRLG/BDSP simulation. The [imported map packs](docs/maps/runtime-maps.md)
 include 53 FRLG and 22 BDSP maps, portable generators, corrections, provenance
 and a byte-identical export for Arduino consumers.
+The [local runtime-map planner](docs/navigation/RUNTIME_ROUTES.md) now computes
+and draws routes inside a pinned FRLG or BDSP map, recording its inputs and state.
 
 The [C-strategy comparison](docs/battles/pokeguy-c-comparison.md) reruns only
 the 12 setup fights and combines them with the retained baseline for a new
@@ -110,7 +112,7 @@ See [external/README.md](external/README.md) for source checkout conventions,
 - Start modules and classes with a comment explaining their purpose.
 - Give meaningful numbers a name and record their source.
 - Keep functions short and flat.
-- Document command-line tools with an example input, output, and command.
+- Document command-line tools with example input/output; include runnable commands in their module docstrings.
 - Record source repositories, revisions, and measurements alongside derived data.
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for current capabilities and next work.

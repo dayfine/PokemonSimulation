@@ -4,7 +4,8 @@ Unknown extensions remain intact. Geometric invariants are checked here;
 game-specific flag/trigger semantics belong to the replay adapter.
 """
 
-GLYPHS = set('#.~w^v<>DS 8246')
+from .runtime_symbols import GLYPHS
+
 ENTRIES = {'walk_into', 'step_on', 'cave_entrance', 'walk_north',
            'walk_south', 'walk_west', 'walk_east'}
 

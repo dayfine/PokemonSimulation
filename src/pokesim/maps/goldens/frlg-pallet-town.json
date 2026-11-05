@@ -1,0 +1,118 @@
+{
+  "format": "pokesim-route-golden/1",
+  "game": "frlg",
+  "map": "PalletTown",
+  "map_sha256": "1ca0358d59d889a07525d39f632409fc9aa9e5a7d24e5ecd26ad58d2c9b8156e",
+  "coordinate_frame": {
+    "kind": "local tiles",
+    "origin": [
+      0,
+      0
+    ],
+    "width": 24,
+    "height": 20,
+    "origin_space": "map layout"
+  },
+  "preconditions": [],
+  "native_reference": {
+    "repository": "dayfine/Arduino-Source",
+    "pr": 224,
+    "revision": "51c0ce6128e5981da56b370a770874b96a1e129f",
+    "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryTable.cpp",
+    "checkpoint": "00.03",
+    "step": "below_oaks_trigger",
+    "note": "Both endpoints are explicit in oaks_trigger(); flags remain the published baseline."
+  },
+  "goal": {
+    "tile": [
+      12,
+      2
+    ],
+    "facing": "north"
+  },
+  "context": {
+    "flags": [],
+    "variables": {},
+    "acknowledge_map_state": false
+  },
+  "start": {
+    "tile": [
+      6,
+      8
+    ],
+    "elevation": 3
+  },
+  "cost": 18.0,
+  "moves": [
+    {
+      "direction": "south",
+      "kind": "step",
+      "to": [6, 9, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [7, 9, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [8, 9, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [9, 9, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [10, 9, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [11, 9, 3]
+    },
+    {
+      "direction": "east",
+      "kind": "step",
+      "to": [12, 9, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [12, 8, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [12, 7, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [12, 6, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [12, 5, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [12, 4, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [12, 3, 3]
+    },
+    {
+      "direction": "north",
+      "kind": "step",
+      "to": [12, 2, 3]
+    }
+  ]
+}

@@ -37,8 +37,11 @@ Reports include confidence intervals, item consumption, conditions at loss,
 and example traces. This is an approximation of FRLG trainer behavior:
 AI damage helpers differ from pret, voluntary switching is omitted, and
 some source-fixture stats are assumed. Validate against console runs before
-using these estimates as a readiness gate. Next work depends on the outcome
-of that validation; do not expand to other games yet.
+using these estimates as a readiness gate. Complete that validation before
+implementing the planned game expansion. The
+[integration plan](autostory-plan.md#5-repeat-the-full-run-analysis-for-bdsp-and-lets-go-pikachueevee)
+records the same full-run exercise for BDSP and Let's Go Pikachu/Eevee, with
+independent data-source and mechanics/AI adapters; that work has not started.
 
 ## Future team-composition comparison
 
