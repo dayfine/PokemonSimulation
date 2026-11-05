@@ -54,16 +54,28 @@ optional until the simulation needs it.
 - [ ] Define a versioned semantic event/state/trace contract. Share map identity,
   pose belief, route cursor/checkpoints, actions, observations, interruptions,
   outcomes and bounded retry budgets. Reuse the battle replay contract below.
+- [x] First [transition/regression slice](navigation/TRANSITION_SCENARIOS.md):
+  source-grounded inventory and semantic inputs; explicit FRLG cross-map
+  predictions, pose beliefs/observations, queued/missed input, evidenced BDSP
+  house arrival and bounded localization/clipping candidates. Mine south-wall
+  clipping survives interrupted inputs without crediting a completed tile.
+  Native plan import, dynamic trainer worlds and full replay remain pending.
 - [ ] FRLG adapter: tile-locked movement, elevation, edge/warp entry and arrival,
   story flags and transitions. BDSP adapter: drift, collision/clipping,
   uncertain pose, arrival behavior and scene triggers.
-- [ ] Regression scenarios: FRLG Cerulean/Nugget Bridge transition; BDSP mine
+- [ ] Complete native-exported regression replay beyond the reduced fixtures:
+  FRLG Cerulean/Nugget Bridge transition; BDSP mine
   B1F/B2F stairs and house entrance/exit, with console trace IDs as evidence.
 - [ ] Wild encounter recovery: interruption mid-leg, partial/queued movement,
   determine map and possible positions, relocalize, then resume from a proven
   checkpoint. Clipping must avoid doors, unsafe edges and unintended triggers.
 - [ ] Test ambiguous landmarks, moving NPCs, repeated interruptions, exhausted
   retry budgets and unknown transitions. Assert safe failure as well as success.
+
+The ordered native migration is tracked in [the shared recovery plan](navigation/SHARED_RECOVERY_PLAN.md):
+characterize the combined FRLG baseline, extract into nav-core #114, prove FRLG
+parity, then integrate and re-test BDSP. #224 inherits the recovery from #213
+and later fixes; it is not the original owning PR.
 
 Keep hardware timing/detector integration tests in Arduino. Shared semantic
 fixtures should be data, not Python tests extracting C++ source strings.

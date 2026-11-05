@@ -1,0 +1,693 @@
+{
+  "format": "pokesim-transition-cases/1",
+  "map_revision": "86cbad9144970e546a2fa4ee5d49cfea7905de3c",
+  "coordinate_frame": "runtime-local",
+  "cases": [
+    {
+      "id": "forest-north-gate",
+      "game": "frlg",
+      "maps": [
+        "ViridianForest",
+        "Route2_ViridianForest_NorthEntrance"
+      ],
+      "initial": [
+        {
+          "map": "ViridianForest",
+          "tile": [5, 10],
+          "facing": "north",
+          "elevation": 3
+        }
+      ],
+      "evidence": {
+        "pr": 216,
+        "revision": "831a22c423fc0ab1918fba85fb667d18c31c1691",
+        "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/PokemonFRLG_OverworldSim_Tests.cpp",
+        "symbol": "test_forest_north_gate / test_battle_on_warp_leg",
+        "checkpoint": "00.08",
+        "step": "forest_gate",
+        "run": "cp0007 m6f; r15; analogous missed-flash battle from 00.13"
+      },
+      "flags": [],
+      "variables": {},
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "north"
+          ]
+        },
+        {
+          "event": "expect",
+          "candidates": 2,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "unknown",
+          "fade": true
+        },
+        {
+          "event": "expect",
+          "candidates": 2,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": false
+        },
+        {
+          "event": "expect",
+          "candidates": 2,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route2_ViridianForest_NorthEntrance",
+          "tiles": [
+            [7, 10]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        },
+        {
+          "event": "movement",
+          "actions": [
+            "north"
+          ],
+          "min_completed": 1
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route2_ViridianForest_NorthEntrance",
+          "tiles": [
+            [7, 9]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        }
+      ],
+      "derivation": "Last press of the native (5,20) to gate (7,9) scenario. Observations are normalized semantic fault injections, not captured detector output.",
+      "drawings": [
+        {
+          "map": "ViridianForest",
+          "start": [5, 20],
+          "goal": [5, 10],
+          "start_label": "native start",
+          "goal_label": "before cave warp at (5,9)",
+          "landmarks": [
+            {
+              "tile": [5, 9],
+              "label": "NEXT north -> gate (7,10), face north"
+            }
+          ]
+        },
+        {
+          "map": "Route2_ViridianForest_NorthEntrance",
+          "start": [7, 10],
+          "goal": [7, 9],
+          "start_label": "warp arrival, face north",
+          "goal_label": "native goal",
+          "landmarks": [
+            {
+              "tile": [7, 10],
+              "label": "arrival stays ON directional mat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forest-battle-before-warp",
+      "game": "frlg",
+      "maps": [
+        "ViridianForest",
+        "Route2_ViridianForest_NorthEntrance"
+      ],
+      "initial": [
+        {
+          "map": "ViridianForest",
+          "tile": [5, 20],
+          "facing": "north",
+          "elevation": 3
+        }
+      ],
+      "evidence": {
+        "pr": 216,
+        "revision": "831a22c423fc0ab1918fba85fb667d18c31c1691",
+        "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/PokemonFRLG_OverworldSim_Tests.cpp",
+        "symbol": "test_forest_north_gate / test_battle_on_warp_leg",
+        "checkpoint": "00.08",
+        "step": "forest_gate",
+        "run": "cp0007 m6f; r15; analogous missed-flash battle from 00.13"
+      },
+      "flags": [],
+      "variables": {},
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "north",
+            "north",
+            "north",
+            "north",
+            "north",
+            "north",
+            "north",
+            "north",
+            "north",
+            "north",
+            "north"
+          ]
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": true
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "ViridianForest",
+          "tiles": [
+            [5, 19],
+            [5, 18]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 2,
+          "can_resume": false
+        }
+      ],
+      "derivation": "Native test injects a late-seen battle on step 1 or 2 of the grass/warp leg. Both positions remain possible; do not advance the story cursor."
+    },
+    {
+      "id": "route2-south-gate",
+      "game": "frlg",
+      "maps": [
+        "Route2",
+        "Route2_ViridianForest_SouthEntrance",
+        "ViridianForest"
+      ],
+      "initial": [
+        {
+          "map": "Route2",
+          "tile": [5, 52],
+          "facing": "north",
+          "elevation": 3
+        }
+      ],
+      "evidence": {
+        "pr": 213,
+        "revision": "891b8f97e2e1399011431942c18079c532a19b5d",
+        "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryTable.cpp",
+        "symbol": "forest_entrance route step",
+        "checkpoint": "00.07",
+        "step": "forest_entrance",
+        "run": "cp0007-i; r12/r13"
+      },
+      "flags": [],
+      "variables": {},
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "north"
+          ],
+          "min_completed": 1
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route2_ViridianForest_SouthEntrance",
+          "tiles": [
+            [7, 10]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        }
+      ],
+      "derivation": "Derived final local press from the successful Route2-to-forest route, using unchanged warp metadata; not a recorded tap trace."
+    },
+    {
+      "id": "forest-queued-exit",
+      "game": "frlg",
+      "maps": [
+        "ViridianForest",
+        "Route2_ViridianForest_SouthEntrance"
+      ],
+      "initial": [
+        {
+          "map": "ViridianForest",
+          "tile": [29, 61],
+          "facing": "north",
+          "elevation": 3
+        }
+      ],
+      "evidence": {
+        "pr": 213,
+        "revision": "891b8f97e2e1399011431942c18079c532a19b5d",
+        "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/PokemonFRLG_OverworldRoute.cpp",
+        "symbol": "press / take_warp",
+        "checkpoint": "00.07",
+        "step": "forest_entrance",
+        "run": "derived activation diagnostic; no specific console queue trace"
+      },
+      "flags": [],
+      "variables": {},
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "south"
+          ],
+          "queued": [
+            "south"
+          ]
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "ViridianForest",
+          "tiles": [
+            [29, 62]
+          ]
+        },
+        {
+          "event": "expect",
+          "candidates": 3,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "ViridianForest",
+          "tiles": [
+            [29, 62]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        }
+      ],
+      "derivation": "Synthetic queued-input diagnostic at the actual forest entry/exit mat. Arrival may remain inside the forest or leave it; early localization is unsafe."
+    },
+    {
+      "id": "cerulean-connection-short",
+      "game": "frlg",
+      "maps": [
+        "CeruleanCity",
+        "Route24"
+      ],
+      "initial": [
+        {
+          "map": "CeruleanCity",
+          "tile": [22, 0],
+          "facing": "north",
+          "elevation": 3
+        }
+      ],
+      "evidence": {
+        "pr": 219,
+        "revision": "360701b053f294cae5e652e2bcfb60fd25608306",
+        "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStorySimulation_Tests.cpp",
+        "symbol": "test_oddish_walks / test_nugget_bridge_short",
+        "checkpoint": "00.16 / 00.20",
+        "step": "onto Nugget Bridge",
+        "run": "console B 2026-11-03; 00.20 twice; PR description connection_steps"
+      },
+      "flags": [
+        "FLAG_HIDE_CERULEAN_RIVAL"
+      ],
+      "variables": {},
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "north",
+            "north",
+            "north"
+          ],
+          "min_completed": 3,
+          "edge_stall": true
+        },
+        {
+          "event": "expect",
+          "candidates": 2,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route24",
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 2,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route24",
+          "tiles": [
+            [10, 38]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        }
+      ],
+      "derivation": "Three-press diagnostic slice at the actual map connection, not the full native leg or measured stopping coordinate."
+    },
+    {
+      "id": "logan-r55-localization",
+      "game": "bdsp",
+      "maps": [
+        "Route202"
+      ],
+      "initial": [
+        {
+          "map": "Route202",
+          "tile": [27, 5],
+          "facing": "west",
+          "elevation": 0
+        },
+        {
+          "map": "Route202",
+          "tile": [26, 5],
+          "facing": "west",
+          "elevation": 0
+        }
+      ],
+      "evidence": {
+        "pr": 226,
+        "revision": "f8bdd62b9df4dbf285f93853147295e0552a0367",
+        "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_PlannedRoute_Tests.cpp",
+        "symbol": "Test_OpenLegKnownTrainer",
+        "checkpoint": "00.04d",
+        "step": "north_to_jubilife",
+        "run": "r55"
+      },
+      "flags": [],
+      "variables": {
+        "VAR_ROUTE_202_STATE": 1
+      },
+      "events": [
+        {
+          "event": "recovery",
+          "max_presses": 12,
+          "max_states": 512
+        },
+        {
+          "event": "expect",
+          "candidates": 6,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "Route202",
+          "tiles": [
+            [30, 5]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        }
+      ],
+      "derivation": "Exact native post-dialogue belief. Python finds the same east-wall direction; no battle/controller timing is replayed."
+    },
+    {
+      "id": "mine-pack-gap",
+      "game": "bdsp",
+      "maps": [
+        "OreburghMineB1F",
+        "OreburghMine"
+      ],
+      "initial": [
+        {
+          "map": "OreburghMineB1F",
+          "tile": [12, 20],
+          "facing": "south",
+          "elevation": 0
+        }
+      ],
+      "evidence": {
+        "pr": 226,
+        "revision": "f8bdd62b9df4dbf285f93853147295e0552a0367",
+        "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_StorySim_Tests.cpp",
+        "symbol": "old_mine_hall_south_20 / old_mine_hall_south_19",
+        "checkpoint": "01.03",
+        "step": "down_the_hall / into_the_coal_room",
+        "run": "native semantic regression; exact console run not identified"
+      },
+      "flags": [],
+      "variables": {},
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "south",
+            "south"
+          ],
+          "min_completed": 2,
+          "expect_failure": "unresolved transition"
+        },
+        {
+          "event": "expect",
+          "candidates": 0,
+          "can_resume": false
+        }
+      ],
+      "derivation": "Pinned pack still has floor on row 21 and unlinked door on row 22. Native #226 expects warp on row 21. This is an explicit data gap, not a passing mine replay."
+    },
+    {
+      "id": "bdsp-player-house-exit",
+      "game": "bdsp",
+      "maps": [
+        "PlayerHouse1F",
+        "TwinleafTown"
+      ],
+      "initial": [
+        {
+          "map": "PlayerHouse1F",
+          "tile": [6, 9],
+          "facing": "south",
+          "elevation": 0
+        }
+      ],
+      "evidence": {
+        "pr": 226,
+        "revision": "f8bdd62b9df4dbf285f93853147295e0552a0367",
+        "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_StoryTable.cpp",
+        "symbol": "bedroom_to_lakefront / out_of_the_house_again",
+        "checkpoint": "00.01 / 00.03",
+        "step": "out_of_the_house",
+        "run": "r27; native table assertion"
+      },
+      "flags": [],
+      "variables": {
+        "VAR_PLAYER_HOUSE_STATE": 0,
+        "CONSOLE_MOMS_CALL": 1
+      },
+      "events": [
+        {
+          "event": "movement",
+          "actions": [
+            "south"
+          ],
+          "min_completed": 1
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "TwinleafTown",
+          "tiles": [
+            [20, 22]
+          ],
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        }
+      ],
+      "derivation": "Native declared arrival supplied as an explicit, evidenced adapter contract for the existing one-way warp. Reverse entrance/stairs remain unsupported.",
+      "arrival_contracts": [
+        {
+          "source": {
+            "map": "PlayerHouse1F",
+            "tile": [6, 10]
+          },
+          "destination": {
+            "map": "TwinleafTown",
+            "tile": [20, 22]
+          },
+          "facing": "south",
+          "evidence": "FRLG-independent BDSP native table out_of_the_house at f8bdd62b9df4dbf285f93853147295e0552a0367",
+          "enter_direction": "south"
+        }
+      ],
+      "drawings": [
+        {
+          "map": "PlayerHouse1F",
+          "start": [6, 9],
+          "goal": [6, 9],
+          "start_label": "above door",
+          "goal_label": "last stable tile",
+          "landmarks": [
+            {
+              "tile": [6, 10],
+              "label": "SOUTH -> Twinleaf (20,22), face south"
+            }
+          ]
+        },
+        {
+          "map": "TwinleafTown",
+          "start": [20, 22],
+          "goal": [20, 22],
+          "start_label": "declared house arrival",
+          "goal_label": "observed doorstep",
+          "landmarks": [
+            {
+              "tile": [20, 21],
+              "label": "door tile is NOT the arrival"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mine-south-clip-after-battle",
+      "game": "bdsp",
+      "maps": [
+        "OreburghMine"
+      ],
+      "initial": [
+        {
+          "map": "OreburghMine",
+          "tile": [15, 15],
+          "elevation": 0,
+          "facing": "south"
+        },
+        {
+          "map": "OreburghMine",
+          "tile": [15, 16],
+          "elevation": 0,
+          "facing": "south"
+        },
+        {
+          "map": "OreburghMine",
+          "tile": [15, 17],
+          "elevation": 0,
+          "facing": "south"
+        }
+      ],
+      "flags": [],
+      "variables": {},
+      "encounter_maps": [
+        "OreburghMine"
+      ],
+      "evidence": {
+        "pr": 226,
+        "revision": "f8bdd62b9df4dbf285f93853147295e0552a0367",
+        "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_StoryTable.cpp",
+        "symbol": "legs_below_roark / below_roark",
+        "checkpoint": "01.03",
+        "step": "below_roark: SOUTH 5 before EAST 14",
+        "run": "User-supplied Gemini report, 2026-11-05; exact run ID/revision unavailable"
+      },
+      "derivation": "Diagnostic of the reported row-15 versus intended row-17 discrepancy, not a proven escape_battle root cause. Initial column 15 with rows 15..17 is a conservative pre-east belief. The localized screenshot position (19,15) is reported, not independently verified. Published rows 15..18 already support this south-wall convergence; no pending map correction imported.",
+      "events": [
+        {
+          "event": "clip",
+          "direction": "south",
+          "max_presses": 8,
+          "encounter_policy": "recover"
+        },
+        {
+          "event": "observation",
+          "screen": "battle",
+          "hp_box": true
+        },
+        {
+          "event": "expect",
+          "candidates": 3,
+          "can_resume": false
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "OreburghMine",
+          "queue_drained": true
+        },
+        {
+          "event": "clip",
+          "direction": "south",
+          "max_presses": 8,
+          "encounter_policy": "recover"
+        },
+        {
+          "event": "observation",
+          "screen": "overworld",
+          "map": "OreburghMine",
+          "still_direction": "south",
+          "video_advanced": true,
+          "queue_drained": true
+        },
+        {
+          "event": "expect",
+          "candidates": 1,
+          "can_resume": true
+        }
+      ],
+      "drawings": [
+        {
+          "map": "OreburghMine",
+          "start": [15, 15],
+          "goal": [15, 17],
+          "start_label": "possible shortfall row",
+          "goal_label": "clip south to wall at row 18",
+          "landmarks": [
+            {
+              "tile": [15, 16],
+              "label": "all three rows converge to (15,17)"
+            },
+            {
+              "tile": [20, 15],
+              "label": "Machop: east from row 15 is unsafe"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

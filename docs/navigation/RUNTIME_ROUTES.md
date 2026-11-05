@@ -2,7 +2,9 @@
 
 The first step of the generic-planner migration connects the imported FRLG
 and BDSP maps to the existing Dijkstra search and PNG renderer. It plans
-**inside one map**. Cross-map planning and story replay remain future work.
+**inside one map**. The separate [transition slice](TRANSITION_SCENARIOS.md)
+now exposes explicit FRLG cross-map predictions and observation/recovery tests.
+The local route CLI stays local; native story replay remains future work.
 
 `pokesim.maps.local_routing.LocalMap` keeps the complete source JSON alongside
 its effective patched grid. Its `World.try_step` adapter handles runtime
@@ -91,3 +93,10 @@ arrival behavior, and export route legs with constraints suitable for the
 consumer. BDSP rectangles alone do not establish that two maps connect;
 different interior matrices can reuse the same coordinate origin. Actual
 story-event execution and interruption/recovery tests belong to step 3.
+
+
+The transition slice uses `RuntimeWorld` with the same shared `shortest_path`
+and `world_step`, retaining each `LocalMap` context. It resolves reviewed FRLG
+links and explicit BDSP arrival contracts. `Session` keeps unconfirmed movement
+separate from observed pose. See the scenario inventory for executable inputs,
+wall clipping, provenance and the still-unresolved BDSP mine pack differences.
