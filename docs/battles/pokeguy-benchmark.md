@@ -9,6 +9,10 @@ the probability of finishing the entire run.
 See the [top ten and player-action grouping](pokeguy-action-complexity.md) for
 the risk ranking and the attack/recovery/setup split.
 
+The checked table below is the historical `solo-setup-heal/4` baseline.
+Current code uses [incremental A/B/C layers](player-strategies.md); see the
+[12-fight C rerun and new ranking](pokeguy-c-comparison.md) for the latest comparison.
+
 ## Run locally
 
 ```sh

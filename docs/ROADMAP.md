@@ -58,6 +58,13 @@ Conditional trainer win rates now run through the battle benchmark. Wild and
 capture/escape objectives, input sensitivity, better NPC parity, and a simulation
 carrying random outcomes across the whole route remain future work.
 
+## Battle resource logistics
+
+Use [League PP requirements](battles/league-pp-requirements.md) as a resource
+contract for a separate pickup/purchase/timing process. The recorded plan reserves
+one Elixir between Lance and Champion. Derive extra PP reserves from chained
+stochastic battle outcomes before treating that observed plan as sufficient for C.
+
 ## pret map data
 
 Use pret decompilations as upstream map data sources, building on the existing

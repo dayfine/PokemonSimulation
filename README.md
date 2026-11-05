@@ -11,6 +11,10 @@ with Python policies, pret data, and a local Pokémon Showdown engine.
 See [the full trainer benchmark](docs/battles/pokeguy-benchmark.md) for inputs, limitations,
 and [the complete results table](docs/battles/pokeguy-trainers.md).
 
+The [C-strategy comparison](docs/battles/pokeguy-c-comparison.md) reruns only
+the 12 setup fights and combines them with the retained baseline for a new
+risk ranking.
+
 The [full-route EXP audit](docs/progression/README.md) logs Pokeguy's LeafGreen
 battles, calculates the starter's level after each one, and compares it with
 the video notes, including a route that flees all random wild encounters.

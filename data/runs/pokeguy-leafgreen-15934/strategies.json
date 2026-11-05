@@ -4,8 +4,9 @@
   "scope": "Only these twelve previously classified Type C fights enable complex planning; A/B use default recovery.",
   "goal_provenance": {
     "observed_setup_counts": "state-history.json: Tower/Silph/Route22 rivals and League setup counts inform minimum Sp. Atk/Accuracy goals.",
-    "proposed_targets": "Koga spa2, Erika spa1/accuracy1, and Silph Giovanni spa1 are proposed goals, not observed Pokeguy item use. Outspeed/accuracy repair and Guard Spec are state-dependent additions.",
-    "bruno": "Two X Specials, X Speed compensating Rock Tomb, and 42/162 HP activate Torrent in the video. The planner commits to stages and targets Torrent rather than healing to full."
+    "proposed_targets": "Koga spa1/no opening Guard Spec, Erika spa1, Silph Giovanni spa1, and Lance spa3 are proposed goals. Koga enters in Torrent and should avoid extra exposure to Self-Destruct/Sludge. Accuracy +2 gives Blizzard 100% stage-adjusted preview accuracy before opposing evasion/other modifiers. These are experiments, not claimed Pokeguy button sequences.",
+    "bruno": "Two X Specials, X Speed compensating Rock Tomb, and 42/162 HP activate Torrent in the video. The planner commits to stages and targets Torrent rather than healing to full.",
+    "torrent_power": "Agatha and Tower rival enter with Torrent active; preserve the intended water-damage multiplier via extra Sp. Atk stages if recovery removes Torrent."
   },
   "fights": {
     "tower-rival": {
@@ -15,16 +16,17 @@
         "accuracy": 0,
         "outspeed": true,
         "guard_accuracy": true,
-        "target_torrent": false
+        "target_torrent": false,
+        "torrent_power": true
       }
     },
     "koga": {
       "enable_complex_planning": true,
       "planning_goals": {
-        "spa": 2,
+        "spa": 1,
         "accuracy": 0,
         "outspeed": true,
-        "guard_accuracy": true,
+        "guard_accuracy": false,
         "target_torrent": false
       }
     },
@@ -32,7 +34,7 @@
       "enable_complex_planning": true,
       "planning_goals": {
         "spa": 1,
-        "accuracy": 1,
+        "accuracy": 2,
         "outspeed": true,
         "guard_accuracy": true,
         "target_torrent": false
@@ -42,7 +44,7 @@
       "enable_complex_planning": true,
       "planning_goals": {
         "spa": 2,
-        "accuracy": 1,
+        "accuracy": 2,
         "outspeed": true,
         "guard_accuracy": true,
         "target_torrent": false
@@ -72,7 +74,7 @@
       "enable_complex_planning": true,
       "planning_goals": {
         "spa": 2,
-        "accuracy": 1,
+        "accuracy": 2,
         "outspeed": true,
         "guard_accuracy": true,
         "target_torrent": false
@@ -105,14 +107,15 @@
         "accuracy": 0,
         "outspeed": true,
         "guard_accuracy": true,
-        "target_torrent": false
+        "target_torrent": false,
+        "torrent_power": true
       }
     },
     "lance": {
       "enable_complex_planning": true,
       "planning_goals": {
-        "spa": 1,
-        "accuracy": 1,
+        "spa": 3,
+        "accuracy": 2,
         "outspeed": true,
         "guard_accuracy": true,
         "target_torrent": false
@@ -122,7 +125,7 @@
       "enable_complex_planning": true,
       "planning_goals": {
         "spa": 2,
-        "accuracy": 1,
+        "accuracy": 2,
         "outspeed": true,
         "guard_accuracy": true,
         "target_torrent": false

@@ -14,14 +14,15 @@ from pokesim.games.frlg.battle.engine import REPO
 from pokesim.games.frlg.battle.run import trainer_cases, summarize, results_markdown, implementation_hashes, configure_strategies
 from pokesim.games.frlg.progression.ledger import fingerprint
 from pokesim.games.frlg.battle.sampling import AdaptiveSampling
+from pokesim.games.frlg.battle.comparison import compare_strategies, comparison_markdown
 
 DATA = REPO / 'data/runs/pokeguy-leafgreen-15934'
 
 
-def evaluate_case(case, pret, maximum, seed, width, family):
+def evaluate_case(case, pret, maximum, seed, width, family, confidence=.95):
     """Independent worker; retain the full family's confidence correction."""
     return evaluate([case], pret, battles=maximum, seed=seed, turn_limit=300,
-        sampling=AdaptiveSampling(width=width), family_size=family)
+        sampling=AdaptiveSampling(width=width, confidence=confidence), family_size=family)
 
 
 def main(argv=None):
@@ -30,8 +31,8 @@ def main(argv=None):
     parser.add_argument('--case', action='append')
     parser.add_argument('--battles', type=int, default=3000, help='Maximum trials per battle')
     parser.add_argument('--interval-width', type=float, default=.10)
-    parser.add_argument('--seed', type=int, help='Default 1, or fresh seed 2 for --complex-only')
-    parser.add_argument('--complex-only', action='store_true', help='Rerun only explicitly enabled C fights, retaining the full confidence family')
+    parser.add_argument('--seed', type=int, help='Default 1, or held-out validation seed 4 for --complex-only')
+    parser.add_argument('--complex-only', action='store_true', help='Rerun opted-in C fights, reserving confidence budget for retained baseline data')
     parser.add_argument('--workers', type=int, default=3, help='Independent Python/Node workers')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args(argv)
@@ -48,22 +49,25 @@ def main(argv=None):
         config = json.loads(configuration.read_text())
         cases = configure_strategies(cases, config)
         inputs['strategy_config_sha256'] = fingerprint(config)
-    full_family = len(cases)
     if args.complex_only:
         cases = [c for c in cases if c.get('enable_complex_planning', False)]
         if not cases:
             parser.error('No fights explicitly enable complex planning')
+    complex_family = len(cases)
     if args.case:
         unknown = set(args.case) - {c['id'] for c in cases}
         if unknown:
             parser.error('Unknown case: ' + ', '.join(sorted(unknown)))
         cases = [c for c in cases if c['id'] in args.case]
-    seed = args.seed if args.seed is not None else (2 if args.complex_only else 1)
-    family = full_family if args.complex_only else len(cases)
+    seed = args.seed if args.seed is not None else (4 if args.complex_only else 1)
+    # Reserve half the confidence error budget for the retained original
+    # benchmark. Its intervals can be recomputed without rerunning those fights.
+    family = complex_family if args.complex_only else len(cases)
+    confidence = .975 if args.complex_only else .95
     reports = {}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with ProcessPoolExecutor(max_workers=min(args.workers, len(cases))) as pool:
-        jobs = {pool.submit(evaluate_case, c, pret, args.battles, seed, args.interval_width, family): c['id'] for c in cases}
+        jobs = {pool.submit(evaluate_case, c, pret, args.battles, seed, args.interval_width, family, confidence): c['id'] for c in cases}
         for future in as_completed(jobs):
             result = future.result()
             reports[jobs[future]] = result
@@ -89,6 +93,11 @@ def main(argv=None):
     args.out.with_suffix('.summary.json').write_text(json.dumps(summary, indent=2) + '\n')
     if len(cases) == 69:
         args.out.with_suffix('.md').write_text(results_markdown(summary))
+    if args.complex_only and not args.case:
+        baseline = json.loads((REPO / 'docs/battles/pokeguy-trainers.json').read_text())
+        compared = compare_strategies(baseline, report)
+        args.out.with_suffix('.comparison.json').write_text(json.dumps(compared, indent=2) + '\n')
+        args.out.with_suffix('.comparison.md').write_text(comparison_markdown(compared))
     for row in report['results']:
         low, high = row['confidence_sequence']['bounds']
         print('{}: {}/{} wins; {:.1%}–{:.1%}; {}'.format(row['id'], row['wins'], row['battles'],

@@ -1,0 +1,132 @@
+{
+  "format": "pokesim-frlg-league-pp-requirements/1",
+  "scope": "Resource requirements/assumptions for E4 plus Champion; pickup and purchase routing is a separate downstream process.",
+  "source_fingerprints": {
+    "state_history": "975aa44e02d0333e802b5e3d75f607192cc24e3da5bcf31dcd6013aeec70f727",
+    "reference": "de507307843e5639477754f56279019a4d1f2a6e432ad2a0068894a1b29e695c"
+  },
+  "pp_ups": false,
+  "base_pp": {
+    "BITE": 25,
+    "SURF": 15,
+    "BLIZZARD": 5,
+    "STRENGTH": 15
+  },
+  "observed_run_total_spend": {
+    "BITE": 7,
+    "SURF": 16,
+    "BLIZZARD": 7,
+    "STRENGTH": 0
+  },
+  "fights": [
+    {
+      "fight": "lorelei",
+      "assumed_entry_pp": {
+        "BITE": 25,
+        "SURF": 15,
+        "BLIZZARD": 5,
+        "STRENGTH": 15
+      },
+      "recorded_executed_moves": {
+        "BITE": 6,
+        "SURF": 1
+      }
+    },
+    {
+      "fight": "bruno",
+      "assumed_entry_pp": {
+        "BITE": 19,
+        "SURF": 14,
+        "BLIZZARD": 5,
+        "STRENGTH": 15
+      },
+      "recorded_executed_moves": {
+        "SURF": 5
+      }
+    },
+    {
+      "fight": "agatha",
+      "assumed_entry_pp": {
+        "BITE": 19,
+        "SURF": 9,
+        "BLIZZARD": 5,
+        "STRENGTH": 15
+      },
+      "recorded_executed_moves": {
+        "SURF": 5
+      }
+    },
+    {
+      "fight": "lance",
+      "assumed_entry_pp": {
+        "BITE": 19,
+        "SURF": 4,
+        "BLIZZARD": 5,
+        "STRENGTH": 15
+      },
+      "recorded_executed_moves": {
+        "BITE": 1,
+        "BLIZZARD": 5,
+        "SURF": 1
+      }
+    },
+    {
+      "fight": "champion",
+      "assumed_entry_pp": {
+        "BITE": 25,
+        "SURF": 13,
+        "BLIZZARD": 5,
+        "STRENGTH": 15
+      },
+      "recorded_executed_moves": {
+        "SURF": 4,
+        "BLIZZARD": 2
+      }
+    }
+  ],
+  "recovery_capability_requirements": [
+    {
+      "id": "pre-champion-pp-recovery",
+      "window": {
+        "after": "lance",
+        "before": "champion"
+      },
+      "minimum_observed_recovery": {
+        "SURF": 10,
+        "BLIZZARD": 5
+      },
+      "recorded_solution": {
+        "ELIXIR": 1
+      },
+      "alternative_capability_bundles": [
+        {
+          "MAX_ELIXIR": 1
+        },
+        {
+          "ETHER": 2
+        },
+        {
+          "MAX_ETHER": 2
+        }
+      ],
+      "observed_pp_before": {
+        "BITE": 18,
+        "SURF": 3,
+        "BLIZZARD": 0,
+        "STRENGTH": 15
+      },
+      "observed_pp_after": {
+        "BITE": 25,
+        "SURF": 13,
+        "BLIZZARD": 5,
+        "STRENGTH": 15
+      },
+      "logistics_status": "unresolved here; the source route already records an Elixir, but this requirement does not choose an acquisition path"
+    }
+  ],
+  "updated_c_policy_status": {
+    "validation": "Independent per-fight trials reset to the entry PP above; these are not proven minimum PP quantities.",
+    "whole_league_reserve_quantity": null,
+    "remaining_work": "Carry actual PP/item outcomes between fights and include misses, failed actions and extra attacks before sizing a stochastic reserve. Do not infer a sufficient whole-run budget from the observed seven Blizzard casts."
+  }
+}

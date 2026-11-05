@@ -28,7 +28,7 @@ benchmark with a named player policy; it is not cartridge-equivalent emulation.
 | 1 | NPC voluntary switching | No `ShouldSwitch` policy. Baton Pass and other move-forced requests execute, but a trainer cannot proactively retreat from a poor matchup or Perish Song. |
 | 1 | Accuracy parity | Preview uses pret's combined accuracy-minus-evasion stage table; Showdown can apply separate factors. Ability/item/volatile hit modifiers are incompletely represented in previews. Align actual hit and preview arithmetic with cartridge cases. |
 | 2 | Threat estimates | The player heuristic assumes a 1/16 critical rate and simplifies residual/status effects. High-critical moves, escalating toxic damage and volatile interactions can bias healing/setup choices even though actual turns resolve them. |
-| 2 | Policy quality and information | Full roster knowledge, greedy attack/heal/setup choices, no player switching. It is neither optimal play nor Pokeguy's policy. Guard Spec/Dire Hit actions exist but are not chosen by this heuristic. |
+| 2 | Policy quality and information | Full roster knowledge, greedy attack/heal/setup choices, no player switching. It is neither optimal play nor Pokeguy's policy. C uses Guard Spec where configured, stage goals, recharge windows and Torrent-aware HP choices; it remains a heuristic. Dire Hit is not selected. |
 | 2 | Input sensitivity | The report selects overlay Attack IV25 and recorded preparation assumptions. Compare the surviving IV24 profile and any uncertain inputs separately. |
 | 2 | Whole-route outcome | Fights reset to recorded entry states. Carrying random HP/PP/bag outcomes and preparation policy forward is a different experiment; conditional rates must not be multiplied as a route-clear probability. |
 
@@ -39,8 +39,8 @@ shared, frame-dependent RNG.
 ## Code ownership
 
 - `npc_ai.py:NPCTrainerAI`: opposing game NPC move scoring from pret scripts.
-- `policy.py:player_action`, `attack`, `threat`, `setup_action`: our player's choices.
-- `policy.py:trainer_item`, `replacement`: NPC medicines and replacement choices.
+- `policy.py:player_action`: B-default/C-opt-in entry point; `player_strategy/` separates attack, recovery and planning layers.
+- `npc_actions.py:trainer_item`, `replacement`: NPC medicines and replacement choices.
 - `run.py`: recorded-state trainer case builder, independent of trial outcomes.
 - `engine.cjs`: actual turns, bag actions, fields, locks and state export.
 - `progression.cjs`: live knockout awards, raw-stat refresh and move learning.
