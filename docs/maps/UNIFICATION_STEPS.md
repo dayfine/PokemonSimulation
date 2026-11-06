@@ -102,14 +102,14 @@ until its native format capability is updated in the adoption change.
 
 ### Native decoder preparation after #53
 
-A native prerequisite is prepared on Arduino branch
-`nav/compact-runtime-map-reader`, commit `ec3803725` (publication/CI pending).
-It adds `Pokemon_RuntimeMap.{h,cpp}` with `normalize_runtime_map()` and
-`parse_runtime_map()` in the shared navigation directory. These functions layer
-over the existing `parse_map()`; no second game-specific decoder is introduced.
-The existing loader entry point and both games' call sites remain unchanged.
+The native decoder is now folded into [Arduino nav-core #114](https://github.com/dayfine/Arduino-Source/pull/114),
+`nav/shared` commit `bd9a6669dda2b92884fa377fb402f03d466c4a20` (native CI pending).
+`Pokemon_RuntimeMap.{h,cpp}` supplies wire normalization inside the existing
+`parse_map()` API, so both games gain v1/v2 support by merging nav-core. No loader
+call-site changes or separate native decoder PR are needed.
 
-Local evidence: 26 registered native schema cases pass, including mixed-version
+Local evidence: 26 new native schema cases and all eight existing MapData cases
+pass, including legacy diagnostics, embedded test maps, mixed-version
 rejection, coordinate bounds, inclusive wander boxes and full metadata retention.
 A GUI-free native target also compares 150 complete records from immutable
 Simulation `40717c7c809c415c751fd7a348dfc1895f7ec3d7`: all 75 maps, both plain
@@ -119,10 +119,9 @@ This establishes decoder parity, not matching route choices or live execution.
 
 The remaining sequence is:
 
-1. Publish/merge the decoder prerequisite into `nav/shared` (#114), then adopt
-   `parse_runtime_map()` in the owning FRLG/BDSP map-loader PRs and propagate it
-   through their story chains. Run native route/story/recovery tests before
-   activating v2. Existing native reader files are not rewritten in the staged PR.
+1. Finish #114 CI, propagate `nav/shared` through the FRLG/BDSP story chains,
+   and run native route/story/recovery tests before activating v2. The original
+   `parse_map()` entry point now performs versioned normalization automatically.
 2. Reconcile the five BDSP content differences against current immutable heads
    and their evidence here. Publish one reviewed normalized pack, then prepare
    pinned external Resources and remove native authoring/copies after adoption.
@@ -131,9 +130,9 @@ The remaining sequence is:
    movement routes. Use the existing native story engine and per-game executors.
 
 No published maps, native consumer pins, terrain corrections or captured replay
-facts were changed by this checkpoint. Initial native push was refused because
-the pre-PR hook compared against `main`, reporting inherited findings; the
-incremental check against its intended parent, `nav/shared`, passes.
+facts were changed by this checkpoint. The initial separate-branch push hit inherited hook findings. Folding the
+change into #114 used the correct existing PR base, passed code health and
+pushed normally, without a hook bypass.
 
 ## 2. Enforce parity, rather than maintaining copies
 
