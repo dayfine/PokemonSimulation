@@ -179,6 +179,23 @@ It also fixes an import error exposed by actual Forest trainer-sight metadata.
 - [x] Record the native per-wall retry policy separately from Python's global
   Session budget; keep unreported native facing/queue/video state unverified.
 - [ ] Publish the native exporter and run native GitHub CI (approval pending).
-- [ ] Add actual FRLG walker exports and bridge the remaining full-state fields.
+- [x] Add actual FRLG walker exports for the first Forest shortfall checkpoint.
+- [ ] Bridge the remaining full-state fields for both games.
 
 See [the native BDSP checkpoint](navigation/ENCOUNTER_RECOVERY.md#first-actual-native-replay-bdsp-route-202).
+
+### FRLG native Forest replay (stacked after #49)
+
+- [x] Capture actual `run_route()` / `OverworldSimWalker` repair and route rejoin
+  for the r16 Forest one/two-tile shortfalls; preserve TRUST negative controls.
+- [x] Verify that an already-converging next wall needs no inserted repair.
+- [x] Publish readable checked traces and side-by-side collision-map diagrams;
+  keep runtime candidate storage, video/queue/timing evidence unverified.
+- [x] Reject vertical FRLG sign interactions as Python wall anchors.
+- [ ] Publish the locally committed native exporter and run native CI (same
+  pending initial-push approval as the preceding native adapters).
+- [ ] Export actual candidate/facing/queued-input observations and compare
+  complete #47 state snapshots, rather than reconstructed geometry alone.
+
+See [the Forest results and exact limits](../data/navigation/native-recovery/FRLG_FOREST.md)
+and [the implementation checkpoint](navigation/ENCOUNTER_RECOVERY.md#native-frlg-forest-shortfall-replay).
