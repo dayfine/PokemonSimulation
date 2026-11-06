@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "PalletTown_PlayersHouse_1F",
     "source": {
         "decomp_file": "data/maps/PalletTown_PlayersHouse_1F/map.json",
@@ -23,43 +24,14 @@
         "warp_2": [10, 2]
     },
     "warps": [
-        {
-            "x": 5,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "PalletTown",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 4,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "PalletTown",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 10,
-            "y": 2,
-            "enter": "walk_east",
-            "to_map": "PalletTown_PlayersHouse_2F",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 3,
-            "y": 9,
-            "enter": "walk_into",
-            "to_map": "PalletTown",
-            "to_point": "warp_0"
-        }
-    ],
-    "objects": [
-        {
-            "name": "mom",
-            "kind": "npc",
-            "x": 8,
-            "y": 4
-        }
+        {"coord": [5, 8], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_0"},
+        {"coord": [4, 8], "enter": "walk_south", "to_map": "PalletTown", "to_point": "warp_0"},
+        {"coord": [10, 2], "enter": "walk_east", "to_map": "PalletTown_PlayersHouse_2F", "to_point": "warp_0"},
+        {"coord": [3, 9], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_0"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "mom", "coord": [8, 4]}
+    ]
 }

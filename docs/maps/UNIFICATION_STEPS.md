@@ -59,7 +59,7 @@ it is a diagnostic, not a substitute for byte/hash integrity acceptance.
   [Reconciliation decisions](BDSP_RECONCILIATION.md): adopt two; hold Route 201, the mine
   corridor and president edits pending anchored BDSP evidence. Parity improves
   to 19/22 against the same #226 snapshot; native adoption remains pending.
-- [ ] Convert all published maps and generator output together; bump the
+- [x] Convert all published maps and generator output together; bump the
   manifest's runtime format, update checksums and consumer format capability.
   Re-run every map audit, native reader test, route golden and recovery replay.
 
@@ -101,10 +101,10 @@ PYTHONPATH=src python3 -m pokesim.maps.runtime_map_format \
   --out /tmp/OreburghMine.coord.json
 ```
 
-The active published pack remains v1 until native adoption. The preview command
-refuses to overwrite its input. Existing consumer pins/exports are unchanged,
-and the existing consumer verifier deliberately rejects a v2 publishing manifest
-until its native format capability is updated in the adoption change.
+The [published pack now uses v2](V2_PUBLICATION.md); both generators and the
+consumer verifier support it. The formatter refuses in-place overwrites.
+Existing consumer pins/exports remain unchanged: native chains must first pick
+up the #114 reader, then explicitly adopt an approved publishing revision.
 
 ### Native decoder preparation after #53
 
@@ -152,8 +152,8 @@ pushed normally, without a hook bypass.
 
 The existing `consumer_sync` implementation already provides the pinned/vendored
 integrity mechanism. Its destination paths are fixed to embedded source maps;
-resource adoption must extend and test that boundary, not pretend the current
-command verifies Packages resources.
+the [resource layout and preparation protocol](resource-packs.md) now extend
+and test that boundary without repinning or changing native loaders.
 
 ## 3. External map resources in the native story chains
 
@@ -163,9 +163,10 @@ checkout/verify the locked publishing SHA, and materialize only its selected map
 pack into Resources. Do not clone the entire simulation repo into the deployed
 Resources tree. Preserve license/provenance and ship only the needed data.
 
-- [ ] Add explicit prepare/check commands and clone/pin instructions. CI prepares
-  the exact same resources before native builds/tests. CMake should fail clearly
-  if they are missing; it must not silently clone/update data during a build.
+- [x] Add resource prepare/check commands, clone/pin instructions and the tested
+  CMake fail-closed helper; [details](resource-packs.md). Simulation CI exercises
+  locked preparation and configure.
+- [ ] Adopt that preparation/helper in the owning native game builds and CI.
 - [ ] Replace the CMake source-directory embedding inputs. At #226's inspected
   head, `EmbedTextFiles.cmake` and `pa_embed_text_files(...AutoStory/Maps...)`
   still compile source JSON into the app; changing README alone cannot remove it.
@@ -237,8 +238,8 @@ it. V2 previews use real item identifiers/quantities; Oak's balls go into
 `interactables`, not `items`. Source scripts/IDs and collection flags are retained
 in a pinned catalog with compact per-record references.
 
-Published map bytes and native replay pins remain unchanged until adoption.
+Published map bytes now use v2; historical native replay pins remain unchanged.
 Unknown/conditional rewards remain unresolved, and Diamond/Platinum identities
 are labeled as BDSP baselines rather than claimed BDSP verification. CI checks
 reproduction against the 28 pinned source inputs. The map/resource/story-event
-migration above is still pending beyond these staged data tools.
+resource/story-event migration above is still pending.

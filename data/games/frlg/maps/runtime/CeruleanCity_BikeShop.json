@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "CeruleanCity_BikeShop",
     "source": {
         "decomp_file": "data/maps/CeruleanCity_BikeShop/map.json",
@@ -22,54 +23,15 @@
         "warp_1": [5, 8]
     },
     "warps": [
-        {
-            "x": 4,
-            "y": 9,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 5,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 6,
-            "y": 9,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_5"
-        }
-    ],
-    "objects": [
-        {
-            "name": "man",
-            "kind": "npc",
-            "x": 9,
-            "y": 3
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 9,
-            "y": 7,
-            "wander": {
-                "x0": 8,
-                "y0": 6,
-                "x1": 10,
-                "y1": 8
-            }
-        },
-        {
-            "name": "woman_2",
-            "kind": "npc",
-            "x": 5,
-            "y": 5
-        }
+        {"coord": [4, 9], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_5"},
+        {"coord": [5, 8], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_5"},
+        {"coord": [6, 9], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_5"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "man", "coord": [9, 3]},
+        {"name": "youngster", "coord": [9, 7], "wander": {"min": [8, 6], "max": [10, 8]}},
+        {"name": "woman_2", "coord": [5, 5]}
+    ]
 }

@@ -143,3 +143,23 @@ only to candidate fixtures; it cannot approve pending map data. Promote to the
 merged publisher SHA before normal adoption. A separate native `Navigation fixture pin` workflow is prepared on the local
 conformance branches and verifies the approved #46 pin. Native publication/CI
 is pending; this existing action remains map-only.
+
+## V2 publishing prerequisite
+
+The current publishing pack uses `pokesim-runtime-map/2`; consumer tooling accepts
+approved v1 and v2 pins with strict manifest/map agreement. Before updating a
+native game pin to v2, merge nav-core #114's shared reader into its story chain
+and run its route/story/recovery tests. Existing locks are not upgraded
+automatically. See [publication validation](../../docs/maps/V2_PUBLICATION.md).
+External Packages resources and removal of embedded map copies are the next
+separate integration change.
+
+## Prepared resource packs
+
+Use `consumer_sync --layout resources` with the separate resource lock and
+`Packages/Resources/Pokemon/Maps/{frlg,bdsp}` destination. `prepare` materializes
+an existing approved lock; `update` selects new approved pins; `check` is read-only.
+The composite action accepts `layout: resources` and `operation: prepare|check`.
+The [resource protocol](../../docs/maps/resource-packs.md) includes clone/pin
+commands, license/provenance, CMake verification and the native adoption gates.
+Native game inputs remain unchanged until their owning branches adopt it.

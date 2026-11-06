@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route4",
     "source": {
         "decomp_file": "data/maps/Route4/map.json",
@@ -55,94 +56,20 @@
         "warp_2": [12, 5]
     },
     "warps": [
-        {
-            "x": 19,
-            "y": 5,
-            "enter": "cave_entrance",
-            "to_map": "MtMoon_1F",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 32,
-            "y": 5,
-            "enter": "cave_entrance",
-            "to_map": "MtMoon_B1F",
-            "to_point": "warp_7"
-        },
-        {
-            "x": 12,
-            "y": 5,
-            "enter": "walk_into",
-            "to_map": "Route4_PokemonCenter_1F",
-            "to_point": "warp_1"
-        }
-    ],
-    "objects": [
-        {
-            "name": "woman_1",
-            "kind": "npc",
-            "x": 9,
-            "y": 8,
-            "wander": {
-                "x0": 8,
-                "y0": 7,
-                "x1": 10,
-                "y1": 9
-            }
-        },
-        {
-            "name": "lass",
-            "kind": "npc",
-            "x": 75,
-            "y": 3,
-            "facing": "east",
-            "trainer": {
-                "sight": 4
-            }
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 67,
-            "y": 5,
-            "hide_flag": "FLAG_HIDE_ROUTE4_TM05"
-        },
-        {
-            "name": "boy",
-            "kind": "npc",
-            "x": 15,
-            "y": 14,
-            "wander": {
-                "x0": 14,
-                "y0": 14,
-                "x1": 16,
-                "y1": 14
-            }
-        },
-        {
-            "name": "black_belt",
-            "kind": "npc",
-            "x": 47,
-            "y": 3
-        },
-        {
-            "name": "black_belt",
-            "kind": "npc",
-            "x": 50,
-            "y": 3
-        }
+        {"coord": [19, 5], "enter": "cave_entrance", "to_map": "MtMoon_1F", "to_point": "warp_3"},
+        {"coord": [32, 5], "enter": "cave_entrance", "to_map": "MtMoon_B1F", "to_point": "warp_7"},
+        {"coord": [12, 5], "enter": "walk_into", "to_map": "Route4_PokemonCenter_1F", "to_point": "warp_1"}
     ],
     "flag_sets": {},
-    "connections": [
-        {
-            "side": "south",
-            "to_map": "Route3",
-            "offset": -60
-        },
-        {
-            "side": "east",
-            "to_map": "CeruleanCity",
-            "offset": -10
-        }
+    "connections": [{"side": "south", "to_map": "Route3", "offset": -60}, {"side": "east", "to_map": "CeruleanCity", "offset": -10}],
+    "npcs": [
+        {"name": "woman_1", "coord": [9, 8], "wander": {"min": [8, 7], "max": [10, 9]}},
+        {"name": "lass", "coord": [75, 3], "facing": "east", "trainer": {"sight": 4}},
+        {"name": "boy", "coord": [15, 14], "wander": {"min": [14, 14], "max": [16, 14]}},
+        {"name": "black_belt", "coord": [47, 3]},
+        {"name": "black_belt", "coord": [50, 3]}
+    ],
+    "items": [
+        {"name": "item_ball", "coord": [67, 5], "hide_flag": "FLAG_HIDE_ROUTE4_TM05"}
     ]
 }

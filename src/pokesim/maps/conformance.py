@@ -1,6 +1,6 @@
 """Replay exact navigation fixtures; predictions do not confirm execution.
 
-From the repository root (checks local map bytes against the fixture hashes):
+From the repository root (checks exact pinned map bytes against the fixture hashes):
     PYTHONPATH=src python3 -m pokesim.maps.conformance
     PYTHONPATH=src python3 -m pokesim.maps.conformance --game bdsp
 
@@ -8,7 +8,6 @@ The fixture's map_revision identifies the reviewed source. This local runner
 checks bytes, not publication approval; map consumers still use consumer_sync.
 """
 import argparse
-import hashlib
 import re
 from pathlib import Path
 
@@ -16,6 +15,7 @@ from pokesim.grid.geometry import Direction, Tile
 from pokesim.grid.maps.world import Place
 from pokesim.grid.movement import Hop, Moved, Warped, WorldState, world_step
 from .consumer_source import DIGEST, NAME, SHA, read_json
+from .pinned_runtime_map import read_pinned_map
 from .local_routing import Context, LocalMap
 from .runtime_map_pack import ROOT
 from .runtime_world import RuntimeWorld
@@ -138,13 +138,11 @@ def read_pack(path=PACK):
 
 
 def make_world(pack, value, root=ROOT):
-    """Verify exact on-disk bytes before decoding any map used by this case."""
+    """Verify exact local or historical bytes before decoding a fixture map."""
     hashes = {(m['game'], m['name']): m['sha256'] for m in pack['maps']}
     views = []
     for name in value['maps']:
-        raw = (Path(root) / 'data/games' / value['game'] / 'maps/runtime' / (name + '.json')).read_bytes()
-        if hashlib.sha256(raw).hexdigest() != hashes[value['game'], name]:
-            raise ValueError('map hash mismatch: ' + name)
+        raw = read_pinned_map(pack['map_revision'], value['game'], name, hashes[value['game'], name], root)
         context = Context(flags=frozenset(value['flags']), variables=value['variables'])
         views.append(LocalMap(read_json(raw), value['game'], context))
     return RuntimeWorld(views)

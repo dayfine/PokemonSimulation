@@ -23,7 +23,7 @@ class CoordinateFormatTest(unittest.TestCase):
             for entry in info['maps']:
                 with self.subTest(game=game, map=entry['name']):
                     original = json.loads((pack.ROOT / entry['file']).read_text())
-                    before = copy.deepcopy(original)
+                    before = legacy_map(original)
                     compact = compact_map(original)
                     self.assertEqual(compact['format'], COMPACT)
                     restored = legacy_map(compact)

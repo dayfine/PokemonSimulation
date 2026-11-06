@@ -1,5 +1,22 @@
 name: Verify PokemonSimulation map packs
-description: Check vendored Arduino JSON against its pinned publishing commits.
+description: Check pinned Arduino map exports or prepare locked resource packs.
+inputs:
+  layout:
+    description: embedded or resources
+    default: embedded
+  consumer-directory:
+    description: Consumer checkout directory relative to the workspace
+    default: .
+  operation:
+    description: check or prepare (prepare requires resources)
+    default: check
+outputs:
+  tools-source:
+    description: Checked-out tooling root for CMake integration
+    value: ${{ steps.paths.outputs.tools-source }}
+  source-cache:
+    description: Publishing Git cache used for resource verification
+    value: ${{ steps.paths.outputs.source-cache }}
 runs:
   using: composite
   steps:
@@ -11,13 +28,31 @@ runs:
         fetch-depth: 0
         path: .pokesim-map-source
         persist-credentials: false
+    - name: Expose build integration paths
+      id: paths
+      shell: bash
+      env:
+        ACTION_ROOT: ${{ github.action_path }}
+        WORKSPACE_ROOT: ${{ github.workspace }}
+      run: |
+        python3 - <<'PYTHON'
+        import os
+        from pathlib import Path
+        with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+            print('tools-source=' + Path(os.environ['ACTION_ROOT']).resolve().parents[2].as_posix(), file=output)
+            print('source-cache=' + (Path(os.environ['WORKSPACE_ROOT']) / '.pokesim-map-source').as_posix(), file=output)
+        PYTHON
     - name: Check locked map exports
       shell: bash
       working-directory: ${{ github.action_path }}/../../..
       env:
         PYTHONPATH: ${{ github.action_path }}/../../../src
+        MAP_LAYOUT: ${{ inputs.layout }}
+        CONSUMER_DIRECTORY: ${{ inputs.consumer-directory }}
+        MAP_OPERATION: ${{ inputs.operation }}
       run: >-
-        python3 -m pokesim.maps.consumer_sync check
-        --consumer "$GITHUB_WORKSPACE"
+        python3 -m pokesim.maps.consumer_sync "$MAP_OPERATION"
+        --layout "$MAP_LAYOUT"
+        --consumer "$GITHUB_WORKSPACE/$CONSUMER_DIRECTORY"
         --source "$GITHUB_WORKSPACE/.pokesim-map-source"
         --offline

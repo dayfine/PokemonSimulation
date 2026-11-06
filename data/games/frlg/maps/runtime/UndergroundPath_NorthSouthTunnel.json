@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "UndergroundPath_NorthSouthTunnel",
     "source": {
         "decomp_file": "data/maps/UndergroundPath_NorthSouthTunnel/map.json",
@@ -75,22 +76,9 @@
         "warp_1": [3, 60]
     },
     "warps": [
-        {
-            "x": 4,
-            "y": 3,
-            "enter": "walk_east",
-            "to_map": "UndergroundPath_NorthEntrance",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 3,
-            "y": 60,
-            "enter": "walk_west",
-            "to_map": "UndergroundPath_SouthEntrance",
-            "to_point": "warp_3"
-        }
+        {"coord": [4, 3], "enter": "walk_east", "to_map": "UndergroundPath_NorthEntrance", "to_point": "warp_3"},
+        {"coord": [3, 60], "enter": "walk_west", "to_map": "UndergroundPath_SouthEntrance", "to_point": "warp_3"}
     ],
-    "objects": [],
     "flag_sets": {},
     "connections": []
 }

@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route5",
     "source": {
         "decomp_file": "data/maps/Route5/map.json",
@@ -51,36 +52,11 @@
         "warp_0": [31, 31]
     },
     "warps": [
-        {
-            "x": 31,
-            "y": 31,
-            "enter": "walk_into",
-            "to_map": "UndergroundPath_NorthEntrance",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 23,
-            "y": 25,
-            "enter": "walk_into"
-        },
-        {
-            "x": 24,
-            "y": 32,
-            "enter": "walk_south"
-        },
-        {
-            "x": 25,
-            "y": 32,
-            "enter": "walk_south"
-        }
+        {"coord": [31, 31], "enter": "walk_into", "to_map": "UndergroundPath_NorthEntrance", "to_point": "warp_1"},
+        {"coord": [23, 25], "enter": "walk_into"},
+        {"coord": [24, 32], "enter": "walk_south"},
+        {"coord": [25, 32], "enter": "walk_south"}
     ],
-    "objects": [],
     "flag_sets": {},
-    "connections": [
-        {
-            "side": "north",
-            "to_map": "CeruleanCity",
-            "offset": 0
-        }
-    ]
+    "connections": [{"side": "north", "to_map": "CeruleanCity", "offset": 0}]
 }

@@ -83,7 +83,7 @@ class ItemIdentityTest(unittest.TestCase):
             identity.enrich_objects(objects, 'bdsp', 'OreburghMine', '0' * 64)
         with self.assertRaisesRegex(ValueError, 'source revision mismatch'):
             identity.enrich_objects(objects, 'bdsp', 'OreburghMine', entry['events_sha256'], source_revision='0' * 40)
-        objects[1]['source_event'] = 999
+        next(obj for obj in objects if obj['kind'] == 'item')['source_event'] = 999
         with self.assertRaisesRegex(ValueError, 'source event changed'):
             identity.enrich_objects(objects, 'bdsp', 'OreburghMine', entry['events_sha256'])
 

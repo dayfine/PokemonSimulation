@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "PewterCity",
     "source": {
         "decomp_file": "data/maps/PewterCity/map.json",
@@ -56,117 +57,23 @@
         "warp_5": [17, 25]
     },
     "warps": [
-        {
-            "x": 17,
-            "y": 6,
-            "enter": "cave_entrance",
-            "to_map": "PewterCity_Museum_1F",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 25,
-            "y": 4,
-            "enter": "walk_into",
-            "to_map": "PewterCity_Museum_1F",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 15,
-            "y": 16,
-            "enter": "walk_into",
-            "to_map": "PewterCity_Gym",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 28,
-            "y": 18,
-            "enter": "walk_into",
-            "to_map": "PewterCity_Mart",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 33,
-            "y": 11,
-            "enter": "walk_into"
-        },
-        {
-            "x": 17,
-            "y": 25,
-            "enter": "walk_into",
-            "to_map": "PewterCity_PokemonCenter_1F",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 9,
-            "y": 30,
-            "enter": "walk_into"
-        }
-    ],
-    "objects": [
-        {
-            "name": "lass",
-            "kind": "npc",
-            "x": 6,
-            "y": 15
-        },
-        {
-            "name": "man",
-            "kind": "npc",
-            "x": 33,
-            "y": 17,
-            "hide_flag": "FLAG_HIDE_PEWTER_MUSEUM_GUIDE"
-        },
-        {
-            "name": "fat_man",
-            "kind": "npc",
-            "x": 21,
-            "y": 28
-        },
-        {
-            "name": "bug_catcher",
-            "kind": "npc",
-            "x": 33,
-            "y": 27,
-            "wander": {
-                "x0": 31,
-                "y0": 27,
-                "x1": 35,
-                "y1": 27
-            }
-        },
-        {
-            "name": "boy",
-            "kind": "npc",
-            "x": 42,
-            "y": 20,
-            "hide_flag": "FLAG_HIDE_PEWTER_CITY_GYM_GUIDE"
-        },
-        {
-            "name": "cut_tree",
-            "kind": "npc",
-            "x": 30,
-            "y": 5,
-            "hide_flag": "FLAG_TEMP_12"
-        },
-        {
-            "name": "scientist",
-            "kind": "npc",
-            "x": 46,
-            "y": 20,
-            "hide_flag": "FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY"
-        }
+        {"coord": [17, 6], "enter": "cave_entrance", "to_map": "PewterCity_Museum_1F", "to_point": "warp_1"},
+        {"coord": [25, 4], "enter": "walk_into", "to_map": "PewterCity_Museum_1F", "to_point": "warp_3"},
+        {"coord": [15, 16], "enter": "walk_into", "to_map": "PewterCity_Gym", "to_point": "warp_1"},
+        {"coord": [28, 18], "enter": "walk_into", "to_map": "PewterCity_Mart", "to_point": "warp_1"},
+        {"coord": [33, 11], "enter": "walk_into"},
+        {"coord": [17, 25], "enter": "walk_into", "to_map": "PewterCity_PokemonCenter_1F", "to_point": "warp_1"},
+        {"coord": [9, 30], "enter": "walk_into"}
     ],
     "flag_sets": {},
-    "connections": [
-        {
-            "side": "south",
-            "to_map": "Route2",
-            "offset": 12
-        },
-        {
-            "side": "east",
-            "to_map": "Route3",
-            "offset": 10
-        }
+    "connections": [{"side": "south", "to_map": "Route2", "offset": 12}, {"side": "east", "to_map": "Route3", "offset": 10}],
+    "npcs": [
+        {"name": "lass", "coord": [6, 15]},
+        {"name": "man", "coord": [33, 17], "hide_flag": "FLAG_HIDE_PEWTER_MUSEUM_GUIDE"},
+        {"name": "fat_man", "coord": [21, 28]},
+        {"name": "bug_catcher", "coord": [33, 27], "wander": {"min": [31, 27], "max": [35, 27]}},
+        {"name": "boy", "coord": [42, 20], "hide_flag": "FLAG_HIDE_PEWTER_CITY_GYM_GUIDE"},
+        {"name": "cut_tree", "coord": [30, 5], "hide_flag": "FLAG_TEMP_12"},
+        {"name": "scientist", "coord": [46, 20], "hide_flag": "FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY"}
     ]
 }

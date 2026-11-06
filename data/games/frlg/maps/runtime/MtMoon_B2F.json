@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "MtMoon_B2F",
     "source": {
         "decomp_file": "data/maps/MtMoon_B2F/map.json",
@@ -85,134 +86,49 @@
         ]
     },
     "warps": [
-        {
-            "x": 25,
-            "y": 21,
-            "enter": "step_on",
-            "to_map": "MtMoon_B1F",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 31,
-            "y": 11,
-            "enter": "step_on",
-            "to_map": "MtMoon_B1F",
-            "to_point": "warp_4"
-        },
-        {
-            "x": 17,
-            "y": 31,
-            "enter": "step_on",
-            "to_map": "MtMoon_B1F",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 5,
-            "y": 10,
-            "enter": "step_on",
-            "to_map": "MtMoon_B1F",
-            "to_point": "warp_6"
-        }
-    ],
-    "objects": [
-        {
-            "name": "fossil",
-            "kind": "npc",
-            "x": 13,
-            "y": 7,
-            "hide_flag": "FLAG_HIDE_DOME_FOSSIL"
-        },
-        {
-            "name": "fossil",
-            "kind": "npc",
-            "x": 14,
-            "y": 7,
-            "hide_flag": "FLAG_HIDE_HELIX_FOSSIL"
-        },
-        {
-            "name": "scientist",
-            "kind": "npc",
-            "x": 13,
-            "y": 11
-        },
-        {
-            "name": "rocket_m",
-            "kind": "npc",
-            "x": 37,
-            "y": 21,
-            "trainer": {
-                "sight": 3,
-                "looks": [
-                    "north",
-                    "east",
-                    "south",
-                    "west"
-                ]
-            },
-            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
-        },
-        {
-            "name": "rocket_m",
-            "kind": "npc",
-            "x": 12,
-            "y": 20,
-            "facing": "south",
-            "trainer": {
-                "sight": 2
-            },
-            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
-        },
-        {
-            "name": "rocket_m",
-            "kind": "npc",
-            "x": 35,
-            "y": 12,
-            "facing": "north",
-            "trainer": {
-                "sight": 4
-            },
-            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
-        },
-        {
-            "name": "rocket_m",
-            "kind": "npc",
-            "x": 18,
-            "y": 27,
-            "facing": "south",
-            "trainer": {
-                "sight": 4
-            },
-            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 30,
-            "y": 26,
-            "hide_flag": "FLAG_HIDE_MT_MOON_B2F_STAR_PIECE"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 35,
-            "y": 5,
-            "hide_flag": "FLAG_HIDE_MT_MOON_B2F_TM46"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 24,
-            "y": 6,
-            "hide_flag": "FLAG_HIDE_MT_MOON_B2F_REVIVE"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 3,
-            "y": 11,
-            "hide_flag": "FLAG_HIDE_MT_MOON_B2F_ANTIDOTE"
-        }
+        {"coord": [25, 21], "enter": "step_on", "to_map": "MtMoon_B1F", "to_point": "warp_3"},
+        {"coord": [31, 11], "enter": "step_on", "to_map": "MtMoon_B1F", "to_point": "warp_4"},
+        {"coord": [17, 31], "enter": "step_on", "to_map": "MtMoon_B1F", "to_point": "warp_5"},
+        {"coord": [5, 10], "enter": "step_on", "to_map": "MtMoon_B1F", "to_point": "warp_6"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "fossil", "coord": [13, 7], "hide_flag": "FLAG_HIDE_DOME_FOSSIL"},
+        {"name": "fossil", "coord": [14, 7], "hide_flag": "FLAG_HIDE_HELIX_FOSSIL"},
+        {"name": "scientist", "coord": [13, 11]},
+        {
+            "name": "rocket_m",
+            "coord": [37, 21],
+            "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
+            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
+        },
+        {
+            "name": "rocket_m",
+            "coord": [12, 20],
+            "facing": "south",
+            "trainer": {"sight": 2},
+            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
+        },
+        {
+            "name": "rocket_m",
+            "coord": [35, 12],
+            "facing": "north",
+            "trainer": {"sight": 4},
+            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
+        },
+        {
+            "name": "rocket_m",
+            "coord": [18, 27],
+            "facing": "south",
+            "trainer": {"sight": 4},
+            "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS"
+        }
+    ],
+    "items": [
+        {"name": "item_ball", "coord": [30, 26], "hide_flag": "FLAG_HIDE_MT_MOON_B2F_STAR_PIECE"},
+        {"name": "item_ball", "coord": [35, 5], "hide_flag": "FLAG_HIDE_MT_MOON_B2F_TM46"},
+        {"name": "item_ball", "coord": [24, 6], "hide_flag": "FLAG_HIDE_MT_MOON_B2F_REVIVE"},
+        {"name": "item_ball", "coord": [3, 11], "hide_flag": "FLAG_HIDE_MT_MOON_B2F_ANTIDOTE"}
+    ]
 }

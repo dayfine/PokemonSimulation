@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "UndergroundPath_NorthEntrance",
     "source": {
         "decomp_file": "data/maps/UndergroundPath_NorthEntrance/map.json",
@@ -22,43 +23,14 @@
         "warp_3": [7, 4]
     },
     "warps": [
-        {
-            "x": 5,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "Route5",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 6,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "Route5",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 7,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "Route5",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 7,
-            "y": 4,
-            "enter": "walk_west",
-            "to_map": "UndergroundPath_NorthSouthTunnel",
-            "to_point": "warp_0"
-        }
-    ],
-    "objects": [
-        {
-            "name": "little_girl",
-            "kind": "npc",
-            "x": 5,
-            "y": 6
-        }
+        {"coord": [5, 8], "enter": "walk_into", "to_map": "Route5", "to_point": "warp_0"},
+        {"coord": [6, 8], "enter": "walk_south", "to_map": "Route5", "to_point": "warp_0"},
+        {"coord": [7, 8], "enter": "walk_into", "to_map": "Route5", "to_point": "warp_0"},
+        {"coord": [7, 4], "enter": "walk_west", "to_map": "UndergroundPath_NorthSouthTunnel", "to_point": "warp_0"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "little_girl", "coord": [5, 6]}
+    ]
 }

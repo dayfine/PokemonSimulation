@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "CeruleanCity_House2",
     "source": {
         "decomp_file": "data/maps/CeruleanCity_House2/map.json",
@@ -22,55 +23,15 @@
         "warp_3": [4, 1]
     },
     "warps": [
-        {
-            "x": 2,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 3,
-            "y": 7,
-            "enter": "walk_south",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 4,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 4,
-            "y": 1,
-            "enter": "cave_entrance",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_9"
-        }
-    ],
-    "objects": [
-        {
-            "name": "hiker",
-            "kind": "npc",
-            "x": 1,
-            "y": 2
-        },
-        {
-            "name": "lass",
-            "kind": "npc",
-            "x": 7,
-            "y": 6,
-            "wander": {
-                "x0": 6,
-                "y0": 5,
-                "x1": 8,
-                "y1": 7
-            }
-        }
+        {"coord": [2, 7], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_1"},
+        {"coord": [3, 7], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_1"},
+        {"coord": [4, 7], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_1"},
+        {"coord": [4, 1], "enter": "cave_entrance", "to_map": "CeruleanCity", "to_point": "warp_9"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "hiker", "coord": [1, 2]},
+        {"name": "lass", "coord": [7, 6], "wander": {"min": [6, 5], "max": [8, 7]}}
+    ]
 }

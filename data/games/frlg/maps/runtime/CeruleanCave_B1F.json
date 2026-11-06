@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "CeruleanCave_B1F",
     "source": {
         "decomp_file": "data/maps/CeruleanCave_B1F/map.json",
@@ -60,100 +61,24 @@
         "warp_0": [5, 7]
     },
     "warps": [
-        {
-            "x": 5,
-            "y": 7,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_1F",
-            "to_point": "warp_2"
-        }
-    ],
-    "objects": [
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 31,
-            "y": 9,
-            "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_ULTRA_BALL"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 32,
-            "y": 2,
-            "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_MAX_REVIVE"
-        },
-        {
-            "name": "mewtwo",
-            "kind": "npc",
-            "x": 7,
-            "y": 12,
-            "hide_flag": "FLAG_HIDE_MEWTWO"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 37,
-            "y": 1,
-            "hide_flag": "FLAG_TEMP_12"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 38,
-            "y": 2,
-            "hide_flag": "FLAG_TEMP_13"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 35,
-            "y": 1,
-            "hide_flag": "FLAG_TEMP_14"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 37,
-            "y": 4,
-            "hide_flag": "FLAG_TEMP_15"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 35,
-            "y": 5,
-            "hide_flag": "FLAG_TEMP_16"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 2,
-            "y": 2,
-            "hide_flag": "FLAG_TEMP_17"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 4,
-            "y": 1,
-            "hide_flag": "FLAG_TEMP_18"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 6,
-            "y": 1,
-            "hide_flag": "FLAG_TEMP_19"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 3,
-            "y": 4,
-            "hide_flag": "FLAG_TEMP_1A"
-        }
+        {"coord": [5, 7], "enter": "step_on", "to_map": "CeruleanCave_1F", "to_point": "warp_2"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "mewtwo", "coord": [7, 12], "hide_flag": "FLAG_HIDE_MEWTWO"},
+        {"name": "rock_smash_rock", "coord": [37, 1], "hide_flag": "FLAG_TEMP_12"},
+        {"name": "rock_smash_rock", "coord": [38, 2], "hide_flag": "FLAG_TEMP_13"},
+        {"name": "rock_smash_rock", "coord": [35, 1], "hide_flag": "FLAG_TEMP_14"},
+        {"name": "rock_smash_rock", "coord": [37, 4], "hide_flag": "FLAG_TEMP_15"},
+        {"name": "rock_smash_rock", "coord": [35, 5], "hide_flag": "FLAG_TEMP_16"},
+        {"name": "rock_smash_rock", "coord": [2, 2], "hide_flag": "FLAG_TEMP_17"},
+        {"name": "rock_smash_rock", "coord": [4, 1], "hide_flag": "FLAG_TEMP_18"},
+        {"name": "rock_smash_rock", "coord": [6, 1], "hide_flag": "FLAG_TEMP_19"},
+        {"name": "rock_smash_rock", "coord": [3, 4], "hide_flag": "FLAG_TEMP_1A"}
+    ],
+    "items": [
+        {"name": "item_ball", "coord": [31, 9], "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_ULTRA_BALL"},
+        {"name": "item_ball", "coord": [32, 2], "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_MAX_REVIVE"}
+    ]
 }

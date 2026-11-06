@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "VermilionCity_PokemonCenter_1F",
     "source": {
         "decomp_file": "data/maps/VermilionCity_PokemonCenter_1F/map.json",
@@ -35,91 +36,20 @@
         "warp_1": [7, 8]
     },
     "warps": [
-        {
-            "x": 6,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_4"
-        },
-        {
-            "x": 7,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "VermilionCity",
-            "to_point": "warp_4"
-        },
-        {
-            "x": 8,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_4"
-        },
-        {
-            "x": 1,
-            "y": 6,
-            "enter": "step_on"
-        }
-    ],
-    "objects": [
-        {
-            "name": "nurse",
-            "kind": "npc",
-            "x": 7,
-            "y": 2
-        },
-        {
-            "name": "man",
-            "kind": "npc",
-            "x": 4,
-            "y": 8,
-            "wander": {
-                "x0": 3,
-                "y0": 8,
-                "x1": 5,
-                "y1": 8
-            }
-        },
-        {
-            "name": "hiker",
-            "kind": "npc",
-            "x": 12,
-            "y": 5
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 14,
-            "y": 4,
-            "wander": {
-                "x0": 14,
-                "y0": 3,
-                "x1": 14,
-                "y1": 5
-            }
-        },
-        {
-            "name": "cooltrainer_f",
-            "kind": "npc",
-            "x": 6,
-            "y": 4
-        },
-        {
-            "name": "0",
-            "kind": "npc",
-            "x": 2,
-            "y": 1,
-            "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL"
-        },
-        {
-            "name": "0",
-            "kind": "npc",
-            "x": 3,
-            "y": 1,
-            "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL"
-        }
+        {"coord": [6, 8], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_4"},
+        {"coord": [7, 8], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_4"},
+        {"coord": [8, 8], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_4"},
+        {"coord": [1, 6], "enter": "step_on"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "nurse", "coord": [7, 2]},
+        {"name": "man", "coord": [4, 8], "wander": {"min": [3, 8], "max": [5, 8]}},
+        {"name": "hiker", "coord": [12, 5]},
+        {"name": "youngster", "coord": [14, 4], "wander": {"min": [14, 3], "max": [14, 5]}},
+        {"name": "cooltrainer_f", "coord": [6, 4]},
+        {"name": "0", "coord": [2, 1], "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL"},
+        {"name": "0", "coord": [3, 1], "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL"}
+    ]
 }

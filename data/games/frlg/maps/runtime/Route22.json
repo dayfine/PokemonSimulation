@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route22",
     "source": {
         "decomp_file": "data/maps/Route22/map.json",
@@ -59,32 +60,12 @@
     ],
     "points": {},
     "warps": [
-        {
-            "x": 8,
-            "y": 5,
-            "enter": "walk_into"
-        },
-        {
-            "x": 9,
-            "y": 5,
-            "enter": "walk_into"
-        }
-    ],
-    "objects": [
-        {
-            "name": "blue",
-            "kind": "npc",
-            "x": 25,
-            "y": 4,
-            "hide_flag": "FLAG_HIDE_ROUTE_22_RIVAL"
-        }
+        {"coord": [8, 5], "enter": "walk_into"},
+        {"coord": [9, 5], "enter": "walk_into"}
     ],
     "flag_sets": {},
-    "connections": [
-        {
-            "side": "east",
-            "to_map": "ViridianCity",
-            "offset": -10
-        }
+    "connections": [{"side": "east", "to_map": "ViridianCity", "offset": -10}],
+    "npcs": [
+        {"name": "blue", "coord": [25, 4], "hide_flag": "FLAG_HIDE_ROUTE_22_RIVAL"}
     ]
 }

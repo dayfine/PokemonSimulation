@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route4_PokemonCenter_1F",
     "source": {
         "decomp_file": "data/maps/Route4_PokemonCenter_1F/map.json",
@@ -36,77 +37,19 @@
         "warp_1": [7, 8]
     },
     "warps": [
-        {
-            "x": 6,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "Route4",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 7,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "Route4",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 8,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "Route4",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 1,
-            "y": 6,
-            "enter": "step_on"
-        }
-    ],
-    "objects": [
-        {
-            "name": "nurse",
-            "kind": "npc",
-            "x": 7,
-            "y": 2
-        },
-        {
-            "name": "balding_man",
-            "kind": "npc",
-            "x": 1,
-            "y": 3
-        },
-        {
-            "name": "gentleman",
-            "kind": "npc",
-            "x": 12,
-            "y": 5
-        },
-        {
-            "name": "boy",
-            "kind": "npc",
-            "x": 5,
-            "y": 4,
-            "wander": {
-                "x0": 4,
-                "y0": 3,
-                "x1": 6,
-                "y1": 5
-            }
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 14,
-            "y": 4
-        },
-        {
-            "name": "clipboard",
-            "kind": "npc",
-            "x": 12,
-            "y": 6
-        }
+        {"coord": [6, 8], "enter": "walk_into", "to_map": "Route4", "to_point": "warp_2"},
+        {"coord": [7, 8], "enter": "walk_south", "to_map": "Route4", "to_point": "warp_2"},
+        {"coord": [8, 8], "enter": "walk_into", "to_map": "Route4", "to_point": "warp_2"},
+        {"coord": [1, 6], "enter": "step_on"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "nurse", "coord": [7, 2]},
+        {"name": "balding_man", "coord": [1, 3]},
+        {"name": "gentleman", "coord": [12, 5]},
+        {"name": "boy", "coord": [5, 4], "wander": {"min": [4, 3], "max": [6, 5]}},
+        {"name": "youngster", "coord": [14, 4]},
+        {"name": "clipboard", "coord": [12, 6]}
+    ]
 }

@@ -15,7 +15,7 @@ from .runtime_map_coordinates import compact_map
 from .consumer_source import GitSource, MANIFEST, lock_entry, published_pack, sha256
 
 
-class ConsumerTest(unittest.TestCase):
+class PublisherFixture(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
@@ -26,6 +26,7 @@ class ConsumerTest(unittest.TestCase):
         self.consumer.mkdir()
         self.git('init', '-q')
         self.git('remote', 'add', 'origin', 'https://github.com/dayfine/PokemonSimulation.git')
+        (self.publisher / 'LICENSE').write_text('MIT fixture license\n')
         self.maps = {}
         for game in ('bdsp', 'frlg'):
             self.maps[game] = {name: dict(name=name, source=dict(decomp_file='fixture', revision='fixed', date='test'),
@@ -84,6 +85,8 @@ class ConsumerTest(unittest.TestCase):
         change(lock)
         path.write_text(json.dumps(lock))
 
+
+class ConsumerTest(PublisherFixture):
     def test_initialize_check_and_independent_game_update(self):
         self.initialize(('bdsp', 'frlg'))
         old_frlg = self.map_path(game='frlg').read_bytes()
@@ -174,6 +177,28 @@ class ConsumerTest(unittest.TestCase):
     def test_v2_map_cannot_hide_under_a_legacy_manifest(self):
         self.maps['bdsp']['A'] = compact_map(self.maps['bdsp']['A'])
         revision = self.publish()
+        with self.assertRaisesRegex(ValueError, 'map/manifest runtime format mismatch'):
+            published_pack(self.source, 'bdsp', lock_entry(self.source, revision))
+
+    def test_approved_v2_pack_updates_and_preserves_independent_v1_pin(self):
+        self.initialize(('bdsp', 'frlg'))
+        old_frlg = self.map_path(game='frlg').read_bytes()
+        self.maps['bdsp'] = {name: compact_map(data) for name, data in self.maps['bdsp'].items()}
+        # Only the selected game becomes v2 at this publisher revision.
+        self.maps['frlg'] = {name: compact_map(data) for name, data in self.maps['frlg'].items()}
+        revision = self.publish(lambda m: m.update(runtime_format='pokesim-runtime-map/2'))
+        sync.update(self.consumer, self.source, ['bdsp'], revision)
+        lock = sync.check(self.consumer, self.source)
+        self.assertEqual(lock['games']['bdsp']['revision'], revision)
+        self.assertEqual(lock['games']['frlg']['revision'], self.base)
+        self.assertEqual(self.map_path(game='frlg').read_bytes(), old_frlg)
+        self.assertEqual(json.loads(self.map_path().read_bytes()), self.maps['bdsp']['A'])
+        self.map_path().write_bytes(self.map_path().read_bytes() + b'\n')
+        with self.assertRaisesRegex(ValueError, 'modified A.json'):
+            sync.check(self.consumer, self.source)
+
+    def test_v1_map_cannot_hide_under_a_v2_manifest(self):
+        revision = self.publish(lambda m: m.update(runtime_format='pokesim-runtime-map/2'))
         with self.assertRaisesRegex(ValueError, 'map/manifest runtime format mismatch'):
             published_pack(self.source, 'bdsp', lock_entry(self.source, revision))
 

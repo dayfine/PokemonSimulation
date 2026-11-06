@@ -1,7 +1,7 @@
 """Coordinate-array wire format for runtime maps; legacy readers use legacy_map().
 
 Only schema-owned coordinates are converted. Unknown extensions and zero/false
-values survive unchanged. Format 2 is staged: existing consumer pins remain v1.
+values survive unchanged. Published maps use format 2; historical v1 pins remain readable.
 """
 
 import copy

@@ -1,11 +1,11 @@
-r"""Preview compact runtime-map JSON without changing a pinned source or consumer.
+r"""Format compact runtime-map JSON without changing a pinned source or consumer.
 
     PYTHONPATH=src python3 -m pokesim.maps.runtime_map_format \
         --input data/games/bdsp/maps/runtime/OreburghMine.json \
         --out /tmp/OreburghMine.coord.json
 
-Use --legacy to generate v1 coordinates from a v2 preview. Native reader adoption
-must precede publishing v2 as the active map-pack format.
+Use --legacy to generate v1 coordinates from a v2 map. Consumers need the shared
+v2-capable native reader before adopting a v2 publishing pin.
 """
 
 import argparse
