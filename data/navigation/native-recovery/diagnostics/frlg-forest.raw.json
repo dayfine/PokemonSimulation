@@ -1,0 +1,881 @@
+{
+  "format": "pokesim-native-route-replay/1",
+  "profile": "frlg-forest-shortfall/1",
+  "coordinate_frame": "runtime-local",
+  "native_revision": "2b29dbc6e5ee2499f22ec60ee5fff2a3d0ecc356",
+  "native_exporter": {
+    "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/PokemonFRLG_NativeRecoveryReplay_Tests.cpp",
+    "sha256": "5c21e0b4d7564c60463f4b9e7d08a04be5933707c6d43dcb3e992472068eda2a"
+  },
+  "map_revision": "a6f4e5448bee60bb4b8e3d7ef8a303c4415bd261",
+  "maps": [
+    {
+      "game": "frlg",
+      "name": "ViridianForest",
+      "sha256": "f550fe9c983a769fa8886053c7cdcf1307c02ba5e94a6f9e9acd6013d0942222"
+    }
+  ],
+  "context": {
+    "flags": [],
+    "variables": {}
+  },
+  "cases": [
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [8, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [13, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 6,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [8, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [3, 28]
+            },
+            "tiles": 6,
+            "to_wall": true,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "east",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "east",
+            "end": {
+              "elevation": 3,
+              "facing": "east",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 4,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [7, 33]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "east",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "facing_input": "east",
+          "outcome": "done",
+          "step": {
+            "direction": "south",
+            "end": {
+              "elevation": 3,
+              "facing": "south",
+              "map": "ViridianForest",
+              "tile": [7, 33]
+            },
+            "tiles": 5,
+            "to_wall": true,
+            "warps": false
+          }
+        }
+      ],
+      "failure": "",
+      "id": "forest-one-short",
+      "input": {
+        "goal": {
+          "elevation": 3,
+          "facing": "south",
+          "map": "ViridianForest",
+          "tile": [7, 33]
+        },
+        "next_direction": "south",
+        "policy": "reanchor",
+        "shortfall": 1,
+        "start": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [13, 28]
+        }
+      },
+      "notes": [
+        "[Route] native-recovery: plan from ViridianForest (13, 28):\n    west 6 (open) to ViridianForest (7, 28)\n    south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] Leg 1/2: west 6 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: west 6 (open): ended at ViridianForest (7, 28) (walked).",
+        "Route: position check: walk west 6 -> ViridianForest (7, 28) may have ended up to 2 tiles short with nothing seen; finding the player at walls.",
+        "[Route] native-recovery: plan from an unknown tile:\n    west 6 (to wall) to ViridianForest (3, 28)\n    east 4 (open) to ViridianForest (7, 28)\n    south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] Leg 1/3: west 6 (to wall) to ViridianForest (3, 28)",
+        "[Route] native-recovery: west 6 (to wall): ended at ViridianForest (3, 28) (walked).",
+        "[Route] native-recovery: found again at ViridianForest (3, 28), after 1 hold(s).",
+        "[Route] Leg 2/3: east 4 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: east 4 (open): ended at ViridianForest (7, 28) (walked).",
+        "[Route] Leg 3/3: south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] native-recovery: south 5 (to wall): ended at ViridianForest (7, 33) (walked)."
+      ],
+      "physical": {
+        "elevation": 3,
+        "facing": "south",
+        "map": "ViridianForest",
+        "tile": [7, 33]
+      },
+      "route": [
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "tiles": 6,
+          "to_wall": false,
+          "warps": false
+        },
+        {
+          "direction": "south",
+          "end": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [7, 33]
+          },
+          "tiles": 5,
+          "to_wall": true,
+          "warps": false
+        }
+      ],
+      "signs_read": 0,
+      "simulator_notes": [],
+      "violations": []
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [9, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [13, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 6,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [9, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [3, 28]
+            },
+            "tiles": 6,
+            "to_wall": true,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "east",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "east",
+            "end": {
+              "elevation": 3,
+              "facing": "east",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 4,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [7, 33]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "east",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "facing_input": "east",
+          "outcome": "done",
+          "step": {
+            "direction": "south",
+            "end": {
+              "elevation": 3,
+              "facing": "south",
+              "map": "ViridianForest",
+              "tile": [7, 33]
+            },
+            "tiles": 5,
+            "to_wall": true,
+            "warps": false
+          }
+        }
+      ],
+      "failure": "",
+      "id": "forest-two-short",
+      "input": {
+        "goal": {
+          "elevation": 3,
+          "facing": "south",
+          "map": "ViridianForest",
+          "tile": [7, 33]
+        },
+        "next_direction": "south",
+        "policy": "reanchor",
+        "shortfall": 2,
+        "start": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [13, 28]
+        }
+      },
+      "notes": [
+        "[Route] native-recovery: plan from ViridianForest (13, 28):\n    west 6 (open) to ViridianForest (7, 28)\n    south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] Leg 1/2: west 6 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: west 6 (open): ended at ViridianForest (7, 28) (walked).",
+        "Route: position check: walk west 6 -> ViridianForest (7, 28) may have ended up to 2 tiles short with nothing seen; finding the player at walls.",
+        "[Route] native-recovery: plan from an unknown tile:\n    west 6 (to wall) to ViridianForest (3, 28)\n    east 4 (open) to ViridianForest (7, 28)\n    south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] Leg 1/3: west 6 (to wall) to ViridianForest (3, 28)",
+        "[Route] native-recovery: west 6 (to wall): ended at ViridianForest (3, 28) (walked).",
+        "[Route] native-recovery: found again at ViridianForest (3, 28), after 1 hold(s).",
+        "[Route] Leg 2/3: east 4 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: east 4 (open): ended at ViridianForest (7, 28) (walked).",
+        "[Route] Leg 3/3: south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] native-recovery: south 5 (to wall): ended at ViridianForest (7, 33) (walked)."
+      ],
+      "physical": {
+        "elevation": 3,
+        "facing": "south",
+        "map": "ViridianForest",
+        "tile": [7, 33]
+      },
+      "route": [
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "tiles": 6,
+          "to_wall": false,
+          "warps": false
+        },
+        {
+          "direction": "south",
+          "end": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [7, 33]
+          },
+          "tiles": 5,
+          "to_wall": true,
+          "warps": false
+        }
+      ],
+      "signs_read": 0,
+      "simulator_notes": [],
+      "violations": []
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [8, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [13, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 6,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [8, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [3, 28]
+            },
+            "tiles": 4,
+            "to_wall": true,
+            "warps": false
+          }
+        }
+      ],
+      "failure": "",
+      "id": "next-wall-one-short",
+      "input": {
+        "goal": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [3, 28]
+        },
+        "next_direction": "west",
+        "policy": "reanchor",
+        "shortfall": 1,
+        "start": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [13, 28]
+        }
+      },
+      "notes": [
+        "[Route] native-recovery: plan from ViridianForest (13, 28):\n    west 6 (open) to ViridianForest (7, 28)\n    west 4 (to wall) to ViridianForest (3, 28)",
+        "[Route] Leg 1/2: west 6 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: west 6 (open): ended at ViridianForest (7, 28) (walked).",
+        "[Route] Leg 2/2: west 4 (to wall) to ViridianForest (3, 28)",
+        "[Route] native-recovery: west 4 (to wall): ended at ViridianForest (3, 28) (walked)."
+      ],
+      "physical": {
+        "elevation": 3,
+        "facing": "west",
+        "map": "ViridianForest",
+        "tile": [3, 28]
+      },
+      "route": [
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "tiles": 6,
+          "to_wall": false,
+          "warps": false
+        },
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "tiles": 4,
+          "to_wall": true,
+          "warps": false
+        }
+      ],
+      "signs_read": 0,
+      "simulator_notes": [],
+      "violations": []
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [9, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [13, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 6,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [9, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [3, 28]
+            },
+            "tiles": 4,
+            "to_wall": true,
+            "warps": false
+          }
+        }
+      ],
+      "failure": "",
+      "id": "next-wall-two-short",
+      "input": {
+        "goal": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [3, 28]
+        },
+        "next_direction": "west",
+        "policy": "reanchor",
+        "shortfall": 2,
+        "start": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [13, 28]
+        }
+      },
+      "notes": [
+        "[Route] native-recovery: plan from ViridianForest (13, 28):\n    west 6 (open) to ViridianForest (7, 28)\n    west 4 (to wall) to ViridianForest (3, 28)",
+        "[Route] Leg 1/2: west 6 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: west 6 (open): ended at ViridianForest (7, 28) (walked).",
+        "[Route] Leg 2/2: west 4 (to wall) to ViridianForest (3, 28)",
+        "[Route] native-recovery: west 4 (to wall): ended at ViridianForest (3, 28) (walked)."
+      ],
+      "physical": {
+        "elevation": 3,
+        "facing": "west",
+        "map": "ViridianForest",
+        "tile": [3, 28]
+      },
+      "route": [
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "tiles": 6,
+          "to_wall": false,
+          "warps": false
+        },
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [3, 28]
+          },
+          "tiles": 4,
+          "to_wall": true,
+          "warps": false
+        }
+      ],
+      "signs_read": 0,
+      "simulator_notes": [],
+      "violations": []
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [8, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [13, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 6,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [8, 33]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [8, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "south",
+            "end": {
+              "elevation": 3,
+              "facing": "south",
+              "map": "ViridianForest",
+              "tile": [7, 33]
+            },
+            "tiles": 5,
+            "to_wall": true,
+            "warps": false
+          }
+        }
+      ],
+      "failure": "",
+      "id": "trust-one-short-control",
+      "input": {
+        "goal": {
+          "elevation": 3,
+          "facing": "south",
+          "map": "ViridianForest",
+          "tile": [7, 33]
+        },
+        "next_direction": "south",
+        "policy": "trust",
+        "shortfall": 1,
+        "start": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [13, 28]
+        }
+      },
+      "notes": [
+        "[Route] native-recovery: plan from ViridianForest (13, 28):\n    west 6 (open) to ViridianForest (7, 28)\n    south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] Leg 1/2: west 6 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: west 6 (open): ended at ViridianForest (7, 28) (walked).",
+        "[Route] Leg 2/2: south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] native-recovery: south 5 (to wall): ended at ViridianForest (7, 33) (walked)."
+      ],
+      "physical": {
+        "elevation": 3,
+        "facing": "south",
+        "map": "ViridianForest",
+        "tile": [8, 33]
+      },
+      "route": [
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "tiles": 6,
+          "to_wall": false,
+          "warps": false
+        },
+        {
+          "direction": "south",
+          "end": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [7, 33]
+          },
+          "tiles": 5,
+          "to_wall": true,
+          "warps": false
+        }
+      ],
+      "signs_read": 0,
+      "simulator_notes": [],
+      "violations": []
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [9, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [13, 28]
+          },
+          "facing_input": "west",
+          "outcome": "done",
+          "step": {
+            "direction": "west",
+            "end": {
+              "elevation": 3,
+              "facing": "west",
+              "map": "ViridianForest",
+              "tile": [7, 28]
+            },
+            "tiles": 6,
+            "to_wall": false,
+            "warps": false
+          }
+        },
+        {
+          "after": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [9, 28]
+          },
+          "before": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [9, 28]
+          },
+          "facing_input": "west",
+          "outcome": "stopped",
+          "step": {
+            "direction": "south",
+            "end": {
+              "elevation": 3,
+              "facing": "south",
+              "map": "ViridianForest",
+              "tile": [7, 33]
+            },
+            "tiles": 5,
+            "to_wall": true,
+            "warps": false
+          }
+        }
+      ],
+      "failure": "walk_overworld_route(): a hold toward a wall is interrupted right away, again: the player is off the route, on walk south 5 (to wall) -> ViridianForest (7, 33).",
+      "id": "trust-two-short-control",
+      "input": {
+        "goal": {
+          "elevation": 3,
+          "facing": "south",
+          "map": "ViridianForest",
+          "tile": [7, 33]
+        },
+        "next_direction": "south",
+        "policy": "trust",
+        "shortfall": 2,
+        "start": {
+          "elevation": 3,
+          "facing": "west",
+          "map": "ViridianForest",
+          "tile": [13, 28]
+        }
+      },
+      "notes": [
+        "[Route] native-recovery: plan from ViridianForest (13, 28):\n    west 6 (open) to ViridianForest (7, 28)\n    south 5 (to wall) to ViridianForest (7, 33)",
+        "[Route] Leg 1/2: west 6 (open) to ViridianForest (7, 28)",
+        "[Route] native-recovery: west 6 (open): ended at ViridianForest (7, 28) (walked).",
+        "[Route] Leg 2/2: south 5 (to wall) to ViridianForest (7, 33)",
+        "Leg: a message after 400ms, walking to the wall again.",
+        "Leg: a message after 400ms, stopping the leg.",
+        "FAILED: walk_overworld_route(): a hold toward a wall is interrupted right away, again: the player is off the route, on walk south 5 (to wall) -> ViridianForest (7, 33)."
+      ],
+      "physical": {
+        "elevation": 3,
+        "facing": "south",
+        "map": "ViridianForest",
+        "tile": [9, 28]
+      },
+      "route": [
+        {
+          "direction": "west",
+          "end": {
+            "elevation": 3,
+            "facing": "west",
+            "map": "ViridianForest",
+            "tile": [7, 28]
+          },
+          "tiles": 6,
+          "to_wall": false,
+          "warps": false
+        },
+        {
+          "direction": "south",
+          "end": {
+            "elevation": 3,
+            "facing": "south",
+            "map": "ViridianForest",
+            "tile": [7, 33]
+          },
+          "tiles": 5,
+          "to_wall": true,
+          "warps": false
+        }
+      ],
+      "signs_read": 2,
+      "simulator_notes": [
+        "[Sim 2408 ms] reads the sign on (9, 29).",
+        "[Sim 3808 ms] reads the sign on (9, 29)."
+      ],
+      "violations": []
+    }
+  ]
+}
