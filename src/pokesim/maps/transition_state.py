@@ -238,7 +238,7 @@ def clip_plan(world, belief, direction, max_presses=32, encounter_policy='stop',
     for pose in initial:
         at = pose
         for count in range(1, max_presses + 1):
-            if _aims_at_warp(world, at, direction):
+            if _unsafe_anchor_input(world, at, direction):
                 return None
             try:
                 after, result = _press(world, at, direction)
@@ -291,7 +291,7 @@ def anchor_plan(world, belief, max_presses=32, max_states=512, forbidden=frozens
         for direction in CLOCKWISE:
             after = set()
             for pose in poses:
-                if _aims_at_warp(world, pose, direction):
+                if _unsafe_anchor_input(world, pose, direction):
                     break
                 try:
                     moved, result = _press(world, pose, direction)
@@ -308,6 +308,16 @@ def anchor_plan(world, belief, max_presses=32, max_states=512, forbidden=frozens
                     seen.add(next_poses)
                     frontier.append((next_poses, actions + (direction,)))
     return None
+
+
+def _unsafe_anchor_input(world, pose, direction):
+    if _aims_at_warp(world, pose, direction):
+        return True
+    ahead = Place(pose.state.place.map, pose.state.place.tile.step(direction))
+    cell = world.at(ahead)
+    # FRLG reads a sign when held into it vertically; this is not stillness.
+    return (world.game == 'frlg' and direction.is_vertical
+            and cell is not None and cell.behavior is Behavior.SIGN)
 
 
 def _aims_at_warp(world, pose, direction):

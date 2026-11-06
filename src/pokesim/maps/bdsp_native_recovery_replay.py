@@ -15,7 +15,8 @@ import re
 
 from pokesim.grid.geometry import Direction, Tile
 from pokesim.grid.maps.world import Place
-from pokesim.grid.movement import Hop, Moved, WorldState, world_step
+from pokesim.grid.movement import WorldState
+from .native_recovery_capture import same, native_git, format_trace, advance
 from .bdsp_native_recovery_text import CASE_ORDER
 from .conformance import fields, integer, make_world, pose_from, pose_json
 from .consumer_source import DIGEST, SHA, read_json
@@ -68,20 +69,6 @@ def replay_plan(world, plan):
         if sorted({tuple(p.state.place.tile) for p in belief}) != sorted(leg['after']):
             raise ValueError('native planned endpoint disagrees with Python map geometry')
     return belief
-
-
-def advance(world, pose, direction, count):
-    for _ in range(count):
-        moved = world_step(world, pose.state, direction)
-        if not isinstance(moved, Moved) or isinstance(moved, Hop):
-            raise ValueError('native replay profile requires ordinary same-map steps')
-        pose = Pose(moved.state, direction)
-    return pose
-
-
-def same(actual, expected, label):
-    if json.dumps(actual, sort_keys=True) != json.dumps(expected, sort_keys=True):
-        raise ValueError(label + ': expected ' + repr(expected) + ', got ' + repr(actual))
 
 
 def replay_case(case, world):
@@ -251,43 +238,11 @@ def check_bundle(bundle, root=ROOT):
     return [replay_case(case, world) for case in bundle['cases']]
 
 
-def native_git(root, *args):
-    import subprocess
-    result = subprocess.run(['git', '-C', str(root), *args], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    if result.returncode:
-        raise ValueError('native git: ' + result.stderr.decode(errors='replace'))
-    return result.stdout
-
-
 def verify_native_source(bundle, root):
     raw = native_git(root, 'show', bundle['native_revision'] + ':' + EXPORTER)
     same(hashlib.sha256(raw).hexdigest(), bundle['native_exporter']['sha256'], 'native exporter checksum')
     raw = native_git(root, 'show', bundle['native_revision'] + ':' + NATIVE_MAP)
     same(hashlib.sha256(raw).hexdigest(), bundle['maps'][0]['sha256'], 'native pinned map checksum')
-
-
-def format_trace(value, width=100):
-    """Indent objects; keep scalar arrays inline when the full line fits."""
-    def render(item, depth, column):
-        inline = json.dumps(item)
-        if not isinstance(item, (dict, list)) or not item:
-            return inline
-        if isinstance(item, list) and all(not isinstance(v, (dict, list)) for v in item):
-            if column + len(inline) <= width:
-                return inline
-        pad = '  ' * (depth + 1)
-        if isinstance(item, dict):
-            lines = []
-            for key, child in item.items():
-                prefix = pad + json.dumps(key) + ': '
-                lines.append(prefix + render(child, depth + 1, len(prefix)))
-            opening, closing = '{', '}'
-        else:
-            lines = [pad + render(child, depth + 1, len(pad)) for child in item]
-            opening, closing = '[', ']'
-        return opening + '\n' + ',\n'.join(lines) + '\n' + '  ' * depth + closing
-
-    return render(value, 0, 0) + '\n'
 
 
 def capture(stdout, native_root, source_root, output):
