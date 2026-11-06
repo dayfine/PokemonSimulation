@@ -45,6 +45,9 @@ source-derived BDSP script or blanket verification of the interior.
 
 ## Held changes and evidence needed
 
+Use the [mapping protocol](MAPPING_PROTOCOL.md) to establish positions from
+independent directions, preserve interruption uncertainty, and record evidence.
+
 **Chronology matters:** all five map deltas entered #226 in WIP commit
 [`e572a3036`](https://github.com/dayfine/Arduino-Source/commit/e572a3036fb270f4cc0fbd6b66442872b0c0bd1a)
 on November 4 at 21:18 Pacific. Shared wall recovery entered its history through

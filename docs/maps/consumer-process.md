@@ -27,6 +27,10 @@ change here, rather than a second independently maintained map there.
 | Route choice, controller actions/timing, screen detectors, game execution | Arduino-Source; offline planner migration is a later milestone |
 | Native JSON reader/embedding and controller regression tests | Arduino-Source; reader semantics must match the published map contract |
 
+Use the [mapping protocol](MAPPING_PROTOCOL.md) before accepting a disputed
+location or correction: independent anchors, multiple approach directions, and
+recorded observations.
+
 A map edit must not be disguised as a route fix. Conversely, do not change
 terrain to make a mistaken movement sequence pass. Name the coordinate frame
 and starting story state before deciding whether the map, route or walker is
