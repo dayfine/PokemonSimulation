@@ -100,6 +100,41 @@ refuses to overwrite its input. Existing consumer pins/exports are unchanged,
 and the existing consumer verifier deliberately rejects a v2 publishing manifest
 until its native format capability is updated in the adoption change.
 
+### Native decoder preparation after #53
+
+A native prerequisite is prepared on Arduino branch
+`nav/compact-runtime-map-reader`, commit `ec3803725` (publication/CI pending).
+It adds `Pokemon_RuntimeMap::normalize_runtime_map()` / `parse_runtime_map()`
+in the shared navigation directory. These are namespace-level functions, layered
+over the existing `parse_map()`; no second game-specific decoder is introduced.
+The existing loader entry point and both games' call sites remain unchanged.
+
+Local evidence: 26 registered native schema cases pass, including mixed-version
+rejection, coordinate bounds, inclusive wander boxes and full metadata retention.
+A GUI-free native target also compares 150 complete records from immutable
+Simulation `40717c7c809c415c751fd7a348dfc1895f7ec3d7`: all 75 maps, both plain
+and with staged pickup/interaction enrichment. Expected normalized JSON comes
+from that pinned Python codec; comparisons and production parsing run in C++.
+This establishes decoder parity, not matching route choices or live execution.
+
+The remaining sequence is:
+
+1. Publish/merge the decoder prerequisite into `nav/shared` (#114), then adopt
+   `parse_runtime_map()` in the owning FRLG/BDSP map-loader PRs and propagate it
+   through their story chains. Run native route/story/recovery tests before
+   activating v2. Existing native reader files are not rewritten in the staged PR.
+2. Reconcile the five BDSP content differences against current immutable heads
+   and their evidence here. Publish one reviewed normalized pack, then prepare
+   pinned external Resources and remove native authoring/copies after adoption.
+3. Export complete story-event checkpoints for BDSP mine/Roark and FRLG Parcel
+   as shared data, including actions and entering conditions, rather than only
+   movement routes. Use the existing native story engine and per-game executors.
+
+No published maps, native consumer pins, terrain corrections or captured replay
+facts were changed by this checkpoint. Initial native push was refused because
+the pre-PR hook compared against `main`, reporting inherited findings; the
+incremental check against its intended parent, `nav/shared`, passes.
+
 ## 2. Enforce parity, rather than maintaining copies
 
 - [ ] Record one immutable PokemonSimulation commit plus manifest SHA-256 per
