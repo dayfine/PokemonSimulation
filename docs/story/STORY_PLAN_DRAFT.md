@@ -28,8 +28,11 @@ runtime state still require exporter support and are marked unbound.
 Both have native `GAME` actions. Route and scene actions can also have special
 per-game semantics; do not reserve extensions only for `GAME` and assume every
 other kind is identical. `skip_if`, preparation once per save, handoff/resume
-and failure handling must survive export where supported. A failed/unsupported
-action cannot be skipped as a successful no-op.
+and failure handling must survive export where supported. The native `skip_if` means all named conditions hold and the list is nonempty;
+an empty list must not skip every action. The FRLG snapshot also has
+`once_per_save` while the inspected BDSP shared header lacks that field, so
+capabilities must be tied to the actual executor revision, not just the game
+name. A failed/unsupported action cannot be skipped as a successful no-op.
 
 Concrete example: BDSP `01.03/into_the_coal_room` is authored as `STEP SOUTH`,
 but it goes from the entrance hall into B2F. Treating that record as a single
