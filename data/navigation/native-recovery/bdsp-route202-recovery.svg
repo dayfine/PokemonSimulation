@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="415" viewBox="0 0 620 415">
+<rect width="620" height="415" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#202b36} .small{font-size:12px}</style>
+<defs><marker id="blue" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#1767b0"/></marker>
+<marker id="green" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#168047"/></marker></defs>
+<text x="25" y="28" font-size="20" >2. Native recovery and rejoin</text>
+<text x="25" y="50" font-size="13" >Route202 collision-map crop; local tile coordinates</text>
+<text x="25" y="70" font-size="13" >Same possible origins; hold east, then return west</text>
+<rect x="52" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="108" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="164" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="220" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="276" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="332" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="388" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="444" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="500" y="100" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="52" y="156" width="56" height="56" fill="rgb(90, 170, 90)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="108" y="156" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="164" y="156" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="220" y="156" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="276" y="156" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="332" y="156" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="388" y="156" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="444" y="156" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="500" y="156" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="52" y="212" width="56" height="56" fill="rgb(90, 170, 90)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="108" y="212" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="164" y="212" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="220" y="212" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="276" y="212" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="332" y="212" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="388" y="212" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="444" y="212" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="500" y="212" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="52" y="268" width="56" height="56" fill="rgb(90, 170, 90)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="108" y="268" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="164" y="268" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="220" y="268" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="276" y="268" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="332" y="268" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="388" y="268" width="56" height="56" fill="rgb(230, 225, 200)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="444" y="268" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<rect x="500" y="268" width="56" height="56" fill="rgb(60, 60, 60)" stroke="#9da3a5" stroke-width=".7"/>
+<text x="80.0" y="91" font-size="12" text-anchor="middle">24</text>
+<text x="136.0" y="91" font-size="12" text-anchor="middle">25</text>
+<text x="192.0" y="91" font-size="12" text-anchor="middle">26</text>
+<text x="248.0" y="91" font-size="12" text-anchor="middle">27</text>
+<text x="304.0" y="91" font-size="12" text-anchor="middle">28</text>
+<text x="360.0" y="91" font-size="12" text-anchor="middle">29</text>
+<text x="416.0" y="91" font-size="12" text-anchor="middle">30</text>
+<text x="472.0" y="91" font-size="12" text-anchor="middle">31</text>
+<text x="528.0" y="91" font-size="12" text-anchor="middle">32</text>
+<text x="40" y="132.0" font-size="12" text-anchor="end">3</text>
+<text x="40" y="188.0" font-size="12" text-anchor="end">4</text>
+<text x="40" y="244.0" font-size="12" text-anchor="end">5</text>
+<text x="40" y="300.0" font-size="12" text-anchor="end">6</text>
+<circle cx="192.0" cy="184.0" r="11" fill="#c7770b"/>
+<text x="192.0" y="188.0" font-size="12" text-anchor="middle" style="fill:white">N</text>
+<circle cx="192.0" cy="240.0" r="21" fill="none" stroke="#8b40a8" stroke-width="2.5" stroke-dasharray="4 3"/>
+<circle cx="248.0" cy="240.0" r="21" fill="none" stroke="#8b40a8" stroke-width="2.5" stroke-dasharray="4 3"/>
+<circle cx="304.0" cy="240.0" r="21" fill="none" stroke="#8b40a8" stroke-width="2.5" stroke-dasharray="4 3"/>
+<path d="M192.0,233.0 L416.0,233.0" fill="none" stroke="#1767b0" stroke-width="3" marker-end="url(#blue)"/>
+<path d="M416.0,247.0 L304.0,247.0" fill="none" stroke="#168047" stroke-width="3" marker-end="url(#green)"/>
+<circle cx="416.0" cy="240.0" r="13" fill="none" stroke="#1767b0" stroke-width="2.5"/>
+<text x="431.0" y="289.0" font-size="12" text-anchor="end">wall stop (30,5)</text>
+<text x="25" y="349" font-size="13" >Blue: east hold (max 4 tiles). Green: west 2 back to goal.</text>
+<circle cx="304.0" cy="240.0" r="13" fill="none" stroke="#168047" stroke-width="2.5"/>
+<text x="304.0" y="207.0" font-size="12" text-anchor="middle">goal (28,5)</text>
+<text x="25" y="372" font-size="13" >Purple rings: possible tiles (26..28, 5). N: nearby NPC.</text>
+<text x="25" y="397" font-size="12" >Injected GridSim case; native-selected plan, not camera footage.</text>
+</svg>

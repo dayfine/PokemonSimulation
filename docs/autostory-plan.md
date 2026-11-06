@@ -169,3 +169,16 @@ It also fixes an import error exposed by actual Forest trainer-sight metadata.
   FRLG/BDSP. Existing native spatial fixtures remain the eight #46 cases.
 - [ ] Verify native automatic route rejoin/cursor semantics; the current Python
   diagnostic supplies its post-anchor continuation leg explicitly.
+
+### First native recovery replay after #47
+
+- [x] Export seven actual registered BDSP Route202 walker/GridSim cases, with
+  pinned source/map identities, physical displacement and native plan logs.
+- [x] Replay the supplied native legs in Python, compare full interrupted tile
+  sets, reject credit-as-displacement, and verify native recovery/rejoin outcomes.
+- [x] Record the native per-wall retry policy separately from Python's global
+  Session budget; keep unreported native facing/queue/video state unverified.
+- [ ] Publish the native exporter and run native GitHub CI (approval pending).
+- [ ] Add actual FRLG walker exports and bridge the remaining full-state fields.
+
+See [the native BDSP checkpoint](navigation/ENCOUNTER_RECOVERY.md#first-actual-native-replay-bdsp-route-202).

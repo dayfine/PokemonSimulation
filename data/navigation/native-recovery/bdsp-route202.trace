@@ -1,0 +1,173 @@
+# Native BDSP recovery capture: shared context, then one row per action.
+# Pose: (x,y) facing; ? = unreported facing. Zero/false are explicit.
+# Calls: action | physical before -> after | native report.
+# Native facts: > is a leg belonging to the preceding plan.
+
+[trace]
+format = pokesim-native-route-text/1
+bundle_format = pokesim-native-route-replay/1
+profile = bdsp-route202-gridsim/1
+coordinate_frame = runtime-local
+
+[context]
+map = Route202
+elevation = 0
+start = (26,5) east
+goal = (28,5) west
+running_shoes = true
+move_speed = run
+flags = []
+variables = {"VAR_ROUTE_202_STATE": 1}
+
+[case last-tap-before]
+encounter = before tap 2; origin=current_leg
+wall_interruptions = 0
+calls =
+    turn east 50ms | (26,5) east -> (26,5) east | queued=false
+    taps east 2 | (26,5) east -> (27,5) east | limit 1600ms battles=1 credited=2 origin=current_leg
+    wall east 2050ms | (27,5) east -> (30,5) east | blocked 1350ms battles=0 credited=3 origin=current_leg pause=false
+    turn west 50ms | (30,5) east -> (30,5) west | queued=false
+    taps west 2 | (30,5) west -> (28,5) west | limit 1600ms battles=0 credited=2 origin=current_leg
+native =
+    plan from (26,5):
+    > east 2 (open) to (28,5)
+    east 2 (open): encounter: credited taps do not establish pose, at (26,5), (27,5), (28,5); planning again.
+    plan from (26,5), (27,5), (28,5):
+    > east 4 (to wall) to (30,5)
+    > west 2 (open) to (28,5)
+    east 4 (to wall): ended at (30,5) (walked).
+    west 2 (open): ended at (28,5) (walked).
+    arrived at (28,5).
+declared = (28,5) ?
+physical = (28,5) west
+failure = ""
+
+[case last-tap-after]
+encounter = after tap 2; origin=current_leg
+wall_interruptions = 0
+calls =
+    turn east 50ms | (26,5) east -> (26,5) east | queued=false
+    taps east 2 | (26,5) east -> (28,5) east | limit 1600ms battles=1 credited=2 origin=current_leg
+    wall east 2050ms | (28,5) east -> (30,5) east | blocked 1250ms battles=0 credited=2 origin=current_leg pause=false
+    turn west 50ms | (30,5) east -> (30,5) west | queued=false
+    taps west 2 | (30,5) west -> (28,5) west | limit 1600ms battles=0 credited=2 origin=current_leg
+native =
+    plan from (26,5):
+    > east 2 (open) to (28,5)
+    east 2 (open): encounter: credited taps do not establish pose, at (26,5), (27,5), (28,5); planning again.
+    plan from (26,5), (27,5), (28,5):
+    > east 4 (to wall) to (30,5)
+    > west 2 (open) to (28,5)
+    east 4 (to wall): ended at (30,5) (walked).
+    west 2 (open): ended at (28,5) (walked).
+    arrived at (28,5).
+declared = (28,5) ?
+physical = (28,5) west
+failure = ""
+
+[case interrupted-wall-retry]
+encounter = before tap 2; origin=current_leg
+wall_interruptions = 1
+calls =
+    turn east 50ms | (26,5) east -> (26,5) east | queued=false
+    taps east 2 | (26,5) east -> (27,5) east | limit 1600ms battles=1 credited=2 origin=current_leg
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+    wall east 2050ms | (27,5) east -> (30,5) east | blocked 1350ms battles=0 credited=3 origin=current_leg pause=false
+    turn west 50ms | (30,5) east -> (30,5) west | queued=false
+    taps west 2 | (30,5) west -> (28,5) west | limit 1600ms battles=0 credited=2 origin=current_leg
+native =
+    plan from (26,5):
+    > east 2 (open) to (28,5)
+    east 2 (open): encounter: credited taps do not establish pose, at (26,5), (27,5), (28,5); planning again.
+    plan from (26,5), (27,5), (28,5):
+    > east 4 (to wall) to (30,5)
+    > west 2 (open) to (28,5)
+    east 4 (to wall): ended at (30,5) (walked).
+    west 2 (open): ended at (28,5) (walked).
+    arrived at (28,5).
+declared = (28,5) ?
+physical = (28,5) west
+failure = ""
+
+[case last-wall-retry-succeeds]
+encounter = before tap 2; origin=current_leg
+wall_interruptions = 3
+calls =
+    turn east 50ms | (26,5) east -> (26,5) east | queued=false
+    taps east 2 | (26,5) east -> (27,5) east | limit 1600ms battles=1 credited=2 origin=current_leg
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+    wall east 2050ms | (27,5) east -> (30,5) east | blocked 1350ms battles=0 credited=3 origin=current_leg pause=false
+    turn west 50ms | (30,5) east -> (30,5) west | queued=false
+    taps west 2 | (30,5) west -> (28,5) west | limit 1600ms battles=0 credited=2 origin=current_leg
+native =
+    plan from (26,5):
+    > east 2 (open) to (28,5)
+    east 2 (open): encounter: credited taps do not establish pose, at (26,5), (27,5), (28,5); planning again.
+    plan from (26,5), (27,5), (28,5):
+    > east 4 (to wall) to (30,5)
+    > west 2 (open) to (28,5)
+    east 4 (to wall): ended at (30,5) (walked).
+    west 2 (open): ended at (28,5) (walked).
+    arrived at (28,5).
+declared = (28,5) ?
+physical = (28,5) west
+failure = ""
+
+[case interrupted-wall-budget]
+encounter = before tap 2; origin=current_leg
+wall_interruptions = 4
+calls =
+    turn east 50ms | (26,5) east -> (26,5) east | queued=false
+    taps east 2 | (26,5) east -> (27,5) east | limit 1600ms battles=1 credited=2 origin=current_leg
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+    wall east 2050ms | (27,5) east -> (27,5) east | limit 400ms battles=1 credited=0 origin=current_leg pause=true
+native =
+    plan from (26,5):
+    > east 2 (open) to (28,5)
+    east 2 (open): encounter: credited taps do not establish pose, at (26,5), (27,5), (28,5); planning again.
+    plan from (26,5), (27,5), (28,5):
+    > east 4 (to wall) to (30,5)
+    > west 2 (open) to (28,5)
+declared = none
+physical = (27,5) east
+failure = "recovery budget exhausted: native-recovery: east 4 (to wall)"
+
+[case first-tap-unknown-origin]
+encounter = before tap 1; origin=current_leg
+wall_interruptions = 0
+calls =
+    turn east 50ms | (26,5) east -> (26,5) east | queued=false
+    taps east 2 | (26,5) east -> (27,5) east | limit 1600ms battles=1 credited=2 origin=may_precede_leg
+native =
+    plan from (26,5):
+    > east 2 (open) to (28,5)
+declared = none
+physical = (27,5) east
+failure = "encounter_origin_unknown: native-recovery: east 2 (open)"
+
+[case reported-unknown-origin]
+encounter = before tap 2; origin=may_precede_leg
+wall_interruptions = 0
+calls =
+    turn east 50ms | (26,5) east -> (26,5) east | queued=false
+    taps east 2 | (26,5) east -> (27,5) east | limit 1600ms battles=1 credited=2 origin=may_precede_leg
+native =
+    plan from (26,5):
+    > east 2 (open) to (28,5)
+declared = none
+physical = (27,5) east
+failure = "encounter_origin_unknown: native-recovery: east 2 (open)"
+
+[source]
+native_revision = 0bd414eabe477beb2be044cfe5057c5bec548db6
+exporter = SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_NativeRecoveryReplay_Tests.cpp
+exporter_sha256 = 94c1609ea8344988285bf9f8a2789c406363fc818f0dcb14c23c13264634d511
+map_revision = 7364f4b35f125622a1ca49c63248cd20195ffafd
+game = bdsp
+map_sha256 = 360c0ae205293fadb0a98af30b8c2e5d002b10e159c9bef9ac49f0cb5f6e8eb2
+diagnostic = diagnostics/bdsp-route202.raw.json
+diagnostic_sha256 = 2e560731ff3f0375eb6bbc610c3f41f8af2640541259c5b3168567741daf465e

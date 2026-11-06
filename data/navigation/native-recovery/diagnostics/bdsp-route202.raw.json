@@ -1,0 +1,1163 @@
+{
+  "format": "pokesim-native-route-replay/1",
+  "profile": "bdsp-route202-gridsim/1",
+  "coordinate_frame": "runtime-local",
+  "native_revision": "0bd414eabe477beb2be044cfe5057c5bec548db6",
+  "native_exporter": {
+    "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_NativeRecoveryReplay_Tests.cpp",
+    "sha256": "94c1609ea8344988285bf9f8a2789c406363fc818f0dcb14c23c13264634d511"
+  },
+  "map_revision": "7364f4b35f125622a1ca49c63248cd20195ffafd",
+  "maps": [
+    {
+      "game": "bdsp",
+      "name": "Route202",
+      "sha256": "360c0ae205293fadb0a98af30b8c2e5d002b10e159c9bef9ac49f0cb5f6e8eb2"
+    }
+  ],
+  "context": {
+    "flags": [],
+    "variables": {
+      "VAR_ROUTE_202_STATE": 1
+    }
+  },
+  "cases": [
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "may_precede_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 1
+          },
+          "tiles": 2
+        }
+      ],
+      "declared": [],
+      "failure": "encounter_origin_unknown: native-recovery: east 2 (open)",
+      "id": "first-tap-unknown-origin",
+      "input": {
+        "goal": {
+          "elevation": 0,
+          "facing": "west",
+          "map": "Route202",
+          "tile": [28, 5]
+        },
+        "interrupted_walls": 0,
+        "move_speed": "run",
+        "origin": "current_leg",
+        "phase": "before",
+        "running_shoes": true,
+        "start": {
+          "elevation": 0,
+          "facing": "east",
+          "map": "Route202",
+          "tile": [26, 5]
+        },
+        "tap": 1
+      },
+      "notes": [
+        "native-recovery: 1 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5):\n    east 2 (open) to Route202 (28, 5)",
+        "Leg 1/1: east 2 (open) to Route202 (28, 5)",
+        "[Route] Turning east.",
+        "[Sim] cleared wild encounter during native-recovery: east 2 (open)",
+        "[Sim] native-recovery: east 2 (open): 2 taps east, 2 moved, limit at (27, 5).",
+        "encounter_origin_unknown: native-recovery: east 2 (open)"
+      ],
+      "physical": {
+        "elevation": 0,
+        "facing": "east",
+        "map": "Route202",
+        "tile": [27, 5]
+      }
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 1
+          },
+          "tiles": 2
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        }
+      ],
+      "declared": [],
+      "failure": "recovery budget exhausted: native-recovery: east 4 (to wall)",
+      "id": "interrupted-wall-budget",
+      "input": {
+        "goal": {
+          "elevation": 0,
+          "facing": "west",
+          "map": "Route202",
+          "tile": [28, 5]
+        },
+        "interrupted_walls": 4,
+        "move_speed": "run",
+        "origin": "current_leg",
+        "phase": "before",
+        "running_shoes": true,
+        "start": {
+          "elevation": 0,
+          "facing": "east",
+          "map": "Route202",
+          "tile": [26, 5]
+        },
+        "tap": 2
+      },
+      "notes": [
+        "native-recovery: 1 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5):\n    east 2 (open) to Route202 (28, 5)",
+        "Leg 1/1: east 2 (open) to Route202 (28, 5)",
+        "[Route] Turning east.",
+        "[Sim] cleared wild encounter during native-recovery: east 2 (open)",
+        "[Sim] native-recovery: east 2 (open): 2 taps east, 2 moved, limit at (27, 5).",
+        "[Route] native-recovery: east 2 (open): encounter: credited taps do not establish pose, at Route202 (26, 5), Route202 (27, 5), Route202 (28, 5); planning again.",
+        "native-recovery: 2 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5), Route202 (27, 5), Route202 (28, 5):\n    east 4 (to wall) to Route202 (30, 5)\n    west 2 (open) to Route202 (28, 5)",
+        "Leg 1/2: east 4 (to wall) to Route202 (30, 5)",
+        "[Route] native-recovery: east 4 (to wall): a wild battle on the way; walking to the wall again.",
+        "[Route] native-recovery: east 4 (to wall): a wild battle on the way; walking to the wall again.",
+        "[Route] native-recovery: east 4 (to wall): a wild battle on the way; walking to the wall again.",
+        "recovery budget exhausted: native-recovery: east 4 (to wall)"
+      ],
+      "physical": {
+        "elevation": 0,
+        "facing": "east",
+        "map": "Route202",
+        "tile": [27, 5]
+      }
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 1
+          },
+          "tiles": 2
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": false,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 3,
+            "origin": "current_leg",
+            "stop": "blocked",
+            "walked_ms": 1350,
+            "wild_battles": 0
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [28, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 0
+          },
+          "tiles": 2
+        }
+      ],
+      "declared": [
+        {
+          "elevation": 0,
+          "facing": null,
+          "map": "Route202",
+          "tile": [28, 5]
+        }
+      ],
+      "failure": "",
+      "id": "interrupted-wall-retry",
+      "input": {
+        "goal": {
+          "elevation": 0,
+          "facing": "west",
+          "map": "Route202",
+          "tile": [28, 5]
+        },
+        "interrupted_walls": 1,
+        "move_speed": "run",
+        "origin": "current_leg",
+        "phase": "before",
+        "running_shoes": true,
+        "start": {
+          "elevation": 0,
+          "facing": "east",
+          "map": "Route202",
+          "tile": [26, 5]
+        },
+        "tap": 2
+      },
+      "notes": [
+        "native-recovery: 1 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5):\n    east 2 (open) to Route202 (28, 5)",
+        "Leg 1/1: east 2 (open) to Route202 (28, 5)",
+        "[Route] Turning east.",
+        "[Sim] cleared wild encounter during native-recovery: east 2 (open)",
+        "[Sim] native-recovery: east 2 (open): 2 taps east, 2 moved, limit at (27, 5).",
+        "[Route] native-recovery: east 2 (open): encounter: credited taps do not establish pose, at Route202 (26, 5), Route202 (27, 5), Route202 (28, 5); planning again.",
+        "native-recovery: 2 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5), Route202 (27, 5), Route202 (28, 5):\n    east 4 (to wall) to Route202 (30, 5)\n    west 2 (open) to Route202 (28, 5)",
+        "Leg 1/2: east 4 (to wall) to Route202 (30, 5)",
+        "[Route] native-recovery: east 4 (to wall): a wild battle on the way; walking to the wall again.",
+        "[Sim] native-recovery: east 4 (to wall): held east to blocked at (30, 5).",
+        "[Route] native-recovery: east 4 (to wall): ended at Route202 (30, 5) (walked).",
+        "Leg 2/2: west 2 (open) to Route202 (28, 5)",
+        "[Route] Turning west.",
+        "[Sim] native-recovery: west 2 (open): 2 taps west, 2 moved, limit at (28, 5).",
+        "[Route] native-recovery: west 2 (open): ended at Route202 (28, 5) (walked).",
+        "[Route] native-recovery: arrived at Route202 (28, 5)."
+      ],
+      "physical": {
+        "elevation": 0,
+        "facing": "west",
+        "map": "Route202",
+        "tile": [28, 5]
+      }
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [28, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 1
+          },
+          "tiles": 2
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [28, 5]
+          },
+          "direction": "east",
+          "injected_pause": false,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "blocked",
+            "walked_ms": 1250,
+            "wild_battles": 0
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [28, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 0
+          },
+          "tiles": 2
+        }
+      ],
+      "declared": [
+        {
+          "elevation": 0,
+          "facing": null,
+          "map": "Route202",
+          "tile": [28, 5]
+        }
+      ],
+      "failure": "",
+      "id": "last-tap-after",
+      "input": {
+        "goal": {
+          "elevation": 0,
+          "facing": "west",
+          "map": "Route202",
+          "tile": [28, 5]
+        },
+        "interrupted_walls": 0,
+        "move_speed": "run",
+        "origin": "current_leg",
+        "phase": "after",
+        "running_shoes": true,
+        "start": {
+          "elevation": 0,
+          "facing": "east",
+          "map": "Route202",
+          "tile": [26, 5]
+        },
+        "tap": 2
+      },
+      "notes": [
+        "native-recovery: 1 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5):\n    east 2 (open) to Route202 (28, 5)",
+        "Leg 1/1: east 2 (open) to Route202 (28, 5)",
+        "[Route] Turning east.",
+        "[Sim] cleared wild encounter during native-recovery: east 2 (open)",
+        "[Sim] native-recovery: east 2 (open): 2 taps east, 2 moved, limit at (28, 5).",
+        "[Route] native-recovery: east 2 (open): encounter: credited taps do not establish pose, at Route202 (26, 5), Route202 (27, 5), Route202 (28, 5); planning again.",
+        "native-recovery: 2 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5), Route202 (27, 5), Route202 (28, 5):\n    east 4 (to wall) to Route202 (30, 5)\n    west 2 (open) to Route202 (28, 5)",
+        "Leg 1/2: east 4 (to wall) to Route202 (30, 5)",
+        "[Sim] native-recovery: east 4 (to wall): held east to blocked at (30, 5).",
+        "[Speed] run east: 2 tiles in 1250 ms to the wall.",
+        "[Route] native-recovery: east 4 (to wall): ended at Route202 (30, 5) (walked).",
+        "Leg 2/2: west 2 (open) to Route202 (28, 5)",
+        "[Route] Turning west.",
+        "[Sim] native-recovery: west 2 (open): 2 taps west, 2 moved, limit at (28, 5).",
+        "[Route] native-recovery: west 2 (open): ended at Route202 (28, 5) (walked).",
+        "[Route] native-recovery: arrived at Route202 (28, 5)."
+      ],
+      "physical": {
+        "elevation": 0,
+        "facing": "west",
+        "map": "Route202",
+        "tile": [28, 5]
+      }
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 1
+          },
+          "tiles": 2
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": false,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 3,
+            "origin": "current_leg",
+            "stop": "blocked",
+            "walked_ms": 1350,
+            "wild_battles": 0
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [28, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 0
+          },
+          "tiles": 2
+        }
+      ],
+      "declared": [
+        {
+          "elevation": 0,
+          "facing": null,
+          "map": "Route202",
+          "tile": [28, 5]
+        }
+      ],
+      "failure": "",
+      "id": "last-tap-before",
+      "input": {
+        "goal": {
+          "elevation": 0,
+          "facing": "west",
+          "map": "Route202",
+          "tile": [28, 5]
+        },
+        "interrupted_walls": 0,
+        "move_speed": "run",
+        "origin": "current_leg",
+        "phase": "before",
+        "running_shoes": true,
+        "start": {
+          "elevation": 0,
+          "facing": "east",
+          "map": "Route202",
+          "tile": [26, 5]
+        },
+        "tap": 2
+      },
+      "notes": [
+        "native-recovery: 1 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5):\n    east 2 (open) to Route202 (28, 5)",
+        "Leg 1/1: east 2 (open) to Route202 (28, 5)",
+        "[Route] Turning east.",
+        "[Sim] cleared wild encounter during native-recovery: east 2 (open)",
+        "[Sim] native-recovery: east 2 (open): 2 taps east, 2 moved, limit at (27, 5).",
+        "[Route] native-recovery: east 2 (open): encounter: credited taps do not establish pose, at Route202 (26, 5), Route202 (27, 5), Route202 (28, 5); planning again.",
+        "native-recovery: 2 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5), Route202 (27, 5), Route202 (28, 5):\n    east 4 (to wall) to Route202 (30, 5)\n    west 2 (open) to Route202 (28, 5)",
+        "Leg 1/2: east 4 (to wall) to Route202 (30, 5)",
+        "[Sim] native-recovery: east 4 (to wall): held east to blocked at (30, 5).",
+        "[Speed] run east: 2 tiles in 1350 ms to the wall.",
+        "[Route] native-recovery: east 4 (to wall): ended at Route202 (30, 5) (walked).",
+        "Leg 2/2: west 2 (open) to Route202 (28, 5)",
+        "[Route] Turning west.",
+        "[Sim] native-recovery: west 2 (open): 2 taps west, 2 moved, limit at (28, 5).",
+        "[Route] native-recovery: west 2 (open): ended at Route202 (28, 5) (walked).",
+        "[Route] native-recovery: arrived at Route202 (28, 5)."
+      ],
+      "physical": {
+        "elevation": 0,
+        "facing": "west",
+        "map": "Route202",
+        "tile": [28, 5]
+      }
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 1
+          },
+          "tiles": 2
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": true,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 0,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 400,
+            "wild_battles": 1
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "direction": "east",
+          "injected_pause": false,
+          "kind": "wall",
+          "limit_ms": 2050,
+          "report": {
+            "credited_chunks": 3,
+            "origin": "current_leg",
+            "stop": "blocked",
+            "walked_ms": 1350,
+            "wild_battles": 0
+          }
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [28, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "west",
+            "map": "Route202",
+            "tile": [30, 5]
+          },
+          "direction": "west",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "current_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 0
+          },
+          "tiles": 2
+        }
+      ],
+      "declared": [
+        {
+          "elevation": 0,
+          "facing": null,
+          "map": "Route202",
+          "tile": [28, 5]
+        }
+      ],
+      "failure": "",
+      "id": "last-wall-retry-succeeds",
+      "input": {
+        "goal": {
+          "elevation": 0,
+          "facing": "west",
+          "map": "Route202",
+          "tile": [28, 5]
+        },
+        "interrupted_walls": 3,
+        "move_speed": "run",
+        "origin": "current_leg",
+        "phase": "before",
+        "running_shoes": true,
+        "start": {
+          "elevation": 0,
+          "facing": "east",
+          "map": "Route202",
+          "tile": [26, 5]
+        },
+        "tap": 2
+      },
+      "notes": [
+        "native-recovery: 1 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5):\n    east 2 (open) to Route202 (28, 5)",
+        "Leg 1/1: east 2 (open) to Route202 (28, 5)",
+        "[Route] Turning east.",
+        "[Sim] cleared wild encounter during native-recovery: east 2 (open)",
+        "[Sim] native-recovery: east 2 (open): 2 taps east, 2 moved, limit at (27, 5).",
+        "[Route] native-recovery: east 2 (open): encounter: credited taps do not establish pose, at Route202 (26, 5), Route202 (27, 5), Route202 (28, 5); planning again.",
+        "native-recovery: 2 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5), Route202 (27, 5), Route202 (28, 5):\n    east 4 (to wall) to Route202 (30, 5)\n    west 2 (open) to Route202 (28, 5)",
+        "Leg 1/2: east 4 (to wall) to Route202 (30, 5)",
+        "[Route] native-recovery: east 4 (to wall): a wild battle on the way; walking to the wall again.",
+        "[Route] native-recovery: east 4 (to wall): a wild battle on the way; walking to the wall again.",
+        "[Route] native-recovery: east 4 (to wall): a wild battle on the way; walking to the wall again.",
+        "[Sim] native-recovery: east 4 (to wall): held east to blocked at (30, 5).",
+        "[Route] native-recovery: east 4 (to wall): ended at Route202 (30, 5) (walked).",
+        "Leg 2/2: west 2 (open) to Route202 (28, 5)",
+        "[Route] Turning west.",
+        "[Sim] native-recovery: west 2 (open): 2 taps west, 2 moved, limit at (28, 5).",
+        "[Route] native-recovery: west 2 (open): ended at Route202 (28, 5) (walked).",
+        "[Route] native-recovery: arrived at Route202 (28, 5)."
+      ],
+      "physical": {
+        "elevation": 0,
+        "facing": "west",
+        "map": "Route202",
+        "tile": [28, 5]
+      }
+    },
+    {
+      "calls": [
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "hold_ms": 50,
+          "kind": "turn",
+          "queued": false
+        },
+        {
+          "after": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [27, 5]
+          },
+          "before": {
+            "elevation": 0,
+            "facing": "east",
+            "map": "Route202",
+            "tile": [26, 5]
+          },
+          "direction": "east",
+          "kind": "taps",
+          "report": {
+            "credited_chunks": 2,
+            "origin": "may_precede_leg",
+            "stop": "limit",
+            "walked_ms": 1600,
+            "wild_battles": 1
+          },
+          "tiles": 2
+        }
+      ],
+      "declared": [],
+      "failure": "encounter_origin_unknown: native-recovery: east 2 (open)",
+      "id": "reported-unknown-origin",
+      "input": {
+        "goal": {
+          "elevation": 0,
+          "facing": "west",
+          "map": "Route202",
+          "tile": [28, 5]
+        },
+        "interrupted_walls": 0,
+        "move_speed": "run",
+        "origin": "may_precede_leg",
+        "phase": "before",
+        "running_shoes": true,
+        "start": {
+          "elevation": 0,
+          "facing": "east",
+          "map": "Route202",
+          "tile": [26, 5]
+        },
+        "tap": 2
+      },
+      "notes": [
+        "native-recovery: 1 legs planned",
+        "[Route] native-recovery: plan from Route202 (26, 5):\n    east 2 (open) to Route202 (28, 5)",
+        "Leg 1/1: east 2 (open) to Route202 (28, 5)",
+        "[Route] Turning east.",
+        "[Sim] cleared wild encounter during native-recovery: east 2 (open)",
+        "[Sim] native-recovery: east 2 (open): 2 taps east, 2 moved, limit at (27, 5).",
+        "encounter_origin_unknown: native-recovery: east 2 (open)"
+      ],
+      "physical": {
+        "elevation": 0,
+        "facing": "east",
+        "map": "Route202",
+        "tile": [27, 5]
+      }
+    }
+  ]
+}

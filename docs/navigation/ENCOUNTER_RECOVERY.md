@@ -73,3 +73,96 @@ transition evidence or escape outcomes must be reported rather than guessed.
 Native controller and detector timing remain Arduino tests. BDSP mine/house
 same-map conformance still requires reviewed map/arrival alignment. Neither
 these diagnostics nor a passing spatial prediction proves live recovery safe.
+
+## First actual native replay: BDSP Route 202
+
+The next slice exports seven **registered native C++ tests**, running the real
+BDSP route planner and `walk_route()` through its existing `GridSimRouteIO`.
+Start with [the visual review summary](../../data/navigation/native-recovery/README.md):
+side-by-side diagrams and a seven-case results table. The
+[readable replay data](../../data/navigation/native-recovery/bdsp-route202.trace) records actual I/O reports, physical simulated poses, returned positions and
+shared `[Route]` plan/replan/end logs. Python replays those native-selected legs
+on the same map bytes; it does not choose replacement routes or copy the native
+recovery algorithm.
+
+All cases start at Route 202 `(26,5)`, facing east, targeting `(28,5)`.
+`VAR_ROUTE_202_STATE=1`, Running Shoes available, and native movement policy RUN
+are explicit preconditions. The map SHA256 matches the approved publishing
+revision in the bundle. These remain injected, already-cleared encounters on a
+real map, not recorded console inputs or an encounter-escape simulation.
+
+The [generated review](../../data/navigation/native-recovery/README.md#seven-cases)
+lists all seven outcomes, including before/after movement, interrupted holds,
+the retry boundary and unknown encounter origins. Its pictures show the spatial
+sequence; its table makes the complete case inventory readable without opening
+the raw trace.
+
+**The retry policies differ.** Native BDSP permits an initial wall attempt plus
+three retries for that wall leg. Python `Session` defaults to three recovery
+calls total across a session. This slice measures the native policy explicitly;
+it does not equate the two budgets or change either policy.
+
+Native `walk_route()` returns positions without facing evidence, so exported
+`declared` poses use `?` for unreported facing (`null` in the raw export). `physical` facing comes from GridSim and is
+checked independently. Native internal facing belief, queue draining, advancing
+video/stillness confirmation, detector timing and a global retry budget remain
+**unverified**. A native `(walked)` log is preserved as its stated basis; an
+`(assumed)` end cannot silently pass as a walked end in this profile.
+
+```sh
+# Check the reviewed native capture against current hash-matched map bytes.
+PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_replay check
+
+# Also verify exporter/map Git blobs at the recorded native source revision.
+PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_replay check \
+  --native-source /path/to/Arduino-Source
+
+# After successfully running the registered native tests, wrap their stdout.
+# Fetch the publishing repo first: capture trusts cached origin/main.
+PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_replay capture \
+  --stdout /tmp/native-test-stdout.log --native-source /path/to/Arduino-Source \
+  --source . --trace /tmp/bdsp-route202-candidate.trace
+```
+
+The exporter emits `POKESIM_NATIVE_REPLAY` only after each native case's own
+assertions pass. Capture requires the complete seven-case inventory and a clean
+committed native worktree, verifies matching native/published map bytes and
+records the full native revision plus exporter checksum. The exporter rejects
+fractional simulated positions instead of rounding them to tiles. It does not attest that
+a particular executable was built from those Git objects; retain the successful
+native build/test record alongside a regenerated capture. The default checker
+verifies local map bytes and semantics; optional native-source checking verifies
+Git provenance, not remote publication approval of the native candidate.
+
+The native exporter is locally committed on `bdsp/native-route-replay` at
+`0bd414eabe477beb2be044cfe5057c5bec548db6`, based on the prepared #46 native
+adapter. Its three-file change adds tests/export only. All 61 focused registered
+BDSP tests pass locally, including the seven exports; code health passes
+against `bdsp/navigation-conformance`. The focused runner compiles actual native
+movement/planner/walker sources; unused image I/O stubs throw if invoked.
+Focused and broader runs produce identical seven-case captures. Native publication and GitHub CI remain
+pending the initial-push approval. No runtime recovery algorithm or terrain was
+changed by this slice.
+
+Next: add the corresponding actual FRLG walker export; expose and test missing
+queue/observation/facing facts, then compare complete #47 state snapshots. The
+current BDSP replay proves candidate-tile and supplied-leg geometry agreement,
+native automatic recovery/rejoin outcomes, and the explicitly tested native
+retry/origin rules. It is not yet full native/Python state-machine equivalence.
+
+## Readable replay data
+
+The primary replay input is now [`bdsp-route202.trace`](../../data/navigation/native-recovery/bdsp-route202.trace):
+173 lines for all seven cases, using strict INI sections. Shared preconditions
+are declared once. Each action occupies one line with explicit before/after
+poses, timing, stop reason, battle count, credit count and origin. Zero/false
+values remain explicit; `?` means unreported facing and `none` means no returned
+positions. No implicit INI DEFAULT values are allowed.
+
+The complete original JSON capture is preserved under
+[`diagnostics/`](../../data/navigation/native-recovery/diagnostics/bdsp-route202.raw.json).
+Reading the text verifies the diagnostic checksum and agreement of every replay
+fact. Plan/replan/completion/arrival facts remain in the text; duplicate status
+and simulator debug logs remain in diagnostics. Round-trip tests prove that
+both representations produce identical replay results. JSON remains accepted
+for raw diagnostic input; capture defaults to readable text plus diagnostics.
