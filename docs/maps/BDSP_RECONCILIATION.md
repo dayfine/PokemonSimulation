@@ -135,4 +135,6 @@ the three held differences: use this canonical baseline, or supply the anchored
 BDSP evidence above for a new reviewed correction. After that, adopt one immutable
 publishing commit and manifest hash through the resource lock. Re-run native
 route/story tests against that exact pack before removing source-map copies.
-The compact-format/resource migration is a later step; these maps remain v1.
+The initial reconciliation used v1 maps. The subsequent
+[compact-format publication](V2_PUBLICATION.md) changes their representation,
+without accepting any held corrections; native resource adoption remains pending.

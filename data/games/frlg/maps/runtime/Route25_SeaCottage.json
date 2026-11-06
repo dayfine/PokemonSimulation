@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route25_SeaCottage",
     "source": {
         "decomp_file": "data/maps/Route25_SeaCottage/map.json",
@@ -23,44 +24,14 @@
         "warp_1": [7, 9]
     },
     "warps": [
-        {
-            "x": 6,
-            "y": 9,
-            "enter": "walk_into",
-            "to_map": "Route25",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 7,
-            "y": 9,
-            "enter": "walk_south",
-            "to_map": "Route25",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 8,
-            "y": 9,
-            "enter": "walk_into",
-            "to_map": "Route25",
-            "to_point": "warp_0"
-        }
-    ],
-    "objects": [
-        {
-            "name": "bill",
-            "kind": "npc",
-            "x": 7,
-            "y": 5,
-            "hide_flag": "FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE"
-        },
-        {
-            "name": "clefairy",
-            "kind": "npc",
-            "x": 10,
-            "y": 6,
-            "hide_flag": "FLAG_HIDE_BILL_CLEFAIRY"
-        }
+        {"coord": [6, 9], "enter": "walk_into", "to_map": "Route25", "to_point": "warp_0"},
+        {"coord": [7, 9], "enter": "walk_south", "to_map": "Route25", "to_point": "warp_0"},
+        {"coord": [8, 9], "enter": "walk_into", "to_map": "Route25", "to_point": "warp_0"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "bill", "coord": [7, 5], "hide_flag": "FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE"},
+        {"name": "clefairy", "coord": [10, 6], "hide_flag": "FLAG_HIDE_BILL_CLEFAIRY"}
+    ]
 }

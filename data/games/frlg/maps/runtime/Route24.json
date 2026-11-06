@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route24",
     "source": {
         "decomp_file": "data/maps/Route24/map.json",
@@ -91,93 +92,18 @@
     ],
     "points": {},
     "warps": [],
-    "objects": [
-        {
-            "name": "man",
-            "kind": "npc",
-            "x": 12,
-            "y": 15,
-            "hide_flag": "FLAG_HIDE_NUGGET_BRIDGE_ROCKET"
-        },
-        {
-            "name": "camper",
-            "kind": "npc",
-            "x": 12,
-            "y": 19,
-            "facing": "west",
-            "trainer": {
-                "sight": 2
-            }
-        },
-        {
-            "name": "lass",
-            "kind": "npc",
-            "x": 10,
-            "y": 22,
-            "facing": "east",
-            "trainer": {
-                "sight": 2
-            }
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 12,
-            "y": 25,
-            "facing": "west",
-            "trainer": {
-                "sight": 2
-            }
-        },
-        {
-            "name": "lass",
-            "kind": "npc",
-            "x": 10,
-            "y": 28,
-            "facing": "east",
-            "trainer": {
-                "sight": 2
-            }
-        },
-        {
-            "name": "bug_catcher",
-            "kind": "npc",
-            "x": 12,
-            "y": 31,
-            "facing": "west",
-            "trainer": {
-                "sight": 2
-            }
-        },
-        {
-            "name": "camper",
-            "kind": "npc",
-            "x": 5,
-            "y": 21,
-            "facing": "north",
-            "trainer": {
-                "sight": 5
-            }
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 11,
-            "y": 4,
-            "hide_flag": "FLAG_HIDE_ROUTE24_TM45"
-        }
-    ],
     "flag_sets": {},
-    "connections": [
-        {
-            "side": "south",
-            "to_map": "CeruleanCity",
-            "offset": -12
-        },
-        {
-            "side": "east",
-            "to_map": "Route25",
-            "offset": 0
-        }
+    "connections": [{"side": "south", "to_map": "CeruleanCity", "offset": -12}, {"side": "east", "to_map": "Route25", "offset": 0}],
+    "npcs": [
+        {"name": "man", "coord": [12, 15], "hide_flag": "FLAG_HIDE_NUGGET_BRIDGE_ROCKET"},
+        {"name": "camper", "coord": [12, 19], "facing": "west", "trainer": {"sight": 2}},
+        {"name": "lass", "coord": [10, 22], "facing": "east", "trainer": {"sight": 2}},
+        {"name": "youngster", "coord": [12, 25], "facing": "west", "trainer": {"sight": 2}},
+        {"name": "lass", "coord": [10, 28], "facing": "east", "trainer": {"sight": 2}},
+        {"name": "bug_catcher", "coord": [12, 31], "facing": "west", "trainer": {"sight": 2}},
+        {"name": "camper", "coord": [5, 21], "facing": "north", "trainer": {"sight": 5}}
+    ],
+    "items": [
+        {"name": "item_ball", "coord": [11, 4], "hide_flag": "FLAG_HIDE_ROUTE24_TM45"}
     ]
 }

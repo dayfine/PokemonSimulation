@@ -177,6 +177,28 @@ class ConsumerTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'map/manifest runtime format mismatch'):
             published_pack(self.source, 'bdsp', lock_entry(self.source, revision))
 
+    def test_approved_v2_pack_updates_and_preserves_independent_v1_pin(self):
+        self.initialize(('bdsp', 'frlg'))
+        old_frlg = self.map_path(game='frlg').read_bytes()
+        self.maps['bdsp'] = {name: compact_map(data) for name, data in self.maps['bdsp'].items()}
+        # Only the selected game becomes v2 at this publisher revision.
+        self.maps['frlg'] = {name: compact_map(data) for name, data in self.maps['frlg'].items()}
+        revision = self.publish(lambda m: m.update(runtime_format='pokesim-runtime-map/2'))
+        sync.update(self.consumer, self.source, ['bdsp'], revision)
+        lock = sync.check(self.consumer, self.source)
+        self.assertEqual(lock['games']['bdsp']['revision'], revision)
+        self.assertEqual(lock['games']['frlg']['revision'], self.base)
+        self.assertEqual(self.map_path(game='frlg').read_bytes(), old_frlg)
+        self.assertEqual(json.loads(self.map_path().read_bytes()), self.maps['bdsp']['A'])
+        self.map_path().write_bytes(self.map_path().read_bytes() + b'\n')
+        with self.assertRaisesRegex(ValueError, 'modified A.json'):
+            sync.check(self.consumer, self.source)
+
+    def test_v1_map_cannot_hide_under_a_v2_manifest(self):
+        revision = self.publish(lambda m: m.update(runtime_format='pokesim-runtime-map/2'))
+        with self.assertRaisesRegex(ValueError, 'map/manifest runtime format mismatch'):
+            published_pack(self.source, 'bdsp', lock_entry(self.source, revision))
+
     def test_extra_published_file_not_in_manifest_is_rejected(self):
         (self.publisher / 'data/games/bdsp/maps/runtime/Extra.json').write_text('{}')
         revision = self.commit()

@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "CeruleanCity_Gym",
     "source": {
         "decomp_file": "data/maps/CeruleanCity_Gym/map.json",
@@ -55,62 +56,16 @@
         "warp_1": [8, 18]
     },
     "warps": [
-        {
-            "x": 7,
-            "y": 18,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_4"
-        },
-        {
-            "x": 8,
-            "y": 18,
-            "enter": "walk_south",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_4"
-        },
-        {
-            "x": 9,
-            "y": 18,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_4"
-        }
-    ],
-    "objects": [
-        {
-            "name": "swimmer_m_water",
-            "kind": "npc",
-            "x": 10,
-            "y": 12,
-            "facing": "west",
-            "trainer": {
-                "sight": 1
-            }
-        },
-        {
-            "name": "picnicker",
-            "kind": "npc",
-            "x": 4,
-            "y": 7,
-            "facing": "east",
-            "trainer": {
-                "sight": 4
-            }
-        },
-        {
-            "name": "misty",
-            "kind": "npc",
-            "x": 8,
-            "y": 6
-        },
-        {
-            "name": "gym_guy",
-            "kind": "npc",
-            "x": 7,
-            "y": 16
-        }
+        {"coord": [7, 18], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_4"},
+        {"coord": [8, 18], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_4"},
+        {"coord": [9, 18], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_4"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "swimmer_m_water", "coord": [10, 12], "facing": "west", "trainer": {"sight": 1}},
+        {"name": "picnicker", "coord": [4, 7], "facing": "east", "trainer": {"sight": 4}},
+        {"name": "misty", "coord": [8, 6]},
+        {"name": "gym_guy", "coord": [7, 16]}
+    ]
 }

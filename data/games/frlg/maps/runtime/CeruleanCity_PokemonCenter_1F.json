@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "CeruleanCity_PokemonCenter_1F",
     "source": {
         "decomp_file": "data/maps/CeruleanCity_PokemonCenter_1F/map.json",
@@ -36,91 +37,20 @@
         "warp_1": [7, 8]
     },
     "warps": [
-        {
-            "x": 6,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 7,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 8,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 1,
-            "y": 6,
-            "enter": "step_on"
-        }
-    ],
-    "objects": [
-        {
-            "name": "nurse",
-            "kind": "npc",
-            "x": 7,
-            "y": 2
-        },
-        {
-            "name": "gentleman",
-            "kind": "npc",
-            "x": 12,
-            "y": 5
-        },
-        {
-            "name": "rocker",
-            "kind": "npc",
-            "x": 5,
-            "y": 4,
-            "wander": {
-                "x0": 4,
-                "y0": 4,
-                "x1": 6,
-                "y1": 4
-            }
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 4,
-            "y": 8,
-            "wander": {
-                "x0": 3,
-                "y0": 8,
-                "x1": 5,
-                "y1": 8
-            }
-        },
-        {
-            "name": "lass",
-            "kind": "npc",
-            "x": 3,
-            "y": 3
-        },
-        {
-            "name": "0",
-            "kind": "npc",
-            "x": 2,
-            "y": 1,
-            "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"
-        },
-        {
-            "name": "0",
-            "kind": "npc",
-            "x": 3,
-            "y": 1,
-            "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"
-        }
+        {"coord": [6, 8], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_3"},
+        {"coord": [7, 8], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_3"},
+        {"coord": [8, 8], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_3"},
+        {"coord": [1, 6], "enter": "step_on"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "nurse", "coord": [7, 2]},
+        {"name": "gentleman", "coord": [12, 5]},
+        {"name": "rocker", "coord": [5, 4], "wander": {"min": [4, 4], "max": [6, 4]}},
+        {"name": "youngster", "coord": [4, 8], "wander": {"min": [3, 8], "max": [5, 8]}},
+        {"name": "lass", "coord": [3, 3]},
+        {"name": "0", "coord": [2, 1], "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"},
+        {"name": "0", "coord": [3, 1], "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"}
+    ]
 }

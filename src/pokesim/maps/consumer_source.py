@@ -7,7 +7,7 @@ import re
 import subprocess
 
 from .runtime_map_schema import validate
-from .runtime_map_coordinates import LEGACY
+from .runtime_map_coordinates import COMPACT, LEGACY
 
 
 REPOSITORY = 'dayfine/PokemonSimulation'
@@ -111,7 +111,7 @@ def published_pack(source, game, pin):
     if sha256(raw) != pin['manifest_sha256']:
         raise ValueError('published manifest hash mismatch: ' + game)
     manifest = read_json(raw)
-    if not isinstance(manifest, dict) or manifest.get('format') != 'pokesim-map-pack/1' or manifest.get('runtime_format') != 'pokesim-runtime-map/1':
+    if not isinstance(manifest, dict) or manifest.get('format') != 'pokesim-map-pack/1' or manifest.get('runtime_format') not in (LEGACY, COMPACT):
         raise ValueError('unsupported map manifest/runtime format')
     if not isinstance(manifest.get('games'), dict) or game not in manifest['games']:
         raise ValueError('game not published: ' + game)

@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "CeruleanCity_Mart",
     "source": {
         "decomp_file": "data/maps/CeruleanCity_Mart/map.json",
@@ -33,54 +34,15 @@
         "warp_1": [4, 7]
     },
     "warps": [
-        {
-            "x": 3,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_6"
-        },
-        {
-            "x": 4,
-            "y": 7,
-            "enter": "walk_south",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_6"
-        },
-        {
-            "x": 5,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_6"
-        }
-    ],
-    "objects": [
-        {
-            "name": "clerk",
-            "kind": "npc",
-            "x": 2,
-            "y": 3
-        },
-        {
-            "name": "woman_1",
-            "kind": "npc",
-            "x": 9,
-            "y": 2,
-            "wander": {
-                "x0": 5,
-                "y0": 2,
-                "x1": 10,
-                "y1": 2
-            }
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 1,
-            "y": 7
-        }
+        {"coord": [3, 7], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_6"},
+        {"coord": [4, 7], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_6"},
+        {"coord": [5, 7], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_6"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "clerk", "coord": [2, 3]},
+        {"name": "woman_1", "coord": [9, 2], "wander": {"min": [5, 2], "max": [10, 2]}},
+        {"name": "youngster", "coord": [1, 7]}
+    ]
 }

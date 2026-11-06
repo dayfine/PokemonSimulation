@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "CeruleanCave_1F",
     "source": {
         "decomp_file": "data/maps/CeruleanCave_1F/map.json",
@@ -67,128 +68,28 @@
         "warp_7": [2, 4]
     },
     "warps": [
-        {
-            "x": 33,
-            "y": 21,
-            "enter": "walk_south",
-            "to_map": "CeruleanCity",
-            "to_point": "warp_7"
-        },
-        {
-            "x": 34,
-            "y": 2,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_2F",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 1,
-            "y": 7,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_B1F",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 10,
-            "y": 2,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_2F",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 5,
-            "y": 15,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_2F",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 30,
-            "y": 10,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_2F",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 24,
-            "y": 11,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_2F",
-            "to_point": "warp_4"
-        },
-        {
-            "x": 2,
-            "y": 4,
-            "enter": "step_on",
-            "to_map": "CeruleanCave_2F",
-            "to_point": "warp_5"
-        }
-    ],
-    "objects": [
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 7,
-            "y": 3,
-            "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 11,
-            "y": 16,
-            "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 25,
-            "y": 5,
-            "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 7,
-            "y": 21,
-            "hide_flag": "FLAG_TEMP_12"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 13,
-            "y": 21,
-            "hide_flag": "FLAG_TEMP_13"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 5,
-            "y": 20,
-            "hide_flag": "FLAG_TEMP_14"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 14,
-            "y": 20,
-            "hide_flag": "FLAG_TEMP_15"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 11,
-            "y": 21,
-            "hide_flag": "FLAG_TEMP_16"
-        },
-        {
-            "name": "rock_smash_rock",
-            "kind": "npc",
-            "x": 9,
-            "y": 18,
-            "hide_flag": "FLAG_TEMP_17"
-        }
+        {"coord": [33, 21], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_7"},
+        {"coord": [34, 2], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_0"},
+        {"coord": [1, 7], "enter": "step_on", "to_map": "CeruleanCave_B1F", "to_point": "warp_0"},
+        {"coord": [10, 2], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_1"},
+        {"coord": [5, 15], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_2"},
+        {"coord": [30, 10], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_3"},
+        {"coord": [24, 11], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_4"},
+        {"coord": [2, 4], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_5"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "rock_smash_rock", "coord": [7, 21], "hide_flag": "FLAG_TEMP_12"},
+        {"name": "rock_smash_rock", "coord": [13, 21], "hide_flag": "FLAG_TEMP_13"},
+        {"name": "rock_smash_rock", "coord": [5, 20], "hide_flag": "FLAG_TEMP_14"},
+        {"name": "rock_smash_rock", "coord": [14, 20], "hide_flag": "FLAG_TEMP_15"},
+        {"name": "rock_smash_rock", "coord": [11, 21], "hide_flag": "FLAG_TEMP_16"},
+        {"name": "rock_smash_rock", "coord": [9, 18], "hide_flag": "FLAG_TEMP_17"}
+    ],
+    "items": [
+        {"name": "item_ball", "coord": [7, 3], "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET"},
+        {"name": "item_ball", "coord": [11, 16], "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE"},
+        {"name": "item_ball", "coord": [25, 5], "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR"}
+    ]
 }

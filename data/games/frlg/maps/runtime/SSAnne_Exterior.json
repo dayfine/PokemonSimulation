@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "SSAnne_Exterior",
     "source": {
         "decomp_file": "data/maps/SSAnne_Exterior/map.json",
@@ -79,51 +80,15 @@
         "warp_3": [33, 15]
     },
     "warps": [
-        {
-            "x": 31,
-            "y": 5,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 32,
-            "y": 5,
-            "enter": "walk_north",
-            "to_map": "VermilionCity",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 32,
-            "y": 14,
-            "enter": "walk_south",
-            "to_map": "SSAnne_1F_Corridor",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 33,
-            "y": 15,
-            "enter": "walk_into",
-            "to_map": "SSAnne_1F_Corridor",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 33,
-            "y": 5,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_2"
-        }
-    ],
-    "objects": [
-        {
-            "name": "ss_anne",
-            "kind": "npc",
-            "x": 30,
-            "y": 16,
-            "hide_flag": "FLAG_HIDE_SS_ANNE"
-        }
+        {"coord": [31, 5], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_0"},
+        {"coord": [32, 5], "enter": "walk_north", "to_map": "VermilionCity", "to_point": "warp_1"},
+        {"coord": [32, 14], "enter": "walk_south", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_2"},
+        {"coord": [33, 15], "enter": "walk_into", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_3"},
+        {"coord": [33, 5], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_2"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "ss_anne", "coord": [30, 16], "hide_flag": "FLAG_HIDE_SS_ANNE"}
+    ]
 }

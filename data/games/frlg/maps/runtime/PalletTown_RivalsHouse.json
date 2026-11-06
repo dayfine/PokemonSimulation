@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "PalletTown_RivalsHouse",
     "source": {
         "decomp_file": "data/maps/PalletTown_RivalsHouse/map.json",
@@ -22,49 +23,14 @@
         "warp_0": [4, 8]
     },
     "warps": [
-        {
-            "x": 4,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "PalletTown",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 5,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "PalletTown",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 3,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "PalletTown",
-            "to_point": "warp_1"
-        }
-    ],
-    "objects": [
-        {
-            "name": "daisy",
-            "kind": "npc",
-            "x": 10,
-            "y": 6,
-            "wander": {
-                "x0": 9,
-                "y0": 3,
-                "x1": 11,
-                "y1": 9
-            }
-        },
-        {
-            "name": "town_map",
-            "kind": "npc",
-            "x": 6,
-            "y": 4,
-            "hide_flag": "FLAG_HIDE_TOWN_MAP"
-        }
+        {"coord": [4, 8], "enter": "walk_south", "to_map": "PalletTown", "to_point": "warp_1"},
+        {"coord": [5, 8], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_1"},
+        {"coord": [3, 8], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_1"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "daisy", "coord": [10, 6], "wander": {"min": [9, 3], "max": [11, 9]}},
+        {"name": "town_map", "coord": [6, 4], "hide_flag": "FLAG_HIDE_TOWN_MAP"}
+    ]
 }

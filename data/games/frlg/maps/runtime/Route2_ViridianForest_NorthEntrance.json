@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route2_ViridianForest_NorthEntrance",
     "source": {
         "decomp_file": "data/maps/Route2_ViridianForest_NorthEntrance/map.json",
@@ -24,55 +25,16 @@
         "warp_3": [7, 1]
     },
     "warps": [
-        {
-            "x": 6,
-            "y": 10,
-            "enter": "walk_into",
-            "to_map": "ViridianForest",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 7,
-            "y": 10,
-            "enter": "walk_south",
-            "to_map": "ViridianForest",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 8,
-            "y": 10,
-            "enter": "walk_into",
-            "to_map": "ViridianForest",
-            "to_point": "warp_2"
-        },
-        {
-            "x": 7,
-            "y": 1,
-            "enter": "cave_entrance",
-            "to_map": "Route2",
-            "to_point": "warp_0"
-        }
-    ],
-    "objects": [
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 5,
-            "y": 4
-        },
-        {
-            "name": "old_man_1",
-            "kind": "npc",
-            "x": 4,
-            "y": 7
-        },
-        {
-            "name": "cooltrainer_f",
-            "kind": "npc",
-            "x": 10,
-            "y": 5
-        }
+        {"coord": [6, 10], "enter": "walk_into", "to_map": "ViridianForest", "to_point": "warp_2"},
+        {"coord": [7, 10], "enter": "walk_south", "to_map": "ViridianForest", "to_point": "warp_2"},
+        {"coord": [8, 10], "enter": "walk_into", "to_map": "ViridianForest", "to_point": "warp_2"},
+        {"coord": [7, 1], "enter": "cave_entrance", "to_map": "Route2", "to_point": "warp_0"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "youngster", "coord": [5, 4]},
+        {"name": "old_man_1", "coord": [4, 7]},
+        {"name": "cooltrainer_f", "coord": [10, 5]}
+    ]
 }

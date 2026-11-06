@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "SSAnne_2F_Corridor",
     "source": {
         "decomp_file": "data/maps/SSAnne_2F_Corridor/map.json",
@@ -28,81 +29,20 @@
         "warp_2": [30, 2]
     },
     "warps": [
-        {
-            "x": 2,
-            "y": 2,
-            "enter": "walk_east",
-            "to_map": "SSAnne_1F_Corridor",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 3,
-            "y": 12,
-            "enter": "walk_west"
-        },
-        {
-            "x": 30,
-            "y": 2,
-            "enter": "walk_east",
-            "to_map": "SSAnne_CaptainsOffice",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 6,
-            "y": 10,
-            "enter": "walk_into"
-        },
-        {
-            "x": 10,
-            "y": 10,
-            "enter": "walk_into"
-        },
-        {
-            "x": 14,
-            "y": 10,
-            "enter": "walk_into"
-        },
-        {
-            "x": 18,
-            "y": 10,
-            "enter": "walk_into"
-        },
-        {
-            "x": 22,
-            "y": 10,
-            "enter": "walk_into"
-        },
-        {
-            "x": 26,
-            "y": 10,
-            "enter": "walk_into"
-        }
+        {"coord": [2, 2], "enter": "walk_east", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_0"},
+        {"coord": [3, 12], "enter": "walk_west"},
+        {"coord": [30, 2], "enter": "walk_east", "to_map": "SSAnne_CaptainsOffice", "to_point": "warp_0"},
+        {"coord": [6, 10], "enter": "walk_into"},
+        {"coord": [10, 10], "enter": "walk_into"},
+        {"coord": [14, 10], "enter": "walk_into"},
+        {"coord": [18, 10], "enter": "walk_into"},
+        {"coord": [22, 10], "enter": "walk_into"},
+        {"coord": [26, 10], "enter": "walk_into"}
     ],
-    "objects": [
-        {
-            "name": "blue",
-            "kind": "npc",
-            "x": 30,
-            "y": 2,
-            "hide_flag": "FLAG_HIDE_SS_ANNE_RIVAL"
-        },
-        {
-            "name": "sailor",
-            "kind": "npc",
-            "x": 2,
-            "y": 7,
-            "wander": {
-                "x0": 2,
-                "y0": 5,
-                "x1": 2,
-                "y1": 9
-            }
-        }
-    ],
-    "flag_sets": {
-        "new_game": [
-            "FLAG_HIDE_SS_ANNE_RIVAL"
-        ]
-    },
-    "connections": []
+    "flag_sets": {"new_game": ["FLAG_HIDE_SS_ANNE_RIVAL"]},
+    "connections": [],
+    "npcs": [
+        {"name": "blue", "coord": [30, 2], "hide_flag": "FLAG_HIDE_SS_ANNE_RIVAL"},
+        {"name": "sailor", "coord": [2, 7], "wander": {"min": [2, 5], "max": [2, 9]}}
+    ]
 }

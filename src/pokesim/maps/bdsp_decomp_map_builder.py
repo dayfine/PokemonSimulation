@@ -64,6 +64,7 @@ from pathlib import Path
 from pokesim.maps import dppt_map_decomp_parser as decomp
 from .runtime_symbols import LEDGE_GLYPHS
 from .item_identity import enrich_objects
+from .runtime_map_coordinates import compact_map
 from .runtime_map_format import map_text as readable_map_text
 
 OUT = 'data/games/bdsp/maps/runtime'
@@ -665,7 +666,7 @@ def map_text(name, include_item_identities=False):
                         for x, y, g, m in PATCHES.get(name, [])])
     lines.append('}')
     text = '\n'.join(lines) + '\n'
-    return readable_map_text(json.loads(text)) if include_item_identities else text
+    return readable_map_text(compact_map(json.loads(text)))
 
 
 def main():

@@ -37,6 +37,7 @@ import sys
 
 from .runtime_symbols import CLOSED_SIDES, LEDGE_GLYPHS
 from .item_identity import enrich_objects
+from .runtime_map_coordinates import compact_map
 from .runtime_map_format import map_text as readable_map_text
 
 COMMIT = 'ce6406d8c2eaf46d543c8a2606de0c3cb1951982'
@@ -412,11 +413,8 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     return data
 
 
-def json_text(data, include_item_identities=False):
-    if include_item_identities:
-        return readable_map_text(data)
-    text = json.dumps(data, indent=4)
-    return re.sub(r'\[\s*(-?\d+),\s*(-?\d+)\s*\]', r'[\1, \2]', text) + '\n'
+def json_text(data):
+    return readable_map_text(compact_map(data))
 
 
 def main():
@@ -440,7 +438,7 @@ def main():
     loaded = {source['id']: m for m, source in sources.items()}
     unhandled = {}
     land_maps = land_encounter_maps(decomp)
-    maps = [(name, json_text(map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities), args.item_identities)) for name in args.maps]
+    maps = [(name, json_text(map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities))) for name in args.maps]
     if unhandled:
         print(f'Non-collision behaviors written as floor: {unhandled}')
     if args.check:

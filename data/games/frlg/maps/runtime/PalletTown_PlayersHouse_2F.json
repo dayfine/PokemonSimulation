@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "PalletTown_PlayersHouse_2F",
     "source": {
         "decomp_file": "data/maps/PalletTown_PlayersHouse_2F/map.json",
@@ -33,15 +34,8 @@
         "warp_0": [10, 2]
     },
     "warps": [
-        {
-            "x": 10,
-            "y": 2,
-            "enter": "walk_west",
-            "to_map": "PalletTown_PlayersHouse_1F",
-            "to_point": "warp_2"
-        }
+        {"coord": [10, 2], "enter": "walk_west", "to_map": "PalletTown_PlayersHouse_1F", "to_point": "warp_2"}
     ],
-    "objects": [],
     "flag_sets": {},
     "connections": []
 }

@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route6",
     "source": {
         "decomp_file": "data/maps/Route6/map.json",
@@ -93,84 +94,18 @@
         "warp_0": [19, 13]
     },
     "warps": [
-        {
-            "x": 19,
-            "y": 13,
-            "enter": "walk_into",
-            "to_map": "UndergroundPath_SouthEntrance",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 12,
-            "y": 5,
-            "enter": "cave_entrance"
-        },
-        {
-            "x": 13,
-            "y": 5,
-            "enter": "cave_entrance"
-        }
-    ],
-    "objects": [
-        {
-            "name": "bug_catcher",
-            "kind": "npc",
-            "x": 3,
-            "y": 16,
-            "facing": "east",
-            "trainer": {
-                "sight": 5
-            }
-        },
-        {
-            "name": "camper",
-            "kind": "npc",
-            "x": 12,
-            "y": 21
-        },
-        {
-            "name": "picnicker",
-            "kind": "npc",
-            "x": 13,
-            "y": 21
-        },
-        {
-            "name": "bug_catcher",
-            "kind": "npc",
-            "x": 20,
-            "y": 25,
-            "facing": "west",
-            "trainer": {
-                "sight": 3
-            }
-        },
-        {
-            "name": "picnicker",
-            "kind": "npc",
-            "x": 13,
-            "y": 32,
-            "facing": "west",
-            "trainer": {
-                "sight": 3
-            }
-        },
-        {
-            "name": "camper",
-            "kind": "npc",
-            "x": 13,
-            "y": 33,
-            "facing": "west",
-            "trainer": {
-                "sight": 3
-            }
-        }
+        {"coord": [19, 13], "enter": "walk_into", "to_map": "UndergroundPath_SouthEntrance", "to_point": "warp_1"},
+        {"coord": [12, 5], "enter": "cave_entrance"},
+        {"coord": [13, 5], "enter": "cave_entrance"}
     ],
     "flag_sets": {},
-    "connections": [
-        {
-            "side": "south",
-            "to_map": "VermilionCity",
-            "offset": -12
-        }
+    "connections": [{"side": "south", "to_map": "VermilionCity", "offset": -12}],
+    "npcs": [
+        {"name": "bug_catcher", "coord": [3, 16], "facing": "east", "trainer": {"sight": 5}},
+        {"name": "camper", "coord": [12, 21]},
+        {"name": "picnicker", "coord": [13, 21]},
+        {"name": "bug_catcher", "coord": [20, 25], "facing": "west", "trainer": {"sight": 3}},
+        {"name": "picnicker", "coord": [13, 32], "facing": "west", "trainer": {"sight": 3}},
+        {"name": "camper", "coord": [13, 33], "facing": "west", "trainer": {"sight": 3}}
     ]
 }

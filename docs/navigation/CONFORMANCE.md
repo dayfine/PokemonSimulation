@@ -18,7 +18,8 @@ PYTHONPATH=src python3 -m unittest pokesim.maps.test_conformance \
   pokesim.maps.test_conformance_sync
 ```
 
-The runner checks on-disk map hashes; it does **not** approve publication or
+The runner checks exact map hashes, using local Git history when current
+published bytes differ; it does **not** approve publication or
 establish that those maps match a console. `conformance_sync` separately checks
 Git source provenance and approval of the pinned map revision. Existing
 `consumer_sync` map adoption protections remain in place.
@@ -30,7 +31,9 @@ The map pin is Simulation #45's main revision
 Arduino #226 were imported into that pin; its raw maps are unchanged from #44.
 Later [map reconciliation](../maps/BDSP_RECONCILIATION.md) updates two published
 maps outside these captured scenarios. Historical fixtures keep their original
-map pin and are not rewritten as if captured against the new pack.
+map pin and are not rewritten as if captured against the new pack. Supply full
+local Git history for offline historical replays; the runner does not fetch.
+Separate publication tests compare the same scenarios against the current pack.
 
 | ID | Input and exact expectation | Evidence / scope |
 |---|---|---|

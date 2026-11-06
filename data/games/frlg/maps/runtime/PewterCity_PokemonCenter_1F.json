@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "PewterCity_PokemonCenter_1F",
     "source": {
         "decomp_file": "data/maps/PewterCity_PokemonCenter_1F/map.json",
@@ -35,77 +36,20 @@
         "warp_1": [7, 8]
     },
     "warps": [
-        {
-            "x": 6,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "PewterCity",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 7,
-            "y": 8,
-            "enter": "walk_south",
-            "to_map": "PewterCity",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 8,
-            "y": 8,
-            "enter": "walk_into",
-            "to_map": "PewterCity",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 1,
-            "y": 6,
-            "enter": "step_on"
-        }
-    ],
-    "objects": [
-        {
-            "name": "jigglypuff",
-            "kind": "npc",
-            "x": 2,
-            "y": 2
-        },
-        {
-            "name": "gentleman",
-            "kind": "npc",
-            "x": 4,
-            "y": 8
-        },
-        {
-            "name": "nurse",
-            "kind": "npc",
-            "x": 7,
-            "y": 2
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 1,
-            "y": 2
-        },
-        {
-            "name": "woman_1",
-            "kind": "npc",
-            "x": 13,
-            "y": 2
-        },
-        {
-            "name": "gba_kid",
-            "kind": "npc",
-            "x": 10,
-            "y": 7
-        },
-        {
-            "name": "gba_kid",
-            "kind": "npc",
-            "x": 14,
-            "y": 6
-        }
+        {"coord": [6, 8], "enter": "walk_into", "to_map": "PewterCity", "to_point": "warp_5"},
+        {"coord": [7, 8], "enter": "walk_south", "to_map": "PewterCity", "to_point": "warp_5"},
+        {"coord": [8, 8], "enter": "walk_into", "to_map": "PewterCity", "to_point": "warp_5"},
+        {"coord": [1, 6], "enter": "step_on"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "jigglypuff", "coord": [2, 2]},
+        {"name": "gentleman", "coord": [4, 8]},
+        {"name": "nurse", "coord": [7, 2]},
+        {"name": "youngster", "coord": [1, 2]},
+        {"name": "woman_1", "coord": [13, 2]},
+        {"name": "gba_kid", "coord": [10, 7]},
+        {"name": "gba_kid", "coord": [14, 6]}
+    ]
 }

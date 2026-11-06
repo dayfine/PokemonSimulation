@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "SSAnne_CaptainsOffice",
     "source": {
         "decomp_file": "data/maps/SSAnne_CaptainsOffice/map.json",
@@ -21,22 +22,11 @@
         "warp_0": [3, 7]
     },
     "warps": [
-        {
-            "x": 3,
-            "y": 7,
-            "enter": "walk_west",
-            "to_map": "SSAnne_2F_Corridor",
-            "to_point": "warp_2"
-        }
-    ],
-    "objects": [
-        {
-            "name": "captain",
-            "kind": "npc",
-            "x": 5,
-            "y": 4
-        }
+        {"coord": [3, 7], "enter": "walk_west", "to_map": "SSAnne_2F_Corridor", "to_point": "warp_2"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "captain", "coord": [5, 4]}
+    ]
 }

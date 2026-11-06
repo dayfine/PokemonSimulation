@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "PewterCity_Mart",
     "source": {
         "decomp_file": "data/maps/PewterCity_Mart/map.json",
@@ -32,48 +33,15 @@
         "warp_1": [4, 7]
     },
     "warps": [
-        {
-            "x": 3,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "PewterCity",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 4,
-            "y": 7,
-            "enter": "walk_south",
-            "to_map": "PewterCity",
-            "to_point": "warp_3"
-        },
-        {
-            "x": 5,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "PewterCity",
-            "to_point": "warp_3"
-        }
-    ],
-    "objects": [
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 8,
-            "y": 2
-        },
-        {
-            "name": "boy",
-            "kind": "npc",
-            "x": 6,
-            "y": 4
-        },
-        {
-            "name": "clerk",
-            "kind": "npc",
-            "x": 2,
-            "y": 3
-        }
+        {"coord": [3, 7], "enter": "walk_into", "to_map": "PewterCity", "to_point": "warp_3"},
+        {"coord": [4, 7], "enter": "walk_south", "to_map": "PewterCity", "to_point": "warp_3"},
+        {"coord": [5, 7], "enter": "walk_into", "to_map": "PewterCity", "to_point": "warp_3"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "youngster", "coord": [8, 2]},
+        {"name": "boy", "coord": [6, 4]},
+        {"name": "clerk", "coord": [2, 3]}
+    ]
 }

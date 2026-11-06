@@ -9,6 +9,7 @@ from . import conformance_sync as sync
 from .conformance import PACK
 from .consumer_source import GitSource
 from .runtime_map_pack import ROOT
+from .pinned_runtime_map import read_pinned_map
 
 
 class SyncTests(unittest.TestCase):
@@ -26,7 +27,7 @@ class SyncTests(unittest.TestCase):
             relative = 'data/games/{game}/maps/runtime/{name}.json'.format(**entry)
             path = self.publisher / relative
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes((ROOT / relative).read_bytes())
+            path.write_bytes(read_pinned_map(pack['map_revision'], entry['game'], entry['name'], entry['sha256']))
         self.maps = self.commit()
         self.git('update-ref', 'refs/remotes/origin/main', self.maps)
         pack['map_revision'] = self.maps

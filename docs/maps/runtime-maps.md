@@ -39,9 +39,10 @@ copyright notice is retained in the root [LICENSE](../../LICENSE).
 
 ## Runtime schema and frames
 
-The pack is called `pokesim-runtime-map/1` by this repository. That identifier is
-external metadata: no new field was injected into consumer JSON. The imported
-runtime contract comes from Arduino's `Pokemon_MapData.h/.cpp` at the pinned
+The published pack uses `pokesim-runtime-map/2`, explicitly marked in every map
+and the manifest. [The publication record](V2_PUBLICATION.md) describes the
+conversion and native prerequisites. Historical unmarked/v1 packs remain
+readable. The original runtime contract comes from Arduino's `Pokemon_MapData.h/.cpp` at the pinned
 snapshots; [runtime_map_schema.py](../../src/pokesim/maps/runtime_map_schema.py) validates geometry
 and navigation fields and preserves unknown extensions.
 
@@ -52,12 +53,12 @@ and navigation fields and preserves unknown extensions.
 | `elevation` | Optional matching grid of hexadecimal Gen 3 elevations, default zero. |
 | `allow_running` | Optional boolean, default true. |
 | `points`, `regions` | Named `[x,y]` tiles and named lists of tiles. BDSP also encodes regions as numbered points. |
-| `warps` | `x,y`, optional `enter` (default `walk_into`), paired `to_map,to_point` when resolved. |
+| `warps` | `coord: [x,y]`, optional `enter` (default `walk_into`), paired `to_map,to_point` when resolved. |
 | `connections` | `side,to_map,offset` for connected map edges. |
-| `objects` | `name,kind,x,y`, optional facing, inclusive `wander` box (`x0,y0,x1,y1`), trainer sight/looks and hide flag. |
+| `npcs`, `items`, `signs`, `interactables` | Typed arrays of `name,coord`, optional facing, inclusive `wander` box (`min`, `max`), trainer sight/looks and hide flag. Section supplies kind; non-item interactions use `interactables` when enriched. |
 | `triggers`, `flag_sets` | Named story trigger boxes/conditions; named sets of game flags. Preserve game semantics. |
-| `coord_events` | BDSP extension: named `x,y,width,length,var,value,source` scene triggers. |
-| `patches` | Ordered `x,y,glyph,measured_by` overrides, applied by the loader over raw tiles. |
+| `coord_events` | BDSP extension: named `coord,width,length,var,value,source` scene triggers. |
+| `patches` | Ordered `coord,glyph,measured_by` overrides, applied by the loader over raw tiles. |
 
 Tiles: `#` blocked, `.` open, `~` encounter terrain (including cave floor),
 `w` water, `^v<>` directional ledges, `D` door/warp entrance, `S` sign,
@@ -158,15 +159,15 @@ and generators requires a separate consumer PR and an agreed resource-fetch
 mechanism. No runtime package download or Arduino build changes are implied
 by this migration.
 
-## Staged compact-coordinate format
+## Published compact-coordinate format
 
 [The ordered unification plan](UNIFICATION_STEPS.md) specifies runtime-map v2:
 `npcs`/`items`/`signs` arrays without repeated `kind` fields,
 `coord: [x, y]`, inclusive wander `min`/`max` coordinate pairs, and short records
-kept inline. `runtime_map_format` produces readable previews; Python loaders can
-normalize either representation for routing/recovery. The published pack remains
-v1 until shared native readers and consumer capabilities adopt v2. Manifest/map
-format consistency is checked, so v2 cannot be smuggled through a v1 data pin.
+kept inline. `runtime_map_format` produces readable exports; Python loaders
+normalize either representation for routing/recovery. Both generators now emit
+v2. Native consumers must gain the v2 reader before adopting this pack.
+Manifest/map format consistency is checked in both directions.
 
 [Staged item enrichment](item-identities.md) adds resolved item IDs/counts and
 source-event/collection references, and separates starter-choice interactions

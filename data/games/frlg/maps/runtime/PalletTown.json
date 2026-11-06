@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "PalletTown",
     "source": {
         "decomp_file": "data/maps/PalletTown/map.json",
@@ -56,67 +57,15 @@
         "warp_2": [16, 13]
     },
     "warps": [
-        {
-            "x": 6,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "PalletTown_PlayersHouse_1F",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 15,
-            "y": 7,
-            "enter": "walk_into",
-            "to_map": "PalletTown_RivalsHouse",
-            "to_point": "warp_0"
-        },
-        {
-            "x": 16,
-            "y": 13,
-            "enter": "walk_into",
-            "to_map": "PalletTown_ProfessorOaksLab",
-            "to_point": "warp_0"
-        }
-    ],
-    "objects": [
-        {
-            "name": "woman_1",
-            "kind": "npc",
-            "x": 3,
-            "y": 10,
-            "wander": {
-                "x0": 2,
-                "y0": 6,
-                "x1": 4,
-                "y1": 14
-            }
-        },
-        {
-            "name": "fat_man",
-            "kind": "npc",
-            "x": 13,
-            "y": 17,
-            "wander": {
-                "x0": 7,
-                "y0": 15,
-                "x1": 19,
-                "y1": 19
-            }
-        },
-        {
-            "name": "prof_oak",
-            "kind": "npc",
-            "x": 10,
-            "y": 8,
-            "hide_flag": "FLAG_HIDE_OAK_IN_PALLET_TOWN"
-        }
+        {"coord": [6, 7], "enter": "walk_into", "to_map": "PalletTown_PlayersHouse_1F", "to_point": "warp_1"},
+        {"coord": [15, 7], "enter": "walk_into", "to_map": "PalletTown_RivalsHouse", "to_point": "warp_0"},
+        {"coord": [16, 13], "enter": "walk_into", "to_map": "PalletTown_ProfessorOaksLab", "to_point": "warp_0"}
     ],
     "flag_sets": {},
-    "connections": [
-        {
-            "side": "north",
-            "to_map": "Route1",
-            "offset": 0
-        }
+    "connections": [{"side": "north", "to_map": "Route1", "offset": 0}],
+    "npcs": [
+        {"name": "woman_1", "coord": [3, 10], "wander": {"min": [2, 6], "max": [4, 14]}},
+        {"name": "fat_man", "coord": [13, 17], "wander": {"min": [7, 15], "max": [19, 19]}},
+        {"name": "prof_oak", "coord": [10, 8], "hide_flag": "FLAG_HIDE_OAK_IN_PALLET_TOWN"}
     ]
 }

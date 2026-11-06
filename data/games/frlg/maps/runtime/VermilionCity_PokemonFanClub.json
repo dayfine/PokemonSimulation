@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "VermilionCity_PokemonFanClub",
     "source": {
         "decomp_file": "data/maps/VermilionCity_PokemonFanClub/map.json",
@@ -38,66 +39,18 @@
         "warp_1": [5, 10]
     },
     "warps": [
-        {
-            "x": 4,
-            "y": 10,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 5,
-            "y": 10,
-            "enter": "walk_south",
-            "to_map": "VermilionCity",
-            "to_point": "warp_5"
-        },
-        {
-            "x": 6,
-            "y": 10,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_5"
-        }
-    ],
-    "objects": [
-        {
-            "name": "gentleman",
-            "kind": "npc",
-            "x": 5,
-            "y": 4
-        },
-        {
-            "name": "worker_f",
-            "kind": "npc",
-            "x": 6,
-            "y": 4
-        },
-        {
-            "name": "pikachu",
-            "kind": "npc",
-            "x": 7,
-            "y": 6
-        },
-        {
-            "name": "seel",
-            "kind": "npc",
-            "x": 4,
-            "y": 6
-        },
-        {
-            "name": "woman_1",
-            "kind": "npc",
-            "x": 4,
-            "y": 5
-        },
-        {
-            "name": "fat_man",
-            "kind": "npc",
-            "x": 7,
-            "y": 5
-        }
+        {"coord": [4, 10], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_5"},
+        {"coord": [5, 10], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_5"},
+        {"coord": [6, 10], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_5"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "gentleman", "coord": [5, 4]},
+        {"name": "worker_f", "coord": [6, 4]},
+        {"name": "pikachu", "coord": [7, 6]},
+        {"name": "seel", "coord": [4, 6]},
+        {"name": "woman_1", "coord": [4, 5]},
+        {"name": "fat_man", "coord": [7, 5]}
+    ]
 }

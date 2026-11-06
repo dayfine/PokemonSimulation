@@ -67,6 +67,8 @@ jobs:
         python-version: ["3.8", "3.12"]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Historical native replays retain their original map pins.
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
@@ -86,6 +88,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Historical native replays retain their original map pins.
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "Route9",
     "source": {
         "decomp_file": "data/maps/Route9/map.json",
@@ -29,147 +30,27 @@
     ],
     "points": {},
     "warps": [],
-    "objects": [
-        {
-            "name": "picnicker",
-            "kind": "npc",
-            "x": 14,
-            "y": 10,
-            "facing": "west",
-            "trainer": {
-                "sight": 3
-            }
-        },
-        {
-            "name": "hiker",
-            "kind": "npc",
-            "x": 20,
-            "y": 17,
-            "trainer": {
-                "sight": 4,
-                "looks": [
-                    "north",
-                    "west"
-                ]
-            }
-        },
-        {
-            "name": "hiker",
-            "kind": "npc",
-            "x": 61,
-            "y": 16,
-            "facing": "south",
-            "trainer": {
-                "sight": 1
-            }
-        },
-        {
-            "name": "camper",
-            "kind": "npc",
-            "x": 26,
-            "y": 7,
-            "trainer": {
-                "sight": 3,
-                "looks": [
-                    "north",
-                    "east",
-                    "south",
-                    "west"
-                ]
-            }
-        },
-        {
-            "name": "bug_catcher",
-            "kind": "npc",
-            "x": 26,
-            "y": 1,
-            "facing": "south",
-            "trainer": {
-                "sight": 2
-            }
-        },
-        {
-            "name": "bug_catcher",
-            "kind": "npc",
-            "x": 49,
-            "y": 7,
-            "facing": "east",
-            "trainer": {
-                "sight": 3
-            }
-        },
-        {
-            "name": "hiker",
-            "kind": "npc",
-            "x": 53,
-            "y": 2,
-            "wander": {
-                "x0": 50,
-                "y0": 2,
-                "x1": 56,
-                "y1": 2
-            },
-            "trainer": {
-                "sight": 1,
-                "looks": [
-                    "west",
-                    "east"
-                ]
-            }
-        },
-        {
-            "name": "picnicker",
-            "kind": "npc",
-            "x": 60,
-            "y": 9,
-            "facing": "east",
-            "trainer": {
-                "sight": 4
-            }
-        },
-        {
-            "name": "camper",
-            "kind": "npc",
-            "x": 36,
-            "y": 6,
-            "facing": "east",
-            "trainer": {
-                "sight": 5
-            }
-        },
-        {
-            "name": "cut_tree",
-            "kind": "npc",
-            "x": 2,
-            "y": 8,
-            "hide_flag": "FLAG_TEMP_12"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 12,
-            "y": 17,
-            "hide_flag": "FLAG_HIDE_ROUTE9_TM40"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 65,
-            "y": 17,
-            "hide_flag": "FLAG_HIDE_ROUTE9_BURN_HEAL"
-        }
-    ],
     "flag_sets": {},
-    "connections": [
+    "connections": [{"side": "west", "to_map": "CeruleanCity", "offset": -10}, {"side": "east", "to_map": "Route10", "offset": 0}],
+    "npcs": [
+        {"name": "picnicker", "coord": [14, 10], "facing": "west", "trainer": {"sight": 3}},
+        {"name": "hiker", "coord": [20, 17], "trainer": {"sight": 4, "looks": ["north", "west"]}},
+        {"name": "hiker", "coord": [61, 16], "facing": "south", "trainer": {"sight": 1}},
+        {"name": "camper", "coord": [26, 7], "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]}},
+        {"name": "bug_catcher", "coord": [26, 1], "facing": "south", "trainer": {"sight": 2}},
+        {"name": "bug_catcher", "coord": [49, 7], "facing": "east", "trainer": {"sight": 3}},
         {
-            "side": "west",
-            "to_map": "CeruleanCity",
-            "offset": -10
+            "name": "hiker",
+            "coord": [53, 2],
+            "wander": {"min": [50, 2], "max": [56, 2]},
+            "trainer": {"sight": 1, "looks": ["west", "east"]}
         },
-        {
-            "side": "east",
-            "to_map": "Route10",
-            "offset": 0
-        }
+        {"name": "picnicker", "coord": [60, 9], "facing": "east", "trainer": {"sight": 4}},
+        {"name": "camper", "coord": [36, 6], "facing": "east", "trainer": {"sight": 5}},
+        {"name": "cut_tree", "coord": [2, 8], "hide_flag": "FLAG_TEMP_12"}
+    ],
+    "items": [
+        {"name": "item_ball", "coord": [12, 17], "hide_flag": "FLAG_HIDE_ROUTE9_TM40"},
+        {"name": "item_ball", "coord": [65, 17], "hide_flag": "FLAG_HIDE_ROUTE9_BURN_HEAL"}
     ]
 }

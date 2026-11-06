@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "ViridianCity",
     "source": {
         "decomp_file": "data/maps/ViridianCity/map.json",
@@ -94,123 +95,29 @@
         "warp_4": [36, 19]
     },
     "warps": [
-        {
-            "x": 26,
-            "y": 26,
-            "enter": "walk_into",
-            "to_map": "ViridianCity_PokemonCenter_1F",
-            "to_point": "warp_1"
-        },
-        {
-            "x": 25,
-            "y": 11,
-            "enter": "walk_into"
-        },
-        {
-            "x": 36,
-            "y": 10,
-            "enter": "walk_into"
-        },
-        {
-            "x": 25,
-            "y": 18,
-            "enter": "walk_into"
-        },
-        {
-            "x": 36,
-            "y": 19,
-            "enter": "walk_into",
-            "to_map": "ViridianCity_Mart",
-            "to_point": "warp_1"
-        }
-    ],
-    "objects": [
-        {
-            "name": "fat_man",
-            "kind": "npc",
-            "x": 8,
-            "y": 26
-        },
-        {
-            "name": "cut_tree",
-            "kind": "npc",
-            "x": 11,
-            "y": 24,
-            "hide_flag": "FLAG_TEMP_11"
-        },
-        {
-            "name": "old_man_1",
-            "kind": "npc",
-            "x": 34,
-            "y": 11
-        },
-        {
-            "name": "var_0",
-            "kind": "npc",
-            "x": 21,
-            "y": 6
-        },
-        {
-            "name": "woman_3",
-            "kind": "npc",
-            "x": 20,
-            "y": 12
-        },
-        {
-            "name": "youngster",
-            "kind": "npc",
-            "x": 33,
-            "y": 26,
-            "wander": {
-                "x0": 33,
-                "y0": 24,
-                "x1": 33,
-                "y1": 28
-            }
-        },
-        {
-            "name": "boy",
-            "kind": "npc",
-            "x": 16,
-            "y": 22,
-            "wander": {
-                "x0": 15,
-                "y0": 20,
-                "x1": 17,
-                "y1": 24
-            }
-        },
-        {
-            "name": "cut_tree",
-            "kind": "npc",
-            "x": 18,
-            "y": 5,
-            "hide_flag": "FLAG_TEMP_12"
-        },
-        {
-            "name": "item_ball",
-            "kind": "item",
-            "x": 17,
-            "y": 5,
-            "hide_flag": "FLAG_HIDE_VIRIDIAN_CITY_POTION"
-        }
+        {"coord": [26, 26], "enter": "walk_into", "to_map": "ViridianCity_PokemonCenter_1F", "to_point": "warp_1"},
+        {"coord": [25, 11], "enter": "walk_into"},
+        {"coord": [36, 10], "enter": "walk_into"},
+        {"coord": [25, 18], "enter": "walk_into"},
+        {"coord": [36, 19], "enter": "walk_into", "to_map": "ViridianCity_Mart", "to_point": "warp_1"}
     ],
     "flag_sets": {},
     "connections": [
-        {
-            "side": "north",
-            "to_map": "Route2",
-            "offset": 12
-        },
-        {
-            "side": "south",
-            "to_map": "Route1",
-            "offset": 12
-        },
-        {
-            "side": "west",
-            "to_map": "Route22",
-            "offset": 10
-        }
+        {"side": "north", "to_map": "Route2", "offset": 12},
+        {"side": "south", "to_map": "Route1", "offset": 12},
+        {"side": "west", "to_map": "Route22", "offset": 10}
+    ],
+    "npcs": [
+        {"name": "fat_man", "coord": [8, 26]},
+        {"name": "cut_tree", "coord": [11, 24], "hide_flag": "FLAG_TEMP_11"},
+        {"name": "old_man_1", "coord": [34, 11]},
+        {"name": "var_0", "coord": [21, 6]},
+        {"name": "woman_3", "coord": [20, 12]},
+        {"name": "youngster", "coord": [33, 26], "wander": {"min": [33, 24], "max": [33, 28]}},
+        {"name": "boy", "coord": [16, 22], "wander": {"min": [15, 20], "max": [17, 24]}},
+        {"name": "cut_tree", "coord": [18, 5], "hide_flag": "FLAG_TEMP_12"}
+    ],
+    "items": [
+        {"name": "item_ball", "coord": [17, 5], "hide_flag": "FLAG_HIDE_VIRIDIAN_CITY_POTION"}
     ]
 }

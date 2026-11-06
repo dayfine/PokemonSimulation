@@ -1,4 +1,5 @@
 {
+    "format": "pokesim-runtime-map/2",
     "name": "VermilionCity_Gym",
     "source": {
         "decomp_file": "data/maps/VermilionCity_Gym/map.json",
@@ -56,82 +57,17 @@
         "warp_1": [5, 19]
     },
     "warps": [
-        {
-            "x": 4,
-            "y": 19,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_9"
-        },
-        {
-            "x": 5,
-            "y": 19,
-            "enter": "walk_south",
-            "to_map": "VermilionCity",
-            "to_point": "warp_9"
-        },
-        {
-            "x": 6,
-            "y": 19,
-            "enter": "walk_into",
-            "to_map": "VermilionCity",
-            "to_point": "warp_9"
-        }
-    ],
-    "objects": [
-        {
-            "name": "lt_surge",
-            "kind": "npc",
-            "x": 5,
-            "y": 2
-        },
-        {
-            "name": "balding_man",
-            "kind": "npc",
-            "x": 2,
-            "y": 11,
-            "trainer": {
-                "sight": 3,
-                "looks": [
-                    "north",
-                    "east",
-                    "south",
-                    "west"
-                ]
-            }
-        },
-        {
-            "name": "sailor",
-            "kind": "npc",
-            "x": 8,
-            "y": 13,
-            "trainer": {
-                "sight": 3,
-                "looks": [
-                    "north",
-                    "east",
-                    "south",
-                    "west"
-                ]
-            }
-        },
-        {
-            "name": "gym_guy",
-            "kind": "npc",
-            "x": 4,
-            "y": 17
-        },
-        {
-            "name": "gentleman",
-            "kind": "npc",
-            "x": 7,
-            "y": 8,
-            "facing": "west",
-            "trainer": {
-                "sight": 3
-            }
-        }
+        {"coord": [4, 19], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_9"},
+        {"coord": [5, 19], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_9"},
+        {"coord": [6, 19], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_9"}
     ],
     "flag_sets": {},
-    "connections": []
+    "connections": [],
+    "npcs": [
+        {"name": "lt_surge", "coord": [5, 2]},
+        {"name": "balding_man", "coord": [2, 11], "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]}},
+        {"name": "sailor", "coord": [8, 13], "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]}},
+        {"name": "gym_guy", "coord": [4, 17]},
+        {"name": "gentleman", "coord": [7, 8], "facing": "west", "trainer": {"sight": 3}}
+    ]
 }
