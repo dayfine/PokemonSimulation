@@ -29,19 +29,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "hold_ms": 50,
@@ -53,19 +47,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "kind": "taps",
@@ -87,10 +75,7 @@
           "elevation": 0,
           "facing": "west",
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         },
         "interrupted_walls": 0,
         "move_speed": "run",
@@ -101,10 +86,7 @@
           "elevation": 0,
           "facing": "east",
           "map": "Route202",
-          "tile": [
-            26,
-            5
-          ]
+          "tile": [26, 5]
         },
         "tap": 1
       },
@@ -121,10 +103,7 @@
         "elevation": 0,
         "facing": "east",
         "map": "Route202",
-        "tile": [
-          27,
-          5
-        ]
+        "tile": [27, 5]
       }
     },
     {
@@ -134,19 +113,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "hold_ms": 50,
@@ -158,19 +131,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "kind": "taps",
@@ -188,19 +155,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -219,19 +180,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -250,19 +205,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -281,19 +230,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -316,10 +259,7 @@
           "elevation": 0,
           "facing": "west",
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         },
         "interrupted_walls": 4,
         "move_speed": "run",
@@ -330,10 +270,7 @@
           "elevation": 0,
           "facing": "east",
           "map": "Route202",
-          "tile": [
-            26,
-            5
-          ]
+          "tile": [26, 5]
         },
         "tap": 2
       },
@@ -357,10 +294,7 @@
         "elevation": 0,
         "facing": "east",
         "map": "Route202",
-        "tile": [
-          27,
-          5
-        ]
+        "tile": [27, 5]
       }
     },
     {
@@ -370,19 +304,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "hold_ms": 50,
@@ -394,19 +322,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "kind": "taps",
@@ -424,19 +346,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -455,19 +371,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": false,
@@ -486,19 +396,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "hold_ms": 50,
@@ -510,19 +414,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              28,
-              5
-            ]
+            "tile": [28, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "kind": "taps",
@@ -541,10 +439,7 @@
           "elevation": 0,
           "facing": null,
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         }
       ],
       "failure": "",
@@ -554,10 +449,7 @@
           "elevation": 0,
           "facing": "west",
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         },
         "interrupted_walls": 1,
         "move_speed": "run",
@@ -568,10 +460,7 @@
           "elevation": 0,
           "facing": "east",
           "map": "Route202",
-          "tile": [
-            26,
-            5
-          ]
+          "tile": [26, 5]
         },
         "tap": 2
       },
@@ -599,10 +488,7 @@
         "elevation": 0,
         "facing": "west",
         "map": "Route202",
-        "tile": [
-          28,
-          5
-        ]
+        "tile": [28, 5]
       }
     },
     {
@@ -612,19 +498,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "hold_ms": 50,
@@ -636,19 +516,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              28,
-              5
-            ]
+            "tile": [28, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "kind": "taps",
@@ -666,19 +540,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              28,
-              5
-            ]
+            "tile": [28, 5]
           },
           "direction": "east",
           "injected_pause": false,
@@ -697,19 +565,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "hold_ms": 50,
@@ -721,19 +583,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              28,
-              5
-            ]
+            "tile": [28, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "kind": "taps",
@@ -752,10 +608,7 @@
           "elevation": 0,
           "facing": null,
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         }
       ],
       "failure": "",
@@ -765,10 +618,7 @@
           "elevation": 0,
           "facing": "west",
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         },
         "interrupted_walls": 0,
         "move_speed": "run",
@@ -779,10 +629,7 @@
           "elevation": 0,
           "facing": "east",
           "map": "Route202",
-          "tile": [
-            26,
-            5
-          ]
+          "tile": [26, 5]
         },
         "tap": 2
       },
@@ -810,10 +657,7 @@
         "elevation": 0,
         "facing": "west",
         "map": "Route202",
-        "tile": [
-          28,
-          5
-        ]
+        "tile": [28, 5]
       }
     },
     {
@@ -823,19 +667,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "hold_ms": 50,
@@ -847,19 +685,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "kind": "taps",
@@ -877,19 +709,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": false,
@@ -908,19 +734,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "hold_ms": 50,
@@ -932,19 +752,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              28,
-              5
-            ]
+            "tile": [28, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "kind": "taps",
@@ -963,10 +777,7 @@
           "elevation": 0,
           "facing": null,
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         }
       ],
       "failure": "",
@@ -976,10 +787,7 @@
           "elevation": 0,
           "facing": "west",
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         },
         "interrupted_walls": 0,
         "move_speed": "run",
@@ -990,10 +798,7 @@
           "elevation": 0,
           "facing": "east",
           "map": "Route202",
-          "tile": [
-            26,
-            5
-          ]
+          "tile": [26, 5]
         },
         "tap": 2
       },
@@ -1021,10 +826,7 @@
         "elevation": 0,
         "facing": "west",
         "map": "Route202",
-        "tile": [
-          28,
-          5
-        ]
+        "tile": [28, 5]
       }
     },
     {
@@ -1034,19 +836,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "hold_ms": 50,
@@ -1058,19 +854,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "kind": "taps",
@@ -1088,19 +878,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -1119,19 +903,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -1150,19 +928,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": true,
@@ -1181,19 +953,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "direction": "east",
           "injected_pause": false,
@@ -1212,19 +978,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "hold_ms": 50,
@@ -1236,19 +996,13 @@
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              28,
-              5
-            ]
+            "tile": [28, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "west",
             "map": "Route202",
-            "tile": [
-              30,
-              5
-            ]
+            "tile": [30, 5]
           },
           "direction": "west",
           "kind": "taps",
@@ -1267,10 +1021,7 @@
           "elevation": 0,
           "facing": null,
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         }
       ],
       "failure": "",
@@ -1280,10 +1031,7 @@
           "elevation": 0,
           "facing": "west",
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         },
         "interrupted_walls": 3,
         "move_speed": "run",
@@ -1294,10 +1042,7 @@
           "elevation": 0,
           "facing": "east",
           "map": "Route202",
-          "tile": [
-            26,
-            5
-          ]
+          "tile": [26, 5]
         },
         "tap": 2
       },
@@ -1327,10 +1072,7 @@
         "elevation": 0,
         "facing": "west",
         "map": "Route202",
-        "tile": [
-          28,
-          5
-        ]
+        "tile": [28, 5]
       }
     },
     {
@@ -1340,19 +1082,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "hold_ms": 50,
@@ -1364,19 +1100,13 @@
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              27,
-              5
-            ]
+            "tile": [27, 5]
           },
           "before": {
             "elevation": 0,
             "facing": "east",
             "map": "Route202",
-            "tile": [
-              26,
-              5
-            ]
+            "tile": [26, 5]
           },
           "direction": "east",
           "kind": "taps",
@@ -1398,10 +1128,7 @@
           "elevation": 0,
           "facing": "west",
           "map": "Route202",
-          "tile": [
-            28,
-            5
-          ]
+          "tile": [28, 5]
         },
         "interrupted_walls": 0,
         "move_speed": "run",
@@ -1412,10 +1139,7 @@
           "elevation": 0,
           "facing": "east",
           "map": "Route202",
-          "tile": [
-            26,
-            5
-          ]
+          "tile": [26, 5]
         },
         "tap": 2
       },
@@ -1432,10 +1156,7 @@
         "elevation": 0,
         "facing": "east",
         "map": "Route202",
-        "tile": [
-          27,
-          5
-        ]
+        "tile": [27, 5]
       }
     }
   ]

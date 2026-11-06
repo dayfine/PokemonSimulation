@@ -261,6 +261,30 @@ def verify_native_source(bundle, root):
     same(hashlib.sha256(raw).hexdigest(), bundle['maps'][0]['sha256'], 'native pinned map checksum')
 
 
+def format_trace(value, width=100):
+    """Indent objects; keep scalar arrays inline when the full line fits."""
+    def render(item, depth, column):
+        inline = json.dumps(item)
+        if not isinstance(item, (dict, list)) or not item:
+            return inline
+        if isinstance(item, list) and all(not isinstance(v, (dict, list)) for v in item):
+            if column + len(inline) <= width:
+                return inline
+        pad = '  ' * (depth + 1)
+        if isinstance(item, dict):
+            lines = []
+            for key, child in item.items():
+                prefix = pad + json.dumps(key) + ': '
+                lines.append(prefix + render(child, depth + 1, len(prefix)))
+            opening, closing = '{', '}'
+        else:
+            lines = [pad + render(child, depth + 1, len(pad)) for child in item]
+            opening, closing = '[', ']'
+        return opening + '\n' + ',\n'.join(lines) + '\n' + '  ' * depth + closing
+
+    return render(value, 0, 0) + '\n'
+
+
 def capture(stdout, native_root, source_root, output):
     """Wrap complete, passing per-case exports; does not run/attest the binary."""
     from .consumer_source import GitSource
@@ -290,7 +314,7 @@ def capture(stdout, native_root, source_root, output):
     verify_native_source(bundle, native_root)
     check_bundle(bundle, source_root)
     Path(output).parent.mkdir(parents=True, exist_ok=True)
-    Path(output).write_text(json.dumps(bundle, indent=2) + '\n')
+    Path(output).write_text(format_trace(bundle))
     return bundle
 
 
