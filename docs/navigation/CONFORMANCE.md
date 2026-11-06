@@ -27,7 +27,10 @@ Git source provenance and approval of the pinned map revision. Existing
 
 The map pin is Simulation #45's main revision
 `4f6db528960e305cf49c53c89ec91adbffb168a9`. No terrain corrections from pending
-Arduino #226 were imported. The raw maps are unchanged from #44.
+Arduino #226 were imported into that pin; its raw maps are unchanged from #44.
+Later [map reconciliation](../maps/BDSP_RECONCILIATION.md) updates two published
+maps outside these captured scenarios. Historical fixtures keep their original
+map pin and are not rewritten as if captured against the new pack.
 
 | ID | Input and exact expectation | Evidence / scope |
 |---|---|---|

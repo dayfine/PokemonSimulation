@@ -1779,7 +1779,12 @@
               "status": "scenario observation; not proof of universally stationary NPCs"
             }
           ],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "reconciliation_review": {
+            "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
+            "decision": "held",
+            "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          }
         },
         {
           "name": "LakeVerity",
@@ -1992,12 +1997,17 @@
           },
           "preconditions": [],
           "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "reconciliation_review": {
+            "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
+            "decision": "held",
+            "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          }
         },
         {
           "name": "OreburghMineB1F",
           "file": "data/games/bdsp/maps/runtime/OreburghMineB1F.json",
-          "sha256": "1bb7aa2096eded46e165d818343ad256aad2560aa28d92ec2f4ac91b91794eed",
+          "sha256": "101d2e0f755a57840465cf3a9abe9d45fe6613f97f80b05f3790a05a567c565a",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMineB1F.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0313.bin; zone_event narc_0196",
@@ -2033,18 +2043,35 @@
               [
                 13,
                 1
+              ],
+              [
+                11,
+                21
+              ],
+              [
+                12,
+                21
+              ],
+              [
+                13,
+                21
               ]
             ],
             "coord_events": {}
           },
           "preconditions": [],
           "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "reconciliation_review": {
+            "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
+            "decision": "adopted",
+            "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          }
         },
         {
           "name": "PlayerHouse1F",
           "file": "data/games/bdsp/maps/runtime/PlayerHouse1F.json",
-          "sha256": "1f8a360b96af695303f5d38a8f1fd1061e350f70ba560bd9b2989c8a8acebca4",
+          "sha256": "bf5adfa772da75a627225519c950c55832eee2214bb92d0c54cda1221416b929",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/PlayerHouse1F.json",
           "source": {
             "decomp_file": "pret/pokeplatinum: res/field/maps/data/map_data_186.bin; events_twinleaf_town_player_house_1f.json; decomp only, not checked on the console",
@@ -2054,7 +2081,7 @@
           "target_game": "bdsp",
           "source_game": "platinum",
           "source_revision_resolved": true,
-          "verification": "decomp-only",
+          "verification": "mixed; Platinum baseline plus console-reported navigation/scene overrides; see reconciliation review",
           "coordinate_frame": {
             "kind": "local tiles",
             "origin": [
@@ -2082,19 +2109,24 @@
                 {
                   "name": "moms_call",
                   "x": 6,
-                  "y": 9,
+                  "y": 10,
                   "width": 1,
                   "length": 1,
                   "var": "CONSOLE_MOMS_CALL",
                   "value": 0,
-                  "measured_by": "console r45, r46 (2026-11-01): after her heal Mom calls us back as we step above the door; no coord event in the decomp"
+                  "measured_by": "console r45, r46 (2026-11-01): after her heal Mom calls us back as we step onto the mat (6, 10); no coord event in the decomp"
                 }
               ]
             }
           },
           "preconditions": [],
           "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "reconciliation_review": {
+            "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
+            "decision": "adopted-reported",
+            "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          }
         },
         {
           "name": "PlayerHouse2F",
@@ -2327,7 +2359,12 @@
               "status": "console-observed"
             }
           ],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "reconciliation_review": {
+            "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
+            "decision": "held",
+            "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          }
         },
         {
           "name": "Route202",

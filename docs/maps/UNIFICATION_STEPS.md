@@ -23,6 +23,9 @@ Compared against PokemonSimulation `b49fe94` using immutable Git blobs:
 | PlayerHouse1F | `coord_events` |
 | Route201 | `patches` |
 
+This table records the initial audit. The [subsequent review](BDSP_RECONCILIATION.md)
+adopts two changes and retains three explicit evidence gaps.
+
 Formatting alone explains none of these five differences. The comparison does
 not approve either version's terrain, NPC assumptions or triggers. Bring the
 correction and its decomp/console evidence here for review; do not overwrite
@@ -52,7 +55,10 @@ it is a diagnostic, not a substitute for byte/hash integrity acceptance.
 - [ ] Add v2 reading to the shared native `Pokemon_MapData` owner, with native
   cases for coordinates, inclusive wander bounds, malformed/mixed versions and
   v1 compatibility. Merge that prerequisite into both story chains.
-- [ ] Resolve the five BDSP data differences here with recorded evidence.
+- [x] Review the five BDSP data differences here with recorded evidence.
+  [Reconciliation decisions](BDSP_RECONCILIATION.md): adopt two; hold Route 201, the mine
+  corridor and president edits pending anchored BDSP evidence. Parity improves
+  to 19/22 against the same #226 snapshot; native adoption remains pending.
 - [ ] Convert all published maps and generator output together; bump the
   manifest's runtime format, update checksums and consumer format capability.
   Re-run every map audit, native reader test, route golden and recovery replay.
