@@ -59,25 +59,28 @@ jobs:
           PYTHONPATH: src
         run: |
           python3 -m pokesim.maps.consumer_sync update --layout resources \
-            --consumer "$GITHUB_WORKSPACE" --source "$GITHUB_WORKSPACE" --offline \
+            --consumer "$GITHUB_WORKSPACE/native-consumer" --source "$GITHUB_WORKSPACE" --offline \
             --game bdsp --game frlg --revision "$(git rev-parse origin/main)"
           python3 - <<'PYTHON'
           from pathlib import Path
           import shutil
           from pokesim.maps.consumer_sync import RESOURCES
           for destination in RESOURCES.destinations.values():
-              shutil.rmtree(Path(destination))
+              shutil.rmtree(Path('native-consumer') / destination)
           PYTHON
       - name: Prepare the existing resource lock through the integration action
+        id: resources
         uses: ./integrations/arduino-source/verify-map-packs
         with:
           layout: resources
           operation: prepare
+          consumer-directory: native-consumer
       - name: Configure with the same resource validation helper used by native builds
         run: >-
           cmake -S integrations/arduino-source/resource-smoke -B build/map-resource-smoke
-          -DCONSUMER_ROOT="$GITHUB_WORKSPACE"
-          -DPUBLISHER_SOURCE="$GITHUB_WORKSPACE/.pokesim-map-source"
+          -DCONSUMER_ROOT="$GITHUB_WORKSPACE/native-consumer"
+          -DPUBLISHER_SOURCE="${{ steps.resources.outputs.source-cache }}"
+          -DPOKESIM_TOOLS_SOURCE="${{ steps.resources.outputs.tools-source }}"
 
   item-sources:
     runs-on: ubuntu-22.04
