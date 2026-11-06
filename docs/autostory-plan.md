@@ -5,6 +5,16 @@ plan and hardware execution; PokemonSimulation owns map preparation, generic
 planning and offline evaluation. FRLG and BDSP share contracts where the
 semantics match and keep game-specific adapters where they differ.
 
+## Next small unifications (2026-11-06)
+
+The ordered [map/resources/story-data work](maps/UNIFICATION_STEPS.md) covers:
+compact coordinate pairs; current FRLG/BDSP parity evidence; pinned external
+Packages resources before removing native map copies/authoring; and **actions /
+story events as data**, not merely route paths. It updates the older vendored-map
+distribution choice. The first slice stages the v2 coordinate codec/formatter and
+read-only parity tool; published v1 pins stay unchanged until native readers adopt
+v2. Native resource migration and actual story checkpoint export remain pending.
+
 ## 1. Map ownership — current milestone
 
 - [x] Import all 53 FRLG and 22 BDSP maps from the active aggregate branches,

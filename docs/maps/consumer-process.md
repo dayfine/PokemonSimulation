@@ -1,5 +1,10 @@
 # Map changes and consumer updates
 
+**Distribution update:** the user now wants pinned external Packages map resources
+during fork development, with upstream data submitted explicitly at handoff.
+See [the ordered migration](UNIFICATION_STEPS.md). The vendored process below is
+the currently implemented v1 baseline, not the new end state.
+
 Status: check/update tooling and a reusable CI action are implemented; adoption
 in Arduino and its required status settings remain pending. See the
 [integration commands and rollout](../../integrations/arduino-source/README.md).

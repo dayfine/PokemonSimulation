@@ -5,6 +5,7 @@ game-specific flag/trigger semantics belong to the replay adapter.
 """
 
 from .runtime_symbols import GLYPHS
+from .runtime_map_coordinates import COMPACT, LEGACY, legacy_map
 
 ENTRIES = {'walk_into', 'step_on', 'cave_entrance', 'walk_north',
            'walk_south', 'walk_west', 'walk_east'}
@@ -22,6 +23,10 @@ def validate(data):
             raise ValueError(message)
 
     require(isinstance(data, dict), 'map must be an object')
+    if data.get('format') == COMPACT:
+        validate(legacy_map(data))
+        return data
+    require(data.get('format', LEGACY) == LEGACY, 'unsupported runtime map format')
     require(isinstance(data.get('name'), str) and data['name'], 'name required')
     require(isinstance(data.get('source'), dict), 'source required')
     for field in ('decomp_file', 'revision', 'date'):

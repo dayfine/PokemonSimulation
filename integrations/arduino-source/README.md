@@ -1,5 +1,11 @@
 # Arduino map consumer integration
 
+The [new migration plan](../../docs/maps/UNIFICATION_STEPS.md) stages compact
+coordinate arrays and a move to pinned external Packages resources. Commands
+below still target the existing embedded source-map directories; resource-path
+adoption and native v2 reader support remain pending. The current snapshot
+comparison is also recorded in that plan.
+
 The implementation lives in `pokesim.maps.consumer_sync` and
 `pokesim.maps.consumer_source`. Python 3.8+ and Git suffice; no Python packages
 or battle engine are needed. This folder supplies the CI action and workflow
