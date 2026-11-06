@@ -167,3 +167,7 @@ kept inline. `runtime_map_format` produces readable previews; Python loaders can
 normalize either representation for routing/recovery. The published pack remains
 v1 until shared native readers and consumer capabilities adopt v2. Manifest/map
 format consistency is checked, so v2 cannot be smuggled through a v1 data pin.
+
+[Staged item enrichment](item-identities.md) adds resolved item IDs/counts and
+source-event/collection references, and separates starter-choice interactions
+from pickups. Use `runtime_map_format --game frlg|bdsp` to request it explicitly.

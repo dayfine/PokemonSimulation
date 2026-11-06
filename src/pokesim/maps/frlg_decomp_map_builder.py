@@ -27,6 +27,7 @@ differs. Export the generated pack with pokesim.maps.runtime_map_pack for
 Arduino consumers.
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -35,6 +36,8 @@ import subprocess
 import sys
 
 from .runtime_symbols import CLOSED_SIDES, LEDGE_GLYPHS
+from .item_identity import enrich_objects
+from .runtime_map_format import map_text as readable_map_text
 
 COMMIT = 'ce6406d8c2eaf46d543c8a2606de0c3cb1951982'
 #   When COMMIT was pinned, for each map's "source".
@@ -128,6 +131,7 @@ OPENED_TILES = {
 
 class Decomp:
     def __init__(self, commit, cache):
+        self.commit = commit
         self.raw = 'https://raw.githubusercontent.com/pret/pokefirered/' + commit
         self.cache = os.path.join(cache, commit)
 
@@ -294,9 +298,15 @@ def trainer(obj):
     return {'sight': sight, 'looks': TURNING_LOOKS.get(movement, ALL_LOOKS)}
 
 
-def map_object(obj, tiles):
+def map_object(obj, tiles, event_index=None):
     kind = obj['graphics_id'].replace('OBJ_EVENT_GFX_', '').lower()
     data = {'name': kind, 'kind': 'item' if kind == 'item_ball' else 'npc', 'x': obj['x'], 'y': obj['y']}
+    if kind == 'item_ball' and event_index is not None:
+        reference = {key: value for key, value in
+                     dict(index=event_index, id=obj.get('local_id'), script=obj.get('script')).items()
+                     if value is not None}
+        if reference:
+            data['source_event'] = reference
     box = wander_box(obj, tiles)
     if box:
         data['wander'] = box
@@ -357,7 +367,7 @@ def land_encounter_maps(decomp):
     return {e['map'] for group in groups for e in group.get('encounters', []) if 'land_mons' in e}
 
 
-def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps=frozenset()):
+def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps=frozenset(), include_item_identities=False):
     source = sources[name]
     signs = frozenset((e['x'], e['y']) for e in source.get('bg_events', []) if e.get('type') == 'sign')
     tiles, elevation, entries, wild_edges = grid(
@@ -371,7 +381,7 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
         points[warp_point(index)] = [warp_events[index]['x'], warp_events[index]['y']]
     data = {
         'name': name,
-        'source': {'decomp_file': f'data/maps/{name}/map.json', 'revision': COMMIT, 'date': COMMIT_DATE},
+        'source': {'decomp_file': f'data/maps/{name}/map.json', 'revision': getattr(decomp, 'commit', COMMIT), 'date': COMMIT_DATE},
         'allow_running': source.get('allow_running', True),
         'tiles': tiles, 'elevation': elevation,
         'points': points,
@@ -379,7 +389,7 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
         'warps': [warp(event, entries, loaded, sources) for event in warp_events],
         #   A few objects stand off the map, where no route meets them.
         'objects': [
-            map_object(obj, tiles) for obj in source.get('object_events', [])
+            map_object(obj, tiles, index if include_item_identities else None) for index, obj in enumerate(source.get('object_events', []))
             if 0 <= obj['x'] < len(tiles[0]) and 0 <= obj['y'] < len(tiles)
         ],
         'flag_sets': FLAG_SETS.get(name, {}),
@@ -388,6 +398,11 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
             for c in (source.get('connections') or []) if c['map'] in loaded
         ],
     }
+    if include_item_identities:
+        events_hash = hashlib.sha256(decomp.read(f'data/maps/{name}/map.json')).hexdigest()
+        data['objects'], identity_source = enrich_objects(data['objects'], 'frlg', name, events_hash, source_revision=getattr(decomp, 'commit', COMMIT))
+        if identity_source is not None:
+            data['source']['item_identities'] = identity_source
     if not data['regions']:
         del data['regions']
     if ground_only(tiles, elevation):
@@ -397,9 +412,10 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     return data
 
 
-def json_text(data):
+def json_text(data, include_item_identities=False):
+    if include_item_identities:
+        return readable_map_text(data)
     text = json.dumps(data, indent=4)
-    #   A point's [x, y] on one line.
     return re.sub(r'\[\s*(-?\d+),\s*(-?\d+)\s*\]', r'[\1, \2]', text) + '\n'
 
 
@@ -408,6 +424,7 @@ def main():
     parser.add_argument('--commit', default=COMMIT)
     parser.add_argument('--cache', default=os.path.expanduser('~/.cache/pokefirered'))
     parser.add_argument('--out', required=True, help='folder of the <map>.json files')
+    parser.add_argument('--item-identities', action='store_true', help='enrich from the pinned pickup catalog')
     parser.add_argument('--check', action='store_true', help='check the files in --out instead of writing them')
     parser.add_argument('maps', nargs='*', help='default: the maps already in --out')
     args = parser.parse_args()
@@ -423,7 +440,7 @@ def main():
     loaded = {source['id']: m for m, source in sources.items()}
     unhandled = {}
     land_maps = land_encounter_maps(decomp)
-    maps = [(name, json_text(map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps))) for name in args.maps]
+    maps = [(name, json_text(map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities), args.item_identities)) for name in args.maps]
     if unhandled:
         print(f'Non-collision behaviors written as floor: {unhandled}')
     if args.check:

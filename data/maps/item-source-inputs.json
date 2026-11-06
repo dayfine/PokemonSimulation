@@ -1,0 +1,306 @@
+{
+    "format": "pokesim-item-source-inputs/1",
+    "sources": {
+        "frlg": {
+            "repository": "pret/pokefirered",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "verification": "FRLG source-derived; collection not observed",
+            "files": {
+                "data/scripts/item_ball_scripts.inc": {
+                    "sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+                    "git_blob": "25233baa0794d0511f01638676eb4c7803c957e8"
+                },
+                "asm/macros/event.inc": {
+                    "sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+                    "git_blob": "142ad979d7d3093244087a247fa2b4883424f77f"
+                },
+                "data/maps/CeruleanCave_1F/map.json": {
+                    "sha256": "42a7d49479544125aa08209126948e3f57ff6040a2f6c1b5289e498de39d4e5c",
+                    "git_blob": "2ac897d93a46ebd77ab0faedd1fb76fc69bb78ac"
+                },
+                "data/maps/CeruleanCave_2F/map.json": {
+                    "sha256": "2c6e7f32daefb68be4a39c7219682c3bb7b8c8ddb079db21226de4afa556f6ae",
+                    "git_blob": "fb800f0dc02056fbf69b3e9c8a8cd8ca50d75afd"
+                },
+                "data/maps/CeruleanCave_B1F/map.json": {
+                    "sha256": "771c69cd177d040c0048fc9a4729525141d1844e18460448d48e1a1af405986a",
+                    "git_blob": "d155ea0b38b8a0ad766cf67c602c771c61b7352e"
+                },
+                "data/maps/MtMoon_1F/map.json": {
+                    "sha256": "312b2de23d9942d3326da9fe9597b25ef7c3537bcedfcafa7922d5c8b8e8d8fc",
+                    "git_blob": "500184fa2c0da6f95acc8985a82097ef70566ed1"
+                },
+                "data/maps/MtMoon_B2F/map.json": {
+                    "sha256": "451a05df92c5df570c121affa75c846996d3561c12e7e5d67d91814482a37ff3",
+                    "git_blob": "f1e0129d27370f9fb7b34722e3e66a60ecb3c0c1"
+                },
+                "data/maps/PalletTown_ProfessorOaksLab/map.json": {
+                    "sha256": "37906ed851a344cc63b41b303b41b6da091328b97b05b6e38d2570486d104704",
+                    "git_blob": "be72653587b49da2eb65f72a3519b57ed511d05c"
+                },
+                "data/maps/PalletTown_ProfessorOaksLab/scripts.inc": {
+                    "sha256": "ed6e02fdd179af05159f27288ef9b5226ce7917c03ae54e8fb8d83c853fc311d",
+                    "git_blob": "90adf867df540efc42b5ef98307a882b8aa97987"
+                },
+                "data/maps/Route2/map.json": {
+                    "sha256": "2562e3736b600c95b8c0a4c2a1bb3fb062f5c50208bebc43cd4303328ccda7ea",
+                    "git_blob": "3f232d8d16b4a96ec74b41a28a0ec401c38a2ba8"
+                },
+                "data/maps/Route24/map.json": {
+                    "sha256": "f844a16ec16a9aa725bcabf8862ec7b08be16b511f10664ef6e15f2448dd90a8",
+                    "git_blob": "83f1aefbb075752545893774bdf52ce5ef18cf98"
+                },
+                "data/maps/Route25/map.json": {
+                    "sha256": "a4b412784121ae753cb88e5a1be6db1b5575e77946ba3c6b87aca8087b1dfcb6",
+                    "git_blob": "ab2cdf6cb3579d40f342b053bee430a9e1f33abc"
+                },
+                "data/maps/Route4/map.json": {
+                    "sha256": "5b0b84cb73ecc6597470d01d5933ca36d5e4410cdda53dddb72922689e5653ac",
+                    "git_blob": "9d00b28b6bb9f2cc113bae97d31542b0ed82da8c"
+                },
+                "data/maps/Route9/map.json": {
+                    "sha256": "0a8b7cfd3028e15d59903f3f5dfc503f98712e5592d8d6a99a26cddc430d5270",
+                    "git_blob": "8d961b9312d82c549299006ec56ee96fb13a5593"
+                },
+                "data/maps/ViridianCity/map.json": {
+                    "sha256": "5ce922b65f76335556ace9a047feeb1968854b604c8469c39cbbd60985f61bc1",
+                    "git_blob": "465d593cef4ceafc486be8b6ed5fe1b5b63cb140"
+                },
+                "data/maps/ViridianForest/map.json": {
+                    "sha256": "6d6f082604d3c220eeb2c72cb6a606403330df44c58d9ed2523cd81c53fdaba2",
+                    "git_blob": "2d42aab09f10146a10d1ff02e8e30beb19407417"
+                }
+            },
+            "source_game": "firered",
+            "target_game": "frlg",
+            "target_game_relation": "native_decomp"
+        },
+        "diamond": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "verification": "Diamond baseline; not verified against BDSP item data",
+            "files": {
+                "files/fielddata/script/scr_seq_release/narc_0370.bin": {
+                    "sha256": "463258bba4e60fe231da7df5bf9ff638ac72cf7c425c34c7fdff5a18fe19f178",
+                    "git_blob": "a93c60fa6c8f15fef06971b5511b048224ab53a0"
+                },
+                "include/constants/items.h": {
+                    "sha256": "91d16ce2ebb746e0d8a6a44a0de13947aabf700c780ba5805f71245402d861d4",
+                    "git_blob": "ef6e9e5695f63fd60134705248b383d8d3205bfa"
+                },
+                "arm9/asm/unk_02038C78.s": {
+                    "sha256": "3061dee12bf0cd3f39904828b3e74870135e32e7c736f5c15810610a3c2a6472",
+                    "git_blob": "0b37d47af7e84c3976f892ffaa07c06f200916ea"
+                },
+                "arm9/src/scrcmd.c": {
+                    "sha256": "5a9e47e79ea3d632c64bcc4aa2782b65c44b342ff856886a95df606ef4e697f1",
+                    "git_blob": "5f660c3fd600d400a29e722f6973eb59513a6aef"
+                },
+                "files/fielddata/eventdata/zone_event_release/narc_0197.bin": {
+                    "sha256": "517473fcecb3bd0f0aea6d3db18d81bb5f13bbb6082d859198cca6554dffb977",
+                    "git_blob": "2b1d5863ac518745b2082c263934c19911201056"
+                },
+                "files/fielddata/eventdata/zone_event_release/narc_0196.bin": {
+                    "sha256": "fec75b45d815d678eff659c06b6f6ec9c531a724f1f3a2d25e16c3d586248f70",
+                    "git_blob": "abb5b22e809daf47fec74ff560062fa4992dc2ee"
+                },
+                "files/fielddata/eventdata/zone_event_release/narc_0328.bin": {
+                    "sha256": "17c0c1616d0cb8d4acbfd50e9ece28b7e4243ed1b527d5d1832956c508ca5c88",
+                    "git_blob": "68ab123f6ce2383615fb3a2f5681cd5c7a1e6727"
+                },
+                "files/fielddata/eventdata/zone_event_release/narc_0329.bin": {
+                    "sha256": "a5538e7025f82793f546381e76af7037daadad62b3ae2aed817aecb1578389aa",
+                    "git_blob": "896436eb467a6e96c323ac12eaa8d78c77a3cdb3"
+                },
+                "files/fielddata/eventdata/zone_event_release/narc_0331.bin": {
+                    "sha256": "dc1454d9e10692dbb38660f260eb7eedfebd43d24c3d634460cf3e2428f655e0",
+                    "git_blob": "3ecac9c8166e03d3710312a2c14ea4b8f204a61b"
+                },
+                "files/fielddata/eventdata/zone_event_release/narc_0330.bin": {
+                    "sha256": "57419b5fe791d60db542d30d18f9541258ba45c32a0a8b8165881fe000a126d0",
+                    "git_blob": "c5d230176cf7fa638fa74c4f8e7d9b634e566f84"
+                }
+            },
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline"
+        },
+        "platinum": {
+            "repository": "pret/pokeplatinum",
+            "revision": "c6689696d5fb51a644239702cb556eb52012a46a",
+            "verification": "Platinum baseline; not verified against BDSP item data",
+            "files": {
+                "res/field/scripts/scripts_visible_items.s": {
+                    "sha256": "61554f10e17bb45de9a824c2ab90c41753b0911b5e889ec3aaf50c7d33cd849d",
+                    "git_blob": "519addfa13790c464565025379807d61b3409cee"
+                },
+                "res/field/events/events_ravaged_path.json": {
+                    "sha256": "0be81f9bc68472f19067a9df969b2c6d3e1a54e0779b934657daa0a0a3fbe7ff",
+                    "git_blob": "aa82d749138848702478d50e9f6d0201c6b9b496"
+                }
+            },
+            "source_game": "platinum",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline"
+        }
+    },
+    "resolvers": {
+        "frlg": {"scripts": "data/scripts/item_ball_scripts.inc", "macros": "asm/macros/event.inc"},
+        "diamond": {"scripts": "files/fielddata/script/scr_seq_release/narc_0370.bin", "constants": "include/constants/items.h"},
+        "platinum": {"scripts": "res/field/scripts/scripts_visible_items.s"}
+    },
+    "maps": {
+        "frlg": {
+            "CeruleanCave_1F": {
+                "source": "frlg",
+                "events": "data/maps/CeruleanCave_1F/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [7, 3]}, {"coord": [11, 16]}, {"coord": [25, 5]}],
+                "map_content_sha256": "f845a949abe620395f859b4e8dfcd191eb27d849237746769d1db2fe6a5882da"
+            },
+            "CeruleanCave_2F": {
+                "source": "frlg",
+                "events": "data/maps/CeruleanCave_2F/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [9, 18]}, {"coord": [29, 16]}, {"coord": [33, 12]}],
+                "map_content_sha256": "bcc90398e86c802141e97bb69bb55669ca2397ee37d679890ae790ccb7596831"
+            },
+            "CeruleanCave_B1F": {
+                "source": "frlg",
+                "events": "data/maps/CeruleanCave_B1F/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [31, 9]}, {"coord": [32, 2]}],
+                "map_content_sha256": "460b0c9f27df1e4217a753cda8cf26b6da387233bf7cb7bc99c47e6bff90539c"
+            },
+            "MtMoon_1F": {
+                "source": "frlg",
+                "events": "data/maps/MtMoon_1F/map.json",
+                "origin": [0, 0],
+                "locations": [
+                    {"coord": [2, 22]},
+                    {"coord": [11, 35]},
+                    {"coord": [26, 32]},
+                    {"coord": [42, 35]},
+                    {"coord": [44, 21]},
+                    {"coord": [3, 2]}
+                ],
+                "map_content_sha256": "874a6c1c69ac67827d4f3462c9b46cc755950707bef157182510cca5476a54bd"
+            },
+            "MtMoon_B2F": {
+                "source": "frlg",
+                "events": "data/maps/MtMoon_B2F/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [30, 26]}, {"coord": [35, 5]}, {"coord": [24, 6]}, {"coord": [3, 11]}],
+                "map_content_sha256": "80c5dc46f3bc7ce2ea399f99f8a2f1f198621caae00fb7a4b206b7a77c663ca9"
+            },
+            "PalletTown_ProfessorOaksLab": {
+                "source": "frlg",
+                "events": "data/maps/PalletTown_ProfessorOaksLab/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [8, 4]}, {"coord": [9, 4]}, {"coord": [10, 4]}],
+                "scripts": "data/maps/PalletTown_ProfessorOaksLab/scripts.inc",
+                "map_content_sha256": "c4b210832ce2667e372a9c319b5df8fac83c384954dc4b463e4b7bbec31717b3"
+            },
+            "Route2": {
+                "source": "frlg",
+                "events": "data/maps/Route2/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [17, 54]}, {"coord": [17, 64]}],
+                "map_content_sha256": "b4027b635817b512cfad42c2c050ee0adae3b6c63eca9fa848e07b18a07f51ab"
+            },
+            "Route24": {
+                "source": "frlg",
+                "events": "data/maps/Route24/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [11, 4]}],
+                "map_content_sha256": "9cb32566ed57a1bc6737db74015fe561f1cf5b5d583f6142d1e0d1cb85f48acf"
+            },
+            "Route25": {
+                "source": "frlg",
+                "events": "data/maps/Route25/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [26, 2]}],
+                "map_content_sha256": "af594f75bea9b4cecaafa1afc6e6e2f3652f2060bacfe52149a89ddb77cc1e79"
+            },
+            "Route4": {
+                "source": "frlg",
+                "events": "data/maps/Route4/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [67, 5]}],
+                "map_content_sha256": "70a523e69a2a1e3e201ac1b269b5086dc5386955a5f48298342ccb6b2b9b6e74"
+            },
+            "Route9": {
+                "source": "frlg",
+                "events": "data/maps/Route9/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [12, 17]}, {"coord": [65, 17]}],
+                "map_content_sha256": "327767175d741bdea6904ad56a064a73caa6a33eca9b4be4d37411e779ab0c99"
+            },
+            "ViridianCity": {
+                "source": "frlg",
+                "events": "data/maps/ViridianCity/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [17, 5]}],
+                "map_content_sha256": "60ea54bfb4c2b0e07411fd2e316aa3231a95ae3e61387c0556ca97bd005561eb"
+            },
+            "ViridianForest": {
+                "source": "frlg",
+                "events": "data/maps/ViridianForest/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [5, 41]}, {"coord": [40, 21]}, {"coord": [21, 34]}, {"coord": [49, 60]}],
+                "map_content_sha256": "a242c85be87d94a3c3da38937498ff2301920923153914d447fc22d06532dc4e"
+            }
+        },
+        "bdsp": {
+            "OreburghMine": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0197.bin",
+                "origin": [0, 0],
+                "locations": [{"coord": [4, 28]}, {"coord": [26, 24]}],
+                "map_content_sha256": "c43cee9611250bcc5b4d56d9bab86cbbc804135ee0ed94d2b1538f99a1ebc67d"
+            },
+            "OreburghMineB1F": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0196.bin",
+                "origin": [0, 0],
+                "locations": [{"coord": [19, 4]}],
+                "map_content_sha256": "4b3743210eaade61d46157672cf03bcf1394b33a11d5faab536a733907e23ed9"
+            },
+            "RavagedPath": {
+                "source": "platinum",
+                "events": "res/field/events/events_ravaged_path.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [7, 38]}, {"coord": [17, 11]}, {"coord": [28, 5]}, {"coord": [22, 44]}],
+                "map_content_sha256": "a1ee892aeb38bd30d9c5a1a43305c5d1c79f90590be81101ca79a274d7edd19d"
+            },
+            "Route202": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0328.bin",
+                "origin": [159, 800],
+                "locations": [{"coord": [3, 6]}],
+                "map_content_sha256": "eaeb37720146ba250b7ed4f7404942105829466b64682d8c76a59764580f6b75"
+            },
+            "Route203": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0329.bin",
+                "origin": [191, 740],
+                "locations": [{"coord": [31, 5]}, {"coord": [20, 10]}],
+                "map_content_sha256": "af6634a49e7b726d9d9b4198663a8eefd0a2fc3a180019ac4eaff21e6928261d"
+            },
+            "Route204North": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0331.bin",
+                "origin": [160, 672],
+                "locations": [{"coord": [2, 10]}, {"coord": [20, 23]}],
+                "map_content_sha256": "50927a26b5024ad38dd59b0223384022ebc5a8a068b49f7c82d356d1b59276f2"
+            },
+            "Route204South": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0330.bin",
+                "origin": [160, 704],
+                "locations": [{"coord": [2, 28]}, {"coord": [29, 12]}, {"coord": [17, 18]}],
+                "map_content_sha256": "02662bc300a378c558664430b79fa470a8a8cfe0425c69ae8f84e8055f455d98"
+            }
+        }
+    }
+}

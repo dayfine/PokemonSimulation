@@ -9,7 +9,7 @@ import copy
 LEGACY = 'pokesim-runtime-map/1'
 COMPACT = 'pokesim-runtime-map/2'
 SECTIONS = ('objects', 'warps', 'patches', 'coord_events')
-GROUPS = {'npcs': 'npc', 'items': 'item', 'signs': 'sign'}
+GROUPS = {'npcs': 'npc', 'items': 'item', 'signs': 'sign', 'interactables': 'item'}
 
 
 def _pair(value, label):
@@ -56,7 +56,7 @@ def _records(data, compact):
 
 def _ungroup(data):
     if 'objects' in data:
-        raise ValueError('v2 maps use npcs/items/signs, not objects')
+        raise ValueError('v2 maps use typed object arrays, not objects')
     records = []
     present = False
     for section, kind in GROUPS.items():
@@ -69,6 +69,12 @@ def _ungroup(data):
         for record in group:
             if not isinstance(record, dict) or 'kind' in record:
                 raise ValueError(section + ' entries must be objects without a redundant kind')
+            if section == 'interactables':
+                if (not isinstance(record.get('interaction'), dict) or not record['interaction'].get('kind')
+                        or 'item' in record or 'quantity' in record):
+                    raise ValueError('interactables require an interaction, not an item reward')
+            elif section == 'items' and 'interaction' in record:
+                raise ValueError('non-item interactions belong in interactables')
             records.append(dict(record, kind=kind))
     if present:
         data['objects'] = records
@@ -77,17 +83,19 @@ def _ungroup(data):
 
 def _group(data):
     if set(data) & set(GROUPS):
-        raise ValueError('v1 maps use objects, not npcs/items/signs')
+        raise ValueError('v1 maps use objects, not typed object arrays')
     objects = data.pop('objects', [])
-    grouped = {kind: [] for kind in GROUPS.values()}
+    grouped = {section: [] for section in GROUPS}
+    sections = {'npc': 'npcs', 'item': 'items', 'sign': 'signs'}
     for record in objects:
         kind = record.pop('kind', None)
-        if not isinstance(kind, str) or kind not in grouped:
+        if not isinstance(kind, str) or kind not in sections:
             raise ValueError('unsupported object kind: ' + repr(kind))
-        grouped[kind].append(record)
-    for section, kind in GROUPS.items():
-        if grouped[kind]:
-            data[section] = grouped[kind]
+        section = 'interactables' if kind == 'item' and 'interaction' in record else sections[kind]
+        grouped[section].append(record)
+    for section, records in grouped.items():
+        if records:
+            data[section] = records
     return data
 
 
@@ -96,8 +104,9 @@ def legacy_map(data):
 
     Reject conflicting encodings rather than choosing a coordinate silently.
     The wire-format marker is consumed; extensions outside known coordinate fields stay.
-    V2 groups decode in NPC/item/sign order, retaining order within each kind.
-    Names need not be unique. Cross-kind order is not part of the v2 contract.
+    V2 decodes NPCs/items/signs/interactables, retaining order within each group.
+    Interactables use the legacy item-sprite kind solely for native compatibility.
+    Names need not be unique. Cross-group order is not part of the v2 contract.
     Geometry/flag validation remains the runtime schema's responsibility.
     """
     if not isinstance(data, dict):

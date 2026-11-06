@@ -142,6 +142,9 @@ class ObjectEvent:
     x: int
     z: int
     hidden: str = ''
+    index: object = None
+    event_id: object = None
+    script: object = None
 
 
 @dataclass
@@ -226,7 +229,7 @@ class Platinum:
     def events(self, events_id):
         data = json.loads(self.source.text(self.events_path(events_id)))
         events = Events()
-        for o in data.get('object_events', []):
+        for index, o in enumerate(data.get('object_events', [])):
             trainer = o['trainer_type'] != 'TRAINER_TYPE_NONE'
             events.objects.append(ObjectEvent(
                 name=title(strip_prefix(o['id'], 'LOCALID_')),
@@ -236,7 +239,8 @@ class Platinum:
                 sight=(o.get('data') or [0])[0] if trainer else 0,
                 range_x=o.get('movement_range_x', 0), range_z=o.get('movement_range_z', 0),
                 x=o['x'], z=o['z'],
-                hidden='' if str(o.get('hidden_flag', '0')) == '0' else str(o['hidden_flag'])))
+                hidden='' if str(o.get('hidden_flag', '0')) == '0' else str(o['hidden_flag']),
+                index=index, event_id=o.get('id'), script=o.get('script')))
         for w in data.get('warp_events', []):
             events.warps.append(Warp(w['x'], w['z'], strip_prefix(w['dest_header_id'], 'MAP_HEADER_')))
         for b in data.get('bg_events', []):
@@ -361,7 +365,7 @@ class Diamond:
                 movement=self.named('movement_types', 'MOVEMENT_TYPE_', f[2]),
                 trainer=trainer, sight=f[7] if trainer else 0,
                 range_x=f[10], range_z=f[11], x=f[12], z=f[13],
-                hidden='' if f[4] == 0 else f'flag {f[4]}'))
+                hidden='' if f[4] == 0 else f'flag {f[4]}', index=i, event_id=f[0], script=f[5]))
         (count,) = struct.unpack_from('<I', data, offset)
         offset += 4
         for _ in range(count):
