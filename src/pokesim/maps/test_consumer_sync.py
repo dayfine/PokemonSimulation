@@ -11,6 +11,7 @@ import unittest
 from unittest import mock
 
 from . import consumer_sync as sync
+from .runtime_map_coordinates import compact_map
 from .consumer_source import GitSource, MANIFEST, lock_entry, published_pack, sha256
 
 
@@ -169,6 +170,12 @@ class ConsumerTest(unittest.TestCase):
                 revision = self.publish(edit)
                 with self.assertRaises(ValueError):
                     published_pack(self.source, 'bdsp', lock_entry(self.source, revision))
+
+    def test_v2_map_cannot_hide_under_a_legacy_manifest(self):
+        self.maps['bdsp']['A'] = compact_map(self.maps['bdsp']['A'])
+        revision = self.publish()
+        with self.assertRaisesRegex(ValueError, 'map/manifest runtime format mismatch'):
+            published_pack(self.source, 'bdsp', lock_entry(self.source, revision))
 
     def test_extra_published_file_not_in_manifest_is_rejected(self):
         (self.publisher / 'data/games/bdsp/maps/runtime/Extra.json').write_text('{}')

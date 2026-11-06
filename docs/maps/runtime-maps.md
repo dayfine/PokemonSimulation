@@ -157,3 +157,13 @@ The export is suitable for the current Arduino paths; removing its copies
 and generators requires a separate consumer PR and an agreed resource-fetch
 mechanism. No runtime package download or Arduino build changes are implied
 by this migration.
+
+## Staged compact-coordinate format
+
+[The ordered unification plan](UNIFICATION_STEPS.md) specifies runtime-map v2:
+`npcs`/`items`/`signs` arrays without repeated `kind` fields,
+`coord: [x, y]`, inclusive wander `min`/`max` coordinate pairs, and short records
+kept inline. `runtime_map_format` produces readable previews; Python loaders can
+normalize either representation for routing/recovery. The published pack remains
+v1 until shared native readers and consumer capabilities adopt v2. Manifest/map
+format consistency is checked, so v2 cannot be smuggled through a v1 data pin.

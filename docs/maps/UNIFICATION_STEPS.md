@@ -1,0 +1,230 @@
+# Map and story-data unification: small steps
+
+The two repos should consume one map dataset and one serialized action/story
+plan, while retaining game-specific execution. This document supersedes the
+initial vendored-map distribution choice in `consumer-process.md`: the desired
+end state is pinned external map resources during fork development, with any
+upstream resource submission handled explicitly at handoff.
+
+## Current evidence
+
+Compared against PokemonSimulation `b49fe94` using immutable Git blobs:
+
+| Game / Arduino head | Inventory | Byte-identical | Outstanding content |
+|---|---|---|---|
+| FRLG #224, `4f40579b61dd6558a0da410cccef106e06733483` | 53 / 53 | 53 | None at this snapshot. |
+| BDSP #226, `01e6659116f520b51c35ee956aa6a222dfa864f8` | 22 / 22 | 17 | Five maps, listed below. |
+
+| BDSP map | Actual differing fields |
+|---|---|
+| JubilifeCity | `npcs` (legacy `objects`), `points` |
+| OreburghMine | `tiles`, rows 9–12 (zero-based) |
+| OreburghMineB1F | `tiles`, row 21 |
+| PlayerHouse1F | `coord_events` |
+| Route201 | `patches` |
+
+Formatting alone explains none of these five differences. The comparison does
+not approve either version's terrain, NPC assumptions or triggers. Bring the
+correction and its decomp/console evidence here for review; do not overwrite
+pending native corrections to make a hash check green.
+
+Reproduce without checking out or changing either Arduino branch:
+
+```sh
+PYTHONPATH=src python3 -m pokesim.maps.map_parity \
+  --arduino-source /path/to/Arduino-Source --game bdsp \
+  --revision 01e6659116f520b51c35ee956aa6a222dfa864f8
+PYTHONPATH=src python3 -m pokesim.maps.map_parity \
+  --arduino-source /path/to/Arduino-Source --game frlg \
+  --revision 4f40579b61dd6558a0da410cccef106e06733483
+```
+
+`format-only` means decoded map values match, including coordinate conversion;
+it is a diagnostic, not a substitute for byte/hash integrity acceptance.
+
+## 1. Compact coordinates, then activate the schema
+
+- [x] Stage the versioned `pokesim-runtime-map/2` codec and readable formatter.
+  Validate both representations; normalize for existing Python routing/recovery.
+  Round-trip all 75 checked-in maps without altering any geometry or extension.
+- [x] Keep short NPC/warp/patch records on one line; coordinate pairs remain
+  inline where they fit. Preserve zero/false and all unknown extensions.
+- [ ] Add v2 reading to the shared native `Pokemon_MapData` owner, with native
+  cases for coordinates, inclusive wander bounds, malformed/mixed versions and
+  v1 compatibility. Merge that prerequisite into both story chains.
+- [ ] Resolve the five BDSP data differences here with recorded evidence.
+- [ ] Convert all published maps and generator output together; bump the
+  manifest's runtime format, update checksums and consumer format capability.
+  Re-run every map audit, native reader test, route golden and recovery replay.
+
+Wire representation:
+
+```json
+{
+  "format": "pokesim-runtime-map/2",
+  "points": {"roark": [18, 28]},
+  "npcs": [
+    {"name": "roark", "coord": [18, 28], "facing": "east"},
+    {"name": "machop_8", "coord": [12, 28], "wander": {"min": [11, 28], "max": [13, 28]}}
+  ],
+  "items": [{"name": "item_3", "coord": [4, 28]}]
+}
+```
+
+The fragment illustrates formatting, not a complete valid map. V2 replaces
+`objects` with `npcs`, `items` and `signs`; the section carries the kind, so each
+record omits `kind`. Empty sections are omitted. Records remain arrays because
+names are not unique in existing FRLG maps. Preserve record order within each
+kind; cross-kind interleaving is not part of the v2 contract. Native migration
+must validate that grouping does not alter routing, interaction or trainer
+behavior. The Python tests check real-map occupancy and trainer hazards.
+
+`coord` replaces
+`x`/`y` for NPCs/items/signs, warps, terrain patches and coordinate events. Wander `min`
+and `max` replace `x0`/`y0` and `x1`/`y1` with the same inclusive bounds. Named
+points/regions already use pairs. Trigger `width`/`length` are extents, not tile
+coordinates, and remain named dimensions. Decomp source coordinates and
+provenance/generation overrides retain their source representation; this is a
+runtime wire-format change, not a rewrite of pret data or Python Tile objects.
+
+Preview a complete map now:
+
+```sh
+PYTHONPATH=src python3 -m pokesim.maps.runtime_map_format \
+  --input data/games/bdsp/maps/runtime/OreburghMine.json \
+  --out /tmp/OreburghMine.coord.json
+```
+
+The active published pack remains v1 until native adoption. The preview command
+refuses to overwrite its input. Existing consumer pins/exports are unchanged,
+and the existing consumer verifier deliberately rejects a v2 publishing manifest
+until its native format capability is updated in the adoption change.
+
+## 2. Enforce parity, rather than maintaining copies
+
+- [ ] Record one immutable PokemonSimulation commit plus manifest SHA-256 per
+  game in Arduino's resource lock, preserving independent FRLG/BDSP pins.
+- [ ] Require complete inventory/byte/hash checks against that publishing commit,
+  including draft PRs and merge results. A missing map, unexpected file, local
+  patch or unsupported schema fails without fetching a mutable fallback.
+- [ ] Route all map corrections through PokemonSimulation; new console evidence
+  may originate in Arduino, but its accepted data change and provenance live here.
+
+The existing `consumer_sync` implementation already provides the pinned/vendored
+integrity mechanism. Its destination paths are fixed to embedded source maps;
+resource adoption must extend and test that boundary, not pretend the current
+command verifies Packages resources.
+
+## 3. External map resources in the native story chains
+
+Proposed destination: `Packages/Resources/Pokemon/Maps/{frlg,bdsp}` (not yet wired
+into native builds). Clone PokemonSimulation into an external source cache,
+checkout/verify the locked publishing SHA, and materialize only its selected map
+pack into Resources. Do not clone the entire simulation repo into the deployed
+Resources tree. Preserve license/provenance and ship only the needed data.
+
+- [ ] Add explicit prepare/check commands and clone/pin instructions. CI prepares
+  the exact same resources before native builds/tests. CMake should fail clearly
+  if they are missing; it must not silently clone/update data during a build.
+- [ ] Replace the CMake source-directory embedding inputs. At #226's inspected
+  head, `EmbedTextFiles.cmake` and `pa_embed_text_files(...AutoStory/Maps...)`
+  still compile source JSON into the app; changing README alone cannot remove it.
+- [ ] Update resource-path loading/packaging, and prove fresh-checkout native map,
+  story, route and recovery tests work using only the prepared resources.
+- [ ] Then remove tracked map copies and duplicate Python builders/decomp parsers
+  from their owning native PRs, propagating those changes through the chains.
+- [ ] Upstream handoff: explicitly submit any needed data to the appropriate
+  resource repository/packaging path; ensure a normal upstream checkout builds
+  and tests. Do not merge an upstream PR requiring an undocumented private clone.
+
+**Keep one shared native runtime JSON decoder** in navigation. It converts
+resource data to `MapData`; both games need that reader. What leaves AutoStory
+is duplicated map authoring/decomp parsing and embedded map copies, not the
+ability of the executable to load map resources. Controller/detector tests stay
+native. Network and Python never enter the live console execution path.
+
+## 4. Actions/story events as shared data
+
+This means the **action/story-event sequence**, not just paths or generated walk
+legs. Both current chains already use shared `StoryStep`, `StoryCheckpoint` and
+`StoryStepExecutor` types (`Pokemon_StorySteps.h`); their tables are constructed
+in C++. Start by serializing that existing contract, rather than designing a
+second engine or scraping C++ with Python.
+
+- [ ] Specify `pokesim-story-plan/1`: game/version, plan revision, map/schema/data
+  pins, checkpoint IDs/start beliefs, ordered event IDs, requirements, actions,
+  expectations, skip conditions, interrupt policy and bounded recovery.
+- [ ] Export actual evaluated native tables through an offline C++ entry point
+  or native test. Encode polymorphic `Pose.where` as a tagged pose (e.g. tile set,
+  row/column belief or unknown), retaining facing and coordinate-frame identity.
+  Convert executor callbacks/variants into symbolic action/condition references;
+  do not serialize function addresses or infer successful observations.
+- [ ] First fixtures: BDSP `01.03` mine/Roark and FRLG `00.05` Oak's Parcel.
+  Export all events for each selected checkpoint, not only its route events.
+  Compare exported/imported records with the native table before replacing it.
+- [ ] Add JSON decoding/binding to the existing native executors and a Python
+  replay adapter. Common actions retain kinds such as `route`, `step`, `talk`,
+  `answer`, `battle`, `train`, `heal`, `shop`, `save` and `ready`. Game actions use
+  an explicit game/action tag plus a versioned payload. Unknown kinds, conditions
+  or payload versions fail as unsupported, rather than being skipped.
+- [ ] Move those checkpoints' authored tables to JSON once round-trip/native
+  parity is proven. Then expand checkpoint by checkpoint and remove their C++
+  authoring tables. Arduino owns plan authoring and live execution;
+  PokemonSimulation consumes the same pinned event data and owns offline replay.
+- [ ] Replay emits planned movement, uncertain transitions/recovery and battle
+  histories. A battle history needs party/stats/HP/PP/status, inventory, level,
+  EXP/EV, moves, strategy and trainer/ruleset pins. Missing state is an explicit
+  unmet input, never an invented full-health/default-bag assumption or win rate.
+
+A `route` event contains a movement goal/preconditions; routing derives its walk
+legs. A `legs` event may intentionally preserve fixed movements, with its own
+preconditions and recovery. Neither replaces interactions, purchases, trainer
+battles, starter selection or other game-specific story actions. Preserve
+`assumed` versus observed scene arrivals from the native tables.
+
+Acceptance: feed the **same serialized checkpoint** into the native scripted
+executor and Python replay; compare ordered actions, pre/post-state, interruptions
+and failure/recovery results on a shared scenario, then separately validate real
+controller/detector behavior in Arduino. A Python route candidate alone is not
+proof of native story execution or battle readiness.
+
+## Item identity follow-up (requested 2026-11-06; not implemented yet)
+
+Both exporters currently discard pickup identity. BDSP `place_objects()` emits
+`item_<event index>` and FRLG `map_object()` emits `item_ball`. These are object
+labels, not item IDs, and must not be treated as inventory gains in story replay.
+
+Confirmed source checkpoints:
+
+- OreburghMine `[4,28]` is the Escape Rope location, corresponding to Diamond
+  zone event `narc_0197.bin`, object index 3, script 7012, hide flag 993.
+  `[26,24]` is the Potion location, object index 4, script 7013, hide flag 994.
+  Matching Platinum named events identify Escape Rope and Potion at those same
+  coordinates, but their script IDs are 7007/7008: **do not reuse Platinum script
+  indices to decode Diamond**. Resolve the actual item table/script and retain
+  the game's provenance before adding generated identities.
+- At FRLG decomp pin `ce6406d8c2eaf46d543c8a2606de0c3cb1951982`, ViridianForest
+  item-ball objects reference `ViridianForest_EventScript_ItemPokeBall`,
+  `...ItemAntidote`, `...ItemPotion` and `...ItemPotion2`. The current map export
+  drops those labels. Preserve the local event ID/index, script and hide flag;
+  derive the item and quantity from the pickup instruction, not label guessing.
+
+Implementation sequence:
+
+1. Preserve source event/script identifiers in the decomp event model and both
+   map builders. Preserve hidden/picked-up flags for item events too.
+2. Resolve item constants and quantities through each game's actual scripts or
+   item tables at a pinned revision. Unknown/conditional rewards stay explicit;
+   do not infer quantities or grant pickups merely because they exist on a map.
+3. Enrich item records with an item identifier and proven quantity, plus source
+   evidence distinct from the map-local object label. Keep a stable source
+   event reference so duplicate item types and names remain distinguishable.
+4. Add offline parser/builder tests for the mine pair, multiple FRLG item balls,
+   version-specific script indices, hidden flags, and unresolved/conditional
+   scripts. Update hashes only for reviewed data enrichment, without importing
+   the five pending BDSP terrain/point/trigger corrections.
+
+The codec already preserves unknown record metadata, so item identity/provenance
+fields can pass through without another coordinate-format change. This section
+records a pending implementation, not a claim that published pickups have been
+enriched or verified against BDSP's own game data.

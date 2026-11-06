@@ -7,6 +7,7 @@ import re
 import subprocess
 
 from .runtime_map_schema import validate
+from .runtime_map_coordinates import LEGACY
 
 
 REPOSITORY = 'dayfine/PokemonSimulation'
@@ -137,6 +138,8 @@ def published_pack(source, game, pin):
         if sha256(content) != entry.get('sha256'):
             raise ValueError('published map hash mismatch: ' + path)
         data = validate(read_json(content))
+        if data.get('format', LEGACY) != manifest['runtime_format']:
+            raise ValueError('map/manifest runtime format mismatch: ' + path)
         if data['name'] != name or data['source'] != entry.get('source'):
             raise ValueError('published map identity/source mismatch: ' + path)
         result[name + '.json'] = content
