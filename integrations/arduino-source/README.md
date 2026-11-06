@@ -153,3 +153,13 @@ and run its route/story/recovery tests. Existing locks are not upgraded
 automatically. See [publication validation](../../docs/maps/V2_PUBLICATION.md).
 External Packages resources and removal of embedded map copies are the next
 separate integration change.
+
+## Prepared resource packs
+
+Use `consumer_sync --layout resources` with the separate resource lock and
+`Packages/Resources/Pokemon/Maps/{frlg,bdsp}` destination. `prepare` materializes
+an existing approved lock; `update` selects new approved pins; `check` is read-only.
+The composite action accepts `layout: resources` and `operation: prepare|check`.
+The [resource protocol](../../docs/maps/resource-packs.md) includes clone/pin
+commands, license/provenance, CMake verification and the native adoption gates.
+Native game inputs remain unchanged until their owning branches adopt it.

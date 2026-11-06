@@ -1,5 +1,12 @@
 name: Verify PokemonSimulation map packs
-description: Check vendored Arduino JSON against its pinned publishing commits.
+description: Check pinned Arduino map exports or prepare locked resource packs.
+inputs:
+  layout:
+    description: embedded or resources
+    default: embedded
+  operation:
+    description: check or prepare (prepare requires resources)
+    default: check
 runs:
   using: composite
   steps:
@@ -16,8 +23,11 @@ runs:
       working-directory: ${{ github.action_path }}/../../..
       env:
         PYTHONPATH: ${{ github.action_path }}/../../../src
+        MAP_LAYOUT: ${{ inputs.layout }}
+        MAP_OPERATION: ${{ inputs.operation }}
       run: >-
-        python3 -m pokesim.maps.consumer_sync check
+        python3 -m pokesim.maps.consumer_sync "$MAP_OPERATION"
+        --layout "$MAP_LAYOUT"
         --consumer "$GITHUB_WORKSPACE"
         --source "$GITHUB_WORKSPACE/.pokesim-map-source"
         --offline
