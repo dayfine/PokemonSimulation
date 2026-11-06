@@ -15,7 +15,7 @@ from .runtime_map_coordinates import compact_map
 from .consumer_source import GitSource, MANIFEST, lock_entry, published_pack, sha256
 
 
-class ConsumerTest(unittest.TestCase):
+class PublisherFixture(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
@@ -26,6 +26,7 @@ class ConsumerTest(unittest.TestCase):
         self.consumer.mkdir()
         self.git('init', '-q')
         self.git('remote', 'add', 'origin', 'https://github.com/dayfine/PokemonSimulation.git')
+        (self.publisher / 'LICENSE').write_text('MIT fixture license\n')
         self.maps = {}
         for game in ('bdsp', 'frlg'):
             self.maps[game] = {name: dict(name=name, source=dict(decomp_file='fixture', revision='fixed', date='test'),
@@ -84,6 +85,8 @@ class ConsumerTest(unittest.TestCase):
         change(lock)
         path.write_text(json.dumps(lock))
 
+
+class ConsumerTest(PublisherFixture):
     def test_initialize_check_and_independent_game_update(self):
         self.initialize(('bdsp', 'frlg'))
         old_frlg = self.map_path(game='frlg').read_bytes()

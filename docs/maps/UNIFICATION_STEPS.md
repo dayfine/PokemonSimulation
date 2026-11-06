@@ -118,8 +118,8 @@ up the #114 reader, then explicitly adopt an approved publishing revision.
 
 The existing `consumer_sync` implementation already provides the pinned/vendored
 integrity mechanism. Its destination paths are fixed to embedded source maps;
-resource adoption must extend and test that boundary, not pretend the current
-command verifies Packages resources.
+the [resource layout and preparation protocol](resource-packs.md) now extend
+and test that boundary without repinning or changing native loaders.
 
 ## 3. External map resources in the native story chains
 
@@ -129,9 +129,10 @@ checkout/verify the locked publishing SHA, and materialize only its selected map
 pack into Resources. Do not clone the entire simulation repo into the deployed
 Resources tree. Preserve license/provenance and ship only the needed data.
 
-- [ ] Add explicit prepare/check commands and clone/pin instructions. CI prepares
-  the exact same resources before native builds/tests. CMake should fail clearly
-  if they are missing; it must not silently clone/update data during a build.
+- [x] Add resource prepare/check commands, clone/pin instructions and the tested
+  CMake fail-closed helper; [details](resource-packs.md). Simulation CI exercises
+  locked preparation and configure.
+- [ ] Adopt that preparation/helper in the owning native game builds and CI.
 - [ ] Replace the CMake source-directory embedding inputs. At #226's inspected
   head, `EmbedTextFiles.cmake` and `pa_embed_text_files(...AutoStory/Maps...)`
   still compile source JSON into the app; changing README alone cannot remove it.
