@@ -16,7 +16,7 @@ import re
 import subprocess
 
 from .consumer_source import read_json
-from .runtime_map_coordinates import legacy_map
+from .runtime_map_coordinates import compact_map
 from .runtime_map_pack import ROOT
 
 
@@ -68,7 +68,7 @@ def compare_maps(expected, actual):
         before, after = expected[name], actual[name]
         if before == after:
             continue
-        left, right = legacy_map(read_json(before)), legacy_map(read_json(after))
+        left, right = compact_map(read_json(before)), compact_map(read_json(after))
         fields = sorted(key for key in set(left) | set(right)
                         if key not in left or key not in right or left[key] != right[key])
         row = dict(name=name, status='content-drift' if fields else 'format-only', fields=fields,

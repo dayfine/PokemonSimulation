@@ -17,7 +17,7 @@ Compared against PokemonSimulation `b49fe94` using immutable Git blobs:
 
 | BDSP map | Actual differing fields |
 |---|---|
-| JubilifeCity | `objects`, `points` |
+| JubilifeCity | `npcs` (legacy `objects`), `points` |
 | OreburghMine | `tiles`, rows 9–12 (zero-based) |
 | OreburghMineB1F | `tiles`, row 21 |
 | PlayerHouse1F | `coord_events` |
@@ -63,15 +63,24 @@ Wire representation:
 {
   "format": "pokesim-runtime-map/2",
   "points": {"roark": [18, 28]},
-  "objects": [
-    {"name": "roark", "kind": "npc", "coord": [18, 28], "facing": "east"},
-    {"name": "machop_8", "kind": "npc", "coord": [12, 28], "wander": {"min": [11, 28], "max": [13, 28]}}
-  ]
+  "npcs": [
+    {"name": "roark", "coord": [18, 28], "facing": "east"},
+    {"name": "machop_8", "coord": [12, 28], "wander": {"min": [11, 28], "max": [13, 28]}}
+  ],
+  "items": [{"name": "item_3", "coord": [4, 28]}]
 }
 ```
 
-The fragment illustrates formatting, not a complete valid map. `coord` replaces
-`x`/`y` for objects, warps, terrain patches and coordinate events. Wander `min`
+The fragment illustrates formatting, not a complete valid map. V2 replaces
+`objects` with `npcs`, `items` and `signs`; the section carries the kind, so each
+record omits `kind`. Empty sections are omitted. Records remain arrays because
+names are not unique in existing FRLG maps. Preserve record order within each
+kind; cross-kind interleaving is not part of the v2 contract. Native migration
+must validate that grouping does not alter routing, interaction or trainer
+behavior. The Python tests check real-map occupancy and trainer hazards.
+
+`coord` replaces
+`x`/`y` for NPCs/items/signs, warps, terrain patches and coordinate events. Wander `min`
 and `max` replace `x0`/`y0` and `x1`/`y1` with the same inclusive bounds. Named
 points/regions already use pairs. Trigger `width`/`length` are extents, not tile
 coordinates, and remain named dimensions. Decomp source coordinates and

@@ -161,6 +161,7 @@ by this migration.
 ## Staged compact-coordinate format
 
 [The ordered unification plan](UNIFICATION_STEPS.md) specifies runtime-map v2:
+`npcs`/`items`/`signs` arrays without repeated `kind` fields,
 `coord: [x, y]`, inclusive wander `min`/`max` coordinate pairs, and short records
 kept inline. `runtime_map_format` produces readable previews; Python loaders can
 normalize either representation for routing/recovery. The published pack remains

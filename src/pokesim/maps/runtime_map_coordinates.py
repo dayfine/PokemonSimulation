@@ -9,6 +9,7 @@ import copy
 LEGACY = 'pokesim-runtime-map/1'
 COMPACT = 'pokesim-runtime-map/2'
 SECTIONS = ('objects', 'warps', 'patches', 'coord_events')
+GROUPS = {'npcs': 'npc', 'items': 'item', 'signs': 'sign'}
 
 
 def _pair(value, label):
@@ -53,11 +54,50 @@ def _records(data, compact):
     return data
 
 
+def _ungroup(data):
+    if 'objects' in data:
+        raise ValueError('v2 maps use npcs/items/signs, not objects')
+    records = []
+    present = False
+    for section, kind in GROUPS.items():
+        if section not in data:
+            continue
+        present = True
+        group = data.pop(section)
+        if not isinstance(group, list):
+            raise ValueError(section + ' must be an array')
+        for record in group:
+            if not isinstance(record, dict) or 'kind' in record:
+                raise ValueError(section + ' entries must be objects without a redundant kind')
+            records.append(dict(record, kind=kind))
+    if present:
+        data['objects'] = records
+    return data
+
+
+def _group(data):
+    if set(data) & set(GROUPS):
+        raise ValueError('v1 maps use objects, not npcs/items/signs')
+    objects = data.pop('objects', [])
+    grouped = {kind: [] for kind in GROUPS.values()}
+    for record in objects:
+        kind = record.pop('kind', None)
+        if not isinstance(kind, str) or kind not in grouped:
+            raise ValueError('unsupported object kind: ' + repr(kind))
+        grouped[kind].append(record)
+    for section, kind in GROUPS.items():
+        if grouped[kind]:
+            data[section] = grouped[kind]
+    return data
+
+
 def legacy_map(data):
     """Copy a v1/v2 map into the existing Python/native v1 representation.
 
     Reject conflicting encodings rather than choosing a coordinate silently.
     The wire-format marker is consumed; extensions outside known coordinate fields stay.
+    V2 groups decode in NPC/item/sign order, retaining order within each kind.
+    Names need not be unique. Cross-kind order is not part of the v2 contract.
     Geometry/flag validation remains the runtime schema's responsibility.
     """
     if not isinstance(data, dict):
@@ -65,15 +105,19 @@ def legacy_map(data):
     result = copy.deepcopy(data)
     version = result.pop('format', LEGACY)
     if version == COMPACT:
-        return _records(result, compact=False)
+        return _records(_ungroup(result), compact=False)
     if version != LEGACY:
         raise ValueError('unsupported runtime map format: ' + repr(version))
-    # Validate the legacy coordinate spelling without altering its representation.
-    _records(copy.deepcopy(result), compact=True)
+    # Check spelling and grouping without altering the legacy representation.
+    _group(_records(copy.deepcopy(result), compact=True))
     return result
 
 
 def compact_map(data):
-    """Copy a map to v2: coord=[x,y], wander.min/max=[x,y]; no field elision."""
-    result = _records(legacy_map(data), compact=True)
+    """Copy to typed object arrays and coordinate pairs, preserving record data.
+
+    Empty groups are omitted. Record order stays stable within each kind;
+    consumers must use explicit names/coordinates rather than cross-kind indices.
+    """
+    result = _group(_records(legacy_map(data), compact=True))
     return dict(format=COMPACT, **{key: value for key, value in result.items() if key != 'format'})

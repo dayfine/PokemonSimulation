@@ -8,7 +8,7 @@ semantics match and keep game-specific adapters where they differ.
 ## Next small unifications (2026-11-06)
 
 The ordered [map/resources/story-data work](maps/UNIFICATION_STEPS.md) covers:
-compact coordinate pairs; current FRLG/BDSP parity evidence; pinned external
+typed NPC/item/sign arrays and compact coordinate pairs; current FRLG/BDSP parity evidence; pinned external
 Packages resources before removing native map copies/authoring; and **actions /
 story events as data**, not merely route paths. It updates the older vendored-map
 distribution choice. The first slice stages the v2 coordinate codec/formatter and

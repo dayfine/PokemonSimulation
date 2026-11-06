@@ -17,7 +17,7 @@ from .runtime_map_coordinates import compact_map, legacy_map
 from .runtime_map_schema import validate
 
 
-EXPANDED = {'tiles', 'elevation', 'points', 'regions', 'objects', 'warps', 'patches', 'coord_events'}
+EXPANDED = {'tiles', 'elevation', 'points', 'regions', 'objects', 'npcs', 'items', 'signs', 'warps', 'patches', 'coord_events'}
 
 
 def map_text(data, width=120):
