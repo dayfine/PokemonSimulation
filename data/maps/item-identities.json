@@ -1,6 +1,6 @@
 {
     "format": "pokesim-item-identities/1",
-    "inputs_sha256": "a2413aacdf87a5586ac4550305d7eeffbecf3de724f7af77fa2a8ad5aae09304",
+    "inputs_sha256": "db20fff8bb430f4fcce5f412bf1a1d3c9fb6cd2adf5a2637a75f34e638ccf8e0",
     "sources": {
         "frlg": {
             "repository": "pret/pokefirered",
@@ -401,7 +401,7 @@
                 "source": "diamond",
                 "events": "files/fielddata/eventdata/zone_event_release/narc_0196.bin",
                 "events_sha256": "fec75b45d815d678eff659c06b6f6ec9c531a724f1f3a2d25e16c3d586248f70",
-                "map_content_sha256": "4b3743210eaade61d46157672cf03bcf1394b33a11d5faab536a733907e23ed9",
+                "map_content_sha256": "e6b2c0702f77aba07c9f07f977bd1c29cad9e3683f8da80cdc8f07db56d47e0c",
                 "objects": [
                     {
                         "coord": [19, 4],

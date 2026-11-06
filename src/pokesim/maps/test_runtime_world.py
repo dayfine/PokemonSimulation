@@ -58,10 +58,10 @@ class RuntimeWorldTests(unittest.TestCase):
         self.assertIsInstance(world_step(world, state('CeruleanCity', 22, 0, 3), D.NORTH), Edge)
         self.assertIsInstance(world_step(world, state('CeruleanCity', 22, 20, 3), D.NORTH), Warp)
 
-    def test_bdsp_mine_pending_correction_is_not_silently_imported(self):
+    def test_bdsp_mine_reviewed_warp_boundary_keeps_arrival_unresolved(self):
         world = RuntimeWorld([view('bdsp', 'OreburghMineB1F'), view('bdsp', 'OreburghMine')])
-        # #226's row-21 door correction is NOT in the publishing pin.
-        self.assertIsInstance(world_step(world, state('OreburghMineB1F', 12, 20), D.SOUTH), Moved)
+        # Reviewed step-on boundary; destination/facing are still unverified.
+        self.assertIsInstance(world_step(world, state('OreburghMineB1F', 12, 20), D.SOUTH), Warp)
         self.assertIsInstance(world_step(world, state('OreburghMineB1F', 12, 21), D.SOUTH), Warp)
 
     def test_bdsp_house_arrival_does_not_infer_link_from_crop_overlap(self):

@@ -264,7 +264,7 @@
                 "events": "files/fielddata/eventdata/zone_event_release/narc_0196.bin",
                 "origin": [0, 0],
                 "locations": [{"coord": [19, 4]}],
-                "map_content_sha256": "4b3743210eaade61d46157672cf03bcf1394b33a11d5faab536a733907e23ed9"
+                "map_content_sha256": "e6b2c0702f77aba07c9f07f977bd1c29cad9e3683f8da80cdc8f07db56d47e0c"
             },
             "RavagedPath": {
                 "source": "platinum",

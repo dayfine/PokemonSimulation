@@ -423,9 +423,10 @@ WARP_DOORS = {
     #   The mine's mouth: 01.03 walks down to the row above it and steps on.
     #   We come out on it too, and walk north off it to a wall first.
     'OreburghCity': [(x, 59) for x in range(44, 49)],
-    #   The hall's way up to the city: its other warp row (11..13, 21) has
-    #   cave mouths below it, so a step south from row 20 goes through.
-    'OreburghMineB1F': [(11, 1), (12, 1), (13, 1)],
+    #   Both rows are step-on warps (Diamond events narc_0196, reviewed
+    #   against #226): south from row 20 leaves the hall at row 21.
+    #   This classification does not establish a BDSP arrival pose.
+    'OreburghMineB1F': [(11, 1), (12, 1), (13, 1), (11, 21), (12, 21), (13, 21)],
 }
 
 
@@ -480,9 +481,9 @@ COORD_EVENTS = {
     'PlayerHouse1F': {
         0: 'moms_warning',
         'add': [
-            {'name': 'moms_call', 'x': 6, 'y': 9, 'width': 1, 'length': 1, 'var': 'CONSOLE_MOMS_CALL', 'value': 0,
-             'measured_by': 'console r45, r46 (2026-11-01): after her heal Mom calls us back as we step above'
-                            ' the door; no coord event in the decomp'},
+            {'name': 'moms_call', 'x': 6, 'y': 10, 'width': 1, 'length': 1, 'var': 'CONSOLE_MOMS_CALL', 'value': 0,
+             'measured_by': 'console r45, r46 (2026-11-01): after her heal Mom calls us back as we step onto'
+                            ' the mat (6, 10); no coord event in the decomp'},
         ],
     },
 }

@@ -25,6 +25,10 @@ class PackTest(unittest.TestCase):
                     # JSON object keys become strings in the manifest.
                     overrides = json.loads(json.dumps(bdsp.OBJECTS.get(entry['name'], {})))
                     self.assertEqual(entry['generation_overrides']['objects'], overrides)
+                    self.assertEqual(entry['generation_overrides']['warp_doors'],
+                                     [list(tile) for tile in bdsp.WARP_DOORS.get(entry['name'], [])])
+                    self.assertEqual(entry['generation_overrides']['coord_events'],
+                                     json.loads(json.dumps(bdsp.COORD_EVENTS.get(entry['name'], {}))))
                 else:
                     self.assertEqual(entry['generation_overrides']['opened_tiles'],
                                      [list(p) for p in frlg.OPENED_TILES.get(entry['name'], [])])

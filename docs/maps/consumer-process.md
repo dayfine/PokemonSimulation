@@ -8,7 +8,9 @@ the currently implemented v1 baseline, not the new end state.
 Status: check/update tooling and a reusable CI action are implemented; adoption
 in Arduino and its required status settings remain pending. See the
 [integration commands and rollout](../../integrations/arduino-source/README.md).
-No changes from PR #226 are imported, and consumer migration is not complete.
+Two reviewed #226 changes are adopted; three map differences remain held for
+evidence. See [the reconciliation](BDSP_RECONCILIATION.md). Consumer migration
+is not complete.
 
 PokemonSimulation is the authoring repository for map data, source parsers,
 builders, schemas and corrections. Arduino-Source consumes a pinned export.
