@@ -1,5 +1,7 @@
 # BDSP Route 202 recovery: review summary
 
+Also see [FRLG Forest: native recovery review](FRLG_FOREST.md) for the six-case Forest checkpoint.
+
 Replay data: [bdsp-route202.trace](bdsp-route202.trace) — shared context and one action per line. The [complete raw JSON](diagnostics/bdsp-route202.raw.json) is a separate diagnostic artifact.
 
 **Preconditions:** Route202, start `(26,5)` east, goal `(28,5)` west; scene state 1, Running Shoes available, RUN policy. All encounters below are injected and already cleared.

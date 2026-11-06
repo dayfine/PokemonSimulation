@@ -109,6 +109,7 @@ def panel_svg(view, case, result, recovery=False):
 def review_markdown(bundle, results, trace_link, raw_link, raster=False):
     extension = 'png' if raster else 'svg'
     lines = ['# BDSP Route 202 recovery: review summary', '',
+             'Also see [FRLG Forest: native recovery review](FRLG_FOREST.md) for the six-case Forest checkpoint.', '',
              'Replay data: [' + Path(trace_link).name + '](' + trace_link + ') — shared context and one action per line. The [complete raw JSON](' + raw_link + ') is a separate diagnostic artifact.', '',
              '**Preconditions:** Route202, start `(26,5)` east, goal `(28,5)` west; scene state 1, Running Shoes available, RUN policy. All encounters below are injected and already cleared.', '',
              '| Intended leg and interruption | Native recovery and rejoin |', '|---|---|',

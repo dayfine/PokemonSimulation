@@ -1,0 +1,166 @@
+# Actual FRLG Forest native runs; TRUST cases are negative controls.
+# Pose (x,y) facing; ? is unreported. Source/replay facts are checked.
+# Calls: planned step | physical before -> after | outcome and facing passed in.
+# Native: > is a plan leg; ! is a native recovery diagnostic.
+
+[trace]
+format = pokesim-native-route-text/1
+bundle_format = pokesim-native-route-replay/1
+profile = frlg-forest-shortfall/1
+coordinate_frame = runtime-local
+
+[context]
+map = ViridianForest
+elevation = 3
+start = (13,28) west
+flags = []
+variables = {}
+
+[case forest-one-short]
+shortfall = 1
+policy = reanchor
+goal = (7,33) south
+next_direction = south
+route = west 6 open -> (7,28) west; south 5 wall -> (7,33) south
+calls =
+    west 6 open -> (7,28) west | (13,28) west -> (8,28) west | done facing_in=west
+    west 6 wall -> (3,28) west | (8,28) west -> (3,28) west | done facing_in=west
+    east 4 open -> (7,28) east | (3,28) west -> (7,28) east | done facing_in=west
+    south 5 wall -> (7,33) south | (7,28) east -> (7,33) south | done facing_in=east
+native =
+    plan from (13,28):
+    > west 6 (open) to (7,28)
+    > south 5 (to wall) to (7,33)
+    west 6 (open): ended at (7,28) (walked).
+    ! position check: walk west 6 -> (7,28) may have ended up to 2 tiles short with nothing seen; finding the player at walls.
+    plan from an unknown tile:
+    > west 6 (to wall) to (3,28)
+    > east 4 (open) to (7,28)
+    > south 5 (to wall) to (7,33)
+    west 6 (to wall): ended at (3,28) (walked).
+    found again at (3,28), after 1 hold(s).
+    east 4 (open): ended at (7,28) (walked).
+    south 5 (to wall): ended at (7,33) (walked).
+physical = (7,33) south
+signs_read = 0
+violations = []
+failure = ""
+
+[case forest-two-short]
+shortfall = 2
+policy = reanchor
+goal = (7,33) south
+next_direction = south
+route = west 6 open -> (7,28) west; south 5 wall -> (7,33) south
+calls =
+    west 6 open -> (7,28) west | (13,28) west -> (9,28) west | done facing_in=west
+    west 6 wall -> (3,28) west | (9,28) west -> (3,28) west | done facing_in=west
+    east 4 open -> (7,28) east | (3,28) west -> (7,28) east | done facing_in=west
+    south 5 wall -> (7,33) south | (7,28) east -> (7,33) south | done facing_in=east
+native =
+    plan from (13,28):
+    > west 6 (open) to (7,28)
+    > south 5 (to wall) to (7,33)
+    west 6 (open): ended at (7,28) (walked).
+    ! position check: walk west 6 -> (7,28) may have ended up to 2 tiles short with nothing seen; finding the player at walls.
+    plan from an unknown tile:
+    > west 6 (to wall) to (3,28)
+    > east 4 (open) to (7,28)
+    > south 5 (to wall) to (7,33)
+    west 6 (to wall): ended at (3,28) (walked).
+    found again at (3,28), after 1 hold(s).
+    east 4 (open): ended at (7,28) (walked).
+    south 5 (to wall): ended at (7,33) (walked).
+physical = (7,33) south
+signs_read = 0
+violations = []
+failure = ""
+
+[case next-wall-one-short]
+shortfall = 1
+policy = reanchor
+goal = (3,28) west
+next_direction = west
+route = west 6 open -> (7,28) west; west 4 wall -> (3,28) west
+calls =
+    west 6 open -> (7,28) west | (13,28) west -> (8,28) west | done facing_in=west
+    west 4 wall -> (3,28) west | (8,28) west -> (3,28) west | done facing_in=west
+native =
+    plan from (13,28):
+    > west 6 (open) to (7,28)
+    > west 4 (to wall) to (3,28)
+    west 6 (open): ended at (7,28) (walked).
+    west 4 (to wall): ended at (3,28) (walked).
+physical = (3,28) west
+signs_read = 0
+violations = []
+failure = ""
+
+[case next-wall-two-short]
+shortfall = 2
+policy = reanchor
+goal = (3,28) west
+next_direction = west
+route = west 6 open -> (7,28) west; west 4 wall -> (3,28) west
+calls =
+    west 6 open -> (7,28) west | (13,28) west -> (9,28) west | done facing_in=west
+    west 4 wall -> (3,28) west | (9,28) west -> (3,28) west | done facing_in=west
+native =
+    plan from (13,28):
+    > west 6 (open) to (7,28)
+    > west 4 (to wall) to (3,28)
+    west 6 (open): ended at (7,28) (walked).
+    west 4 (to wall): ended at (3,28) (walked).
+physical = (3,28) west
+signs_read = 0
+violations = []
+failure = ""
+
+[case trust-one-short-control]
+shortfall = 1
+policy = trust
+goal = (7,33) south
+next_direction = south
+route = west 6 open -> (7,28) west; south 5 wall -> (7,33) south
+calls =
+    west 6 open -> (7,28) west | (13,28) west -> (8,28) west | done facing_in=west
+    south 5 wall -> (7,33) south | (8,28) west -> (8,33) south | done facing_in=west
+native =
+    plan from (13,28):
+    > west 6 (open) to (7,28)
+    > south 5 (to wall) to (7,33)
+    west 6 (open): ended at (7,28) (walked).
+    south 5 (to wall): ended at (7,33) (walked).
+physical = (8,33) south
+signs_read = 0
+violations = []
+failure = ""
+
+[case trust-two-short-control]
+shortfall = 2
+policy = trust
+goal = (7,33) south
+next_direction = south
+route = west 6 open -> (7,28) west; south 5 wall -> (7,33) south
+calls =
+    west 6 open -> (7,28) west | (13,28) west -> (9,28) west | done facing_in=west
+    south 5 wall -> (7,33) south | (9,28) west -> (9,28) south | stopped facing_in=west
+native =
+    plan from (13,28):
+    > west 6 (open) to (7,28)
+    > south 5 (to wall) to (7,33)
+    west 6 (open): ended at (7,28) (walked).
+physical = (9,28) south
+signs_read = 2
+violations = []
+failure = "walk_overworld_route(): a hold toward a wall is interrupted right away, again: the player is off the route, on walk south 5 (to wall) -> ViridianForest (7, 33)."
+
+[source]
+native_revision = 2b29dbc6e5ee2499f22ec60ee5fff2a3d0ecc356
+exporter = SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/PokemonFRLG_NativeRecoveryReplay_Tests.cpp
+exporter_sha256 = 5c21e0b4d7564c60463f4b9e7d08a04be5933707c6d43dcb3e992472068eda2a
+map_revision = a6f4e5448bee60bb4b8e3d7ef8a303c4415bd261
+game = frlg
+map_sha256 = f550fe9c983a769fa8886053c7cdcf1307c02ba5e94a6f9e9acd6013d0942222
+diagnostic = diagnostics/frlg-forest.raw.json
+diagnostic_sha256 = a03e1caa04d1445baef20bc377ccc3616d8a6d6d4c784320c38636dc5ef8993d

@@ -183,6 +183,19 @@ class TransitionStateTests(unittest.TestCase):
         belief = [pose('DiagnosticWarp', x, 1, D.EAST, 0) for x in (1, 2)]
         self.assertIsNone(clip_plan(world, belief, D.EAST, 8))
 
+    def test_forest_sign_is_not_a_south_wall_anchor(self):
+        world = self.forest()
+        self.assertIsNone(clip_plan(world, [pose('ViridianForest', 9, 28)], D.SOUTH, 8, 'recover'))
+
+    def test_synthetic_sign_cannot_localize_a_belief(self):
+        view = LocalMap(dict(name='SignDiagnostic',
+            source=dict(decomp_file='', revision='synthetic', date='2026-11-05'),
+            tiles=['#S#', '#.#', '#.#', '###']), 'frlg')
+        world = RuntimeWorld([view])
+        plan = anchor_plan(world, [pose('SignDiagnostic', 1, y) for y in (1, 2)], 8)
+        self.assertIsNotNone(plan)
+        self.assertEqual((D.SOUTH,), plan.actions)
+
     def test_synthetic_frlg_clip_rejects_declared_trainer_sight(self):
         view = LocalMap(dict(name='SightDiagnostic',
             source=dict(decomp_file='', revision='synthetic', date='2026-11-05'),

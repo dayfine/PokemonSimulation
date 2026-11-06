@@ -6,53 +6,17 @@ the complete original bundle is retained as a checksummed diagnostic artifact.
 """
 import configparser
 import copy
-import hashlib
 import json
-from pathlib import Path
 import re
 
 from .consumer_source import read_json
+from .native_recovery_capture import (keys, boolean, pose_text, parse_pose, milliseconds,
+                                      assignments, diagnostic_source, read_checked_text, write_checked_text)
 
 CASE_ORDER = ('last-tap-before', 'last-tap-after', 'interrupted-wall-retry',
               'last-wall-retry-succeeds', 'interrupted-wall-budget',
               'first-tap-unknown-origin', 'reported-unknown-origin')
 PREFIX = '[Route] native-recovery: '
-
-
-def keys(value, expected):
-    if set(value) != set(expected.split()):
-        raise ValueError('missing or unknown text-trace fields: ' + repr(set(value)))
-
-
-def boolean(value):
-    if value not in ('true', 'false'):
-        raise ValueError('expected true or false')
-    return value == 'true'
-
-
-def pose_text(pose):
-    return '({},{}) {}'.format(*pose['tile'], pose['facing'] or '?')
-
-
-def parse_pose(text, context):
-    match = re.fullmatch(r'\((\d+),(\d+)\) (north|south|east|west|\?)', text)
-    if not match:
-        raise ValueError('invalid pose: ' + text)
-    return dict(map=context['map'], tile=[int(match[1]), int(match[2])],
-                facing=None if match[3] == '?' else match[3], elevation=int(context['elevation']))
-
-
-def milliseconds(text):
-    if not re.fullmatch(r'\d+ms', text):
-        raise ValueError('expected milliseconds: ' + text)
-    return int(text[:-2])
-
-
-def assignments(tokens):
-    pairs = [token.split('=', 1) for token in tokens]
-    if any(len(p) != 2 for p in pairs) or len({p[0] for p in pairs}) != len(pairs):
-        raise ValueError('invalid/duplicate call fields')
-    return dict(pairs)
 
 
 def call_text(call):
@@ -179,17 +143,7 @@ def format_text(bundle, diagnostic, digest):
 
 
 def write_text(bundle, path, raw_text):
-    path = Path(path)
-    relative = Path('diagnostics') / (path.stem + '.raw.json')
-    raw = raw_text.encode()
-    text = format_text(bundle, relative.as_posix(), hashlib.sha256(raw).hexdigest())
-    # The projection must preserve every fact checked by the replay verifier.
-    decoded = parse_text(text)
-    if json.dumps(canonical(decoded), sort_keys=True) != json.dumps(canonical(bundle), sort_keys=True):
-        raise ValueError('text encoding would lose native replay facts')
-    (path.parent / relative).parent.mkdir(parents=True, exist_ok=True)
-    (path.parent / relative).write_bytes(raw)
-    path.write_text(text)
+    return write_checked_text(bundle, path, raw_text, format_text, parse_text, canonical)
 
 
 def parse_text(text):
@@ -231,23 +185,5 @@ def parse_text(text):
         raise ValueError('invalid text trace: ' + str(error)) from error
 
 
-def diagnostic_source(path):
-    """Locate the explicit diagnostic and its checksum beside a readable trace."""
-    path = Path(path)
-    source = configparser.ConfigParser(interpolation=None, delimiters=('=',), empty_lines_in_values=False)
-    source.read_string(path.read_text())
-    relative = Path(source['source']['diagnostic'])
-    if relative.is_absolute() or '..' in relative.parts:
-        raise ValueError('diagnostic must be inside the trace directory')
-    return path.parent / relative, source['source']['diagnostic_sha256']
-
-
 def read_text(path):
-    bundle = parse_text(Path(path).read_text())
-    diagnostic, checksum = diagnostic_source(path)
-    raw = diagnostic.read_bytes()
-    if hashlib.sha256(raw).hexdigest() != checksum:
-        raise ValueError('raw diagnostic checksum mismatch')
-    if json.dumps(canonical(bundle), sort_keys=True) != json.dumps(canonical(read_json(raw)), sort_keys=True):
-        raise ValueError('readable trace differs from raw diagnostic replay facts')
-    return bundle
+    return read_checked_text(path, parse_text, canonical)

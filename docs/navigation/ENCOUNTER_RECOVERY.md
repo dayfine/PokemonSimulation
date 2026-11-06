@@ -144,7 +144,7 @@ Focused and broader runs produce identical seven-case captures. Native publicati
 pending the initial-push approval. No runtime recovery algorithm or terrain was
 changed by this slice.
 
-Next: add the corresponding actual FRLG walker export; expose and test missing
+The FRLG export below adds the corresponding first Forest slice. Next expose and test missing
 queue/observation/facing facts, then compare complete #47 state snapshots. The
 current BDSP replay proves candidate-tile and supplied-leg geometry agreement,
 native automatic recovery/rejoin outcomes, and the explicitly tested native
@@ -166,3 +166,58 @@ fact. Plan/replan/completion/arrival facts remain in the text; duplicate status
 and simulator debug logs remain in diagnostics. Round-trip tests prove that
 both representations produce identical replay results. JSON remains accepted
 for raw diagnostic input; capture defaults to readable text plus diagnostics.
+
+## Native FRLG Forest shortfall replay
+
+Start with [the six-case visual review](../../data/navigation/native-recovery/FRLG_FOREST.md)
+and [readable action data](../../data/navigation/native-recovery/frlg-forest.trace).
+The registered exporter invokes real `run_route()` and `OverworldSimWalker`;
+Python checks the actual supplied plans and physical simulated poses on the
+unchanged, hash-matched Viridian Forest map. Source-grounded cases reproduce
+`test_short_leg_then_sign` and `test_short_leg_unseen` (r16 Console B,
+2026-11-01), with synthetic next-wall extensions clearly labeled.
+
+After west 6 from `(13,28)`, native's logged policy allows `(7,28)`, `(8,28)`
+and `(9,28)`. Python reconstructs this set; native internal candidate storage
+is **not** exported. Before south toward `(7,33)`, native inserts west to the
+wall `(3,28)`, east 4 back to `(7,28)`, then the original south hold. Both one-
+and two-tile shortfalls recover. When the original next hold already goes west
+to `(3,28)`, no extra recovery is inserted.
+
+TRUST controls deliberately disable this recovery. One silently claims arrival
+at `(7,33)` while physically at `(8,33)`. Two reaches the sign `(9,29)` and
+fails after two reads. Neither is classified as successful. The latter exposed
+a Python oracle gap: vertical sign interaction was previously allowed as a wall
+anchor. Python now rejects it, with real-map and synthetic regressions; native
+production movement/recovery and terrain remain unchanged.
+
+The exporter is locally committed at
+`2b29dbc6e5ee2499f22ec60ee5fff2a3d0ecc356` on `frlg/native-recovery-replay`.
+All 70 focused registered native tests pass locally (64 prior plus six exports),
+compiled with C++23 and warnings as errors. Unused notification/image adapters
+throw if called. This is not the complete console test suite; native publication
+and GitHub CI remain pending the initial-push approval. The six-case focused
+and 70-case runs produce identical exports. Native code health passes against
+`frlg/navigation-conformance`.
+
+Wall checks are explicitly SKIP in this geometry profile. Queue draining,
+advancing-video confirmation, detector timing, larger shortfalls, and unknown
+encounter origins remain unverified. Native's repair selection is bounded by
+its next-wall and cost heuristics. These cases establish the observed repair
+and rejoin behavior, not full #47 state-machine equivalence or universal safety.
+
+```sh
+PYTHONPATH=src python3 -m pokesim.maps.frlg_native_recovery_replay check
+# Optionally check exporter and map Git blobs at the recorded source revision:
+PYTHONPATH=src python3 -m pokesim.maps.frlg_native_recovery_replay check \
+  --native-source /path/to/Arduino-Source
+PYTHONPATH=src python3 -m pokesim.maps.frlg_native_recovery_review \
+  --out data/navigation/native-recovery --png
+```
+
+Capture uses `capture --stdout /tmp/native-test.log --native-source /path/to/Arduino-Source`.
+It requires a clean committed native tree and all six exports, checks matching
+native/published map bytes, and records immutable source/map revisions and
+exporter/diagnostic checksums. As with BDSP, Git provenance does not attest that
+the supplied executable was built from those sources. Retain the native build
+record. The `.trace` is 166 lines for six cases; raw logs stay under diagnostics.
