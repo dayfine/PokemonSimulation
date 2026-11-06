@@ -104,8 +104,8 @@ until its native format capability is updated in the adoption change.
 
 A native prerequisite is prepared on Arduino branch
 `nav/compact-runtime-map-reader`, commit `ec3803725` (publication/CI pending).
-It adds `Pokemon_RuntimeMap::normalize_runtime_map()` / `parse_runtime_map()`
-in the shared navigation directory. These are namespace-level functions, layered
+It adds `Pokemon_RuntimeMap.{h,cpp}` with `normalize_runtime_map()` and
+`parse_runtime_map()` in the shared navigation directory. These functions layer
 over the existing `parse_map()`; no second game-specific decoder is introduced.
 The existing loader entry point and both games' call sites remain unchanged.
 
