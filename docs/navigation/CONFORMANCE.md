@@ -154,7 +154,9 @@ are not additional shared native fixtures or a claim of controller parity.
 ## First native recovery-plan replay
 
 [The BDSP checkpoint](ENCOUNTER_RECOVERY.md#first-actual-native-replay-bdsp-route-202)
-now checks seven actual native walker/GridSim exports against Python. It replays
+now checks seven actual native walker/GridSim exports against Python.
+[Review the diagrams and compact results table](../../data/navigation/native-recovery/README.md).
+It replays
 native-selected recovery legs and interrupted candidate tiles, including safe
 failure and automatic return to the original goal. This is separate from the
 eight shared spatial fixtures and the four broader #47 Python diagnostics.

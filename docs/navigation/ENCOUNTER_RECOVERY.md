@@ -78,8 +78,9 @@ these diagnostics nor a passing spatial prediction proves live recovery safe.
 
 The next slice exports seven **registered native C++ tests**, running the real
 BDSP route planner and `walk_route()` through its existing `GridSimRouteIO`.
-[The captured bundle](../../data/navigation/native-recovery/bdsp-route202.json)
-contains actual I/O reports, physical simulated poses, returned positions and
+Start with [the visual review summary](../../data/navigation/native-recovery/README.md):
+side-by-side diagrams and a seven-case results table. The
+[captured JSON](../../data/navigation/native-recovery/bdsp-route202.json) contains actual I/O reports, physical simulated poses, returned positions and
 shared `[Route]` plan/replan/end logs. Python replays those native-selected legs
 on the same map bytes; it does not choose replacement routes or copy the native
 recovery algorithm.
@@ -90,15 +91,11 @@ are explicit preconditions. The map SHA256 matches the approved publishing
 revision in the bundle. These remain injected, already-cleared encounters on a
 real map, not recorded console inputs or an encounter-escape simulation.
 
-| Native case | Checked outcome |
-|---|---|
-| `last-tap-before` | The second east tap is interrupted before movement: credit is 2 chunks but physical position is `(27,5)`. Native retains candidate tiles `(26..28,5)`, anchors east at `(30,5)`, then replans/walks west to `(28,5)`. |
-| `last-tap-after` | The interrupted tap physically finishes at `(28,5)`. Native conservatively retains the same candidates, anchors and returns correctly. |
-| `interrupted-wall-retry` | First recovery hold is interrupted; the second reaches the wall and the route reaches its original goal. |
-| `last-wall-retry-succeeds` | Three interrupted wall holds, then success on the fourth wall attempt. |
-| `interrupted-wall-budget` | Four interrupted wall attempts exhaust the native limit. No arrival or trusted returned pose is exported. |
-| `first-tap-unknown-origin` | Encounter on the first input may predate this leg; fail before any recovery hold. |
-| `reported-unknown-origin` | An explicit MAY_PRECEDE_LEG report likewise fails before recovery. |
+The [generated review](../../data/navigation/native-recovery/README.md#seven-cases)
+lists all seven outcomes, including before/after movement, interrupted holds,
+the retry boundary and unknown encounter origins. Its pictures show the spatial
+sequence; its table makes the complete case inventory readable without opening
+the raw trace.
 
 **The retry policies differ.** Native BDSP permits an initial wall attempt plus
 three retries for that wall leg. Python `Session` defaults to three recovery
