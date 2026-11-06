@@ -106,10 +106,10 @@ def panel_svg(view, case, result, recovery=False):
     return '\n'.join(parts) + '\n'
 
 
-def review_markdown(bundle, results, trace_link, raster=False):
+def review_markdown(bundle, results, trace_link, raw_link, raster=False):
     extension = 'png' if raster else 'svg'
     lines = ['# BDSP Route 202 recovery: review summary', '',
-             'Generated from the verified [' + Path(trace_link).name + '](' + trace_link + '). Read this page for the behavior; the JSON retains the full machine-checkable evidence.', '',
+             'Replay data: [' + Path(trace_link).name + '](' + trace_link + ') — shared context and one action per line. The [complete raw JSON](' + raw_link + ') is a separate diagnostic artifact.', '',
              '**Preconditions:** Route202, start `(26,5)` east, goal `(28,5)` west; scene state 1, Running Shoes available, RUN policy. All encounters below are injected and already cleared.', '',
              '| Intended leg and interruption | Native recovery and rejoin |', '|---|---|',
              f'| ![Interrupted original route](bdsp-route202-intended.{extension}) | ![Native recovery route](bdsp-route202-recovery.{extension}) |', '',
@@ -127,14 +127,14 @@ def review_markdown(bundle, results, trace_link, raster=False):
         outcome = 'Stop: unknown encounter origin' if failure.startswith('encounter_origin_unknown') else 'Stop: recovery budget exhausted' if failure else 'Arrived; sim `(28,5)` west'
         lines.append('| ' + case['id'].replace('-', ' ') + ' | `' + point(physical) + '` | ' + str(result['wall_attempts']) + ' | ' + outcome + ' |')
     lines += ['', '**Retry policy:** BDSP allows an initial wall attempt plus three retries: four total. The fourth can succeed after three interruptions; four interruptions fail. Python `Session` separately defaults to three recovery calls total; these budgets are not equivalent.', '',
-              '## What is in the JSON?', '',
+              '## How to read the trace', '',
               '| Fields | Evidence retained |', '|---|---|',
-              '| `input` | Start/goal, movement policy and injected encounter phase/origin. |',
+              '| `[context]`, `encounter` | Shared map/elevation/start/goal/policy, then the injected encounter phase/origin for each case. |',
               '| `calls` | Requested turns/taps/holds; stop reason, elapsed time, battles and credited chunks; physical before/after poses. |',
-              '| `notes` | Actual native plans, replan candidates, completion basis and arrival/failure logs. |',
-              '| `declared`, `physical` | Positions returned by the native API versus simulated truth. Returned facing stays null because the API does not report it. |',
+              '| `native` | Actual native plans, replan candidates, completion basis and arrival/failure facts. `>` marks a plan leg. |',
+              '| `declared`, `physical` | Positions returned by the native API versus simulated truth. A `?` facing is explicitly unreported; `none` means no positions were returned. |',
               '| `failure` | Exact failure reason, or an empty string on success. |',
-              '| Source/map metadata | Full revisions, map-byte hash and native exporter checksum. |', '',
+              '| `[source]` | Full revisions, map/exporter hashes and the raw-diagnostic checksum. |', '',
               'The pictures show the spatial sequence; the table covers the cases and outcomes. They do **not** replace raw reports, timings or provenance. Native facing belief, queue draining, advancing video confirmation, detector timing and a global retry budget remain unverified.', '',
               '## Regenerate', '', '```sh',
               'PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_review \\',
@@ -160,7 +160,10 @@ def write_review(trace, directory, root=ROOT, png=False):
             import cairosvg
             cairosvg.svg2png(bytestring=svg.encode(), write_to=str(target.with_suffix('.png')), scale=2)
     relative = Path(os.path.relpath(Path(trace).resolve(), directory.resolve())).as_posix()
-    (directory / 'README.md').write_text(review_markdown(bundle, results, relative, png))
+    from .bdsp_native_recovery_text import diagnostic_source
+    raw = diagnostic_source(trace)[0] if Path(trace).suffix == '.trace' else Path(trace)
+    raw_link = Path(os.path.relpath(raw.resolve(), directory.resolve())).as_posix()
+    (directory / 'README.md').write_text(review_markdown(bundle, results, relative, raw_link, png))
 
 
 def main():

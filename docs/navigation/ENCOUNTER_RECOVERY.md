@@ -80,7 +80,7 @@ The next slice exports seven **registered native C++ tests**, running the real
 BDSP route planner and `walk_route()` through its existing `GridSimRouteIO`.
 Start with [the visual review summary](../../data/navigation/native-recovery/README.md):
 side-by-side diagrams and a seven-case results table. The
-[captured JSON](../../data/navigation/native-recovery/bdsp-route202.json) contains actual I/O reports, physical simulated poses, returned positions and
+[readable replay data](../../data/navigation/native-recovery/bdsp-route202.trace) records actual I/O reports, physical simulated poses, returned positions and
 shared `[Route]` plan/replan/end logs. Python replays those native-selected legs
 on the same map bytes; it does not choose replacement routes or copy the native
 recovery algorithm.
@@ -103,7 +103,7 @@ calls total across a session. This slice measures the native policy explicitly;
 it does not equate the two budgets or change either policy.
 
 Native `walk_route()` returns positions without facing evidence, so exported
-`declared` poses keep facing `null`. `physical` facing comes from GridSim and is
+`declared` poses use `?` for unreported facing (`null` in the raw export). `physical` facing comes from GridSim and is
 checked independently. Native internal facing belief, queue draining, advancing
 video/stillness confirmation, detector timing and a global retry budget remain
 **unverified**. A native `(walked)` log is preserved as its stated basis; an
@@ -121,7 +121,7 @@ PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_replay check \
 # Fetch the publishing repo first: capture trusts cached origin/main.
 PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_replay capture \
   --stdout /tmp/native-test-stdout.log --native-source /path/to/Arduino-Source \
-  --source . --trace /tmp/bdsp-route202-candidate.json
+  --source . --trace /tmp/bdsp-route202-candidate.trace
 ```
 
 The exporter emits `POKESIM_NATIVE_REPLAY` only after each native case's own
@@ -149,3 +149,20 @@ queue/observation/facing facts, then compare complete #47 state snapshots. The
 current BDSP replay proves candidate-tile and supplied-leg geometry agreement,
 native automatic recovery/rejoin outcomes, and the explicitly tested native
 retry/origin rules. It is not yet full native/Python state-machine equivalence.
+
+## Readable replay data
+
+The primary replay input is now [`bdsp-route202.trace`](../../data/navigation/native-recovery/bdsp-route202.trace):
+173 lines for all seven cases, using strict INI sections. Shared preconditions
+are declared once. Each action occupies one line with explicit before/after
+poses, timing, stop reason, battle count, credit count and origin. Zero/false
+values remain explicit; `?` means unreported facing and `none` means no returned
+positions. No implicit INI DEFAULT values are allowed.
+
+The complete original JSON capture is preserved under
+[`diagnostics/`](../../data/navigation/native-recovery/diagnostics/bdsp-route202.raw.json).
+Reading the text verifies the diagnostic checksum and agreement of every replay
+fact. Plan/replan/completion/arrival facts remain in the text; duplicate status
+and simulator debug logs remain in diagnostics. Round-trip tests prove that
+both representations produce identical replay results. JSON remains accepted
+for raw diagnostic input; capture defaults to readable text plus diagnostics.

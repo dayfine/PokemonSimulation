@@ -1,7 +1,7 @@
 """Replay exported BDSP Route202 native walker/GridSim facts.
 
     PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_replay \
-        check --trace data/navigation/native-recovery/bdsp-route202.json
+        check --trace data/navigation/native-recovery/bdsp-route202.trace
 
 This bounded profile replays actual native plans; it does not choose an optimal
 route or prove detector timing, queue draining or native facing beliefs.
@@ -16,12 +16,14 @@ import re
 from pokesim.grid.geometry import Direction, Tile
 from pokesim.grid.maps.world import Place
 from pokesim.grid.movement import Hop, Moved, WorldState, world_step
+from .bdsp_native_recovery_text import CASE_ORDER
 from .conformance import fields, integer, make_world, pose_from, pose_json
 from .consumer_source import DIGEST, SHA, read_json
 from .runtime_map_pack import ROOT
 from .transition_state import Observation, Pose, Session, clip_plan
 
-BUNDLE = ROOT / 'data/navigation/native-recovery/bdsp-route202.json'
+BUNDLE = ROOT / 'data/navigation/native-recovery/bdsp-route202.trace'
+RAW_BUNDLE = BUNDLE.parent / 'diagnostics/bdsp-route202.raw.json'
 
 
 def tiles(text):
@@ -210,12 +212,15 @@ def checked_report(report):
 
 EXPORTER = 'SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_NativeRecoveryReplay_Tests.cpp'
 NATIVE_MAP = 'SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route202.json'
-CASE_IDS = {'last-tap-before', 'last-tap-after', 'interrupted-wall-retry', 'last-wall-retry-succeeds',
-            'interrupted-wall-budget', 'first-tap-unknown-origin', 'reported-unknown-origin'}
+CASE_IDS = set(CASE_ORDER)
 
 
 def read_bundle(path=BUNDLE):
-    bundle = read_json(Path(path).read_bytes())
+    if Path(path).suffix == '.trace':
+        from .bdsp_native_recovery_text import read_text
+        bundle = read_text(path)
+    else:
+        bundle = read_json(Path(path).read_bytes())
     fields(bundle, 'format profile coordinate_frame native_revision native_exporter map_revision maps context cases')
     if (bundle['format'] != 'pokesim-native-route-replay/1' or bundle['profile'] != 'bdsp-route202-gridsim/1'
             or bundle['coordinate_frame'] != 'runtime-local'):
@@ -314,7 +319,11 @@ def capture(stdout, native_root, source_root, output):
     verify_native_source(bundle, native_root)
     check_bundle(bundle, source_root)
     Path(output).parent.mkdir(parents=True, exist_ok=True)
-    Path(output).write_text(format_trace(bundle))
+    if Path(output).suffix == '.trace':
+        from .bdsp_native_recovery_text import write_text
+        write_text(bundle, output, format_trace(bundle))
+    else:
+        Path(output).write_text(format_trace(bundle))
     return bundle
 
 

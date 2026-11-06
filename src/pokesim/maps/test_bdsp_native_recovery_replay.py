@@ -6,7 +6,7 @@ import tempfile
 import subprocess
 import unittest
 
-from .bdsp_native_recovery_replay import (EXPORTER, NATIVE_MAP, capture, check_bundle,
+from .bdsp_native_recovery_replay import (EXPORTER, NATIVE_MAP, RAW_BUNDLE, capture, check_bundle,
                                           parse_plans, read_bundle, replay_case, verify_native_source)
 from .runtime_map_pack import ROOT
 from .conformance import make_world
@@ -109,8 +109,8 @@ class NativeReplayTests(unittest.TestCase):
             source_revision = commit(source)
             git(source, 'update-ref', 'refs/remotes/origin/main', source_revision)
             stdout = root / 'stdout.txt'
-            stdout.write_text(''.join('POKESIM_NATIVE_REPLAY ' + json.dumps(c) + '\n' for c in read_bundle()['cases']))
-            output = root / 'capture.json'
+            stdout.write_text(''.join('POKESIM_NATIVE_REPLAY ' + json.dumps(c) + '\n' for c in read_bundle(RAW_BUNDLE)['cases']))
+            output = root / 'capture.trace'
             captured = capture(stdout, native, source, output)
             self.assertEqual(native_revision, captured['native_revision'])
             self.assertEqual(source_revision, captured['map_revision'])
