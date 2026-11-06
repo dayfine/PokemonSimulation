@@ -1,0 +1,541 @@
+{
+    "format": "pokesim-item-identities/1",
+    "inputs_sha256": "a2413aacdf87a5586ac4550305d7eeffbecf3de724f7af77fa2a8ad5aae09304",
+    "sources": {
+        "frlg": {
+            "repository": "pret/pokefirered",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "verification": "FRLG source-derived; collection not observed",
+            "source_game": "firered",
+            "target_game": "frlg",
+            "target_game_relation": "native_decomp"
+        },
+        "diamond": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "verification": "Diamond baseline; not verified against BDSP item data",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline"
+        },
+        "platinum": {
+            "repository": "pret/pokeplatinum",
+            "revision": "c6689696d5fb51a644239702cb556eb52012a46a",
+            "verification": "Platinum baseline; not verified against BDSP item data",
+            "source_game": "platinum",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline"
+        }
+    },
+    "maps": {
+        "frlg": {
+            "CeruleanCave_1F": {
+                "source": "frlg",
+                "events": "data/maps/CeruleanCave_1F/map.json",
+                "events_sha256": "42a7d49479544125aa08209126948e3f57ff6040a2f6c1b5289e498de39d4e5c",
+                "map_content_sha256": "f845a949abe620395f859b4e8dfcd191eb27d849237746769d1db2fe6a5882da",
+                "objects": [
+                    {
+                        "coord": [7, 3],
+                        "source_event": {"index": 0, "script": "CeruleanCave_1F_EventScript_ItemNugget"},
+                        "item": "nugget",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET"
+                    },
+                    {
+                        "coord": [11, 16],
+                        "source_event": {"index": 1, "script": "CeruleanCave_1F_EventScript_ItemFullRestore"},
+                        "item": "full_restore",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE"
+                    },
+                    {
+                        "coord": [25, 5],
+                        "source_event": {"index": 2, "script": "CeruleanCave_1F_EventScript_ItemMaxElixir"},
+                        "item": "max_elixir",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR"
+                    }
+                ]
+            },
+            "CeruleanCave_2F": {
+                "source": "frlg",
+                "events": "data/maps/CeruleanCave_2F/map.json",
+                "events_sha256": "2c6e7f32daefb68be4a39c7219682c3bb7b8c8ddb079db21226de4afa556f6ae",
+                "map_content_sha256": "bcc90398e86c802141e97bb69bb55669ca2397ee37d679890ae790ccb7596831",
+                "objects": [
+                    {
+                        "coord": [9, 18],
+                        "source_event": {"index": 0, "script": "CeruleanCave_2F_EventScript_ItemPPUp"},
+                        "item": "pp_up",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_2F_PP_UP"
+                    },
+                    {
+                        "coord": [29, 16],
+                        "source_event": {"index": 1, "script": "CeruleanCave_2F_EventScript_ItemUltraBall"},
+                        "item": "ultra_ball",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_2F_ULTRA_BALL"
+                    },
+                    {
+                        "coord": [33, 12],
+                        "source_event": {"index": 2, "script": "CeruleanCave_2F_EventScript_ItemFullRestore"},
+                        "item": "full_restore",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_2F_FULL_RESTORE"
+                    }
+                ]
+            },
+            "CeruleanCave_B1F": {
+                "source": "frlg",
+                "events": "data/maps/CeruleanCave_B1F/map.json",
+                "events_sha256": "771c69cd177d040c0048fc9a4729525141d1844e18460448d48e1a1af405986a",
+                "map_content_sha256": "460b0c9f27df1e4217a753cda8cf26b6da387233bf7cb7bc99c47e6bff90539c",
+                "objects": [
+                    {
+                        "coord": [31, 9],
+                        "source_event": {"index": 0, "script": "CeruleanCave_B1F_EventScript_ItemUltraBall"},
+                        "item": "ultra_ball",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_ULTRA_BALL"
+                    },
+                    {
+                        "coord": [32, 2],
+                        "source_event": {"index": 1, "script": "CeruleanCave_B1F_EventScript_ItemMaxRevive"},
+                        "item": "max_revive",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_MAX_REVIVE"
+                    }
+                ]
+            },
+            "MtMoon_1F": {
+                "source": "frlg",
+                "events": "data/maps/MtMoon_1F/map.json",
+                "events_sha256": "312b2de23d9942d3326da9fe9597b25ef7c3537bcedfcafa7922d5c8b8e8d8fc",
+                "map_content_sha256": "874a6c1c69ac67827d4f3462c9b46cc755950707bef157182510cca5476a54bd",
+                "objects": [
+                    {
+                        "coord": [2, 22],
+                        "source_event": {"index": 7, "script": "MtMoon_1F_EventScript_ItemParalyzeHeal"},
+                        "item": "paralyze_heal",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_1F_PARALYZE_HEAL"
+                    },
+                    {
+                        "coord": [11, 35],
+                        "source_event": {"index": 8, "script": "MtMoon_1F_EventScript_ItemTM09"},
+                        "item": "tm09",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_1F_TM09"
+                    },
+                    {
+                        "coord": [26, 32],
+                        "source_event": {"index": 9, "script": "MtMoon_1F_EventScript_ItemPotion"},
+                        "item": "potion",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_1F_POTION"
+                    },
+                    {
+                        "coord": [42, 35],
+                        "source_event": {"index": 10, "script": "MtMoon_1F_EventScript_ItemRareCandy"},
+                        "item": "rare_candy",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_1F_RARE_CANDY"
+                    },
+                    {
+                        "coord": [44, 21],
+                        "source_event": {"index": 11, "script": "MtMoon_1F_EventScript_ItemEscapeRope"},
+                        "item": "escape_rope",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_1F_ESCAPE_ROPE"
+                    },
+                    {
+                        "coord": [3, 2],
+                        "source_event": {"index": 12, "script": "MtMoon_1F_EventScript_ItemMoonStone"},
+                        "item": "moon_stone",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_1F_MOON_STONE"
+                    }
+                ]
+            },
+            "MtMoon_B2F": {
+                "source": "frlg",
+                "events": "data/maps/MtMoon_B2F/map.json",
+                "events_sha256": "451a05df92c5df570c121affa75c846996d3561c12e7e5d67d91814482a37ff3",
+                "map_content_sha256": "80c5dc46f3bc7ce2ea399f99f8a2f1f198621caae00fb7a4b206b7a77c663ca9",
+                "objects": [
+                    {
+                        "coord": [30, 26],
+                        "source_event": {"index": 7, "script": "MtMoon_B2F_EventScript_ItemStarPiece"},
+                        "item": "star_piece",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_B2F_STAR_PIECE"
+                    },
+                    {
+                        "coord": [35, 5],
+                        "source_event": {"index": 8, "script": "MtMoon_B2F_EventScript_ItemTM46"},
+                        "item": "tm46",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_B2F_TM46"
+                    },
+                    {
+                        "coord": [24, 6],
+                        "source_event": {"index": 9, "script": "MtMoon_B2F_EventScript_ItemRevive"},
+                        "item": "revive",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_B2F_REVIVE"
+                    },
+                    {
+                        "coord": [3, 11],
+                        "source_event": {"index": 10, "script": "MtMoon_B2F_EventScript_ItemAntidote"},
+                        "item": "antidote",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_MT_MOON_B2F_ANTIDOTE"
+                    }
+                ]
+            },
+            "PalletTown_ProfessorOaksLab": {
+                "source": "frlg",
+                "events": "data/maps/PalletTown_ProfessorOaksLab/map.json",
+                "events_sha256": "37906ed851a344cc63b41b303b41b6da091328b97b05b6e38d2570486d104704",
+                "map_content_sha256": "c4b210832ce2667e372a9c319b5df8fac83c384954dc4b463e4b7bbec31717b3",
+                "objects": [
+                    {
+                        "coord": [8, 4],
+                        "source_event": {
+                            "index": 4,
+                            "id": "LOCALID_BULBASAUR_BALL",
+                            "script": "PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall"
+                        },
+                        "interaction": {"kind": "starter_choice", "species": "bulbasaur"},
+                        "hide_flag": "FLAG_HIDE_BULBASAUR_BALL"
+                    },
+                    {
+                        "coord": [9, 4],
+                        "source_event": {
+                            "index": 5,
+                            "id": "LOCALID_SQUIRTLE_BALL",
+                            "script": "PalletTown_ProfessorOaksLab_EventScript_SquirtleBall"
+                        },
+                        "interaction": {"kind": "starter_choice", "species": "squirtle"},
+                        "hide_flag": "FLAG_HIDE_SQUIRTLE_BALL"
+                    },
+                    {
+                        "coord": [10, 4],
+                        "source_event": {
+                            "index": 6,
+                            "id": "LOCALID_CHARMANDER_BALL",
+                            "script": "PalletTown_ProfessorOaksLab_EventScript_CharmanderBall"
+                        },
+                        "interaction": {"kind": "starter_choice", "species": "charmander"},
+                        "hide_flag": "FLAG_HIDE_CHARMANDER_BALL"
+                    }
+                ]
+            },
+            "Route2": {
+                "source": "frlg",
+                "events": "data/maps/Route2/map.json",
+                "events_sha256": "2562e3736b600c95b8c0a4c2a1bb3fb062f5c50208bebc43cd4303328ccda7ea",
+                "map_content_sha256": "b4027b635817b512cfad42c2c050ee0adae3b6c63eca9fa848e07b18a07f51ab",
+                "objects": [
+                    {
+                        "coord": [17, 54],
+                        "source_event": {"index": 4, "script": "Route2_EventScript_ItemEther"},
+                        "item": "ether",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROUTE2_ETHER"
+                    },
+                    {
+                        "coord": [17, 64],
+                        "source_event": {"index": 5, "script": "Route2_EventScript_ItemParalyzeHeal"},
+                        "item": "paralyze_heal",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROUTE2_PARALYZE_HEAL"
+                    }
+                ]
+            },
+            "Route24": {
+                "source": "frlg",
+                "events": "data/maps/Route24/map.json",
+                "events_sha256": "f844a16ec16a9aa725bcabf8862ec7b08be16b511f10664ef6e15f2448dd90a8",
+                "map_content_sha256": "9cb32566ed57a1bc6737db74015fe561f1cf5b5d583f6142d1e0d1cb85f48acf",
+                "objects": [
+                    {
+                        "coord": [11, 4],
+                        "source_event": {"index": 7, "script": "Route24_EventScript_ItemTM45"},
+                        "item": "tm45",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROUTE24_TM45"
+                    }
+                ]
+            },
+            "Route25": {
+                "source": "frlg",
+                "events": "data/maps/Route25/map.json",
+                "events_sha256": "a4b412784121ae753cb88e5a1be6db1b5575e77946ba3c6b87aca8087b1dfcb6",
+                "map_content_sha256": "af594f75bea9b4cecaafa1afc6e6e2f3652f2060bacfe52149a89ddb77cc1e79",
+                "objects": [
+                    {
+                        "coord": [26, 2],
+                        "source_event": {"index": 9, "script": "Route25_EventScript_ItemTM43"},
+                        "item": "tm43",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROUTE25_TM43"
+                    }
+                ]
+            },
+            "Route4": {
+                "source": "frlg",
+                "events": "data/maps/Route4/map.json",
+                "events_sha256": "5b0b84cb73ecc6597470d01d5933ca36d5e4410cdda53dddb72922689e5653ac",
+                "map_content_sha256": "70a523e69a2a1e3e201ac1b269b5086dc5386955a5f48298342ccb6b2b9b6e74",
+                "objects": [
+                    {
+                        "coord": [67, 5],
+                        "source_event": {"index": 2, "script": "Route4_EventScript_ItemTM05"},
+                        "item": "tm05",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROUTE4_TM05"
+                    }
+                ]
+            },
+            "Route9": {
+                "source": "frlg",
+                "events": "data/maps/Route9/map.json",
+                "events_sha256": "0a8b7cfd3028e15d59903f3f5dfc503f98712e5592d8d6a99a26cddc430d5270",
+                "map_content_sha256": "327767175d741bdea6904ad56a064a73caa6a33eca9b4be4d37411e779ab0c99",
+                "objects": [
+                    {
+                        "coord": [12, 17],
+                        "source_event": {"index": 10, "script": "Route9_EventScript_ItemTM40"},
+                        "item": "tm40",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROUTE9_TM40"
+                    },
+                    {
+                        "coord": [65, 17],
+                        "source_event": {"index": 11, "script": "Route9_EventScript_ItemBurnHeal"},
+                        "item": "burn_heal",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROUTE9_BURN_HEAL"
+                    }
+                ]
+            },
+            "ViridianCity": {
+                "source": "frlg",
+                "events": "data/maps/ViridianCity/map.json",
+                "events_sha256": "5ce922b65f76335556ace9a047feeb1968854b604c8469c39cbbd60985f61bc1",
+                "map_content_sha256": "60ea54bfb4c2b0e07411fd2e316aa3231a95ae3e61387c0556ca97bd005561eb",
+                "objects": [
+                    {
+                        "coord": [17, 5],
+                        "source_event": {"index": 8, "script": "ViridianCity_EventScript_ItemPotion"},
+                        "item": "potion",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_VIRIDIAN_CITY_POTION"
+                    }
+                ]
+            },
+            "ViridianForest": {
+                "source": "frlg",
+                "events": "data/maps/ViridianForest/map.json",
+                "events_sha256": "6d6f082604d3c220eeb2c72cb6a606403330df44c58d9ed2523cd81c53fdaba2",
+                "map_content_sha256": "a242c85be87d94a3c3da38937498ff2301920923153914d447fc22d06532dc4e",
+                "objects": [
+                    {
+                        "coord": [5, 41],
+                        "source_event": {"index": 5, "script": "ViridianForest_EventScript_ItemPokeBall"},
+                        "item": "poke_ball",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_VIRIDIAN_FOREST_POKE_BALL"
+                    },
+                    {
+                        "coord": [40, 21],
+                        "source_event": {"index": 6, "script": "ViridianForest_EventScript_ItemAntidote"},
+                        "item": "antidote",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_VIRIDIAN_FOREST_ANTIDOTE"
+                    },
+                    {
+                        "coord": [21, 34],
+                        "source_event": {"index": 7, "script": "ViridianForest_EventScript_ItemPotion"},
+                        "item": "potion",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_VIRIDIAN_FOREST_POTION"
+                    },
+                    {
+                        "coord": [49, 60],
+                        "source_event": {"index": 10, "script": "ViridianForest_EventScript_ItemPotion2"},
+                        "item": "potion",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_VIRIDIAN_FOREST_POTION_2"
+                    }
+                ]
+            }
+        },
+        "bdsp": {
+            "OreburghMine": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0197.bin",
+                "events_sha256": "517473fcecb3bd0f0aea6d3db18d81bb5f13bbb6082d859198cca6554dffb977",
+                "map_content_sha256": "c43cee9611250bcc5b4d56d9bab86cbbc804135ee0ed94d2b1538f99a1ebc67d",
+                "objects": [
+                    {
+                        "coord": [4, 28],
+                        "source_event": {"index": 3, "id": 3, "script": 7012},
+                        "item": "escape_rope",
+                        "quantity": 1,
+                        "hide_flag": "flag 993"
+                    },
+                    {
+                        "coord": [26, 24],
+                        "source_event": {"index": 4, "id": 4, "script": 7013},
+                        "item": "potion",
+                        "quantity": 1,
+                        "hide_flag": "flag 994"
+                    }
+                ]
+            },
+            "OreburghMineB1F": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0196.bin",
+                "events_sha256": "fec75b45d815d678eff659c06b6f6ec9c531a724f1f3a2d25e16c3d586248f70",
+                "map_content_sha256": "4b3743210eaade61d46157672cf03bcf1394b33a11d5faab536a733907e23ed9",
+                "objects": [
+                    {
+                        "coord": [19, 4],
+                        "source_event": {"index": 1, "id": 1, "script": 7011},
+                        "item": "x_defense",
+                        "quantity": 1,
+                        "hide_flag": "flag 1221"
+                    }
+                ]
+            },
+            "RavagedPath": {
+                "source": "platinum",
+                "events": "res/field/events/events_ravaged_path.json",
+                "events_sha256": "0be81f9bc68472f19067a9df969b2c6d3e1a54e0779b934657daa0a0a3fbe7ff",
+                "map_content_sha256": "a1ee892aeb38bd30d9c5a1a43305c5d1c79f90590be81101ca79a274d7edd19d",
+                "objects": [
+                    {
+                        "coord": [7, 38],
+                        "source_event": {"index": 27, "id": "LOCALID_ITEM_TM39", "script": 7011},
+                        "item": "tm39",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM39"
+                    },
+                    {
+                        "coord": [17, 11],
+                        "source_event": {"index": 28, "id": "LOCALID_ITEM_LUCK_INCENSE", "script": 7012},
+                        "item": "luck_incense",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_LUCK_INCENSE"
+                    },
+                    {
+                        "coord": [28, 5],
+                        "source_event": {"index": 29, "id": "LOCALID_ITEM_TM03", "script": 7013},
+                        "item": "tm03",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM03"
+                    },
+                    {
+                        "coord": [22, 44],
+                        "source_event": {"index": 30, "id": "LOCALID_ITEM_POTION", "script": 7251},
+                        "item": "potion",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_POTION"
+                    }
+                ]
+            },
+            "Route202": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0328.bin",
+                "events_sha256": "17c0c1616d0cb8d4acbfd50e9ece28b7e4243ed1b527d5d1832956c508ca5c88",
+                "map_content_sha256": "eaeb37720146ba250b7ed4f7404942105829466b64682d8c76a59764580f6b75",
+                "objects": [
+                    {
+                        "coord": [3, 6],
+                        "source_event": {"index": 8, "id": 8, "script": 7001},
+                        "item": "potion",
+                        "quantity": 1,
+                        "hide_flag": "flag 986"
+                    }
+                ]
+            },
+            "Route203": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0329.bin",
+                "events_sha256": "a5538e7025f82793f546381e76af7037daadad62b3ae2aed817aecb1578389aa",
+                "map_content_sha256": "af6634a49e7b726d9d9b4198663a8eefd0a2fc3a180019ac4eaff21e6928261d",
+                "objects": [
+                    {
+                        "coord": [31, 5],
+                        "source_event": {"index": 10, "id": 10, "script": 7003},
+                        "item": "repel",
+                        "quantity": 1,
+                        "hide_flag": "flag 987"
+                    },
+                    {
+                        "coord": [20, 10],
+                        "source_event": {"index": 11, "id": 11, "script": 7004},
+                        "item": "poke_ball",
+                        "quantity": 1,
+                        "hide_flag": "flag 988"
+                    }
+                ]
+            },
+            "Route204North": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0331.bin",
+                "events_sha256": "dc1454d9e10692dbb38660f260eb7eedfebd43d24c3d634460cf3e2428f655e0",
+                "map_content_sha256": "50927a26b5024ad38dd59b0223384022ebc5a8a068b49f7c82d356d1b59276f2",
+                "objects": [
+                    {
+                        "coord": [2, 10],
+                        "source_event": {"index": 9, "id": 9, "script": 7021},
+                        "item": "tm09",
+                        "quantity": 1,
+                        "hide_flag": "flag 1000"
+                    },
+                    {
+                        "coord": [20, 23],
+                        "source_event": {"index": 11, "id": 11, "script": 7022},
+                        "item": "awakening",
+                        "quantity": 1,
+                        "hide_flag": "flag 1240"
+                    }
+                ]
+            },
+            "Route204South": {
+                "source": "diamond",
+                "events": "files/fielddata/eventdata/zone_event_release/narc_0330.bin",
+                "events_sha256": "57419b5fe791d60db542d30d18f9541258ba45c32a0a8b8165881fe000a126d0",
+                "map_content_sha256": "02662bc300a378c558664430b79fa470a8a8cfe0425c69ae8f84e8055f455d98",
+                "objects": [
+                    {
+                        "coord": [2, 28],
+                        "source_event": {"index": 7, "id": 7, "script": 7015},
+                        "item": "sea_incense",
+                        "quantity": 1,
+                        "hide_flag": "flag 995"
+                    },
+                    {
+                        "coord": [29, 12],
+                        "source_event": {"index": 8, "id": 8, "script": 7016},
+                        "item": "hp_up",
+                        "quantity": 1,
+                        "hide_flag": "flag 996"
+                    },
+                    {
+                        "coord": [17, 18],
+                        "source_event": {"index": 9, "id": 9, "script": 7014},
+                        "item": "parlyz_heal",
+                        "quantity": 1,
+                        "hide_flag": "flag 1068"
+                    }
+                ]
+            }
+        }
+    }
+}

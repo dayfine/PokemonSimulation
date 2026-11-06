@@ -63,6 +63,13 @@ def validate(data):
     for obj in data.get('objects', []):
         tile(obj['x'], obj['y'])
         require(isinstance(obj.get('name'), str) and isinstance(obj.get('kind'), str), 'object identity required')
+        if 'item' in obj or 'quantity' in obj:
+            require(obj['kind'] == 'item' and isinstance(obj.get('item'), str) and obj['item'], 'invalid item identity')
+            require(type(obj.get('quantity')) is int and obj['quantity'] > 0, 'invalid item quantity')
+            require('interaction' not in obj and 'pickup' not in obj, 'conflicting pickup identity')
+        if 'interaction' in obj:
+            require(isinstance(obj['interaction'], dict) and isinstance(obj['interaction'].get('kind'), str),
+                    'invalid interaction identity')
         if 'wander' in obj:
             box = obj['wander']
             tile(box['x0'], box['y0'])

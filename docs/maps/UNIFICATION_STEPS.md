@@ -72,7 +72,7 @@ Wire representation:
 ```
 
 The fragment illustrates formatting, not a complete valid map. V2 replaces
-`objects` with `npcs`, `items` and `signs`; the section carries the kind, so each
+`objects` with `npcs`, `items`, `signs` and non-item `interactables`; the section carries the kind, so each
 record omits `kind`. Empty sections are omitted. Records remain arrays because
 names are not unique in existing FRLG maps. Preserve record order within each
 kind; cross-kind interleaving is not part of the v2 contract. Native migration
@@ -188,43 +188,17 @@ and failure/recovery results on a shared scenario, then separately validate real
 controller/detector behavior in Arduino. A Python route candidate alone is not
 proof of native story execution or battle readiness.
 
-## Item identity follow-up (requested 2026-11-06; not implemented yet)
+## Item identities — implemented as staged enrichment
 
-Both exporters currently discard pickup identity. BDSP `place_objects()` emits
-`item_<event index>` and FRLG `map_object()` emits `item_ball`. These are object
-labels, not item IDs, and must not be treated as inventory gains in story replay.
+[Pickup identity implementation and commands](item-identities.md) now cover all
+48 existing item-ball records: 45 fixed pickups and three starter-choice
+interactions. Both builders retain source event metadata and optionally enrich
+it. V2 previews use real item identifiers/quantities; Oak's balls go into
+`interactables`, not `items`. Source scripts/IDs and collection flags are retained
+in a pinned catalog with compact per-record references.
 
-Confirmed source checkpoints:
-
-- OreburghMine `[4,28]` is the Escape Rope location, corresponding to Diamond
-  zone event `narc_0197.bin`, object index 3, script 7012, hide flag 993.
-  `[26,24]` is the Potion location, object index 4, script 7013, hide flag 994.
-  Matching Platinum named events identify Escape Rope and Potion at those same
-  coordinates, but their script IDs are 7007/7008: **do not reuse Platinum script
-  indices to decode Diamond**. Resolve the actual item table/script and retain
-  the game's provenance before adding generated identities.
-- At FRLG decomp pin `ce6406d8c2eaf46d543c8a2606de0c3cb1951982`, ViridianForest
-  item-ball objects reference `ViridianForest_EventScript_ItemPokeBall`,
-  `...ItemAntidote`, `...ItemPotion` and `...ItemPotion2`. The current map export
-  drops those labels. Preserve the local event ID/index, script and hide flag;
-  derive the item and quantity from the pickup instruction, not label guessing.
-
-Implementation sequence:
-
-1. Preserve source event/script identifiers in the decomp event model and both
-   map builders. Preserve hidden/picked-up flags for item events too.
-2. Resolve item constants and quantities through each game's actual scripts or
-   item tables at a pinned revision. Unknown/conditional rewards stay explicit;
-   do not infer quantities or grant pickups merely because they exist on a map.
-3. Enrich item records with an item identifier and proven quantity, plus source
-   evidence distinct from the map-local object label. Keep a stable source
-   event reference so duplicate item types and names remain distinguishable.
-4. Add offline parser/builder tests for the mine pair, multiple FRLG item balls,
-   version-specific script indices, hidden flags, and unresolved/conditional
-   scripts. Update hashes only for reviewed data enrichment, without importing
-   the five pending BDSP terrain/point/trigger corrections.
-
-The codec already preserves unknown record metadata, so item identity/provenance
-fields can pass through without another coordinate-format change. This section
-records a pending implementation, not a claim that published pickups have been
-enriched or verified against BDSP's own game data.
+Published map bytes and native replay pins remain unchanged until adoption.
+Unknown/conditional rewards remain unresolved, and Diamond/Platinum identities
+are labeled as BDSP baselines rather than claimed BDSP verification. CI checks
+reproduction against the 28 pinned source inputs. The map/resource/story-event
+migration above is still pending beyond these staged data tools.

@@ -17,7 +17,7 @@ from .runtime_map_coordinates import compact_map, legacy_map
 from .runtime_map_schema import validate
 
 
-EXPANDED = {'tiles', 'elevation', 'points', 'regions', 'objects', 'npcs', 'items', 'signs', 'warps', 'patches', 'coord_events'}
+EXPANDED = {'tiles', 'elevation', 'points', 'regions', 'objects', 'npcs', 'items', 'signs', 'interactables', 'warps', 'patches', 'coord_events'}
 
 
 def map_text(data, width=120):
@@ -45,12 +45,17 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--input', required=True, type=Path)
     parser.add_argument('--out', required=True, type=Path)
+    parser.add_argument('--game', choices=('frlg', 'bdsp'), help='enrich from the pinned item catalog')
     parser.add_argument('--legacy', action='store_true', help='write v1 instead of the v2 preview')
     args = parser.parse_args()
     if args.input.resolve() == args.out.resolve():
         parser.error('preview output must differ from the input; do not overwrite a pinned map')
     data = read_json(args.input.read_bytes())
     validate(data)
+    if args.game:
+        # Keep the pure coordinate codec independent of source/catalog lookup.
+        from .item_identity import enrich_map
+        data = enrich_map(legacy_map(data), args.game)
     converted = legacy_map(data) if args.legacy else compact_map(data)
     validate(converted)
     args.out.write_text(map_text(converted), encoding='utf-8')

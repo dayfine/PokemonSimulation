@@ -14,6 +14,9 @@ story events as data**, not merely route paths. It updates the older vendored-ma
 distribution choice. The first slice stages the v2 coordinate codec/formatter and
 read-only parity tool; published v1 pins stay unchanged until native readers adopt
 v2. Native resource migration and actual story checkpoint export remain pending.
+[Staged pickup enrichment](maps/item-identities.md) resolves 45 fixed pickups
+and distinguishes three FRLG starter-choice interactions without changing active
+map/replay pins.
 
 ## 1. Map ownership — current milestone
 

@@ -45,6 +45,20 @@ jobs:
           print('Consumer correctly rejected local drift: ' + target.name)
           PY
 
+  item-sources:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reproduce item identities from pinned public sources
+        env:
+          PYTHONPATH: src
+        run: >-
+          python3 -m pokesim.maps.item_identity
+          --cache "$RUNNER_TEMP/pokesim-item-sources" --fetch --check
+
   unittest:
     runs-on: ubuntu-22.04
     strategy:

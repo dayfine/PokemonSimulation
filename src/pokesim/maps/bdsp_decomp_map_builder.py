@@ -55,6 +55,7 @@ Data/PokemonBDSP_AutoStory_CoordEvents.h reads it): `width` columns and
 tile and its script. Boxes are clipped to the map's rectangle.
 """
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -62,6 +63,8 @@ from pathlib import Path
 
 from pokesim.maps import dppt_map_decomp_parser as decomp
 from .runtime_symbols import LEDGE_GLYPHS
+from .item_identity import enrich_objects
+from .runtime_map_format import map_text as readable_map_text
 
 OUT = 'data/games/bdsp/maps/runtime'
 CACHE = Path.home() / '.cache' / 'maps' / 'decomp'
@@ -513,7 +516,7 @@ def wander_box(obj, x, y, width, height):
             'x1': min(width - 1, x + obj.range_x), 'y1': min(height - 1, y + obj.range_z)}
 
 
-def place_objects(name, events, rect, rows):
+def place_objects(name, events, rect, rows, include_item_identities=False):
     """Writes signs and obstacles into `rows`; returns the objects."""
     x0, z0, width, height = rect
     overrides = OBJECTS.get(name, {})
@@ -527,7 +530,15 @@ def place_objects(name, events, rect, rows):
             rows[y][x] = '#'
             continue
         if obj.gfx == decomp.ITEM:
-            objects.append({'name': f'item_{index}', 'kind': 'item', 'x': x, 'y': y})
+            item = {'name': f'item_{index}', 'kind': 'item', 'x': x, 'y': y}
+            reference = {key: value for key, value in dict(index=obj.index, id=obj.event_id, script=obj.script).items()
+                         if value is not None}
+            if include_item_identities:
+                if reference:
+                    item['source_event'] = reference
+                if obj.hidden:
+                    item['hide_flag'] = obj.hidden
+            objects.append(item)
             continue
         if obj.hidden and 'show' not in override or 'hide' in override:
             continue
@@ -569,7 +580,7 @@ def coord_events(name, repo, game, events_id, rect):
     return out
 
 
-def decode_map(name):
+def decode_map(name, include_item_identities=False):
     spec = MAPS[name]
     repo = spec.get('repo', decomp.Diamond.REPO)
     game = decomp.game_for(repo, CACHE, None, no_fetch)
@@ -591,7 +602,7 @@ def decode_map(name):
         x, y = sign.x - x0, sign.z - z0
         if 0 <= x < width and 0 <= y < height and rows[y][x] == '#':
             rows[y][x] = 'S'
-    objects = place_objects(name, events, spec['rect'], rows)
+    objects = place_objects(name, events, spec['rect'], rows, include_item_identities)
     doors = set(WARP_DOORS.get(name, []))
     for y, row in enumerate(rows):
         for x, tile in enumerate(row):
@@ -608,6 +619,11 @@ def decode_map(name):
         'revision': spec.get('revision', 'default branch'),
         'date': spec.get('read', READ),
     }
+    if include_item_identities:
+        events_hash = hashlib.sha256(game.source.read(game.events_path(header.events_id))).hexdigest()
+        objects, identity_source = enrich_objects(objects, 'bdsp', name, events_hash)
+        if identity_source is not None:
+            source['item_identities'] = identity_source
     triggers = coord_events(name, repo, game, header.events_id, spec['rect'])
     return [''.join(row) for row in rows], objects, source, triggers
 
@@ -623,9 +639,9 @@ def points_of(name):
     return points
 
 
-def map_text(name):
+def map_text(name, include_item_identities=False):
     """The map's JSON: one line per row, point, object and patch."""
-    tiles, objects, source, triggers = decode_map(name)
+    tiles, objects, source, triggers = decode_map(name, include_item_identities)
     lines = ['{', f'    "name": {json.dumps(name)},', f'    "source": {json.dumps(source)},', '    "tiles": [']
     lines += [f'        {json.dumps(row)},' for row in tiles]
     lines[-1] = lines[-1].rstrip(',')
@@ -647,7 +663,8 @@ def map_text(name):
     section('patches', [json.dumps({'x': x, 'y': y, 'glyph': g, 'measured_by': m})
                         for x, y, g, m in PATCHES.get(name, [])])
     lines.append('}')
-    return '\n'.join(lines) + '\n'
+    text = '\n'.join(lines) + '\n'
+    return readable_map_text(json.loads(text)) if include_item_identities else text
 
 
 def main():
@@ -655,6 +672,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     parser.add_argument('--cache', type=Path, default=CACHE, help='existing Sinnoh decomp cache; never fetches')
     parser.add_argument('--out', default=OUT, help='folder of the <map>.json files')
+    parser.add_argument('--item-identities', action='store_true', help='enrich from the pinned pickup catalog')
     parser.add_argument('--check', action='store_true', help='check the files in --out instead of writing them')
     parser.add_argument('maps', nargs='*', help='default: every map in MAPS')
     args = parser.parse_args()
@@ -663,7 +681,7 @@ def main():
     for name in names:
         if name not in MAPS:
             parser.error(f'{name}: not in MAPS')
-    texts = {name: map_text(name) for name in names}
+    texts = {name: map_text(name, args.item_identities) for name in names}
     if args.check:
         differ = [n for n, text in texts.items()
                   if not os.path.exists(os.path.join(args.out, n + '.json'))
