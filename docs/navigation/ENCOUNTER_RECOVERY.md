@@ -130,14 +130,15 @@ PYTHONPATH=src python3 -m pokesim.maps.bdsp_native_recovery_replay capture \
 The exporter emits `POKESIM_NATIVE_REPLAY` only after each native case's own
 assertions pass. Capture requires the complete seven-case inventory and a clean
 committed native worktree, verifies matching native/published map bytes and
-records the full native revision plus exporter checksum. It does not attest that
+records the full native revision plus exporter checksum. The exporter rejects
+fractional simulated positions instead of rounding them to tiles. It does not attest that
 a particular executable was built from those Git objects; retain the successful
 native build/test record alongside a regenerated capture. The default checker
 verifies local map bytes and semantics; optional native-source checking verifies
 Git provenance, not remote publication approval of the native candidate.
 
 The native exporter is locally committed on `bdsp/native-route-replay` at
-`cab271f5435e95bba2a6b56a4e448f3fbd3c171d`, based on the prepared #46 native
+`0bd414eabe477beb2be044cfe5057c5bec548db6`, based on the prepared #46 native
 adapter. Its three-file change adds tests/export only. All 61 focused registered
 BDSP tests pass locally, including the seven exports; code health passes
 against `bdsp/navigation-conformance`. The focused runner compiles actual native

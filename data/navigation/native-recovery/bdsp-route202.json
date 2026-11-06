@@ -2,10 +2,10 @@
   "format": "pokesim-native-route-replay/1",
   "profile": "bdsp-route202-gridsim/1",
   "coordinate_frame": "runtime-local",
-  "native_revision": "cab271f5435e95bba2a6b56a4e448f3fbd3c171d",
+  "native_revision": "0bd414eabe477beb2be044cfe5057c5bec548db6",
   "native_exporter": {
     "path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_NativeRecoveryReplay_Tests.cpp",
-    "sha256": "67a394232aa3d1c2b87e7e06fa741c354813487e145b8eee6737feee9d54daae"
+    "sha256": "94c1609ea8344988285bf9f8a2789c406363fc818f0dcb14c23c13264634d511"
   },
   "map_revision": "7364f4b35f125622a1ca49c63248cd20195ffafd",
   "maps": [
