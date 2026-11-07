@@ -11,9 +11,12 @@ The ordered [map/resources/story-data work](maps/UNIFICATION_STEPS.md) covers:
 typed NPC/item/sign arrays and compact coordinate pairs; current FRLG/BDSP parity evidence; pinned external
 Packages resources before removing native map copies/authoring; and **actions /
 story events as data**, not merely route paths. It updates the older vendored-map
-distribution choice. The first slice stages the v2 coordinate codec/formatter and
-read-only parity tool; published v1 pins stay unchanged until native readers adopt
-v2. Native resource migration and actual story checkpoint export remain pending.
+distribution choice. Published maps now use the v2 coordinate codec; historical
+native replay pins retain their original data. The [FRLG resource handoff
+checkpoint](maps/UNIFICATION_STEPS.md#frlg-resource-handoff-checkpoint-2026-11-06)
+records prepared native #238, its published tool/data pins and validation gates.
+Chain-wide adoption, BDSP reconciliation and actual native story checkpoint
+exports remain pending.
 The [story-event draft](story/STORY_PLAN_DRAFT.md) now records the FRLG/BDSP
 semantic differences and complete hand-transcribed checkpoint examples; these
 are review inputs, not native exports or executable plans.
