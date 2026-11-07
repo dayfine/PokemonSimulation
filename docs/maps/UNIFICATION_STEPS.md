@@ -186,6 +186,10 @@ native. Network and Python never enter the live console execution path.
 
 ## 4. Actions/story events as shared data
 
+[Early format draft and complete authored-row examples](../story/STORY_PLAN_DRAFT.md)
+compare FRLG Parcel and BDSP mine/Roark without claiming native export or replay.
+The native exporter and execution bindings below remain pending.
+
 This means the **action/story-event sequence**, not just paths or generated walk
 legs. Both current chains already use shared `StoryStep`, `StoryCheckpoint` and
 `StoryStepExecutor` types (`Pokemon_StorySteps.h`); their tables are constructed
