@@ -184,6 +184,40 @@ is duplicated map authoring/decomp parsing and embedded map copies, not the
 ability of the executable to load map resources. Controller/detector tests stay
 native. Network and Python never enter the live console execution path.
 
+### FRLG resource handoff checkpoint (2026-11-06)
+
+[Arduino #238](https://github.com/dayfine/Arduino-Source/pull/238) now prepares
+53 FRLG maps from published Simulation main
+`906956e94fc912ae9adb0e44845da780f3bc7e4c`, manifest
+`856e07a265da0b273172a7aa97a2aa335c90ea0a39162d50912b55fb60a86bc7`.
+It removes the native map copies and duplicate FRLG builder, while retaining
+native parsing, planning and controller execution. CMake embeds the verified
+Resources JSON through the existing API; this is not a runtime filesystem-loader
+migration. The battle-data forwarder reproduces all five native outputs.
+
+All 53 maps match the old v1 content after canonical v2 conversion: coordinates,
+typed grouping and omitted empty sections change; geometry, metadata, triggers
+and order within each kind do not. Native decoder parity covers 150 complete
+plain/enriched records from this publishing pin. Its fixture tool normalizes
+v2 before enrichment and requires a clean checkout of an immutable supplied SHA.
+The default historical v1 fixture pin remains supported.
+
+This remains a **prepared fork handoff**, not adoption across the entire native
+chain or an upstream resource submission. #238 includes nav-core #114 directly.
+Linux/Windows schema and parity checks passed at `f3b7d5836`; full native
+build/test validation and macOS checks are tracked in #238. Missing image
+fixtures do not justify calling the full suite green. Test-only GCC portability
+fixes live in their owning #222/#224 branches and are merged into the handoff.
+
+BDSP stays on its existing source maps until the three held differences in
+[the reconciliation](BDSP_RECONCILIATION.md) are resolved against anchored
+evidence. Do not import the old #226 terrain edits merely to get parity.
+
+After reviewing/landing the resource handoff, implement the evaluated native
+checkpoint exports below. [PLZA's guide-authored example](../story/PLZA_OPENING_DRAFT.md)
+is now available on Simulation main via #62; it remains a design probe without
+map/executor/battle bindings, not a native-export prerequisite.
+
 ## 4. Actions/story events as shared data
 
 [Early format draft and complete authored-row examples](../story/STORY_PLAN_DRAFT.md)
