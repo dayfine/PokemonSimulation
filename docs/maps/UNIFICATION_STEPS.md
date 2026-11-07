@@ -224,6 +224,12 @@ map/executor/battle bindings, not a native-export prerequisite.
 compare FRLG Parcel and BDSP mine/Roark without claiming native export or replay.
 The native exporter and execution bindings below remain pending.
 
+The [execution and FRLG coverage plan](../story/EXECUTION_PLAN.md) records the
+next milestones after the first checkpoint parity tests: shared native execution
+of the serialized events, explicit RNG-program handoff/resume, and a full FRLG
+main-story draft in the readable style used for PLZA. Authored, bound and
+replay-validated coverage remain separate milestones.
+
 This means the **action/story-event sequence**, not just paths or generated walk
 legs. Both current chains already use shared `StoryStep`, `StoryCheckpoint` and
 `StoryStepExecutor` types (`Pokemon_StorySteps.h`); their tables are constructed
