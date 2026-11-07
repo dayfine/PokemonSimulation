@@ -215,3 +215,14 @@ See [the native BDSP checkpoint](navigation/ENCOUNTER_RECOVERY.md#first-actual-n
 
 See [the Forest results and exact limits](../data/navigation/native-recovery/FRLG_FOREST.md)
 and [the implementation checkpoint](navigation/ENCOUNTER_RECOVERY.md#native-frlg-forest-shortfall-replay).
+
+### PLZA story-event design probe
+
+- [x] Draft [intro + Main Missions 01–03](story/PLZA_OPENING_DRAFT.md) as reviewable
+  event data alongside the FRLG/BDSP transcriptions.
+- [ ] Review the common envelope and game profiles using all three shapes.
+- [ ] Bind native exports/observations and replay parity; the PLZA example has no
+  maps, ruleset, executor or simulator binding and provides no win rates.
+
+This is a format exercise, not PLZA battle expansion. Native resource adoption
+and FRLG/BDSP evaluated story exports remain the implementation sequence.

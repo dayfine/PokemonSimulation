@@ -13,6 +13,11 @@ source revisions/file hashes. They are not native exports or lossless native
 round trips. Program-generated saves/reloads, options, implicit defaults and
 runtime state still require exporter support and are marked unbound.
 
+The [PLZA opening draft](PLZA_OPENING_DRAFT.md) adds a third-game design probe:
+intro plus Main Missions 01–03, with real-time battles, capture/research goals
+and symbolic landmarks. It is guide-authored; none of its game profiles are
+bound to an exporter, executor or simulator yet.
+
 ## Where the two shapes actually differ
 
 | Concern | FRLG | BDSP | Shared contract |
