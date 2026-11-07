@@ -4,7 +4,19 @@
     "source": {
         "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0021.bin; zone_event narc_0330",
         "revision": "default branch",
-        "date": "2026-11-01"
+        "date": "2026-11-01",
+        "item_identities": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "events": "files/fielddata/eventdata/zone_event_release/narc_0330.bin",
+            "events_sha256": "57419b5fe791d60db542d30d18f9541258ba45c32a0a8b8165881fe000a126d0",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Diamond baseline; not verified against BDSP item data"
+        }
     },
     "tiles": [
         "################################",
@@ -56,8 +68,8 @@
         {"name": "youngster_3", "coord": [13, 2], "wander": {"min": [12, 2], "max": [14, 2]}}
     ],
     "items": [
-        {"name": "item_7", "coord": [2, 28]},
-        {"name": "item_8", "coord": [29, 12]},
-        {"name": "item_9", "coord": [17, 18]}
+        {"coord": [2, 28], "source_event": 7, "hide_flag": "flag 995", "item": "sea_incense"},
+        {"coord": [29, 12], "source_event": 8, "hide_flag": "flag 996", "item": "hp_up"},
+        {"coord": [17, 18], "source_event": 9, "hide_flag": "flag 1068", "item": "parlyz_heal"}
     ]
 }

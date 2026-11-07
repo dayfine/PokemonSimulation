@@ -2,7 +2,7 @@
   "format": "pokesim-route-golden/1",
   "game": "bdsp",
   "map": "Route202",
-  "map_sha256": "d62b8f0ba0258e6fe39252eb1445dd92a0ce05373db1febecef91c9c774f40f7",
+  "map_sha256": "28341c7d8066f0906e6999cdfc9e3cb35898df9ea163268127e75d7753651903",
   "coordinate_frame": {
     "kind": "local tiles",
     "origin": [

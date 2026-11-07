@@ -8,6 +8,17 @@ upstream resource submission handled explicitly at handoff.
 
 ## Current evidence
 
+November 7 update: FRLG resource handoff #238 merged into its AutoStory chain.
+All 22 BDSP maps at #226 `fc56a720b9c0b1f4d945dbef382d61b0a6382b97` match
+Simulation `f12af546d98f453e005c3116442423dcbdcda347` byte-for-byte. The held
+terrain/NPC differences below are resolved by consumer alignment, not new map
+corrections. The BDSP pack now publishes the 15 resolved pickup identities;
+consumer resource adoption must select the approved publishing revision after
+merge. [Current reconciliation](BDSP_RECONCILIATION.md).
+
+The older snapshots below are retained as historical evidence.
+
+
 Compared against PokemonSimulation `b49fe94` using immutable Git blobs:
 
 | Game / Arduino head | Inventory | Byte-identical | Outstanding content |
@@ -52,7 +63,7 @@ it is a diagnostic, not a substitute for byte/hash integrity acceptance.
   Round-trip all 75 checked-in maps without altering any geometry or extension.
 - [x] Keep short NPC/warp/patch records on one line; coordinate pairs remain
   inline where they fit. Preserve zero/false and all unknown extensions.
-- [ ] Add v2 reading to the shared native `Pokemon_MapData` owner, with native
+- [x] Add v2 reading to the shared native `Pokemon_MapData` owner, with native
   cases for coordinates, inclusive wander bounds, malformed/mixed versions and
   v1 compatibility. Merge that prerequisite into both story chains.
 - [x] Review the five BDSP data differences here with recorded evidence.
@@ -73,7 +84,7 @@ Wire representation:
     {"name": "roark", "coord": [18, 28], "facing": "east"},
     {"name": "machop_8", "coord": [12, 28], "wander": {"min": [11, 28], "max": [13, 28]}}
   ],
-  "items": [{"name": "item_3", "coord": [4, 28]}]
+  "items": [{"coord": [4, 28], "source_event": 3, "item": "escape_rope"}]
 }
 ```
 

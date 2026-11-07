@@ -108,6 +108,31 @@ class CoordinateFormatTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'unsupported'):
             legacy_map(dict(format='pokesim-runtime-map/99'))
 
+    def test_pickup_defaults_and_explicit_overrides_round_trip(self):
+        wire = dict(format=COMPACT, items=[dict(coord=[0, 1], source_event=3, item='potion')])
+        record = legacy_map(wire)['objects'][0]
+        self.assertEqual(record, dict(x=0, y=1, kind='item', name='item_3',
+                                     source_event=3, item='potion', quantity=1))
+        self.assertEqual(compact_map(legacy_map(wire)), wire)
+        explicit = dict(format=COMPACT, items=[dict(name='gift_cache', coord=[0, 1],
+                                                  source_event=3, item='potion', quantity=4)])
+        self.assertEqual(compact_map(legacy_map(explicit)), explicit)
+        self.assertEqual(legacy_map(explicit)['objects'][0]['quantity'], 4)
+
+    def test_pickup_defaults_require_real_reward_and_valid_event(self):
+        for record in [dict(coord=[0, 0], item='potion'),
+                       dict(coord=[0, 0], item='potion', source_event=-1),
+                       dict(coord=[0, 0], item='potion', source_event=True),
+                       dict(coord=[0, 0], item='potion', source_event=2147483648),
+                       dict(coord=[0, 0], source_event=3, item=''),
+                       *[dict(name='pickup', coord=[0, 0], item='potion', quantity=q)
+                         for q in (0, -1, True, None, 1.5, 9223372036854775808)]]:
+            with self.subTest(record=record), self.assertRaises(ValueError):
+                legacy_map(dict(format=COMPACT, items=[record]))
+        # NPCs and interactions retain their existing names/quantity semantics.
+        self.assertNotIn('quantity', legacy_map(dict(format=COMPACT,
+            npcs=[dict(name='npc', coord=[0, 0])]))['objects'][0])
+
     def test_compact_records_and_coordinate_pairs_share_lines(self):
         data = compact_map(dict(points=dict(roark=[18, 28]),
                 objects=[dict(name='roark', kind='npc', x=18, y=28, facing='east')]))

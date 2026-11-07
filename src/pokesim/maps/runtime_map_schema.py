@@ -65,7 +65,7 @@ def validate(data):
         require(isinstance(obj.get('name'), str) and isinstance(obj.get('kind'), str), 'object identity required')
         if 'item' in obj or 'quantity' in obj:
             require(obj['kind'] == 'item' and isinstance(obj.get('item'), str) and obj['item'], 'invalid item identity')
-            require(type(obj.get('quantity')) is int and obj['quantity'] > 0, 'invalid item quantity')
+            require(type(obj.get('quantity', 1)) is int and obj.get('quantity', 1) > 0, 'invalid item quantity')
             require('interaction' not in obj and 'pickup' not in obj, 'conflicting pickup identity')
         if 'interaction' in obj:
             require(isinstance(obj['interaction'], dict) and isinstance(obj['interaction'].get('kind'), str),

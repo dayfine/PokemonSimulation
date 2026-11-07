@@ -33,6 +33,22 @@ def map_text(data, width=120):
             return inline
         indent = ' ' * ((depth + 1) * 4)
         if isinstance(value, dict):
+            # Enriched pickups have several short metadata fields. Pack these
+            # across a few lines, keeping each coordinate pair intact. Other
+            # record formatting stays stable for existing publishing pins.
+            fields = [json.dumps(key) + ': ' + json.dumps(item, ensure_ascii=False)
+                      for key, item in value.items()]
+            if not expand and 'item' in value and all(not isinstance(item, dict) and
+                    (not isinstance(item, list) or all(not isinstance(v, (dict, list)) for v in item))
+                    for item in value.values()):
+                lines, line = [], indent
+                for field in fields:
+                    if len(line) > len(indent) and len(line) + len(field) + 2 > width:
+                        lines.append(line + ',')
+                        line = indent
+                    line += (', ' if len(line) > len(indent) else '') + field
+                lines.append(line)
+                return '{\n' + '\n'.join(lines) + '\n' + ' ' * (depth * 4) + '}'
             entries = [indent + json.dumps(key) + ': ' + render(item, depth + 1, key in EXPANDED)
                        for key, item in value.items()]
             return '{\n' + ',\n'.join(entries) + '\n' + ' ' * (depth * 4) + '}'

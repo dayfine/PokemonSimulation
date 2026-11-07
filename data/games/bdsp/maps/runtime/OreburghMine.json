@@ -4,7 +4,19 @@
     "source": {
         "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0314.bin; zone_event narc_0197",
         "revision": "default branch",
-        "date": "2026-10-31"
+        "date": "2026-10-31",
+        "item_identities": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "events": "files/fielddata/eventdata/zone_event_release/narc_0197.bin",
+            "events_sha256": "517473fcecb3bd0f0aea6d3db18d81bb5f13bbb6082d859198cca6554dffb977",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Diamond baseline; not verified against BDSP item data"
+        }
     },
     "tiles": [
         "################################",
@@ -57,7 +69,7 @@
         {"name": "machop_10", "coord": [27, 15], "facing": "north"}
     ],
     "items": [
-        {"name": "item_3", "coord": [4, 28]},
-        {"name": "item_4", "coord": [26, 24]}
+        {"coord": [4, 28], "source_event": 3, "hide_flag": "flag 993", "item": "escape_rope"},
+        {"coord": [26, 24], "source_event": 4, "hide_flag": "flag 994", "item": "potion"}
     ]
 }
