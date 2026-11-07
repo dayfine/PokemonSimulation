@@ -1,0 +1,392 @@
+{
+    "format": "pokesim-story-plan/draft-1",
+    "game": "plza",
+    "status": "guide-authored-review-only",
+    "id": "plza-opening-totodile",
+    "source": {
+        "kind": "public-guide-synthesis",
+        "accessed": "2026-11-06",
+        "references": {
+            "official-battles": "https://legends.pokemon.com/en-us/gameplay",
+            "missions": "https://pokemondb.net/legends-z-a/missions",
+            "intro-guide": "https://bulbapedia.bulbagarden.net/wiki/Walkthrough:Pok%C3%A9mon_Legends:_Z-A/Part_1",
+            "night-guide": "https://bulbapedia.bulbagarden.net/w/index.php?title=Walkthrough:Pok%C3%A9mon_Legends:_Z-A/Part_2&oldid=4404991",
+            "morning-guide": "https://bulbapedia.bulbagarden.net/wiki/Walkthrough:Pok%C3%A9mon_Legends:_Z-A/Part_3",
+            "catch-guide": "https://www.thonky.com/pokemon-legends-z-a/main-mission-03-a-new-life-in-lumiose-city",
+            "research": "https://pokemondb.net/legends-z-a/research",
+            "return-guide": "https://gmtreks.com/pokemon-z-a/main-missions/4"
+        },
+        "native_export": false
+    },
+    "data_pins": {
+        "maps": {"state": "unbound"},
+        "ruleset": {"state": "unbound"},
+        "encounters": {"state": "unbound"},
+        "executor_profile": {"state": "unbound"},
+        "observation_profile": {"state": "unbound"}
+    },
+    "run_config": {"starter": "totodile", "language": "en", "avatar": {"state": "required-input"}, "player_name": {"state": "required-input"}, "game_revision": {"state": "required-input"}},
+    "requirements": {"party": {"state": "unknown"}, "inventory": {"state": "unknown"}, "story_flags": {"state": "unknown"}, "execution": "all-profile-bindings-and-run-inputs-resolved"},
+    "draft_semantics": {
+        "landmarks": "symbolic-goals-only; no coordinates or pathfinding binding",
+        "expected": "guide-derived-claims; never observed state or automatic state updates",
+        "success": "each expected effect needs fresh matching evidence before advancing; battle progression has its own gate",
+        "already_satisfied": "requires matching evidence; do not replay or apply scene effects twice",
+        "requirements": "event requirements add to plan requirements; unknown never satisfies a predicate",
+        "scope": "proposed PLZA profiles and predicates; not a registered schema or executable adapter"
+    },
+    "execution_policy": {
+        "basis": "authored-safety-proposal-not-native-behavior",
+        "action_attempt_limit": 3,
+        "capture_throw_limit_per_target": 5,
+        "additional_capture_limit_for_dex_gate": 5,
+        "on_ambiguous_location": "stop-needs-observation",
+        "on_unsupported_profile": "stop-unsupported",
+        "on_exhausted_budget": "stop-failed",
+        "on_interruption": "invalidate-pose-and-pending-effects; reobserve-before-replan",
+        "timeouts": {"state": "unbound", "required_before_execution": true},
+        "retries": "only with confirmed current state and an adapter-declared safe retry; no blind replay"
+    },
+    "checkpoints": [
+        {
+            "id": "intro",
+            "title": "Arrival in Lumiose (author-defined intro)",
+            "start": {"pose": {"state": "unknown"}, "gate": "new-game-setup-authorized"},
+            "events": [
+                {
+                    "id": "setup",
+                    "action": {
+                        "kind": "game_action",
+                        "game": {"namespace": "plza", "version": 1, "profile": "new-game-setup", "parameters": {"language": "en", "avatar": {"from_run_config": "avatar"}, "player_name": {"from_run_config": "player_name"}}}
+                    },
+                    "requires": ["avatar-and-name-supplied", "new-game-authorized"],
+                    "expected": {"screen": "opening-scene"},
+                    "sources": ["intro-guide"]
+                },
+                {
+                    "id": "arrive",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "gare-de-lumiose-arrival"}}},
+                    "expected": {"landmark": "station-arrival"},
+                    "sources": ["intro-guide"]
+                },
+                {
+                    "id": "leave_station",
+                    "action": {"kind": "route", "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "station-ticket-gate-exit"}}},
+                    "expected": {"landmark": "station-ticket-gate-exit"},
+                    "sources": ["intro-guide"]
+                },
+                {
+                    "id": "meet_companion",
+                    "action": {
+                        "kind": "talk",
+                        "game": {"namespace": "plza", "version": 1, "profile": "role-interaction", "parameters": {"role": "companion", "binding": "derive-from-observed-avatar-branch"}}
+                    },
+                    "expected": {"companion_identity": "observed"},
+                    "sources": ["intro-guide"]
+                },
+                {
+                    "id": "bag_theft",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "city-introduction-and-bag-theft"}}},
+                    "expected": {"mission_active": "01", "travel_bag": "stolen"},
+                    "sources": ["intro-guide"]
+                }
+            ],
+            "completion": {"requires_observation": {"mission_active": "01"}}
+        },
+        {
+            "id": "01",
+            "title": "Get Your Travel Bag Back!",
+            "start": {"pose": {"state": "unknown"}, "gate": "previous-checkpoint-confirmed"},
+            "events": [
+                {
+                    "id": "follow_starters",
+                    "action": {"kind": "route", "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "starter-group-near-andi"}}},
+                    "expected": {"landmark": "starter-group-near-andi"},
+                    "sources": ["intro-guide"]
+                },
+                {
+                    "id": "choose_starter",
+                    "action": {
+                        "kind": "answer",
+                        "game": {"namespace": "plza", "version": 1, "profile": "starter-selection", "parameters": {"species": "totodile", "basis": "authored-example-choice"}}
+                    },
+                    "expected": {"selected_starter": "totodile"},
+                    "sources": ["intro-guide"]
+                },
+                {
+                    "id": "andi",
+                    "action": {
+                        "kind": "battle",
+                        "game": {"namespace": "plza", "version": 1, "profile": "real-time-trainer-battle", "parameters": {"opponent": "andi", "team": [{"species": "pancham", "level": 4}], "progression": "win-required"}}
+                    },
+                    "requires": ["party-and-bag-observed", "plza-battle-rules-bound"],
+                    "expected": {"battle_result": "record-win-or-loss", "story_gate": "win-required"},
+                    "sources": ["intro-guide", "official-battles"]
+                },
+                {
+                    "id": "recover_bag",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "bag-return-and-partner-scene"}}},
+                    "expected": {"travel_bag": "returned", "partner": "totodile", "mission_complete": "01"},
+                    "sources": ["intro-guide"]
+                }
+            ],
+            "completion": {"requires_observation": {"mission_complete": "01"}}
+        },
+        {
+            "id": "02",
+            "title": "Escape from the Battle Zone!",
+            "start": {"pose": {"state": "unknown"}, "gate": "previous-checkpoint-confirmed"},
+            "events": [
+                {
+                    "id": "battle_zone",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "night-battle-zone-activation"}}},
+                    "expected": {"mission_active": "02", "battle_zone": "active"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "follow_companion",
+                    "action": {"kind": "route", "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "companion-battle-zone-waypoint"}}},
+                    "expected": {"landmark": "companion-battle-zone-waypoint"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "brigitte",
+                    "action": {
+                        "kind": "battle",
+                        "game": {"namespace": "plza", "version": 1, "profile": "real-time-trainer-battle", "parameters": {"opponent": "brigitte", "team": [{"species": "cleffa", "level": 4}, {"species": "bunnelby", "level": 4}], "progression": "win-required"}}
+                    },
+                    "requires": ["party-and-bag-observed", "plza-battle-rules-bound"],
+                    "expected": {"battle_result": "record-win-or-loss", "story_gate": "win-required"},
+                    "sources": ["night-guide", "official-battles"]
+                },
+                {
+                    "id": "floette_rescue",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "floette-rescue"}}},
+                    "expected": {"escape_path": "available"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "enter_hotel",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "hotel-z-lobby", "transition_confirmation": "interior-landmark-and-scene"}}
+                    },
+                    "expected": {"landmark": "hotel-z-lobby"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "check_in",
+                    "action": {"kind": "talk", "game": {"namespace": "plza", "version": 1, "profile": "role-interaction", "parameters": {"role": "az", "intent": "hotel-check-in"}}},
+                    "expected": {"room_access": "202"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "elevator",
+                    "action": {"kind": "game_action", "game": {"namespace": "plza", "version": 1, "profile": "elevator", "parameters": {"destination": "hotel-z-2f"}}},
+                    "expected": {"landmark": "hotel-z-2f"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "enter_room",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "hotel-z-room-202", "transition_confirmation": "room-landmark"}}
+                    },
+                    "expected": {"landmark": "hotel-z-room-202"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "rest",
+                    "action": {"kind": "game_action", "game": {"namespace": "plza", "version": 1, "profile": "bed-rest", "parameters": {"target": "room-202-bed"}}},
+                    "expected": {"scene": "visitor-knock"},
+                    "sources": ["night-guide"]
+                },
+                {
+                    "id": "answer_door_and_roof",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "visitor-and-roof-conversation"}}},
+                    "expected": {"mission_complete": "02"},
+                    "sources": ["night-guide"]
+                }
+            ],
+            "completion": {"requires_observation": {"mission_complete": "02"}}
+        },
+        {
+            "id": "03",
+            "title": "A New Life in Lumiose City",
+            "start": {"pose": {"state": "unknown"}, "gate": "previous-checkpoint-confirmed"},
+            "events": [
+                {
+                    "id": "morning_lobby",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "hotel-z-lobby", "via": ["hotel-elevator-to-1f"]}}
+                    },
+                    "expected": {"landmark": "hotel-z-lobby"},
+                    "sources": ["morning-guide"]
+                },
+                {
+                    "id": "join_team_mz",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "team-mz-and-royale-registration"}}},
+                    "expected": {"team": "mz", "royale_app": "available"},
+                    "sources": ["morning-guide"]
+                },
+                {
+                    "id": "dodge_tutorial",
+                    "action": {
+                        "kind": "game_action",
+                        "game": {"namespace": "plza", "version": 1, "profile": "movement-tutorial", "parameters": {"tutorial": "dash-and-dodge", "includes": "lida-introduction"}}
+                    },
+                    "expected": {"tutorial": "confirmed-complete"},
+                    "sources": ["catch-guide"]
+                },
+                {
+                    "id": "meet_companion",
+                    "action": {"kind": "route", "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "hotel-z-exterior-companion"}}},
+                    "expected": {"landmark": "hotel-z-exterior-companion"},
+                    "sources": ["morning-guide"]
+                },
+                {
+                    "id": "companion_training",
+                    "action": {
+                        "kind": "battle",
+                        "game": {"namespace": "plza", "version": 1, "profile": "real-time-trainer-battle", "parameters": {"opponent": "companion", "team": [{"species": "tepig", "level": 5}, {"species": "chikorita", "level": 5}], "progression": "win-or-loss-followed-by-confirmed-story-continuation"}}
+                    },
+                    "requires": ["party-and-bag-observed", "plza-battle-rules-bound"],
+                    "expected": {"battle_result": "record-win-or-loss", "story_gate": "win-or-loss-followed-by-confirmed-story-continuation"},
+                    "sources": ["morning-guide", "official-battles"]
+                },
+                {
+                    "id": "center_rooftop_detour",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "vert-pokemon-center", "via": ["ladder-to-rooftops", "one-way-drop"], "forbidden_assumption": "reverse-drop-is-traversable"}}
+                    },
+                    "expected": {"landmark": "vert-pokemon-center"},
+                    "sources": ["morning-guide"]
+                },
+                {
+                    "id": "pokedex_installation",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "pokemon-center-pokedex-tutorial"}}},
+                    "expected": {"pokedex_app": "available"},
+                    "sources": ["missions"]
+                },
+                {
+                    "id": "enter_wild_zone",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "wild-zone-1-entry", "transition_confirmation": "wild-zone-landmark"}}
+                    },
+                    "expected": {"landmark": "wild-zone-1-entry"},
+                    "sources": ["catch-guide"]
+                },
+                {
+                    "id": "capture_supplies",
+                    "action": {"kind": "scene", "game": {"namespace": "plza", "version": 1, "profile": "observed-scene", "parameters": {"target": "capture-tutorial-introduction"}}},
+                    "expected": {"capture_tutorial": "available"},
+                    "sources": ["catch-guide"]
+                },
+                {
+                    "id": "catch_fletchling",
+                    "action": {
+                        "kind": "game_action",
+                        "game": {"namespace": "plza", "version": 1, "profile": "capture-tutorial", "parameters": {"species": "fletchling", "mode": "tutorial-ball-throw"}}
+                    },
+                    "requires": ["usable-poke-ball-observed"],
+                    "expected": {"captured_species": "fletchling"},
+                    "sources": ["catch-guide"]
+                },
+                {
+                    "id": "catch_bunnelby",
+                    "action": {
+                        "kind": "game_action",
+                        "game": {"namespace": "plza", "version": 1, "profile": "capture-tutorial", "parameters": {"species": "bunnelby", "mode": "weaken-then-capture", "retain_for": "rock-smash"}}
+                    },
+                    "requires": ["usable-poke-ball-observed", "plza-wild-battle-rules-bound"],
+                    "expected": {"captured_species": "bunnelby"},
+                    "sources": ["catch-guide"]
+                },
+                {
+                    "id": "complete_dex_gate",
+                    "action": {
+                        "kind": "game_action",
+                        "game": {"namespace": "plza", "version": 1, "profile": "register-species-until", "parameters": {"minimum_registered_species": 5, "scope": "current-pokedex", "selection": "unregistered-species-from-bound-wild-zone-1-catalog"}}
+                    },
+                    "requires": ["pokedex-count-observed", "encounter-catalog-bound", "capture-budget-available"],
+                    "expected": {"registered_species_at_least": 5},
+                    "sources": ["missions"]
+                },
+                {
+                    "id": "visit_lab",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "research-lab-directors-office", "via": ["wild-zone-1-exit", "research-lab", "elevator-to-3f"]}}
+                    },
+                    "expected": {"landmark": "research-lab-directors-office"},
+                    "sources": ["return-guide"]
+                },
+                {
+                    "id": "meet_mable",
+                    "action": {"kind": "talk", "game": {"namespace": "plza", "version": 1, "profile": "role-interaction", "parameters": {"role": "mable", "intent": "research-introduction"}}},
+                    "expected": {"research_menu": "available"},
+                    "sources": ["return-guide"]
+                },
+                {
+                    "id": "claim_research_reward",
+                    "action": {
+                        "kind": "game_action",
+                        "game": {"namespace": "plza", "version": 1, "profile": "research-requests", "parameters": {"intent": "claim-eligible-rewards", "initial_request": "filling-your-pokedex-01", "reward_level": 2}}
+                    },
+                    "requires": ["research-request-completion-observed", "reward-claimable-observed"],
+                    "expected": {"reward_received": "tm004-rock-smash"},
+                    "sources": ["research"]
+                },
+                {
+                    "id": "leave_lab",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "research-lab-exterior", "via": ["elevator-to-1f"], "transition_confirmation": "exterior-landmark"}}
+                    },
+                    "expected": {"landmark": "research-lab-exterior"},
+                    "sources": ["catch-guide"]
+                },
+                {
+                    "id": "teach_rock_smash",
+                    "action": {
+                        "kind": "train",
+                        "game": {"namespace": "plza", "version": 1, "profile": "teach-tm", "parameters": {"recipient": "captured-bunnelby", "move": "rock-smash", "replacement_slot": {"state": "unbound"}}}
+                    },
+                    "requires": ["tm004-owned-observed", "bunnelby-available", "move-menu-binding-resolved"],
+                    "expected": {"party_move_known": {"pokemon": "captured-bunnelby", "move": "rock-smash"}},
+                    "sources": ["return-guide"]
+                },
+                {
+                    "id": "clear_return_passage",
+                    "action": {
+                        "kind": "game_action",
+                        "game": {"namespace": "plza", "version": 1, "profile": "field-move", "parameters": {"move": "rock-smash", "target": "mission-return-route-boulders"}}
+                    },
+                    "requires": ["rock-smash-known-observed", "target-boulder-and-safe-position-observed"],
+                    "expected": {"return_passage": "open"},
+                    "sources": ["return-guide"]
+                },
+                {
+                    "id": "return_hotel",
+                    "action": {
+                        "kind": "route",
+                        "game": {"namespace": "plza", "version": 1, "profile": "landmark-route", "parameters": {"target": "hotel-z-lobby", "via": ["confirmed-open-return-passage"]}}
+                    },
+                    "expected": {"landmark": "hotel-z-lobby"},
+                    "sources": ["return-guide"]
+                },
+                {
+                    "id": "report_back",
+                    "action": {"kind": "talk", "game": {"namespace": "plza", "version": 1, "profile": "role-interaction", "parameters": {"role": "companion", "intent": "mission-03-report"}}},
+                    "expected": {"mission_complete": "03"},
+                    "sources": ["missions"]
+                }
+            ],
+            "completion": {"requires_observation": {"mission_complete": "03"}}
+        }
+    ],
+    "stop_after": "03"
+}
