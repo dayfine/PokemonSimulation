@@ -7,12 +7,12 @@ instructions, not inferred from `item_3`, `item_ball`, sprite names or label
 suffixes. [The catalog](../../data/maps/item-identities.json) preserves full event
 IDs/indices, scripts, collection flags and resolved rewards.
 
-The published maps now use v2 coordinates; item enrichment remains opt-in.
-Captured native replay fixtures retain their original maps and pins.
-Enrichment is available in exports and opt-in map generation;
-activating it in the published pack follows native data/reader adoption.
+Published BDSP maps now include all 15 resolved baseline pickup identities by
+default. FRLG enrichment remains opt-in. Captured native replay fixtures and
+existing consumer locks retain their original maps and pins until deliberately
+updated. A consumer needs this publication merged on main before adopting it.
 
-## Use an enriched preview
+## Inspect published items or make an enriched preview
 
 ```sh
 PYTHONPATH=src python3 -m pokesim.maps.runtime_map_format --game bdsp \
@@ -36,8 +36,9 @@ repeating long script names in every runtime record. The map's
 `source.item_identities` records the source pin/event digest, catalog path/hash
 and verification level. The catalog/input manifest binds the exact input map
 content, preventing a known map name from attaching old rewards to edited data.
-Enrich from an unenriched published map (normalize v2 with `legacy_map` for
-Python callers), rather than re-enriching an enriched export.
+Normalize v2 with `legacy_map` for Python callers. Rechecking an enriched map
+verifies both its original map-content fingerprint and all published reward /
+provenance fields; modified metadata or map content fails rather than being repaired.
 
 Oak's balls are emitted in the v2 `interactables` array, for example:
 
@@ -95,9 +96,9 @@ replaces it. Each file is verified with SHA-256 and its recorded Git blob ID.
 CI reproduces the catalog from pinned public inputs. Runtime provenance hashes
 identify catalog bytes; `inputs_sha256` hashes `json.dumps(inputs, sort_keys=True)`.
 
-Both map builders accept `--item-identities` for deliberate enriched generation
-into a separate output directory. Their default output uses the published v2
-format without enabling enrichment. The decomp parser now retains event ID, index and script,
+The BDSP builder includes identities by default; `--without-item-identities`
+produces the historical baseline for diagnostics. The FRLG builder still accepts
+`--item-identities` for deliberate enriched previews. Both write compact v2 JSON. The decomp parser now retains event ID, index and script,
 and enrichment rejects changed source-event digests/references rather than
 attaching a stale catalog entry. Review the [held BDSP corrections](BDSP_RECONCILIATION.md)
 separately; this feature changes no terrain or native console execution.

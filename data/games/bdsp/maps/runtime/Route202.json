@@ -4,7 +4,19 @@
     "source": {
         "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0014.bin, files/fielddata/land_data/land_data_release/narc_0173.bin; zone_event narc_0328",
         "revision": "default branch",
-        "date": "2026-10-31"
+        "date": "2026-10-31",
+        "item_identities": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "events": "files/fielddata/eventdata/zone_event_release/narc_0328.bin",
+            "events_sha256": "17c0c1616d0cb8d4acbfd50e9ece28b7e4243ed1b527d5d1832956c508ca5c88",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Diamond baseline; not verified against BDSP item data"
+        }
     },
     "tiles": [
         "###########........#################",
@@ -154,6 +166,6 @@
         {"name": "youngster_7", "coord": [10, 8], "wander": {"min": [9, 8], "max": [11, 8]}}
     ],
     "items": [
-        {"name": "item_8", "coord": [3, 6]}
+        {"name": "item_8", "coord": [3, 6], "source_event": 8, "hide_flag": "flag 986", "item": "potion", "quantity": 1}
     ]
 }

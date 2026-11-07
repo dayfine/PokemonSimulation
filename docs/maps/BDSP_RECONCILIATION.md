@@ -1,5 +1,35 @@
 # BDSP map reconciliation
 
+## Current review — November 7, 2026
+
+Compared all 22 maps at Simulation `f12af546d98f453e005c3116442423dcbdcda347`
+with Arduino #226 `fc56a720b9c0b1f4d945dbef382d61b0a6382b97`. Every map was
+byte-identical, including objects, points, patches, triggers, warp metadata and
+source annotations. The three previously held changes below have been removed
+on the consumer side; no new terrain or NPC correction is adopted here.
+This establishes repository parity, not new console verification.
+
+The subsequent BDSP pickup publication adds the pinned catalog identities,
+quantities, collection flags and provenance to 15 items across seven maps.
+Stable object names, positions, geometry, NPCs, triggers and warps stay fixed.
+`item_3` remains an object ID; `item: escape_rope` describes its reward.
+The source is explicitly a Diamond/Platinum remake baseline, not verified BDSP
+item data. Source-map copies can now be replaced by pinned prepared resources
+after this publishing commit lands on main and native adoption checks pass.
+
+Reproduce the pre-enrichment comparison from the immutable Simulation revision:
+
+```sh
+PYTHONPATH=src python3 -m pokesim.maps.map_parity \
+  --arduino-source /path/to/Arduino-Source --game bdsp \
+  --revision fc56a720b9c0b1f4d945dbef382d61b0a6382b97
+```
+
+Run from a checkout of `f12af546d98f453e005c3116442423dcbdcda347`. The enriched
+pack intentionally differs in pickup metadata and its checksums.
+
+## Historical review — November 6, 2026
+
 Review date: 2026-11-06. Compared PokemonSimulation base
 `40717c7c809c415c751fd7a348dfc1895f7ec3d7` with Arduino-Source
 [#226 at `01e6659116f520b51c35ee956aa6a222dfa864f8`](https://github.com/dayfine/Arduino-Source/tree/01e6659116f520b51c35ee956aa6a222dfa864f8/SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps).

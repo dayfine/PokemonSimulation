@@ -54,6 +54,30 @@ class ItemIdentityTest(unittest.TestCase):
         after = LocalMap(data, 'bdsp', Context(flags=frozenset({'flag 993'})))
         self.assertNotIn(Tile(4, 28), after.occupied)
 
+    def test_published_bdsp_items_are_enriched_and_rechecking_rejects_drift(self):
+        count = 0
+        for entry in audit()['games']['bdsp']['maps']:
+            data = load(ROOT / entry['file'])
+            items = [o for o in data.get('objects', []) if o['kind'] == 'item']
+            count += len(items)
+            if not items:
+                continue
+            self.assertTrue(all('item' in o and o['quantity'] > 0 for o in items))
+            self.assertEqual(identity.enrich_map(data, 'bdsp'), data)
+        self.assertEqual(count, 15)
+        original = load(ROOT / 'data/games/bdsp/maps/runtime/OreburghMine.json')
+        for field, value in [('item', 'rare_candy'), ('quantity', 99), ('hide_flag', 'wrong'),
+                             ('source_event', 999), ('new_extension', True)]:
+            with self.subTest(field=field):
+                changed = copy.deepcopy(original)
+                next(o for o in changed['objects'] if o['kind'] == 'item')[field] = value
+                with self.assertRaises(ValueError):
+                    identity.enrich_map(changed, 'bdsp')
+        changed = copy.deepcopy(original)
+        changed['source']['item_identities']['revision'] = '0' * 40
+        with self.assertRaisesRegex(ValueError, 'metadata mismatch'):
+            identity.enrich_map(changed, 'bdsp')
+
     def test_forest_pickups_and_starter_balls_are_distinct(self):
         forest = identity.enrich_map(load(ROOT / 'data/games/frlg/maps/runtime/ViridianForest.json'), 'frlg')
         items = compact_map(forest)['items']

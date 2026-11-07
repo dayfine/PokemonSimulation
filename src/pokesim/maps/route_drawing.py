@@ -119,6 +119,9 @@ def route_svg(view, path, title='', start_label='start', goal_label='goal',
                          f'width="{(box["x1"] - box["x0"] + 1) * tile_px}" height="{(box["y1"] - box["y0"] + 1) * tile_px}" '
                          'fill="#d98a13" fill-opacity=".08" stroke="#a46b16" stroke-dasharray="4 3"/>')
         parts.append(f'<circle cx="{(obj["x"] + .5) * tile_px}" cy="{(obj["y"] + .5) * tile_px}" r="4" fill="#d98a13"/>')
+        if obj.get('kind') == 'item' and obj.get('item'):
+            label = obj['item'].replace('_', ' ').title() + ' ×' + str(obj['quantity'])
+            text((obj['x'] + 1) * tile_px + 3, (obj['y'] + .5) * tile_px, label, 10, 'class="label"')
     for tile in sorted(view.scene_tiles):
         parts.append(f'<rect x="{tile.x * tile_px}" y="{tile.y * tile_px}" width="{tile_px}" height="{tile_px}" fill="#a046b9" fill-opacity=".25"/>')
     for tile in sorted(goal_tiles):

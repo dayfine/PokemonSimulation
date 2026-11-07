@@ -518,7 +518,7 @@ def wander_box(obj, x, y, width, height):
             'x1': min(width - 1, x + obj.range_x), 'y1': min(height - 1, y + obj.range_z)}
 
 
-def place_objects(name, events, rect, rows, include_item_identities=False):
+def place_objects(name, events, rect, rows, include_item_identities=True):
     """Writes signs and obstacles into `rows`; returns the objects."""
     x0, z0, width, height = rect
     overrides = OBJECTS.get(name, {})
@@ -582,7 +582,7 @@ def coord_events(name, repo, game, events_id, rect):
     return out
 
 
-def decode_map(name, include_item_identities=False):
+def decode_map(name, include_item_identities=True):
     spec = MAPS[name]
     repo = spec.get('repo', decomp.Diamond.REPO)
     game = decomp.game_for(repo, CACHE, None, no_fetch)
@@ -641,7 +641,7 @@ def points_of(name):
     return points
 
 
-def map_text(name, include_item_identities=False):
+def map_text(name, include_item_identities=True):
     """The map's JSON: one line per row, point, object and patch."""
     tiles, objects, source, triggers = decode_map(name, include_item_identities)
     lines = ['{', f'    "name": {json.dumps(name)},', f'    "source": {json.dumps(source)},', '    "tiles": [']
@@ -674,7 +674,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     parser.add_argument('--cache', type=Path, default=CACHE, help='existing Sinnoh decomp cache; never fetches')
     parser.add_argument('--out', default=OUT, help='folder of the <map>.json files')
-    parser.add_argument('--item-identities', action='store_true', help='enrich from the pinned pickup catalog')
+    parser.add_argument('--item-identities', action='store_true', default=True, help=argparse.SUPPRESS)
+    parser.add_argument('--without-item-identities', dest='item_identities', action='store_false',
+                        help='write the historical unenriched baseline for diagnostics')
     parser.add_argument('--check', action='store_true', help='check the files in --out instead of writing them')
     parser.add_argument('maps', nargs='*', help='default: every map in MAPS')
     args = parser.parse_args()

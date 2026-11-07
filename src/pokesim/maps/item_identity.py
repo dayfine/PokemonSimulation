@@ -157,22 +157,49 @@ def enrich_objects(objects, game, name, events_sha256, catalog=None, source_revi
     return result, provenance
 
 
-def enrich_map(data, game, catalog=None):
-    """Enrich a copy for staged exports; never rewrite native map/replay pins."""
-    catalog = catalog if catalog is not None else json.loads(CATALOG.read_text())
+def _identity_base(data, game):
+    """Remove only catalog-owned additions to recover the reviewed map fingerprint.
+
+    Published BDSP item records originally contain only name/position/kind;
+    FRLG records already carry collection flags, so retain those there. Unknown
+    extensions remain in the fingerprint. Re-enrichment below must reproduce
+    every removed value, preventing an altered reward/provenance being repaired.
+    """
     result = copy.deepcopy(data)
+    result['source'].pop('item_identities', None)
+    fields = {'item', 'quantity', 'source_event', 'pickup', 'interaction'}
+    if game == 'bdsp':
+        fields.add('hide_flag')
+    for obj in result.get('objects', []):
+        if obj.get('kind') == 'item':
+            for key in fields:
+                obj.pop(key, None)
+    return result
+
+
+def enrich_map(data, game, catalog=None):
+    """Enrich a reviewed map, or verify an already enriched published map."""
+    catalog = catalog if catalog is not None else json.loads(CATALOG.read_text())
+    published = 'item_identities' in data.get('source', {})
+    result = _identity_base(data, game) if published else copy.deepcopy(data)
     if not any(o.get('kind') == 'item' for o in data.get('objects', [])):
+        if published:
+            raise ValueError('published item metadata without pickups: ' + data['name'])
         return result
     entry = catalog['maps'].get(game, {}).get(data['name'])
     if entry is None:
+        if published:
+            raise ValueError('published item metadata without pinned catalog: ' + data['name'])
         result['objects'], _ = enrich_objects(result.get('objects', []), game, data['name'], None, catalog)
         return result
-    actual_map_hash = digest(json.dumps(compact_map(data), sort_keys=True).encode())
+    actual_map_hash = digest(json.dumps(compact_map(result), sort_keys=True).encode())
     if actual_map_hash != entry['map_content_sha256']:
         raise ValueError('item catalog map-content mismatch: ' + game + '/' + data['name'])
     result['objects'], provenance = enrich_objects(result.get('objects', []), game, data['name'], entry['events_sha256'], catalog)
     if provenance is not None:
         result['source']['item_identities'] = provenance
+    if published and result != data:
+        raise ValueError('published item metadata mismatch: ' + game + '/' + data['name'])
     return result
 
 

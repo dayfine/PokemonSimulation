@@ -15,8 +15,10 @@ distribution choice. Published maps now use the v2 coordinate codec; historical
 native replay pins retain their original data. The [FRLG resource handoff
 checkpoint](maps/UNIFICATION_STEPS.md#frlg-resource-handoff-checkpoint-2026-11-06)
 records prepared native #238, its published tool/data pins and validation gates.
-Chain-wide adoption, BDSP reconciliation and actual native story checkpoint
-exports remain pending.
+FRLG #238 has merged into its story chain. All 22 BDSP maps now match #226
+at the reviewed November 7 snapshot; the BDSP publication adds resolved pickup
+metadata. BDSP resource adoption and actual native checkpoint exports remain
+pending; see the current reconciliation and resource handoff notes.
 The [story-event draft](story/STORY_PLAN_DRAFT.md) now records the FRLG/BDSP
 semantic differences and complete hand-transcribed checkpoint examples; these
 are review inputs, not native exports or executable plans.

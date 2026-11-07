@@ -4,7 +4,19 @@
     "source": {
         "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0313.bin; zone_event narc_0196",
         "revision": "default branch",
-        "date": "2026-10-31"
+        "date": "2026-10-31",
+        "item_identities": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "events": "files/fielddata/eventdata/zone_event_release/narc_0196.bin",
+            "events_sha256": "fec75b45d815d678eff659c06b6f6ec9c531a724f1f3a2d25e16c3d586248f70",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Diamond baseline; not verified against BDSP item data"
+        }
     },
     "tiles": [
         "################################",
@@ -45,6 +57,9 @@
         {"name": "twin_2", "coord": [6, 3]}
     ],
     "items": [
-        {"name": "item_1", "coord": [19, 4]}
+        {
+            "name": "item_1", "coord": [19, 4], "source_event": 1, "hide_flag": "flag 1221", "item": "x_defense",
+            "quantity": 1
+        }
     ]
 }

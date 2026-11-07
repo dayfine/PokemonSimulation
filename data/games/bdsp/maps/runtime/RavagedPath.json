@@ -4,7 +4,19 @@
     "source": {
         "decomp_file": "pret/pokeplatinum: res/field/maps/data/map_data_435.bin, res/field/maps/data/map_data_436.bin; events_ravaged_path.json",
         "revision": "default branch",
-        "date": "2026-10-31"
+        "date": "2026-10-31",
+        "item_identities": {
+            "repository": "pret/pokeplatinum",
+            "revision": "c6689696d5fb51a644239702cb556eb52012a46a",
+            "events": "res/field/events/events_ravaged_path.json",
+            "events_sha256": "0be81f9bc68472f19067a9df969b2c6d3e1a54e0779b934657daa0a0a3fbe7ff",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+            "source_game": "platinum",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Platinum baseline; not verified against BDSP item data"
+        }
     },
     "tiles": [
         "................................",
@@ -84,9 +96,21 @@
         "before_rocks.2": [21, 43]
     },
     "items": [
-        {"name": "item_27", "coord": [7, 38]},
-        {"name": "item_28", "coord": [17, 11]},
-        {"name": "item_29", "coord": [28, 5]},
-        {"name": "item_30", "coord": [22, 44]}
+        {
+            "name": "item_27", "coord": [7, 38], "source_event": 27, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM39",
+            "item": "tm39", "quantity": 1
+        },
+        {
+            "name": "item_28", "coord": [17, 11], "source_event": 28,
+            "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_LUCK_INCENSE", "item": "luck_incense", "quantity": 1
+        },
+        {
+            "name": "item_29", "coord": [28, 5], "source_event": 29, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM03",
+            "item": "tm03", "quantity": 1
+        },
+        {
+            "name": "item_30", "coord": [22, 44], "source_event": 30, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_POTION",
+            "item": "potion", "quantity": 1
+        }
     ]
 }

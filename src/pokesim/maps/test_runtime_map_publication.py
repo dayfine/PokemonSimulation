@@ -1,5 +1,6 @@
 """V2 publication preserves the reviewed v1 data and historical replay outcomes."""
 
+import copy
 import json
 import hashlib
 import unittest
@@ -37,7 +38,15 @@ class PublicationTest(unittest.TestCase):
                     raw = (ROOT / entry['file']).read_text()
                     data = json.loads(raw)
                     self.assertEqual(data['format'], COMPACT)
-                    digest = hashlib.sha256(json.dumps(compact_map(data), sort_keys=True).encode()).hexdigest()
+                    baseline_data = copy.deepcopy(data)
+                    if game == 'bdsp' and 'item_identities' in baseline_data['source']:
+                        # The reviewed publication adds pickup identity/collection
+                        # metadata only. All other values still match the v1 baseline.
+                        del baseline_data['source']['item_identities']
+                        for item in baseline_data.get('items', []):
+                            for field in ('item', 'quantity', 'source_event', 'hide_flag'):
+                                item.pop(field, None)
+                    digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()
                     self.assertEqual(digest, baseline['games'][game][entry['name']])
                     self.assertEqual(raw, map_text(data))
                     count += 1

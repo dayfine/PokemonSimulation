@@ -4,7 +4,19 @@
     "source": {
         "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0031.bin; zone_event narc_0331",
         "revision": "default branch",
-        "date": "2026-10-31"
+        "date": "2026-10-31",
+        "item_identities": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "events": "files/fielddata/eventdata/zone_event_release/narc_0331.bin",
+            "events_sha256": "dc1454d9e10692dbb38660f260eb7eedfebd43d24c3d634460cf3e2428f655e0",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Diamond baseline; not verified against BDSP item data"
+        }
     },
     "tiles": [
         "########.#...###################",
@@ -84,7 +96,10 @@
         {"name": "ace_trainer_f_10", "coord": [31, 4], "facing": "west"}
     ],
     "items": [
-        {"name": "item_9", "coord": [2, 10]},
-        {"name": "item_11", "coord": [20, 23]}
+        {"name": "item_9", "coord": [2, 10], "source_event": 9, "hide_flag": "flag 1000", "item": "tm09", "quantity": 1},
+        {
+            "name": "item_11", "coord": [20, 23], "source_event": 11, "hide_flag": "flag 1240", "item": "awakening",
+            "quantity": 1
+        }
     ]
 }

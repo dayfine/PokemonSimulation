@@ -1958,12 +1958,24 @@
         {
           "name": "OreburghMine",
           "file": "data/games/bdsp/maps/runtime/OreburghMine.json",
-          "sha256": "c451256f7522aba9863b3e58c673d3dc4806a7037c755208f705791325c81c2c",
+          "sha256": "d5f54eab37591e945604131dc1996596e333b928882dcded8e87c1d207fd2887",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMine.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0314.bin; zone_event narc_0197",
             "revision": "default branch",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokediamond",
+              "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+              "events": "files/fielddata/eventdata/zone_event_release/narc_0197.bin",
+              "events_sha256": "517473fcecb3bd0f0aea6d3db18d81bb5f13bbb6082d859198cca6554dffb977",
+              "catalog": "data/maps/item-identities.json",
+              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "source_game": "diamond",
+              "target_game": "bdsp",
+              "target_game_relation": "remake_baseline",
+              "verification": "Diamond baseline; not verified against BDSP item data"
+            }
           },
           "target_game": "bdsp",
           "source_game": "diamond",
@@ -2007,12 +2019,24 @@
         {
           "name": "OreburghMineB1F",
           "file": "data/games/bdsp/maps/runtime/OreburghMineB1F.json",
-          "sha256": "f2eaf512c8fdfef47a51061858b03b1735c903c9212d7abfba6a3758a5d805fc",
+          "sha256": "635e8e7c3315411831c4730b6d907f56ac7891d46d728fc5140ca2ac072044a9",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMineB1F.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0313.bin; zone_event narc_0196",
             "revision": "default branch",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokediamond",
+              "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+              "events": "files/fielddata/eventdata/zone_event_release/narc_0196.bin",
+              "events_sha256": "fec75b45d815d678eff659c06b6f6ec9c531a724f1f3a2d25e16c3d586248f70",
+              "catalog": "data/maps/item-identities.json",
+              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "source_game": "diamond",
+              "target_game": "bdsp",
+              "target_game_relation": "remake_baseline",
+              "verification": "Diamond baseline; not verified against BDSP item data"
+            }
           },
           "target_game": "bdsp",
           "source_game": "diamond",
@@ -2165,12 +2189,24 @@
         {
           "name": "RavagedPath",
           "file": "data/games/bdsp/maps/runtime/RavagedPath.json",
-          "sha256": "fbf536a2afff4490f7d404bb6a8c504b6588bc10659a4b613005f15d1095f322",
+          "sha256": "77d334dc1df2f1e16620e75f56a0e7412f37b6f7ec7a86d7b9f440f11c231d52",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/RavagedPath.json",
           "source": {
             "decomp_file": "pret/pokeplatinum: res/field/maps/data/map_data_435.bin, res/field/maps/data/map_data_436.bin; events_ravaged_path.json",
             "revision": "default branch",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokeplatinum",
+              "revision": "c6689696d5fb51a644239702cb556eb52012a46a",
+              "events": "res/field/events/events_ravaged_path.json",
+              "events_sha256": "0be81f9bc68472f19067a9df969b2c6d3e1a54e0779b934657daa0a0a3fbe7ff",
+              "catalog": "data/maps/item-identities.json",
+              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "source_game": "platinum",
+              "target_game": "bdsp",
+              "target_game_relation": "remake_baseline",
+              "verification": "Platinum baseline; not verified against BDSP item data"
+            }
           },
           "target_game": "bdsp",
           "source_game": "platinum",
@@ -2369,12 +2405,24 @@
         {
           "name": "Route202",
           "file": "data/games/bdsp/maps/runtime/Route202.json",
-          "sha256": "d62b8f0ba0258e6fe39252eb1445dd92a0ce05373db1febecef91c9c774f40f7",
+          "sha256": "c4d118b5f625560bf1ecaf48798bca68fc45794889b07fe2797a951b08032238",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route202.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0014.bin, files/fielddata/land_data/land_data_release/narc_0173.bin; zone_event narc_0328",
             "revision": "default branch",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokediamond",
+              "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+              "events": "files/fielddata/eventdata/zone_event_release/narc_0328.bin",
+              "events_sha256": "17c0c1616d0cb8d4acbfd50e9ece28b7e4243ed1b527d5d1832956c508ca5c88",
+              "catalog": "data/maps/item-identities.json",
+              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "source_game": "diamond",
+              "target_game": "bdsp",
+              "target_game_relation": "remake_baseline",
+              "verification": "Diamond baseline; not verified against BDSP item data"
+            }
           },
           "target_game": "bdsp",
           "source_game": "diamond",
@@ -2484,12 +2532,24 @@
         {
           "name": "Route203",
           "file": "data/games/bdsp/maps/runtime/Route203.json",
-          "sha256": "8c9d7bd0550453e054bfcfc119961d30a4c680d37996904e4f7a8994ee273461",
+          "sha256": "dd4940eae1fccc40965ddc3213dfbcd87a4a0d426d8a7852cc0aba4f4bec1679",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route203.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0016.bin, files/fielddata/land_data/land_data_release/narc_0019.bin, files/fielddata/land_data/land_data_release/narc_0020.bin; zone_event narc_0329",
             "revision": "default branch",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokediamond",
+              "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+              "events": "files/fielddata/eventdata/zone_event_release/narc_0329.bin",
+              "events_sha256": "a5538e7025f82793f546381e76af7037daadad62b3ae2aed817aecb1578389aa",
+              "catalog": "data/maps/item-identities.json",
+              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "source_game": "diamond",
+              "target_game": "bdsp",
+              "target_game_relation": "remake_baseline",
+              "verification": "Diamond baseline; not verified against BDSP item data"
+            }
           },
           "target_game": "bdsp",
           "source_game": "diamond",
@@ -2530,12 +2590,24 @@
         {
           "name": "Route204North",
           "file": "data/games/bdsp/maps/runtime/Route204North.json",
-          "sha256": "6b7d9668f706ad1626ae8be2771f9d50d30709617363159feec5ea61dc36d375",
+          "sha256": "2b147f29784fa3d1b8268df1c17ae0e66c5c3968b639caa87ad6abf9bcadaa34",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204North.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0031.bin; zone_event narc_0331",
             "revision": "default branch",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokediamond",
+              "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+              "events": "files/fielddata/eventdata/zone_event_release/narc_0331.bin",
+              "events_sha256": "dc1454d9e10692dbb38660f260eb7eedfebd43d24c3d634460cf3e2428f655e0",
+              "catalog": "data/maps/item-identities.json",
+              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "source_game": "diamond",
+              "target_game": "bdsp",
+              "target_game_relation": "remake_baseline",
+              "verification": "Diamond baseline; not verified against BDSP item data"
+            }
           },
           "target_game": "bdsp",
           "source_game": "diamond",
@@ -2580,12 +2652,24 @@
         {
           "name": "Route204South",
           "file": "data/games/bdsp/maps/runtime/Route204South.json",
-          "sha256": "6120038d7f172b1554c31ed3fe10f1d7dc300d9231a3466822bc6071250e3619",
+          "sha256": "f2c43bcc8e99cb932070ba99b23ecb3708ac62188b81ec155d56187fe1cdab61",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204South.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0021.bin; zone_event narc_0330",
             "revision": "default branch",
-            "date": "2026-11-01"
+            "date": "2026-11-01",
+            "item_identities": {
+              "repository": "pret/pokediamond",
+              "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+              "events": "files/fielddata/eventdata/zone_event_release/narc_0330.bin",
+              "events_sha256": "57419b5fe791d60db542d30d18f9541258ba45c32a0a8b8165881fe000a126d0",
+              "catalog": "data/maps/item-identities.json",
+              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "source_game": "diamond",
+              "target_game": "bdsp",
+              "target_game_relation": "remake_baseline",
+              "verification": "Diamond baseline; not verified against BDSP item data"
+            }
           },
           "target_game": "bdsp",
           "source_game": "diamond",
@@ -2791,7 +2875,8 @@
           "OreburghCity"
         ],
         "note": "Consumer branch has a newer bdsp_maps.py; imported with the maps."
-      }
+      },
+      "reconciled_consumer_revision": "fc56a720b9c0b1f4d945dbef382d61b0a6382b97"
     }
   }
 }
