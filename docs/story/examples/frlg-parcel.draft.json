@@ -1,0 +1,67 @@
+{
+    "format": "pokesim-story-plan/draft-1",
+    "game": "frlg",
+    "status": "hand-transcribed-review-only",
+    "source": {
+        "repository": "dayfine/Arduino-Source",
+        "revision": "dd43ed6068fe1a6a42a8c00946da77308ef4464f",
+        "path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryTable.cpp",
+        "symbol": "parcel",
+        "sha256": "295bac5cab00486d7fc7b7b2c18c451e817d5e7fe34434c493fe43f5401f1d9e"
+    },
+    "data_pins": {
+        "maps": {
+            "state": "bound",
+            "pin": {
+                "repository": "dayfine/PokemonSimulation",
+                "revision": "40717c7c809c415c751fd7a348dfc1895f7ec3d7",
+                "manifest_sha256": "d2ee1c66222eee741103149c3a6db245ee51115ad6e87a79f7a3fe6e7a7b0176"
+            }
+        },
+        "ruleset": {"state": "unbound"},
+        "executor_profile": {"state": "unbound"}
+    },
+    "requirements": {"party": {"state": "unspecified"}, "inventory": {"state": "unspecified"}, "story_flags": {"state": "unspecified"}},
+    "checkpoint": {
+        "id": "00.05",
+        "title": "Route 1 to Viridian Mart: Oak's Parcel",
+        "start": {"map": "PalletTown_ProfessorOaksLab", "frame": "runtime-local", "where": {"kind": "tiles", "tiles": [[7, 8]]}, "facing": "south"},
+        "game": {
+            "namespace": "frlg",
+            "version": 1,
+            "profile": "checkpoint",
+            "parameters": {"native_supplies_initialization": "value-initialized", "save_menu": "before_pokedex", "live_start": false, "handoff": "none"}
+        },
+        "execution_envelope": {"state": "unbound", "reason": "Program save/reload/attempt policy is outside the authored row; not exported yet."},
+        "events": [
+            {
+                "id": "below_mart_door",
+                "action": {
+                    "kind": "route",
+                    "goal": {"map": "ViridianCity", "frame": "runtime-local", "where": {"kind": "tiles", "tiles": [[36, 20]]}, "facing": "north"},
+                    "encounters": "run",
+                    "game": {"namespace": "frlg", "version": 1, "profile": "route", "parameters": {"native_variant": ""}}
+                },
+                "why": "Route 1, running from wild battles"
+            },
+            {
+                "id": "mart_door",
+                "action": {
+                    "kind": "step",
+                    "direction": "north",
+                    "game": {"namespace": "frlg", "version": 1, "profile": "step", "parameters": {"native_variant": ""}}
+                },
+                "why": "the clerk's scene starts on entering"
+            },
+            {
+                "id": "parcel_from_clerk",
+                "action": {"kind": "scene", "game": {"namespace": "frlg", "version": 1, "profile": "scene", "parameters": {"native_variant": ""}}},
+                "declared_after": {
+                    "pose": {"map": "ViridianCity_Mart", "frame": "runtime-local", "where": {"kind": "tiles", "tiles": [[4, 3]]}, "facing": "west"},
+                    "evidence": "authored-native-fallback"
+                },
+                "why": "the clerk gives OAK'S PARCEL"
+            }
+        ]
+    }
+}

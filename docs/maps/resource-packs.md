@@ -101,7 +101,8 @@ native story execution has adopted it.
    input, and run its native map, route, transition, recovery and story tests
    from a checkout with the old map directory absent.
 4. After those pass, remove tracked map copies and duplicate builders/parsers
-   in their owning native PRs. Audit dependent CLI imports first. Resource
+   in their owning native PRs. The [FRLG dependency move](frlg-builder-retirement.md)
+   makes its map-builder removal possible without breaking battle-data generation. Audit dependent CLI imports first. Resource
    preparation deliberately permits old source files during this test stage;
    it is not an authoring-retirement gate.
 5. At upstream handoff, submit the required resource data through the agreed
