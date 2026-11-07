@@ -55,7 +55,7 @@ and navigation fields and preserves unknown extensions.
 | `points`, `regions` | Named `[x,y]` tiles and named lists of tiles. BDSP also encodes regions as numbered points. |
 | `warps` | `coord: [x,y]`, optional `enter` (default `walk_into`), paired `to_map,to_point` when resolved. |
 | `connections` | `side,to_map,offset` for connected map edges. |
-| `npcs`, `items`, `signs`, `interactables` | Typed arrays of `name,coord`, optional facing, inclusive `wander` box (`min`, `max`), trainer sight/looks and hide flag. Section supplies kind; non-item interactions use `interactables` when enriched. |
+| `npcs`, `items`, `signs`, `interactables` | Typed arrays of `name,coord` (identified pickups may derive `name` from `source_event` and default `quantity` to 1), optional facing, inclusive `wander` box (`min`, `max`), trainer sight/looks and hide flag. Section supplies kind; non-item interactions use `interactables` when enriched. |
 | `triggers`, `flag_sets` | Named story trigger boxes/conditions; named sets of game flags. Preserve game semantics. |
 | `coord_events` | BDSP extension: named `coord,width,length,var,value,source` scene triggers. |
 | `patches` | Ordered `coord,glyph,measured_by` overrides, applied by the loader over raw tiles. |

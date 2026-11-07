@@ -1,6 +1,5 @@
 """V2 publication preserves the reviewed v1 data and historical replay outcomes."""
 
-import copy
 import json
 import hashlib
 import unittest
@@ -8,7 +7,7 @@ import unittest
 from . import bdsp_native_recovery_replay as bdsp, frlg_native_recovery_replay as frlg
 from .conformance import read_pack, run_case
 from .local_routing import Context, LocalMap
-from .runtime_map_coordinates import COMPACT, compact_map
+from .runtime_map_coordinates import COMPACT, compact_map, legacy_map
 from .runtime_map_format import map_text
 from .runtime_map_pack import ROOT, audit
 from .runtime_world import RuntimeWorld
@@ -38,12 +37,14 @@ class PublicationTest(unittest.TestCase):
                     raw = (ROOT / entry['file']).read_text()
                     data = json.loads(raw)
                     self.assertEqual(data['format'], COMPACT)
-                    baseline_data = copy.deepcopy(data)
+                    baseline_data = legacy_map(data)
                     if game == 'bdsp' and 'item_identities' in baseline_data['source']:
                         # The reviewed publication adds pickup identity/collection
                         # metadata only. All other values still match the v1 baseline.
                         del baseline_data['source']['item_identities']
-                        for item in baseline_data.get('items', []):
+                        for item in baseline_data.get('objects', []):
+                            if item.get('kind') != 'item':
+                                continue
                             for field in ('item', 'quantity', 'source_event', 'hide_flag'):
                                 item.pop(field, None)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()

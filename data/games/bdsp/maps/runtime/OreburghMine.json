@@ -69,13 +69,7 @@
         {"name": "machop_10", "coord": [27, 15], "facing": "north"}
     ],
     "items": [
-        {
-            "name": "item_3", "coord": [4, 28], "source_event": 3, "hide_flag": "flag 993", "item": "escape_rope",
-            "quantity": 1
-        },
-        {
-            "name": "item_4", "coord": [26, 24], "source_event": 4, "hide_flag": "flag 994", "item": "potion",
-            "quantity": 1
-        }
+        {"coord": [4, 28], "source_event": 3, "hide_flag": "flag 993", "item": "escape_rope"},
+        {"coord": [26, 24], "source_event": 4, "hide_flag": "flag 994", "item": "potion"}
     ]
 }

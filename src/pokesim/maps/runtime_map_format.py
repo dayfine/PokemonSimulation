@@ -38,7 +38,7 @@ def map_text(data, width=120):
             # record formatting stays stable for existing publishing pins.
             fields = [json.dumps(key) + ': ' + json.dumps(item, ensure_ascii=False)
                       for key, item in value.items()]
-            if not expand and 'item' in value and 'quantity' in value and all(not isinstance(item, dict) and
+            if not expand and 'item' in value and all(not isinstance(item, dict) and
                     (not isinstance(item, list) or all(not isinstance(v, (dict, list)) for v in item))
                     for item in value.values()):
                 lines, line = [], indent

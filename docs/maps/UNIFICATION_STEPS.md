@@ -84,7 +84,7 @@ Wire representation:
     {"name": "roark", "coord": [18, 28], "facing": "east"},
     {"name": "machop_8", "coord": [12, 28], "wander": {"min": [11, 28], "max": [13, 28]}}
   ],
-  "items": [{"name": "item_3", "coord": [4, 28]}]
+  "items": [{"coord": [4, 28], "source_event": 3, "item": "escape_rope"}]
 }
 ```
 

@@ -96,10 +96,7 @@
         {"name": "ace_trainer_f_10", "coord": [31, 4], "facing": "west"}
     ],
     "items": [
-        {"name": "item_9", "coord": [2, 10], "source_event": 9, "hide_flag": "flag 1000", "item": "tm09", "quantity": 1},
-        {
-            "name": "item_11", "coord": [20, 23], "source_event": 11, "hide_flag": "flag 1240", "item": "awakening",
-            "quantity": 1
-        }
+        {"coord": [2, 10], "source_event": 9, "hide_flag": "flag 1000", "item": "tm09"},
+        {"coord": [20, 23], "source_event": 11, "hide_flag": "flag 1240", "item": "awakening"}
     ]
 }

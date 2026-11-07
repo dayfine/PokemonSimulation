@@ -96,21 +96,12 @@
         "before_rocks.2": [21, 43]
     },
     "items": [
+        {"coord": [7, 38], "source_event": 27, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM39", "item": "tm39"},
         {
-            "name": "item_27", "coord": [7, 38], "source_event": 27, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM39",
-            "item": "tm39", "quantity": 1
+            "coord": [17, 11], "source_event": 28, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_LUCK_INCENSE",
+            "item": "luck_incense"
         },
-        {
-            "name": "item_28", "coord": [17, 11], "source_event": 28,
-            "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_LUCK_INCENSE", "item": "luck_incense", "quantity": 1
-        },
-        {
-            "name": "item_29", "coord": [28, 5], "source_event": 29, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM03",
-            "item": "tm03", "quantity": 1
-        },
-        {
-            "name": "item_30", "coord": [22, 44], "source_event": 30, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_POTION",
-            "item": "potion", "quantity": 1
-        }
+        {"coord": [28, 5], "source_event": 29, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_TM03", "item": "tm03"},
+        {"coord": [22, 44], "source_event": 30, "hide_flag": "FLAG_OBTAINED_RAVAGED_PATH_POTION", "item": "potion"}
     ]
 }

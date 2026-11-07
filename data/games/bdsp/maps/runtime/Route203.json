@@ -88,13 +88,7 @@
         {"name": "lass_12", "coord": [15, 17], "wander": {"min": [14, 17], "max": [16, 17]}}
     ],
     "items": [
-        {
-            "name": "item_10", "coord": [31, 5], "source_event": 10, "hide_flag": "flag 987", "item": "repel",
-            "quantity": 1
-        },
-        {
-            "name": "item_11", "coord": [20, 10], "source_event": 11, "hide_flag": "flag 988", "item": "poke_ball",
-            "quantity": 1
-        }
+        {"coord": [31, 5], "source_event": 10, "hide_flag": "flag 987", "item": "repel"},
+        {"coord": [20, 10], "source_event": 11, "hide_flag": "flag 988", "item": "poke_ball"}
     ]
 }

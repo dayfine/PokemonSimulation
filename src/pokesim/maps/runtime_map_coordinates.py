@@ -1,6 +1,6 @@
 """Coordinate-array wire format for runtime maps; legacy readers use legacy_map().
 
-Only schema-owned coordinates are converted. Unknown extensions and zero/false
+Schema-owned coordinates and identified-pickup defaults are normalized. Unknown extensions and zero/false
 values survive unchanged. Published maps use format 2; historical v1 pins remain readable.
 """
 
@@ -54,6 +54,22 @@ def _records(data, compact):
     return data
 
 
+def _pickup_defaults(record):
+    """Expand known pickup defaults; NPCs and non-item interactions are unchanged."""
+    if not isinstance(record.get('item'), str) or not record['item']:
+        raise ValueError('item must be a nonempty string')
+    event = record.get('source_event')
+    if 'source_event' in record and (type(event) is not int or not 0 <= event <= 2147483647):
+        raise ValueError('source_event must be a nonnegative native integer')
+    if 'name' not in record:
+        if event is None:
+            raise ValueError('unnamed pickup requires source_event')
+        record['name'] = 'item_' + str(event)
+    quantity = record.setdefault('quantity', 1)
+    if type(quantity) is not int or not 0 < quantity <= 9223372036854775807:
+        raise ValueError('quantity must be a positive native integer')
+
+
 def _ungroup(data):
     if 'objects' in data:
         raise ValueError('v2 maps use typed object arrays, not objects')
@@ -75,6 +91,8 @@ def _ungroup(data):
                     raise ValueError('interactables require an interaction, not an item reward')
             elif section == 'items' and 'interaction' in record:
                 raise ValueError('non-item interactions belong in interactables')
+            if section == 'items' and ('item' in record or 'quantity' in record):
+                _pickup_defaults(record)
             records.append(dict(record, kind=kind))
     if present:
         data['objects'] = records
@@ -92,6 +110,12 @@ def _group(data):
         if not isinstance(kind, str) or kind not in sections:
             raise ValueError('unsupported object kind: ' + repr(kind))
         section = 'interactables' if kind == 'item' and 'interaction' in record else sections[kind]
+        if section == 'items' and 'item' in record:
+            event = record.get('source_event')
+            if type(event) is int and 0 <= event <= 2147483647 and record.get('name') == 'item_' + str(event):
+                record.pop('name')
+            if type(record.get('quantity')) is int and record['quantity'] == 1:
+                record.pop('quantity')
         grouped[section].append(record)
     for section, records in grouped.items():
         if records:
@@ -107,7 +131,8 @@ def legacy_map(data):
     V2 decodes NPCs/items/signs/interactables, retaining order within each group.
     Interactables use the legacy item-sprite kind solely for native compatibility.
     Names need not be unique. Cross-group order is not part of the v2 contract.
-    Geometry/flag validation remains the runtime schema's responsibility.
+    Identified pickups in v2 default quantity to 1 and derive absent names from
+    source_event. Geometry/flag validation remains the runtime schema's responsibility.
     """
     if not isinstance(data, dict):
         raise ValueError('map must be an object')
@@ -125,7 +150,8 @@ def legacy_map(data):
 def compact_map(data):
     """Copy to typed object arrays and coordinate pairs, preserving record data.
 
-    Empty groups are omitted. Record order stays stable within each kind;
+    Empty groups and redundant pickup names/quantity 1 are omitted.
+    Record order stays stable within each kind;
     consumers must use explicit names/coordinates rather than cross-kind indices.
     """
     result = _group(_records(legacy_map(data), compact=True))

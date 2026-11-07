@@ -57,9 +57,6 @@
         {"name": "twin_2", "coord": [6, 3]}
     ],
     "items": [
-        {
-            "name": "item_1", "coord": [19, 4], "source_event": 1, "hide_flag": "flag 1221", "item": "x_defense",
-            "quantity": 1
-        }
+        {"coord": [19, 4], "source_event": 1, "hide_flag": "flag 1221", "item": "x_defense"}
     ]
 }

@@ -166,6 +166,6 @@
         {"name": "youngster_7", "coord": [10, 8], "wander": {"min": [9, 8], "max": [11, 8]}}
     ],
     "items": [
-        {"name": "item_8", "coord": [3, 6], "source_event": 8, "hide_flag": "flag 986", "item": "potion", "quantity": 1}
+        {"coord": [3, 6], "source_event": 8, "hide_flag": "flag 986", "item": "potion"}
     ]
 }

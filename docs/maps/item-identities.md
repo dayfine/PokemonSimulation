@@ -26,11 +26,15 @@ PYTHONPATH=src python3 -m pokesim.maps.runtime_map_format --game frlg \
 Example typed item record (field order/line wrapping is formatting):
 
 ```json
-{"name": "item_3", "coord": [4, 28], "item": "escape_rope", "quantity": 1, "source_event": 3, "hide_flag": "flag 993"}
+{"coord": [4, 28], "item": "escape_rope", "source_event": 3, "hide_flag": "flag 993"}
 ```
 
-`name` retains the old map-local label for native compatibility. **`item` is the
-actual item identifier.** `source_event` is a compact index into the source map's
+**`item` is the actual item identifier.** Identified v2 pickups may omit `name`:
+readers derive the internal label `item_<source_event>`, preserving old labels
+without repeating them in every map record. An explicit different name is retained.
+`quantity` defaults to **1**; only positive integer counts are accepted, and
+counts above one remain explicit. NPC and interaction names keep their existing
+contract. `source_event` is a zero-based, nonnegative integer index into the source map's
 event list; the catalog stores the full local ID and script once rather than
 repeating long script names in every runtime record. The map's
 `source.item_identities` records the source pin/event digest, catalog path/hash

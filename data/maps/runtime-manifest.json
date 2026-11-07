@@ -1958,7 +1958,7 @@
         {
           "name": "OreburghMine",
           "file": "data/games/bdsp/maps/runtime/OreburghMine.json",
-          "sha256": "d5f54eab37591e945604131dc1996596e333b928882dcded8e87c1d207fd2887",
+          "sha256": "21319ba1d8507ae7a91fe2ad2d59f99df162dfb19f5ca9bcd4c30afc27f08560",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMine.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0314.bin; zone_event narc_0197",
@@ -2019,7 +2019,7 @@
         {
           "name": "OreburghMineB1F",
           "file": "data/games/bdsp/maps/runtime/OreburghMineB1F.json",
-          "sha256": "635e8e7c3315411831c4730b6d907f56ac7891d46d728fc5140ca2ac072044a9",
+          "sha256": "f136c91897bc100e3cfc2098f53ab1c44544a4cdd93114f1d1a08832fe21060b",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMineB1F.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0313.bin; zone_event narc_0196",
@@ -2189,7 +2189,7 @@
         {
           "name": "RavagedPath",
           "file": "data/games/bdsp/maps/runtime/RavagedPath.json",
-          "sha256": "77d334dc1df2f1e16620e75f56a0e7412f37b6f7ec7a86d7b9f440f11c231d52",
+          "sha256": "363def1d70a2e8448f0c284cb5354b91e2f1d1ad923769499520ab5f26f60a72",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/RavagedPath.json",
           "source": {
             "decomp_file": "pret/pokeplatinum: res/field/maps/data/map_data_435.bin, res/field/maps/data/map_data_436.bin; events_ravaged_path.json",
@@ -2405,7 +2405,7 @@
         {
           "name": "Route202",
           "file": "data/games/bdsp/maps/runtime/Route202.json",
-          "sha256": "c4d118b5f625560bf1ecaf48798bca68fc45794889b07fe2797a951b08032238",
+          "sha256": "28341c7d8066f0906e6999cdfc9e3cb35898df9ea163268127e75d7753651903",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route202.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0014.bin, files/fielddata/land_data/land_data_release/narc_0173.bin; zone_event narc_0328",
@@ -2532,7 +2532,7 @@
         {
           "name": "Route203",
           "file": "data/games/bdsp/maps/runtime/Route203.json",
-          "sha256": "dd4940eae1fccc40965ddc3213dfbcd87a4a0d426d8a7852cc0aba4f4bec1679",
+          "sha256": "a1c025a367daeb5f9ed4a728eb039ad5cc0f76ea5a90ed8289af93c32ce3fa54",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route203.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0016.bin, files/fielddata/land_data/land_data_release/narc_0019.bin, files/fielddata/land_data/land_data_release/narc_0020.bin; zone_event narc_0329",
@@ -2590,7 +2590,7 @@
         {
           "name": "Route204North",
           "file": "data/games/bdsp/maps/runtime/Route204North.json",
-          "sha256": "2b147f29784fa3d1b8268df1c17ae0e66c5c3968b639caa87ad6abf9bcadaa34",
+          "sha256": "0100bf6779a875b2ba89830492fe6755a90179f7c8ec780bacaa164fb5fc2d51",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204North.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0031.bin; zone_event narc_0331",
@@ -2652,7 +2652,7 @@
         {
           "name": "Route204South",
           "file": "data/games/bdsp/maps/runtime/Route204South.json",
-          "sha256": "f2c43bcc8e99cb932070ba99b23ecb3708ac62188b81ec155d56187fe1cdab61",
+          "sha256": "4760126039a763ad61953da2a551c66534383b221103f2a3534646100089e180",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204South.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0021.bin; zone_event narc_0330",

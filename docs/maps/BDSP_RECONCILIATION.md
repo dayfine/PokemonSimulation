@@ -11,8 +11,9 @@ This establishes repository parity, not new console verification.
 
 The subsequent BDSP pickup publication adds the pinned catalog identities,
 quantities, collection flags and provenance to 15 items across seven maps.
-Stable object names, positions, geometry, NPCs, triggers and warps stay fixed.
-`item_3` remains an object ID; `item: escape_rope` describes its reward.
+Internal object labels, positions, geometry, NPCs, triggers and warps stay fixed.
+The wire data omits redundant pickup names and quantity 1: `source_event: 3`
+reconstructs internal label `item_3`; `item: escape_rope` describes its reward.
 The source is explicitly a Diamond/Platinum remake baseline, not verified BDSP
 item data. Source-map copies can now be replaced by pinned prepared resources
 after this publishing commit lands on main and native adoption checks pass.
