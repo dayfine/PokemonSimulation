@@ -20,6 +20,11 @@ exports remain pending.
 The [story-event draft](story/STORY_PLAN_DRAFT.md) now records the FRLG/BDSP
 semantic differences and complete hand-transcribed checkpoint examples; these
 are review inputs, not native exports or executable plans.
+The [execution follow-up](story/EXECUTION_PLAN.md) adds full FRLG main-story
+coverage, program handoff/takeover (including RNG), and binding the shared event
+data to the existing common engine with game-specific executors. First prove
+the two exported checkpoints; then expand authored and executable coverage
+without conflating them.
 [Staged pickup enrichment](maps/item-identities.md) resolves 45 fixed pickups
 and distinguishes three FRLG starter-choice interactions without changing active
 map/replay pins.

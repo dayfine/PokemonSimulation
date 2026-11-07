@@ -18,6 +18,10 @@ intro plus Main Missions 01–03, with real-time battles, capture/research goals
 and symbolic landmarks. It is guide-authored; none of its game profiles are
 bound to an exporter, executor or simulator yet.
 
+The [execution follow-up](EXECUTION_PLAN.md) specifies the shared engine/adapters,
+program handoff/resume contract, and complete FRLG story coverage after the
+first real checkpoint exports prove the format.
+
 ## Where the two shapes actually differ
 
 | Concern | FRLG | BDSP | Shared contract |
