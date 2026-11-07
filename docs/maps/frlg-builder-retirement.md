@@ -26,5 +26,7 @@ recovery and story tests in Arduino.
 
 The generic Sinnoh decomp CLI is still used by `devtools.maps`; its removal is
 a separate migration. Do not delete it as incidental FRLG cleanup. Likewise,
-resource/tool pins can move to merged revisions only after the publishing PRs
-land: #55, #56 and #57 remain draft dependencies at this checkpoint.
+resource/tool pins can move only to approved publishing revisions on main.
+The map publication/resource preparation from #55–#57 is now on main; this
+catch-up brings #58's exporter there after it was merged into the old stacked
+branch. Native exporter pins must wait for this catch-up to land.
