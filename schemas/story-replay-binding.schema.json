@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dayfine/PokemonSimulation/schemas/story-replay-binding.schema.json",
+  "type": "object",
+  "required": ["format", "map_revision", "maps", "capabilities", "costs", "max_route_moves", "policy"],
+  "additionalProperties": false,
+  "properties": {
+    "format": {"const": "pokesim-story-replay-binding/1"},
+    "capture": {
+      "type": "object",
+      "required": ["file", "sha256", "source_revision"],
+      "additionalProperties": false,
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+      }
+    },
+    "map_revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "maps": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"pattern": "^[A-Za-z0-9_]+$"},
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "capabilities": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"minLength": 1},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["capability", "parameters"],
+            "additionalProperties": false,
+            "properties": {
+              "capability": {"enum": ["frlg-runtime-route/1", "frlg-runtime-step/1"]},
+              "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}}
+            }
+          },
+          {
+            "type": "object",
+            "required": ["capability", "parameters"],
+            "additionalProperties": false,
+            "properties": {
+              "capability": {"const": "scripted-scene/1"},
+              "parameters": {
+                "type": "object",
+                "required": ["require_received"],
+                "additionalProperties": false,
+                "properties": {
+                  "require_received": {
+                    "type": "object",
+                    "propertyNames": {"minLength": 1},
+                    "additionalProperties": {"type": "integer", "minimum": 1}
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "costs": {
+      "type": "object",
+      "required": ["tile", "turn", "grass", "warp"],
+      "additionalProperties": false,
+      "properties": {
+        "tile": {"type": "number", "exclusiveMinimum": 0},
+        "turn": {"type": "number", "minimum": 0},
+        "grass": {"type": "number", "minimum": 0},
+        "warp": {"type": "number", "minimum": 0}
+      }
+    },
+    "max_route_moves": {"type": "integer", "minimum": 1, "maximum": 4096},
+    "policy": {
+      "type": "object",
+      "required": ["basis", "entry", "attempts", "failure", "save"],
+      "additionalProperties": false,
+      "properties": {
+        "basis": {"const": "synthetic-offline-policy"},
+        "entry": {"const": "scripted-observation"},
+        "attempts": {"const": 1},
+        "failure": {"const": "stop"},
+        "save": {"const": "never"}
+      }
+    },
+    "plan": {
+      "type": "object",
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "required": ["file", "sha256"],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [{"required": ["capture"]}, {"required": ["plan"]}]
+}

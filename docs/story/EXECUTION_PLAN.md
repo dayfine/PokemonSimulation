@@ -18,6 +18,11 @@ Keep implementation-specific tests with their owning repository.
 
 ## Ordered milestones
 
+Implementation checkpoint: the [Parcel Python diagnostic](../../data/story/parcel-pilot/README.md)
+binds the captured events to approved maps and synthetic observations. Native
+trace comparison, actual runtime/save/retry policy export and BDSP capture remain
+open; this is not completion of milestone 1.
+
 1. **Prove the event boundary.** Export evaluated FRLG Parcel `00.05` and BDSP
    mine/Roark `01.03` checkpoints, preserving their complete actions, conditions,
    game extensions and save/retry behavior. Bind the same serialized data to

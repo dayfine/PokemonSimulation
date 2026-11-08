@@ -47,6 +47,15 @@ listed as `unbound`. No executable plan or successful replay is inferred.
 
 ## Next parity gate
 
+The [Parcel Python pilot](../../data/story/parcel-pilot/README.md) now loads the
+capture into pinned spatial models with synthetic scene evidence and explicit
+stop/no-save diagnostic policy. It is not native execution parity: actual
+native STEP/scene fallback semantics and effective runtime/save/retry options
+still need a native trace consumer and comparison.
+The [readable cases](../../data/story/parcel-pilot/CASES.md) show inputs, outcomes
+and selected exact action assertions. The runner is reusable across supported
+checkpoints; Parcel's receipt requirement is binding data, not runner code.
+
 - Parcel capture/import validation is implemented; keep its native revision and provenance pinned.
 - Add BDSP mine/Roark `01.03` through its own evaluated native table adapter.
 - Resolve shared requirements/state/evidence and effective save/failure policy
@@ -58,3 +67,9 @@ listed as `unbound`. No executable plan or successful replay is inferred.
 Synthetic boundary tests remain labeled synthetic; a captured authored row does
 not prove console execution or timing. Native tests stay next to native sources,
 Python tests next to their reader. Shared format tests are not controller tests.
+
+## Read the Parcel fields
+
+The checkpoint is displayed as `id`, `title`, `start`, `events`. Every event has its own block. `declared_after` is the author-declared post-event pose, not an observation or independently confirmed success. `status: native-table-export` identifies the source of this document; it does not mean the game completed the checkpoint. `format` selects [the export schema](../../schemas/native-checkpoint-export.schema.json), which references [the shared checkpoint schema](../../schemas/story-checkpoint.schema.json).
+
+`native_fields` preserves FRLG extensions for migration comparison. It is not an exhaustive entry requirement: defaults, unread party values, transient foe bookkeeping and expected inventory must not be promoted to observed facts. A future data-authored checkpoint should require only the state it depends on, separately describe effects/exit expectations, and obtain actual inventory/party/pose from runtime evidence or explicit assumptions. This is a relevant-state summary of earlier progress, not a checksum proving all preceding checkpoints ran. Export provenance belongs outside the authored gameplay requirements.

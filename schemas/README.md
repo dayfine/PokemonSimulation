@@ -14,6 +14,7 @@ PYTHONPATH=src python3 -m pokesim.formats.json_schema frlg-battle-report report.
 |---|---|
 | `native-checkpoint-export` | Evaluated FRLG stage-1 checkpoint capture, including raw native extensions and explicit unbound runtime/evidence/policy inputs. This is not an executable plan. |
 | `story-checkpoint` | Common native checkpoint, step and tile-pose records from #66. Policy/state envelope is still proposed, not covered here. |
+| `story-replay-binding`, `story-replay-cases` | Offline capability bindings and synthetic input/expectation scenarios, including opt-in exact action assertions. The current game adapter supports FRLG route/step and scripted scenes. These do not resolve native runtime options or establish execution parity. |
 | `runtime-map-v2` | Current published FRLG/BDSP runtime maps with coordinate pairs and typed NPC/item/sign/interactable arrays. Historical v1 and older grid formats remain handled by their existing readers. |
 | `frlg-battle-cases` | Existing Gen 3 solo-battle experiment inputs. This does not imply support for another generation or arbitrary teams. |
 | `frlg-battle-report` | Existing full benchmark output (`pokesim-frlg-report/1`), including probability/count shapes. Run summaries and other result formats are not covered yet. |
@@ -42,7 +43,7 @@ PYTHONPATH=src python3 -m pokesim.formats.contract_format --check
 PYTHONPATH=src python3 -m pokesim.formats.contract_format path/to/authored.json
 ```
 
-With no paths, this command touches schemas, shared story cases and checked-in native captures; explicit paths format other authored JSON. It preserves all values and key order.
+With no paths, this command touches schemas, shared story cases, checked-in native captures and the Parcel pilot; explicit paths format other authored JSON. It preserves all values and key order.
 CI checks the formatting.
 
 ## Structural validation is one layer
@@ -70,3 +71,5 @@ files. Pin/adopt this revision in native authoring validation after review.
 The native capture schema names C++ widths in `$defs` (`int32`, `uint8`,
 `uint16`, `count64`) and references them at each field. Stats use `uint16`;
 PP/levels use `uint8`. These encode storage bounds, not valid gameplay ranges.
+
+`authored-checkpoint.schema.json` defines the first executable native authoring pilot: common checkpoint data plus FRLG `execution.menu`. It is separate from the full native export snapshot. Replay bindings accept exactly one pinned `capture` or `plan` source.
