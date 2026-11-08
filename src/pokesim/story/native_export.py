@@ -33,9 +33,8 @@ def read_native_export(value, expected_revision=None):
         raise ValueError('{}: {}'.format(error.json_path, error.message)) from error
     if expected_revision is not None and value['source_revision'] != expected_revision:
         raise ValueError('native capture source revision does not match expected build')
-    result = copy.deepcopy(value)
-    result['checkpoint'] = read_checkpoint(value['checkpoint'])
-    return result
+    read_checkpoint(value['checkpoint'])  # Semantic checks; retain source fields/key order.
+    return copy.deepcopy(value)
 
 
 def main():

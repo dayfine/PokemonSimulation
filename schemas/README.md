@@ -42,7 +42,7 @@ PYTHONPATH=src python3 -m pokesim.formats.contract_format --check
 PYTHONPATH=src python3 -m pokesim.formats.contract_format path/to/authored.json
 ```
 
-With no paths, this command touches schemas and the shared story conformance fixture only; explicit paths format other authored JSON. It preserves all values and key order.
+With no paths, this command touches schemas, shared story cases and checked-in native captures; explicit paths format other authored JSON. It preserves all values and key order.
 CI checks the formatting.
 
 ## Structural validation is one layer

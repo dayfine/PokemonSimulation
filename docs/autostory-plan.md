@@ -241,3 +241,13 @@ This is a format exercise, not PLZA battle expansion. Native resource adoption
 and FRLG/BDSP evaluated story exports remain the implementation sequence.
 
 Exchange-format JSON Schemas now cover common story records, current v2 runtime maps and FRLG battle cases/full reports; see [schemas](../schemas/README.md). Semantic validators and native reader parity remain required.
+
+### Evaluated story capture progress
+
+- [x] Export FRLG Parcel `00.05` from its actual compiled native table and check
+  the clean CI capture here with its source revision and artifact provenance;
+  see [native exports](story/NATIVE_EXPORTS.md). Native bookkeeping remains
+  distinct from observed entry state; runtime/policy/execution inputs are unbound.
+- [ ] Export BDSP mine/Roark `01.03` through its evaluated native table adapter.
+- [ ] Bind effective shared requirements/state/save/retry policy and establish
+  native/Python execution parity before replacing C++ authoring tables.

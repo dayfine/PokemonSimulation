@@ -1,6 +1,7 @@
 """Synthetic capture boundaries; real captures, when present, are checked separately."""
 
 import copy
+import json
 import unittest
 
 try:
@@ -9,6 +10,7 @@ except ImportError:
     jsonschema = None
 
 from .native_export import read_native_export
+from pokesim.formats.json_schema import ROOT
 
 
 def synthetic_capture():
@@ -35,9 +37,12 @@ def synthetic_capture():
 class NativeExportTests(unittest.TestCase):
     def test_preserves_bookkeeping_false_zero_and_unknown_stats(self):
         source = synthetic_capture()
+        row = source['checkpoint']
+        source['checkpoint'] = {'events': row['events'], 'title': row['title'], 'id': row['id']}
         original = copy.deepcopy(source)
         result = read_native_export(source, '0' * 40)
         self.assertEqual(result, source)
+        self.assertEqual(json.dumps(result), json.dumps(source))
         result['native_fields']['supplies']['pocket'].append('new')
         self.assertEqual(source, original)
 
@@ -64,3 +69,30 @@ class NativeExportTests(unittest.TestCase):
         value['checkpoint']['events'] *= 2
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             read_native_export(value)
+
+    def test_actual_parcel_capture_from_clean_native_ci(self):
+        path = ROOT / 'data/story/native/frlg-parcel-00.05.json'
+        source = json.loads(path.read_text())
+        result = read_native_export(source, 'b170b7d2103e887ded825c37fdbdc19fd654fca8')
+        self.assertEqual(result, source)
+        row = result['checkpoint']
+        self.assertEqual(row['id'], '00.05')
+        self.assertEqual(row['start'], {
+            'map': 'PalletTown_ProfessorOaksLab', 'certainty': 'tile',
+            'where': {'kind': 'tiles', 'tiles': [[7, 8]], 'facing': 'south'}})
+        self.assertEqual([(e['id'], e['kind']) for e in row['events']], [
+            ('below_mart_door', 'route'), ('mart_door', 'step'), ('parcel_from_clerk', 'scene')])
+        route, door, scene = row['events']
+        self.assertEqual(route['target']['where']['tiles'], [[36, 20]])
+        self.assertEqual(route['target']['map'], 'ViridianCity')
+        self.assertEqual(door.get('direction', 'north'), 'north')
+        self.assertEqual(scene['declared_after']['map'], 'ViridianCity_Mart')
+        self.assertEqual(scene['declared_after']['where']['tiles'], [[4, 3]])
+        self.assertEqual(result['native_fields']['menu'], 'before_pokedex')
+        # Native bookkeeping keeps an unread summary level (zero) and no stats;
+        # moves_through_level is not an observed current level.
+        lead = result['native_fields']['supplies']['lead']
+        self.assertEqual(lead['level'], 0)
+        self.assertEqual(lead['moves_through_level'], 5)
+        self.assertIsNone(lead['stats'])
+        self.assertIn('entry_evidence', result['unbound'])
