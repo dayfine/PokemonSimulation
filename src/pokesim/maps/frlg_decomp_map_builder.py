@@ -594,8 +594,9 @@ def main():
         text = contract_json_text(compact_map(data)) if args.all_maps else json_text(data)
         maps.append((name, text))
     if unhandled:
-        treatment = 'blocked unknown cells' if args.all_maps else 'floor (legacy selected-map mode)'
-        print(f'Unhandled non-collision behaviors written as {treatment}: {unhandled}')
+        if args.all_maps:
+            sys.exit(f'Unhandled non-collision behaviors in candidate catalog: {unhandled}')
+        print(f'Unhandled non-collision behaviors written as floor (legacy selected-map mode): {unhandled}')
     if args.check:
         differ = []
         if args.scope:

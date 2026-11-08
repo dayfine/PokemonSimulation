@@ -45,11 +45,11 @@ def audit(candidate, schema=False, scope=None):
             raise ValueError('expected a marked source candidate: ' + name)
         revisions.add(data['source']['revision'])
         unknown = data.get('unresolved_tiles', {})
-        for behavior, coords in unknown.items():
-            for x, y in coords:
-                if data['tiles'][y][x] not in (' ', 'w'):
-                    raise ValueError(name + ': unresolved terrain must remain blocked unknown')
-            behavior_counts[behavior] += len(coords)
+        if unknown:
+            raise ValueError(f'{name}: candidate contains unresolved tiles: {list(unknown)}')
+        for y, row in enumerate(data.get('tiles', [])):
+            if ' ' in row:
+                raise ValueError(f'{name}: candidate contains unmapped space cells at row {y}')
         counts = {
             'scope_boundary_warps': sum(w.get('to_map') in excluded for w in data.get('warps', [])),
             'scope_boundary_connections': sum(e['to_map'] in excluded for e in data.get('connections', [])),

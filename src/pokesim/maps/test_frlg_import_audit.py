@@ -43,12 +43,20 @@ class FullImportAuditTest(unittest.TestCase):
             with self.subTest(map=name):
                 self.assertTrue((CANDIDATE / (name + '.json')).is_file())
 
-    def test_unresolved_terrain_cannot_be_silently_opened(self):
+    def test_candidate_rejects_unresolved_tiles(self):
         source = json.loads((CANDIDATE / 'PalletTown.json').read_text())
         changed = copy.deepcopy(source)
         changed['unresolved_tiles'] = {'MB_UNKNOWN_TEST': [[1, 1]]}
-        changed['tiles'][1] = changed['tiles'][1][:1] + '.' + changed['tiles'][1][2:]
         with tempfile.TemporaryDirectory() as directory:
             Path(directory, source['name'] + '.json').write_text(json.dumps(changed))
-            with self.assertRaisesRegex(ValueError, 'unresolved terrain'):
+            with self.assertRaisesRegex(ValueError, 'unresolved tiles'):
+                audit(directory)
+
+    def test_candidate_rejects_unmapped_spaces(self):
+        source = json.loads((CANDIDATE / 'PalletTown.json').read_text())
+        changed = copy.deepcopy(source)
+        changed['tiles'][1] = changed['tiles'][1][:1] + ' ' + changed['tiles'][1][2:]
+        with tempfile.TemporaryDirectory() as directory:
+            Path(directory, source['name'] + '.json').write_text(json.dumps(changed))
+            with self.assertRaisesRegex(ValueError, 'unmapped space cells'):
                 audit(directory)
