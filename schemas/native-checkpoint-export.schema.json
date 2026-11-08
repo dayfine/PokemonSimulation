@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/native-checkpoint-export.schema.json",
+  "title": "Evaluated native checkpoint capture, not an executable plan",
+  "type": "object",
+  "properties": {
+    "format": {"const": "pokesim-native-checkpoint-export/1"},
+    "game": {"const": "frlg"},
+    "status": {"const": "native-table-export"},
+    "source_revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "checkpoint": {"$ref": "story-checkpoint.schema.json"},
+    "native_fields": {
+      "type": "object",
+      "properties": {
+        "menu": {"enum": ["before_pokemon", "before_pokedex", "full"]},
+        "supplies": {
+          "type": "object",
+          "properties": {
+            "potions": {"$ref": "#/$defs/int32"},
+            "antidotes": {"$ref": "#/$defs/int32"},
+            "parlyz_heals": {"$ref": "#/$defs/int32"},
+            "pocket": {"type": "array", "items": {"type": "string"}},
+            "status": {"enum": ["no status", "PSN", "PAR", "a status"]},
+            "hurt": {"type": "boolean"},
+            "hp_red": {"type": "boolean"},
+            "hp_fill": {"type": "number"},
+            "lead": {
+              "type": "object",
+              "properties": {
+                "species": {"type": "string"},
+                "moves": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {"move": {"type": "string"}, "pp": {"$ref": "#/$defs/uint8"}},
+                    "required": ["move", "pp"],
+                    "additionalProperties": false
+                  }
+                },
+                "moves_through_level": {"$ref": "#/$defs/uint8"},
+                "moves_read": {"type": "boolean"},
+                "level": {"$ref": "#/$defs/uint8"},
+                "stats": {
+                  "oneOf": [
+                    {"type": "null"},
+                    {
+                      "type": "object",
+                      "properties": {
+                        "hp": {"$ref": "#/$defs/uint16"},
+                        "attack": {"$ref": "#/$defs/uint16"},
+                        "defense": {"$ref": "#/$defs/uint16"},
+                        "sp_attack": {"$ref": "#/$defs/uint16"},
+                        "sp_defense": {"$ref": "#/$defs/uint16"},
+                        "speed": {"$ref": "#/$defs/uint16"}
+                      },
+                      "required": ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "required": ["species", "moves", "moves_through_level", "moves_read", "level", "stats"],
+              "additionalProperties": false
+            },
+            "protected_slots": {"type": "array", "items": {"$ref": "#/$defs/count64"}},
+            "foes": {"type": "array", "items": {"type": "string"}},
+            "trainer": {"type": "string"},
+            "risk": {"enum": ["low", "high"]},
+            "foe_out": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/count64"}]},
+            "wild_foes": {"type": "array", "items": {"type": "string"}}
+          },
+          "required": [
+            "potions",
+            "antidotes",
+            "parlyz_heals",
+            "pocket",
+            "status",
+            "hurt",
+            "hp_red",
+            "hp_fill",
+            "lead",
+            "protected_slots",
+            "foes",
+            "trainer",
+            "risk",
+            "foe_out",
+            "wild_foes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": ["menu", "supplies"],
+      "additionalProperties": false
+    },
+    "state_basis": {"const": "native-table-bookkeeping"},
+    "unbound": {
+      "const": [
+        "runtime_configuration",
+        "map_pins",
+        "executor_bindings",
+        "entry_evidence",
+        "effective_save_retry_policy"
+      ]
+    }
+  },
+  "required": ["format", "game", "status", "source_revision", "checkpoint", "native_fields", "state_basis", "unbound"],
+  "additionalProperties": false,
+  "$defs": {
+    "int32": {"type": "integer", "minimum": -2147483648, "maximum": 2147483647},
+    "uint8": {"type": "integer", "minimum": 0, "maximum": 255},
+    "uint16": {"type": "integer", "minimum": 0, "maximum": 65535},
+    "count64": {"type": "integer", "minimum": 0, "maximum": 9223372036854775807}
+  }
+}

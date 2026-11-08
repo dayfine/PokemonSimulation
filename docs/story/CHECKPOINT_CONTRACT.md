@@ -100,3 +100,7 @@ populate the shared envelope, then compare all native fields and policy/state
 initialization. Bind the same serialized records into the existing engine and
 Python replay before replacing either game's C++ authoring tables. Full FRLG
 coverage and verified RNG handoff/resume follow that parity gate.
+
+The first native authored-table capture adapter and strict importer are described
+in [Native exports](NATIVE_EXPORTS.md). Captures preserve raw fields and keep the
+policy/state/execution envelope explicitly unbound.

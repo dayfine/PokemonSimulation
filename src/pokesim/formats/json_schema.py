@@ -19,12 +19,17 @@ SCHEMAS = ROOT / 'schemas'
 
 def validator(name):
     from jsonschema import Draft202012Validator
+    from referencing import Registry, Resource
     path = SCHEMAS / (name + '.schema.json')
     if path.parent != SCHEMAS:
         raise ValueError('schema must be a local schema name')
     schema = json.loads(path.read_text())
     Draft202012Validator.check_schema(schema)
-    return Draft202012Validator(schema)
+    resources = []
+    for local in SCHEMAS.glob('*.schema.json'):
+        document = json.loads(local.read_text())
+        resources.append((document['$id'], Resource.from_contents(document)))
+    return Draft202012Validator(schema, registry=Registry().with_resources(resources))
 
 
 def published():
@@ -32,6 +37,8 @@ def published():
     for path in sorted(ROOT.glob('data/games/*/maps/runtime/*.json')):
         yield 'runtime-map-v2', path
     yield 'frlg-battle-cases', ROOT / 'data/games/frlg/battles/cases.json'
+    for path in sorted(ROOT.glob('data/story/native/*.json')):
+        yield 'native-checkpoint-export', path
 
 
 def main():
