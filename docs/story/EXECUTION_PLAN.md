@@ -133,3 +133,43 @@ modules. Share serialized events and scenario inputs/expectations across repos.
 - The FRLG coverage index accounts for every main-story segment and labels
   authored, bound and replay-validated coverage separately. Missing coverage is
   visible rather than represented by placeholder actions that report success.
+
+## Full FRLG world and Pokeguy plan expansion
+
+The user also requests all FRLG maps and a full story-event plan following
+Pokeguy's reviewed LeafGreen run through the first Champion victory. Keep
+this expansion as separate reviewable slices from native capture/import.
+
+1. Inventory the complete pinned `pret/pokefirered` map catalog and stage a
+   full-map candidate. The current source pin contains **425 distinct maps**;
+   the approved runtime pack contains **53**, leaving **372** uncovered. This
+   includes optional/postgame/link maps as catalog data, even though the first
+   story plan ends at Champion. Record exclusions and unsupported mechanics.
+2. Extend the builder beyond its current selected-map mode. Audit all warp and
+   edge destinations and unsupported behaviors before approval. The current
+   builder reports some non-collision behaviors as floor and pre-opens certain
+   scripted tiles (for example Vermilion Gym beams); that is not sufficient for
+   a stateful full-game plan. Preserve source-baseline versus corrected or
+   story-state geometry, and expose unresolved cases rather than inventing
+   walkability. Check source game/version differences against the LeafGreen run.
+3. Publish the reviewed full-map pack with regenerated manifests/hashes, then
+   adopt the approved revision in native consumers. Adding destinations can
+   change existing maps' warp/connection links; review those changes explicitly.
+   Do not overwrite the approved 53-map pack with unreviewed generated output.
+4. Author a complete Pokeguy story-event draft, by named story segments. Reuse
+   `data/runs/pokeguy-leafgreen-15934/` for the 69 trainer battles, wild defeats,
+   captures, EXP/EV, move and inventory evidence. Extend it with traversal,
+   conversations, key-item/HM use, purchases, heals, puzzle/flag changes and
+   map transitions. Preserve video timestamps and source-note provenance.
+5. Link every draft event to a game binding, map/landmark, state requirements,
+   expected effects, evidence status and outstanding uncertainty. Existing
+   battle/progression ledgers do not prove tile paths or all overworld actions.
+   Missing coordinates/bindings must remain unresolved, not successful no-ops.
+6. Enable and replay supported segments incrementally through the shared
+   engine after the two-checkpoint parity gate. Compare generated battle/state
+   histories against existing ledgers and report event/map/executor coverage.
+
+Use readable symbolic goals where available. Distinguish this speedrun plan
+from the native hand-run AutoStory table (including the current Parcel capture)
+and from recommended non-speedrun healing/preparation variants. Full authored
+coverage can precede full execution support; label both honestly.

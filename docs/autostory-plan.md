@@ -251,3 +251,11 @@ Exchange-format JSON Schemas now cover common story records, current v2 runtime 
 - [ ] Export BDSP mine/Roark `01.03` through its evaluated native table adapter.
 - [ ] Bind effective shared requirements/state/save/retry policy and establish
   native/Python execution parity before replacing C++ authoring tables.
+
+- [ ] Import the complete pinned FRLG map catalog (425 distinct source maps;
+  currently 53 published), with explicit unsupported/stateful geometry gaps,
+  reviewed publication and native consumer-pin adoption.
+- [ ] Write the full Pokeguy LeafGreen story-event draft through Champion,
+  reusing existing battle/progression evidence and adding source-backed
+  overworld actions. Track authored, bound and replay-validated coverage
+  separately; see [execution plan](story/EXECUTION_PLAN.md#full-frlg-world-and-pokeguy-plan-expansion).
