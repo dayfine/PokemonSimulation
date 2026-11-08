@@ -4,7 +4,7 @@ Start with [the 15 authored events](bdsp-mine-01.03.plan.json) and [the readable
 
 Source: [Arduino-Source #226](https://github.com/dayfine/Arduino-Source/pull/226), exact revision `0738cd55b562d1dd685cdea289663a015a1cbe59`, `SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_StoryTable.cpp`, `oreburgh_mine_to_roark()`. Barry and the first heal now belong to `01.02b`. This file preserves the current inbound/outbound legs, two-tile Center/exit beliefs, `counted_wall` and `to_wall` variants, failure policy, and save-card guard.
 
-The native branch is `bdsp/checkpoint-json`, based on that exact #226 head. Game executors remain unchanged. Its adjacent tests load the actual table, execute `01.03` through the existing engine/fake-game simulator, and stop before healing when the exit fails through all three attempts. This is integration coverage; that fake is not a detector/timing oracle.
+The native companion is [Arduino #263](https://github.com/dayfine/Arduino-Source/pull/263), branch `bdsp/checkpoint-json`, based on that exact #226 head. Python implementation: [PokemonSimulation #74](https://github.com/dayfine/PokemonSimulation/pull/74). Game executors remain unchanged. Its adjacent tests load the actual table, execute `01.03` through the existing engine/fake-game simulator, and stop before healing when the exit fails through all three attempts. This is integration coverage; that fake is not a detector/timing oracle.
 
 ## Run the Python check
 
@@ -32,3 +32,14 @@ Nine scenarios cover all 15 events, wrong entry, unconfirmed mine arrival/exit, 
 The Python path uses its pinned cost profile; it does not reproduce native robust planner costs or select identical legs. Observations, clearance windows and scene/heal results are synthetic. Controller queues, analog movement, actual NPC trajectories, banner/fade/dialogue detectors and scene timing are not simulated here. The native executor's declared-arrival fallback remains unchanged.
 
 The authored native policy is save-at-start with `reload_and_retry` guarded by the `Oreburgh City` save card. Python uses the existing explicit one-attempt stop/no-save diagnostic binding; a Python pass is not native retry/save parity. Battle outcomes and post-heal stats are not fabricated.
+
+## Existing run evidence behind this route
+
+These are references preserved from #226's comments at `0738cd55b`, not new console runs performed for this PR:
+
+- Lab-B, 2026-11-07: a counted south-three approach below Roark moved only two tiles. The current route clips the room’s south wall before moving west to talk.
+- Lab-B, 2026-11-08 11:55: wild-battle recovery replanned only to open tile `(15,16)`; a later south-five leg overshot a row and the remaining taps ran under Roark’s rocks. The current source groups the inbound legs through the corner. This pilot’s interruption case stops with uncertainty; it does not claim recovery/rejoin is proved.
+- Lab-B, 2026-11-08 09:46, 10:39 and 12:03: the B1F exit came out on city column 46, east of the sign at `(45,56)`, so walking north did not stop at that sign. The current route instead clips the wall beside the Center.
+- Lab-B, 2026-11-08 13:50: a north tap/east wall hold matched the map only from column 46; east from `(48,57)` was blocked although the map showed `(49,57)` open. The current route avoids that street. The pilot does not change terrain to explain this unresolved discrepancy.
+
+Entry assumes the native preceding `01.02b` Barry/heal setup. The pilot does not invent party levels, HP, item counts, or quest-flag observations to turn that assumption into a verified precondition.
