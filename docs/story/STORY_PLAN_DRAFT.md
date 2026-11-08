@@ -1,5 +1,10 @@
 # Story plans: early wire-format draft
 
+Checkpoint supplies, save/failure policy and handoff/resume are shared concepts;
+see [the common checkpoint contract](CHECKPOINT_CONTRACT.md). The initial
+step/pose/checkpoint codec is implemented separately from the pending evaluated
+game-table exports, policy binding and execution parity.
+
 **For review, not execution.** Start by serializing the evaluated native tables
 and binding them to the existing executors. The games already share ordered
 `StoryStep`/`StoryCheckpoint` records and `StoryStepExecutor`; their behavior and
