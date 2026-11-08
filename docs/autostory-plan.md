@@ -239,3 +239,5 @@ and [the implementation checkpoint](navigation/ENCOUNTER_RECOVERY.md#native-frlg
 
 This is a format exercise, not PLZA battle expansion. Native resource adoption
 and FRLG/BDSP evaluated story exports remain the implementation sequence.
+
+Exchange-format JSON Schemas now cover common story records, current v2 runtime maps and FRLG battle cases/full reports; see [schemas](../schemas/README.md). Semantic validators and native reader parity remain required.
