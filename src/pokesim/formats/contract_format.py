@@ -2,13 +2,17 @@
 
     PYTHONPATH=src python3 -m pokesim.formats.contract_format
     PYTHONPATH=src python3 -m pokesim.formats.contract_format --check
+    PYTHONPATH=src python3 -m pokesim.formats.contract_format path/to/data.json
 
-Formats schemas/*.schema.json and data/story/wire-conformance.json. Published game data and resource
-hashes are untouched. Every field and its order are retained.
+With no paths, formats schemas/*.schema.json and the shared story fixture.
+Explicit paths opt other authored JSON files in. Every field and its order are
+retained. Republish hash-pinned data before adopting changed bytes in consumers.
 """
 
 import argparse
 import json
+
+from pathlib import Path
 
 from .json_schema import ROOT, SCHEMAS
 
@@ -35,10 +39,11 @@ def json_text(data, width=120):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('paths', nargs='*', type=Path, help='JSON files; defaults to schemas and shared story cases')
     parser.add_argument('--check', action='store_true', help='report formatting drift without writing')
     args = parser.parse_args()
     changed = []
-    paths = sorted(SCHEMAS.glob('*.schema.json')) + [ROOT / 'data/story/wire-conformance.json']
+    paths = args.paths or sorted(SCHEMAS.glob('*.schema.json')) + [ROOT / 'data/story/wire-conformance.json']
     for path in paths:
         original = path.read_text(encoding='utf-8')
         formatted = json_text(json.loads(original))
@@ -48,7 +53,7 @@ def main():
                 path.write_text(formatted, encoding='utf-8')
     if args.check and changed:
         parser.exit(1, 'Reformat contracts: ' + ', '.join(changed) + '\n')
-    print('{} contract files {}.'.format(len(changed), 'need formatting' if args.check else 'formatted'))
+    print('{} JSON files {}.'.format(len(changed), 'need formatting' if args.check else 'formatted'))
 
 
 if __name__ == '__main__':

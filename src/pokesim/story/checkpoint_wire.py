@@ -11,6 +11,8 @@ import argparse
 import json
 from pathlib import Path
 
+from pokesim.formats.contract_format import json_text
+
 KINDS = ('new_game', 'options', 'route', 'legs', 'step', 'talk', 'answer',
          'scene', 'battle', 'train', 'heal', 'shop', 'save', 'ready', 'game_action')
 DIRECTIONS = ('north', 'east', 'south', 'west')
@@ -133,7 +135,7 @@ def main():
         value = read_checkpoint(json.loads(args.checkpoint.read_text()))
     except (ValueError, KeyError, TypeError) as error:
         parser.exit(1, str(error) + '\n')
-    print(json.dumps(value, indent=2))
+    print(json_text(value), end='')
 
 
 if __name__ == '__main__':
