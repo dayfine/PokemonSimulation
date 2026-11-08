@@ -6,7 +6,8 @@
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
     "date": "2026-10-31",
     "generation_status": "unreviewed-full-catalog-candidate",
-    "unapplied_story_patch": "OPENED_TILES: preserve decomp baseline until story state is bound"
+    "unapplied_story_patch": "OPENED_TILES: preserve decomp baseline until story state is bound",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
   },
   "allow_running": false,
   "tiles": [

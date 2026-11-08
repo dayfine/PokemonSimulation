@@ -5,7 +5,8 @@
     "decomp_file": "data/maps/CinnabarIsland/map.json",
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
     "date": "2026-10-31",
-    "generation_status": "unreviewed-full-catalog-candidate"
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
   },
   "tiles": [
     "wwwww#######....w##wwwww",
@@ -28,28 +29,6 @@
     "wwwwwwwwwwwwwwwwwwwwwwww",
     "wwwwwwwwwwwwwwwwwwwwwwww",
     "wwwwwwwwwwwwwwwwwwwwwwww"
-  ],
-  "elevation": [
-    "001110000000333310011110",
-    "001110000000333330000001",
-    "001110000000333330000001",
-    "001110003000033330000001",
-    "100113333333333333300001",
-    "100113333333333333333300",
-    "100113333333333333333330",
-    "100110000000333333333331",
-    "001110000000000003333331",
-    "001110000000000000000331",
-    "001113333333000000000331",
-    "001113333333000000000331",
-    "100111113333333333333331",
-    "100111113333333333333331",
-    "100111113333333333333331",
-    "000111111111111111111111",
-    "010011111111111111111111",
-    "010000001111110000001111",
-    "001100000000000000000000",
-    "000000110000001000010000"
   ],
   "points": {"warp_0": [8, 3], "warp_1": [20, 4], "warp_2": [8, 9], "warp_3": [14, 11], "warp_4": [19, 11]},
   "warps": [

@@ -17,7 +17,8 @@
       "target_game": "frlg",
       "target_game_relation": "native_decomp",
       "verification": "FRLG source-derived; collection not observed"
-    }
+    },
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
   },
   "tiles": [
     "################################################",

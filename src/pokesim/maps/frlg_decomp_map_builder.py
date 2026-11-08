@@ -33,6 +33,7 @@ differs. Export the generated pack with pokesim.maps.runtime_map_pack for
 Arduino consumers.
 """
 import argparse
+from collections import deque
 import hashlib
 import json
 import os
@@ -357,6 +358,52 @@ def ground_only(tiles, elevation):
                for tile, level in zip(row, levels) if tile not in UNWALKABLE)
 
 
+def elevation_omission_reason(tiles, elevation, warps=None, points=None):
+    """Return the documented reason to omit the elevation grid, or None to retain it."""
+    # 1. Pure ground: every non-obstacle tile is level 3
+    if all(level == GROUND for row, levels in zip(tiles, elevation)
+           for tile, level in zip(row, levels) if tile not in UNWALKABLE):
+        return 'all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles'
+
+    # 2. Ground land with flat water: water has no bridges or level changes
+    no_bridge_levels = not any(c in '456789abcdef' for r in elevation for c in r if c != '3')
+    land_and_water = all((level == GROUND if tile != 'w' else level in ('0', '1', '3'))
+                         for row, levels in zip(tiles, elevation)
+                         for tile, level in zip(row, levels) if tile not in UNWALKABLE)
+    if land_and_water and no_bridge_levels:
+        return 'all walkable land is ground level (3); water is flat without bridges'
+
+    # 3. Reachable tiles: all reachable land is level 3, and any non-3 tiles are isolated/unreachable obstacles
+    if warps is not None and points is not None:
+        h, w = len(tiles), len(tiles[0])
+        starts = set()
+        for warp in warps:
+            if 'coord' in warp:
+                starts.add(tuple(warp['coord']))
+            elif 'x' in warp and 'y' in warp:
+                starts.add((warp['x'], warp['y']))
+        for pt in points.values():
+            starts.add(tuple(pt))
+        queue = deque([s for s in starts if 0 <= s[0] < w and 0 <= s[1] < h])
+        visited = set(queue)
+        while queue:
+            cx, cy = queue.popleft()
+            for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                nx, ny = cx + dx, cy + dy
+                if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in visited:
+                    if tiles[ny][nx] not in '#DS':
+                        visited.add((nx, ny))
+                        queue.append((nx, ny))
+
+        reachable_land_3 = all(elevation[y][x] == GROUND for (x, y) in visited if tiles[y][x] not in UNWALKABLE and tiles[y][x] != 'w')
+        reachable_water_flat = all(elevation[y][x] in ('0', '1', '3') for (x, y) in visited if tiles[y][x] == 'w')
+        no_reachable_bridges = not any(elevation[y][x] in '456789abcdef' for (x, y) in visited if elevation[y][x] != '3')
+        if reachable_land_3 and reachable_water_flat and no_reachable_bridges:
+            return 'all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles'
+
+    return None
+
+
 def warp_point(index):
     return f'warp_{index}'
 
@@ -469,8 +516,11 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
                     obj['source_local_id'] = event['id']
     if not data['regions']:
         del data['regions']
-    if ground_only(tiles, elevation):
+    omission = elevation_omission_reason(tiles, elevation, data.get('warps', []), data.get('points', {}))
+    if omission is not None:
         del data['elevation']
+        if candidate:
+            data['source']['elevation_omitted'] = omission
     if data['allow_running']:
         del data['allow_running']
     return data

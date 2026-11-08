@@ -194,8 +194,26 @@ class ElevationElisionTest(unittest.TestCase):
             (['...'], ['303'], False),  # Zero accepts arrivals at any elevation.
             (['...'], ['343'], False),  # A level change blocks ordinary walking.
             (['...'], ['3f3'], False),  # Bridge preserves the player's level.
-            (['.w.'], ['303'], False),  # Water is not a dispensable wall.
+            (['.w.'], ['303'], False),  # Water is not a dispensable wall in pure ground_only.
         ]
         for tiles, levels, expected in cases:
             with self.subTest(tiles=tiles, elevation=levels):
                 self.assertEqual(frlg_maps.ground_only(tiles, levels), expected)
+
+    def test_elevation_omission_reason(self):
+        # 1. Pure ground
+        self.assertIn('all walkable tiles are ground level',
+                      frlg_maps.elevation_omission_reason(['..#'], ['331']))
+        # 2. Ground land with flat water
+        self.assertIn('water is flat without bridges',
+                      frlg_maps.elevation_omission_reason(['.w.'], ['313']))
+        # 3. Multi-level bridge cannot be omitted
+        self.assertIsNone(frlg_maps.elevation_omission_reason(['.w.'], ['3f3']))
+        self.assertIsNone(frlg_maps.elevation_omission_reason(['...'], ['343']))
+        # 4. Reachable ground with blocked non-3 tile
+        tiles = ['###', '#.#', '###', '...']
+        levels = ['000', '000', '000', '333']
+        warps = [{'coord': [1, 3]}]
+        points = {'p': [1, 3]}
+        self.assertIn('all reachable land is ground level',
+                      frlg_maps.elevation_omission_reason(tiles, levels, warps, points))

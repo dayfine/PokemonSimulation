@@ -1,6 +1,6 @@
 # PokeGuy FRLG source-map candidate
 
-144 maps retained from the 425-map catalog at
+141 maps retained from the 425-map catalog at
 `pret/pokefirered@ce6406d8c2eaf46d543c8a2606de0c3cb1951982`.
 The explicit exclusions and review basis live in
 [../pokeguy-map-scope.json](../pokeguy-map-scope.json):
@@ -10,7 +10,7 @@ The explicit exclusions and review basis live in
 | Sevii, event islands and island Trainer Tower | 164 |
 | Multiplayer facilities | 5 |
 | Optional mainland caves/legendary destinations | 12 |
-| Unused interiors, cabins and upper floors | 100 |
+| Unused interiors, cabins and upper floors | 103 |
 
 This is a conservative first-Champion review scope, not a verified visited-map
 ledger. Uncertain transit floors (notably Silph) and mainland outdoor routes
@@ -44,7 +44,7 @@ PYTHONPATH=src python3 -m pokesim.maps.frlg_import_audit \
 
 `--all` without `--scope` can still regenerate the entire pinned source catalog
 outside the repository. Scoped generation reads full source headers so it
-preserves destinations into excluded maps. The audit accepts these **83 boundary
+preserves destinations into excluded maps. The audit accepts these **103 boundary
 warps** only with the explicit exclusion inventory. Their missing destination
 resources cannot be routed/executed successfully; they are not deleted doors or
 successful no-op transitions. Unexpected missing destinations fail the audit.
@@ -52,21 +52,22 @@ CI reproduces the selected files from the full pinned source catalog.
 
 ## Elevation and remaining gaps
 
-90 retained maps already omit their elevation grids: every relevant walkable
-cell uses the loader's default ground level (3). The other 54 keep their grids.
-Zero permits different arrival levels, level changes affect reachability, and
-bridge level `f` preserves player elevation. A flat-looking room is not enough
-to erase these semantics. Regression tests cover these distinctions, water and
-irrelevant wall heights. Elevation omission is derived from source data rather
+127 retained maps omit their elevation grids with an explicit `elevation_omitted`
+reason recorded in `source`: every relevant walkable cell uses the loader's
+default ground level (3). The other 14 keep their grids (bridges with level `f`
+or `4`, stairs, or multi-level terrain like Route 12, Safari Zone, Victory Road,
+Silph 8F/9F, etc.). A flat-looking room is not enough to erase these semantics.
+Regression tests cover these distinctions, flat water, unreachable/counter tiles,
+and irrelevant wall heights. Elevation omission is derived from source data rather
 than a manually maintained map-name list; no new lossy omission was added.
 
-All 144 maps pass geometry/schema checks. Included fixed destinations resolve;
+All 141 maps pass geometry/schema checks. Included fixed destinations resolve;
 excluded destinations remain explicit boundaries. Current unresolved support:
 
 | Gap | Count |
 |---|---:|
 | Cells with unsupported non-collision behavior | 3,140 |
-| Dynamic warp destinations | 5 |
+| Dynamic warp destinations | 0 |
 | Pickups without a pinned identity catalog entry | 84 |
 | Identified fixed pickups | 22 |
 | Known late-story geometry patch left unapplied | 1 |

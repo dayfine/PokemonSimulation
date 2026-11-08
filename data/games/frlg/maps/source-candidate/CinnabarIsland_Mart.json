@@ -5,7 +5,8 @@
     "decomp_file": "data/maps/CinnabarIsland_Mart/map.json",
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
     "date": "2026-10-31",
-    "generation_status": "unreviewed-full-catalog-candidate"
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
   },
   "allow_running": false,
   "tiles": [
@@ -18,17 +19,6 @@
     ".##....##.#",
     "...........",
     "###########"
-  ],
-  "elevation": [
-    "00000000000",
-    "00000000000",
-    "00303333330",
-    "33003333333",
-    "00003330030",
-    "33333330030",
-    "30033330030",
-    "33333333333",
-    "00000000000"
   ],
   "points": {"warp_1": [4, 7]},
   "warps": [
