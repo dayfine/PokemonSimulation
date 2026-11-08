@@ -19,9 +19,15 @@ from .json_schema import ROOT, SCHEMAS
 
 def json_text(data, width=120):
     """Expand long containers using two-space indentation and a soft width."""
+    native_capture = isinstance(data, dict) and data.get("format") == "pokesim-native-checkpoint-export/1"
+
+    def event(value):
+        return native_capture and isinstance(value, dict) and "id" in value and "kind" in value
+
     def render(value, depth=0, prefix=0):
         inline = json.dumps(value, ensure_ascii=False)
-        if not isinstance(value, (dict, list)) or not value or depth * 2 + prefix + len(inline) <= width:
+        expand = event(value) or (isinstance(value, list) and any(event(item) for item in value))
+        if not isinstance(value, (dict, list)) or not value or (not expand and depth * 2 + prefix + len(inline) <= width):
             return inline
         indent = ' ' * ((depth + 1) * 2)
         if isinstance(value, dict):

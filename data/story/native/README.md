@@ -10,7 +10,10 @@ Artifact: `frlg-checkpoint-ubuntu-26.04-default/frlg-parcel.native.json`.
 Original artifact-file SHA256:
 `6c4a5ece80eba8c9aa2930ebf8a2992cecb02c92c07e236a5e3ea976e66b3b6e`.
 The importer checked the build revision and schema, then compacted the file;
-all parsed values and ordering are preserved. Formatting changes its byte hash.
+all parsed values are preserved. The authored copy orders checkpoint fields as
+`id`, `title`, `start`, `events`, and expands every event into its own block.
+Object-key order and formatting differ from the original artifact; array order
+and values remain unchanged. Formatting changes its byte hash.
 
 The three authored events are route to below the Mart door, step north through
 the door, and the clerk's Parcel scene. The scene declares the arrival pose;
