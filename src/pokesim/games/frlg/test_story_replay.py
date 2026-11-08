@@ -26,7 +26,7 @@ class FRLGStoryReplayTest(unittest.TestCase):
         from pokesim.grid.maps.world import Place
         from pokesim.grid.movement import WorldState
         from pokesim.grid.routing.shortest import Move, MoveKind, Path as RoutePath
-        from .story_replay import route_legs
+        from pokesim.story.spatial_replay import route_legs
         # Synthetic geometry diagnostic, not a measured/source map route.
         start = WorldState(Place('A', Tile(0, 0)), 3)
         endpoints = [('A', 1, MoveKind.STEP), ('A', 2, MoveKind.STEP),
@@ -52,7 +52,7 @@ class FRLGStoryReplayTest(unittest.TestCase):
         # Synthetic broken planner: one west input cannot teleport from the lab
         # to Viridian. Execution must check movement, not copy the planned goal.
         planned = RoutePath(initial, [Move(Direction.WEST, MoveKind.STEP, wrong)], 1)
-        with patch('pokesim.games.frlg.story_replay.shortest_path', return_value=planned):
+        with patch('pokesim.story.spatial_replay.shortest_path', return_value=planned):
             report = run(self.binding, self.cases[0]['input'])
         self.assertEqual('route_model_mismatch', report['failure'])
         self.assertEqual([], report['completed_events'])
