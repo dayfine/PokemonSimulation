@@ -43,6 +43,9 @@ def published():
     yield 'story-replay-binding', ROOT / 'data/story/parcel-pilot/binding.json'
     yield 'story-replay-binding', ROOT / 'data/story/parcel-pilot/authored-binding.json'
     yield 'story-replay-cases', ROOT / 'data/story/parcel-pilot/cases.json'
+    yield 'authored-checkpoint', ROOT / 'data/story/bdsp-mine-pilot/bdsp-mine-01.03.plan.json'
+    yield 'story-replay-binding', ROOT / 'data/story/bdsp-mine-pilot/binding.json'
+    yield 'story-replay-cases', ROOT / 'data/story/bdsp-mine-pilot/cases.json'
 
 
 def main():

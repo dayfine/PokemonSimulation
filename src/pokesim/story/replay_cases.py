@@ -9,6 +9,7 @@ Rendering never runs replay or updates expectations from actual output.
 """
 
 import argparse
+import json
 from itertools import zip_longest
 from pathlib import Path
 
@@ -30,6 +31,16 @@ def validate_action(action):
         if (action['via'] not in ('warp', 'edge') or action['to_map'] is not None
                 and (not isinstance(action['to_map'], str) or not action['to_map'])):
             raise ValueError('transition needs a destination or explicit unknown, and warp/edge mode')
+    elif kind == 'door':
+        exact(action, 'event kind map direction to_map')
+        if not isinstance(action['to_map'], str) or not action['to_map']:
+            raise ValueError('door needs a destination map')
+    elif kind == 'talk':
+        exact(action, 'event kind npc')
+        if not isinstance(action['npc'], str) or not action['npc']:
+            raise ValueError('talk needs a named NPC')
+    elif kind == 'heal':
+        exact(action, 'event kind')
     elif kind == 'turn':
         exact(action, 'event kind map direction')
     elif kind == 'scene':
@@ -40,7 +51,7 @@ def validate_action(action):
         raise ValueError('unsupported action kind')
     if not isinstance(action['event'], str) or not action['event']:
         raise ValueError('action event required')
-    if kind != 'scene' and (not isinstance(action['map'], str) or not action['map']
+    if kind not in ('scene', 'talk', 'heal') and (not isinstance(action['map'], str) or not action['map']
             or action['direction'] not in ('north', 'east', 'south', 'west')):
         raise ValueError('action map and direction required')
 
@@ -117,6 +128,12 @@ def action_text(action):
                                                'tile' if action['tiles'] == 1 else 'tiles', action['map'])
     if action['kind'] == 'transition':
         return 'Take {} {}: {} → {}'.format(action['via'], action['direction'], action['map'], action['to_map'] or 'unknown destination')
+    if action['kind'] == 'door':
+        return 'Follow the {} corridor {} through the door to {}.'.format(action['map'], action['direction'], action['to_map'])
+    if action['kind'] == 'talk':
+        return 'Talk to {}.'.format(action['npc'])
+    if action['kind'] == 'heal':
+        return 'Heal at the Pokemon Center and return outside.'
     if action['kind'] == 'turn':
         return 'Face {} on {}'.format(action['direction'], action['map'])
     return 'Request scene via ' + action['capability']
@@ -142,6 +159,12 @@ def render_cases(cases):
             if signal['kind'] == 'scene-observation':
                 lines += ['- `{}`: {} scene result at {}; received: {}.'.format(
                     event, signal['screen'], place(signal['pose']), receipts(signal['received']))]
+            elif signal['kind'] == 'bdsp-observation':
+                lines += ['- `{}`: scripted {} at {}; result: `{}`.'.format(
+                    event, signal['screen'], place(signal['pose']), json.dumps(signal['result']))]
+            elif signal['kind'] == 'movement-script':
+                lines += ['- `{}`: synthetic clearance window for {}; encounter: `{}`.'.format(
+                    event, ', '.join(signal['clear_npcs']) or 'no wandering NPCs', json.dumps(signal['encounter']))]
             elif signal['kind'] == 'wild-encounter':
                 lines += ['- `{}`: encounter interrupts a {}ward walk from {}.'.format(event, signal['direction'], place(signal['from']))]
             else:

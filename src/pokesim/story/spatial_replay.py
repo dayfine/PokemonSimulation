@@ -77,6 +77,9 @@ class RuntimeSpatialReplay:
         self.validate_pose(result)
         return result
 
+    def matches_authored_pose(self, actual, wire):
+        return actual == self.authored_pose(wire)
+
     def route_signal(self, event, signal):
         if signal is not None:
             exact(signal, 'kind from direction')

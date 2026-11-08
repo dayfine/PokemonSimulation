@@ -51,7 +51,7 @@ def main():
     changed = []
     paths = args.paths or (sorted(SCHEMAS.glob('*.schema.json'))
         + [ROOT / 'data/story/wire-conformance.json'] + sorted(ROOT.glob('data/story/native/*.json'))
-        + sorted(ROOT.glob('data/story/parcel-pilot/*.json')))
+        + sorted(ROOT.glob('data/story/parcel-pilot/*.json')) + sorted(ROOT.glob('data/story/bdsp-mine-pilot/*.json')))
     for path in paths:
         original = path.read_text(encoding='utf-8')
         formatted = json_text(json.loads(original))

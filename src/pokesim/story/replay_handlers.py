@@ -24,6 +24,10 @@ def resolve_action(kind, spec, adapter):
     """Reject unknown capabilities/kind combinations before executing any event."""
     exact(spec, 'capability parameters')
     capability, parameters = spec['capability'], spec['parameters']
+    if hasattr(adapter, 'bind_action'):
+        bound = adapter.bind_action(kind, spec)
+        if bound is not None:
+            return bound
     methods = adapter.handlers()
     if capability in methods:
         supported_kind, preflight, execute = methods[capability]

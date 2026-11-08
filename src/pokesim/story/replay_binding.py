@@ -18,6 +18,7 @@ from pokesim.grid.routing.shortest import Costs
 from .checkpoint_wire import read_checkpoint
 from .replay_handlers import exact, resolve_action
 from pokesim.games.frlg.story_replay import FRLGReplay
+from pokesim.games.bdsp_story_replay import BDSPReplay
 
 PROFILE = ROOT / 'data/story/parcel-pilot/binding.json'
 OFFLINE_POLICY = {'basis': 'synthetic-offline-policy', 'entry': 'scripted-observation',
@@ -70,12 +71,20 @@ def load_binding(path=PROFILE, root=ROOT):
             or capture['game'] != 'frlg' or capture['source_revision'] != pin['source_revision']
             or capture['state_basis'] != 'native-table-bookkeeping'):
         raise ValueError('unsupported capture identity/state basis')
+    game = capture['game']
     checkpoint = read_checkpoint(capture['checkpoint'])
     if not checkpoint['events'] or 'start' not in checkpoint:
         raise ValueError('replay currently requires a nonempty checkpoint with a starting pose')
     allowed = {'route': {'id', 'kind', 'why', 'target'},
                'step': {'id', 'kind', 'why', 'direction'},
                'scene': {'id', 'kind', 'why', 'declared_after'}}
+    if game == 'bdsp':
+        allowed = {'route': {'id', 'kind', 'why', 'target', 'variant'},
+                   'legs': {'id', 'kind', 'why', 'legs', 'variant', 'declared_after'},
+                   'step': {'id', 'kind', 'why', 'direction', 'declared_after'},
+                   'talk': {'id', 'kind', 'why'},
+                   'scene': {'id', 'kind', 'why', 'declared_after'},
+                   'heal': {'id', 'kind', 'why', 'declared_after'}}
     for event in checkpoint['events']:
         if event['kind'] not in allowed or set(event) - allowed[event['kind']]:
             raise ValueError('unsupported event kind/options in spatial replay')
@@ -90,14 +99,20 @@ def load_binding(path=PROFILE, root=ROOT):
     budget = positive(config['max_route_moves'])
     if not isinstance(config['maps'], dict) or not config['maps']:
         raise ValueError('map pins required')
-    maps = [LocalMap(read_json(read_pinned_map(config['map_revision'], 'frlg', name, digest, root)), 'frlg')
+    maps = [LocalMap(read_json(read_pinned_map(config['map_revision'], game, name, digest, root)), game)
             for name, digest in config['maps'].items()]
     world = RuntimeWorld(maps)
-    adapter = FRLGReplay(world, Costs(**costs), budget)
+    adapter = (BDSPReplay if game == 'bdsp' else FRLGReplay)(world, Costs(**costs), budget)
+    if game == 'bdsp':
+        for event in checkpoint['events']:
+            adapter.validate_event(event)
     poses = [checkpoint['start']] + [e[k] for e in checkpoint['events'] for k in ('target', 'declared_after') if k in e]
     for pose in poses:
         if pose['map'] not in world.views:
             raise ValueError('checkpoint references an unbound map')
-        adapter.authored_pose(pose)
+        if game == 'bdsp':
+            adapter.authored_poses(pose)
+        else:
+            adapter.authored_pose(pose)
     actions = {e['id']: resolve_action(e['kind'], config['capabilities'][e['id']], adapter) for e in checkpoint['events']}
     return ReplayBinding(capture, checkpoint, adapter, actions, hashlib.sha256(raw).hexdigest())

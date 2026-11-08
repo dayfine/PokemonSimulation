@@ -57,6 +57,36 @@
                 }
               }
             }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "capability": {
+                "enum": [
+                  "bdsp-runtime-route/1",
+                  "bdsp-runtime-legs/1",
+                  "bdsp-door-observation/1",
+                  "bdsp-heal-observation/1"
+                ]
+              },
+              "parameters": {"type": "object", "additionalProperties": false}
+            },
+            "required": ["capability", "parameters"],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "capability": {"enum": ["bdsp-dialogue-observation/1", "bdsp-scene-observation/1"]},
+              "parameters": {
+                "type": "object",
+                "properties": {"npc": {"type": "string", "minLength": 1}},
+                "required": ["npc"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["capability", "parameters"],
+            "additionalProperties": false
           }
         ]
       }
