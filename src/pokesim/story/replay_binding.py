@@ -44,11 +44,14 @@ class ReplayBinding:
 def load_binding(path=PROFILE, root=ROOT):
     """Preflight every binding/hash before any replay action; never fetch data."""
     raw = Path(path).read_bytes()
-    config = exact(read_json(raw), 'format capture map_revision maps capabilities costs max_route_moves policy')
+    config = read_json(raw)
+    authored = 'plan' in config
+    source_key = 'plan' if authored else 'capture'
+    exact(config, 'format {} map_revision maps capabilities costs max_route_moves policy'.format(source_key))
     if (config['format'] != 'pokesim-story-replay-binding/1' or config['policy'] != OFFLINE_POLICY
             or type(config['policy'].get('attempts')) is not int):
         raise ValueError('unsupported offline profile/policy; native options remain unbound')
-    pin = exact(config['capture'], 'file sha256 source_revision')
+    pin = exact(config[source_key], 'file sha256' if authored else 'file sha256 source_revision')
     source = Path(root).resolve()
     capture_path = (source / pin['file']).resolve()
     if source not in capture_path.parents:
@@ -57,7 +60,13 @@ def load_binding(path=PROFILE, root=ROOT):
     if hashlib.sha256(capture_raw).hexdigest() != pin['sha256']:
         raise ValueError('capture hash mismatch')
     capture = read_json(capture_raw)
-    if (capture['format'] != 'pokesim-native-checkpoint-export/1'
+    if authored:
+        from .authored_checkpoint import read_authored_checkpoint
+        plan = read_authored_checkpoint(capture)
+        # Internal report provenance, not an invented native export or observation.
+        capture = dict(plan, source_revision=None, authored_plan_sha256=pin['sha256'],
+                       unbound=['entry_evidence', 'effective_save_retry_policy'])
+    elif (capture['format'] != 'pokesim-native-checkpoint-export/1'
             or capture['game'] != 'frlg' or capture['source_revision'] != pin['source_revision']
             or capture['state_basis'] != 'native-table-bookkeeping'):
         raise ValueError('unsupported capture identity/state basis')

@@ -58,6 +58,7 @@ def run(binding, scenario):
     return {'format': 'pokesim-checkpoint-replay-report/1', 'status': 'stopped' if failure else 'model_complete',
             'checkpoint': binding.checkpoint['id'], 'profile_sha256': binding.profile_sha256,
             'native_source_revision': binding.capture['source_revision'],
+            'authored_plan_sha256': binding.capture.get('authored_plan_sha256'),
             'native_parity': 'not-established', 'native_unbound': list(binding.capture['unbound']),
             'policy_basis': 'synthetic-offline-policy', 'failure': failure,
             'active_event': active if failure else None, 'completed_events': completed,

@@ -71,3 +71,5 @@ files. Pin/adopt this revision in native authoring validation after review.
 The native capture schema names C++ widths in `$defs` (`int32`, `uint8`,
 `uint16`, `count64`) and references them at each field. Stats use `uint16`;
 PP/levels use `uint8`. These encode storage bounds, not valid gameplay ranges.
+
+`authored-checkpoint.schema.json` defines the first executable native authoring pilot: common checkpoint data plus FRLG `execution.menu`. It is separate from the full native export snapshot. Replay bindings accept exactly one pinned `capture` or `plan` source.

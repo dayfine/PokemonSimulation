@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/authored-checkpoint.schema.json",
+  "title": "Authored checkpoint with FRLG executor settings",
+  "type": "object",
+  "properties": {
+    "format": {"const": "pokesim-authored-checkpoint/1"},
+    "game": {"const": "frlg"},
+    "checkpoint": {"$ref": "story-checkpoint.schema.json"},
+    "execution": {
+      "type": "object",
+      "properties": {"menu": {"enum": ["before_pokemon", "before_pokedex", "full"]}},
+      "required": ["menu"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["format", "game", "checkpoint", "execution"],
+  "additionalProperties": false
+}

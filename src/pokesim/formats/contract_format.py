@@ -19,7 +19,7 @@ from .json_schema import ROOT, SCHEMAS
 
 def json_text(data, width=120):
     """Expand long containers using two-space indentation and a soft width."""
-    native_capture = isinstance(data, dict) and data.get("format") == "pokesim-native-checkpoint-export/1"
+    native_capture = isinstance(data, dict) and data.get("format") in ("pokesim-native-checkpoint-export/1", "pokesim-authored-checkpoint/1")
 
     def event(value):
         return native_capture and isinstance(value, dict) and "id" in value and "kind" in value

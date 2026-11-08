@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/dayfine/PokemonSimulation/schemas/story-replay-binding.schema.json",
   "type": "object",
-  "required": ["format", "capture", "map_revision", "maps", "capabilities", "costs", "max_route_moves", "policy"],
+  "required": ["format", "map_revision", "maps", "capabilities", "costs", "max_route_moves", "policy"],
   "additionalProperties": false,
   "properties": {
     "format": {"const": "pokesim-story-replay-binding/1"},
@@ -84,6 +84,16 @@
         "failure": {"const": "stop"},
         "save": {"const": "never"}
       }
+    },
+    "plan": {
+      "type": "object",
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "required": ["file", "sha256"],
+      "additionalProperties": false
     }
-  }
+  },
+  "oneOf": [{"required": ["capture"]}, {"required": ["plan"]}]
 }
