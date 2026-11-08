@@ -37,11 +37,11 @@ Small definitions and short arrays stay inline within a soft 120-column width;
 large containers expand with two-space indentation. Reproduce or check it with:
 
 ```sh
-PYTHONPATH=src python3 -m pokesim.formats.schema_format
-PYTHONPATH=src python3 -m pokesim.formats.schema_format --check
+PYTHONPATH=src python3 -m pokesim.formats.contract_format
+PYTHONPATH=src python3 -m pokesim.formats.contract_format --check
 ```
 
-This command touches schema files only. It preserves all values and key order.
+This command touches schemas and the shared story conformance fixture only. It preserves all values and key order.
 CI checks the formatting.
 
 ## Structural validation is one layer

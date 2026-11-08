@@ -1,19 +1,19 @@
-"""Keep JSON Schemas readable with short definitions and arrays inline.
+"""Keep exchange contracts readable with short definitions and arrays inline.
 
-    PYTHONPATH=src python3 -m pokesim.formats.schema_format
-    PYTHONPATH=src python3 -m pokesim.formats.schema_format --check
+    PYTHONPATH=src python3 -m pokesim.formats.contract_format
+    PYTHONPATH=src python3 -m pokesim.formats.contract_format --check
 
-Only schemas/*.schema.json is formatted. Published game data and resource
+Formats schemas/*.schema.json and data/story/wire-conformance.json. Published game data and resource
 hashes are untouched. Every field and its order are retained.
 """
 
 import argparse
 import json
 
-from .json_schema import SCHEMAS
+from .json_schema import ROOT, SCHEMAS
 
 
-def schema_text(data, width=120):
+def json_text(data, width=120):
     """Expand long containers using two-space indentation and a soft width."""
     def render(value, depth=0, prefix=0):
         inline = json.dumps(value, ensure_ascii=False)
@@ -38,16 +38,17 @@ def main():
     parser.add_argument('--check', action='store_true', help='report formatting drift without writing')
     args = parser.parse_args()
     changed = []
-    for path in sorted(SCHEMAS.glob('*.schema.json')):
+    paths = sorted(SCHEMAS.glob('*.schema.json')) + [ROOT / 'data/story/wire-conformance.json']
+    for path in paths:
         original = path.read_text(encoding='utf-8')
-        formatted = schema_text(json.loads(original))
+        formatted = json_text(json.loads(original))
         if original != formatted:
             changed.append(path.name)
             if not args.check:
                 path.write_text(formatted, encoding='utf-8')
     if args.check and changed:
-        parser.exit(1, 'Reformat schemas: ' + ', '.join(changed) + '\n')
-    print('{} schema files {}.'.format(len(changed), 'need formatting' if args.check else 'formatted'))
+        parser.exit(1, 'Reformat contracts: ' + ', '.join(changed) + '\n')
+    print('{} contract files {}.'.format(len(changed), 'need formatting' if args.check else 'formatted'))
 
 
 if __name__ == '__main__':
