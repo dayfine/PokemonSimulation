@@ -1,0 +1,150 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route9",
+  "source": {
+    "decomp_file": "data/maps/Route9/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "events": "data/maps/Route9/map.json",
+      "events_sha256": "0a8b7cfd3028e15d59903f3f5dfc503f98712e5592d8d6a99a26cddc430d5270",
+      "catalog": "data/maps/item-identities.json",
+      "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    },
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "########################################################################",
+    "......#~~~~~~~~~~~............######~~~~~~######.................#######",
+    "#######~~~~~~~~~~~............######~~~~~~######.................#######",
+    "#######~~~~~~~~~~~#####.......######......######..........#####..#######",
+    "#######~~~~~~~~~~~#####vvvvv..######vv..vv######vv..vvvvvv#####vv#######",
+    "#######~~~~~~~~~~~#####.......######......######..........#####..#######",
+    "......#...........#####.......######......................#####..#######",
+    "#######vvvvvvvv#..#####......S###########.................#####..#######",
+    "...............########.............#####....#####...##########.........",
+    "..#............########.............#####....#####...#####..............",
+    "###########....########vvvvvvvvvvv..#####....#####...#####..............",
+    "....#######vvvv########.............#####vvvv#####vv.#####...#####...###",
+    "###########....########.............#####....#####...#####vvv#####vvv###",
+    "###########..........................................#####...#####...###",
+    "###########...............######.....................#####...#####...###",
+    "###########vvvvvvvvv..vvvv######vv..vvvvvvvvvvvvvvvvv#####vvv#####vvv###",
+    "###########...............######.....................................###",
+    "###########...............######.....................................###",
+    "########################################################################",
+    "########################################################################"
+  ],
+  "points": {},
+  "warps": [],
+  "flag_sets": {},
+  "connections": [
+    {"side": "west", "to_map": "CeruleanCity", "offset": -10},
+    {"side": "east", "to_map": "Route10", "offset": 0}
+  ],
+  "npcs": [
+    {
+      "name": "picnicker",
+      "coord": [14, 10],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 0,
+      "source_script": "Route9_EventScript_Alicia"
+    },
+    {
+      "name": "hiker",
+      "coord": [20, 17],
+      "trainer": {"sight": 4, "looks": ["north", "west"]},
+      "source_event": 1,
+      "source_script": "Route9_EventScript_Jeremy"
+    },
+    {
+      "name": "hiker",
+      "coord": [61, 16],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 2,
+      "source_script": "Route9_EventScript_Alan"
+    },
+    {
+      "name": "camper",
+      "coord": [26, 7],
+      "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
+      "source_event": 3,
+      "source_script": "Route9_EventScript_Chris"
+    },
+    {
+      "name": "bug_catcher",
+      "coord": [26, 1],
+      "facing": "south",
+      "trainer": {"sight": 2},
+      "source_event": 4,
+      "source_script": "Route9_EventScript_Brent"
+    },
+    {
+      "name": "bug_catcher",
+      "coord": [49, 7],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 5,
+      "source_script": "Route9_EventScript_Conner"
+    },
+    {
+      "name": "hiker",
+      "coord": [53, 2],
+      "wander": {"min": [50, 2], "max": [56, 2]},
+      "trainer": {"sight": 1, "looks": ["west", "east"]},
+      "source_event": 6,
+      "source_script": "Route9_EventScript_Brice"
+    },
+    {
+      "name": "picnicker",
+      "coord": [60, 9],
+      "facing": "east",
+      "trainer": {"sight": 4},
+      "source_event": 7,
+      "source_script": "Route9_EventScript_Caitlin"
+    },
+    {
+      "name": "camper",
+      "coord": [36, 6],
+      "facing": "east",
+      "trainer": {"sight": 5},
+      "source_event": 8,
+      "source_script": "Route9_EventScript_Drew"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [2, 8],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 9,
+      "source_script": "EventScript_CutTree",
+      "source_local_id": "LOCALID_ROUTE9_CUT_TREE"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [12, 17],
+      "source_event": 10,
+      "hide_flag": "FLAG_HIDE_ROUTE9_TM40",
+      "source_script": "Route9_EventScript_ItemTM40",
+      "item": "tm40"
+    },
+    {
+      "name": "item_ball",
+      "coord": [65, 17],
+      "source_event": 11,
+      "hide_flag": "FLAG_HIDE_ROUTE9_BURN_HEAL",
+      "source_script": "Route9_EventScript_ItemBurnHeal",
+      "item": "burn_heal"
+    }
+  ]
+}

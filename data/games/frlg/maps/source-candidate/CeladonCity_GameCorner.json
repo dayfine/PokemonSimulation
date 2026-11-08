@@ -1,0 +1,103 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_GameCorner",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_GameCorner/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "##################",
+    "##################",
+    "##.......#......##",
+    ".#########....####",
+    "..............####",
+    "..................",
+    "#....##....##....#",
+    "#....##....##....#",
+    "#....##....##....#",
+    "#....##....##....#",
+    "#....##....##....#",
+    "..................",
+    "..................",
+    "#................#",
+    "##################"
+  ],
+  "points": {"warp_0": [9, 13], "warp_3": [15, 2]},
+  "warps": [
+    {"coord": [9, 13], "enter": "walk_south", "to_map": "CeladonCity", "to_point": "warp_0"},
+    {"coord": [10, 13], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_0"},
+    {"coord": [11, 13], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_0"},
+    {"coord": [15, 2], "enter": "walk_east", "to_map": "RocketHideout_B1F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "worker_f",
+      "coord": [4, 2],
+      "source_event": 0,
+      "source_script": "CeladonCity_GameCorner_EventScript_InfoClerk"
+    },
+    {
+      "name": "worker_m",
+      "coord": [6, 2],
+      "source_event": 1,
+      "source_script": "CeladonCity_GameCorner_EventScript_CoinsClerk"
+    },
+    {
+      "name": "balding_man",
+      "coord": [1, 6],
+      "source_event": 2,
+      "source_script": "CeladonCity_GameCorner_EventScript_BaldingMan"
+    },
+    {
+      "name": "woman_2",
+      "coord": [1, 8],
+      "source_event": 3,
+      "source_script": "CeladonCity_GameCorner_EventScript_Woman1"
+    },
+    {"name": "fisher", "coord": [4, 7], "source_event": 4, "source_script": "CeladonCity_GameCorner_EventScript_Fisher"},
+    {
+      "name": "gym_guy",
+      "coord": [7, 10],
+      "source_event": 5,
+      "source_script": "CeladonCity_GameCorner_EventScript_GymGuy"
+    },
+    {
+      "name": "woman_1",
+      "coord": [7, 8],
+      "source_event": 6,
+      "source_script": "CeladonCity_GameCorner_EventScript_Woman2"
+    },
+    {
+      "name": "old_man_2",
+      "coord": [10, 9],
+      "source_event": 7,
+      "source_script": "CeladonCity_GameCorner_EventScript_OldMan"
+    },
+    {
+      "name": "scientist",
+      "coord": [13, 7],
+      "source_event": 8,
+      "source_script": "CeladonCity_GameCorner_EventScript_Scientist"
+    },
+    {
+      "name": "gentleman",
+      "coord": [16, 10],
+      "source_event": 9,
+      "source_script": "CeladonCity_GameCorner_EventScript_Gentleman"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [11, 2],
+      "hide_flag": "FLAG_HIDE_GAME_CORNER_ROCKET",
+      "source_event": 10,
+      "source_script": "CeladonCity_GameCorner_EventScript_RocketGrunt",
+      "source_local_id": "LOCALID_GAME_CORNER_GRUNT"
+    }
+  ]
+}

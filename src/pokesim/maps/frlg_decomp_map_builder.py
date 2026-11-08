@@ -9,6 +9,9 @@ Usage:
         Route3 Route4 Route4_PokemonCenter_1F
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder>
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder> --check
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all --out /tmp/frlg-world-candidate
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all \
+        --scope data/games/frlg/maps/pokeguy-map-scope.json --out /tmp/frlg-pokeguy-candidate
 
 Downloads each map's data/maps/<map>/map.json, its layout's map.bin and its
 tilesets' metatile_attributes.bin at --commit into --cache, then writes
@@ -20,6 +23,9 @@ has no destination, and a connection to one is left out. A warp arrives at
 point "warp_<n>" of its map, the tile of that map's warp n. Other named points
 and flag sets come from POINTS and FLAG_SETS below.
 
+With --all, enumerate the complete pinned map catalog into an empty candidate
+directory; this does not approve the data or support all movement mechanics.
+With --scope, omit explicitly excluded maps but preserve their boundary links.
 Without map names, the maps are the ones already in --out; with them, those
 maps are added to the ones in --out, so warps and connections still join
 them all. --check writes nothing: it regenerates them and fails if any file
@@ -27,6 +33,7 @@ differs. Export the generated pack with pokesim.maps.runtime_map_pack for
 Arduino consumers.
 """
 import argparse
+from collections import deque
 import hashlib
 import json
 import os
@@ -35,10 +42,12 @@ import struct
 import subprocess
 import sys
 
+from pokesim.formats.contract_format import json_text as contract_json_text
 from .runtime_symbols import CLOSED_SIDES, LEDGE_GLYPHS
 from .item_identity import enrich_objects
 from .runtime_map_coordinates import compact_map
 from .runtime_map_format import map_text as readable_map_text
+from .frlg_map_scope import read_scope
 
 COMMIT = 'ce6406d8c2eaf46d543c8a2606de0c3cb1951982'
 #   When COMMIT was pinned, for each map's "source".
@@ -47,11 +56,14 @@ COMMIT_DATE = '2026-10-31'
 #   Behaviors with a glyph of their own (Pokemon_MapData.h has the legend).
 TERRAIN = {
     'MB_TALL_GRASS': '~', 'MB_WARP_DOOR': 'D',
+    'MB_SPIN_UP': 'u', 'MB_SPIN_DOWN': 'd', 'MB_SPIN_LEFT': 'l', 'MB_SPIN_RIGHT': 'r',
+    'MB_STOP_SPINNING': 'o', 'MB_FALL_WARP': 'H', 'MB_STRENGTH_BUTTON': 'B',
     **{'MB_IMPASSABLE_' + side.name: glyph for glyph, side in CLOSED_SIDES.items()},
 }
 #   Open tiles whose warp is taken other than by walking into it: how.
 WARP_ENTRIES = {
     'MB_CAVE_DOOR': 'cave_entrance',
+    'MB_REGULAR_WARP': 'step_on',
     'MB_LADDER': 'step_on', 'MB_UP_ESCALATOR': 'step_on', 'MB_DOWN_ESCALATOR': 'step_on',
     'MB_SOUTH_ARROW_WARP': 'walk_south', 'MB_NORTH_ARROW_WARP': 'walk_north',
     'MB_EAST_ARROW_WARP': 'walk_east', 'MB_WEST_ARROW_WARP': 'walk_west',
@@ -62,7 +74,17 @@ WARP_ENTRIES = {
 }
 #   Ledges, by the way the player hops over them.
 LEDGES = {'MB_JUMP_' + direction.name: glyph for direction, glyph in LEDGE_GLYPHS.items()}
-FLOOR = ('MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS')
+FLOOR = (
+    'MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS',
+    'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE',
+)
+# pret/pokefirered src/metatile_behavior.c, sBehaviorSurfable at COMMIT.
+# Preserve water in the full baseline; it remains blocked for walking. Surf,
+# waterfall and current execution require separate game movement bindings.
+SURFABLE_WATER = frozenset({
+    'MB_POND_WATER', 'MB_FAST_WATER', 'MB_DEEP_WATER', 'MB_WATERFALL',
+    'MB_OCEAN_WATER', 'MB_UNUSED_WATER', 'MB_CYCLING_ROAD_WATER',
+    'MB_EASTWARD_CURRENT', 'MB_WESTWARD_CURRENT', 'MB_NORTHWARD_CURRENT', 'MB_SOUTHWARD_CURRENT'})
 #   A metatile's encounter type (METATILE_ATTRIBUTE_ENCOUNTER_TYPE in
 #   include/fieldmap.h): on a map with land encounters, a step onto a LAND
 #   tile may start a wild battle, as on every floor tile of a cave.
@@ -192,7 +214,7 @@ def tile_glyph(behavior, collision, unhandled, sign_event=False):
     if behavior in WARP_ENTRIES:
         return '.', WARP_ENTRIES[behavior]
     if behavior in TERRAIN:
-        return TERRAIN[behavior], None
+        return TERRAIN[behavior], 'step_on' if behavior == 'MB_FALL_WARP' else None
     if 'WATER' in behavior:
         return 'w', None
     if behavior not in FLOOR:
@@ -219,7 +241,7 @@ def wild_edge(glyph, attributes):
     return glyph in CLOSED_GLYPHS and land_encounter(attributes)
 
 
-def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=False):
+def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=False, unresolved=None):
     """The map's tile rows, elevation rows, how the warp on each tile is
     entered, by (x, y), where it isn't by walking into it, and the tiles closed
     on one side that have wild encounters. With `land_encounters`, open floor
@@ -237,7 +259,13 @@ def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=Fa
             metatile, collision, level = value & 0x3ff, (value >> 10) & 3, value >> 12
             attributes = primary[metatile] if metatile < 640 else secondary[metatile - 640]
             behavior = names.get(attributes & 0x1ff, hex(attributes & 0x1ff))
+            before = unhandled.get(behavior, 0)
             glyph, entry = tile_glyph(behavior, collision, unhandled, (x, y) in signs)
+            if unresolved is not None and unhandled.get(behavior, 0) > before:
+                glyph = ' '  # Unknown cells are blocked by the shared movement model.
+                unresolved.setdefault(behavior, []).append([x, y])
+            if unresolved is not None and behavior in SURFABLE_WATER:
+                glyph = 'w'
             if land_encounters and entry is None:
                 glyph = encounter_glyph(glyph, attributes)
                 if wild_edge(glyph, attributes):
@@ -336,15 +364,77 @@ def ground_only(tiles, elevation):
                for tile, level in zip(row, levels) if tile not in UNWALKABLE)
 
 
+def elevation_omission_reason(tiles, elevation, warps=None, points=None):
+    """Return the documented reason to omit the elevation grid, or None to retain it."""
+    # 1. Pure ground: every non-obstacle tile is level 3
+    if all(level == GROUND for row, levels in zip(tiles, elevation)
+           for tile, level in zip(row, levels) if tile not in UNWALKABLE):
+        return 'all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles'
+
+    # 2. Ground land with flat water: water has no bridges or level changes
+    no_bridge_levels = not any(c in '456789abcdef' for r in elevation for c in r if c != '3')
+    land_and_water = all((level == GROUND if tile != 'w' else level in ('0', '1', '3'))
+                         for row, levels in zip(tiles, elevation)
+                         for tile, level in zip(row, levels) if tile not in UNWALKABLE)
+    if land_and_water and no_bridge_levels:
+        return 'all walkable land is ground level (3); water is flat without bridges'
+
+    # 3. Reachable tiles: all reachable land is level 3, and any non-3 tiles are isolated/unreachable obstacles
+    if warps is not None and points is not None:
+        h, w = len(tiles), len(tiles[0])
+        starts = set()
+        for warp in warps:
+            if 'coord' in warp:
+                starts.add(tuple(warp['coord']))
+            elif 'x' in warp and 'y' in warp:
+                starts.add((warp['x'], warp['y']))
+        for pt in points.values():
+            starts.add(tuple(pt))
+        queue = deque([s for s in starts if 0 <= s[0] < w and 0 <= s[1] < h])
+        visited = set(queue)
+        while queue:
+            cx, cy = queue.popleft()
+            for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                nx, ny = cx + dx, cy + dy
+                if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in visited:
+                    if tiles[ny][nx] not in '#DS':
+                        visited.add((nx, ny))
+                        queue.append((nx, ny))
+
+        reachable_land_3 = all(elevation[y][x] == GROUND for (x, y) in visited if tiles[y][x] not in UNWALKABLE and tiles[y][x] != 'w')
+        reachable_water_flat = all(elevation[y][x] in ('0', '1', '3') for (x, y) in visited if tiles[y][x] == 'w')
+        no_reachable_bridges = not any(elevation[y][x] in '456789abcdef' for (x, y) in visited if elevation[y][x] != '3')
+        if reachable_land_3 and reachable_water_flat and no_reachable_bridges:
+            return 'all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles'
+
+    return None
+
+
 def warp_point(index):
     return f'warp_{index}'
+
+
+def static_warp_id(event):
+    """Return a fixed source warp index, or None for the explicit dynamic token."""
+    value = event['dest_warp_id']
+    if value == 'WARP_ID_DYNAMIC':
+        return None
+    if type(value) is int and value >= 0:
+        return value
+    if isinstance(value, str) and value.isdecimal():
+        return int(value)
+    raise ValueError('unsupported source warp id: ' + repr(value))
 
 
 def warp(event, entries, loaded, sources):
     """A warp event as MapData's warp: how it is entered, and the point it
     leads to, if its map is loaded and has that warp."""
     data = {'x': event['x'], 'y': event['y'], 'enter': entries.get((event['x'], event['y']), 'walk_into')}
-    to_map, index = loaded.get(event['dest_map']), int(event['dest_warp_id'])
+    to_map, index = loaded.get(event['dest_map']), static_warp_id(event)
+    if index is None:
+        data['unresolved'] = 'dynamic_destination'
+        data['source_destination'] = {'map': event['dest_map'], 'warp': event['dest_warp_id']}
+        return data
     if to_map is not None and index < len(sources[to_map].get('warp_events', [])):
         data['to_map'] = to_map
         data['to_point'] = warp_point(index)
@@ -357,8 +447,9 @@ def arrivals(sources, loaded):
     for source in sources.values():
         for event in source.get('warp_events', []):
             to_map = loaded.get(event['dest_map'])
-            if to_map is not None and int(event['dest_warp_id']) < len(sources[to_map].get('warp_events', [])):
-                arriving[to_map].add(int(event['dest_warp_id']))
+            index = static_warp_id(event)
+            if to_map is not None and index is not None and index < len(sources[to_map].get('warp_events', [])):
+                arriving[to_map].add(index)
     return arriving
 
 
@@ -368,13 +459,14 @@ def land_encounter_maps(decomp):
     return {e['map'] for group in groups for e in group.get('encounters', []) if 'land_mons' in e}
 
 
-def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps=frozenset(), include_item_identities=False):
+def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps=frozenset(), include_item_identities=False, candidate=False):
     source = sources[name]
     signs = frozenset((e['x'], e['y']) for e in source.get('bg_events', []) if e.get('type') == 'sign')
+    unresolved = {} if candidate else None
     tiles, elevation, entries, wild_edges = grid(
-        decomp, layouts[source['layout']], names, unhandled, signs, source['id'] in land_maps
+        decomp, layouts[source['layout']], names, unhandled, signs, source['id'] in land_maps, unresolved
     )
-    for x, y in OPENED_TILES.get(name, []):
+    for x, y in ([] if candidate else OPENED_TILES.get(name, [])):
         tiles[y] = tiles[y][:x] + '.' + tiles[y][x + 1:]
     warp_events = source.get('warp_events', [])
     points = {n: [x, y] for n, (x, y) in POINTS.get(name, {}).items()}
@@ -399,15 +491,42 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
             for c in (source.get('connections') or []) if c['map'] in loaded
         ],
     }
+    if candidate:
+        source_objects = [(index, obj) for index, obj in enumerate(source.get('object_events', []))
+                          if 0 <= obj['x'] < len(tiles[0]) and 0 <= obj['y'] < len(tiles)]
+        for obj, (index, original) in zip(data['objects'], source_objects):
+            obj.setdefault('source_event', index)
+            if 'script' in original:
+                obj['source_script'] = original['script']
+            if 'local_id' in original:
+                obj['source_local_id'] = original['local_id']
+        data['source']['generation_status'] = 'unreviewed-full-catalog-candidate'
+        if unresolved:
+            data['unresolved_tiles'] = unresolved
+        if name in OPENED_TILES:
+            data['source']['unapplied_story_patch'] = 'OPENED_TILES: preserve decomp baseline until story state is bound'
     if include_item_identities:
         events_hash = hashlib.sha256(decomp.read(f'data/maps/{name}/map.json')).hexdigest()
         data['objects'], identity_source = enrich_objects(data['objects'], 'frlg', name, events_hash, source_revision=getattr(decomp, 'commit', COMMIT))
         if identity_source is not None:
             data['source']['item_identities'] = identity_source
+    if candidate:
+        for obj in data['objects']:
+            event = obj.get('source_event')
+            if isinstance(event, dict):
+                if set(event) - {'index', 'id', 'script'} or not {'index', 'script'} <= set(event):
+                    raise ValueError('unsupported source event provenance: ' + repr(event))
+                obj['source_event'] = event['index']
+                obj['source_script'] = event['script']
+                if 'id' in event:
+                    obj['source_local_id'] = event['id']
     if not data['regions']:
         del data['regions']
-    if ground_only(tiles, elevation):
+    omission = elevation_omission_reason(tiles, elevation, data.get('warps', []), data.get('points', {}))
+    if omission is not None:
         del data['elevation']
+        if candidate:
+            data['source']['elevation_omitted'] = omission
     if data['allow_running']:
         del data['allow_running']
     return data
@@ -417,6 +536,21 @@ def json_text(data):
     return readable_map_text(compact_map(data))
 
 
+def all_map_names(decomp):
+    """Read actual map groups; metadata arrays are not additional maps."""
+    groups = json.loads(decomp.read('data/maps/map_groups.json'))
+    order = groups.get('group_order')
+    if not isinstance(order, list) or not order:
+        raise ValueError('map catalog requires group_order')
+    names = set()
+    for group in order:
+        values = groups.get(group)
+        if not isinstance(values, list) or any(not isinstance(n, str) or not re.fullmatch(r'[A-Za-z0-9_]+', n) for n in values):
+            raise ValueError('invalid map catalog group: ' + str(group))
+        names.update(values)
+    return sorted(names)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--commit', default=COMMIT)
@@ -424,25 +558,51 @@ def main():
     parser.add_argument('--out', required=True, help='folder of the <map>.json files')
     parser.add_argument('--item-identities', action='store_true', help='enrich from the pinned pickup catalog')
     parser.add_argument('--check', action='store_true', help='check the files in --out instead of writing them')
+    parser.add_argument('--all', dest='all_maps', action='store_true', help='generate the pinned full catalog into an empty candidate directory')
+    parser.add_argument('--scope', help='with --all: explicit reviewed exclusion inventory; preserve boundary links')
     parser.add_argument('maps', nargs='*', help='default: the maps already in --out')
     args = parser.parse_args()
+    decomp = Decomp(args.commit, args.cache)
+    if args.scope and not args.all_maps:
+        parser.error('--scope requires --all')
+    if args.all_maps:
+        if args.maps:
+            parser.error('--all cannot be combined with explicit map names')
+        if not args.check and os.path.isdir(args.out) and any(n.endswith('.json') for n in os.listdir(args.out)):
+            parser.error('--all requires an empty candidate directory; use --check to verify an existing candidate')
+        try:
+            args.maps = all_map_names(decomp)
+        except ValueError as error:
+            parser.error(str(error))
     if os.path.isdir(args.out):
         args.maps = sorted(set(args.maps) | {f[:-5] for f in os.listdir(args.out) if f.endswith('.json')})
     if not args.maps:
         parser.error('no maps given, and none in --out')
 
-    decomp = Decomp(args.commit, args.cache)
+    excluded = read_scope(args.scope, args.maps, args.commit) if args.scope else {}
     names = behaviors(decomp)
     layouts = {l['id']: l for l in json.loads(decomp.read('data/layouts/layouts.json'))['layouts'] if 'id' in l}
     sources = {m: json.loads(decomp.read(f'data/maps/{m}/map.json')) for m in args.maps}
     loaded = {source['id']: m for m, source in sources.items()}
     unhandled = {}
     land_maps = land_encounter_maps(decomp)
-    maps = [(name, json_text(map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities))) for name in args.maps]
+    maps = []
+    for name in args.maps:
+        if name in excluded:
+            continue
+        data = map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities, candidate=args.all_maps)
+        text = contract_json_text(compact_map(data)) if args.all_maps else json_text(data)
+        maps.append((name, text))
     if unhandled:
-        print(f'Non-collision behaviors written as floor: {unhandled}')
+        if args.all_maps:
+            sys.exit(f'Unhandled non-collision behaviors in candidate catalog: {unhandled}')
+        print(f'Unhandled non-collision behaviors written as floor (legacy selected-map mode): {unhandled}')
     if args.check:
         differ = []
+        if args.scope:
+            unexpected = {f[:-5] for f in os.listdir(args.out) if f.endswith('.json')} - {n for n, _ in maps}
+            if unexpected:
+                sys.exit('Out-of-scope map files: ' + ' '.join(sorted(unexpected)))
         for name, text in maps:
             path = os.path.join(args.out, name + '.json')
             if not os.path.exists(path) or open(path, newline='').read() != text:

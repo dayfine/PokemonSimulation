@@ -1,0 +1,62 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "PokemonTower_1F",
+  "source": {
+    "decomp_file": "data/maps/PokemonTower_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "########################",
+    "########################",
+    "#########.....##########",
+    "#######.........########",
+    "#####.............######",
+    "####...............#####",
+    "###.................####",
+    "###.................####",
+    "##.................#####",
+    "##.................#####",
+    "##.................#####",
+    "##...................###",
+    "##.............#########",
+    "###............#....####",
+    "###............#....####",
+    "####...........#...#####",
+    "######.........#.#######",
+    "#########.....##########",
+    "##########...###########",
+    "########################"
+  ],
+  "points": {"warp_1": [11, 18], "warp_3": [18, 9]},
+  "warps": [
+    {"coord": [10, 19], "enter": "walk_into", "to_map": "LavenderTown", "to_point": "warp_0"},
+    {"coord": [11, 18], "enter": "walk_south", "to_map": "LavenderTown", "to_point": "warp_0"},
+    {"coord": [12, 19], "enter": "walk_into", "to_map": "LavenderTown", "to_point": "warp_0"},
+    {"coord": [18, 9], "enter": "walk_east", "to_map": "PokemonTower_2F", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "worker_f", "coord": [18, 13], "source_event": 0, "source_script": "PokemonTower_1F_EventScript_WorkerF"},
+    {"name": "channeler", "coord": [18, 7], "source_event": 1, "source_script": "PokemonTower_1F_EventScript_Channeler"},
+    {"name": "woman_2", "coord": [15, 6], "source_event": 2, "source_script": "PokemonTower_1F_EventScript_Woman1"},
+    {
+      "name": "woman_3",
+      "coord": [7, 8],
+      "wander": {"min": [6, 7], "max": [8, 9]},
+      "source_event": 3,
+      "source_script": "PokemonTower_1F_EventScript_Woman2"
+    },
+    {
+      "name": "balding_man",
+      "coord": [8, 12],
+      "wander": {"min": [6, 10], "max": [10, 14]},
+      "source_event": 4,
+      "source_script": "PokemonTower_1F_EventScript_BaldingMan"
+    }
+  ]
+}

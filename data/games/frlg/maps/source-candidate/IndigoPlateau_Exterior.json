@@ -1,0 +1,55 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "IndigoPlateau_Exterior",
+  "source": {
+    "decomp_file": "data/maps/IndigoPlateau_Exterior/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "######.####D####.#######",
+    "######.#S.....S#.#######",
+    "#######.........########",
+    "#######.........########",
+    "####..#.S.....S.#..#####",
+    "####..#.........#..#####",
+    "######.#.......#.#######",
+    "######..S#...#S..#######",
+    "##########...###########",
+    "##########...###########",
+    "##########...###########",
+    "##########...###########",
+    "##########...###########",
+    "##########...###########"
+  ],
+  "points": {"warp_0": [11, 6]},
+  "warps": [{"coord": [11, 6], "enter": "walk_into", "to_map": "IndigoPlateau_PokemonCenter_1F", "to_point": "warp_0"}],
+  "flag_sets": {},
+  "connections": [{"side": "south", "to_map": "Route23", "offset": 0}],
+  "npcs": [
+    {
+      "name": "blue",
+      "coord": [11, 6],
+      "hide_flag": "FLAG_HIDE_CREDITS_RIVAL",
+      "source_event": 0,
+      "source_script": "0x0",
+      "source_local_id": "LOCALID_CREDITS_RIVAL"
+    },
+    {
+      "name": "prof_oak",
+      "coord": [11, 6],
+      "hide_flag": "FLAG_HIDE_CREDITS_OAK",
+      "source_event": 1,
+      "source_script": "0x0",
+      "source_local_id": "LOCALID_CREDITS_PROF_OAK"
+    }
+  ]
+}

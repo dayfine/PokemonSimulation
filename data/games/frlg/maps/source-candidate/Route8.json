@@ -1,0 +1,159 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route8",
+  "source": {
+    "decomp_file": "data/maps/Route8/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+  },
+  "tiles": [
+    "########################################################################",
+    "############....########################################################",
+    "################.........#..............................################",
+    "################.........#..............................################",
+    "#############D##.........#..............................################",
+    "########........S..#vvvvv#..............................################",
+    "....####...........#.....#..............................######......####",
+    "##########.........#.....#..............................######......####",
+    ".######............#.....#........#############.........######......####",
+    ".######............#vvvvv#.......##.~~.~~.~~..##........######..........",
+    ".######............#.....#.......#...~~~~~.~~..#........######..........",
+    ".######............#.............#..~~.~.~~.~..#........######..........",
+    "########...........#.............#..~~~~~~~~~~..........######......####",
+    "....########.......#######.......#.~.~.~.~.~~~.#........######......####",
+    "############.....................#.~~~~~~~~.~..#....................####",
+    "############........................~.~.~~.~.~.#....................####",
+    "############.....................#.~.~~~.~~~~~.#....................####",
+    "############.....................#....~.~~..~..#....................####",
+    "############.....................#.....~.......#....................####",
+    "########################################################################"
+  ],
+  "points": {"warp_0": [13, 4], "warp_1": [7, 10]},
+  "warps": [
+    {"coord": [13, 4], "enter": "walk_into", "to_map": "UndergroundPath_EastEntrance", "to_point": "warp_1"},
+    {"coord": [7, 10], "enter": "walk_west", "to_map": "Route8_WestEntrance", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [
+    {"side": "west", "to_map": "SaffronCity_Connection", "offset": -10},
+    {"side": "east", "to_map": "LavenderTown", "offset": 0}
+  ],
+  "npcs": [
+    {
+      "name": "lass",
+      "coord": [62, 14],
+      "facing": "west",
+      "trainer": {"sight": 6},
+      "source_event": 0,
+      "source_script": "Route8_EventScript_Julia"
+    },
+    {
+      "name": "old_man_1",
+      "coord": [55, 15],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 1,
+      "source_script": "Route8_EventScript_Rich"
+    },
+    {
+      "name": "scientist",
+      "coord": [51, 6],
+      "trainer": {"sight": 4, "looks": ["north", "east", "south", "west"]},
+      "source_event": 2,
+      "source_script": "Route8_EventScript_Glenn"
+    },
+    {
+      "name": "lass",
+      "coord": [29, 3],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 3,
+      "source_script": "Route8_EventScript_Paige"
+    },
+    {
+      "name": "scientist",
+      "coord": [29, 4],
+      "facing": "east",
+      "trainer": {"sight": 6},
+      "source_event": 4,
+      "source_script": "Route8_EventScript_Leslie"
+    },
+    {
+      "name": "lass",
+      "coord": [29, 5],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 5,
+      "source_script": "Route8_EventScript_Andrea"
+    },
+    {
+      "name": "lass",
+      "coord": [29, 6],
+      "facing": "east",
+      "trainer": {"sight": 6},
+      "source_event": 6,
+      "source_script": "Route8_EventScript_Megan"
+    },
+    {
+      "name": "old_man_1",
+      "coord": [21, 3],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 7,
+      "source_script": "Route8_EventScript_Stan"
+    },
+    {
+      "name": "scientist",
+      "coord": [9, 6],
+      "facing": "east",
+      "trainer": {"sight": 4},
+      "source_event": 8,
+      "source_script": "Route8_EventScript_Aidan"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [33, 15],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 9,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [47, 12],
+      "hide_flag": "FLAG_TEMP_13",
+      "source_event": 10,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "little_girl",
+      "coord": [40, 3],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 11,
+      "source_script": "Route8_EventScript_Eli"
+    },
+    {
+      "name": "little_girl",
+      "coord": [41, 3],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 12,
+      "source_script": "Route8_EventScript_Anne"
+    },
+    {
+      "name": "biker",
+      "coord": [14, 16],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 13,
+      "source_script": "Route8_EventScript_Ricardo"
+    },
+    {
+      "name": "biker",
+      "coord": [24, 17],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 14,
+      "source_script": "Route8_EventScript_Jaren"
+    }
+  ]
+}

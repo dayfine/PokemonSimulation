@@ -1,0 +1,122 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "RocketHideout_B1F",
+  "source": {
+    "decomp_file": "data/maps/RocketHideout_B1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "############################",
+    "############################",
+    "############......##########",
+    "############......##########",
+    "##########..........########",
+    "##########..........########",
+    "##########..........########",
+    "##########..........########",
+    "#..........................#",
+    "#..........................#",
+    "#..........................#",
+    "###..#####.......#####...###",
+    "###..#####.......#####...###",
+    "#......####.....###........#",
+    "#......###.......##.######.#",
+    "#..###..###.....###.######.#",
+    "#..###..##.......##.######.#",
+    "##......###.....###........#",
+    "#.......##.......##........#",
+    "####################..######",
+    "####################..######",
+    "####################..######",
+    "#...............####..######",
+    "#...............####..######",
+    "#...######........##..######",
+    "#...######........##..##D###",
+    "#.................##.......#",
+    "#.................##.......#",
+    "#............###############",
+    "#...######...###############",
+    "#...######......############",
+    "#...............############",
+    "#.................##########",
+    "#.................##########"
+  ],
+  "points": {"warp_0": [12, 2], "warp_1": [17, 2], "warp_2": [15, 30]},
+  "warps": [
+    {"coord": [12, 2], "enter": "walk_west", "to_map": "CeladonCity_GameCorner", "to_point": "warp_3"},
+    {"coord": [17, 2], "enter": "walk_east", "to_map": "RocketHideout_B2F", "to_point": "warp_1"},
+    {"coord": [15, 30], "enter": "walk_east", "to_map": "RocketHideout_B2F", "to_point": "warp_2"},
+    {"coord": [23, 25], "enter": "walk_into", "to_map": "RocketHideout_Elevator", "to_point": "warp_1"},
+    {"coord": [24, 25], "enter": "walk_into", "to_map": "RocketHideout_Elevator", "to_point": "warp_1"},
+    {"coord": [25, 25], "enter": "walk_into", "to_map": "RocketHideout_Elevator", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "rocket_m",
+      "coord": [4, 9],
+      "facing": "east",
+      "trainer": {"sight": 5},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 0,
+      "source_script": "RocketHideout_B1F_EventScript_Grunt2"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [24, 12],
+      "facing": "west",
+      "trainer": {"sight": 2},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 1,
+      "source_script": "RocketHideout_B1F_EventScript_Grunt1"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [6, 32],
+      "facing": "east",
+      "trainer": {"sight": 4},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 2,
+      "source_script": "RocketHideout_B1F_EventScript_Grunt4"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [10, 22],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 3,
+      "source_script": "RocketHideout_B1F_EventScript_Grunt3"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [21, 27],
+      "trainer": {"sight": 3, "looks": ["north", "east"]},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 4,
+      "source_script": "RocketHideout_B1F_EventScript_Grunt5"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [5, 16],
+      "source_event": 5,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE",
+      "source_script": "RocketHideout_B1F_EventScript_ItemEscapeRope",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [1, 22],
+      "source_event": 6,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B1F_HYPER_POTION",
+      "source_script": "RocketHideout_B1F_EventScript_ItemHyperPotion",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

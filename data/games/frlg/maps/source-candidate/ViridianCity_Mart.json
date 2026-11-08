@@ -1,0 +1,54 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "ViridianCity_Mart",
+  "source": {
+    "decomp_file": "data/maps/ViridianCity_Mart/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "##.#......#",
+    "...#.......",
+    "####...##.#",
+    ".......##.#",
+    ".##....##.#",
+    "...........",
+    "###########"
+  ],
+  "points": {"clerk_front": [4, 3], "warp_1": [4, 7]},
+  "warps": [
+    {"coord": [3, 7], "enter": "walk_into", "to_map": "ViridianCity", "to_point": "warp_4"},
+    {"coord": [4, 7], "enter": "walk_south", "to_map": "ViridianCity", "to_point": "warp_4"},
+    {"coord": [5, 7], "enter": "walk_into", "to_map": "ViridianCity", "to_point": "warp_4"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "source_event": 0,
+      "source_script": "ViridianCity_Mart_EventScript_Clerk",
+      "source_local_id": "LOCALID_VIRIDIAN_MART_CLERK"
+    },
+    {
+      "name": "youngster",
+      "coord": [6, 2],
+      "wander": {"min": [5, 1], "max": [7, 3]},
+      "source_event": 1,
+      "source_script": "ViridianCity_Mart_EventScript_Youngster"
+    },
+    {
+      "name": "woman_1",
+      "coord": [9, 5],
+      "wander": {"min": [9, 4], "max": [9, 6]},
+      "source_event": 2,
+      "source_script": "ViridianCity_Mart_EventScript_Woman"
+    }
+  ]
+}

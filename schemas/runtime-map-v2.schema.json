@@ -14,7 +14,7 @@
     },
     "tiles": {
       "type": "array",
-      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246]+$"},
+      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246udlroHB]+$"},
       "minItems": 1
     },
     "elevation": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]+$"}},
@@ -41,11 +41,15 @@
         "allOf": [
           {
             "if": {"anyOf": [{"required": ["item"]}, {"required": ["quantity"]}]},
-            "then": {"required": ["item"], "anyOf": [{"required": ["name"]}, {"required": ["source_event"]}]}
+            "then": {
+              "required": ["item"],
+              "anyOf": [{"required": ["name"]}, {"required": ["source_event"]}],
+              "not": {"required": ["pickup"]}
+            }
           },
           {"not": {"anyOf": [{"required": ["x"]}, {"required": ["y"]}]}}
         ],
-        "not": {"anyOf": [{"required": ["kind"]}, {"required": ["interaction"]}, {"required": ["pickup"]}]}
+        "not": {"anyOf": [{"required": ["kind"]}, {"required": ["interaction"]}]}
       }
     },
     "signs": {"type": "array", "items": {"$ref": "#/$defs/npc"}},

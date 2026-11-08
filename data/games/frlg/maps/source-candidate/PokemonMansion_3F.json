@@ -1,0 +1,104 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "PokemonMansion_3F",
+  "source": {
+    "decomp_file": "data/maps/PokemonMansion_3F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "######################################",
+    "######################################",
+    "######################################",
+    "#~~~~~##.~~~~~~~###~~#~~~~~~~#~~~#~~~#",
+    "#~~~~~##~~~~~~~~~##~~#~~~~~~~#~~~~#~~#",
+    "##~~~~~~~~~~#~~~~##~~#~~###~~#~~~~##~#",
+    "###~~~~~~~~~~~~~~~~~~~~~###~~~~~~~~###",
+    "###~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#",
+    "########~######~~~~~~~~~~~~~~~~~~~~~~#",
+    "###############~~~~~~#~~~~~~~~~~~~~~~#",
+    "########~########~~~######~###~#######",
+    "#~###~~~~##.~~########################",
+    "#~~##~~~~##~~~############~~~~~#######",
+    "#~~#~~~~~~~~~~##~~~~~~~~~~~~~~~~~~~~~#",
+    "#~~~~~~~~~~~~~#~~~~~~~~~~~~~~~~~~~~~~#",
+    "#~~~~~~~~~~~~~####~~~##~~##~~#########",
+    "#~~~~~###~~~~~####~~~##~~##~~#########",
+    "####~~###~~~~#####~~~##~~##~~#########",
+    "####~~~~~~~~######HHH##HH##~~~~~##.~~#",
+    "#~~~~~~~~~~################~~~~~##~~~#",
+    "#~~~~~~~~~~~~~#############~~~~~~~~~~#",
+    "#~~~~~~~~~~~~~#############~~~~~~~~~~#",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################",
+    "######################################"
+  ],
+  "points": {
+    "warp_0": [8, 3],
+    "warp_1": [34, 18],
+    "warp_2": [11, 11],
+    "warp_3": [18, 18],
+    "warp_4": [19, 18],
+    "warp_5": [23, 18]
+  },
+  "warps": [
+    {"coord": [8, 3], "enter": "walk_west", "to_map": "PokemonMansion_2F", "to_point": "warp_0"},
+    {"coord": [34, 18], "enter": "walk_west", "to_map": "PokemonMansion_2F", "to_point": "warp_1"},
+    {"coord": [11, 11], "enter": "walk_west", "to_map": "PokemonMansion_2F", "to_point": "warp_3"},
+    {"coord": [18, 18], "enter": "step_on", "to_map": "PokemonMansion_1F", "to_point": "warp_7"},
+    {"coord": [19, 18], "enter": "step_on", "to_map": "PokemonMansion_1F", "to_point": "warp_8"},
+    {"coord": [23, 18], "enter": "step_on", "to_map": "PokemonMansion_2F", "to_point": "warp_4"},
+    {"coord": [20, 18], "enter": "step_on", "to_map": "PokemonMansion_1F", "to_point": "warp_8"},
+    {"coord": [24, 18], "enter": "step_on", "to_map": "PokemonMansion_2F", "to_point": "warp_4"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "poke_maniac",
+      "coord": [7, 13],
+      "wander": {"min": [6, 12], "max": [8, 14]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 0,
+      "source_script": "PokemonMansion_3F_EventScript_Simon"
+    },
+    {
+      "name": "scientist",
+      "coord": [22, 13],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 1,
+      "source_script": "PokemonMansion_3F_EventScript_Braydon"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [9, 19],
+      "source_event": 2,
+      "hide_flag": "FLAG_HIDE_POKEMON_MANSION_3F_MAX_POTION",
+      "source_script": "PokemonMansion_3F_EventScript_ItemMaxPotion",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [32, 6],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_POKEMON_MANSION_3F_IRON",
+      "source_script": "PokemonMansion_3F_EventScript_ItemIron",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

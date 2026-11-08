@@ -1,0 +1,116 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "IndigoPlateau_PokemonCenter_1F",
+  "source": {
+    "decomp_file": "data/maps/IndigoPlateau_PokemonCenter_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#########################",
+    "####.####################",
+    "..S...S..################",
+    ".........################",
+    "........#################",
+    "##.......################",
+    ".#......#################",
+    ".#.......################",
+    "##......#################",
+    "..........###############",
+    ".##.......###..##........",
+    ".##.......#######........",
+    ".........................",
+    "..................##.##..",
+    "#.................##.##..",
+    ".........................",
+    ".........................",
+    "#########################"
+  ],
+  "elevation": [
+    "0000000000000000000000000",
+    "0000300000000000000000000",
+    "3303330330000000000000000",
+    "3333333330000000000000000",
+    "3333333300000000000000000",
+    "0033333330000000000000000",
+    "3033333300000000000000000",
+    "3033333330000000000000000",
+    "0033333300000000000000000",
+    "3333333333000000000000000",
+    "3003333333000330033333003",
+    "3003333333000000033333333",
+    "3333333333333333333333333",
+    "3303333333333333330030033",
+    "0440333333333333330030033",
+    "3303333333333333333333333",
+    "3333333333333333333333333",
+    "0000000000000000000000000"
+  ],
+  "points": {"warp_0": [11, 16], "warp_1": [4, 1], "warp_2": [1, 14]},
+  "warps": [
+    {"coord": [11, 16], "enter": "walk_south", "to_map": "IndigoPlateau_Exterior", "to_point": "warp_0"},
+    {"coord": [4, 1], "enter": "cave_entrance", "to_map": "PokemonLeague_LoreleisRoom", "to_point": "warp_0"},
+    {"coord": [1, 14], "enter": "step_on", "to_map": "IndigoPlateau_PokemonCenter_2F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "clerk",
+      "coord": [0, 7],
+      "source_event": 0,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_Clerk"
+    },
+    {
+      "name": "nurse",
+      "coord": [13, 10],
+      "source_event": 1,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_Nurse",
+      "source_local_id": "LOCALID_LEAGUE_NURSE"
+    },
+    {
+      "name": "gym_guy",
+      "coord": [7, 14],
+      "source_event": 2,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_GymGuy"
+    },
+    {
+      "name": "cooltrainer_f",
+      "coord": [5, 3],
+      "source_event": 3,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_DoorGuard",
+      "source_local_id": "LOCALID_LEAGUE_DOOR_GUARD"
+    },
+    {
+      "name": "black_belt",
+      "coord": [23, 13],
+      "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
+      "source_event": 4,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_BlackBelt"
+    },
+    {
+      "name": "0",
+      "coord": [22, 9],
+      "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
+      "source_event": 5,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_PokemonJournal"
+    },
+    {
+      "name": "cooltrainer_m",
+      "coord": [16, 15],
+      "wander": {"min": [15, 14], "max": [17, 16]},
+      "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
+      "source_event": 6,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_CooltrainerM"
+    },
+    {
+      "name": "0",
+      "coord": [23, 9],
+      "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
+      "source_event": 7,
+      "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_PokemonJournal"
+    }
+  ]
+}

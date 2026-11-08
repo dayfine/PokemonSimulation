@@ -1,0 +1,41 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CinnabarIsland_Mart",
+  "source": {
+    "decomp_file": "data/maps/CinnabarIsland_Mart/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "##.#......#",
+    "...#.......",
+    "####...##.#",
+    ".......##.#",
+    ".##....##.#",
+    "...........",
+    "###########"
+  ],
+  "points": {"warp_1": [4, 7]},
+  "warps": [
+    {"coord": [3, 7], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_4"},
+    {"coord": [4, 7], "enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_4"},
+    {"coord": [5, 7], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_4"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "CinnabarIsland_Mart_EventScript_Clerk"},
+    {"name": "woman_2", "coord": [6, 2], "source_event": 1, "source_script": "CinnabarIsland_Mart_EventScript_Woman"},
+    {
+      "name": "scientist",
+      "coord": [8, 2],
+      "source_event": 2,
+      "source_script": "CinnabarIsland_Mart_EventScript_Scientist"
+    }
+  ]
+}

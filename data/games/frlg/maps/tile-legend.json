@@ -1,0 +1,135 @@
+{
+  "format": "pokesim-tile-legend/1",
+  "source_revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+  "glyphs": {
+    "#": {"name": "wall", "blocked": true, "behavior": "none", "description": "Solid obstacle impassable to walking"},
+    ".": {"name": "floor", "blocked": false, "behavior": "none", "description": "Walkable open ground"},
+    "~": {
+      "name": "tall_grass",
+      "blocked": false,
+      "behavior": "tall_grass",
+      "description": "Walkable ground with wild Pokemon encounters (tall grass or cave encounter floor)"
+    },
+    "w": {
+      "name": "water",
+      "blocked": true,
+      "behavior": "water",
+      "description": "Surfable water surface; impassable for normal walking"
+    },
+    "^": {
+      "name": "ledge_north",
+      "blocked": false,
+      "behavior": "ledge_north",
+      "description": "One-way hop ledge passable only jumping north"
+    },
+    "v": {
+      "name": "ledge_south",
+      "blocked": false,
+      "behavior": "ledge_south",
+      "description": "One-way hop ledge passable only jumping south"
+    },
+    "<": {
+      "name": "ledge_west",
+      "blocked": false,
+      "behavior": "ledge_west",
+      "description": "One-way hop ledge passable only jumping west"
+    },
+    ">": {
+      "name": "ledge_east",
+      "blocked": false,
+      "behavior": "ledge_east",
+      "description": "One-way hop ledge passable only jumping east"
+    },
+    "D": {
+      "name": "door",
+      "blocked": false,
+      "behavior": "door",
+      "description": "Building door or warp entrance entered by walking forward into it"
+    },
+    "S": {
+      "name": "sign",
+      "blocked": true,
+      "behavior": "sign",
+      "description": "Signpost or landmark sign read by facing it and pressing A"
+    },
+    "u": {
+      "name": "spin_up",
+      "blocked": false,
+      "behavior": "forced_north",
+      "decomp_behavior": "MB_SPIN_UP",
+      "description": "Rocket Hideout / Viridian Gym spin tile forcing movement north"
+    },
+    "d": {
+      "name": "spin_down",
+      "blocked": false,
+      "behavior": "forced_south",
+      "decomp_behavior": "MB_SPIN_DOWN",
+      "description": "Rocket Hideout / Viridian Gym spin tile forcing movement south"
+    },
+    "l": {
+      "name": "spin_left",
+      "blocked": false,
+      "behavior": "forced_west",
+      "decomp_behavior": "MB_SPIN_LEFT",
+      "description": "Rocket Hideout / Viridian Gym spin tile forcing movement west"
+    },
+    "r": {
+      "name": "spin_right",
+      "blocked": false,
+      "behavior": "forced_east",
+      "decomp_behavior": "MB_SPIN_RIGHT",
+      "description": "Rocket Hideout / Viridian Gym spin tile forcing movement east"
+    },
+    "o": {
+      "name": "stop_spin",
+      "blocked": false,
+      "behavior": "stop_spin",
+      "decomp_behavior": "MB_STOP_SPINNING",
+      "description": "Stationary stop tile where forced spinning halts"
+    },
+    "H": {
+      "name": "fall_hole",
+      "blocked": false,
+      "behavior": "fall_warp",
+      "decomp_behavior": "MB_FALL_WARP",
+      "description": "Pit or crumbled floor hole dropping the player to the floor below"
+    },
+    "B": {
+      "name": "strength_button",
+      "blocked": false,
+      "behavior": "strength_button",
+      "decomp_behavior": "MB_STRENGTH_BUTTON",
+      "description": "Victory Road boulder switch triggered by pushing a boulder onto it"
+    },
+    "8": {
+      "name": "closed_north",
+      "blocked": false,
+      "closed_side": "north",
+      "description": "Open floor with impassable barrier on the north side"
+    },
+    "2": {
+      "name": "closed_south",
+      "blocked": false,
+      "closed_side": "south",
+      "description": "Open floor with impassable barrier on the south side"
+    },
+    "4": {
+      "name": "closed_west",
+      "blocked": false,
+      "closed_side": "west",
+      "description": "Open floor with impassable barrier on the west side"
+    },
+    "6": {
+      "name": "closed_east",
+      "blocked": false,
+      "closed_side": "east",
+      "description": "Open floor with impassable barrier on the east side"
+    },
+    " ": {
+      "name": "unknown",
+      "blocked": true,
+      "behavior": "unknown",
+      "description": "Unmapped or unhandled cell treated as blocked void"
+    }
+  }
+}

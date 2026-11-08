@@ -1,0 +1,155 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "RockTunnel_1F",
+  "source": {
+    "decomp_file": "data/maps/RockTunnel_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "~~#####################~~~~~~~~~~~~~~~~~~######~",
+    "~~#~~~################~~~~~~~~~~~~~~~~~~~###~~#~",
+    "~~#~.~~#########~.~~~#~~~~~~~~~~~~~~~~~~~#~~~.#~",
+    "~~#~~~~~########~~~~~###################~#~~~~#~",
+    "~~#~~~~~########~~~~~~~~~~~~~~~~~~~~~~~#~#~~~~#~",
+    "###~~~~~########~~~~~~~~~~~~~~~~~~~~~~~#~#~~~~#~",
+    "#~~~~~~~~~~~####~~~~~~~~~~~~~~~~~~~~~~~###~~~~#~",
+    "#~~~~~~~~~~~####~~~~~~~~~~~~~~~~~~~~~~~###~~~~#~",
+    "#~~~~~~~~~~~####~~~~~~~~~~~~~~~~~~~~~~~###~~~~#~",
+    "#~~~~~~~~~~~############~~~~##############~~~~#~",
+    "#~~~~~###~~~############~~~~##############~~~~#~",
+    "#~~~~~###~~~~###########~~~~##############~~~~#~",
+    "#~~~~~###~~~~#####~~~###~~~~~~~~~~~~~~~~~~~~~~#~",
+    "#~~~~~####~~~###~~~~.###~~~~~~~~~~~~~~~~~~~~~~#~",
+    "#~~~~####~~~~###~~~~~#####~~~~~~~~~~~~~~~~~~~##~",
+    "#~~~~~####~~~###~~~~~#####~#~~~~~~~~~~~~~~#####~",
+    "#~~~~####~~~~~~~~~~~~##########################~",
+    "#~~~~~###~~~~~~~~~~~~##########################~",
+    "#~~~~~###~~~~~~~~~~~~##########################~",
+    "#~~~~####~~~~~~~~~~~~~~~~#####~~~#~~#####~~~###~",
+    "#~~~~~###~~~~~~~~~~~~~~~~####~~~~~~~####~~~~~~#~",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~###~~~~~~~~###~~~~~~.#~",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~###~~~~~~~~###~~~~~~~#~",
+    "#~~~~~~~~~~~~~~~~~~~~~~~####~~~~~~~~###~~~~~~~#~",
+    "#~~~~~~~~~~~~~~~~~~#########~~~~~~~~###~~~~~~~#~",
+    "############################~~~~~~~~###~~~~~~~#~",
+    "############################~~~~~~~~###~~~~~~~#~",
+    "############################~~~~~~~~###~~~~~~##~",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~###~~~~~~~#~",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~###~~~~~~~#~",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~###~~~~~~~#~",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~###~~~~~#~#~",
+    "############~~~~~~~~~~~########~~~~~~~~~~~~####~",
+    "############~~S~~~~~~~~########~~~~~~~~~~~~##~#~",
+    "############~~~~~~~#~~~##########~~~~~~~~~~~~~#~",
+    "############~~~~~~~~~~~########~###~~~~~~~~~~~#~",
+    "############~#~~~~~~#~~########################~",
+    "############~~~#~~.~~#~########################~",
+    "###############################################~",
+    "################################################"
+  ],
+  "points": {
+    "warp_0": [17, 2],
+    "warp_1": [45, 2],
+    "warp_2": [4, 2],
+    "warp_3": [20, 13],
+    "warp_4": [45, 21],
+    "warp_5": [18, 37]
+  },
+  "warps": [
+    {"coord": [17, 2], "enter": "step_on", "to_map": "Route10", "to_point": "warp_0"},
+    {"coord": [45, 2], "enter": "step_on", "to_map": "RockTunnel_B1F", "to_point": "warp_0"},
+    {"coord": [4, 2], "enter": "step_on", "to_map": "RockTunnel_B1F", "to_point": "warp_1"},
+    {"coord": [20, 13], "enter": "step_on", "to_map": "RockTunnel_B1F", "to_point": "warp_2"},
+    {"coord": [45, 21], "enter": "step_on", "to_map": "RockTunnel_B1F", "to_point": "warp_3"},
+    {"coord": [18, 37], "enter": "walk_south", "to_map": "Route10", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "picnicker",
+      "coord": [26, 28],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 0,
+      "source_script": "RockTunnel_1F_EventScript_Dana"
+    },
+    {
+      "name": "picnicker",
+      "coord": [39, 27],
+      "facing": "east",
+      "trainer": {"sight": 4},
+      "source_event": 1,
+      "source_script": "RockTunnel_1F_EventScript_Ariana"
+    },
+    {
+      "name": "picnicker",
+      "coord": [45, 24],
+      "facing": "west",
+      "trainer": {"sight": 5},
+      "source_event": 2,
+      "source_script": "RockTunnel_1F_EventScript_Leah"
+    },
+    {
+      "name": "hiker",
+      "coord": [20, 17],
+      "facing": "west",
+      "trainer": {"sight": 4},
+      "source_event": 3,
+      "source_script": "RockTunnel_1F_EventScript_Lucas"
+    },
+    {
+      "name": "hiker",
+      "coord": [5, 20],
+      "facing": "south",
+      "trainer": {"sight": 4},
+      "source_event": 4,
+      "source_script": "RockTunnel_1F_EventScript_Oliver"
+    },
+    {
+      "name": "hiker",
+      "coord": [7, 5],
+      "facing": "south",
+      "trainer": {"sight": 4},
+      "source_event": 5,
+      "source_script": "RockTunnel_1F_EventScript_Lenny"
+    },
+    {
+      "name": "poke_maniac",
+      "coord": [27, 10],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 6,
+      "source_script": "RockTunnel_1F_EventScript_Ashton"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [37, 5],
+      "source_event": 7,
+      "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_REPEL",
+      "source_script": "RockTunnel_1F_EventScript_ItemRepel",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [33, 22],
+      "source_event": 8,
+      "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_PEARL",
+      "source_script": "RockTunnel_1F_EventScript_ItemPearl",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [22, 22],
+      "source_event": 9,
+      "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_ESCAPE_ROPE",
+      "source_script": "RockTunnel_1F_EventScript_ItemEscapeRope",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

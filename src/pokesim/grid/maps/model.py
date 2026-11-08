@@ -55,6 +55,12 @@ class Behavior(enum.Enum):
     FORCED_EAST = "forced_east"
     FORCED_SOUTH = "forced_south"
     FORCED_WEST = "forced_west"
+    #   A stop tile where forced spinning halts.
+    STOP_SPIN = "stop_spin"
+    #   A hole in the floor that drops the player to the floor below.
+    FALL_WARP = "fall_warp"
+    #   A pressure switch activated by pushing a boulder onto it.
+    STRENGTH_BUTTON = "strength_button"
     #   Not mapped: off the edge of the known map, or ground nobody has
     #   checked. It may be an exit, so it is neither a wall nor walkable.
     UNKNOWN = "unknown"

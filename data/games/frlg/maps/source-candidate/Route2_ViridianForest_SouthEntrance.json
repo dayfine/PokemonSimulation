@@ -1,0 +1,49 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route2_ViridianForest_SouthEntrance",
+  "source": {
+    "decomp_file": "data/maps/Route2_ViridianForest_SouthEntrance/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "###############",
+    "#######.#######",
+    "##...#...#...##",
+    "#.............#",
+    "#..........##.#",
+    "###........##.#",
+    "#.............#",
+    "#..........##.#",
+    "###........##.#",
+    "#.............#",
+    "#.............#",
+    "###############"
+  ],
+  "points": {"warp_1": [7, 10], "warp_3": [7, 1]},
+  "warps": [
+    {"coord": [6, 10], "enter": "walk_into", "to_map": "Route2", "to_point": "warp_2"},
+    {"coord": [7, 10], "enter": "walk_south", "to_map": "Route2", "to_point": "warp_2"},
+    {"coord": [8, 10], "enter": "walk_into", "to_map": "Route2", "to_point": "warp_2"},
+    {"coord": [7, 1], "enter": "cave_entrance", "to_map": "ViridianForest", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "woman_2",
+      "coord": [10, 6],
+      "source_event": 0,
+      "source_script": "Route2_ViridianForest_SouthEntrance_EventScript_Woman1"
+    },
+    {
+      "name": "woman_1",
+      "coord": [4, 7],
+      "wander": {"min": [3, 6], "max": [5, 8]},
+      "source_event": 1,
+      "source_script": "Route2_ViridianForest_SouthEntrance_EventScript_Woman2"
+    }
+  ]
+}

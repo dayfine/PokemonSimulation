@@ -61,6 +61,17 @@ class JsonSchemaTests(unittest.TestCase):
         check.validate(source)
         self.assertNotIn('quantity', source['items'][0])
 
+    def test_unidentified_pickup_metadata_is_allowed_but_cannot_conflict_with_identity(self):
+        data = json.loads((ROOT / 'data/games/bdsp/maps/runtime/OreburghMine.json').read_text())
+        item = data['items'][0]
+        item.pop('item')
+        item['name'] = 'unresolved_source_event'
+        item['pickup'] = {'status': 'unresolved', 'reason': 'no pinned identity catalog'}
+        check = validator('runtime-map-v2')
+        check.validate(data)
+        item['item'] = 'potion'
+        self.assertFalse(check.is_valid(data))
+
     def test_battle_input_and_report_boundaries(self):
         data = json.loads((ROOT / 'data/games/frlg/battles/cases.json').read_text())
         check = validator('frlg-battle-cases')

@@ -1,0 +1,107 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route3",
+  "source": {
+    "decomp_file": "data/maps/Route3/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "####################################################################........########",
+    "####################################################################........########",
+    "####################################################################........########",
+    "#############......................#################################.......#########",
+    "###########..........................###############################.....###########",
+    "###########..........................######................#########.....###########",
+    "###########.........###.......##.....#####...................#######.....###########",
+    "###########vvv..vvvv###vvvvvvv##vvv..#####...................#######.....###########",
+    "#######.............###.......##.....#####vvvv..#######vvvvv.#######vvv..###########",
+    "....................###.......##................#######......#######.....###########",
+    "....................###.......###...............#######......#####.......~~~~#######",
+    ".........###........###.......###~~~~~~~........#######...............##S~~~~~~#####",
+    "..##########vvvv..vv###vvvvvvv###~~~~~~~~~~~~~~########................~~~~~~~~#####",
+    "############........###.......###~~~~~~~~~~~~~~########................~~~~~~~~#####",
+    "############.................######~~~~~~~~~~~~########...............~~~~~~~~~#####",
+    "##############...............######~~~~~~~~~~~~##########.............~~~~~~~~~#####",
+    "#######################################~~~~~~~~##########.............~~~~~~########",
+    "####################################################################################",
+    "####################################################################################",
+    "####################################################################################"
+  ],
+  "points": {},
+  "warps": [],
+  "flag_sets": {},
+  "connections": [
+    {"side": "north", "to_map": "Route4", "offset": 60},
+    {"side": "west", "to_map": "PewterCity", "offset": -10}
+  ],
+  "npcs": [
+    {"name": "youngster", "coord": [70, 13], "source_event": 0, "source_script": "Route3_EventScript_Youngster"},
+    {
+      "name": "lass",
+      "coord": [40, 11],
+      "wander": {"min": [40, 10], "max": [40, 12]},
+      "trainer": {"sight": 3, "looks": ["north", "south"]},
+      "source_event": 1,
+      "source_script": "Route3_EventScript_Robin"
+    },
+    {
+      "name": "bug_catcher",
+      "coord": [32, 6],
+      "facing": "east",
+      "trainer": {"sight": 4},
+      "source_event": 2,
+      "source_script": "Route3_EventScript_James"
+    },
+    {
+      "name": "lass",
+      "coord": [30, 3],
+      "facing": "west",
+      "trainer": {"sight": 5},
+      "source_event": 3,
+      "source_script": "Route3_EventScript_Sally"
+    },
+    {
+      "name": "bug_catcher",
+      "coord": [25, 4],
+      "facing": "south",
+      "trainer": {"sight": 2},
+      "source_event": 4,
+      "source_script": "Route3_EventScript_Greg"
+    },
+    {
+      "name": "youngster",
+      "coord": [29, 10],
+      "facing": "west",
+      "trainer": {"sight": 5},
+      "source_event": 5,
+      "source_script": "Route3_EventScript_Calvin"
+    },
+    {
+      "name": "lass",
+      "coord": [19, 9],
+      "facing": "west",
+      "trainer": {"sight": 5},
+      "source_event": 6,
+      "source_script": "Route3_EventScript_Janice"
+    },
+    {
+      "name": "bug_catcher",
+      "coord": [12, 6],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 7,
+      "source_script": "Route3_EventScript_Colton"
+    },
+    {
+      "name": "youngster",
+      "coord": [17, 4],
+      "facing": "south",
+      "trainer": {"sight": 2},
+      "source_event": 8,
+      "source_script": "Route3_EventScript_Ben"
+    }
+  ]
+}

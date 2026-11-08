@@ -1,0 +1,65 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SSAnne_Exterior",
+  "source": {
+    "decomp_file": "data/maps/SSAnne_Exterior/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+  },
+  "tiles": [
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###wwwwwwwwwwww#........###.###########",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###wwwwwwwwwwww#........###.###########",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###wwwwwwwwwwww#............###########",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.#wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.#wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.#wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.#wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.#wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.#wwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..#wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###wwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+  ],
+  "points": {"warp_1": [32, 5], "warp_2": [32, 14], "warp_3": [33, 15]},
+  "warps": [
+    {"coord": [31, 5], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_0"},
+    {"coord": [32, 5], "enter": "walk_north", "to_map": "VermilionCity", "to_point": "warp_1"},
+    {"coord": [32, 14], "enter": "walk_south", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_2"},
+    {"coord": [33, 15], "enter": "walk_into", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_3"},
+    {"coord": [33, 5], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "ss_anne",
+      "coord": [30, 16],
+      "hide_flag": "FLAG_HIDE_SS_ANNE",
+      "source_event": 0,
+      "source_script": "0x0",
+      "source_local_id": "LOCALID_SS_ANNE"
+    }
+  ]
+}

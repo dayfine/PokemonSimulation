@@ -1,0 +1,100 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route6",
+  "source": {
+    "decomp_file": "data/maps/Route6/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+  },
+  "tiles": [
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "##.......###..###.....##",
+    "##.......#......#.....##",
+    "##vvv.vvvv......vvv.vv##",
+    "##....................##",
+    "##....................##",
+    "##....................##",
+    "##vvvvvvv.vvvvvvvv######",
+    "##................######",
+    "##................#D####",
+    "##....................##",
+    "##~~~~...~~~~~~......S##",
+    "##~~~~...~~~~~~~~~~~~~##",
+    "##~~~~...~~~~~~~~~~~~~##",
+    "##~~~~...~~~~~~~~~~~~~##",
+    "##~~~~..............~~##",
+    "##~~~~..............~~##",
+    "##~~~~..............~~##",
+    "##~~~~~~~~~~~~~~~...~~##",
+    "##wwwwwwwwwwwww~~...~~##",
+    "##wwwwwwwwwwwww~~...~~##",
+    "##wwwwwwwwwwwww~~...~~##",
+    "##wwwwwwwwwwwww~~...~~##",
+    "##..................~~##",
+    "##..................~~##",
+    "##..................~~##",
+    "#######......~~~~#######",
+    "##....#......~~~~#....##",
+    "#######......~~~~#######",
+    "#######......~~~~#######",
+    "##########...###########",
+    "######...#...#....######",
+    "########.#...###########",
+    "########.#...###########",
+    "wwwwwwwww#...###########",
+    "wwwwwwwww#...###########"
+  ],
+  "points": {"warp_0": [19, 13], "warp_1": [12, 5]},
+  "warps": [
+    {"coord": [19, 13], "enter": "walk_into", "to_map": "UndergroundPath_SouthEntrance", "to_point": "warp_1"},
+    {"coord": [12, 5], "enter": "cave_entrance", "to_map": "Route6_NorthEntrance", "to_point": "warp_2"},
+    {"coord": [13, 5], "enter": "cave_entrance", "to_map": "Route6_NorthEntrance", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [
+    {"side": "north", "to_map": "SaffronCity_Connection", "offset": 0},
+    {"side": "south", "to_map": "VermilionCity", "offset": -12}
+  ],
+  "npcs": [
+    {
+      "name": "bug_catcher",
+      "coord": [3, 16],
+      "facing": "east",
+      "trainer": {"sight": 5},
+      "source_event": 0,
+      "source_script": "Route6_EventScript_Keigo"
+    },
+    {"name": "camper", "coord": [12, 21], "source_event": 1, "source_script": "Route6_EventScript_Ricky"},
+    {"name": "picnicker", "coord": [13, 21], "source_event": 2, "source_script": "Route6_EventScript_Nancy"},
+    {
+      "name": "bug_catcher",
+      "coord": [20, 25],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 3,
+      "source_script": "Route6_EventScript_Elijah"
+    },
+    {
+      "name": "picnicker",
+      "coord": [13, 32],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 4,
+      "source_script": "Route6_EventScript_Isabelle"
+    },
+    {
+      "name": "camper",
+      "coord": [13, 33],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 5,
+      "source_script": "Route6_EventScript_Jeff"
+    }
+  ]
+}

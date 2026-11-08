@@ -1,0 +1,50 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "PewterCity_Gym",
+  "source": {
+    "decomp_file": "data/maps/PewterCity_Gym/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#############",
+    "####.....####",
+    "#############",
+    "#....#.#....#",
+    "#...........#",
+    "#...#...#...#",
+    "#...........#",
+    "#..#.#.#.#..#",
+    "##.........##",
+    "#...#...#...#",
+    "##.........##",
+    "#...........#",
+    "#...S...S...#",
+    "#...........#",
+    "#...........#",
+    "#############"
+  ],
+  "points": {"brock_front": [6, 6], "warp_1": [6, 14]},
+  "warps": [
+    {"coord": [5, 14], "enter": "walk_into", "to_map": "PewterCity", "to_point": "warp_2"},
+    {"coord": [6, 14], "enter": "walk_south", "to_map": "PewterCity", "to_point": "warp_2"},
+    {"coord": [7, 14], "enter": "walk_into", "to_map": "PewterCity", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "brock", "coord": [6, 5], "source_event": 0, "source_script": "PewterCity_Gym_EventScript_Brock"},
+    {
+      "name": "camper",
+      "coord": [3, 8],
+      "facing": "east",
+      "trainer": {"sight": 4},
+      "source_event": 1,
+      "source_script": "PewterCity_Gym_EventScript_Liam"
+    },
+    {"name": "gym_guy", "coord": [7, 12], "source_event": 2, "source_script": "PewterCity_Gym_EventScript_GymGuy"}
+  ]
+}

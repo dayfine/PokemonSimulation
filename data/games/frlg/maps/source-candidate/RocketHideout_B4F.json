@@ -1,0 +1,124 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "RocketHideout_B4F",
+  "source": {
+    "decomp_file": "data/maps/RocketHideout_B4F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "########################",
+    "########################",
+    "#.#....#########.##.##.#",
+    "##.....#########..###..#",
+    "#.###..#########.#888#.#",
+    "#####.........###.....##",
+    "#.............##..###..#",
+    "#.............###.....##",
+    "#......##.....##.......#",
+    "#########.....##.......#",
+    "#########.....##.......#",
+    "###....##.....##.......#",
+    "#......##.....###..#####",
+    "#..###.##.....###..#####",
+    "#..###......####.....###",
+    "#...........####.....###",
+    "#...........####.......#",
+    "#.............##.......#",
+    "################.......#",
+    "################..######",
+    "###...............######",
+    "#.................######",
+    "#....######.......######",
+    "#....######.......##D###",
+    "#...........##.........#",
+    "#......................#"
+  ],
+  "points": {"warp_0": [11, 15]},
+  "warps": [
+    {"coord": [11, 15], "enter": "walk_east", "to_map": "RocketHideout_B3F", "to_point": "warp_1"},
+    {"coord": [20, 23], "enter": "walk_into", "to_map": "RocketHideout_Elevator", "to_point": "warp_1"},
+    {"coord": [21, 23], "enter": "walk_into", "to_map": "RocketHideout_Elevator", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "giovanni",
+      "coord": [19, 4],
+      "hide_flag": "FLAG_HIDE_HIDEOUT_GIOVANNI",
+      "source_event": 0,
+      "source_script": "RocketHideout_B4F_EventScript_Giovanni",
+      "source_local_id": "LOCALID_HIDEOUT_GIOVANNI"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [4, 2],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 2,
+      "source_script": "RocketHideout_B4F_EventScript_Grunt1"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [19, 14],
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 4,
+      "source_script": "RocketHideout_B4F_EventScript_Grunt3"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [16, 14],
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 5,
+      "source_script": "RocketHideout_B4F_EventScript_Grunt2"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [20, 5],
+      "source_event": 1,
+      "hide_flag": "FLAG_HIDE_SILPH_SCOPE",
+      "source_script": "RocketHideout_B4F_EventScript_SilphScope",
+      "source_local_id": "LOCALID_SILPH_SCOPE",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [3, 2],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_LIFT_KEY",
+      "source_script": "RocketHideout_B4F_EventScript_LiftKey",
+      "source_local_id": "LOCALID_LIFT_KEY",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [1, 6],
+      "source_event": 6,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_TM49",
+      "source_script": "RocketHideout_B4F_EventScript_ItemTM49",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [4, 14],
+      "source_event": 7,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_MAX_ETHER",
+      "source_script": "RocketHideout_B4F_EventScript_ItemMaxEther",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [6, 23],
+      "source_event": 8,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_CALCIUM",
+      "source_script": "RocketHideout_B4F_EventScript_ItemCalcium",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

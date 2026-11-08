@@ -14,3 +14,35 @@ jobs:
       - run: python -m pip install -r schemas/requirements.txt
       - run: PYTHONPATH=src python -m unittest pokesim.formats.test_json_schema pokesim.story.test_native_export
       - run: PYTHONPATH=src python -m pokesim.formats.json_schema --check-published
+      - name: Audit the full FRLG source candidate without publishing it
+        run: >-
+          PYTHONPATH=src python -m pokesim.maps.frlg_import_audit
+          data/games/frlg/maps/source-candidate --schema
+          --scope data/games/frlg/maps/pokeguy-map-scope.json
+          --out "${{ runner.temp }}/frlg-source-audit.json"
+      - name: Check full candidate compact formatting
+        run: >-
+          PYTHONPATH=src python -m pokesim.formats.contract_format --check
+          data/games/frlg/maps/source-candidate/*.json
+          data/games/frlg/maps/pokeguy-map-scope.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frlg-source-audit
+          path: ${{ runner.temp }}/frlg-source-audit.json
+
+  frlg-source-reproduction:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pokefirered
+          key: frlg-source-ce6406d8c2eaf46d543c8a2606de0c3cb1951982
+      - name: Reproduce all candidate maps from the pinned public source
+        run: >-
+          PYTHONPATH=src python -m pokesim.maps.frlg_decomp_map_builder --all
+          --scope data/games/frlg/maps/pokeguy-map-scope.json
+          --item-identities --out data/games/frlg/maps/source-candidate --check
