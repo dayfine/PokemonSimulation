@@ -1,0 +1,39 @@
+{
+  "format": "pokesim-story-replay-binding/1",
+  "plan": {
+    "file": "data/story/bdsp-mine-pilot/bdsp-mine-01.03.plan.json",
+    "sha256": "c51c7ad19c6f0c55bdb0d112cf794c3af987fbbdec7a80ca26257b9bdf5761d4"
+  },
+  "map_revision": "4de7742a764d27293b4525d6ad2a6fc8a95f3e3a",
+  "maps": {
+    "OreburghCity": "97e3b3f03785268a3ef355f35ba2a77b811e8c010c4859d50eca58bbade707c4",
+    "OreburghMineB1F": "f136c91897bc100e3cfc2098f53ab1c44544a4cdd93114f1d1a08832fe21060b",
+    "OreburghMine": "21319ba1d8507ae7a91fe2ad2d59f99df162dfb19f5ca9bcd4c30afc27f08560"
+  },
+  "capabilities": {
+    "above_the_mine": {"capability": "bdsp-runtime-route/1", "parameters": {}},
+    "into_the_mine": {"capability": "bdsp-door-observation/1", "parameters": {}},
+    "into_the_coal_room": {"capability": "bdsp-door-observation/1", "parameters": {}},
+    "south_to_the_rock": {"capability": "bdsp-runtime-legs/1", "parameters": {}},
+    "to_roarks_corner": {"capability": "bdsp-runtime-legs/1", "parameters": {}},
+    "beside_roarks_rock": {"capability": "bdsp-runtime-legs/1", "parameters": {}},
+    "below_roark": {"capability": "bdsp-runtime-legs/1", "parameters": {}},
+    "roark": {"capability": "bdsp-dialogue-observation/1", "parameters": {"npc": "roark"}},
+    "roark_smashes_the_rock": {"capability": "bdsp-scene-observation/1", "parameters": {"npc": "roark"}},
+    "below_the_coal_rooms_warp": {"capability": "bdsp-runtime-legs/1", "parameters": {}},
+    "up_to_the_hall": {"capability": "bdsp-door-observation/1", "parameters": {}},
+    "out_of_the_mine": {"capability": "bdsp-door-observation/1", "parameters": {}},
+    "north_to_the_centers_wall": {"capability": "bdsp-runtime-legs/1", "parameters": {}},
+    "east_below_the_centers_door": {"capability": "bdsp-runtime-legs/1", "parameters": {}},
+    "heal_oreburgh": {"capability": "bdsp-heal-observation/1", "parameters": {}}
+  },
+  "costs": {"tile": 1, "turn": 2, "grass": 5, "warp": 1},
+  "max_route_moves": 256,
+  "policy": {
+    "basis": "synthetic-offline-policy",
+    "entry": "scripted-observation",
+    "attempts": 1,
+    "failure": "stop",
+    "save": "never"
+  }
+}

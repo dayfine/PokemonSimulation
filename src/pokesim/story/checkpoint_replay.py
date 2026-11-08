@@ -43,7 +43,7 @@ def run(binding, scenario):
     state = ReplayState(copy.deepcopy(scenario['entry']['pose']))
     completed, active, failure = [], None, None
     if (scenario['entry']['screen'] != 'overworld'
-            or state.pose != binding.adapter.authored_pose(binding.checkpoint['start'])):
+            or not binding.adapter.matches_authored_pose(state.pose, binding.checkpoint['start'])):
         failure = 'entry_requirement_failed'
     else:
         for event in binding.checkpoint['events']:

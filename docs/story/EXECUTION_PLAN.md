@@ -18,31 +18,14 @@ Keep implementation-specific tests with their owning repository.
 
 ## Ordered milestones
 
-Implementation checkpoint: the [Parcel Python diagnostic](../../data/story/parcel-pilot/README.md)
-binds the captured events to approved maps and synthetic observations. Native
-trace comparison, actual runtime/save/retry policy export and BDSP capture remain
-open; this is not completion of milestone 1.
+Current checkpoint (2026-11-08): FRLG Parcel `00.05` is authored in lean JSON and loaded by the native story table in Arduino #260. Its native Linux/Windows/macOS tests and the paired byte-equality/seven-scenario Python gate pass. PokemonSimulation #73 holds the schema, strict reader and reusable replay engine. The broad native/Python trace-comparison diagnostic (#258) remains separate; live timing, effective runtime policy and full execution parity are not established.
 
-1. **Prove the event boundary.** Export evaluated FRLG Parcel `00.05` and BDSP
-   mine/Roark `01.03` checkpoints, preserving their complete actions, conditions,
-   game extensions and save/retry behavior. Bind the same serialized data to
-   native scripted execution and Python replay. Compare ordered actions, state
-   evidence, interruptions and failures, not just whether both runs finish.
-2. **Make shared events executable.** Add strict parsing and binding around the
-   existing shared native engine and per-game executors. Author these two
-   checkpoints as data only after parity passes; remove their duplicate C++
-   authoring. Include a handoff/resume example before scaling up the format.
-3. **Write the complete FRLG plan.** Use the readable, symbolic style of the
-   [PLZA draft](PLZA_OPENING_DRAFT.md), with checkpoint requirements, actions,
-   expected effects and unresolved bindings. Cover the selected main story from
-   new game through the first Champion victory; track postgame separately.
-   Migrate existing native checkpoints first, then draft uncovered sections.
-   Full authored coverage can precede full executor coverage, but each section
-   must state which it has. No invented routes, party state or battle win rates.
-4. **Bind and evaluate incrementally.** Enable supported FRLG checkpoints in
-   order; replay navigation, transitions, recovery and battle histories against
-   pinned data. Report missing maps, executors or battle inputs as blockers.
-   Repeat the proven shared contract for BDSP without assuming FRLG semantics.
+The user chose two practical migration gates: **load the authored data through the existing native story table/engine**, and **run the same JSON through PokemonSimulation**. Keep export snapshots as regression fixtures, not as the authoring format. `declared_after` remains an explicit native fallback, not observed state. This replaces the earlier mandatory export-first sequencing.
+
+1. **Land the FRLG pilot.** Merge PokemonSimulation #73 and Arduino #260 after review. The C++ Parcel event list is removed; save-menu configuration remains game-owned.
+2. **Prove the shape on BDSP.** [The mine/Roark pilot](../../data/story/bdsp-mine-pilot/README.md) migrates current #226 revision `0738cd55b` and its 15 events. Preserve BDSP's save-card/failure policy, walking/door variants and multi-tile beliefs. Native integration and Python scenario checks are independent gates; scripted observations cannot prove live transitions or native cost/retry parity. The paired drafts are PokemonSimulation #74 and Arduino #263. Python CI, local native syntax and code health pass; full native CI is running.
+3. **Add one handoff/resume example.** Use the actual FRLG starter RNG boundary. Suspend before transfer, verify a linked return receipt/state, and resume once. Reject stale/duplicate/wrong-plan returns and invalidate state affected by reset/load. Do this before scaling the full format.
+4. **Write and enable FRLG incrementally.** Migrate existing native checkpoints first, then draft the remaining Pokeguy story through Champion. Track authored, bound and replay-validated coverage separately. Include navigation transitions/recovery and battle histories against pinned data; expose missing map/executor/battle inputs rather than successful placeholders.
 
 The FRLG coverage index should list checkpoint ID, story objective, source
 revision/evidence, entering requirements, authored events, execution bindings,
@@ -124,6 +107,12 @@ The actual RNG checkpoint, target program, reset behavior and verification
 requirements must come from its native implementation; they are not inferred
 from this sketch. Python replay uses scripted receipts and evidence, not RNG
 hardware execution or an assumed successful outcome.
+
+### Starter RNG return: save before the rival
+
+The first handoff pilot must introduce a dedicated checkpoint immediately after a verified successful Starter RNG return. Confirm the returned starter and an overworld state in which saving is available, save it, and verify save completion **before** moving toward the rival trigger. Only then can a failure reload the new save. A failed/unconfirmed save stops without resetting to the pre-RNG save.
+
+The current native `rows_after_starter_rng()` resumes at the rival portion of `00.04b`, and `after_shiny_starter()` sets `has_save = false` until that row saves after the battle. That is the current implementation, not a verified game restriction requiring delayed saving. Replace that grouping in the handoff slice; do not encode the delay as a universal rule. Native/Python tests must cover saving before the rival, failed/unconfirmed save without reload, and retry from the newly confirmed save. No console validation or production change is claimed by this plan note.
 
 ## Acceptance tests
 

@@ -69,6 +69,52 @@
                           "additionalProperties": {"type": "integer", "minimum": 1}
                         }
                       }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {"const": "movement-script"},
+                        "clear_npcs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+                        "encounter": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/encounter"}]}
+                      },
+                      "required": ["kind", "clear_npcs", "encounter"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {"const": "bdsp-observation"},
+                        "basis": {"const": "scripted"},
+                        "screen": {"enum": ["overworld", "dialogue"]},
+                        "pose": {"$ref": "#/$defs/pose"},
+                        "result": {
+                          "type": "object",
+                          "oneOf": [
+                            {
+                              "properties": {"transition": {"type": "boolean"}},
+                              "required": ["transition"],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {"npc": {"type": "string"}},
+                              "required": ["npc"],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {"departed": {"type": "string"}},
+                              "required": ["departed"],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {"party_healed": {"type": "boolean"}},
+                              "required": ["party_healed"],
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      },
+                      "required": ["kind", "basis", "screen", "pose", "result"],
+                      "additionalProperties": false
                     }
                   ]
                 }
@@ -106,7 +152,8 @@
                   "unknown-after-interruption",
                   "unknown-after-transition",
                   "unknown-after-scene",
-                  "unknown-after-route-mismatch"
+                  "unknown-after-route-mismatch",
+                  "unknown-after-observation"
                 ]
               },
               "candidates": {
@@ -181,8 +228,36 @@
                       "properties": {
                         "event": {"type": "string", "minLength": 1},
                         "kind": {"const": "scene"},
-                        "capability": {"const": "scripted-scene/1"}
+                        "capability": {"enum": ["scripted-scene/1", "bdsp-scene-observation/1"]}
                       }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "event": {"type": "string", "minLength": 1},
+                        "kind": {"const": "door"},
+                        "map": {"type": "string", "minLength": 1},
+                        "direction": {"enum": ["north", "east", "south", "west"]},
+                        "to_map": {"type": "string", "minLength": 1}
+                      },
+                      "required": ["event", "kind", "map", "direction", "to_map"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "event": {"type": "string", "minLength": 1},
+                        "kind": {"const": "talk"},
+                        "npc": {"type": "string", "minLength": 1}
+                      },
+                      "required": ["event", "kind", "npc"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {"event": {"type": "string", "minLength": 1}, "kind": {"const": "heal"}},
+                      "required": ["event", "kind"],
+                      "additionalProperties": false
                     }
                   ]
                 }
@@ -218,6 +293,16 @@
         "elevation": {"type": "integer", "minimum": 0, "maximum": 15},
         "facing": {"enum": ["north", "east", "south", "west"]}
       }
+    },
+    "encounter": {
+      "type": "object",
+      "properties": {
+        "kind": {"const": "wild-encounter"},
+        "from": {"$ref": "#/$defs/pose"},
+        "direction": {"enum": ["north", "east", "south", "west"]}
+      },
+      "required": ["kind", "from", "direction"],
+      "additionalProperties": false
     }
   }
 }

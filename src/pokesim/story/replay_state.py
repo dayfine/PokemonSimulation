@@ -10,6 +10,8 @@ class ReplayState:
     basis: str = 'scripted-observation'
     received: dict = field(default_factory=dict)
     candidates: list = field(default_factory=list)
+    # Native author-declared fallback, kept separate from physical pose uncertainty.
+    declared_belief: list = field(default_factory=list)
     trace: list = field(default_factory=list)
     actions: list = field(default_factory=list)
 

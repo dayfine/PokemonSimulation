@@ -1,19 +1,36 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/authored-checkpoint.schema.json",
-  "title": "Authored checkpoint with FRLG executor settings",
+  "title": "Authored tile-game checkpoint with game-specific executor settings",
   "type": "object",
   "properties": {
     "format": {"const": "pokesim-authored-checkpoint/1"},
-    "game": {"const": "frlg"},
+    "game": {"enum": ["frlg", "bdsp"]},
     "checkpoint": {"$ref": "story-checkpoint.schema.json"},
-    "execution": {
+    "execution": {"type": "object"}
+  },
+  "required": ["format", "game", "checkpoint", "execution"],
+  "additionalProperties": false,
+  "$defs": {
+    "frlg_execution": {
       "type": "object",
       "properties": {"menu": {"enum": ["before_pokemon", "before_pokedex", "full"]}},
       "required": ["menu"],
       "additionalProperties": false
+    },
+    "bdsp_execution": {
+      "type": "object",
+      "properties": {"on_failure": {"enum": ["reload_and_retry", "stop"]}, "saves_in": {"type": "string"}},
+      "required": ["on_failure", "saves_in"],
+      "additionalProperties": false,
+      "oneOf": [
+        {"properties": {"on_failure": {"const": "reload_and_retry"}, "saves_in": {"minLength": 1}}},
+        {"properties": {"on_failure": {"const": "stop"}, "saves_in": {"const": ""}}}
+      ]
     }
   },
-  "required": ["format", "game", "checkpoint", "execution"],
-  "additionalProperties": false
+  "oneOf": [
+    {"properties": {"game": {"const": "frlg"}, "execution": {"$ref": "#/$defs/frlg_execution"}}},
+    {"properties": {"game": {"const": "bdsp"}, "execution": {"$ref": "#/$defs/bdsp_execution"}}}
+  ]
 }

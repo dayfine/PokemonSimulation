@@ -1,0 +1,760 @@
+{
+  "format": "pokesim-story-replay-cases/1",
+  "evidence_status": "synthetic-scripted-observations",
+  "coordinate_frame": "runtime-local",
+  "cases": [
+    {
+      "id": "mine-all-events",
+      "description": "All 15 events from current #226, with explicitly scripted door, dialogue, scene, Hiker-clearance and healing evidence.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {
+          "above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "into_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 1], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "into_the_coal_room": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [15, 2], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "roark": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "dialogue",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"npc": "roark"}
+          },
+          "roark_smashes_the_rock": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"departed": "roark"}
+          },
+          "up_to_the_hall": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 21], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "out_of_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [46, 59], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "north_to_the_centers_wall": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "heal_oreburgh": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"},
+            "result": {"party_healed": true}
+          }
+        },
+        "check_actions": true
+      },
+      "expectation": {
+        "status": "model_complete",
+        "failure": null,
+        "active_event": null,
+        "completed_events": [
+          "above_the_mine",
+          "into_the_mine",
+          "into_the_coal_room",
+          "south_to_the_rock",
+          "to_roarks_corner",
+          "beside_roarks_rock",
+          "below_roark",
+          "roark",
+          "roark_smashes_the_rock",
+          "below_the_coal_rooms_warp",
+          "up_to_the_hall",
+          "out_of_the_mine",
+          "north_to_the_centers_wall",
+          "east_below_the_centers_door",
+          "heal_oreburgh"
+        ],
+        "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"},
+        "pose_basis": "scripted-observation",
+        "candidates": [],
+        "received": {},
+        "save_performed": false,
+        "actions": [
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 37},
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "west", "tiles": 1},
+          {"event": "above_the_mine", "kind": "turn", "map": "OreburghCity", "direction": "south"},
+          {
+            "event": "into_the_mine",
+            "kind": "door",
+            "map": "OreburghCity",
+            "direction": "south",
+            "to_map": "OreburghMineB1F"
+          },
+          {
+            "event": "into_the_coal_room",
+            "kind": "door",
+            "map": "OreburghMineB1F",
+            "direction": "south",
+            "to_map": "OreburghMine"
+          },
+          {"event": "south_to_the_rock", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 8},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "east", "tiles": 1},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 2},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "west", "tiles": 1},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 5},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "east", "tiles": 14},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 10},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "west", "tiles": 2},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 2},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "west", "tiles": 7},
+          {"event": "beside_roarks_rock", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 1},
+          {"event": "below_roark", "kind": "walk", "map": "OreburghMine", "direction": "west", "tiles": 2},
+          {"event": "roark", "kind": "turn", "map": "OreburghMine", "direction": "north"},
+          {"event": "roark", "kind": "talk", "npc": "roark"},
+          {"event": "roark_smashes_the_rock", "kind": "scene", "capability": "bdsp-scene-observation/1"},
+          {"event": "below_the_coal_rooms_warp", "kind": "walk", "map": "OreburghMine", "direction": "east", "tiles": 9},
+          {
+            "event": "below_the_coal_rooms_warp",
+            "kind": "walk",
+            "map": "OreburghMine",
+            "direction": "north",
+            "tiles": 3
+          },
+          {"event": "below_the_coal_rooms_warp", "kind": "walk", "map": "OreburghMine", "direction": "east", "tiles": 2},
+          {
+            "event": "below_the_coal_rooms_warp",
+            "kind": "walk",
+            "map": "OreburghMine",
+            "direction": "north",
+            "tiles": 10
+          },
+          {
+            "event": "below_the_coal_rooms_warp",
+            "kind": "walk",
+            "map": "OreburghMine",
+            "direction": "west",
+            "tiles": 14
+          },
+          {
+            "event": "below_the_coal_rooms_warp",
+            "kind": "walk",
+            "map": "OreburghMine",
+            "direction": "north",
+            "tiles": 5
+          },
+          {"event": "below_the_coal_rooms_warp", "kind": "walk", "map": "OreburghMine", "direction": "east", "tiles": 1},
+          {
+            "event": "below_the_coal_rooms_warp",
+            "kind": "walk",
+            "map": "OreburghMine",
+            "direction": "north",
+            "tiles": 2
+          },
+          {"event": "below_the_coal_rooms_warp", "kind": "walk", "map": "OreburghMine", "direction": "west", "tiles": 1},
+          {
+            "event": "below_the_coal_rooms_warp",
+            "kind": "walk",
+            "map": "OreburghMine",
+            "direction": "north",
+            "tiles": 7
+          },
+          {
+            "event": "up_to_the_hall",
+            "kind": "door",
+            "map": "OreburghMine",
+            "direction": "north",
+            "to_map": "OreburghMineB1F"
+          },
+          {
+            "event": "out_of_the_mine",
+            "kind": "door",
+            "map": "OreburghMineB1F",
+            "direction": "north",
+            "to_map": "OreburghCity"
+          },
+          {
+            "event": "north_to_the_centers_wall",
+            "kind": "walk",
+            "map": "OreburghCity",
+            "direction": "north",
+            "tiles": 38
+          },
+          {
+            "event": "east_below_the_centers_door",
+            "kind": "walk",
+            "map": "OreburghCity",
+            "direction": "east",
+            "tiles": 1
+          },
+          {"event": "heal_oreburgh", "kind": "heal"}
+        ]
+      }
+    },
+    {
+      "id": "entry-not-overworld",
+      "description": "Reject a wrong entry screen before any story action.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "dialogue",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {},
+        "check_actions": true
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "entry_requirement_failed",
+        "active_event": null,
+        "completed_events": [],
+        "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"},
+        "pose_basis": "scripted-observation",
+        "candidates": [],
+        "received": {},
+        "save_performed": false,
+        "actions": []
+      }
+    },
+    {
+      "id": "mine-arrival-unconfirmed",
+      "description": "Reach the city mine doorway, but do not assume B1F arrival without evidence.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {"above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null}},
+        "check_actions": true
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "observation_missing_or_mismatched",
+        "active_event": "into_the_mine",
+        "completed_events": ["above_the_mine"],
+        "pose": null,
+        "pose_basis": "unknown-after-observation",
+        "candidates": [],
+        "received": {},
+        "save_performed": false,
+        "actions": [
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 37},
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "west", "tiles": 1},
+          {"event": "above_the_mine", "kind": "turn", "map": "OreburghCity", "direction": "south"},
+          {
+            "event": "into_the_mine",
+            "kind": "door",
+            "map": "OreburghCity",
+            "direction": "south",
+            "to_map": "OreburghMineB1F"
+          }
+        ]
+      }
+    },
+    {
+      "id": "interrupted-before-roark",
+      "description": "A battle during the south-five leg leaves two candidate tiles and unknown facing; stop before Roark instead of crediting requested distance.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {
+          "above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "into_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 1], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "into_the_coal_room": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [15, 2], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "to_roarks_corner": {
+            "kind": "movement-script",
+            "clear_npcs": [],
+            "encounter": {
+              "kind": "wild-encounter",
+              "from": {"map": "OreburghMine", "tile": [15, 12], "elevation": 0, "facing": "south"},
+              "direction": "south"
+            }
+          }
+        },
+        "check_actions": true
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "encounter_requires_recovery",
+        "active_event": "to_roarks_corner",
+        "completed_events": ["above_the_mine", "into_the_mine", "into_the_coal_room", "south_to_the_rock"],
+        "pose": null,
+        "pose_basis": "unknown-after-interruption",
+        "candidates": [
+          {"map": "OreburghMine", "tile": [15, 12], "elevation": 0, "facing": null},
+          {"map": "OreburghMine", "tile": [15, 13], "elevation": 0, "facing": null}
+        ],
+        "received": {},
+        "save_performed": false,
+        "actions": [
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 37},
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "west", "tiles": 1},
+          {"event": "above_the_mine", "kind": "turn", "map": "OreburghCity", "direction": "south"},
+          {
+            "event": "into_the_mine",
+            "kind": "door",
+            "map": "OreburghCity",
+            "direction": "south",
+            "to_map": "OreburghMineB1F"
+          },
+          {
+            "event": "into_the_coal_room",
+            "kind": "door",
+            "map": "OreburghMineB1F",
+            "direction": "south",
+            "to_map": "OreburghMine"
+          },
+          {"event": "south_to_the_rock", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 8},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "east", "tiles": 1},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 2},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "west", "tiles": 1},
+          {"event": "to_roarks_corner", "kind": "walk", "map": "OreburghMine", "direction": "south", "tiles": 5}
+        ]
+      }
+    },
+    {
+      "id": "roark-dialogue-unconfirmed",
+      "description": "Standing below Roark and requesting talk does not prove a conversation opened.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {
+          "above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "into_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 1], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "into_the_coal_room": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [15, 2], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "roark_smashes_the_rock": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"departed": "roark"}
+          },
+          "up_to_the_hall": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 21], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "out_of_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [46, 59], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "north_to_the_centers_wall": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "heal_oreburgh": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"},
+            "result": {"party_healed": true}
+          }
+        },
+        "check_actions": false
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "dialogue_unconfirmed",
+        "active_event": "roark",
+        "completed_events": [
+          "above_the_mine",
+          "into_the_mine",
+          "into_the_coal_room",
+          "south_to_the_rock",
+          "to_roarks_corner",
+          "beside_roarks_rock",
+          "below_roark"
+        ],
+        "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+        "pose_basis": "model-prediction",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "roark-departure-unconfirmed",
+      "description": "Do not accept the authored scene pose without the scripted Roark-departure result.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {
+          "above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "into_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 1], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "into_the_coal_room": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [15, 2], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "roark": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "dialogue",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"npc": "roark"}
+          },
+          "roark_smashes_the_rock": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"departed": "somebody_else"}
+          },
+          "up_to_the_hall": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 21], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "out_of_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [46, 59], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "north_to_the_centers_wall": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "heal_oreburgh": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"},
+            "result": {"party_healed": true}
+          }
+        },
+        "check_actions": false
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "observation_missing_or_mismatched",
+        "active_event": "roark_smashes_the_rock",
+        "completed_events": [
+          "above_the_mine",
+          "into_the_mine",
+          "into_the_coal_room",
+          "south_to_the_rock",
+          "to_roarks_corner",
+          "beside_roarks_rock",
+          "below_roark",
+          "roark"
+        ],
+        "pose": null,
+        "pose_basis": "unknown-after-observation",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "mine-exit-unconfirmed",
+      "description": "Stop at the B1F north doorway before the city-wall leg when the exit observation is missing.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {
+          "above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "into_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 1], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "into_the_coal_room": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [15, 2], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "roark": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "dialogue",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"npc": "roark"}
+          },
+          "roark_smashes_the_rock": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"departed": "roark"}
+          },
+          "up_to_the_hall": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 21], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "north_to_the_centers_wall": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "heal_oreburgh": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"},
+            "result": {"party_healed": true}
+          }
+        },
+        "check_actions": false
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "observation_missing_or_mismatched",
+        "active_event": "out_of_the_mine",
+        "completed_events": [
+          "above_the_mine",
+          "into_the_mine",
+          "into_the_coal_room",
+          "south_to_the_rock",
+          "to_roarks_corner",
+          "beside_roarks_rock",
+          "below_roark",
+          "roark",
+          "roark_smashes_the_rock",
+          "below_the_coal_rooms_warp",
+          "up_to_the_hall"
+        ],
+        "pose": null,
+        "pose_basis": "unknown-after-observation",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "hiker-clearance-unconfirmed",
+      "description": "The 37-38 tile north walk encounters the Hiker wandering region; no clearance window means stop before entering it.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {
+          "above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "into_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 1], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "into_the_coal_room": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [15, 2], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "roark": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "dialogue",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"npc": "roark"}
+          },
+          "roark_smashes_the_rock": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"departed": "roark"}
+          },
+          "up_to_the_hall": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 21], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "out_of_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [46, 59], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "heal_oreburgh": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"},
+            "result": {"party_healed": true}
+          }
+        },
+        "check_actions": false
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "dynamic_npc_clearance_unconfirmed",
+        "active_event": "north_to_the_centers_wall",
+        "completed_events": [
+          "above_the_mine",
+          "into_the_mine",
+          "into_the_coal_room",
+          "south_to_the_rock",
+          "to_roarks_corner",
+          "beside_roarks_rock",
+          "below_roark",
+          "roark",
+          "roark_smashes_the_rock",
+          "below_the_coal_rooms_warp",
+          "up_to_the_hall",
+          "out_of_the_mine"
+        ],
+        "pose": {"map": "OreburghCity", "tile": [46, 28], "elevation": 0, "facing": "north"},
+        "pose_basis": "model-prediction",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "heal-unconfirmed",
+      "description": "A heal request does not establish healed party or final position without its receipt.",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "OreburghCity", "tile": [47, 21], "elevation": 0, "facing": "south"}
+        },
+        "signals": {
+          "above_the_mine": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null},
+          "into_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 1], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "into_the_coal_room": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [15, 2], "elevation": 0, "facing": "south"},
+            "result": {"transition": true}
+          },
+          "roark": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "dialogue",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"npc": "roark"}
+          },
+          "roark_smashes_the_rock": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMine", "tile": [18, 29], "elevation": 0, "facing": "north"},
+            "result": {"departed": "roark"}
+          },
+          "up_to_the_hall": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghMineB1F", "tile": [12, 21], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "out_of_the_mine": {
+            "kind": "bdsp-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "OreburghCity", "tile": [46, 59], "elevation": 0, "facing": "north"},
+            "result": {"transition": true}
+          },
+          "north_to_the_centers_wall": {"kind": "movement-script", "clear_npcs": ["hiker_0"], "encounter": null}
+        },
+        "check_actions": false
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "observation_missing_or_mismatched",
+        "active_event": "heal_oreburgh",
+        "completed_events": [
+          "above_the_mine",
+          "into_the_mine",
+          "into_the_coal_room",
+          "south_to_the_rock",
+          "to_roarks_corner",
+          "beside_roarks_rock",
+          "below_roark",
+          "roark",
+          "roark_smashes_the_rock",
+          "below_the_coal_rooms_warp",
+          "up_to_the_hall",
+          "out_of_the_mine",
+          "north_to_the_centers_wall",
+          "east_below_the_centers_door"
+        ],
+        "pose": null,
+        "pose_basis": "unknown-after-observation",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    }
+  ]
+}

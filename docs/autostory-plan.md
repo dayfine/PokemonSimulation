@@ -259,3 +259,9 @@ Exchange-format JSON Schemas now cover common story records, current v2 runtime 
   reusing existing battle/progression evidence and adding source-backed
   overworld actions. Track authored, bound and replay-validated coverage
   separately; see [execution plan](story/EXECUTION_PLAN.md#full-frlg-world-and-pokeguy-plan-expansion).
+
+### Authored checkpoint pilot update (2026-11-08)
+
+- FRLG Parcel `00.05` is data-authored in Arduino #260 / Simulation #73. Native Linux, Windows and macOS tests and same-file Python replay pass. The lean authored contract replaces the export snapshot as the production definition; snapshots remain migration fixtures only.
+- The next slice is [BDSP mine/Roark `01.03`](../data/story/bdsp-mine-pilot/README.md), preserving current #226 revision `0738cd55b` (15 events), with explicit save-card/failure policy, multi-tile arrivals and wall/door variants. Nine Python scenarios and Python CI pass in Simulation #74; Arduino #263 is published with full native execution/paired CI running. No new map edits are included.
+- Then add the starter RNG handoff/resume example, before full FRLG expansion. The [execution plan](story/EXECUTION_PLAN.md) records the revised two-gate migration sequence and remaining parity limits.
