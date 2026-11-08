@@ -108,10 +108,10 @@
     "#####wwwwwwwwwwwwww#####",
     "#####wwwwwwwwwwwwww#####",
     "#####wwwwwwwwwwwwww#####",
-    "#####wwww    wwwwww#####",
-    "#####wwww    wwwwww#####",
-    "#####wwww    wwwwww#####",
-    "#####wwww    wwwwww#####",
+    "#####wwww....wwwwww#####",
+    "#####wwww....wwwwww#####",
+    "#####wwww....wwwwww#####",
+    "#####wwww....wwwwww#####",
     "##wwwwwwwwwwwwwwwww#####",
     "##wwwwwwwwwwwwwwwww#####",
     "##wwwwwwwwwwwwwwwww#####",
@@ -182,26 +182,6 @@
     {"side": "north", "to_map": "IndigoPlateau_Exterior", "offset": 0},
     {"side": "south", "to_map": "Route22", "offset": 0}
   ],
-  "unresolved_tiles": {
-    "MB_SAND": [
-      [9, 99],
-      [10, 99],
-      [11, 99],
-      [12, 99],
-      [9, 100],
-      [10, 100],
-      [11, 100],
-      [12, 100],
-      [9, 101],
-      [10, 101],
-      [11, 101],
-      [12, 101],
-      [9, 102],
-      [10, 102],
-      [11, 102],
-      [12, 102]
-    ]
-  },
   "npcs": [
     {
       "name": "policeman",

@@ -27,7 +27,7 @@
     "#~~~~~~~~~~~~~####~~~##~~##~~#########",
     "#~~~~~###~~~~~####~~~##~~##~~#########",
     "####~~###~~~~#####~~~##~~##~~#########",
-    "####~~~~~~~~######   ##  ##~~~~~##.~~#",
+    "####~~~~~~~~######HHH##HH##~~~~~##.~~#",
     "#~~~~~~~~~~################~~~~~##~~~#",
     "#~~~~~~~~~~~~~#############~~~~~~~~~~#",
     "#~~~~~~~~~~~~~#############~~~~~~~~~~#",
@@ -57,15 +57,14 @@
     {"coord": [8, 3], "enter": "walk_west", "to_map": "PokemonMansion_2F", "to_point": "warp_0"},
     {"coord": [34, 18], "enter": "walk_west", "to_map": "PokemonMansion_2F", "to_point": "warp_1"},
     {"coord": [11, 11], "enter": "walk_west", "to_map": "PokemonMansion_2F", "to_point": "warp_3"},
-    {"coord": [18, 18], "enter": "walk_into", "to_map": "PokemonMansion_1F", "to_point": "warp_7"},
-    {"coord": [19, 18], "enter": "walk_into", "to_map": "PokemonMansion_1F", "to_point": "warp_8"},
-    {"coord": [23, 18], "enter": "walk_into", "to_map": "PokemonMansion_2F", "to_point": "warp_4"},
-    {"coord": [20, 18], "enter": "walk_into", "to_map": "PokemonMansion_1F", "to_point": "warp_8"},
-    {"coord": [24, 18], "enter": "walk_into", "to_map": "PokemonMansion_2F", "to_point": "warp_4"}
+    {"coord": [18, 18], "enter": "step_on", "to_map": "PokemonMansion_1F", "to_point": "warp_7"},
+    {"coord": [19, 18], "enter": "step_on", "to_map": "PokemonMansion_1F", "to_point": "warp_8"},
+    {"coord": [23, 18], "enter": "step_on", "to_map": "PokemonMansion_2F", "to_point": "warp_4"},
+    {"coord": [20, 18], "enter": "step_on", "to_map": "PokemonMansion_1F", "to_point": "warp_8"},
+    {"coord": [24, 18], "enter": "step_on", "to_map": "PokemonMansion_2F", "to_point": "warp_4"}
   ],
   "flag_sets": {},
   "connections": [],
-  "unresolved_tiles": {"MB_FALL_WARP": [[18, 18], [19, 18], [20, 18], [23, 18], [24, 18]]},
   "npcs": [
     {
       "name": "poke_maniac",

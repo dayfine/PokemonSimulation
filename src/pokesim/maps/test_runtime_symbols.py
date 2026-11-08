@@ -23,6 +23,13 @@ class RuntimeSymbolsTest(unittest.TestCase):
         self.assertTrue(cell_for('S').blocked)
         self.assertEqual(cell_for(' ', 3).behavior, Behavior.UNKNOWN)
         self.assertEqual(cell_for('~', 3).elevation, 3)
+        self.assertEqual(cell_for('u').behavior, Behavior.FORCED_NORTH)
+        self.assertEqual(cell_for('d').behavior, Behavior.FORCED_SOUTH)
+        self.assertEqual(cell_for('l').behavior, Behavior.FORCED_WEST)
+        self.assertEqual(cell_for('r').behavior, Behavior.FORCED_EAST)
+        self.assertEqual(cell_for('o').behavior, Behavior.STOP_SPIN)
+        self.assertEqual(cell_for('H').behavior, Behavior.FALL_WARP)
+        self.assertEqual(cell_for('B').behavior, Behavior.STRENGTH_BUTTON)
 
 
 if __name__ == '__main__':

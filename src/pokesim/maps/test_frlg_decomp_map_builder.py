@@ -67,6 +67,50 @@ class EncounterTest(unittest.TestCase):
             self.assertFalse(frlg_maps.wild_edge(glyph, self.CAVE_FLOOR))
 
 
+class FloorAndWarpTest(unittest.TestCase):
+    def test_cosmetic_floors_are_open_without_unhandled_mark(self):
+        for behavior in ('MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS',
+                         'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE'):
+            with self.subTest(behavior=behavior):
+                unhandled = {}
+                glyph, entry = frlg_maps.tile_glyph(behavior, 0, unhandled, False)
+                self.assertEqual(glyph, '.')
+                self.assertIsNone(entry)
+                self.assertEqual(unhandled, {})
+
+    def test_tall_grass_is_terrain_glyph(self):
+        unhandled = {}
+        glyph, entry = frlg_maps.tile_glyph('MB_TALL_GRASS', 0, unhandled, False)
+        self.assertEqual(glyph, '~')
+        self.assertIsNone(entry)
+        self.assertEqual(unhandled, {})
+
+    def test_interactive_terrain_glyphs(self):
+        expected = {
+            'MB_SPIN_UP': ('u', None),
+            'MB_SPIN_DOWN': ('d', None),
+            'MB_SPIN_LEFT': ('l', None),
+            'MB_SPIN_RIGHT': ('r', None),
+            'MB_STOP_SPINNING': ('o', None),
+            'MB_FALL_WARP': ('H', 'step_on'),
+            'MB_STRENGTH_BUTTON': ('B', None),
+        }
+        for behavior, (exp_glyph, exp_entry) in expected.items():
+            with self.subTest(behavior=behavior):
+                unhandled = {}
+                glyph, entry = frlg_maps.tile_glyph(behavior, 0, unhandled, False)
+                self.assertEqual(glyph, exp_glyph)
+                self.assertEqual(entry, exp_entry)
+                self.assertEqual(unhandled, {})
+
+    def test_regular_warp_is_step_on(self):
+        unhandled = {}
+        glyph, entry = frlg_maps.tile_glyph('MB_REGULAR_WARP', 0, unhandled, False)
+        self.assertEqual(glyph, '.')
+        self.assertEqual(entry, 'step_on')
+        self.assertEqual(unhandled, {})
+
+
 class FakeDecomp:
     def __init__(self, files):
         self.files = files
@@ -144,14 +188,14 @@ class CandidateTerrainTest(unittest.TestCase):
                 return struct.pack('<HH', 0, 1)
         layout = {'width': 2, 'height': 1, 'blockdata_filepath': 'map.bin',
                   'primary_tileset': 'a', 'secondary_tileset': 'b'}
-        behaviors = {0: 'MB_NORMAL', 1: 'MB_SPIN_UP'}
+        behaviors = {0: 'MB_NORMAL', 1: 'MB_CRACKED_ICE'}
         with patch.object(frlg_maps, 'tileset_attributes', return_value=[1, 0]):
             unresolved = {}
             candidate = frlg_maps.grid(Source(), layout, behaviors, {}, unresolved=unresolved)
             legacy = frlg_maps.grid(Source(), layout, behaviors, {})
         self.assertEqual(candidate[0], [' .'])
         self.assertEqual(legacy[0], ['..'])
-        self.assertEqual(unresolved, {'MB_SPIN_UP': [[0, 0]]})
+        self.assertEqual(unresolved, {'MB_CRACKED_ICE': [[0, 0]]})
 
     def test_candidate_keeps_closed_source_gym_barriers(self):
         from unittest.mock import patch

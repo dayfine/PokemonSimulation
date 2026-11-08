@@ -14,7 +14,7 @@
     },
     "tiles": {
       "type": "array",
-      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246]+$"},
+      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246udlroHB]+$"},
       "minItems": 1
     },
     "elevation": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]+$"}},

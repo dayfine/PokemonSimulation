@@ -56,11 +56,14 @@ COMMIT_DATE = '2026-10-31'
 #   Behaviors with a glyph of their own (Pokemon_MapData.h has the legend).
 TERRAIN = {
     'MB_TALL_GRASS': '~', 'MB_WARP_DOOR': 'D',
+    'MB_SPIN_UP': 'u', 'MB_SPIN_DOWN': 'd', 'MB_SPIN_LEFT': 'l', 'MB_SPIN_RIGHT': 'r',
+    'MB_STOP_SPINNING': 'o', 'MB_FALL_WARP': 'H', 'MB_STRENGTH_BUTTON': 'B',
     **{'MB_IMPASSABLE_' + side.name: glyph for glyph, side in CLOSED_SIDES.items()},
 }
 #   Open tiles whose warp is taken other than by walking into it: how.
 WARP_ENTRIES = {
     'MB_CAVE_DOOR': 'cave_entrance',
+    'MB_REGULAR_WARP': 'step_on',
     'MB_LADDER': 'step_on', 'MB_UP_ESCALATOR': 'step_on', 'MB_DOWN_ESCALATOR': 'step_on',
     'MB_SOUTH_ARROW_WARP': 'walk_south', 'MB_NORTH_ARROW_WARP': 'walk_north',
     'MB_EAST_ARROW_WARP': 'walk_east', 'MB_WEST_ARROW_WARP': 'walk_west',
@@ -71,7 +74,10 @@ WARP_ENTRIES = {
 }
 #   Ledges, by the way the player hops over them.
 LEDGES = {'MB_JUMP_' + direction.name: glyph for direction, glyph in LEDGE_GLYPHS.items()}
-FLOOR = ('MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS')
+FLOOR = (
+    'MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS',
+    'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE',
+)
 # pret/pokefirered src/metatile_behavior.c, sBehaviorSurfable at COMMIT.
 # Preserve water in the full baseline; it remains blocked for walking. Surf,
 # waterfall and current execution require separate game movement bindings.
@@ -208,7 +214,7 @@ def tile_glyph(behavior, collision, unhandled, sign_event=False):
     if behavior in WARP_ENTRIES:
         return '.', WARP_ENTRIES[behavior]
     if behavior in TERRAIN:
-        return TERRAIN[behavior], None
+        return TERRAIN[behavior], 'step_on' if behavior == 'MB_FALL_WARP' else None
     if 'WATER' in behavior:
         return 'w', None
     if behavior not in FLOOR:

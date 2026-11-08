@@ -186,7 +186,7 @@
     },
     {
       "reason": "optional-mainland",
-      "basis": "Optional caves/legendary destinations not visited in the reviewed first-Champion route.",
+      "basis": "Optional caves, routes and legendary destinations (such as Cycling Road) not visited in the reviewed first-Champion route.",
       "maps": [
         "CeruleanCave_1F",
         "CeruleanCave_2F",
@@ -195,6 +195,7 @@
         "DiglettsCave_NorthEntrance",
         "DiglettsCave_SouthEntrance",
         "PowerPlant",
+        "Route17",
         "SeafoamIslands_1F",
         "SeafoamIslands_B1F",
         "SeafoamIslands_B2F",

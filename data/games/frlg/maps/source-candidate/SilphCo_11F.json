@@ -14,7 +14,7 @@
     "#######...#######",
     "#######...###D###",
     "...##............",
-    ".. ##............",
+    "...##............",
     "...############..",
     "...############..",
     "...##..#####.##..",
@@ -33,12 +33,11 @@
   "points": {"warp_0": [7, 2], "warp_1": [2, 5]},
   "warps": [
     {"coord": [7, 2], "enter": "walk_west", "to_map": "SilphCo_10F", "to_point": "warp_0"},
-    {"coord": [2, 5], "enter": "walk_into", "to_map": "SilphCo_7F", "to_point": "warp_1"},
+    {"coord": [2, 5], "enter": "step_on", "to_map": "SilphCo_7F", "to_point": "warp_1"},
     {"coord": [13, 3], "enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0"}
   ],
   "flag_sets": {},
   "connections": [],
-  "unresolved_tiles": {"MB_REGULAR_WARP": [[2, 5]]},
   "npcs": [
     {"name": "old_man_2", "coord": [9, 9], "source_event": 0, "source_script": "SilphCo_11F_EventScript_President"},
     {"name": "worker_f", "coord": [11, 9], "source_event": 1, "source_script": "SilphCo_11F_EventScript_Secretary"},

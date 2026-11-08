@@ -15,7 +15,7 @@
     "######################D#####...#####",
     "###.....##.##.##....................",
     "...........##.......................",
-    ".. ........##.. ....................",
+    "...........##.......................",
     "...........##.......................",
     "#####..######################..#####",
     "#####..######################..#####",
@@ -28,7 +28,7 @@
     "#####..#######............##........",
     "............##......................",
     "............##..###..###.....###....",
-    "..###.. ...###..###..###..##.###. .#",
+    "..###......###..###..###..##.###...#",
     "............##............##........",
     "...........###............##.......#"
   ],
@@ -42,16 +42,15 @@
   },
   "warps": [
     {"coord": [28, 2], "enter": "walk_west", "to_map": "SilphCo_3F", "to_point": "warp_0"},
-    {"coord": [2, 6], "enter": "walk_into", "to_map": "SilphCo_3F", "to_point": "warp_8"},
-    {"coord": [15, 6], "enter": "walk_into", "to_map": "SilphCo_8F", "to_point": "warp_5"},
+    {"coord": [2, 6], "enter": "step_on", "to_map": "SilphCo_3F", "to_point": "warp_8"},
+    {"coord": [15, 6], "enter": "step_on", "to_map": "SilphCo_8F", "to_point": "warp_5"},
     {"coord": [30, 2], "enter": "walk_east", "to_map": "SilphCo_1F", "to_point": "warp_3"},
-    {"coord": [7, 19], "enter": "walk_into", "to_map": "SilphCo_6F", "to_point": "warp_1"},
-    {"coord": [33, 19], "enter": "walk_into", "to_map": "SilphCo_8F", "to_point": "warp_2"},
+    {"coord": [7, 19], "enter": "step_on", "to_map": "SilphCo_6F", "to_point": "warp_1"},
+    {"coord": [33, 19], "enter": "step_on", "to_map": "SilphCo_8F", "to_point": "warp_2"},
     {"coord": [22, 3], "enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0"}
   ],
   "flag_sets": {},
   "connections": [],
-  "unresolved_tiles": {"MB_REGULAR_WARP": [[2, 6], [15, 6], [7, 19], [33, 19]]},
   "npcs": [
     {
       "name": "rocket_m",

@@ -17,17 +17,18 @@ SCOPE = CANDIDATE.parent / 'pokeguy-map-scope.json'
 class FullImportAuditTest(unittest.TestCase):
     def test_checked_full_catalog_has_fixed_links_and_visible_gaps(self):
         report = audit(CANDIDATE, scope=SCOPE)
-        self.assertEqual(report['map_count'], 141)
-        self.assertEqual(report['excluded_map_count'], 284)
+        self.assertEqual(report['map_count'], 140)
+        self.assertEqual(report['excluded_map_count'], 285)
         self.assertEqual(report['source_revision'], COMMIT)
         self.assertEqual(report['totals']['dynamic_warps'], 0)
         self.assertEqual(report['totals']['unlinked_warps'], 0)
         self.assertEqual(report['totals']['scope_boundary_warps'], 103)
-        self.assertEqual(report['totals']['unknown_tiles'], 3140)
+        self.assertEqual(report['totals']['scope_boundary_connections'], 2)
+        self.assertEqual(report['totals']['unknown_tiles'], 0)
         self.assertEqual(report['totals']['unresolved_pickups'], 84)
         self.assertEqual(report['totals']['unapplied_story_patches'], 1)
         self.assertEqual(report['elevation_grids_retained'], 14)
-        self.assertEqual(report['elevation_grids_omitted'], 127)
+        self.assertEqual(report['elevation_grids_omitted'], 126)
         self.assertFalse(report['schema_checked'])
 
     def test_missing_destinations_require_an_explicit_scope(self):
@@ -43,11 +44,10 @@ class FullImportAuditTest(unittest.TestCase):
                 self.assertTrue((CANDIDATE / (name + '.json')).is_file())
 
     def test_unresolved_terrain_cannot_be_silently_opened(self):
-        source = json.loads((CANDIDATE / 'RocketHideout_B2F.json').read_text())
-        name = next(iter(source['unresolved_tiles']))
-        x, y = source['unresolved_tiles'][name][0]
+        source = json.loads((CANDIDATE / 'PalletTown.json').read_text())
         changed = copy.deepcopy(source)
-        changed['tiles'][y] = changed['tiles'][y][:x] + '.' + changed['tiles'][y][x + 1:]
+        changed['unresolved_tiles'] = {'MB_UNKNOWN_TEST': [[1, 1]]}
+        changed['tiles'][1] = changed['tiles'][1][:1] + '.' + changed['tiles'][1][2:]
         with tempfile.TemporaryDirectory() as directory:
             Path(directory, source['name'] + '.json').write_text(json.dumps(changed))
             with self.assertRaisesRegex(ValueError, 'unresolved terrain'):
