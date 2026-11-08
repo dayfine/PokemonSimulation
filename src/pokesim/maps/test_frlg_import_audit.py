@@ -11,19 +11,36 @@ from .frlg_decomp_map_builder import COMMIT
 from pokesim.formats.json_schema import ROOT
 
 CANDIDATE = ROOT / 'data/games/frlg/maps/source-candidate'
+SCOPE = CANDIDATE.parent / 'pokeguy-map-scope.json'
 
 
 class FullImportAuditTest(unittest.TestCase):
     def test_checked_full_catalog_has_fixed_links_and_visible_gaps(self):
-        report = audit(CANDIDATE)
-        self.assertEqual(report['map_count'], 425)
+        report = audit(CANDIDATE, scope=SCOPE)
+        self.assertEqual(report['map_count'], 144)
+        self.assertEqual(report['excluded_map_count'], 281)
         self.assertEqual(report['source_revision'], COMMIT)
-        self.assertEqual(report['totals']['dynamic_warps'], 19)
-        self.assertEqual(report['totals']['unlinked_warps'], 19)
-        self.assertEqual(report['totals']['unknown_tiles'], 6038)
-        self.assertEqual(report['totals']['unresolved_pickups'], 145)
+        self.assertEqual(report['totals']['dynamic_warps'], 5)
+        self.assertEqual(report['totals']['unlinked_warps'], 5)
+        self.assertEqual(report['totals']['scope_boundary_warps'], 83)
+        self.assertEqual(report['totals']['unknown_tiles'], 3140)
+        self.assertEqual(report['totals']['unresolved_pickups'], 84)
         self.assertEqual(report['totals']['unapplied_story_patches'], 1)
+        self.assertEqual(report['elevation_grids_retained'], 54)
+        self.assertEqual(report['elevation_grids_omitted'], 90)
         self.assertFalse(report['schema_checked'])
+
+    def test_missing_destinations_require_an_explicit_scope(self):
+        with self.assertRaisesRegex(ValueError, 'missing fixed warp destination'):
+            audit(CANDIDATE)
+
+    def test_required_reward_and_recovery_rooms_survive_pruning(self):
+        for name in ('SSAnne_1F_Room6', 'CeladonCity_Condominiums_1F',
+                     'Route16_House', 'Route25_SeaCottage',
+                     'SafariZone_SecretHouse', 'FuchsiaCity_WardensHouse',
+                     'CeruleanCity_House1', 'CeruleanCity_House2'):
+            with self.subTest(map=name):
+                self.assertTrue((CANDIDATE / (name + '.json')).is_file())
 
     def test_unresolved_terrain_cannot_be_silently_opened(self):
         source = json.loads((CANDIDATE / 'RocketHideout_B2F.json').read_text())

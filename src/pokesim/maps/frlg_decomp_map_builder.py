@@ -10,6 +10,8 @@ Usage:
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder>
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder> --check
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all --out /tmp/frlg-world-candidate
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all \
+        --scope data/games/frlg/maps/pokeguy-map-scope.json --out /tmp/frlg-pokeguy-candidate
 
 Downloads each map's data/maps/<map>/map.json, its layout's map.bin and its
 tilesets' metatile_attributes.bin at --commit into --cache, then writes
@@ -23,6 +25,7 @@ and flag sets come from POINTS and FLAG_SETS below.
 
 With --all, enumerate the complete pinned map catalog into an empty candidate
 directory; this does not approve the data or support all movement mechanics.
+With --scope, omit explicitly excluded maps but preserve their boundary links.
 Without map names, the maps are the ones already in --out; with them, those
 maps are added to the ones in --out, so warps and connections still join
 them all. --check writes nothing: it regenerates them and fails if any file
@@ -43,6 +46,7 @@ from .runtime_symbols import CLOSED_SIDES, LEDGE_GLYPHS
 from .item_identity import enrich_objects
 from .runtime_map_coordinates import compact_map
 from .runtime_map_format import map_text as readable_map_text
+from .frlg_map_scope import read_scope
 
 COMMIT = 'ce6406d8c2eaf46d543c8a2606de0c3cb1951982'
 #   When COMMIT was pinned, for each map's "source".
@@ -499,9 +503,12 @@ def main():
     parser.add_argument('--item-identities', action='store_true', help='enrich from the pinned pickup catalog')
     parser.add_argument('--check', action='store_true', help='check the files in --out instead of writing them')
     parser.add_argument('--all', dest='all_maps', action='store_true', help='generate the pinned full catalog into an empty candidate directory')
+    parser.add_argument('--scope', help='with --all: explicit reviewed exclusion inventory; preserve boundary links')
     parser.add_argument('maps', nargs='*', help='default: the maps already in --out')
     args = parser.parse_args()
     decomp = Decomp(args.commit, args.cache)
+    if args.scope and not args.all_maps:
+        parser.error('--scope requires --all')
     if args.all_maps:
         if args.maps:
             parser.error('--all cannot be combined with explicit map names')
@@ -516,6 +523,7 @@ def main():
     if not args.maps:
         parser.error('no maps given, and none in --out')
 
+    excluded = read_scope(args.scope, args.maps, args.commit) if args.scope else {}
     names = behaviors(decomp)
     layouts = {l['id']: l for l in json.loads(decomp.read('data/layouts/layouts.json'))['layouts'] if 'id' in l}
     sources = {m: json.loads(decomp.read(f'data/maps/{m}/map.json')) for m in args.maps}
@@ -524,6 +532,8 @@ def main():
     land_maps = land_encounter_maps(decomp)
     maps = []
     for name in args.maps:
+        if name in excluded:
+            continue
         data = map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities, candidate=args.all_maps)
         text = contract_json_text(compact_map(data)) if args.all_maps else json_text(data)
         maps.append((name, text))
@@ -532,6 +542,10 @@ def main():
         print(f'Unhandled non-collision behaviors written as {treatment}: {unhandled}')
     if args.check:
         differ = []
+        if args.scope:
+            unexpected = {f[:-5] for f in os.listdir(args.out) if f.endswith('.json')} - {n for n, _ in maps}
+            if unexpected:
+                sys.exit('Out-of-scope map files: ' + ' '.join(sorted(unexpected)))
         for name, text in maps:
             path = os.path.join(args.out, name + '.json')
             if not os.path.exists(path) or open(path, newline='').read() != text:

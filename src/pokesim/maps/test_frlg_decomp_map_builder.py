@@ -184,3 +184,18 @@ class CandidateWaterTest(unittest.TestCase):
             legacy = frlg_maps.grid(Source(), layout, {1: 'MB_POND_WATER'}, {})
         self.assertEqual(candidate[0], ['w'])
         self.assertEqual(legacy[0], ['#'])
+
+
+class ElevationElisionTest(unittest.TestCase):
+    def test_only_default_ground_may_be_omitted(self):
+        cases = [
+            (['..#'], ['331'], True),  # Wall height cannot affect a walking leg.
+            (['...'], ['333'], True),
+            (['...'], ['303'], False),  # Zero accepts arrivals at any elevation.
+            (['...'], ['343'], False),  # A level change blocks ordinary walking.
+            (['...'], ['3f3'], False),  # Bridge preserves the player's level.
+            (['.w.'], ['303'], False),  # Water is not a dispensable wall.
+        ]
+        for tiles, levels, expected in cases:
+            with self.subTest(tiles=tiles, elevation=levels):
+                self.assertEqual(frlg_maps.ground_only(tiles, levels), expected)
