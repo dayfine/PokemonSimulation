@@ -1,5 +1,10 @@
 # Arduino map consumer integration
 
+For story execution and cross-repository testing, see the
+[shared story and simulation guide](../../docs/story/README.md). The map tooling
+below is one part of that contract; native and Python implementations share
+pinned data/scenarios while retaining their own implementation tests.
+
 The [new migration plan](../../docs/maps/UNIFICATION_STEPS.md) stages compact
 coordinate arrays and a move to pinned external Packages resources. Commands
 below still target the existing embedded source-map directories; resource-path

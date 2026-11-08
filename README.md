@@ -25,6 +25,9 @@ include 53 FRLG and 22 BDSP maps, portable generators, corrections, provenance
 and a byte-identical export for Arduino consumers.
 The [local runtime-map planner](docs/navigation/RUNTIME_ROUTES.md) now computes
 and draws routes inside a pinned FRLG or BDSP map, recording its inputs and state.
+The [shared story and simulation guide](docs/story/README.md) explains which
+data and regression scenarios both repositories share, what their separate
+implementations verify, and the next story-execution parity gate.
 
 The [C-strategy comparison](docs/battles/pokeguy-c-comparison.md) reruns only
 the 12 setup fights and combines them with the retained baseline for a new
