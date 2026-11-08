@@ -1,0 +1,89 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SilphCo_2F",
+  "source": {
+    "decomp_file": "data/maps/SilphCo_2F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "####################################",
+    "####################################",
+    "############################...#####",
+    "######################D#####...#####",
+    "###.....##.##.##....................",
+    "...........##.......................",
+    ".. ........##.. ....................",
+    "...........##.......................",
+    "#####..######################..#####",
+    "#####..######################..#####",
+    ".................######.............",
+    "....................................",
+    "....................................",
+    "..........................##########",
+    "................###..###..##########",
+    "#####..#######..###..###..##........",
+    "#####..#######............##........",
+    "............##......................",
+    "............##..###..###.....###....",
+    "..###.. ...###..###..###..##.###. .#",
+    "............##............##........",
+    "...........###............##.......#"
+  ],
+  "points": {
+    "warp_0": [28, 2],
+    "warp_1": [2, 6],
+    "warp_2": [15, 6],
+    "warp_3": [30, 2],
+    "warp_4": [7, 19],
+    "warp_5": [33, 19]
+  },
+  "warps": [
+    {"coord": [28, 2], "enter": "walk_west", "to_map": "SilphCo_3F", "to_point": "warp_0"},
+    {"coord": [2, 6], "enter": "walk_into", "to_map": "SilphCo_3F", "to_point": "warp_8"},
+    {"coord": [15, 6], "enter": "walk_into", "to_map": "SilphCo_8F", "to_point": "warp_5"},
+    {"coord": [30, 2], "enter": "walk_east", "to_map": "SilphCo_1F", "to_point": "warp_3"},
+    {"coord": [7, 19], "enter": "walk_into", "to_map": "SilphCo_6F", "to_point": "warp_1"},
+    {"coord": [33, 19], "enter": "walk_into", "to_map": "SilphCo_8F", "to_point": "warp_2"},
+    {"coord": [22, 3], "enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "unresolved_tiles": {"MB_REGULAR_WARP": [[2, 6], [15, 6], [7, 19], [33, 19]]},
+  "npcs": [
+    {
+      "name": "rocket_m",
+      "coord": [29, 12],
+      "facing": "north",
+      "trainer": {"sight": 5},
+      "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
+      "source_event": 0,
+      "source_script": "SilphCo_2F_EventScript_Grunt2"
+    },
+    {
+      "name": "scientist",
+      "coord": [28, 18],
+      "trainer": {"sight": 4, "looks": ["north", "west"]},
+      "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
+      "source_event": 1,
+      "source_script": "SilphCo_2F_EventScript_Jerry"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [20, 14],
+      "trainer": {"sight": 3, "looks": ["south", "north"]},
+      "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
+      "source_event": 2,
+      "source_script": "SilphCo_2F_EventScript_Grunt1"
+    },
+    {
+      "name": "scientist",
+      "coord": [5, 19],
+      "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
+      "source_event": 3,
+      "source_script": "SilphCo_2F_EventScript_Connor"
+    },
+    {"name": "woman_2", "coord": [10, 4], "source_event": 4, "source_script": "SilphCo_2F_EventScript_ThunderWaveTutor"}
+  ]
+}

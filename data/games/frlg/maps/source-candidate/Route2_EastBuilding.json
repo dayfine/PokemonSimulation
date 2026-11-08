@@ -1,0 +1,43 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route2_EastBuilding",
+  "source": {
+    "decomp_file": "data/maps/Route2_EastBuilding/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "###############",
+    "#######.#######",
+    "##...#...#...##",
+    "#.............#",
+    "#..........##.#",
+    "###........##.#",
+    "#.............#",
+    "#..........##.#",
+    "###........##.#",
+    "#.............#",
+    "#.............#",
+    "###############"
+  ],
+  "points": {"warp_1": [7, 10], "warp_3": [7, 1]},
+  "warps": [
+    {"coord": [6, 10], "enter": "walk_into", "to_map": "Route2", "to_point": "warp_5"},
+    {"coord": [7, 10], "enter": "walk_south", "to_map": "Route2", "to_point": "warp_5"},
+    {"coord": [8, 10], "enter": "walk_into", "to_map": "Route2", "to_point": "warp_5"},
+    {"coord": [7, 1], "enter": "cave_entrance", "to_map": "Route2", "to_point": "warp_6"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "scientist", "coord": [4, 6], "source_event": 0, "source_script": "Route2_EastBuilding_EventScript_Aide"},
+    {
+      "name": "rocker",
+      "coord": [10, 3],
+      "wander": {"min": [8, 3], "max": [12, 3]},
+      "source_event": 1,
+      "source_script": "Route2_EastBuilding_EventScript_Rocker"
+    }
+  ]
+}

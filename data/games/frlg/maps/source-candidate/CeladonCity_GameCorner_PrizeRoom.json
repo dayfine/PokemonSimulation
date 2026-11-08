@@ -1,0 +1,64 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_GameCorner_PrizeRoom",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_GameCorner_PrizeRoom/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#########",
+    "#########",
+    "#.......#",
+    "#########",
+    ".........",
+    ".........",
+    "##.....##",
+    ".........",
+    ".........",
+    "#########"
+  ],
+  "points": {"warp_1": [4, 8]},
+  "warps": [
+    {"coord": [3, 9], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_5"},
+    {"coord": [4, 8], "enter": "walk_south", "to_map": "CeladonCity", "to_point": "warp_5"},
+    {"coord": [5, 9], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_5"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "balding_man",
+      "coord": [2, 6],
+      "wander": {"min": [1, 5], "max": [3, 7]},
+      "source_event": 0,
+      "source_script": "CeladonCity_GameCorner_PrizeRoom_EventScript_BaldingMan"
+    },
+    {
+      "name": "old_man_2",
+      "coord": [6, 7],
+      "source_event": 1,
+      "source_script": "CeladonCity_GameCorner_PrizeRoom_EventScript_OldMan"
+    },
+    {
+      "name": "worker_m",
+      "coord": [4, 2],
+      "source_event": 2,
+      "source_script": "CeladonCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons"
+    },
+    {
+      "name": "worker_m",
+      "coord": [6, 2],
+      "source_event": 3,
+      "source_script": "CeladonCity_GameCorner_PrizeRoom_EventScript_PrizeClerkTMs"
+    },
+    {
+      "name": "worker_m",
+      "coord": [2, 2],
+      "source_event": 4,
+      "source_script": "CeladonCity_GameCorner_PrizeRoom_EventScript_PrizeClerkItems"
+    }
+  ]
+}

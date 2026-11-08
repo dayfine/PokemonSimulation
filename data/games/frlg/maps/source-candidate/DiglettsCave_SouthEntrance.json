@@ -1,0 +1,36 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "DiglettsCave_SouthEntrance",
+  "source": {
+    "decomp_file": "data/maps/DiglettsCave_SouthEntrance/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "##########",
+    "##########",
+    "##. ....##",
+    "##......##",
+    "##......##",
+    "##......##",
+    "##......##",
+    "##########"
+  ],
+  "points": {"warp_0": [4, 6], "warp_1": [6, 4]},
+  "warps": [
+    {"coord": [4, 6], "enter": "walk_south", "to_map": "Route11", "to_point": "warp_0"},
+    {"coord": [6, 4], "enter": "step_on", "to_map": "DiglettsCave_B1F", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "unresolved_tiles": {"MB_SAND_CAVE": [[3, 2]]},
+  "npcs": [
+    {
+      "name": "old_man_1",
+      "coord": [4, 4],
+      "source_event": 0,
+      "source_script": "DiglettsCave_SouthEntrance_EventScript_OldMan"
+    }
+  ]
+}

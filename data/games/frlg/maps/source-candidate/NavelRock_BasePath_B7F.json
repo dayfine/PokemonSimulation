@@ -1,0 +1,18 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "NavelRock_BasePath_B7F",
+  "source": {
+    "decomp_file": "data/maps/NavelRock_BasePath_B7F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": ["#######", "#######", "##...##", "##...##", "##...##", "#######", "#######"],
+  "points": {"warp_0": [2, 2], "warp_1": [4, 4]},
+  "warps": [
+    {"coord": [2, 2], "enter": "step_on", "to_map": "NavelRock_BasePath_B6F", "to_point": "warp_1"},
+    {"coord": [4, 4], "enter": "step_on", "to_map": "NavelRock_BasePath_B8F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": []
+}

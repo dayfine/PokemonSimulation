@@ -1,0 +1,64 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_DepartmentStore_5F",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_DepartmentStore_5F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#############",
+    "######D#S####",
+    "###.......###",
+    "###.......###",
+    "###.......###",
+    "..#.......###",
+    "..#..........",
+    "..#..........",
+    "###....##.##.",
+    ".......##.##.",
+    ".............",
+    ".##.##.......",
+    ".##.##.##.##.",
+    ".##.##.##.##.",
+    "#...........#"
+  ],
+  "points": {"warp_1": [9, 2], "warp_2": [3, 2]},
+  "warps": [
+    {"coord": [6, 1], "enter": "walk_into", "to_map": "CeladonCity_DepartmentStore_Elevator", "to_point": "warp_0"},
+    {"coord": [9, 2], "enter": "walk_east", "to_map": "CeladonCity_DepartmentStore_4F", "to_point": "warp_2"},
+    {"coord": [3, 2], "enter": "walk_west", "to_map": "CeladonCity_DepartmentStore_Roof", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "gentleman",
+      "coord": [11, 6],
+      "wander": {"min": [10, 6], "max": [12, 6]},
+      "source_event": 0,
+      "source_script": "CeladonCity_DepartmentStore_5F_EventScript_Gentleman"
+    },
+    {
+      "name": "sailor",
+      "coord": [6, 8],
+      "wander": {"min": [5, 7], "max": [7, 9]},
+      "source_event": 1,
+      "source_script": "CeladonCity_DepartmentStore_5F_EventScript_Sailor"
+    },
+    {
+      "name": "clerk",
+      "coord": [1, 7],
+      "source_event": 2,
+      "source_script": "CeladonCity_DepartmentStore_5F_EventScript_ClerkXItems"
+    },
+    {
+      "name": "clerk",
+      "coord": [1, 6],
+      "source_event": 3,
+      "source_script": "CeladonCity_DepartmentStore_5F_EventScript_ClerkVitamins"
+    }
+  ]
+}

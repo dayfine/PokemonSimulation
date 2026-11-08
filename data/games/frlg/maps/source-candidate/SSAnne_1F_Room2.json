@@ -1,0 +1,43 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SSAnne_1F_Room2",
+  "source": {
+    "decomp_file": "data/maps/SSAnne_1F_Room2/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": ["######", "##D###", ".....#", "......", "......", "##..#.", "##..#.", "##...."],
+  "points": {"warp_0": [2, 1]},
+  "warps": [{"coord": [2, 1], "enter": "walk_into", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_7"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "lass",
+      "coord": [5, 3],
+      "trainer": {"sight": 2, "looks": ["south", "west"]},
+      "source_event": 0,
+      "source_script": "SSAnne_1F_Room2_EventScript_Ann"
+    },
+    {
+      "name": "youngster",
+      "coord": [0, 4],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 1,
+      "source_script": "SSAnne_1F_Room2_EventScript_Tyler"
+    },
+    {"name": "woman_2", "coord": [2, 6], "source_event": 2, "source_script": "SSAnne_1F_Room2_EventScript_Woman"}
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [5, 7],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_SSANNE_1F_ROOM2_TM31",
+      "source_script": "SSAnne_1F_Room2_EventScript_ItemTM31",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "FiveIsland_WaterLabyrinth",
+  "source": {
+    "decomp_file": "data/maps/FiveIsland_WaterLabyrinth/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwww.........wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwww.........wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwww.........wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwww..........wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwww........wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwww.......wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwww.......wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwww.......wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+  ],
+  "elevation": [
+    "111110011111111110011111110000111111111111001111111001111111100111001111",
+    "100110011100111110011111110000111111000000000011110011111111100100001111",
+    "100111000000001111111111001111001100000000110000000010011110011100111111",
+    "111100000011000011111100001111000000111111111100001110011110011001111111",
+    "110000111111110000001100111111110011111110011111111111111111100001111111",
+    "110011111111111100000011111111111111110010000111111111111111100001111001",
+    "111001133333333311110011110000111111000011100111111111111111111001111001",
+    "111001133333333311001100000000110000001111111111100111111111000011111111",
+    "110011133333333311001100001111110000111111001111100111111111000011111111",
+    "110011113333333333111111100111100111111111001111111001111111100111111111",
+    "111001111133333333111111100111100001111111111111111001111110000111001111",
+    "111000011113333333111111111001111001111001100111111111111110011111001111",
+    "001110011113333333111111111001111110011000000100110000111110011111111111",
+    "001100100113333333111001111110011110010010010000000000111110000111111111",
+    "111100100111111111100001001110011111000011110011001110011111100111110011",
+    "100100111111111111100100001111111111001111001111111110011111001111110000",
+    "100100000011001100001100110011100001111100001100111110011111000011111100",
+    "111111000000000000001111110011100001111100111100111110011111110011111111",
+    "111001111100110011111001111100001100000011111111100110011111001110011111",
+    "111001111111111111111001111100001100000011111111100110011111001110011111"
+  ],
+  "points": {},
+  "warps": [],
+  "flag_sets": {},
+  "connections": [
+    {"side": "north", "to_map": "FiveIsland_ResortGorgeous", "offset": 48},
+    {"side": "south", "to_map": "FiveIsland", "offset": 48}
+  ],
+  "npcs": [
+    {
+      "name": "gentleman",
+      "coord": [14, 11],
+      "source_event": 0,
+      "source_script": "FiveIsland_WaterLabyrinth_EventScript_EggGentleman"
+    },
+    {
+      "name": "woman_2",
+      "coord": [9, 7],
+      "wander": {"min": [8, 6], "max": [10, 8]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 1,
+      "source_script": "FiveIsland_WaterLabyrinth_EventScript_Alize"
+    }
+  ]
+}

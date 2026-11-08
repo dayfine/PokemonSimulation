@@ -1,0 +1,99 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "RocketHideout_B3F",
+  "source": {
+    "decomp_file": "data/maps/RocketHideout_B3F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "######################",
+    "######################",
+    "###................###",
+    "#..................###",
+    "#....................#",
+    "###########..######..#",
+    "###########..######..#",
+    "#............##......#",
+    "#####..#####.##......#",
+    "#. . . . ....##......#",
+    "##.#.###. #####..#####",
+    "#. ... . .#####..#####",
+    "#.##.#.#..##.##...##.#",
+    "#.##.# ... ..##......#",
+    "#.... . .  ####......#",
+    "#.## . .##.###########",
+    "#.. ... ##...#########",
+    "#. ... .##...#########",
+    "#### ##.##...##..#####",
+    "#....#..##...##..#####",
+    "#...... ##.......#####",
+    "#.....####.......#####",
+    "#.......##.......#####",
+    "####..####.......#####",
+    "####..####.......#####",
+    "#................#####",
+    "#................#####"
+  ],
+  "points": {"warp_0": [18, 2], "warp_1": [15, 18]},
+  "warps": [
+    {"coord": [18, 2], "enter": "walk_east", "to_map": "RocketHideout_B2F", "to_point": "warp_0"},
+    {"coord": [15, 18], "enter": "walk_west", "to_map": "RocketHideout_B4F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "unresolved_tiles": {
+    "MB_STOP_SPINNING": [[2, 9], [8, 9], [6, 11], [10, 13], [9, 14], [7, 20]],
+    "MB_SPIN_LEFT": [[4, 9]],
+    "MB_SPIN_RIGHT": [[6, 9], [2, 11], [6, 13], [5, 14], [7, 14], [4, 15], [3, 16], [2, 17]],
+    "MB_SPIN_DOWN": [[9, 10], [7, 16]],
+    "MB_SPIN_UP": [[8, 11], [10, 14], [6, 15], [6, 17], [4, 18]]
+  },
+  "npcs": [
+    {
+      "name": "rocket_m",
+      "coord": [19, 9],
+      "facing": "north",
+      "trainer": {"sight": 4},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 0,
+      "source_script": "RocketHideout_B3F_EventScript_Grunt2"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [2, 20],
+      "facing": "east",
+      "trainer": {"sight": 2},
+      "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
+      "source_event": 1,
+      "source_script": "RocketHideout_B3F_EventScript_Grunt1"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [12, 12],
+      "source_event": 2,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B3F_RARE_CANDY",
+      "source_script": "RocketHideout_B3F_EventScript_ItemRareCandy",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [19, 14],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B3F_TM21",
+      "source_script": "RocketHideout_B3F_EventScript_ItemTM21",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [14, 24],
+      "source_event": 4,
+      "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B3F_BLACK_GLASSES",
+      "source_script": "RocketHideout_B3F_EventScript_ItemBlackGlasses",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

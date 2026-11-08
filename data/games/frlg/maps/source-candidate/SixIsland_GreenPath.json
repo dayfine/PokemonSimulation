@@ -1,0 +1,78 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SixIsland_GreenPath",
+  "source": {
+    "decomp_file": "data/maps/SixIsland_GreenPath/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##########################wwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###########################wwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##########################.....",
+    "wwwwwwwwwwww   wwwwwwwwwwwwwwwwwwwwwwwwww##############################.",
+    "wwwwwwwwwww    wwwwwwwwwwwwwwwwwwwwwwwwww##############################.",
+    "wwwwwwwww##  ##wwwwwwwwwwwwwwwwwwwwww###..############################..",
+    "wwwwwwwwwww  ##wwwwwwwwwwwwwwwwwwwwww###..############################..",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#..S####..################..####S..",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.........################.........",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.........################.........",
+    "wwwwwwwwwwwwwwwwwww##wwwwwwwwwwwwwwww#..#############################...",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww....###########################....",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww....###########################...#",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww....###########################..##",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##############################",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+  ],
+  "elevation": [
+    "001111100111001001111100111111111110011111001100111111111110011111111111",
+    "111110000111111001111100111111111110010011001100111111111110011111111111",
+    "111110010011110011111111111001111111110011111111111111111111111111111100",
+    "111100110011110000111111100000000111111111011000000000000000000000001100",
+    "110000111111111100111100100110000111111110111000000000000000000000001111",
+    "110011111111111111000000100111111001110010000000000000000000000000033333",
+    "100111111113333311000010000100111001100000000000000000000000000000000003",
+    "100111111003333311111110011100001110000000000000000000000000000000000003",
+    "001110011003300311111111111111001110000033000000000000000000000000000033",
+    "001110011133300311111111111100111100100033000000000000000000000000000033",
+    "100111111133333311111111111100111100103300000330000000000000000330000033",
+    "100100111111111111111111111111111111103333333330000000000000000333333333",
+    "110000111111111111100111111111111111103333333330000000000000000333333333",
+    "110010011111111111100110011111111111103300000000000000000000000000000333",
+    "111110000111001100111110000111111111133330000000000000000000000000003333",
+    "111111100100001100001100100000011111133330000000000000000000000000003330",
+    "001111110000110011000000111000011111133330000000000000000000000000003300",
+    "001111110011000011110011111111100001100001000000000000000000000000000000",
+    "111110011111001111100110010011100000000001111111111111111111111111111111",
+    "111110011111111111100110010011111110011111111111111111111111111111111111"
+  ],
+  "points": {"warp_0": [63, 10], "warp_1": [64, 10], "warp_2": [45, 10], "warp_3": [46, 10]},
+  "warps": [
+    {"coord": [63, 10], "enter": "walk_north", "to_map": "SixIsland_PatternBush", "to_point": "warp_1"},
+    {"coord": [64, 10], "enter": "walk_north", "to_map": "SixIsland_PatternBush", "to_point": "warp_1"},
+    {"coord": [45, 10], "enter": "walk_north", "to_map": "SixIsland_PatternBush", "to_point": "warp_4"},
+    {"coord": [46, 10], "enter": "walk_north", "to_map": "SixIsland_PatternBush", "to_point": "warp_4"}
+  ],
+  "flag_sets": {},
+  "connections": [
+    {"side": "north", "to_map": "SixIsland_OutcastIsland", "offset": 0},
+    {"side": "east", "to_map": "SixIsland_WaterPath", "offset": 0}
+  ],
+  "unresolved_tiles": {
+    "MB_SAND": [[12, 6], [13, 6], [14, 6], [11, 7], [12, 7], [13, 7], [14, 7], [11, 8], [12, 8], [11, 9], [12, 9]]
+  },
+  "npcs": [
+    {
+      "name": "woman_1",
+      "coord": [11, 8],
+      "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
+      "source_event": 0,
+      "source_script": "SixIsland_GreenPath_EventScript_Jaclyn"
+    }
+  ]
+}

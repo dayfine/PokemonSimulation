@@ -1,0 +1,30 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "ThreeIsland_House2",
+  "source": {
+    "decomp_file": "data/maps/ThreeIsland_House2/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    "#....##....",
+    ".....##....",
+    "...........",
+    "#..........",
+    "###########"
+  ],
+  "points": {"warp_0": [4, 7]},
+  "warps": [{"coord": [4, 7], "enter": "walk_south", "to_map": "ThreeIsland", "to_point": "warp_3"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "rocker", "coord": [4, 4], "source_event": 0, "source_script": "ThreeIsland_House2_EventScript_Rocker"},
+    {"name": "man", "coord": [7, 4], "source_event": 1, "source_script": "ThreeIsland_House2_EventScript_Man"}
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "RecordCorner",
+  "source": {
+    "decomp_file": "data/maps/RecordCorner/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "####################",
+    "####################",
+    "####............####",
+    "####............####",
+    "####...######...####",
+    "####....####....####",
+    "####...######...####",
+    "####............####",
+    "####............####",
+    "########....########"
+  ],
+  "points": {},
+  "warps": [
+    {
+      "coord": [8, 9],
+      "enter": "walk_south",
+      "unresolved": "dynamic_destination",
+      "source_destination": {"map": "MAP_DYNAMIC", "warp": "WARP_ID_DYNAMIC"}
+    },
+    {
+      "coord": [9, 9],
+      "enter": "walk_south",
+      "unresolved": "dynamic_destination",
+      "source_destination": {"map": "MAP_DYNAMIC", "warp": "WARP_ID_DYNAMIC"}
+    },
+    {
+      "coord": [11, 9],
+      "enter": "walk_south",
+      "unresolved": "dynamic_destination",
+      "source_destination": {"map": "MAP_DYNAMIC", "warp": "WARP_ID_DYNAMIC"}
+    },
+    {
+      "coord": [10, 9],
+      "enter": "walk_south",
+      "unresolved": "dynamic_destination",
+      "source_destination": {"map": "MAP_DYNAMIC", "warp": "WARP_ID_DYNAMIC"}
+    }
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "union_room_receptionist",
+      "coord": [10, 5],
+      "source_event": 0,
+      "source_script": "RecordCorner_EventScript_Attendant"
+    }
+  ]
+}

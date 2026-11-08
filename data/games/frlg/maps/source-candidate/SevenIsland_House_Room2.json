@@ -1,0 +1,27 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SevenIsland_House_Room2",
+  "source": {
+    "decomp_file": "data/maps/SevenIsland_House_Room2/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "############",
+    "###.########",
+    "............",
+    "#..........#",
+    "............",
+    "............",
+    "............",
+    "#..........#",
+    "............"
+  ],
+  "points": {"warp_0": [3, 1]},
+  "warps": [{"coord": [3, 1], "enter": "cave_entrance", "to_map": "SevenIsland_House_Room1", "to_point": "warp_1"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [{"name": "var_0", "coord": [6, 5], "source_event": 0, "source_script": "0x0"}]
+}

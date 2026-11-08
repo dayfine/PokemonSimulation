@@ -1,0 +1,52 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_House1",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_House1/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    ".....##....",
+    ".....##....",
+    "...........",
+    "#.........#",
+    "###########"
+  ],
+  "points": {"warp_1": [4, 7]},
+  "warps": [
+    {"coord": [3, 7], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_8"},
+    {"coord": [4, 7], "enter": "walk_south", "to_map": "CeladonCity", "to_point": "warp_8"},
+    {"coord": [5, 7], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_8"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "old_man_2",
+      "coord": [5, 2],
+      "source_event": 0,
+      "source_script": "CeladonCity_House1_EventScript_RocketChief"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [2, 4],
+      "wander": {"min": [2, 0], "max": [2, 8]},
+      "source_event": 1,
+      "source_script": "CeladonCity_House1_EventScript_Rocket1"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [8, 4],
+      "wander": {"min": [8, 0], "max": [8, 8]},
+      "source_event": 2,
+      "source_script": "CeladonCity_House1_EventScript_Rocket2"
+    }
+  ]
+}

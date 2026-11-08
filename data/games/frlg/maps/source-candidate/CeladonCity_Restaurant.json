@@ -1,0 +1,66 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_Restaurant",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_Restaurant/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###############",
+    "###############",
+    "..........#####",
+    ".##.......#....",
+    ".##.......#....",
+    "..........#....",
+    "..........#....",
+    ".##.......#....",
+    ".##.......#####",
+    "...............",
+    "###############"
+  ],
+  "points": {"warp_1": [6, 9]},
+  "warps": [
+    {"coord": [5, 9], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_7"},
+    {"coord": [6, 9], "enter": "walk_south", "to_map": "CeladonCity", "to_point": "warp_7"},
+    {"coord": [7, 9], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_7"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "chef",
+      "coord": [12, 7],
+      "wander": {"min": [10, 7], "max": [14, 7]},
+      "source_event": 0,
+      "source_script": "CeladonCity_Restaurant_EventScript_Chef"
+    },
+    {
+      "name": "woman_2",
+      "coord": [11, 4],
+      "wander": {"min": [11, 2], "max": [11, 6]},
+      "source_event": 1,
+      "source_script": "CeladonCity_Restaurant_EventScript_Woman"
+    },
+    {
+      "name": "fat_man",
+      "coord": [9, 4],
+      "source_event": 2,
+      "source_script": "CeladonCity_Restaurant_EventScript_FatMan"
+    },
+    {
+      "name": "balding_man",
+      "coord": [1, 2],
+      "source_event": 3,
+      "source_script": "CeladonCity_Restaurant_EventScript_CoinCaseMan"
+    },
+    {
+      "name": "worker_m",
+      "coord": [3, 7],
+      "source_event": 4,
+      "source_script": "CeladonCity_Restaurant_EventScript_WorkerM"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Prototype_SeviiIsle_6",
+  "source": {
+    "decomp_file": "data/maps/Prototype_SeviiIsle_6/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": ["w"],
+  "elevation": ["1"],
+  "points": {},
+  "warps": [],
+  "flag_sets": {},
+  "connections": [{"side": "north", "to_map": "ThreeIsland", "offset": 0}]
+}

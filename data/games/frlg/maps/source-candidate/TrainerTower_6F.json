@@ -1,0 +1,78 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "TrainerTower_6F",
+  "source": {
+    "decomp_file": "data/maps/TrainerTower_6F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "##################",
+    "##################",
+    "##################",
+    "##################",
+    "##################",
+    "##################",
+    "####..#########..#",
+    "####..#########..#",
+    "##....#######....#",
+    "##......###......#",
+    "##.#.....#.....#.#",
+    "##.#.....#.....#.#",
+    "##.#.....#.....#.#",
+    "##...............#",
+    "##.#.....#.....#.#",
+    "##.#.....#.....#.#",
+    "##.#.....#.....#.#"
+  ],
+  "points": {"warp_0": [15, 6], "warp_1": [4, 6]},
+  "warps": [
+    {"coord": [15, 6], "enter": "walk_west", "to_map": "TrainerTower_7F", "to_point": "warp_1"},
+    {"coord": [4, 6], "enter": "walk_west", "to_map": "TrainerTower_5F", "to_point": "warp_0"},
+    {"coord": [13, 5], "enter": "walk_into", "to_map": "TrainerTower_Elevator", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "trainer_tower_dude",
+      "coord": [9, 7],
+      "hide_flag": "FLAG_TEMP_6",
+      "source_event": 0,
+      "source_script": "TrainerTower_EventScript_Owner"
+    },
+    {
+      "name": "var_0",
+      "coord": [10, 10],
+      "hide_flag": "FLAG_TEMP_2",
+      "source_event": 1,
+      "source_script": "TrainerTower_EventScript_DoublesTrainer1",
+      "source_local_id": "LOCALID_TOWER_TRAINER_DOUBLES1"
+    },
+    {
+      "name": "var_1",
+      "coord": [15, 13],
+      "hide_flag": "FLAG_TEMP_3",
+      "source_event": 2,
+      "source_script": "TrainerTower_EventScript_SinglesTrainer",
+      "source_local_id": "LOCALID_TOWER_TRAINER_SINGLES"
+    },
+    {
+      "name": "var_2",
+      "coord": [10, 16],
+      "hide_flag": "FLAG_TEMP_4",
+      "source_event": 3,
+      "source_script": "TrainerTower_EventScript_KnockoutTrainer",
+      "source_local_id": "LOCALID_TOWER_TRAINER_KNOCKOUT"
+    },
+    {
+      "name": "var_3",
+      "coord": [11, 10],
+      "hide_flag": "FLAG_TEMP_5",
+      "source_event": 4,
+      "source_script": "TrainerTower_EventScript_DoublesTrainer2",
+      "source_local_id": "LOCALID_TOWER_TRAINER_DOUBLES2"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "VermilionCity_Gym",
+  "source": {
+    "decomp_file": "data/maps/VermilionCity_Gym/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate",
+    "unapplied_story_patch": "OPENED_TILES: preserve decomp baseline until story state is bound"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "#..#...#..#",
+    "#.........#",
+    "#.........#",
+    "#.........#",
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    ".#.#.#.#.#.",
+    "...........",
+    ".#.#.#.#.#.",
+    "...........",
+    ".#.#.#.#.#.",
+    "...........",
+    "...........",
+    "...S...S...",
+    "...........",
+    "...........",
+    "###########"
+  ],
+  "points": {"warp_1": [5, 19]},
+  "warps": [
+    {"coord": [4, 19], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_9"},
+    {"coord": [5, 19], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_9"},
+    {"coord": [6, 19], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_9"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "lt_surge", "coord": [5, 2], "source_event": 0, "source_script": "VermilionCity_Gym_EventScript_LtSurge"},
+    {
+      "name": "balding_man",
+      "coord": [2, 11],
+      "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
+      "source_event": 1,
+      "source_script": "VermilionCity_Gym_EventScript_Baily"
+    },
+    {
+      "name": "sailor",
+      "coord": [8, 13],
+      "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
+      "source_event": 2,
+      "source_script": "VermilionCity_Gym_EventScript_Dwayne"
+    },
+    {"name": "gym_guy", "coord": [4, 17], "source_event": 3, "source_script": "VermilionCity_Gym_EventScript_GymGuy"},
+    {
+      "name": "gentleman",
+      "coord": [7, 8],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 4,
+      "source_script": "VermilionCity_Gym_EventScript_Tucker"
+    }
+  ]
+}

@@ -90,3 +90,97 @@ class TilesetTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class FullCatalogTest(unittest.TestCase):
+    def test_follows_declared_groups_and_ignores_metadata_lists(self):
+        import json
+        class Source:
+            def read(self, path):
+                self_path = 'data/maps/map_groups.json'
+                if path != self_path:
+                    raise AssertionError(path)
+                return json.dumps({'group_order': ['group_b', 'group_a'],
+                    'group_a': ['MapA', 'MapB'], 'group_b': ['MapC', 'MapA'],
+                    'connections_include_order': ['NotAnAdditionalMap']}).encode()
+        self.assertEqual(frlg_maps.all_map_names(Source()), ['MapA', 'MapB', 'MapC'])
+
+    def test_invalid_or_missing_groups_fail(self):
+        import json
+        for data in ({}, {'group_order': ['missing']},
+                     {'group_order': ['a'], 'a': ['../map']}):
+            with self.subTest(data=data):
+                class Source:
+                    def read(self, path):
+                        return json.dumps(data).encode()
+                with self.assertRaises(ValueError):
+                    frlg_maps.all_map_names(Source())
+
+
+class DynamicWarpTest(unittest.TestCase):
+    def test_dynamic_elevator_destination_remains_unresolved(self):
+        event = {'x': 1, 'y': 2, 'dest_map': 'MAP_DYNAMIC', 'dest_warp_id': 'WARP_ID_DYNAMIC'}
+        result = frlg_maps.warp(event, {}, {}, {})
+        self.assertEqual(result, {'x': 1, 'y': 2, 'enter': 'walk_into',
+            'unresolved': 'dynamic_destination',
+            'source_destination': {'map': 'MAP_DYNAMIC', 'warp': 'WARP_ID_DYNAMIC'}})
+        self.assertEqual(frlg_maps.arrivals({'Elevator': {'warp_events': [event]}}, {}), {'Elevator': set()})
+
+    def test_unknown_symbol_is_not_guessed_or_truncated(self):
+        for value in ('UNSUPPORTED_WARP', -1, 1.5, True):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    frlg_maps.static_warp_id({'dest_warp_id': value})
+
+
+class CandidateTerrainTest(unittest.TestCase):
+    def test_full_catalog_blocks_unhandled_effects_without_changing_legacy_output(self):
+        import struct
+        from unittest.mock import patch
+        class Source:
+            def read(self, path):
+                if path != 'map.bin':
+                    raise AssertionError(path)
+                return struct.pack('<HH', 0, 1)
+        layout = {'width': 2, 'height': 1, 'blockdata_filepath': 'map.bin',
+                  'primary_tileset': 'a', 'secondary_tileset': 'b'}
+        behaviors = {0: 'MB_NORMAL', 1: 'MB_SPIN_UP'}
+        with patch.object(frlg_maps, 'tileset_attributes', return_value=[1, 0]):
+            unresolved = {}
+            candidate = frlg_maps.grid(Source(), layout, behaviors, {}, unresolved=unresolved)
+            legacy = frlg_maps.grid(Source(), layout, behaviors, {})
+        self.assertEqual(candidate[0], [' .'])
+        self.assertEqual(legacy[0], ['..'])
+        self.assertEqual(unresolved, {'MB_SPIN_UP': [[0, 0]]})
+
+    def test_candidate_keeps_closed_source_gym_barriers(self):
+        from unittest.mock import patch
+        sources = {'VermilionCity_Gym': {'id': 'GYM', 'layout': 'L'}}
+        class Source:
+            commit = frlg_maps.COMMIT
+        def grid(*args):
+            return ['#' * 10] * 10, ['3' * 10] * 10, {}, []
+        with patch.object(frlg_maps, 'grid', side_effect=grid):
+            candidate = frlg_maps.map_json(Source(), 'VermilionCity_Gym', sources,
+                {'L': {}}, {}, {'GYM': 'VermilionCity_Gym'}, {}, candidate=True)
+            legacy = frlg_maps.map_json(Source(), 'VermilionCity_Gym', sources,
+                {'L': {}}, {}, {'GYM': 'VermilionCity_Gym'}, {})
+        self.assertEqual(candidate['tiles'][6][4], '#')
+        self.assertEqual(legacy['tiles'][6][4], '.')
+        self.assertIn('unapplied_story_patch', candidate['source'])
+
+
+class CandidateWaterTest(unittest.TestCase):
+    def test_water_collision_is_preserved_as_water_not_a_generic_wall(self):
+        import struct
+        from unittest.mock import patch
+        class Source:
+            def read(self, path):
+                return struct.pack('<H', 1 << 10)
+        layout = {'width': 1, 'height': 1, 'blockdata_filepath': 'map.bin',
+                  'primary_tileset': 'a', 'secondary_tileset': 'b'}
+        with patch.object(frlg_maps, 'tileset_attributes', return_value=[1]):
+            candidate = frlg_maps.grid(Source(), layout, {1: 'MB_POND_WATER'}, {}, unresolved={})
+            legacy = frlg_maps.grid(Source(), layout, {1: 'MB_POND_WATER'}, {})
+        self.assertEqual(candidate[0], ['w'])
+        self.assertEqual(legacy[0], ['#'])

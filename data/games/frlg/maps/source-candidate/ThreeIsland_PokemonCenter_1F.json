@@ -1,0 +1,70 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "ThreeIsland_PokemonCenter_1F",
+  "source": {
+    "decomp_file": "data/maps/ThreeIsland_PokemonCenter_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#.#############",
+    "###############",
+    "....###..##....",
+    "....#######....",
+    "...............",
+    "...............",
+    "#..........##..",
+    "...........##..",
+    "...............",
+    "###############"
+  ],
+  "elevation": [
+    "030000000000000",
+    "000000000000000",
+    "333300033003333",
+    "333300000003333",
+    "333333333333333",
+    "330333333333333",
+    "044033333330033",
+    "330333333330033",
+    "333333333333333",
+    "000000000000000"
+  ],
+  "points": {"warp_0": [7, 8], "warp_1": [1, 6]},
+  "warps": [
+    {"coord": [7, 8], "enter": "walk_south", "to_map": "ThreeIsland", "to_point": "warp_1"},
+    {"coord": [1, 6], "enter": "step_on", "to_map": "ThreeIsland_PokemonCenter_2F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "nurse",
+      "coord": [7, 2],
+      "source_event": 0,
+      "source_script": "ThreeIsland_PokemonCenter_1F_EventScript_Nurse",
+      "source_local_id": "LOCALID_THREE_ISLAND_NURSE"
+    },
+    {
+      "name": "rocker",
+      "coord": [12, 2],
+      "source_event": 1,
+      "source_script": "ThreeIsland_PokemonCenter_1F_EventScript_Rocker"
+    },
+    {
+      "name": "lass",
+      "coord": [3, 4],
+      "wander": {"min": [2, 4], "max": [4, 4]},
+      "source_event": 2,
+      "source_script": "ThreeIsland_PokemonCenter_1F_EventScript_Lass"
+    },
+    {
+      "name": "sailor",
+      "coord": [11, 5],
+      "source_event": 3,
+      "source_script": "ThreeIsland_PokemonCenter_1F_EventScript_Sailor"
+    }
+  ]
+}

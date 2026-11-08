@@ -1,0 +1,53 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SaffronCity_CopycatsHouse_1F",
+  "source": {
+    "decomp_file": "data/maps/SaffronCity_CopycatsHouse_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#############",
+    "#############",
+    "#..........##",
+    "#............",
+    "#.....##.....",
+    "##....##....#",
+    "#............",
+    "##..........#",
+    "#............",
+    "#############"
+  ],
+  "points": {"warp_1": [4, 8], "warp_3": [10, 2]},
+  "warps": [
+    {"coord": [3, 8], "enter": "walk_into", "to_map": "SaffronCity", "to_point": "warp_1"},
+    {"coord": [4, 8], "enter": "walk_south", "to_map": "SaffronCity", "to_point": "warp_1"},
+    {"coord": [5, 8], "enter": "walk_into", "to_map": "SaffronCity", "to_point": "warp_1"},
+    {"coord": [10, 2], "enter": "walk_east", "to_map": "SaffronCity_CopycatsHouse_2F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "balding_man",
+      "coord": [8, 4],
+      "source_event": 0,
+      "source_script": "SaffronCity_CopycatsHouse_1F_EventScript_CopycatsDad"
+    },
+    {
+      "name": "woman_3",
+      "coord": [3, 3],
+      "source_event": 1,
+      "source_script": "SaffronCity_CopycatsHouse_1F_EventScript_CopycatsMom"
+    },
+    {
+      "name": "chansey",
+      "coord": [4, 4],
+      "wander": {"min": [4, 2], "max": [4, 6]},
+      "source_event": 2,
+      "source_script": "SaffronCity_CopycatsHouse_1F_EventScript_Chansey"
+    }
+  ]
+}

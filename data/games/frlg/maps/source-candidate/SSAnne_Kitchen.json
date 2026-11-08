@@ -1,0 +1,77 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SSAnne_Kitchen",
+  "source": {
+    "decomp_file": "data/maps/SSAnne_Kitchen/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "################",
+    "#######D########",
+    "#..............#",
+    "#..............#",
+    "#..##..##..##.##",
+    "#..##..##..##..#",
+    "#..##..##..##.##",
+    "#..##..##..##..#",
+    "#..##..##..##.##",
+    "#..............#",
+    "#..............#",
+    "################",
+    "################",
+    "................"
+  ],
+  "elevation": [
+    "0000000000000000",
+    "0000000000000000",
+    "0333333333333330",
+    "0333333333333330",
+    "0330033003300300",
+    "0330033003300330",
+    "0330033003300300",
+    "0330033003300330",
+    "0330033003300300",
+    "0333333333333330",
+    "0333333333333330",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000"
+  ],
+  "points": {"warp_0": [7, 1]},
+  "warps": [{"coord": [7, 1], "enter": "walk_into", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_1"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "chef",
+      "coord": [1, 5],
+      "wander": {"min": [1, 4], "max": [1, 6]},
+      "source_event": 0,
+      "source_script": "SSAnne_Kitchen_EventScript_Chef1"
+    },
+    {
+      "name": "chef",
+      "coord": [6, 6],
+      "wander": {"min": [6, 4], "max": [6, 8]},
+      "source_event": 1,
+      "source_script": "SSAnne_Kitchen_EventScript_Chef2"
+    },
+    {"name": "chef", "coord": [10, 4], "source_event": 2, "source_script": "SSAnne_Kitchen_EventScript_Chef3"},
+    {"name": "chef", "coord": [8, 9], "source_event": 3, "source_script": "SSAnne_Kitchen_EventScript_Chef4"},
+    {"name": "chef", "coord": [14, 5], "source_event": 4, "source_script": "SSAnne_Kitchen_EventScript_Chef5"},
+    {"name": "chef", "coord": [14, 7], "source_event": 5, "source_script": "SSAnne_Kitchen_EventScript_Chef6"},
+    {"name": "chef", "coord": [14, 9], "source_event": 6, "source_script": "SSAnne_Kitchen_EventScript_Chef7"}
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [1, 10],
+      "source_event": 7,
+      "hide_flag": "FLAG_HIDE_SSANNE_KITCHEN_GREAT_BALL",
+      "source_script": "SSAnne_Kitchen_EventScript_ItemGreatBall",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

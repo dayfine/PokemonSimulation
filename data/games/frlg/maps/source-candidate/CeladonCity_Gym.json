@@ -1,0 +1,143 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_Gym",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_Gym/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "######.######",
+    "#############",
+    "#...........#",
+    "#..#######..#",
+    "##.##....#.##",
+    "#........#..#",
+    "#..#........#",
+    "#..#.....#..#",
+    "#..###.###..#",
+    "#..##...##..#",
+    "#..........##",
+    "##..........#",
+    "#...........#",
+    "#..##...##..#",
+    "#..##...##..#",
+    "#...........#",
+    "#...S...S...#",
+    "#...........#",
+    "#...........#",
+    "#############"
+  ],
+  "elevation": [
+    "0000000000000",
+    "0000000000000",
+    "0333333333330",
+    "0330000000330",
+    "0030033330300",
+    "0333333330330",
+    "0330333333330",
+    "0330333330330",
+    "0330003000330",
+    "0330033300330",
+    "0333333333300",
+    "0033333333330",
+    "0333333333330",
+    "0330033300330",
+    "0330033300330",
+    "0333333333330",
+    "0333033303330",
+    "0333333333330",
+    "0333333333330",
+    "0000000000000"
+  ],
+  "points": {"warp_1": [6, 18]},
+  "warps": [
+    {"coord": [5, 18], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_6"},
+    {"coord": [6, 18], "enter": "walk_south", "to_map": "CeladonCity", "to_point": "warp_6"},
+    {"coord": [7, 18], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_6"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "lass",
+      "coord": [3, 11],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 0,
+      "source_script": "CeladonCity_Gym_EventScript_Kay"
+    },
+    {
+      "name": "beauty",
+      "coord": [9, 10],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 1,
+      "source_script": "CeladonCity_Gym_EventScript_Bridget"
+    },
+    {
+      "name": "picnicker",
+      "coord": [10, 7],
+      "facing": "south",
+      "trainer": {"sight": 2},
+      "source_event": 2,
+      "source_script": "CeladonCity_Gym_EventScript_Tina"
+    },
+    {
+      "name": "beauty",
+      "coord": [2, 6],
+      "facing": "south",
+      "trainer": {"sight": 4},
+      "source_event": 3,
+      "source_script": "CeladonCity_Gym_EventScript_Tamia"
+    },
+    {
+      "name": "beauty",
+      "coord": [5, 4],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 4,
+      "source_script": "CeladonCity_Gym_EventScript_Lori"
+    },
+    {
+      "name": "lass",
+      "coord": [7, 4],
+      "facing": "south",
+      "trainer": {"sight": 2},
+      "source_event": 5,
+      "source_script": "CeladonCity_Gym_EventScript_Lisa"
+    },
+    {"name": "erika", "coord": [6, 4], "source_event": 6, "source_script": "CeladonCity_Gym_EventScript_Erika"},
+    {
+      "name": "cooltrainer_f",
+      "coord": [8, 7],
+      "facing": "west",
+      "trainer": {"sight": 2},
+      "source_event": 7,
+      "source_script": "CeladonCity_Gym_EventScript_Mary"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [6, 8],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 8,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [3, 5],
+      "hide_flag": "FLAG_TEMP_13",
+      "source_event": 9,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [9, 6],
+      "hide_flag": "FLAG_TEMP_14",
+      "source_event": 10,
+      "source_script": "EventScript_CutTree"
+    }
+  ]
+}

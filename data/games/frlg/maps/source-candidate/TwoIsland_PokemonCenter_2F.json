@@ -1,0 +1,70 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "TwoIsland_PokemonCenter_2F",
+  "source": {
+    "decomp_file": "data/maps/TwoIsland_PokemonCenter_2F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###############",
+    "#####D###D#####",
+    "...#....#...##.",
+    "##############.",
+    "...............",
+    "..............6",
+    "#.............6",
+    "...............",
+    "...#.........#.",
+    "###############"
+  ],
+  "elevation": [
+    "000000000000000",
+    "000000000000000",
+    "333033330333003",
+    "000000000000003",
+    "333333333333333",
+    "330333333333333",
+    "044033333333333",
+    "330333333333333",
+    "333033333333303",
+    "000000000000000"
+  ],
+  "points": {"warp_0": [1, 6]},
+  "warps": [
+    {"coord": [1, 6], "enter": "step_on", "to_map": "TwoIsland_PokemonCenter_1F", "to_point": "warp_1"},
+    {"coord": [5, 1], "enter": "walk_into", "to_map": "UnionRoom", "to_point": "warp_0"},
+    {"coord": [9, 1], "enter": "walk_into", "to_map": "TradeCenter", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "cable_club_receptionist",
+      "coord": [6, 2],
+      "source_event": 0,
+      "source_script": "Common_EventScript_UnionRoomAttendant"
+    },
+    {
+      "name": "cable_club_receptionist",
+      "coord": [2, 2],
+      "source_event": 1,
+      "source_script": "Common_EventScript_WirelessClubAttendant"
+    },
+    {
+      "name": "cable_club_receptionist",
+      "coord": [10, 2],
+      "source_event": 2,
+      "source_script": "Common_EventScript_DirectCornerAttendant"
+    },
+    {
+      "name": "mg_deliveryman",
+      "coord": [1, 2],
+      "hide_flag": "FLAG_HIDE_MG_DELIVERYMEN",
+      "source_event": 3,
+      "source_script": "CableClub_EventScript_MysteryGiftMan"
+    }
+  ]
+}

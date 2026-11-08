@@ -1,0 +1,36 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SSAnne_3F_Corridor",
+  "source": {
+    "decomp_file": "data/maps/SSAnne_3F_Corridor/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "######################",
+    "######################",
+    "##.................###",
+    "#..................###",
+    "#....................#",
+    "#....................#",
+    "######################"
+  ],
+  "points": {"warp_0": [1, 4], "warp_1": [18, 2]},
+  "warps": [
+    {"coord": [1, 4], "enter": "walk_west", "to_map": "SSAnne_Deck", "to_point": "warp_0"},
+    {"coord": [18, 2], "enter": "walk_east", "to_map": "SSAnne_2F_Corridor", "to_point": "warp_1"},
+    {"coord": [0, 5], "enter": "walk_into", "to_map": "SSAnne_Deck", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "sailor",
+      "coord": [10, 4],
+      "wander": {"min": [7, 4], "max": [13, 4]},
+      "source_event": 0,
+      "source_script": "SSAnne_3F_Corridor_EventScript_Sailor"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SSAnne_2F_Room4",
+  "source": {
+    "decomp_file": "data/maps/SSAnne_2F_Room4/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": ["######", "######", "###.#.", "###.#.", "......", "......", "......", "#.....", "######"],
+  "points": {"warp_0": [4, 7]},
+  "warps": [{"coord": [4, 7], "enter": "walk_south", "to_map": "SSAnne_2F_Corridor", "to_point": "warp_6"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "gentleman",
+      "coord": [0, 5],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 0,
+      "source_script": "SSAnne_2F_Room4_EventScript_Lamar"
+    },
+    {
+      "name": "lass",
+      "coord": [3, 3],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 1,
+      "source_script": "SSAnne_2F_Room4_EventScript_Dawn"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [2, 4],
+      "source_event": 2,
+      "hide_flag": "FLAG_HIDE_SSANNE_2F_ROOM4_X_ATTACK",
+      "source_script": "SSAnne_2F_Room4_EventScript_ItemXAttack",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

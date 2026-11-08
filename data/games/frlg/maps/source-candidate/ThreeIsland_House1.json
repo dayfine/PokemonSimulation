@@ -1,0 +1,35 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "ThreeIsland_House1",
+  "source": {
+    "decomp_file": "data/maps/ThreeIsland_House1/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    ".....##....",
+    "#....##....",
+    "...........",
+    "#..........",
+    "###########"
+  ],
+  "points": {"warp_0": [4, 7]},
+  "warps": [{"coord": [4, 7], "enter": "walk_south", "to_map": "ThreeIsland", "to_point": "warp_0"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "little_girl",
+      "coord": [3, 4],
+      "hide_flag": "FLAG_HIDE_LOSTELLE_IN_HER_HOME",
+      "source_event": 0,
+      "source_script": "ThreeIsland_House1_EventScript_Lostelle"
+    }
+  ]
+}

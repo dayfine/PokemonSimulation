@@ -1,0 +1,55 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route16_NorthEntrance_1F",
+  "source": {
+    "decomp_file": "data/maps/Route16_NorthEntrance_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "#############",
+    "#############",
+    "#...........#",
+    "#...........#",
+    "#...........#",
+    "#...........#",
+    "#############",
+    "#############",
+    "#...........#",
+    "#############",
+    "#...........#",
+    "#...........#",
+    "#...........#",
+    "#...........#",
+    "#...........#",
+    "########..###",
+    "#......#..###",
+    "#......#..###"
+  ],
+  "points": {"warp_0": [1, 3], "warp_1": [11, 3], "warp_2": [1, 12], "warp_3": [11, 12], "warp_4": [9, 16]},
+  "warps": [
+    {"coord": [1, 3], "enter": "walk_west", "to_map": "Route16", "to_point": "warp_1"},
+    {"coord": [11, 3], "enter": "walk_east", "to_map": "Route16", "to_point": "warp_2"},
+    {"coord": [1, 12], "enter": "walk_west", "to_map": "Route16", "to_point": "warp_3"},
+    {"coord": [11, 12], "enter": "walk_east", "to_map": "Route16", "to_point": "warp_4"},
+    {"coord": [9, 16], "enter": "walk_east", "to_map": "Route16_NorthEntrance_2F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "policeman",
+      "coord": [6, 8],
+      "source_event": 0,
+      "source_script": "Route16_NorthEntrance_1F_EventScript_Guard"
+    },
+    {
+      "name": "old_man_1",
+      "coord": [7, 4],
+      "wander": {"min": [6, 4], "max": [8, 4]},
+      "source_event": 1,
+      "source_script": "Route16_NorthEntrance_1F_EventScript_OldMan"
+    }
+  ]
+}

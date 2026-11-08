@@ -1,0 +1,38 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "VermilionCity_House2",
+  "source": {
+    "decomp_file": "data/maps/VermilionCity_House2/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    ".....##....",
+    ".....##....",
+    "...........",
+    "#.........#",
+    "###########"
+  ],
+  "points": {"warp_1": [4, 7]},
+  "warps": [
+    {"coord": [3, 7], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_6"},
+    {"coord": [4, 7], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_6"},
+    {"coord": [5, 7], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_6"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "little_girl",
+      "coord": [4, 4],
+      "source_event": 0,
+      "source_script": "VermilionCity_House2_EventScript_Elyssa"
+    }
+  ]
+}

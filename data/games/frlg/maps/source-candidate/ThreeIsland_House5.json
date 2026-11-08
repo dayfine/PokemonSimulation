@@ -1,0 +1,35 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "ThreeIsland_House5",
+  "source": {
+    "decomp_file": "data/maps/ThreeIsland_House5/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    "#....##....",
+    ".....##....",
+    "...........",
+    "#..........",
+    "###########"
+  ],
+  "points": {"warp_0": [4, 7]},
+  "warps": [{"coord": [4, 7], "enter": "walk_south", "to_map": "ThreeIsland", "to_point": "warp_6"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "little_girl",
+      "coord": [2, 5],
+      "wander": {"min": [1, 4], "max": [3, 6]},
+      "source_event": 0,
+      "source_script": "ThreeIsland_House5_EventScript_LittleGirl"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "FiveIsland_House2",
+  "source": {
+    "decomp_file": "data/maps/FiveIsland_House2/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    "#....##....",
+    ".....##....",
+    "...........",
+    "#..........",
+    "###########"
+  ],
+  "points": {"warp_0": [4, 7]},
+  "warps": [{"coord": [4, 7], "enter": "walk_south", "to_map": "FiveIsland", "to_point": "warp_3"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "old_man_1",
+      "coord": [2, 3],
+      "wander": {"min": [1, 1], "max": [3, 5]},
+      "source_event": 0,
+      "source_script": "FiveIsland_House2_EventScript_OldMan"
+    }
+  ]
+}

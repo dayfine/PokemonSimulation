@@ -1,0 +1,117 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "UnionRoom",
+  "source": {
+    "decomp_file": "data/maps/UnionRoom/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###############",
+    "###############",
+    "...............",
+    "...............",
+    "...............",
+    "...............",
+    "...............",
+    "...............",
+    "...............",
+    "...............",
+    "...............",
+    "######. .######"
+  ],
+  "points": {"warp_0": [7, 11]},
+  "warps": [
+    {
+      "coord": [7, 11],
+      "enter": "walk_into",
+      "unresolved": "dynamic_destination",
+      "source_destination": {"map": "MAP_DYNAMIC", "warp": "WARP_ID_DYNAMIC"}
+    }
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "unresolved_tiles": {"MB_UNION_ROOM_WARP": [[7, 11]]},
+  "npcs": [
+    {
+      "name": "union_room_receptionist",
+      "coord": [3, 2],
+      "source_event": 0,
+      "source_script": "UnionRoom_EventScript_Attendant"
+    },
+    {
+      "name": "var_3",
+      "coord": [1, 8],
+      "wander": {"min": [0, 7], "max": [2, 9]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_4",
+      "source_event": 1,
+      "source_script": "UnionRoom_EventScript_Player4",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_4"
+    },
+    {
+      "name": "var_7",
+      "coord": [7, 8],
+      "wander": {"min": [6, 7], "max": [8, 9]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_8",
+      "source_event": 2,
+      "source_script": "UnionRoom_EventScript_Player8",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_8"
+    },
+    {
+      "name": "var_6",
+      "coord": [1, 4],
+      "wander": {"min": [0, 3], "max": [2, 5]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_7",
+      "source_event": 3,
+      "source_script": "UnionRoom_EventScript_Player7",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_7"
+    },
+    {
+      "name": "var_5",
+      "coord": [7, 4],
+      "wander": {"min": [6, 3], "max": [8, 5]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_6",
+      "source_event": 4,
+      "source_script": "UnionRoom_EventScript_Player6",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_6"
+    },
+    {
+      "name": "var_4",
+      "coord": [13, 4],
+      "wander": {"min": [12, 3], "max": [14, 5]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_5",
+      "source_event": 5,
+      "source_script": "UnionRoom_EventScript_Player5",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_5"
+    },
+    {
+      "name": "var_2",
+      "coord": [10, 6],
+      "wander": {"min": [9, 5], "max": [11, 7]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_3",
+      "source_event": 6,
+      "source_script": "UnionRoom_EventScript_Player3",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_3"
+    },
+    {
+      "name": "var_1",
+      "coord": [13, 8],
+      "wander": {"min": [12, 7], "max": [14, 9]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_2",
+      "source_event": 7,
+      "source_script": "UnionRoom_EventScript_Player2",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_2"
+    },
+    {
+      "name": "var_0",
+      "coord": [4, 6],
+      "wander": {"min": [3, 5], "max": [5, 7]},
+      "hide_flag": "FLAG_HIDE_UNION_ROOM_PLAYER_1",
+      "source_event": 8,
+      "source_script": "UnionRoom_EventScript_Player1",
+      "source_local_id": "LOCALID_UNION_ROOM_PLAYER_1"
+    }
+  ]
+}

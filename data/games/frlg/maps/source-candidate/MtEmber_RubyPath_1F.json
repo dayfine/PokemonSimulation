@@ -1,0 +1,76 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "MtEmber_RubyPath_1F",
+  "source": {
+    "decomp_file": "data/maps/MtEmber_RubyPath_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "###########################",
+    "#.~########################",
+    "#~~########################",
+    "#~~########################",
+    "#~~##################~~~~~#",
+    "#~~~~~##############~~~~.~#",
+    "#~~~~~##############~~~~~~#",
+    "#####~~~~~~~~~~~~~~~vvvv#~#",
+    "#####~~~~~~~~~~~~~~~~~~~<~#",
+    "#################~~~~~~~<~#",
+    "#################~~~~~~####",
+    "##################~~~~~####",
+    "####################~~~####",
+    "#####################~~####",
+    "#####################~~####",
+    "#####################~~~###",
+    "#####################~~~###",
+    "#####################~.~###",
+    "###########################"
+  ],
+  "points": {"warp_0": [22, 17], "warp_1": [1, 1], "warp_2": [24, 5]},
+  "warps": [
+    {"coord": [22, 17], "enter": "walk_south", "to_map": "MtEmber_Exterior", "to_point": "warp_5"},
+    {"coord": [1, 1], "enter": "step_on", "to_map": "MtEmber_RubyPath_B1F", "to_point": "warp_0"},
+    {"coord": [24, 5], "enter": "step_on", "to_map": "MtEmber_RubyPath_B2F_Stairs", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "rock_smash_rock",
+      "coord": [18, 11],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 0,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [23, 16],
+      "hide_flag": "FLAG_TEMP_13",
+      "source_event": 1,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [20, 12],
+      "hide_flag": "FLAG_TEMP_14",
+      "source_event": 2,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [19, 7],
+      "hide_flag": "FLAG_TEMP_15",
+      "source_event": 3,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [21, 15],
+      "hide_flag": "FLAG_TEMP_16",
+      "source_event": 4,
+      "source_script": "EventScript_RockSmash"
+    }
+  ]
+}

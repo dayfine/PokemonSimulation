@@ -1,0 +1,46 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SSAnne_B1F_Corridor",
+  "source": {
+    "decomp_file": "data/maps/SSAnne_B1F_Corridor/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "#######################",
+    "#####################.#",
+    "##D###D###D###D###D####",
+    "#...................###",
+    "#...................###",
+    "#....................##",
+    "#######################"
+  ],
+  "elevation": [
+    "00000000000000000000000",
+    "00000000000000000000000",
+    "00000000000000000000000",
+    "03333333333333333333000",
+    "03333333333333333333000",
+    "03333333333333333333300",
+    "00000000000000000000000"
+  ],
+  "points": {
+    "warp_0": [19, 3],
+    "warp_1": [2, 2],
+    "warp_2": [6, 2],
+    "warp_3": [10, 2],
+    "warp_4": [14, 2],
+    "warp_5": [18, 2]
+  },
+  "warps": [
+    {"coord": [19, 3], "enter": "walk_east", "to_map": "SSAnne_1F_Corridor", "to_point": "warp_5"},
+    {"coord": [2, 2], "enter": "walk_into", "to_map": "SSAnne_B1F_Room1", "to_point": "warp_0"},
+    {"coord": [6, 2], "enter": "walk_into", "to_map": "SSAnne_B1F_Room2", "to_point": "warp_0"},
+    {"coord": [10, 2], "enter": "walk_into", "to_map": "SSAnne_B1F_Room3", "to_point": "warp_0"},
+    {"coord": [14, 2], "enter": "walk_into", "to_map": "SSAnne_B1F_Room4", "to_point": "warp_0"},
+    {"coord": [18, 2], "enter": "walk_into", "to_map": "SSAnne_B1F_Room5", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": []
+}

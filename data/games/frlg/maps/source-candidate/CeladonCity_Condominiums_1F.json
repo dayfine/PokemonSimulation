@@ -1,0 +1,72 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_Condominiums_1F",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_Condominiums_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###############",
+    "##.############",
+    ".....####....##",
+    ".....####....##",
+    ".......##......",
+    "#########......",
+    "##########....#",
+    "#.#.#..##......",
+    ".......##......",
+    ".......###....#",
+    ".####..##......",
+    ".####..##......",
+    ".####..SS#....#",
+    "...............",
+    "...............",
+    "#########.....#",
+    "#########......",
+    "#..............",
+    "...............",
+    "###############"
+  ],
+  "points": {"warp_1": [12, 18], "warp_3": [4, 2], "warp_4": [12, 2], "warp_5": [2, 1]},
+  "warps": [
+    {"coord": [11, 19], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_3"},
+    {"coord": [12, 18], "enter": "walk_south", "to_map": "CeladonCity", "to_point": "warp_3"},
+    {"coord": [13, 19], "enter": "walk_into", "to_map": "CeladonCity", "to_point": "warp_3"},
+    {"coord": [4, 2], "enter": "walk_east", "to_map": "CeladonCity_Condominiums_2F", "to_point": "warp_0"},
+    {"coord": [12, 2], "enter": "walk_east", "to_map": "CeladonCity_Condominiums_2F", "to_point": "warp_3"},
+    {"coord": [2, 1], "enter": "cave_entrance", "to_map": "CeladonCity", "to_point": "warp_11"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "meowth",
+      "coord": [1, 9],
+      "source_event": 0,
+      "source_script": "CeladonCity_Condominiums_1F_EventScript_Meowth"
+    },
+    {
+      "name": "clefairy",
+      "coord": [5, 13],
+      "wander": {"min": [4, 13], "max": [6, 13]},
+      "source_event": 1,
+      "source_script": "CeladonCity_Condominiums_1F_EventScript_Clefairy"
+    },
+    {
+      "name": "nidoran_f",
+      "coord": [5, 8],
+      "wander": {"min": [3, 7], "max": [7, 9]},
+      "source_event": 2,
+      "source_script": "CeladonCity_Condominiums_1F_EventScript_Nidoran"
+    },
+    {
+      "name": "old_woman",
+      "coord": [2, 9],
+      "source_event": 3,
+      "source_script": "CeladonCity_Condominiums_1F_EventScript_TeaWoman"
+    }
+  ]
+}

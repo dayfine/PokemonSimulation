@@ -1,0 +1,36 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route15_WestEntrance_2F",
+  "source": {
+    "decomp_file": "data/maps/Route15_WestEntrance_2F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#############",
+    "#############",
+    "##.........##",
+    "#...........#",
+    "#...........#",
+    "#..##...##..#",
+    "#..##...##..#",
+    "#...........#",
+    "#.......##..#",
+    "#.......##..#",
+    "##......##..#"
+  ],
+  "points": {"warp_0": [10, 9]},
+  "warps": [{"coord": [10, 9], "enter": "walk_west", "to_map": "Route15_WestEntrance_1F", "to_point": "warp_4"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "scientist",
+      "coord": [5, 5],
+      "source_event": 0,
+      "source_script": "Route15_WestEntrance_2F_EventScript_Aide"
+    }
+  ]
+}

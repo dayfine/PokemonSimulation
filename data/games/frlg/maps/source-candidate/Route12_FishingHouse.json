@@ -1,0 +1,38 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route12_FishingHouse",
+  "source": {
+    "decomp_file": "data/maps/Route12_FishingHouse/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "...........",
+    "...........",
+    ".....##....",
+    "#....##....",
+    "...........",
+    "#..........",
+    "###########"
+  ],
+  "points": {"warp_1": [3, 7]},
+  "warps": [
+    {"coord": [2, 8], "enter": "walk_into", "to_map": "Route12", "to_point": "warp_0"},
+    {"coord": [3, 7], "enter": "walk_south", "to_map": "Route12", "to_point": "warp_0"},
+    {"coord": [4, 8], "enter": "walk_into", "to_map": "Route12", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "fisher",
+      "coord": [4, 4],
+      "source_event": 0,
+      "source_script": "Route12_FishingHouse_EventScript_FishingGuruBrother"
+    }
+  ]
+}

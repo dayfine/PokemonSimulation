@@ -1,0 +1,45 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CinnabarIsland_PokemonLab_ExperimentRoom",
+  "source": {
+    "decomp_file": "data/maps/CinnabarIsland_PokemonLab_ExperimentRoom/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###############",
+    "###############",
+    "............##.",
+    "#............##",
+    "#.###..##......",
+    ".......##..###.",
+    ".......##..###.",
+    "..###......###.",
+    "...............",
+    "...............",
+    "###############"
+  ],
+  "points": {"warp_0": [7, 9]},
+  "warps": [
+    {"coord": [7, 9], "enter": "walk_south", "to_map": "CinnabarIsland_PokemonLab_Entrance", "to_point": "warp_5"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "boy",
+      "coord": [11, 8],
+      "source_event": 0,
+      "source_script": "CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_Garett"
+    },
+    {
+      "name": "scientist",
+      "coord": [12, 3],
+      "wander": {"min": [11, 2], "max": [13, 4]},
+      "source_event": 1,
+      "source_script": "CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_FossilScientist"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route15",
+  "source": {
+    "decomp_file": "data/maps/Route15/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "########################################################################",
+    "########################################################################",
+    "########################################################################",
+    "########################################################################",
+    "########################################################################",
+    "#################.......................................................",
+    "#################.......................................................",
+    "######..........#.......................................................",
+    "#################.......................................................",
+    "######....######.vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+    "..........######....~~~~~~......~~~~~~.............~~~~....~~~~~~~......",
+    "..........######....~~~~~~......~~~~~~...S.........~~~~....~~~~~~~......",
+    "..........######........................................................",
+    "#################.......................................................",
+    "######..........#.......................................................",
+    "########################################################################",
+    "################........................................................",
+    "########################################################################",
+    "########################################################################",
+    "########################################################################"
+  ],
+  "points": {"warp_0": [9, 11], "warp_1": [16, 11]},
+  "warps": [
+    {"coord": [9, 11], "enter": "walk_east", "to_map": "Route15_WestEntrance_1F", "to_point": "warp_0"},
+    {"coord": [16, 11], "enter": "walk_west", "to_map": "Route15_WestEntrance_1F", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [
+    {"side": "west", "to_map": "FuchsiaCity", "offset": -10},
+    {"side": "east", "to_map": "Route14", "offset": -40}
+  ],
+  "npcs": [
+    {
+      "name": "picnicker",
+      "coord": [22, 13],
+      "wander": {"min": [21, 12], "max": [23, 14]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 0,
+      "source_script": "Route15_EventScript_Yazmin"
+    },
+    {
+      "name": "rocker",
+      "coord": [31, 12],
+      "facing": "west",
+      "trainer": {"sight": 5},
+      "source_event": 1,
+      "source_script": "Route15_EventScript_Edwin"
+    },
+    {
+      "name": "rocker",
+      "coord": [37, 14],
+      "facing": "north",
+      "trainer": {"sight": 2},
+      "source_event": 2,
+      "source_script": "Route15_EventScript_Chester"
+    },
+    {
+      "name": "picnicker",
+      "coord": [44, 13],
+      "wander": {"min": [43, 12], "max": [45, 14]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 3,
+      "source_script": "Route15_EventScript_Kindra"
+    },
+    {
+      "name": "beauty",
+      "coord": [50, 12],
+      "facing": "south",
+      "trainer": {"sight": 2},
+      "source_event": 4,
+      "source_script": "Route15_EventScript_Olivia"
+    },
+    {
+      "name": "biker",
+      "coord": [59, 12],
+      "trainer": {"sight": 2, "looks": ["south", "east"]},
+      "source_event": 5,
+      "source_script": "Route15_EventScript_Alex"
+    },
+    {
+      "name": "biker",
+      "coord": [63, 13],
+      "trainer": {"sight": 1, "looks": ["south", "north"]},
+      "source_event": 6,
+      "source_script": "Route15_EventScript_Ernest"
+    },
+    {
+      "name": "picnicker",
+      "coord": [52, 8],
+      "wander": {"min": [50, 4], "max": [54, 12]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 7,
+      "source_script": "Route15_EventScript_Becky"
+    },
+    {
+      "name": "beauty",
+      "coord": [54, 12],
+      "facing": "south",
+      "trainer": {"sight": 2},
+      "source_event": 8,
+      "source_script": "Route15_EventScript_Grace"
+    },
+    {
+      "name": "picnicker",
+      "coord": [28, 6],
+      "wander": {"min": [26, 2], "max": [30, 10]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 9,
+      "source_script": "Route15_EventScript_Celia"
+    },
+    {
+      "name": "black_belt",
+      "coord": [39, 7],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 11,
+      "source_script": "Route15_EventScript_Ron"
+    },
+    {
+      "name": "crush_girl",
+      "coord": [40, 7],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 12,
+      "source_script": "Route15_EventScript_Mya"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [20, 6],
+      "source_event": 10,
+      "hide_flag": "FLAG_HIDE_ROUTE15_TM18",
+      "source_script": "Route15_EventScript_ItemTM18",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

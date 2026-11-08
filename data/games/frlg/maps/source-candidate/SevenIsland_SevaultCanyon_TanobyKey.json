@@ -1,0 +1,124 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SevenIsland_SevaultCanyon_TanobyKey",
+  "source": {
+    "decomp_file": "data/maps/SevenIsland_SevaultCanyon_TanobyKey/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "###############",
+    "###############",
+    "####### #######",
+    "######   ######",
+    "####       ####",
+    "##### # # #####",
+    "#####     #####",
+    "######   ######",
+    "#####     #####",
+    "#####     #####",
+    "#####     #####",
+    "##### vvv #####",
+    "##### ... #####",
+    "##### ... #####",
+    "###############",
+    "###############"
+  ],
+  "points": {"warp_0": [7, 13]},
+  "warps": [{"coord": [7, 13], "enter": "walk_south", "to_map": "SevenIsland_SevaultCanyon", "to_point": "warp_0"}],
+  "flag_sets": {},
+  "connections": [],
+  "unresolved_tiles": {
+    "MB_STRENGTH_BUTTON": [[7, 2], [4, 4], [10, 4], [5, 6], [9, 6], [5, 8], [9, 8]],
+    "MB_SAND_CAVE": [
+      [6, 3],
+      [7, 3],
+      [8, 3],
+      [5, 4],
+      [6, 4],
+      [7, 4],
+      [8, 4],
+      [9, 4],
+      [5, 5],
+      [7, 5],
+      [9, 5],
+      [6, 6],
+      [7, 6],
+      [8, 6],
+      [6, 7],
+      [7, 7],
+      [8, 7],
+      [6, 8],
+      [7, 8],
+      [8, 8],
+      [5, 9],
+      [6, 9],
+      [7, 9],
+      [8, 9],
+      [9, 9],
+      [5, 10],
+      [6, 10],
+      [7, 10],
+      [8, 10],
+      [9, 10],
+      [5, 11],
+      [9, 11],
+      [5, 12],
+      [9, 12],
+      [5, 13],
+      [9, 13]
+    ]
+  },
+  "npcs": [
+    {
+      "name": "pushable_boulder",
+      "coord": [7, 6],
+      "source_event": 0,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER1"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 6],
+      "source_event": 1,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER2"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 9],
+      "source_event": 2,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER3"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 10],
+      "source_event": 3,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER4"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 10],
+      "source_event": 4,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER5"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 9],
+      "source_event": 5,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER6"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 6],
+      "source_event": 6,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER7"
+    }
+  ]
+}

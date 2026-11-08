@@ -1,0 +1,149 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route13",
+  "source": {
+    "decomp_file": "data/maps/Route13/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "##############################################################..wwwwwwww",
+    "##############################################################..wwwwwwww",
+    "##############################################################..wwwwwwww",
+    "##############################################################..wwwwwwww",
+    "##############################################################..wwwwwwww",
+    "..................................#..............~~~~~~~~~~.##..wwwwwwww",
+    "################......#########...#..S######.....~~~~~~~~~~.##..wwwwwwww",
+    "......................#.....................####.~~~~~~~~~~.##..wwwwwwww",
+    "#############...#######..#################..####.~~~~~~~~~~.##..wwwwwwww",
+    "................#...................#.......##################..wwwwwwww",
+    "######..#########..##############...#..###..##################..wwwwwwww",
+    "........#.....................#.................................wwwwwwww",
+    "#########..###############....#..########S##....................wwwwwwww",
+    "#.....................#.......................wwwwwwwwwwwwwwwwwwwwwwwwww",
+    "#.######..###########S#.######################wwwwwwwwwwwwwwwwwwwwwwwwww",
+    "########################wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+  ],
+  "elevation": [
+    "000000000000000000000000000000000000000000000000000000000000003311110010",
+    "000000000000000000000000000000000000000000000000000000000000003311110010",
+    "000000000000000000000000000000000000000000000000000000000000003311110010",
+    "000000000000000000000000000000000000000000000000000000000000003311110000",
+    "000000000000000000000000000000000000000000000000000000000000003311100100",
+    "333333333333333333333333333333333303333333333333333333333333003311100100",
+    "000000000000000033333300000000033303300000003333333333333333003311100100",
+    "333333333333333333333303333333333333333333330000333333333333003311100100",
+    "000000000000033300000003300000000000000000330000333333333333003311110000",
+    "333333333333333303333333333333333333033333330000000000000000003311110000",
+    "000000330000000003300000000000000333033000330000000000000000003311110000",
+    "333333330333333333333333333333033333333333333333333333333333333311110000",
+    "000000000330000000000000003333033000000000003333333333333333333311100100",
+    "033333333333333333333303333333333333333333333311111111111111111111100100",
+    "030000003300000000000003000000000000000000000011111111111111111111100100",
+    "000000000000000000000000111111111111111111001111111111111111110011100100",
+    "111111111111111111111111100000000000000111001111110000111111000000001000",
+    "111000000000000000000000000000000000000001110000000000001100001100001000",
+    "100000000000000000000000000000000000000000010000001111000000111110000000",
+    "100000000000000000000000000000000000000000000000000000110011000000000000"
+  ],
+  "points": {},
+  "warps": [],
+  "flag_sets": {},
+  "connections": [
+    {"side": "north", "to_map": "Route12", "offset": 48},
+    {"side": "west", "to_map": "Route14", "offset": 0}
+  ],
+  "npcs": [
+    {
+      "name": "picnicker",
+      "coord": [62, 6],
+      "wander": {"min": [61, 5], "max": [63, 7]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 0,
+      "source_script": "Route13_EventScript_Alma"
+    },
+    {
+      "name": "rocker",
+      "coord": [63, 12],
+      "wander": {"min": [62, 11], "max": [64, 13]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 1,
+      "source_script": "Route13_EventScript_Sebastian"
+    },
+    {
+      "name": "picnicker",
+      "coord": [54, 11],
+      "wander": {"min": [53, 10], "max": [55, 12]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 2,
+      "source_script": "Route13_EventScript_Susie"
+    },
+    {
+      "name": "beauty",
+      "coord": [42, 7],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 3,
+      "source_script": "Route13_EventScript_Sheila"
+    },
+    {
+      "name": "beauty",
+      "coord": [43, 7],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 4,
+      "source_script": "Route13_EventScript_Lola"
+    },
+    {
+      "name": "picnicker",
+      "coord": [35, 10],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 5,
+      "source_script": "Route13_EventScript_Valerie"
+    },
+    {
+      "name": "picnicker",
+      "coord": [29, 11],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 6,
+      "source_script": "Route13_EventScript_Gwen"
+    },
+    {
+      "name": "rocker",
+      "coord": [9, 14],
+      "facing": "north",
+      "trainer": {"sight": 3},
+      "source_event": 7,
+      "source_script": "Route13_EventScript_Robert"
+    },
+    {
+      "name": "rocker",
+      "coord": [16, 5],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 8,
+      "source_script": "Route13_EventScript_Perry"
+    },
+    {
+      "name": "biker",
+      "coord": [14, 8],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 9,
+      "source_script": "Route13_EventScript_Jared"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [44, 5],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 10,
+      "source_script": "EventScript_CutTree"
+    }
+  ]
+}

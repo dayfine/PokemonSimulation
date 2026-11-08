@@ -1,0 +1,33 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SevenIsland_TanobyRuins_RixyChamber",
+  "source": {
+    "decomp_file": "data/maps/SevenIsland_TanobyRuins_RixyChamber/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "generation_status": "unreviewed-full-catalog-candidate"
+  },
+  "tiles": [
+    "#######################",
+    "#######################",
+    "#~~~~~~~~~~~~~~~~~~~~~#",
+    "#~~~~~~~~~~~~~~~~~~~~~#",
+    "#~~########~########~~#",
+    "#~~#~~~~~~~~~~~~~~~#~~#",
+    "#~~#~~~~~~~~~~~~~~~#~~#",
+    "#~~#~###~#####~###~#~~#",
+    "#~~#~#~~~~~~~~~~~#~#~~#",
+    "#~~#~#~~~~~~~~~~~#~#~~#",
+    "#~~#~###~#####~###~#~~#",
+    "#~~#~~~~~~~~~~~~~~~#~~#",
+    "#~~#~~~~~~~~~~~~~~~#~~#",
+    "#~~########~########~~#",
+    "#~~~~~~~~~~~~~~~~~~~~~#",
+    "#~~~~~~~~~~.~~~~~~~~~~#",
+    "#######################"
+  ],
+  "points": {"warp_0": [11, 15]},
+  "warps": [{"coord": [11, 15], "enter": "walk_south", "to_map": "SevenIsland_TanobyRuins", "to_point": "warp_5"}],
+  "flag_sets": {},
+  "connections": []
+}
