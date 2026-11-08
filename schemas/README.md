@@ -39,9 +39,10 @@ large containers expand with two-space indentation. Reproduce or check it with:
 ```sh
 PYTHONPATH=src python3 -m pokesim.formats.contract_format
 PYTHONPATH=src python3 -m pokesim.formats.contract_format --check
+PYTHONPATH=src python3 -m pokesim.formats.contract_format path/to/authored.json
 ```
 
-This command touches schemas and the shared story conformance fixture only. It preserves all values and key order.
+With no paths, this command touches schemas and the shared story conformance fixture only; explicit paths format other authored JSON. It preserves all values and key order.
 CI checks the formatting.
 
 ## Structural validation is one layer
