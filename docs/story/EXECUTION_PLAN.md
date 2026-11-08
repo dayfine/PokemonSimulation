@@ -11,6 +11,11 @@ programs such as RNG manipulation, and execute that data through the shared
 story engine with game-specific adapters. This is an implementation plan;
 export, JSON binding and handoff/resume are not implemented by this document.
 
+The [shared simulation guide](README.md) defines repository responsibilities:
+share versioned plans/maps/scenario inputs and expectations, exercise production
+native code and Python models independently, and compare their supported traces.
+Keep implementation-specific tests with their owning repository.
+
 ## Ordered milestones
 
 1. **Prove the event boundary.** Export evaluated FRLG Parcel `00.05` and BDSP
