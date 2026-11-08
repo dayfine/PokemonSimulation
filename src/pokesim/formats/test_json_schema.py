@@ -16,6 +16,22 @@ from pokesim.story.checkpoint_wire import read_checkpoint
 
 @unittest.skipUnless(jsonschema, 'install schemas/requirements.txt for schema tests')
 class JsonSchemaTests(unittest.TestCase):
+    def test_action_assertions_require_opt_in_and_exact_typed_lists(self):
+        original = json.loads((ROOT / 'data/story/parcel-pilot/cases.json').read_text())
+        check = validator('story-replay-cases')
+        changes = [
+            lambda c: c['expectation'].pop('actions'),
+            lambda c: c['input'].update(check_actions=False),
+            lambda c: c['input'].update(check_actions=1),
+            lambda c: c['expectation']['actions'][0].update(count=True),
+            lambda c: c['expectation']['actions'][0].update(extra='ignored'),
+        ]
+        for change in changes:
+            with self.subTest(change=changes.index(change)):
+                value = copy.deepcopy(original)
+                change(value['cases'][0])
+                self.assertFalse(check.is_valid(value))
+
     def test_schemas_are_valid_and_published_data_passes(self):
         for path in SCHEMAS.glob('*.schema.json'):
             validator(path.name[:-12])

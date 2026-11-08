@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dayfine/PokemonSimulation/schemas/story-replay-cases.schema.json",
+  "type": "object",
+  "required": ["format", "evidence_status", "coordinate_frame", "cases"],
+  "additionalProperties": false,
+  "properties": {
+    "format": {"const": "pokesim-story-replay-cases/1"},
+    "evidence_status": {"const": "synthetic-scripted-observations"},
+    "coordinate_frame": {"const": "runtime-local"},
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "input", "expectation"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "description": {"type": "string", "minLength": 1},
+          "input": {
+            "type": "object",
+            "required": ["entry", "signals"],
+            "additionalProperties": false,
+            "properties": {
+              "entry": {
+                "type": "object",
+                "required": ["basis", "screen", "pose"],
+                "additionalProperties": false,
+                "properties": {
+                  "basis": {"const": "scripted"},
+                  "screen": {"type": "string", "minLength": 1},
+                  "pose": {"$ref": "#/$defs/pose"}
+                }
+              },
+              "signals": {
+                "type": "object",
+                "propertyNames": {"minLength": 1},
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": ["kind", "from", "direction"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "kind": {"const": "wild-encounter"},
+                        "from": {"$ref": "#/$defs/pose"},
+                        "direction": {"enum": ["north", "east", "south", "west"]}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": ["kind"],
+                      "additionalProperties": false,
+                      "properties": {"kind": {"const": "unconfirmed-transition"}}
+                    },
+                    {
+                      "type": "object",
+                      "required": ["kind", "basis", "screen", "pose", "received"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "kind": {"const": "scene-observation"},
+                        "basis": {"const": "scripted"},
+                        "screen": {"type": "string", "minLength": 1},
+                        "pose": {"$ref": "#/$defs/pose"},
+                        "received": {
+                          "type": "object",
+                          "propertyNames": {"minLength": 1},
+                          "additionalProperties": {"type": "integer", "minimum": 1}
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "check_actions": {
+                "type": "boolean",
+                "description": "Assert the complete ordered expectation.actions list; never used to generate replay actions."
+              }
+            }
+          },
+          "expectation": {
+            "type": "object",
+            "required": [
+              "status",
+              "failure",
+              "active_event",
+              "completed_events",
+              "pose",
+              "pose_basis",
+              "candidates",
+              "received",
+              "save_performed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "status": {"enum": ["model_complete", "stopped"]},
+              "failure": {"type": ["string", "null"]},
+              "active_event": {"type": ["string", "null"]},
+              "completed_events": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+              "pose": {"anyOf": [{"$ref": "#/$defs/pose"}, {"type": "null"}]},
+              "pose_basis": {
+                "enum": [
+                  "scripted-observation",
+                  "model-prediction",
+                  "unknown-after-interruption",
+                  "unknown-after-transition",
+                  "unknown-after-scene",
+                  "unknown-after-route-mismatch"
+                ]
+              },
+              "candidates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["map", "tile", "elevation", "facing"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "map": {"type": "string", "minLength": 1},
+                    "tile": {
+                      "type": "array",
+                      "prefixItems": [{"type": "integer"}, {"type": "integer"}],
+                      "items": false,
+                      "minItems": 2
+                    },
+                    "elevation": {"type": "integer", "minimum": 0, "maximum": 15},
+                    "facing": {"anyOf": [{"enum": ["north", "east", "south", "west"]}, {"type": "null"}]}
+                  }
+                }
+              },
+              "received": {
+                "type": "object",
+                "propertyNames": {"minLength": 1},
+                "additionalProperties": {"type": "integer", "minimum": 1}
+              },
+              "save_performed": {"const": false},
+              "actions": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": ["event", "kind", "map", "direction", "count"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "event": {"type": "string", "minLength": 1},
+                        "kind": {"const": "press"},
+                        "map": {"type": "string", "minLength": 1},
+                        "direction": {"enum": ["north", "east", "south", "west"]},
+                        "count": {"type": "integer", "minimum": 1},
+                        "outcome": {"const": "interrupted"}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": ["event", "kind", "map", "direction"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "event": {"type": "string", "minLength": 1},
+                        "kind": {"const": "turn"},
+                        "map": {"type": "string", "minLength": 1},
+                        "direction": {"enum": ["north", "east", "south", "west"]}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": ["event", "kind", "capability"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "event": {"type": "string", "minLength": 1},
+                        "kind": {"const": "scene"},
+                        "capability": {"const": "scripted-scene/1"}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {"input": {"required": ["check_actions"], "properties": {"check_actions": {"const": true}}}}
+            },
+            "then": {"properties": {"expectation": {"required": ["actions"]}}},
+            "else": {"properties": {"expectation": {"not": {"required": ["actions"]}}}}
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "pose": {
+      "type": "object",
+      "required": ["map", "tile", "elevation", "facing"],
+      "additionalProperties": false,
+      "properties": {
+        "map": {"type": "string", "minLength": 1},
+        "tile": {
+          "type": "array",
+          "prefixItems": [{"type": "integer"}, {"type": "integer"}],
+          "items": false,
+          "minItems": 2
+        },
+        "elevation": {"type": "integer", "minimum": 0, "maximum": 15},
+        "facing": {"enum": ["north", "east", "south", "west"]}
+      }
+    }
+  }
+}

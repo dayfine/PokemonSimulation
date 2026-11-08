@@ -1,10 +1,11 @@
 {
-  "format": "pokesim-parcel-pilot-cases/1",
+  "format": "pokesim-story-replay-cases/1",
   "evidence_status": "synthetic-scripted-observations",
   "coordinate_frame": "runtime-local",
   "cases": [
     {
-      "id": "complete",
+      "id": "parcel-all-events",
+      "description": "Walk from Oak’s Lab to Viridian, enter the Mart, and receive Oak’s Parcel.",
       "input": {
         "entry": {
           "basis": "scripted",
@@ -19,7 +20,8 @@
             "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
             "received": {"oak-parcel": 1}
           }
-        }
+        },
+        "check_actions": true
       },
       "expectation": {
         "status": "model_complete",
@@ -30,11 +32,46 @@
         "pose_basis": "scripted-observation",
         "candidates": [],
         "received": {"oak-parcel": 1},
-        "save_performed": false
+        "save_performed": false,
+        "actions": [
+          {
+            "event": "below_mart_door",
+            "kind": "press",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "west",
+            "count": 1
+          },
+          {
+            "event": "below_mart_door",
+            "kind": "press",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "south",
+            "count": 5
+          },
+          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "west", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "north", "count": 15},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 7},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 5},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 6},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 2},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 6},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 15},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 6},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 3},
+          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 19},
+          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "east", "count": 14},
+          {"event": "below_mart_door", "kind": "turn", "map": "ViridianCity", "direction": "north"},
+          {"event": "mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 1},
+          {"event": "parcel_from_clerk", "kind": "scene", "capability": "scripted-scene/1"}
+        ]
       }
     },
     {
       "id": "entry-not-overworld",
+      "description": "A dialogue screen is supplied at entry: request no actions.",
       "input": {
         "entry": {
           "basis": "scripted",
@@ -49,7 +86,8 @@
             "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
             "received": {"oak-parcel": 1}
           }
-        }
+        },
+        "check_actions": true
       },
       "expectation": {
         "status": "stopped",
@@ -60,18 +98,21 @@
         "pose_basis": "scripted-observation",
         "candidates": [],
         "received": {},
-        "save_performed": false
+        "save_performed": false,
+        "actions": []
       }
     },
     {
       "id": "missing-scene-evidence",
+      "description": "Reach the Mart, but the clerk scene has no supplied observation.",
       "input": {
         "entry": {
           "basis": "scripted",
           "screen": "overworld",
           "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
         },
-        "signals": {}
+        "signals": {},
+        "check_actions": false
       },
       "expectation": {
         "status": "stopped",
@@ -87,6 +128,7 @@
     },
     {
       "id": "missing-parcel-receipt",
+      "description": "The clerk scene reports the right pose but no Parcel receipt.",
       "input": {
         "entry": {
           "basis": "scripted",
@@ -101,7 +143,8 @@
             "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
             "received": {}
           }
-        }
+        },
+        "check_actions": false
       },
       "expectation": {
         "status": "stopped",
@@ -117,6 +160,7 @@
     },
     {
       "id": "wrong-scene-arrival",
+      "description": "The clerk scene reports a Parcel but the wrong facing.",
       "input": {
         "entry": {
           "basis": "scripted",
@@ -131,7 +175,8 @@
             "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "east"},
             "received": {"oak-parcel": 1}
           }
-        }
+        },
+        "check_actions": false
       },
       "expectation": {
         "status": "stopped",
@@ -147,6 +192,7 @@
     },
     {
       "id": "unconfirmed-mart-transition",
+      "description": "Request the Mart entry step, but its transition cannot be confirmed.",
       "input": {
         "entry": {
           "basis": "scripted",
@@ -162,7 +208,8 @@
             "received": {"oak-parcel": 1}
           },
           "mart_door": {"kind": "unconfirmed-transition"}
-        }
+        },
+        "check_actions": true
       },
       "expectation": {
         "status": "stopped",
@@ -173,11 +220,45 @@
         "pose_basis": "unknown-after-transition",
         "candidates": [],
         "received": {},
-        "save_performed": false
+        "save_performed": false,
+        "actions": [
+          {
+            "event": "below_mart_door",
+            "kind": "press",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "west",
+            "count": 1
+          },
+          {
+            "event": "below_mart_door",
+            "kind": "press",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "south",
+            "count": 5
+          },
+          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "west", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "north", "count": 15},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 7},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 5},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 6},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 2},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 6},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 15},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 6},
+          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 3},
+          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 19},
+          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "east", "count": 14},
+          {"event": "below_mart_door", "kind": "turn", "map": "ViridianCity", "direction": "north"},
+          {"event": "mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 1}
+        ]
       }
     },
     {
       "id": "interrupted-route1-grass",
+      "description": "A Route 1 encounter interrupts movement; retain both tiles and stop before the Mart.",
       "input": {
         "entry": {
           "basis": "scripted",
@@ -197,7 +278,8 @@
             "from": {"map": "Route1", "tile": [12, 39], "elevation": 3, "facing": "north"},
             "direction": "north"
           }
-        }
+        },
+        "check_actions": true
       },
       "expectation": {
         "status": "stopped",
@@ -211,7 +293,33 @@
           {"map": "Route1", "tile": [12, 38], "elevation": 3, "facing": null}
         ],
         "received": {},
-        "save_performed": false
+        "save_performed": false,
+        "actions": [
+          {
+            "event": "below_mart_door",
+            "kind": "press",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "west",
+            "count": 1
+          },
+          {
+            "event": "below_mart_door",
+            "kind": "press",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "south",
+            "count": 5
+          },
+          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "west", "count": 4},
+          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "north", "count": 15},
+          {
+            "event": "below_mart_door",
+            "kind": "press",
+            "map": "Route1",
+            "direction": "north",
+            "outcome": "interrupted",
+            "count": 1
+          }
+        ]
       }
     }
   ]

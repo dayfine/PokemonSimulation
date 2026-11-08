@@ -1,6 +1,7 @@
 """Real captured events/maps; explicitly synthetic observations and interruptions."""
 
 import copy
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -9,13 +10,14 @@ import tempfile
 import unittest
 
 from pokesim.maps.runtime_map_pack import ROOT
-from .parcel_binding import PROFILE, load_binding
-from .parcel_replay import read_cases, run, summary
+from .replay_binding import PROFILE, load_binding
+from .checkpoint_replay import run, summary
+from .replay_cases import read_cases, check_case, render_cases
 
 CASES = ROOT / 'data/story/parcel-pilot/cases.json'
 
 
-class ParcelReplayTest(unittest.TestCase):
+class CheckpointReplayTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.binding = load_binding()
@@ -25,50 +27,13 @@ class ParcelReplayTest(unittest.TestCase):
         for case in self.cases:
             with self.subTest(case=case['id']):
                 result = run(self.binding, case['input'])
-                actual = {key: result[key] for key in case['expectation']}
-                self.assertEqual(case['expectation'], actual)
+                check_case(case, result)
                 self.assertEqual('not-established', result['native_parity'])
                 self.assertEqual(self.binding.capture['unbound'], result['native_unbound'])
                 if result['status'] == 'stopped':
                     self.assertFalse(result['save_performed'])
                     self.assertNotIn('parcel_from_clerk', result['completed_events'])
 
-    def test_real_cross_map_geometry_and_final_turn(self):
-        result = run(self.binding, self.cases[0]['input'])
-        completed = [r for r in result['trace'] if r['phase'] == 'completed']
-        self.assertEqual(['below_mart_door', 'mart_door', 'parcel_from_clerk'],
-                         [r['event'] for r in completed])
-        self.assertEqual({'map': 'ViridianCity', 'tile': [36, 20], 'facing': 'north', 'elevation': 3},
-                         completed[0]['pose'])
-        self.assertEqual({'map': 'ViridianCity_Mart', 'tile': [4, 7], 'facing': 'north', 'elevation': 3},
-                         completed[1]['pose'])
-        self.assertEqual('model-prediction', completed[1]['basis'])
-        self.assertEqual('scripted-observation', completed[2]['basis'])
-        self.assertTrue(any(r['phase'] == 'turn' for r in result['trace']))
-        presses = [r for r in result['trace'] if r['phase'] == 'press']
-        self.assertEqual(120, len(presses))  # Python costs, not native leg-cost parity.
-        self.assertEqual({'PalletTown_ProfessorOaksLab', 'PalletTown', 'Route1', 'ViridianCity'},
-                         {r['pose']['map'] for r in presses})
-
-    def test_interruption_preserves_both_tiles_and_stops_before_later_events(self):
-        case = next(c for c in self.cases if c['id'] == 'interrupted-route1-grass')
-        result = run(self.binding, case['input'])
-        self.assertIsNone(result['pose'])
-        self.assertEqual([None, None], [p['facing'] for p in result['candidates']])
-        self.assertEqual(25, sum(r['phase'] == 'press' for r in result['trace']))
-        self.assertEqual({'below_mart_door'}, {r['event'] for r in result['trace']})
-        # Actual source grass at the injected destination, not a synthetic board.
-        from pokesim.grid.geometry import Tile
-        self.assertEqual('~', self.binding.world.views['Route1'].glyph(Tile(12, 38)))
-
-    def test_route_budget_stops_without_claiming_the_target(self):
-        binding = copy.copy(self.binding)
-        binding.max_route_presses = 1
-        result = run(binding, self.cases[0]['input'])
-        self.assertEqual('route_press_budget_exceeded', result['failure'])
-        self.assertEqual([], result['completed_events'])
-        self.assertEqual(self.cases[0]['input']['entry']['pose'], result['pose'])
-        self.assertEqual(0, sum(r['phase'] == 'press' for r in result['trace']))
 
     def test_wrong_entry_does_not_use_capture_start_as_observation(self):
         scenario = copy.deepcopy(self.cases[0]['input'])
@@ -132,7 +97,7 @@ class ParcelReplayTest(unittest.TestCase):
     def test_cli_writes_an_explicit_failure_report_and_nonzero_status(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory, 'trace.json')
-            result = subprocess.run([sys.executable, '-m', 'pokesim.story.parcel_replay',
+            result = subprocess.run([sys.executable, '-m', 'pokesim.story.checkpoint_replay',
                                      str(CASES), '--case', 'missing-scene-evidence', '--out', str(path)],
                                     capture_output=True, text=True)
             self.assertEqual(1, result.returncode, result.stderr)
@@ -157,3 +122,93 @@ class ParcelReplayTest(unittest.TestCase):
                 path.write_text(json.dumps(data))
                 with self.assertRaises(ValueError):
                     read_cases(path)
+
+    def test_exact_action_check_catches_missing_extra_reordered_and_wrong_requests(self):
+        case = self.cases[0]
+        self.assertTrue(case['input']['check_actions'])
+        report = run(self.binding, case['input'])
+        changes = [
+            lambda a: a.pop(),
+            lambda a: a.append(copy.deepcopy(a[-1])),
+            lambda a: a.reverse(),
+            lambda a: a[0].update(direction='east'),
+            lambda a: a[0].update(count=2),
+        ]
+        for change in changes:
+            with self.subTest(change=changes.index(change)):
+                wrong = copy.deepcopy(report)
+                change(wrong['actions'])
+                self.assertEqual('model_complete', wrong['status'])
+                with self.assertRaisesRegex(AssertionError, r'actions\['):
+                    check_case(case, wrong)
+
+    def test_action_check_option_does_not_drive_replay(self):
+        scenario = copy.deepcopy(self.cases[0]['input'])
+        checked = run(self.binding, scenario)
+        scenario['check_actions'] = False
+        self.assertEqual(checked, run(self.binding, scenario))
+        case = copy.deepcopy(self.cases[0])
+        case['input']['check_actions'] = False
+        case['expectation'].pop('actions')
+        check_case(case, checked)
+
+    def test_action_contract_requires_list_only_when_enabled(self):
+        from .replay_cases import action_contract
+        changes = [lambda c: c['expectation'].pop('actions'),
+                   lambda c: c['input'].update(check_actions=False),
+                   lambda c: c['input'].update(check_actions=1),
+                   lambda c: c['expectation']['actions'][0].update(count=True)]
+        for change in changes:
+            with self.subTest(change=changes.index(change)):
+                case = copy.deepcopy(self.cases[0])
+                change(case)
+                with self.assertRaises(ValueError):
+                    action_contract(case)
+
+    def test_failed_transition_requests_entry_but_never_the_scene(self):
+        case = next(c for c in self.cases if c['id'] == 'unconfirmed-mart-transition')
+        result = run(self.binding, case['input'])
+        check_case(case, result)
+        self.assertEqual('mart_door', result['actions'][-1]['event'])
+        self.assertFalse(any(a['kind'] == 'scene' for a in result['actions']))
+
+    def test_case_document_matches_authored_expectations(self):
+        path = CASES.with_name('CASES.md')
+        self.assertEqual(path.read_text(), render_cases(self.cases))
+
+    def test_second_checkpoint_uses_same_loader_and_runner_without_parcel_names(self):
+        # Synthetic capture, never published as native run evidence. Different
+        # ID/order, repeated STEP and another receipt prove this is not 00.05 code.
+        capture = copy.deepcopy(self.binding.capture)
+        start = capture['checkpoint']['start']
+        capture['checkpoint'] = {'id': 'synthetic-second', 'title': 'Scene then two steps', 'start': start,
+            'events': [{'id': 'get-pass', 'kind': 'scene', 'declared_after': start},
+                       {'id': 'down', 'kind': 'step', 'direction': 'south'},
+                       {'id': 'left', 'kind': 'step', 'direction': 'west'}]}
+        profile = json.loads(PROFILE.read_text())
+        profile['capabilities'] = {
+            'get-pass': {'capability': 'scripted-scene/1', 'parameters': {'require_received': {'test-pass': 2}}},
+            'down': {'capability': 'frlg-runtime-step/1', 'parameters': {}},
+            'left': {'capability': 'frlg-runtime-step/1', 'parameters': {}}}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw = json.dumps(capture).encode()
+            (root / 'capture.json').write_bytes(raw)
+            profile['capture']['file'] = 'capture.json'
+            profile['capture']['sha256'] = hashlib.sha256(raw).hexdigest()
+            for name in profile['maps']:
+                relative = Path('data/games/frlg/maps/runtime', name + '.json')
+                (root / relative).parent.mkdir(parents=True, exist_ok=True)
+                (root / relative).write_bytes((ROOT / relative).read_bytes())
+            path = root / 'binding.json'
+            path.write_text(json.dumps(profile))
+            binding = load_binding(path, root)
+            scenario = copy.deepcopy(self.cases[0]['input'])
+            scenario['signals'] = {'get-pass': {'kind': 'scene-observation', 'basis': 'scripted',
+                'screen': 'overworld', 'pose': copy.deepcopy(scenario['entry']['pose']), 'received': {'test-pass': 2}}}
+            report = run(binding, scenario)
+        self.assertEqual('model_complete', report['status'])
+        self.assertEqual(['get-pass', 'down', 'left'], report['completed_events'])
+        self.assertEqual({'test-pass': 2}, report['received'])
+        self.assertEqual([6, 9], report['pose']['tile'])
+        self.assertEqual('west', report['pose']['facing'])

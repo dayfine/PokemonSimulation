@@ -1,5 +1,5 @@
 {
-  "format": "pokesim-frlg-parcel-pilot/1",
+  "format": "pokesim-story-replay-binding/1",
   "capture": {
     "file": "data/story/native/frlg-parcel-00.05.json",
     "sha256": "076438644e5cc609a728d0e625564d3517b8a2984a18c8a23af2fe6017b37475",
@@ -14,9 +14,9 @@
     "ViridianCity_Mart": "1b2b23f8f9a1b1fbe266f12bdac96cdf649d974b057e84bf9cba6befbaa15b3b"
   },
   "capabilities": {
-    "below_mart_door": "frlg-runtime-route/1",
-    "mart_door": "frlg-runtime-step/1",
-    "parcel_from_clerk": "scripted-parcel-scene/1"
+    "below_mart_door": {"capability": "frlg-runtime-route/1", "parameters": {}},
+    "mart_door": {"capability": "frlg-runtime-step/1", "parameters": {}},
+    "parcel_from_clerk": {"capability": "scripted-scene/1", "parameters": {"require_received": {"oak-parcel": 1}}}
   },
   "costs": {"tile": 1, "turn": 2, "grass": 5, "warp": 1},
   "max_route_presses": 256,

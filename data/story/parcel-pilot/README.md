@@ -1,59 +1,70 @@
-# FRLG Parcel load-and-replay pilot
+# FRLG Parcel load-and-replay example
 
-This Python diagnostic loads the actual evaluated `00.05` native capture,
-binds its route/step/scene events to explicit offline capabilities, and produces
-an evidence-labeled trace. It uses five approved runtime maps with exact hashes;
-it does not use the unreviewed full-world candidate maps.
+**Start with [the readable scenarios](CASES.md).** Each shows starting state,
+supplied observations/interruptions, expected outcome and (where enabled) the
+complete expected action table. It is generated from `cases.json`, not replay
+output, and checked for drift in tests.
+
+The reusable checkpoint runner loads captured story events and dispatches
+registered handlers. FRLG routing/stepping lives in the game adapter; the
+Parcel-specific receipt requirement lives in `binding.json`. There is no
+checkpoint-ID guard or hardcoded Parcel item in the runner. A synthetic second
+checkpoint exercises the same loader/runner with a different ID, scene-first
+ordering, repeated steps and another receipt. Currently supported capabilities
+are FRLG route/step and scripted scene observation; other kinds/games stop at
+binding until their adapters exist.
 
 ```sh
-PYTHONPATH=src python3 -m pokesim.story.parcel_replay \
-  data/story/parcel-pilot/cases.json --case complete --summary \
+PYTHONPATH=src python3 -m pokesim.story.checkpoint_replay \
+  data/story/parcel-pilot/cases.json --case parcel-all-events --summary \
   --out /tmp/parcel-trace.json
-PYTHONPATH=src python3 -m unittest pokesim.story.test_parcel_replay
+PYTHONPATH=src python3 -m unittest pokesim.story.test_checkpoint_replay \
+  pokesim.games.frlg.test_story_replay
+PYTHONPATH=src python3 -m pokesim.story.replay_cases \
+  data/story/parcel-pilot/cases.json --check-doc data/story/parcel-pilot/CASES.md
 ```
 
-The readable summary is:
+## What check_actions verifies
 
-```text
-00.05: model_complete (offline diagnostic; native parity not established)
-below_mart_door -> ViridianCity [36, 20] north, elevation 3 [model-prediction]
-mart_door -> ViridianCity_Mart [4, 7] north, elevation 3 [model-prediction]
-parcel_from_clerk -> ViridianCity_Mart [4, 3] west, elevation 3 [scripted-observation]
-Save: never; retry: none (synthetic policy).
-```
+`input.check_actions: true` requires `expectation.actions`: the **entire ordered
+sequence** of actual modeled requests. Missing/extra/reordered actions, different
+directions or different counts fail even if the final status says complete.
+`false` (or omission) checks outcomes only and must omit `expectation.actions`.
+The switch never changes execution. The CLI and tests use the same checker;
+the CLI records `case_check.actions` as `matched` or `not-checked`.
 
-`binding.json` pins the capture bytes/source revision, approved map bytes/revision,
-registered capabilities and Python route costs. Capture and map hash drift,
-unknown bindings, unsupported policies and malformed inputs fail. Execution
-uses local data only. Structural schemas accompany the semantic readers.
+The selected success case is called `parcel-all-events`, rather than `complete`.
+It checks 20 action groups: 120 route movement requests, the final facing change,
+the Mart entry request and the scene request. Consecutive identical modeled
+presses on the same map/event are grouped with a count; order, map, direction
+and interrupted attempts are retained. These counts are neither confirmed tile
+displacement nor controller button timings. The per-press state trace remains
+in the JSON report.
 
-`cases.json` is one input/expectation table. Every entry/scene observation and
-interruption is **synthetic**, even though the checkpoint and maps come from
-real native/source data. It covers:
+The entry failure checks an empty action list. The failed Mart transition checks
+that entry was requested but the scene never was. The grass interruption checks
+the exact prefix and the interrupted request; later actions must be absent.
+Other cases deliberately check outcomes without locking down a route.
 
-| Case | Expected outcome |
-|---|---|
-| `complete` | Three events complete, with a separately supplied Parcel receipt and scene pose. |
-| `entry-not-overworld` | No actions; start pose alone is insufficient. |
-| `missing-scene-evidence` | Stop; the authored `declared_after` cannot establish arrival or receipt. |
-| `missing-parcel-receipt` | Stop despite the matching scene pose. |
-| `wrong-scene-arrival` | Stop despite a Parcel receipt. |
-| `unconfirmed-mart-transition` | Invalidate pose and stop before the clerk event. |
-| `interrupted-route1-grass` | Stop with `(12,39)` / `(12,38)` as candidates, facing unknown; no nominal movement credit. |
+**This checks all currently modeled requests for the three authored events.**
+It does not simulate the clerk's dialogue/animation or independently implement
+the game's Parcel-grant script. The scene result is still supplied by a fake
+observation, visibly labeled synthetic. Exact action checking does not establish
+native execution parity or turn this into a complete console simulation.
 
-The grass interruption is anchored to the north input from Route 1 `(12,39)`
-into grass at `(12,38)` (press 26 for this Python profile). It is not tied to
-a shared press ordinal: a changed route that misses the physical injection
-point fails rather than silently skipping it. It is not a recorded console failure or a claim that these
-are the only possible outcomes for every encounter. Recovery/rejoin is not
-implemented in this pilot; the bounded safe policy is to stop. Existing lower
-level [recovery tests](../../../docs/navigation/ENCOUNTER_RECOVERY.md) remain
-separate until their observations can be bound here.
+`binding.json` pins the actual evaluated `00.05` capture/source revision, five
+approved runtime maps, capabilities, receipt requirement and Python route costs.
+It does not use the unreviewed full-world candidate maps. Hash drift, unknown
+bindings, unsupported policy and malformed inputs fail before execution.
 
-The full JSON trace retains all modeled presses (120 for this Python cost
-profile), the final in-place facing adjustment, event boundaries and evidence
-basis. `--summary` gives the small event-level view. A stopped run returns exit
-status 1 and can still write its diagnostic report with `--out`.
+The grass interruption is anchored to a north input from Route 1 `(12,39)` into
+`(12,38)` (press 26 under this profile). A changed route that misses this physical
+point fails rather than silently omitting the interruption. It is not recorded
+console evidence or a claim that every encounter has exactly these outcomes.
+Recovery/rejoin remains unbound: this diagnostic safely stops with two candidates
+and unknown facing. Existing lower-level [recovery tests](../../../docs/navigation/ENCOUNTER_RECOVERY.md)
+remain separate. A stopped run exits 1; `--out` retains its report, including
+actual actions if an expectation check fails.
 
 ## Explicit limits and native parity work
 

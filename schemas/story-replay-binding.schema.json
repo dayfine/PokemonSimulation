@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/dayfine/PokemonSimulation/schemas/parcel-pilot-binding.schema.json",
+  "$id": "https://github.com/dayfine/PokemonSimulation/schemas/story-replay-binding.schema.json",
   "type": "object",
   "required": ["format", "capture", "map_revision", "maps", "capabilities", "costs", "max_route_presses", "policy"],
   "additionalProperties": false,
   "properties": {
-    "format": {"const": "pokesim-frlg-parcel-pilot/1"},
+    "format": {"const": "pokesim-story-replay-binding/1"},
     "capture": {
       "type": "object",
       "required": ["file", "sha256", "source_revision"],
@@ -25,12 +25,40 @@
     },
     "capabilities": {
       "type": "object",
-      "required": ["below_mart_door", "mart_door", "parcel_from_clerk"],
-      "additionalProperties": false,
-      "properties": {
-        "below_mart_door": {"const": "frlg-runtime-route/1"},
-        "mart_door": {"const": "frlg-runtime-step/1"},
-        "parcel_from_clerk": {"const": "scripted-parcel-scene/1"}
+      "minProperties": 1,
+      "propertyNames": {"minLength": 1},
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["capability", "parameters"],
+            "additionalProperties": false,
+            "properties": {
+              "capability": {"enum": ["frlg-runtime-route/1", "frlg-runtime-step/1"]},
+              "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}}
+            }
+          },
+          {
+            "type": "object",
+            "required": ["capability", "parameters"],
+            "additionalProperties": false,
+            "properties": {
+              "capability": {"const": "scripted-scene/1"},
+              "parameters": {
+                "type": "object",
+                "required": ["require_received"],
+                "additionalProperties": false,
+                "properties": {
+                  "require_received": {
+                    "type": "object",
+                    "propertyNames": {"minLength": 1},
+                    "additionalProperties": {"type": "integer", "minimum": 1}
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "costs": {
