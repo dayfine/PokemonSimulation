@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/story-checkpoint.schema.json",
+  "title": "Common native story checkpoint",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "title": {"type": "string"},
+    "start": {"$ref": "#/$defs/pose"},
+    "events": {"type": "array", "items": {"$ref": "#/$defs/step"}}
+  },
+  "required": ["id", "title", "events"],
+  "additionalProperties": false,
+  "$defs": {
+    "pose": {
+      "type": "object",
+      "properties": {
+        "map": {"type": "string"},
+        "certainty": {"enum": ["tile", "column", "row", "set", "unknown"]},
+        "where": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {"kind": {"const": "unknown"}},
+              "required": ["kind"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {"const": "tiles"},
+                "tiles": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {"type": "integer", "minimum": -2147483648, "maximum": 2147483647},
+                    "minItems": 2,
+                    "maxItems": 2
+                  }
+                },
+                "facing": {"enum": ["north", "east", "south", "west"]}
+              },
+              "required": ["kind", "tiles"],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": ["map", "certainty", "where"],
+      "additionalProperties": false
+    },
+    "step": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {
+          "enum": [
+            "new_game",
+            "options",
+            "route",
+            "legs",
+            "step",
+            "talk",
+            "answer",
+            "scene",
+            "battle",
+            "train",
+            "heal",
+            "shop",
+            "save",
+            "ready",
+            "game_action"
+          ]
+        },
+        "why": {"type": "string"},
+        "target": {"$ref": "#/$defs/pose"},
+        "declared_after": {"$ref": "#/$defs/pose"},
+        "direction": {"enum": ["north", "east", "south", "west"]},
+        "legs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "direction": {"enum": ["north", "east", "south", "west"]},
+              "tiles": {"type": "integer", "minimum": -2147483648, "maximum": 2147483647}
+            },
+            "required": ["direction", "tiles"],
+            "additionalProperties": false
+          }
+        },
+        "fight_wild": {"type": "boolean"},
+        "yes": {"type": "boolean"},
+        "may_lose": {"type": "boolean"},
+        "battles": {"type": "integer", "minimum": 0, "maximum": 9223372036854775807},
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item": {"type": "string"},
+              "quantity": {"type": "integer", "minimum": 0, "maximum": 9223372036854775807}
+            },
+            "required": ["item", "quantity"],
+            "additionalProperties": false
+          }
+        },
+        "variant": {"type": "string"},
+        "skip_if": {"type": "array", "items": {"type": "string"}}
+      },
+      "required": ["id", "kind"],
+      "additionalProperties": false
+    }
+  }
+}

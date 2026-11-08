@@ -3,244 +3,64 @@
   "status": "synthetic-contract-tests",
   "cases": [
     {
-      "input": {
-        "name": "kind new_game",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "new_game"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "new_game"
-        }
-      }
+      "input": {"name": "kind new_game", "record": "step", "value": {"id": "event", "kind": "new_game"}},
+      "expectation": {"canonical": {"id": "event", "kind": "new_game"}}
     },
     {
-      "input": {
-        "name": "kind options",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "options"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "options"
-        }
-      }
+      "input": {"name": "kind options", "record": "step", "value": {"id": "event", "kind": "options"}},
+      "expectation": {"canonical": {"id": "event", "kind": "options"}}
     },
     {
-      "input": {
-        "name": "kind route",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "route"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "route"
-        }
-      }
+      "input": {"name": "kind route", "record": "step", "value": {"id": "event", "kind": "route"}},
+      "expectation": {"canonical": {"id": "event", "kind": "route"}}
     },
     {
-      "input": {
-        "name": "kind legs",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "legs"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "legs"
-        }
-      }
+      "input": {"name": "kind legs", "record": "step", "value": {"id": "event", "kind": "legs"}},
+      "expectation": {"canonical": {"id": "event", "kind": "legs"}}
     },
     {
-      "input": {
-        "name": "kind step",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "step"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "step"
-        }
-      }
+      "input": {"name": "kind step", "record": "step", "value": {"id": "event", "kind": "step"}},
+      "expectation": {"canonical": {"id": "event", "kind": "step"}}
     },
     {
-      "input": {
-        "name": "kind talk",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "talk"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "talk"
-        }
-      }
+      "input": {"name": "kind talk", "record": "step", "value": {"id": "event", "kind": "talk"}},
+      "expectation": {"canonical": {"id": "event", "kind": "talk"}}
     },
     {
-      "input": {
-        "name": "kind answer",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "answer"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "answer"
-        }
-      }
+      "input": {"name": "kind answer", "record": "step", "value": {"id": "event", "kind": "answer"}},
+      "expectation": {"canonical": {"id": "event", "kind": "answer"}}
     },
     {
-      "input": {
-        "name": "kind scene",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "scene"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "scene"
-        }
-      }
+      "input": {"name": "kind scene", "record": "step", "value": {"id": "event", "kind": "scene"}},
+      "expectation": {"canonical": {"id": "event", "kind": "scene"}}
     },
     {
-      "input": {
-        "name": "kind battle",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "battle"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "battle"
-        }
-      }
+      "input": {"name": "kind battle", "record": "step", "value": {"id": "event", "kind": "battle"}},
+      "expectation": {"canonical": {"id": "event", "kind": "battle"}}
     },
     {
-      "input": {
-        "name": "kind train",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "train"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "train"
-        }
-      }
+      "input": {"name": "kind train", "record": "step", "value": {"id": "event", "kind": "train"}},
+      "expectation": {"canonical": {"id": "event", "kind": "train"}}
     },
     {
-      "input": {
-        "name": "kind heal",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "heal"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "heal"
-        }
-      }
+      "input": {"name": "kind heal", "record": "step", "value": {"id": "event", "kind": "heal"}},
+      "expectation": {"canonical": {"id": "event", "kind": "heal"}}
     },
     {
-      "input": {
-        "name": "kind shop",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "shop"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "shop"
-        }
-      }
+      "input": {"name": "kind shop", "record": "step", "value": {"id": "event", "kind": "shop"}},
+      "expectation": {"canonical": {"id": "event", "kind": "shop"}}
     },
     {
-      "input": {
-        "name": "kind save",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "save"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "save"
-        }
-      }
+      "input": {"name": "kind save", "record": "step", "value": {"id": "event", "kind": "save"}},
+      "expectation": {"canonical": {"id": "event", "kind": "save"}}
     },
     {
-      "input": {
-        "name": "kind ready",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "ready"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "ready"
-        }
-      }
+      "input": {"name": "kind ready", "record": "step", "value": {"id": "event", "kind": "ready"}},
+      "expectation": {"canonical": {"id": "event", "kind": "ready"}}
     },
     {
-      "input": {
-        "name": "kind game_action",
-        "record": "step",
-        "value": {
-          "id": "event",
-          "kind": "game_action"
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "event",
-          "kind": "game_action"
-        }
-      }
+      "input": {"name": "kind game_action", "record": "step", "value": {"id": "event", "kind": "game_action"}},
+      "expectation": {"canonical": {"id": "event", "kind": "game_action"}}
     },
     {
       "input": {
@@ -249,40 +69,14 @@
         "value": {
           "map": "M",
           "certainty": "set",
-          "where": {
-            "kind": "tiles",
-            "tiles": [
-              [
-                0,
-                0
-              ],
-              [
-                1,
-                0
-              ]
-            ],
-            "facing": "east"
-          }
+          "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
         }
       },
       "expectation": {
         "canonical": {
           "map": "M",
           "certainty": "set",
-          "where": {
-            "kind": "tiles",
-            "tiles": [
-              [
-                0,
-                0
-              ],
-              [
-                1,
-                0
-              ]
-            ],
-            "facing": "east"
-          }
+          "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
         }
       }
     },
@@ -290,47 +84,17 @@
       "input": {
         "name": "no position",
         "record": "pose",
-        "value": {
-          "map": "M",
-          "certainty": "unknown",
-          "where": {
-            "kind": "unknown"
-          }
-        }
+        "value": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}
       },
-      "expectation": {
-        "canonical": {
-          "map": "M",
-          "certainty": "unknown",
-          "where": {
-            "kind": "unknown"
-          }
-        }
-      }
+      "expectation": {"canonical": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}}
     },
     {
       "input": {
         "name": "empty tile position",
         "record": "pose",
-        "value": {
-          "map": "M",
-          "certainty": "unknown",
-          "where": {
-            "kind": "tiles",
-            "tiles": []
-          }
-        }
+        "value": {"map": "M", "certainty": "unknown", "where": {"kind": "tiles", "tiles": []}}
       },
-      "expectation": {
-        "canonical": {
-          "map": "M",
-          "certainty": "unknown",
-          "where": {
-            "kind": "tiles",
-            "tiles": []
-          }
-        }
-      }
+      "expectation": {"canonical": {"map": "M", "certainty": "unknown", "where": {"kind": "tiles", "tiles": []}}}
     },
     {
       "input": {
@@ -345,47 +109,16 @@
           "yes": false,
           "may_lose": true,
           "battles": 3,
-          "legs": [
-            {
-              "direction": "south",
-              "tiles": 0
-            }
-          ],
-          "items": [
-            {
-              "item": "potion",
-              "quantity": 0
-            }
-          ],
-          "target": {
-            "map": "M",
-            "certainty": "unknown",
-            "where": {
-              "kind": "unknown"
-            }
-          },
+          "legs": [{"direction": "south", "tiles": 0}],
+          "items": [{"item": "potion", "quantity": 0}],
+          "target": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}},
           "declared_after": {
             "map": "M",
             "certainty": "set",
-            "where": {
-              "kind": "tiles",
-              "tiles": [
-                [
-                  0,
-                  0
-                ],
-                [
-                  1,
-                  0
-                ]
-              ],
-              "facing": "east"
-            }
+            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
           },
           "variant": "profile",
-          "skip_if": [
-            "flag"
-          ]
+          "skip_if": ["flag"]
         }
       },
       "expectation": {
@@ -398,47 +131,16 @@
           "yes": false,
           "may_lose": true,
           "battles": 3,
-          "legs": [
-            {
-              "direction": "south",
-              "tiles": 0
-            }
-          ],
-          "items": [
-            {
-              "item": "potion",
-              "quantity": 0
-            }
-          ],
-          "target": {
-            "map": "M",
-            "certainty": "unknown",
-            "where": {
-              "kind": "unknown"
-            }
-          },
+          "legs": [{"direction": "south", "tiles": 0}],
+          "items": [{"item": "potion", "quantity": 0}],
+          "target": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}},
           "declared_after": {
             "map": "M",
             "certainty": "set",
-            "where": {
-              "kind": "tiles",
-              "tiles": [
-                [
-                  0,
-                  0
-                ],
-                [
-                  1,
-                  0
-                ]
-              ],
-              "facing": "east"
-            }
+            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
           },
           "variant": "profile",
-          "skip_if": [
-            "flag"
-          ]
+          "skip_if": ["flag"]
         }
       }
     },
@@ -461,12 +163,7 @@
           "why": ""
         }
       },
-      "expectation": {
-        "canonical": {
-          "id": "default",
-          "kind": "step"
-        }
-      }
+      "expectation": {"canonical": {"id": "default", "kind": "step"}}
     },
     {
       "input": {
@@ -478,36 +175,14 @@
           "start": {
             "map": "M",
             "certainty": "set",
-            "where": {
-              "kind": "tiles",
-              "tiles": [
-                [
-                  0,
-                  0
-                ],
-                [
-                  1,
-                  0
-                ]
-              ],
-              "facing": "east"
-            }
+            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
           },
           "events": [
-            {
-              "id": "first",
-              "kind": "route"
-            },
+            {"id": "first", "kind": "route"},
             {
               "id": "second",
               "kind": "scene",
-              "declared_after": {
-                "map": "M",
-                "certainty": "unknown",
-                "where": {
-                  "kind": "unknown"
-                }
-              }
+              "declared_after": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}
             }
           ]
         }
@@ -519,195 +194,67 @@
           "start": {
             "map": "M",
             "certainty": "set",
-            "where": {
-              "kind": "tiles",
-              "tiles": [
-                [
-                  0,
-                  0
-                ],
-                [
-                  1,
-                  0
-                ]
-              ],
-              "facing": "east"
-            }
+            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
           },
           "events": [
-            {
-              "id": "first",
-              "kind": "route"
-            },
+            {"id": "first", "kind": "route"},
             {
               "id": "second",
               "kind": "scene",
-              "declared_after": {
-                "map": "M",
-                "certainty": "unknown",
-                "where": {
-                  "kind": "unknown"
-                }
-              }
+              "declared_after": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}
             }
           ]
         }
       }
     },
     {
-      "input": {
-        "name": "unsupported kind",
-        "record": "step",
-        "value": {
-          "id": "a",
-          "kind": "teleport"
-        }
-      },
-      "expectation": {
-        "rejected": true
-      }
+      "input": {"name": "unsupported kind", "record": "step", "value": {"id": "a", "kind": "teleport"}},
+      "expectation": {"rejected": true}
     },
     {
-      "input": {
-        "name": "unknown field",
-        "record": "step",
-        "value": {
-          "id": "a",
-          "kind": "talk",
-          "mystery": 1
-        }
-      },
-      "expectation": {
-        "rejected": true
-      }
+      "input": {"name": "unknown field", "record": "step", "value": {"id": "a", "kind": "talk", "mystery": 1}},
+      "expectation": {"rejected": true}
     },
     {
-      "input": {
-        "name": "boolean count",
-        "record": "step",
-        "value": {
-          "id": "a",
-          "kind": "train",
-          "battles": false
-        }
-      },
-      "expectation": {
-        "rejected": true
-      }
+      "input": {"name": "boolean count", "record": "step", "value": {"id": "a", "kind": "train", "battles": false}},
+      "expectation": {"rejected": true}
     },
     {
-      "input": {
-        "name": "negative count",
-        "record": "step",
-        "value": {
-          "id": "a",
-          "kind": "train",
-          "battles": -1
-        }
-      },
-      "expectation": {
-        "rejected": true
-      }
+      "input": {"name": "negative count", "record": "step", "value": {"id": "a", "kind": "train", "battles": -1}},
+      "expectation": {"rejected": true}
     },
     {
-      "input": {
-        "name": "wrong boolean",
-        "record": "step",
-        "value": {
-          "id": "a",
-          "kind": "answer",
-          "yes": 0
-        }
-      },
-      "expectation": {
-        "rejected": true
-      }
+      "input": {"name": "wrong boolean", "record": "step", "value": {"id": "a", "kind": "answer", "yes": 0}},
+      "expectation": {"rejected": true}
     },
+    {"input": {"name": "missing id", "record": "step", "value": {"kind": "talk"}}, "expectation": {"rejected": true}},
     {
-      "input": {
-        "name": "missing id",
-        "record": "step",
-        "value": {
-          "kind": "talk"
-        }
-      },
-      "expectation": {
-        "rejected": true
-      }
-    },
-    {
-      "input": {
-        "name": "empty id",
-        "record": "step",
-        "value": {
-          "id": "",
-          "kind": "talk"
-        }
-      },
-      "expectation": {
-        "rejected": true
-      }
+      "input": {"name": "empty id", "record": "step", "value": {"id": "", "kind": "talk"}},
+      "expectation": {"rejected": true}
     },
     {
       "input": {
         "name": "duplicate events",
         "record": "checkpoint",
-        "value": {
-          "id": "x",
-          "title": "X",
-          "events": [
-            {
-              "id": "a",
-              "kind": "talk"
-            },
-            {
-              "id": "a",
-              "kind": "talk"
-            }
-          ]
-        }
+        "value": {"id": "x", "title": "X", "events": [{"id": "a", "kind": "talk"}, {"id": "a", "kind": "talk"}]}
       },
-      "expectation": {
-        "rejected": true
-      }
+      "expectation": {"rejected": true}
     },
     {
       "input": {
         "name": "bad pair",
         "record": "pose",
-        "value": {
-          "map": "M",
-          "certainty": "tile",
-          "where": {
-            "kind": "tiles",
-            "tiles": [
-              [
-                0,
-                true
-              ]
-            ]
-          }
-        }
+        "value": {"map": "M", "certainty": "tile", "where": {"kind": "tiles", "tiles": [[0, true]]}}
       },
-      "expectation": {
-        "rejected": true
-      }
+      "expectation": {"rejected": true}
     },
     {
       "input": {
         "name": "unknown subtype",
         "record": "pose",
-        "value": {
-          "map": "M",
-          "certainty": "unknown",
-          "where": {
-            "kind": "gps"
-          }
-        }
+        "value": {"map": "M", "certainty": "unknown", "where": {"kind": "gps"}}
       },
-      "expectation": {
-        "rejected": true
-      }
+      "expectation": {"rejected": true}
     }
   ]
 }
