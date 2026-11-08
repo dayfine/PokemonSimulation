@@ -108,6 +108,12 @@ requirements must come from its native implementation; they are not inferred
 from this sketch. Python replay uses scripted receipts and evidence, not RNG
 hardware execution or an assumed successful outcome.
 
+### Starter RNG return: save before the rival
+
+The first handoff pilot must introduce a dedicated checkpoint immediately after a verified successful Starter RNG return. Confirm the returned starter and an overworld state in which saving is available, save it, and verify save completion **before** moving toward the rival trigger. Only then can a failure reload the new save. A failed/unconfirmed save stops without resetting to the pre-RNG save.
+
+The current native `rows_after_starter_rng()` resumes at the rival portion of `00.04b`, and `after_shiny_starter()` sets `has_save = false` until that row saves after the battle. That is the current implementation, not a verified game restriction requiring delayed saving. Replace that grouping in the handoff slice; do not encode the delay as a universal rule. Native/Python tests must cover saving before the rival, failed/unconfirmed save without reload, and retry from the newly confirmed save. No console validation or production change is claimed by this plan note.
+
 ## Acceptance tests
 
 Keep native tests beside their owning sources and Python tests beside their
