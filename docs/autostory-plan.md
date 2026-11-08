@@ -108,6 +108,9 @@ fixtures should be data, not Python tests extracting C++ source strings.
 
 ## 4. Replay AutoStory plans and evaluate quality
 
+- [x] First shared record codec and native/Python conformance vectors; see
+  [checkpoint contract](story/CHECKPOINT_CONTRACT.md). Policy/envelope binding
+  and evaluated game-table exports remain pending.
 - [ ] AutoStory exports its route/story events as versioned JSON; replay here
   yields state changes and battle histories with complete preconditions.
 - [ ] Validate both FRLG and BDSP plans through the same orchestration layer;

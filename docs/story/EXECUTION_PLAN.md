@@ -1,5 +1,10 @@
 # Shared story execution and FRLG coverage
 
+Checkpoint supplies, save/failure policy and handoff/resume are shared concepts;
+see [the common checkpoint contract](CHECKPOINT_CONTRACT.md). The initial
+step/pose/checkpoint codec is implemented separately from the pending evaluated
+game-table exports, policy binding and execution parity.
+
 Agreed follow-up: once the small exported FRLG and BDSP checkpoints work,
 write the rest of FRLG as shared story-event data, support handoff/takeover for
 programs such as RNG manipulation, and execute that data through the shared
