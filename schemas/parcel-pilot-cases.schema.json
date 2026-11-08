@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dayfine/PokemonSimulation/schemas/parcel-pilot-cases.schema.json",
+  "type": "object",
+  "required": ["format", "evidence_status", "coordinate_frame", "cases"],
+  "additionalProperties": false,
+  "properties": {
+    "format": {"const": "pokesim-parcel-pilot-cases/1"},
+    "evidence_status": {"const": "synthetic-scripted-observations"},
+    "coordinate_frame": {"const": "runtime-local"},
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "input", "expectation"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "input": {
+            "type": "object",
+            "required": ["entry", "signals"],
+            "additionalProperties": false,
+            "properties": {
+              "entry": {
+                "type": "object",
+                "required": ["basis", "screen", "pose"],
+                "additionalProperties": false,
+                "properties": {
+                  "basis": {"const": "scripted"},
+                  "screen": {"type": "string", "minLength": 1},
+                  "pose": {"$ref": "#/$defs/pose"}
+                }
+              },
+              "signals": {
+                "type": "object",
+                "required": [],
+                "additionalProperties": false,
+                "properties": {
+                  "below_mart_door": {
+                    "type": "object",
+                    "required": ["kind", "from", "direction"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {"const": "wild-encounter"},
+                      "from": {"$ref": "#/$defs/pose"},
+                      "direction": {"enum": ["north", "east", "south", "west"]}
+                    }
+                  },
+                  "mart_door": {
+                    "type": "object",
+                    "required": ["kind"],
+                    "additionalProperties": false,
+                    "properties": {"kind": {"const": "unconfirmed-transition"}}
+                  },
+                  "parcel_from_clerk": {
+                    "type": "object",
+                    "required": ["kind", "basis", "screen", "pose", "received"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {"const": "scene-observation"},
+                      "basis": {"const": "scripted"},
+                      "screen": {"type": "string", "minLength": 1},
+                      "pose": {"$ref": "#/$defs/pose"},
+                      "received": {
+                        "type": "object",
+                        "required": [],
+                        "additionalProperties": false,
+                        "properties": {"oak-parcel": {"type": "integer", "minimum": 1}}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "expectation": {
+            "type": "object",
+            "required": [
+              "status",
+              "failure",
+              "active_event",
+              "completed_events",
+              "pose",
+              "pose_basis",
+              "candidates",
+              "received",
+              "save_performed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "status": {"enum": ["model_complete", "stopped"]},
+              "failure": {"type": ["string", "null"]},
+              "active_event": {"type": ["string", "null"]},
+              "completed_events": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+              "pose": {"anyOf": [{"$ref": "#/$defs/pose"}, {"type": "null"}]},
+              "pose_basis": {
+                "enum": [
+                  "scripted-observation",
+                  "model-prediction",
+                  "unknown-after-interruption",
+                  "unknown-after-transition",
+                  "unknown-after-scene"
+                ]
+              },
+              "candidates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["map", "tile", "elevation", "facing"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "map": {"type": "string", "minLength": 1},
+                    "tile": {
+                      "type": "array",
+                      "prefixItems": [{"type": "integer"}, {"type": "integer"}],
+                      "items": false,
+                      "minItems": 2
+                    },
+                    "elevation": {"type": "integer", "minimum": 0, "maximum": 15},
+                    "facing": {"anyOf": [{"enum": ["north", "east", "south", "west"]}, {"type": "null"}]}
+                  }
+                }
+              },
+              "received": {
+                "type": "object",
+                "required": [],
+                "additionalProperties": false,
+                "properties": {"oak-parcel": {"type": "integer", "minimum": 1}}
+              },
+              "save_performed": {"const": false}
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "pose": {
+      "type": "object",
+      "required": ["map", "tile", "elevation", "facing"],
+      "additionalProperties": false,
+      "properties": {
+        "map": {"type": "string", "minLength": 1},
+        "tile": {
+          "type": "array",
+          "prefixItems": [{"type": "integer"}, {"type": "integer"}],
+          "items": false,
+          "minItems": 2
+        },
+        "elevation": {"type": "integer", "minimum": 0, "maximum": 15},
+        "facing": {"enum": ["north", "east", "south", "west"]}
+      }
+    }
+  }
+}

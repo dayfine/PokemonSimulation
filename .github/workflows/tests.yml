@@ -113,6 +113,17 @@ jobs:
         run: PYTHONPATH=src python -m unittest discover -v -s src -t src
       - name: Audit published map inventory and hashes
         run: PYTHONPATH=src python -m pokesim.maps.runtime_map_pack
+      - name: Replay the bound Parcel offline diagnostic
+        if: matrix.python-version == '3.12'
+        run: >-
+          PYTHONPATH=src python -m pokesim.story.parcel_replay
+          data/story/parcel-pilot/cases.json --case complete --summary
+          --out "${{ runner.temp }}/parcel-trace.json"
+      - uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.12'
+        with:
+          name: parcel-python-model-trace
+          path: ${{ runner.temp }}/parcel-trace.json
       - name: Upload actual golden routes on failure
         if: failure()
         uses: actions/upload-artifact@v4

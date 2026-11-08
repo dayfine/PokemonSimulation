@@ -47,6 +47,12 @@ listed as `unbound`. No executable plan or successful replay is inferred.
 
 ## Next parity gate
 
+The [Parcel Python pilot](../../data/story/parcel-pilot/README.md) now loads the
+capture into pinned spatial models with synthetic scene evidence and explicit
+stop/no-save diagnostic policy. It is not native execution parity: actual
+native STEP/scene fallback semantics and effective runtime/save/retry options
+still need a native trace consumer and comparison.
+
 - Parcel capture/import validation is implemented; keep its native revision and provenance pinned.
 - Add BDSP mine/Roark `01.03` through its own evaluated native table adapter.
 - Resolve shared requirements/state/evidence and effective save/failure policy

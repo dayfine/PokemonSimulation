@@ -1,0 +1,218 @@
+{
+  "format": "pokesim-parcel-pilot-cases/1",
+  "evidence_status": "synthetic-scripted-observations",
+  "coordinate_frame": "runtime-local",
+  "cases": [
+    {
+      "id": "complete",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
+        },
+        "signals": {
+          "parcel_from_clerk": {
+            "kind": "scene-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
+            "received": {"oak-parcel": 1}
+          }
+        }
+      },
+      "expectation": {
+        "status": "model_complete",
+        "failure": null,
+        "active_event": null,
+        "completed_events": ["below_mart_door", "mart_door", "parcel_from_clerk"],
+        "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
+        "pose_basis": "scripted-observation",
+        "candidates": [],
+        "received": {"oak-parcel": 1},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "entry-not-overworld",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "dialogue",
+          "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
+        },
+        "signals": {
+          "parcel_from_clerk": {
+            "kind": "scene-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
+            "received": {"oak-parcel": 1}
+          }
+        }
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "entry_requirement_failed",
+        "active_event": null,
+        "completed_events": [],
+        "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"},
+        "pose_basis": "scripted-observation",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "missing-scene-evidence",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
+        },
+        "signals": {}
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "scene_evidence_missing_or_mismatched",
+        "active_event": "parcel_from_clerk",
+        "completed_events": ["below_mart_door", "mart_door"],
+        "pose": null,
+        "pose_basis": "unknown-after-scene",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "missing-parcel-receipt",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
+        },
+        "signals": {
+          "parcel_from_clerk": {
+            "kind": "scene-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
+            "received": {}
+          }
+        }
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "scene_evidence_missing_or_mismatched",
+        "active_event": "parcel_from_clerk",
+        "completed_events": ["below_mart_door", "mart_door"],
+        "pose": null,
+        "pose_basis": "unknown-after-scene",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "wrong-scene-arrival",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
+        },
+        "signals": {
+          "parcel_from_clerk": {
+            "kind": "scene-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "east"},
+            "received": {"oak-parcel": 1}
+          }
+        }
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "scene_evidence_missing_or_mismatched",
+        "active_event": "parcel_from_clerk",
+        "completed_events": ["below_mart_door", "mart_door"],
+        "pose": null,
+        "pose_basis": "unknown-after-scene",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "unconfirmed-mart-transition",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
+        },
+        "signals": {
+          "parcel_from_clerk": {
+            "kind": "scene-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
+            "received": {"oak-parcel": 1}
+          },
+          "mart_door": {"kind": "unconfirmed-transition"}
+        }
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "transition_unconfirmed",
+        "active_event": "mart_door",
+        "completed_events": ["below_mart_door"],
+        "pose": null,
+        "pose_basis": "unknown-after-transition",
+        "candidates": [],
+        "received": {},
+        "save_performed": false
+      }
+    },
+    {
+      "id": "interrupted-route1-grass",
+      "input": {
+        "entry": {
+          "basis": "scripted",
+          "screen": "overworld",
+          "pose": {"map": "PalletTown_ProfessorOaksLab", "tile": [7, 8], "elevation": 3, "facing": "south"}
+        },
+        "signals": {
+          "parcel_from_clerk": {
+            "kind": "scene-observation",
+            "basis": "scripted",
+            "screen": "overworld",
+            "pose": {"map": "ViridianCity_Mart", "tile": [4, 3], "elevation": 3, "facing": "west"},
+            "received": {"oak-parcel": 1}
+          },
+          "below_mart_door": {
+            "kind": "wild-encounter",
+            "from": {"map": "Route1", "tile": [12, 39], "elevation": 3, "facing": "north"},
+            "direction": "north"
+          }
+        }
+      },
+      "expectation": {
+        "status": "stopped",
+        "failure": "encounter_requires_recovery",
+        "active_event": "below_mart_door",
+        "completed_events": [],
+        "pose": null,
+        "pose_basis": "unknown-after-interruption",
+        "candidates": [
+          {"map": "Route1", "tile": [12, 39], "elevation": 3, "facing": null},
+          {"map": "Route1", "tile": [12, 38], "elevation": 3, "facing": null}
+        ],
+        "received": {},
+        "save_performed": false
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@
     PYTHONPATH=src python3 -m pokesim.formats.contract_format --check
     PYTHONPATH=src python3 -m pokesim.formats.contract_format path/to/data.json
 
-With no paths, formats schemas, shared story cases and native story captures.
+With no paths, formats schemas, shared story cases, native captures and the Parcel pilot.
 Explicit paths opt other authored JSON files in. Every field and its order are
 retained. Republish hash-pinned data before adopting changed bytes in consumers.
 """
@@ -39,12 +39,13 @@ def json_text(data, width=120):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('paths', nargs='*', type=Path, help='JSON files; defaults to schemas, story cases and native captures')
+    parser.add_argument('paths', nargs='*', type=Path, help='JSON files; defaults to schemas and shared story fixtures')
     parser.add_argument('--check', action='store_true', help='report formatting drift without writing')
     args = parser.parse_args()
     changed = []
     paths = args.paths or (sorted(SCHEMAS.glob('*.schema.json'))
-        + [ROOT / 'data/story/wire-conformance.json'] + sorted(ROOT.glob('data/story/native/*.json')))
+        + [ROOT / 'data/story/wire-conformance.json'] + sorted(ROOT.glob('data/story/native/*.json'))
+        + sorted(ROOT.glob('data/story/parcel-pilot/*.json')))
     for path in paths:
         original = path.read_text(encoding='utf-8')
         formatted = json_text(json.loads(original))

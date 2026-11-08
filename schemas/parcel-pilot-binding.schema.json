@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dayfine/PokemonSimulation/schemas/parcel-pilot-binding.schema.json",
+  "type": "object",
+  "required": ["format", "capture", "map_revision", "maps", "capabilities", "costs", "max_route_presses", "policy"],
+  "additionalProperties": false,
+  "properties": {
+    "format": {"const": "pokesim-frlg-parcel-pilot/1"},
+    "capture": {
+      "type": "object",
+      "required": ["file", "sha256", "source_revision"],
+      "additionalProperties": false,
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+      }
+    },
+    "map_revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "maps": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"pattern": "^[A-Za-z0-9_]+$"},
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "capabilities": {
+      "type": "object",
+      "required": ["below_mart_door", "mart_door", "parcel_from_clerk"],
+      "additionalProperties": false,
+      "properties": {
+        "below_mart_door": {"const": "frlg-runtime-route/1"},
+        "mart_door": {"const": "frlg-runtime-step/1"},
+        "parcel_from_clerk": {"const": "scripted-parcel-scene/1"}
+      }
+    },
+    "costs": {
+      "type": "object",
+      "required": ["tile", "turn", "grass", "warp"],
+      "additionalProperties": false,
+      "properties": {
+        "tile": {"type": "number", "exclusiveMinimum": 0},
+        "turn": {"type": "number", "minimum": 0},
+        "grass": {"type": "number", "minimum": 0},
+        "warp": {"type": "number", "minimum": 0}
+      }
+    },
+    "max_route_presses": {"type": "integer", "minimum": 1, "maximum": 4096},
+    "policy": {
+      "type": "object",
+      "required": ["basis", "entry", "attempts", "failure", "save"],
+      "additionalProperties": false,
+      "properties": {
+        "basis": {"const": "synthetic-offline-policy"},
+        "entry": {"const": "scripted-observation"},
+        "attempts": {"const": 1},
+        "failure": {"const": "stop"},
+        "save": {"const": "never"}
+      }
+    }
+  }
+}
