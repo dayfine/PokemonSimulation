@@ -66,3 +66,7 @@ are checked by code, not `uniqueItems` (which compares whole objects).
 Changes should update the schema, reader and common fixtures together. The
 existing native codec CI pins #66's vectors; it does not yet consume these schema
 files. Pin/adopt this revision in native authoring validation after review.
+
+The native capture schema names C++ widths in `$defs` (`int32`, `uint8`,
+`uint16`, `count64`) and references them at each field. Stats use `uint16`;
+PP/levels use `uint8`. These encode storage bounds, not valid gameplay ranges.
