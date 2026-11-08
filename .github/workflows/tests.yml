@@ -114,7 +114,7 @@ jobs:
       - name: Audit published map inventory and hashes
         run: PYTHONPATH=src python -m pokesim.maps.runtime_map_pack
       - name: Replay the bound Parcel offline diagnostic
-        if: matrix.python-version == '3.12'
+        if: always() && matrix.python-version == '3.12'
         run: >-
           PYTHONPATH=src python -m pokesim.story.checkpoint_replay
           data/story/parcel-pilot/cases.json --case parcel-all-events --summary
