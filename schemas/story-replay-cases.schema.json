@@ -152,7 +152,8 @@
                   "unknown-after-interruption",
                   "unknown-after-transition",
                   "unknown-after-scene",
-                  "unknown-after-route-mismatch"
+                  "unknown-after-route-mismatch",
+                  "unknown-after-observation"
                 ]
               },
               "candidates": {
