@@ -12,13 +12,13 @@ PYTHONPATH=src python3 -m pokesim.formats.json_schema frlg-battle-report report.
 
 | Schema | Scope |
 |---|---|
+| `native-checkpoint-export` | Evaluated FRLG stage-1 checkpoint capture, including raw native extensions and explicit unbound runtime/evidence/policy inputs. This is not an executable plan. |
 | `story-checkpoint` | Common native checkpoint, step and tile-pose records from #66. Policy/state envelope is still proposed, not covered here. |
 | `runtime-map-v2` | Current published FRLG/BDSP runtime maps with coordinate pairs and typed NPC/item/sign/interactable arrays. Historical v1 and older grid formats remain handled by their existing readers. |
 | `frlg-battle-cases` | Existing Gen 3 solo-battle experiment inputs. This does not imply support for another generation or arbitrary teams. |
 | `frlg-battle-report` | Existing full benchmark output (`pokesim-frlg-report/1`), including probability/count shapes. Run summaries and other result formats are not covered yet. |
 
-`$id` identifies each schema; validation loads it from the local checkout and
-does not fetch it. Consumers should pin the publisher revision alongside data
+`$id` identifies each schema; validation uses a registry of schemas from the local checkout and does not fetch references. Consumers should pin the publisher revision alongside data
 and fixtures. CI checks schema validity, all published runtime maps, checked-in
 FRLG cases, common story conformance vectors and synthetic malformed records.
 The report schema has synthetic boundary tests; full reports are generated
