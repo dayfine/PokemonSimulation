@@ -36,35 +36,66 @@
         "actions": [
           {
             "event": "below_mart_door",
-            "kind": "press",
+            "kind": "walk",
             "map": "PalletTown_ProfessorOaksLab",
             "direction": "west",
-            "count": 1
+            "tiles": 1
           },
           {
             "event": "below_mart_door",
-            "kind": "press",
+            "kind": "walk",
             "map": "PalletTown_ProfessorOaksLab",
             "direction": "south",
-            "count": 5
+            "tiles": 4
           },
-          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "west", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "north", "count": 15},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 7},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 5},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 6},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 2},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 6},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 15},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 6},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 3},
-          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 19},
-          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "east", "count": 14},
+          {
+            "event": "below_mart_door",
+            "kind": "transition",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "south",
+            "to_map": "PalletTown",
+            "via": "warp"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "PalletTown", "direction": "west", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "PalletTown", "direction": "north", "tiles": 14},
+          {
+            "event": "below_mart_door",
+            "kind": "transition",
+            "map": "PalletTown",
+            "direction": "north",
+            "to_map": "Route1",
+            "via": "edge"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 7},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "west", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 5},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "east", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 6},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "west", "tiles": 2},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "east", "tiles": 6},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 15},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "west", "tiles": 6},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 2},
+          {
+            "event": "below_mart_door",
+            "kind": "transition",
+            "map": "Route1",
+            "direction": "north",
+            "to_map": "ViridianCity",
+            "via": "edge"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "ViridianCity", "direction": "north", "tiles": 19},
+          {"event": "below_mart_door", "kind": "walk", "map": "ViridianCity", "direction": "east", "tiles": 14},
           {"event": "below_mart_door", "kind": "turn", "map": "ViridianCity", "direction": "north"},
-          {"event": "mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 1},
+          {
+            "event": "mart_door",
+            "kind": "transition",
+            "map": "ViridianCity",
+            "direction": "north",
+            "to_map": "ViridianCity_Mart",
+            "via": "warp"
+          },
           {"event": "parcel_from_clerk", "kind": "scene", "capability": "scripted-scene/1"}
         ]
       }
@@ -224,35 +255,66 @@
         "actions": [
           {
             "event": "below_mart_door",
-            "kind": "press",
+            "kind": "walk",
             "map": "PalletTown_ProfessorOaksLab",
             "direction": "west",
-            "count": 1
+            "tiles": 1
           },
           {
             "event": "below_mart_door",
-            "kind": "press",
+            "kind": "walk",
             "map": "PalletTown_ProfessorOaksLab",
             "direction": "south",
-            "count": 5
+            "tiles": 4
           },
-          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "west", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "north", "count": 15},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 7},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 5},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 6},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 2},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "east", "count": 6},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 15},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "west", "count": 6},
-          {"event": "below_mart_door", "kind": "press", "map": "Route1", "direction": "north", "count": 3},
-          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 19},
-          {"event": "below_mart_door", "kind": "press", "map": "ViridianCity", "direction": "east", "count": 14},
+          {
+            "event": "below_mart_door",
+            "kind": "transition",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "south",
+            "to_map": "PalletTown",
+            "via": "warp"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "PalletTown", "direction": "west", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "PalletTown", "direction": "north", "tiles": 14},
+          {
+            "event": "below_mart_door",
+            "kind": "transition",
+            "map": "PalletTown",
+            "direction": "north",
+            "to_map": "Route1",
+            "via": "edge"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 7},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "west", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 5},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "east", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 6},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "west", "tiles": 2},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "east", "tiles": 6},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 15},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "west", "tiles": 6},
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 2},
+          {
+            "event": "below_mart_door",
+            "kind": "transition",
+            "map": "Route1",
+            "direction": "north",
+            "to_map": "ViridianCity",
+            "via": "edge"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "ViridianCity", "direction": "north", "tiles": 19},
+          {"event": "below_mart_door", "kind": "walk", "map": "ViridianCity", "direction": "east", "tiles": 14},
           {"event": "below_mart_door", "kind": "turn", "map": "ViridianCity", "direction": "north"},
-          {"event": "mart_door", "kind": "press", "map": "ViridianCity", "direction": "north", "count": 1}
+          {
+            "event": "mart_door",
+            "kind": "transition",
+            "map": "ViridianCity",
+            "direction": "north",
+            "to_map": "ViridianCity_Mart",
+            "via": "warp"
+          }
         ]
       }
     },
@@ -297,28 +359,37 @@
         "actions": [
           {
             "event": "below_mart_door",
-            "kind": "press",
+            "kind": "walk",
             "map": "PalletTown_ProfessorOaksLab",
             "direction": "west",
-            "count": 1
+            "tiles": 1
           },
           {
             "event": "below_mart_door",
-            "kind": "press",
+            "kind": "walk",
             "map": "PalletTown_ProfessorOaksLab",
             "direction": "south",
-            "count": 5
+            "tiles": 4
           },
-          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "west", "count": 4},
-          {"event": "below_mart_door", "kind": "press", "map": "PalletTown", "direction": "north", "count": 15},
           {
             "event": "below_mart_door",
-            "kind": "press",
-            "map": "Route1",
+            "kind": "transition",
+            "map": "PalletTown_ProfessorOaksLab",
+            "direction": "south",
+            "to_map": "PalletTown",
+            "via": "warp"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "PalletTown", "direction": "west", "tiles": 4},
+          {"event": "below_mart_door", "kind": "walk", "map": "PalletTown", "direction": "north", "tiles": 14},
+          {
+            "event": "below_mart_door",
+            "kind": "transition",
+            "map": "PalletTown",
             "direction": "north",
-            "outcome": "interrupted",
-            "count": 1
-          }
+            "to_map": "Route1",
+            "via": "edge"
+          },
+          {"event": "below_mart_door", "kind": "walk", "map": "Route1", "direction": "north", "tiles": 7}
         ]
       }
     }

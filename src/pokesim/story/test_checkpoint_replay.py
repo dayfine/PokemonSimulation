@@ -80,7 +80,7 @@ class CheckpointReplayTest(unittest.TestCase):
             lambda b: b['capabilities'].pop('mart_door'),
             lambda b: b['policy'].update(save='after'),
             lambda b: b['policy'].update(attempts=True),
-            lambda b: b.update(max_route_presses=True),
+            lambda b: b.update(max_route_moves=True),
             lambda b: b['costs'].update(tile=float('nan')),
             lambda b: b.update(extra='ignored'),
         ]
@@ -132,7 +132,7 @@ class CheckpointReplayTest(unittest.TestCase):
             lambda a: a.append(copy.deepcopy(a[-1])),
             lambda a: a.reverse(),
             lambda a: a[0].update(direction='east'),
-            lambda a: a[0].update(count=2),
+            lambda a: a[0].update(tiles=2),
         ]
         for change in changes:
             with self.subTest(change=changes.index(change)):
@@ -157,7 +157,8 @@ class CheckpointReplayTest(unittest.TestCase):
         changes = [lambda c: c['expectation'].pop('actions'),
                    lambda c: c['input'].update(check_actions=False),
                    lambda c: c['input'].update(check_actions=1),
-                   lambda c: c['expectation']['actions'][0].update(count=True)]
+                   lambda c: c['expectation']['actions'][0].update(tiles=True),
+                   lambda c: c['expectation']['actions'][0].update(kind='press')]
         for change in changes:
             with self.subTest(change=changes.index(change)):
                 case = copy.deepcopy(self.cases[0])

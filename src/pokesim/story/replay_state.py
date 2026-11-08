@@ -18,15 +18,9 @@ class ReplayState:
         self.trace.append(dict(event=event, phase=phase, pose=self.pose, basis=self.basis, **details))
 
     def action(self, event, kind, **details):
-        """Record actual requests, coalescing consecutive identical modeled presses.
+        """Record a requested semantic leg before execution, not its completion.
 
-        Counts are input presses, not confirmed tile displacement. Interrupted
-        presses are separate records; scene requests do not describe buttons.
+        Distance is intent: an interrupted walk retains its requested tiles.
+        Confirmed/model displacement and uncertainty belong to state/trace.
         """
-        row = dict(event=event, kind=kind, **details)
-        if kind == 'press':
-            if self.actions and {k: v for k, v in self.actions[-1].items() if k != 'count'} == row:
-                self.actions[-1]['count'] += 1
-                return
-            row['count'] = 1
-        self.actions.append(row)
+        self.actions.append(dict(event=event, kind=kind, **details))

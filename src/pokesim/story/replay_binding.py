@@ -25,9 +25,9 @@ OFFLINE_POLICY = {'basis': 'synthetic-offline-policy', 'entry': 'scripted-observ
 
 
 def positive(value):
-    """A finite positive press count, not a boolean or unbounded budget."""
+    """A finite positive route move count, not a boolean or unbounded budget."""
     if type(value) is not int or not 1 <= value <= 4096:
-        raise ValueError('press budget must be an integer in 1..4096')
+        raise ValueError('route move budget must be an integer in 1..4096')
     return value
 
 
@@ -44,7 +44,7 @@ class ReplayBinding:
 def load_binding(path=PROFILE, root=ROOT):
     """Preflight every binding/hash before any replay action; never fetch data."""
     raw = Path(path).read_bytes()
-    config = exact(read_json(raw), 'format capture map_revision maps capabilities costs max_route_presses policy')
+    config = exact(read_json(raw), 'format capture map_revision maps capabilities costs max_route_moves policy')
     if (config['format'] != 'pokesim-story-replay-binding/1' or config['policy'] != OFFLINE_POLICY
             or type(config['policy'].get('attempts')) is not int):
         raise ValueError('unsupported offline profile/policy; native options remain unbound')
@@ -78,7 +78,7 @@ def load_binding(path=PROFILE, root=ROOT):
     costs = exact(config['costs'], 'tile turn grass warp')
     if any(type(v) not in (int, float) or not math.isfinite(v) or v < 0 for v in costs.values()) or costs['tile'] <= 0:
         raise ValueError('route costs must be finite nonnegative numbers with positive tile cost')
-    budget = positive(config['max_route_presses'])
+    budget = positive(config['max_route_moves'])
     if not isinstance(config['maps'], dict) or not config['maps']:
         raise ValueError('map pins required')
     maps = [LocalMap(read_json(read_pinned_map(config['map_revision'], 'frlg', name, digest, root)), 'frlg')

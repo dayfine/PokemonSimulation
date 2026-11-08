@@ -140,15 +140,27 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "required": ["event", "kind", "map", "direction", "count"],
+                      "required": ["event", "kind", "map", "direction", "tiles"],
                       "additionalProperties": false,
                       "properties": {
                         "event": {"type": "string", "minLength": 1},
-                        "kind": {"const": "press"},
+                        "kind": {"enum": ["walk", "hop"]},
                         "map": {"type": "string", "minLength": 1},
                         "direction": {"enum": ["north", "east", "south", "west"]},
-                        "count": {"type": "integer", "minimum": 1},
-                        "outcome": {"const": "interrupted"}
+                        "tiles": {"type": "integer", "minimum": 1}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": ["event", "kind", "map", "direction", "to_map", "via"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "event": {"type": "string", "minLength": 1},
+                        "kind": {"const": "transition"},
+                        "map": {"type": "string", "minLength": 1},
+                        "direction": {"enum": ["north", "east", "south", "west"]},
+                        "to_map": {"anyOf": [{"type": "string", "minLength": 1}, {"type": "null"}]},
+                        "via": {"enum": ["warp", "edge"]}
                       }
                     },
                     {

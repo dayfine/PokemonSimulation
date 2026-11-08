@@ -23,8 +23,9 @@ class JsonSchemaTests(unittest.TestCase):
             lambda c: c['expectation'].pop('actions'),
             lambda c: c['input'].update(check_actions=False),
             lambda c: c['input'].update(check_actions=1),
-            lambda c: c['expectation']['actions'][0].update(count=True),
+            lambda c: c['expectation']['actions'][0].update(tiles=True),
             lambda c: c['expectation']['actions'][0].update(extra='ignored'),
+            lambda c: c['expectation']['actions'][0].update(kind='press'),
         ]
         for change in changes:
             with self.subTest(change=changes.index(change)):

@@ -7,7 +7,7 @@ stop with invalidated pose; no recovery or controller timing is invented.
 from pokesim.grid.geometry import Direction, Tile
 from pokesim.grid.maps.world import Place
 from pokesim.grid.movement import Edge, Warp, WorldState, world_step
-from pokesim.grid.routing.shortest import as_move, shortest_path
+from pokesim.grid.routing.shortest import MoveKind, as_move, shortest_path
 from pokesim.story.replay_handlers import exact
 
 
@@ -16,10 +16,44 @@ def pose(state, facing):
             'elevation': state.elevation, 'facing': facing.name.lower()}
 
 
+def movement_action(current, move, direction, unresolved=None):
+    """Describe a straight walk, hop or map transition, without input timings."""
+    result = dict(map=current.place.map, direction=direction.name.lower())
+    if move and (move.kind is MoveKind.WARP or move.to.place.map != current.place.map):
+        return dict(result, kind='transition', to_map=move.to.place.map,
+                    via='warp' if move.kind is MoveKind.WARP else 'edge')
+    if isinstance(unresolved, (Warp, Edge)):
+        return dict(result, kind='transition', to_map=None, via='warp' if isinstance(unresolved, Warp) else 'edge')
+    if move and move.kind is MoveKind.HOP:
+        start, end = current.place.tile, move.to.place.tile
+        return dict(result, kind='hop', tiles=abs(end.x - start.x) + abs(end.y - start.y))
+    return dict(result, kind='walk', tiles=1)
+
+
+def route_legs(path):
+    """Group planned same-map walking into requested straight legs.
+
+    Transitions/hops stay separate. A leg is logged before any of its model
+    steps execute, so an interruption cannot shrink its requested distance.
+    """
+    legs, current = [], path.start
+    for number, move in enumerate(path.moves, 1):
+        action = movement_action(current, move, move.direction)
+        if (action['kind'] == 'walk' and legs
+                and {k: v for k, v in legs[-1][0].items() if k != 'tiles'}
+                == {k: v for k, v in action.items() if k != 'tiles'}):
+            legs[-1][0]['tiles'] += 1
+            legs[-1][1].append((number, move))
+        else:
+            legs.append((action, [(number, move)]))
+        current = move.to
+    return legs
+
+
 class FRLGReplay:
     """Game-owned spatial handlers, reusable across checkpoints and event IDs."""
-    def __init__(self, world, costs, max_route_presses):
-        self.world, self.costs, self.max_route_presses = world, costs, max_route_presses
+    def __init__(self, world, costs, max_route_moves):
+        self.world, self.costs, self.max_route_moves = world, costs, max_route_moves
 
     def handlers(self):
         return {'frlg-runtime-route/1': ('route', self.route_signal, self.route),
@@ -60,7 +94,7 @@ class FRLGReplay:
             if signal['kind'] != 'unconfirmed-transition':
                 raise ValueError('unsupported step signal')
 
-    def interruption_press(self, path, facing, signal):
+    def interruption_move(self, path, facing, signal):
         if not signal:
             return None
         current, matches = path.start, []
@@ -79,29 +113,27 @@ class FRLGReplay:
         path = shortest_path(self.world, current, Place(target['map'], Tile(*target['tile'])), self.costs, self.world.rules)
         if path is None:
             return 'no_route'
-        if len(path.moves) > self.max_route_presses:
-            return 'route_press_budget_exceeded'
-        interrupted_at = self.interruption_press(path, facing, signal)
-        for number, move in enumerate(path.moves, 1):
-            result = world_step(self.world, current, move.direction, self.world.rules)
-            actual = as_move(move.direction, result)
-            if actual is None or actual.to != move.to:
-                state.action(event['id'], 'press', map=current.place.map, direction=move.direction.name.lower())
-                state.pose, state.basis = None, 'unknown-after-route-mismatch'
-                return 'route_model_mismatch'
-            end_facing = getattr(result, 'facing', move.direction)
-            predicted = pose(actual.to, end_facing)
-            details = dict(map=current.place.map, direction=move.direction.name.lower())
-            if interrupted_at == number:
-                state.action(event['id'], 'press', **details, outcome='interrupted')
-                state.candidates = [dict(state.pose, facing=None), dict(predicted, facing=None)]
-                state.pose, state.basis = None, 'unknown-after-interruption'
-                state.record(event['id'], 'interrupted', before_press=number, candidates=state.candidates)
-                return 'encounter_requires_recovery'
-            state.action(event['id'], 'press', **details)
-            current, facing = actual.to, end_facing
-            state.pose, state.basis = predicted, 'model-prediction'
-            state.record(event['id'], 'press', number=number, direction=move.direction.name.lower())
+        if len(path.moves) > self.max_route_moves:
+            return 'route_move_budget_exceeded'
+        interrupted_at = self.interruption_move(path, facing, signal)
+        for action, moves in route_legs(path):
+            state.action(event['id'], **action)
+            for number, move in moves:
+                result = world_step(self.world, current, move.direction, self.world.rules)
+                actual = as_move(move.direction, result)
+                if actual is None or actual.to != move.to:
+                    state.pose, state.basis = None, 'unknown-after-route-mismatch'
+                    return 'route_model_mismatch'
+                end_facing = getattr(result, 'facing', move.direction)
+                predicted = pose(actual.to, end_facing)
+                if interrupted_at == number:
+                    state.candidates = [dict(state.pose, facing=None), dict(predicted, facing=None)]
+                    state.pose, state.basis = None, 'unknown-after-interruption'
+                    state.record(event['id'], 'interrupted', before_move=number, candidates=state.candidates)
+                    return 'encounter_requires_recovery'
+                current, facing = actual.to, end_facing
+                state.pose, state.basis = predicted, 'model-prediction'
+                state.record(event['id'], 'move', number=number, direction=move.direction.name.lower())
         if facing.name.lower() != target['facing']:
             state.action(event['id'], 'turn', map=current.place.map, direction=target['facing'])
             state.pose = pose(current, Direction[target['facing'].upper()])
@@ -112,12 +144,12 @@ class FRLGReplay:
     def step(self, state, event, signal):
         current, facing = self.validate_pose(state.pose)
         direction = Direction[event.get('direction', 'north').upper()]
-        state.action(event['id'], 'press', map=current.place.map, direction=direction.name.lower())
+        result = world_step(self.world, current, direction, self.world.rules)
+        move = as_move(direction, result)
+        state.action(event['id'], **movement_action(current, move, direction, result))
         if signal:
             state.pose, state.basis = None, 'unknown-after-transition'
             return 'transition_unconfirmed'
-        result = world_step(self.world, current, direction, self.world.rules)
-        move = as_move(direction, result)
         if move is None:
             if isinstance(result, (Warp, Edge)):
                 state.pose, state.basis = None, 'unknown-after-transition'

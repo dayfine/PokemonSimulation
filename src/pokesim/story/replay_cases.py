@@ -17,17 +17,19 @@ from .replay_handlers import exact
 
 
 def validate_action(action):
-    """Reject ambiguous assertions such as boolean press counts or unknown fields."""
+    """Reject ambiguous assertions such as boolean tile distances or unknown fields."""
     if not isinstance(action, dict):
         raise ValueError('expected an action record')
     kind = action.get('kind')
-    if kind == 'press':
-        keys = 'event kind map direction count' + (' outcome' if 'outcome' in action else '')
-        exact(action, keys)
-        if type(action['count']) is not int or action['count'] <= 0:
-            raise ValueError('action count must be a positive integer')
-        if 'outcome' in action and action['outcome'] != 'interrupted':
-            raise ValueError('unsupported action outcome')
+    if kind in ('walk', 'hop'):
+        exact(action, 'event kind map direction tiles')
+        if type(action['tiles']) is not int or action['tiles'] <= 0:
+            raise ValueError('walk/hop tiles must be a positive integer')
+    elif kind == 'transition':
+        exact(action, 'event kind map direction to_map via')
+        if (action['via'] not in ('warp', 'edge') or action['to_map'] is not None
+                and (not isinstance(action['to_map'], str) or not action['to_map'])):
+            raise ValueError('transition needs a destination or explicit unknown, and warp/edge mode')
     elif kind == 'turn':
         exact(action, 'event kind map direction')
     elif kind == 'scene':
@@ -109,10 +111,12 @@ def receipts(value):
 
 
 def action_text(action):
-    """Describe requested inputs, never imply that press counts are moved tiles."""
-    if action['kind'] == 'press':
-        text = 'Press {} × {} on {}'.format(action['direction'], action['count'], action['map'])
-        return text + ('; last input interrupted' if action.get('outcome') == 'interrupted' else '')
+    """Describe semantic movement intents, separate from confirmed displacement."""
+    if action['kind'] in ('walk', 'hop'):
+        return '{} {} for {} {} on {}'.format(action['kind'].capitalize(), action['direction'], action['tiles'],
+                                               'tile' if action['tiles'] == 1 else 'tiles', action['map'])
+    if action['kind'] == 'transition':
+        return 'Take {} {}: {} → {}'.format(action['via'], action['direction'], action['map'], action['to_map'] or 'unknown destination')
     if action['kind'] == 'turn':
         return 'Face {} on {}'.format(action['direction'], action['map'])
     return 'Request scene via ' + action['capability']
@@ -123,7 +127,8 @@ def render_cases(cases):
     lines = ['# Replay scenarios', '',
              'Generated from [cases.json](cases.json); edit that file and regenerate this view.', '',
              'All observations and interruptions are synthetic. Actions are modeled requests,',
-             'not controller timing or verified console behavior. Press counts are not moved tiles.',
+             'not controller timing or verified console behavior. Walk distances are requested, not confirmed displacement.',
+             'An interrupted walk keeps its requested distance; uncertainty/progress is checked separately.',
              'Scene contents are supplied observations, not simulated button-by-button dialogue.',
              'A signal is consumed only if its event is reached; listing a receipt does not grant the item at entry.', '']
     for case in cases:
@@ -138,7 +143,7 @@ def render_cases(cases):
                 lines += ['- `{}`: {} scene result at {}; received: {}.'.format(
                     event, signal['screen'], place(signal['pose']), receipts(signal['received']))]
             elif signal['kind'] == 'wild-encounter':
-                lines += ['- `{}`: encounter interrupts {} input from {}.'.format(event, signal['direction'], place(signal['from']))]
+                lines += ['- `{}`: encounter interrupts a {}ward walk from {}.'.format(event, signal['direction'], place(signal['from']))]
             else:
                 lines += ['- `{}`: transition cannot be confirmed.'.format(event)]
         lines += ['', '**Expected result:** `{}`{}.'.format(expected['status'],

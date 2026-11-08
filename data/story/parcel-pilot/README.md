@@ -28,22 +28,27 @@ PYTHONPATH=src python3 -m pokesim.story.replay_cases \
 
 `input.check_actions: true` requires `expectation.actions`: the **entire ordered
 sequence** of actual modeled requests. Missing/extra/reordered actions, different
-directions or different counts fail even if the final status says complete.
+directions or different tile distances fail even if the final status says complete.
 `false` (or omission) checks outcomes only and must omit `expectation.actions`.
 The switch never changes execution. The CLI and tests use the same checker;
 the CLI records `case_check.actions` as `matched` or `not-checked`.
 
 The selected success case is called `parcel-all-events`, rather than `complete`.
-It checks 20 action groups: 120 route movement requests, the final facing change,
-the Mart entry request and the scene request. Consecutive identical modeled
-presses on the same map/event are grouped with a count; order, map, direction
-and interrupted attempts are retained. These counts are neither confirmed tile
-displacement nor controller button timings. The per-press state trace remains
-in the JSON report.
+It checks 23 semantic actions: straight-line walks totaling 117 tiles, three
+route map transitions, the final facing change, the Mart entrance transition,
+and the scene request. For example, exiting the lab is a southward walk for four
+tiles followed by a separate door warp. Hops remain separate from walking.
+No expected action counts button presses or depends on input timings.
+
+Actions describe **requested intent**, not confirmed displacement. In the grass
+interruption case the requested leg remains `walk north for 7 tiles`; the
+result instead retains two candidate tiles and unknown facing. It must not
+credit all seven tiles, or rewrite the original request as the one interrupted
+movement. The per-move diagnostic state trace remains available separately.
 
 The entry failure checks an empty action list. The failed Mart transition checks
 that entry was requested but the scene never was. The grass interruption checks
-the exact prefix and the interrupted request; later actions must be absent.
+the exact prefix through the interrupted walk request; later actions must be absent.
 Other cases deliberately check outcomes without locking down a route.
 
 **This checks all currently modeled requests for the three authored events.**
@@ -58,7 +63,7 @@ It does not use the unreviewed full-world candidate maps. Hash drift, unknown
 bindings, unsupported policy and malformed inputs fail before execution.
 
 The grass interruption is anchored to a north input from Route 1 `(12,39)` into
-`(12,38)` (press 26 under this profile). A changed route that misses this physical
+`(12,38)` (model move 26 under this profile). A changed route that misses this physical
 point fails rather than silently omitting the interruption. It is not recorded
 console evidence or a claim that every encounter has exactly these outcomes.
 Recovery/rejoin remains unbound: this diagnostic safely stops with two candidates
@@ -91,7 +96,7 @@ At capture revision `b170b7d2103e887ded825c37fdbdc19fd654fca8`:
   native fallback declarations to evidence.
 - Native uses `default_route_costs()` and its production walker. Python uses
   explicitly pinned Dijkstra weights and an abstract in-place final turn.
-  Its press trace is not a controller-timing or native planner-leg oracle.
+  Its movement trace is not a controller-timing or native planner-leg oracle.
 
 These behaviors were inspected in the pinned
 [`PokemonFRLG_AutoStoryEvents.cpp`](https://github.com/dayfine/Arduino-Source/blob/b170b7d2103e887ded825c37fdbdc19fd654fca8/SerialPrograms/Source/VideoGames/PokemonFRLG/Programs/AutoStory/PokemonFRLG_AutoStoryEvents.cpp)
