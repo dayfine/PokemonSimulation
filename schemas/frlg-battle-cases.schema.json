@@ -4,137 +4,45 @@
   "title": "FRLG Gen 3 battle experiment cases",
   "type": "object",
   "properties": {
-    "format": {
-      "const": "pokesim-frlg-cases/1"
-    },
+    "format": {"const": "pokesim-frlg-cases/1"},
     "cases": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "trainer": {
-            "type": "string",
-            "minLength": 1
-          },
+          "id": {"type": "string", "minLength": 1},
+          "trainer": {"type": "string", "minLength": 1},
           "player": {
             "type": "object",
             "properties": {
-              "species": {
-                "type": "string",
-                "minLength": 1
-              },
-              "level": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 100
-              },
+              "species": {"type": "string", "minLength": 1},
+              "level": {"type": "integer", "minimum": 1, "maximum": 100},
               "stats": {
                 "type": "object",
                 "properties": {
-                  "hp": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 999
-                  },
-                  "atk": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 999
-                  },
-                  "def": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 999
-                  },
-                  "spa": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 999
-                  },
-                  "spd": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 999
-                  },
-                  "spe": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 999
-                  }
+                  "hp": {"type": "integer", "minimum": 1, "maximum": 999},
+                  "atk": {"type": "integer", "minimum": 1, "maximum": 999},
+                  "def": {"type": "integer", "minimum": 1, "maximum": 999},
+                  "spa": {"type": "integer", "minimum": 1, "maximum": 999},
+                  "spd": {"type": "integer", "minimum": 1, "maximum": 999},
+                  "spe": {"type": "integer", "minimum": 1, "maximum": 999}
                 },
-                "required": [
-                  "hp",
-                  "atk",
-                  "def",
-                  "spa",
-                  "spd",
-                  "spe"
-                ],
+                "required": ["hp", "atk", "def", "spa", "spd", "spe"],
                 "additionalProperties": false
               },
-              "hp": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 999
-              },
-              "status": {
-                "enum": [
-                  "",
-                  "slp",
-                  "psn",
-                  "tox",
-                  "par",
-                  "brn",
-                  "frz"
-                ]
-              },
-              "sleep_turns": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 5
-              },
+              "hp": {"type": "integer", "minimum": 1, "maximum": 999},
+              "status": {"enum": ["", "slp", "psn", "tox", "par", "brn", "frz"]},
+              "sleep_turns": {"type": "integer", "minimum": 1, "maximum": 5},
               "boosts": {
                 "type": "object",
                 "properties": {
-                  "atk": {
-                    "type": "integer",
-                    "minimum": -6,
-                    "maximum": 6
-                  },
-                  "def": {
-                    "type": "integer",
-                    "minimum": -6,
-                    "maximum": 6
-                  },
-                  "spa": {
-                    "type": "integer",
-                    "minimum": -6,
-                    "maximum": 6
-                  },
-                  "spd": {
-                    "type": "integer",
-                    "minimum": -6,
-                    "maximum": 6
-                  },
-                  "spe": {
-                    "type": "integer",
-                    "minimum": -6,
-                    "maximum": 6
-                  },
-                  "accuracy": {
-                    "type": "integer",
-                    "minimum": -6,
-                    "maximum": 6
-                  },
-                  "evasion": {
-                    "type": "integer",
-                    "minimum": -6,
-                    "maximum": 6
-                  }
+                  "atk": {"type": "integer", "minimum": -6, "maximum": 6},
+                  "def": {"type": "integer", "minimum": -6, "maximum": 6},
+                  "spa": {"type": "integer", "minimum": -6, "maximum": 6},
+                  "spd": {"type": "integer", "minimum": -6, "maximum": 6},
+                  "spe": {"type": "integer", "minimum": -6, "maximum": 6},
+                  "accuracy": {"type": "integer", "minimum": -6, "maximum": 6},
+                  "evasion": {"type": "integer", "minimum": -6, "maximum": 6}
                 },
                 "required": [],
                 "additionalProperties": false
@@ -143,26 +51,14 @@
                 "type": "array",
                 "items": {
                   "oneOf": [
-                    {
-                      "type": "string",
-                      "minLength": 1
-                    },
+                    {"type": "string", "minLength": 1},
                     {
                       "type": "object",
                       "properties": {
-                        "name": {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "pp": {
-                          "type": "integer",
-                          "minimum": 0
-                        }
+                        "name": {"type": "string", "minLength": 1},
+                        "pp": {"type": "integer", "minimum": 0}
                       },
-                      "required": [
-                        "name",
-                        "pp"
-                      ],
+                      "required": ["name", "pp"],
                       "additionalProperties": true
                     }
                   ]
@@ -171,84 +67,36 @@
                 "maxItems": 4
               }
             },
-            "required": [
-              "species",
-              "level",
-              "stats",
-              "moves"
-            ],
+            "required": ["species", "level", "stats", "moves"],
             "additionalProperties": true
           },
-          "bag": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 999
-            }
-          },
+          "bag": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0, "maximum": 999}},
           "badges": {
             "type": "array",
-            "items": {
-              "enum": [
-                "boulder",
-                "cascade",
-                "thunder",
-                "rainbow",
-                "soul",
-                "marsh",
-                "volcano",
-                "earth"
-              ]
-            },
+            "items": {"enum": ["boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"]},
             "uniqueItems": true
           },
-          "enable_complex_planning": {
-            "type": "boolean"
-          },
+          "enable_complex_planning": {"type": "boolean"},
           "planning_goals": {
             "type": "object",
             "properties": {
-              "spa": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 6
-              },
-              "accuracy": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 6
-              },
-              "outspeed": {
-                "type": "boolean"
-              },
-              "guard_accuracy": {
-                "type": "boolean"
-              },
-              "target_torrent": {
-                "type": "boolean"
-              },
-              "torrent_power": {
-                "type": "boolean"
-              }
+              "spa": {"type": "integer", "minimum": 0, "maximum": 6},
+              "accuracy": {"type": "integer", "minimum": 0, "maximum": 6},
+              "outspeed": {"type": "boolean"},
+              "guard_accuracy": {"type": "boolean"},
+              "target_torrent": {"type": "boolean"},
+              "torrent_power": {"type": "boolean"}
             },
             "required": [],
             "additionalProperties": false
           }
         },
-        "required": [
-          "id",
-          "trainer",
-          "player"
-        ],
+        "required": ["id", "trainer", "player"],
         "additionalProperties": true
       },
       "minItems": 1
     }
   },
-  "required": [
-    "format",
-    "cases"
-  ],
+  "required": ["format", "cases"],
   "additionalProperties": true
 }

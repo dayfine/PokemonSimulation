@@ -31,6 +31,19 @@ We do not insert defaults or rewrite published data. Existing map hashes and
 resource pins remain unchanged. A missing pickup quantity still means one in
 the runtime decoder, not in the schema validator.
 
+## Formatting
+
+Small definitions and short arrays stay inline within a soft 120-column width;
+large containers expand with two-space indentation. Reproduce or check it with:
+
+```sh
+PYTHONPATH=src python3 -m pokesim.formats.schema_format
+PYTHONPATH=src python3 -m pokesim.formats.schema_format --check
+```
+
+This command touches schema files only. It preserves all values and key order.
+CI checks the formatting.
+
 ## Structural validation is one layer
 
 Keep existing semantic validators and runtime readers:

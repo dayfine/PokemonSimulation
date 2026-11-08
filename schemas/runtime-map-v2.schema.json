@@ -4,272 +4,73 @@
   "title": "Published runtime map version 2",
   "type": "object",
   "properties": {
-    "format": {
-      "const": "pokesim-runtime-map/2"
-    },
-    "name": {
-      "type": "string",
-      "minLength": 1
-    },
+    "format": {"const": "pokesim-runtime-map/2"},
+    "name": {"type": "string", "minLength": 1},
     "source": {
       "type": "object",
-      "properties": {
-        "decomp_file": {
-          "type": "string"
-        },
-        "revision": {
-          "type": "string"
-        },
-        "date": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "decomp_file",
-        "revision",
-        "date"
-      ],
+      "properties": {"decomp_file": {"type": "string"}, "revision": {"type": "string"}, "date": {"type": "string"}},
+      "required": ["decomp_file", "revision", "date"],
       "additionalProperties": true
     },
     "tiles": {
       "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "pattern": "^[#.~w^v<>DS 8246]+$"
-      },
+      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246]+$"},
       "minItems": 1
     },
-    "elevation": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^[0-9a-f]+$"
-      }
-    },
-    "allow_running": {
-      "type": "boolean"
-    },
-    "points": {
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/$defs/coord"
-      }
-    },
-    "regions": {
-      "type": "object",
-      "additionalProperties": {
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/coord"
-        }
-      }
-    },
-    "npcs": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/npc"
-      }
-    },
+    "elevation": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]+$"}},
+    "allow_running": {"type": "boolean"},
+    "points": {"type": "object", "additionalProperties": {"$ref": "#/$defs/coord"}},
+    "regions": {"type": "object", "additionalProperties": {"type": "array", "items": {"$ref": "#/$defs/coord"}}},
+    "npcs": {"type": "array", "items": {"$ref": "#/$defs/npc"}},
     "items": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "coord": {
-            "$ref": "#/$defs/coord"
-          },
-          "name": {
-            "type": "string"
-          },
-          "facing": {
-            "$ref": "#/$defs/direction"
-          },
-          "hide_flag": {
-            "type": "string"
-          },
-          "source_event": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 2147483647
-          },
-          "wander": {
-            "$ref": "#/$defs/wander"
-          },
-          "item": {
-            "type": "string",
-            "minLength": 1
-          },
-          "quantity": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 9223372036854775807
-          }
+          "coord": {"$ref": "#/$defs/coord"},
+          "name": {"type": "string"},
+          "facing": {"$ref": "#/$defs/direction"},
+          "hide_flag": {"type": "string"},
+          "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
+          "wander": {"$ref": "#/$defs/wander"},
+          "item": {"type": "string", "minLength": 1},
+          "quantity": {"type": "integer", "minimum": 1, "maximum": 9223372036854775807}
         },
-        "required": [
-          "coord"
-        ],
+        "required": ["coord"],
         "additionalProperties": true,
         "allOf": [
           {
-            "if": {
-              "anyOf": [
-                {
-                  "required": [
-                    "item"
-                  ]
-                },
-                {
-                  "required": [
-                    "quantity"
-                  ]
-                }
-              ]
-            },
-            "then": {
-              "required": [
-                "item"
-              ],
-              "anyOf": [
-                {
-                  "required": [
-                    "name"
-                  ]
-                },
-                {
-                  "required": [
-                    "source_event"
-                  ]
-                }
-              ]
-            }
+            "if": {"anyOf": [{"required": ["item"]}, {"required": ["quantity"]}]},
+            "then": {"required": ["item"], "anyOf": [{"required": ["name"]}, {"required": ["source_event"]}]}
           },
-          {
-            "not": {
-              "anyOf": [
-                {
-                  "required": [
-                    "x"
-                  ]
-                },
-                {
-                  "required": [
-                    "y"
-                  ]
-                }
-              ]
-            }
-          }
+          {"not": {"anyOf": [{"required": ["x"]}, {"required": ["y"]}]}}
         ],
-        "not": {
-          "anyOf": [
-            {
-              "required": [
-                "kind"
-              ]
-            },
-            {
-              "required": [
-                "interaction"
-              ]
-            },
-            {
-              "required": [
-                "pickup"
-              ]
-            }
-          ]
-        }
+        "not": {"anyOf": [{"required": ["kind"]}, {"required": ["interaction"]}, {"required": ["pickup"]}]}
       }
     },
-    "signs": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/npc"
-      }
-    },
+    "signs": {"type": "array", "items": {"$ref": "#/$defs/npc"}},
     "interactables": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "coord": {
-            "$ref": "#/$defs/coord"
-          },
-          "name": {
-            "type": "string"
-          },
-          "facing": {
-            "$ref": "#/$defs/direction"
-          },
-          "hide_flag": {
-            "type": "string"
-          },
-          "source_event": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 2147483647
-          },
-          "wander": {
-            "$ref": "#/$defs/wander"
-          },
+          "coord": {"$ref": "#/$defs/coord"},
+          "name": {"type": "string"},
+          "facing": {"$ref": "#/$defs/direction"},
+          "hide_flag": {"type": "string"},
+          "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
+          "wander": {"$ref": "#/$defs/wander"},
           "interaction": {
             "type": "object",
-            "properties": {
-              "kind": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "required": [
-              "kind"
-            ],
+            "properties": {"kind": {"type": "string", "minLength": 1}},
+            "required": ["kind"],
             "additionalProperties": true
           }
         },
-        "required": [
-          "coord",
-          "name",
-          "interaction"
-        ],
+        "required": ["coord", "name", "interaction"],
         "additionalProperties": true,
-        "not": {
-          "anyOf": [
-            {
-              "required": [
-                "kind"
-              ]
-            },
-            {
-              "required": [
-                "item"
-              ]
-            },
-            {
-              "required": [
-                "quantity"
-              ]
-            }
-          ]
-        },
-        "allOf": [
-          {
-            "not": {
-              "anyOf": [
-                {
-                  "required": [
-                    "x"
-                  ]
-                },
-                {
-                  "required": [
-                    "y"
-                  ]
-                }
-              ]
-            }
-          }
-        ]
+        "not": {"anyOf": [{"required": ["kind"]}, {"required": ["item"]}, {"required": ["quantity"]}]},
+        "allOf": [{"not": {"anyOf": [{"required": ["x"]}, {"required": ["y"]}]}}]
       }
     },
     "warps": {
@@ -277,57 +78,17 @@
       "items": {
         "type": "object",
         "properties": {
-          "coord": {
-            "$ref": "#/$defs/coord"
-          },
+          "coord": {"$ref": "#/$defs/coord"},
           "enter": {
-            "enum": [
-              "walk_into",
-              "step_on",
-              "cave_entrance",
-              "walk_north",
-              "walk_south",
-              "walk_west",
-              "walk_east"
-            ]
+            "enum": ["walk_into", "step_on", "cave_entrance", "walk_north", "walk_south", "walk_west", "walk_east"]
           },
-          "to_map": {
-            "type": "string"
-          },
-          "to_point": {
-            "type": "string"
-          }
+          "to_map": {"type": "string"},
+          "to_point": {"type": "string"}
         },
-        "required": [
-          "coord"
-        ],
+        "required": ["coord"],
         "additionalProperties": true,
-        "dependentRequired": {
-          "to_map": [
-            "to_point"
-          ],
-          "to_point": [
-            "to_map"
-          ]
-        },
-        "allOf": [
-          {
-            "not": {
-              "anyOf": [
-                {
-                  "required": [
-                    "x"
-                  ]
-                },
-                {
-                  "required": [
-                    "y"
-                  ]
-                }
-              ]
-            }
-          }
-        ]
+        "dependentRequired": {"to_map": ["to_point"], "to_point": ["to_map"]},
+        "allOf": [{"not": {"anyOf": [{"required": ["x"]}, {"required": ["y"]}]}}]
       }
     },
     "patches": {
@@ -335,57 +96,13 @@
       "items": {
         "type": "object",
         "properties": {
-          "coord": {
-            "$ref": "#/$defs/coord"
-          },
-          "glyph": {
-            "enum": [
-              "#",
-              ".",
-              "~",
-              "w",
-              "^",
-              "v",
-              "<",
-              ">",
-              "D",
-              "S",
-              " ",
-              "8",
-              "2",
-              "4",
-              "6"
-            ]
-          },
-          "measured_by": {
-            "type": "string",
-            "minLength": 1
-          }
+          "coord": {"$ref": "#/$defs/coord"},
+          "glyph": {"enum": ["#", ".", "~", "w", "^", "v", "<", ">", "D", "S", " ", "8", "2", "4", "6"]},
+          "measured_by": {"type": "string", "minLength": 1}
         },
-        "required": [
-          "coord",
-          "glyph",
-          "measured_by"
-        ],
+        "required": ["coord", "glyph", "measured_by"],
         "additionalProperties": true,
-        "allOf": [
-          {
-            "not": {
-              "anyOf": [
-                {
-                  "required": [
-                    "x"
-                  ]
-                },
-                {
-                  "required": [
-                    "y"
-                  ]
-                }
-              ]
-            }
-          }
-        ]
+        "allOf": [{"not": {"anyOf": [{"required": ["x"]}, {"required": ["y"]}]}}]
       }
     },
     "coord_events": {
@@ -393,42 +110,13 @@
       "items": {
         "type": "object",
         "properties": {
-          "coord": {
-            "$ref": "#/$defs/coord"
-          },
-          "width": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "length": {
-            "type": "integer",
-            "minimum": 1
-          }
+          "coord": {"$ref": "#/$defs/coord"},
+          "width": {"type": "integer", "minimum": 1},
+          "length": {"type": "integer", "minimum": 1}
         },
-        "required": [
-          "coord",
-          "width",
-          "length"
-        ],
+        "required": ["coord", "width", "length"],
         "additionalProperties": true,
-        "allOf": [
-          {
-            "not": {
-              "anyOf": [
-                {
-                  "required": [
-                    "x"
-                  ]
-                },
-                {
-                  "required": [
-                    "y"
-                  ]
-                }
-              ]
-            }
-          }
-        ]
+        "allOf": [{"not": {"anyOf": [{"required": ["x"]}, {"required": ["y"]}]}}]
       }
     },
     "connections": {
@@ -436,123 +124,46 @@
       "items": {
         "type": "object",
         "properties": {
-          "side": {
-            "$ref": "#/$defs/direction"
-          },
-          "offset": {
-            "type": "integer"
-          },
-          "to_map": {
-            "type": "string"
-          }
+          "side": {"$ref": "#/$defs/direction"},
+          "offset": {"type": "integer"},
+          "to_map": {"type": "string"}
         },
-        "required": [
-          "side",
-          "offset"
-        ],
+        "required": ["side", "offset"],
         "additionalProperties": true
       }
     }
   },
-  "required": [
-    "format",
-    "name",
-    "source",
-    "tiles"
-  ],
+  "required": ["format", "name", "source", "tiles"],
   "additionalProperties": true,
-  "not": {
-    "required": [
-      "objects"
-    ]
-  },
+  "not": {"required": ["objects"]},
   "$defs": {
     "coord": {
       "type": "array",
-      "items": {
-        "type": "integer",
-        "minimum": -2147483648,
-        "maximum": 2147483647
-      },
+      "items": {"type": "integer", "minimum": -2147483648, "maximum": 2147483647},
       "minItems": 2,
       "maxItems": 2
     },
-    "direction": {
-      "enum": [
-        "north",
-        "east",
-        "south",
-        "west"
-      ]
-    },
+    "direction": {"enum": ["north", "east", "south", "west"]},
     "wander": {
       "type": "object",
-      "properties": {
-        "min": {
-          "$ref": "#/$defs/coord"
-        },
-        "max": {
-          "$ref": "#/$defs/coord"
-        }
-      },
-      "required": [
-        "min",
-        "max"
-      ],
+      "properties": {"min": {"$ref": "#/$defs/coord"}, "max": {"$ref": "#/$defs/coord"}},
+      "required": ["min", "max"],
       "additionalProperties": true
     },
     "npc": {
       "type": "object",
       "properties": {
-        "coord": {
-          "$ref": "#/$defs/coord"
-        },
-        "name": {
-          "type": "string"
-        },
-        "facing": {
-          "$ref": "#/$defs/direction"
-        },
-        "hide_flag": {
-          "type": "string"
-        },
-        "source_event": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 2147483647
-        },
-        "wander": {
-          "$ref": "#/$defs/wander"
-        }
+        "coord": {"$ref": "#/$defs/coord"},
+        "name": {"type": "string"},
+        "facing": {"$ref": "#/$defs/direction"},
+        "hide_flag": {"type": "string"},
+        "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
+        "wander": {"$ref": "#/$defs/wander"}
       },
-      "required": [
-        "coord",
-        "name"
-      ],
+      "required": ["coord", "name"],
       "additionalProperties": true,
-      "not": {
-        "required": [
-          "kind"
-        ]
-      },
-      "allOf": [
-        {
-          "not": {
-            "anyOf": [
-              {
-                "required": [
-                  "x"
-                ]
-              },
-              {
-                "required": [
-                  "y"
-                ]
-              }
-            ]
-          }
-        }
-      ]
+      "not": {"required": ["kind"]},
+      "allOf": [{"not": {"anyOf": [{"required": ["x"]}, {"required": ["y"]}]}}]
     }
   }
 }

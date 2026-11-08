@@ -4,98 +4,45 @@
   "title": "FRLG Gen 3 battle report",
   "type": "object",
   "properties": {
-    "format": {
-      "const": "pokesim-frlg-report/1"
-    },
-    "seed": {
-      "type": "integer"
-    },
-    "turn_limit": {
-      "type": "integer",
-      "minimum": 1
-    },
+    "format": {"const": "pokesim-frlg-report/1"},
+    "seed": {"type": "integer"},
+    "turn_limit": {"type": "integer", "minimum": 1},
     "results": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "battles": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "wins": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "win_probability": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 1
-          },
-          "outcomes": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "integer",
-              "minimum": 0
-            }
-          },
+          "id": {"type": "string", "minLength": 1},
+          "battles": {"type": "integer", "minimum": 1},
+          "wins": {"type": "integer", "minimum": 0},
+          "win_probability": {"type": "number", "minimum": 0, "maximum": 1},
+          "outcomes": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
           "confidence_sequence": {
             "type": "object",
             "properties": {
               "bounds": {
                 "type": "array",
-                "items": {
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 1
-                },
+                "items": {"type": "number", "minimum": 0, "maximum": 1},
                 "minItems": 2,
                 "maxItems": 2
               },
-              "stop_reason": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              }
+              "stop_reason": {"type": ["string", "null"]}
             },
-            "required": [
-              "bounds",
-              "stop_reason"
-            ],
+            "required": ["bounds", "stop_reason"],
             "additionalProperties": true
           },
           "wilson_95": {
             "type": "array",
-            "items": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
+            "items": {"type": "number", "minimum": 0, "maximum": 1},
             "minItems": 2,
             "maxItems": 2
           }
         },
-        "required": [
-          "id",
-          "battles",
-          "wins",
-          "win_probability",
-          "outcomes"
-        ],
+        "required": ["id", "battles", "wins", "win_probability", "outcomes"],
         "additionalProperties": true
       }
     }
   },
-  "required": [
-    "format",
-    "seed",
-    "turn_limit",
-    "results"
-  ],
+  "required": ["format", "seed", "turn_limit", "results"],
   "additionalProperties": true
 }
