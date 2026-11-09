@@ -42,6 +42,14 @@
                     "sha256": "ed6e02fdd179af05159f27288ef9b5226ce7917c03ae54e8fb8d83c853fc311d",
                     "git_blob": "90adf867df540efc42b5ef98307a882b8aa97987"
                 },
+                "data/maps/RockTunnel_1F/map.json": {
+                    "sha256": "bf89c9e78f7373691783428c0143b6ecaa52be67edf508859ec175c79701a468",
+                    "git_blob": "02fa844fb6799bf2fb84afc1ecdad944918e64e3"
+                },
+                "data/maps/RockTunnel_B1F/map.json": {
+                    "sha256": "668c7ede675ec83008984303faafef1d0b4d6ec5f11bcfb852e73a6280ad3cb8",
+                    "git_blob": "7aafaf7c3acf639833c485b62025de2a573295b1"
+                },
                 "data/maps/Route2/map.json": {
                     "sha256": "2562e3736b600c95b8c0a4c2a1bb3fb062f5c50208bebc43cd4303328ccda7ea",
                     "git_blob": "3f232d8d16b4a96ec74b41a28a0ec401c38a2ba8"
@@ -200,6 +208,20 @@
                 "locations": [{"coord": [8, 4]}, {"coord": [9, 4]}, {"coord": [10, 4]}],
                 "scripts": "data/maps/PalletTown_ProfessorOaksLab/scripts.inc",
                 "map_content_sha256": "c4b210832ce2667e372a9c319b5df8fac83c384954dc4b463e4b7bbec31717b3"
+            },
+            "RockTunnel_1F": {
+                "source": "frlg",
+                "events": "data/maps/RockTunnel_1F/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [37, 5]}, {"coord": [33, 22]}, {"coord": [22, 22]}],
+                "map_content_sha256": "5dc0423319af21a602127d89f19c69fb89902e405cb6eff967e9d95381c2f1ba"
+            },
+            "RockTunnel_B1F": {
+                "source": "frlg",
+                "events": "data/maps/RockTunnel_B1F/map.json",
+                "origin": [0, 0],
+                "locations": [{"coord": [2, 37]}, {"coord": [9, 2]}],
+                "map_content_sha256": "ef2463fd73d0fd4c6d35f2663f5e01f454944c9e5764512e798e7503aa481eee"
             },
             "Route2": {
                 "source": "frlg",

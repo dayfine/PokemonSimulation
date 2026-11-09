@@ -11,7 +11,7 @@
             "events": "res/field/events/events_ravaged_path.json",
             "events_sha256": "0be81f9bc68472f19067a9df969b2c6d3e1a54e0779b934657daa0a0a3fbe7ff",
             "catalog": "data/maps/item-identities.json",
-            "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+            "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
             "source_game": "platinum",
             "target_game": "bdsp",
             "target_game_relation": "remake_baseline",

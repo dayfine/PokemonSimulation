@@ -68,8 +68,8 @@ excluded destinations remain explicit boundaries. Current unresolved support:
 |---|---:|
 | Cells with unsupported non-collision behavior | 0 |
 | Dynamic warp destinations | 0 |
-| Pickups without a pinned identity catalog entry | 84 |
-| Identified fixed pickups | 22 |
+| Pickups without a pinned identity catalog entry | 79 |
+| Identified fixed pickups | 27 |
 | Known late-story geometry patch left unapplied | 1 |
 
 All metatile behaviors encountered in the 140 candidate maps are resolved into

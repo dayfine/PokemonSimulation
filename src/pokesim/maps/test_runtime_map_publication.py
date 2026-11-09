@@ -33,6 +33,28 @@ def undo_corrections(game, data):
         npc['x'], npc['y'] = before
 
 
+# Links to maps published after the v1 baseline, as {(game, map): (points,
+# warp destinations by tile, connections)}. The v1 pack left these out because
+# their destinations weren't in it; the generator writes them once they are.
+# They are removed before digesting so every other value still matches v1.
+# Route 10's Rock Tunnel entrances and its south edge to Lavender Town.
+ADDED_LINKS = {
+    ('frlg', 'Route10'): (['warp_0', 'warp_1'], [(8, 19), (8, 57)], ['LavenderTown']),
+}
+
+
+def undo_added_links(game, data):
+    if (game, data['name']) not in ADDED_LINKS:
+        return
+    points, warps, connections = ADDED_LINKS[(game, data['name'])]
+    for name in points:
+        del data['points'][name]
+    for warp in data['warps']:
+        if (warp['x'], warp['y']) in warps:
+            del warp['to_map'], warp['to_point']
+    data['connections'] = [c for c in data['connections'] if c['to_map'] not in connections]
+
+
 def current_world(game, names, context):
     return RuntimeWorld([LocalMap(json.loads((ROOT / 'data/games' / game / 'maps/runtime'
                         / (name + '.json')).read_text()), game,
@@ -65,11 +87,12 @@ class PublicationTest(unittest.TestCase):
                             for field in ('item', 'quantity', 'source_event', 'hide_flag'):
                                 item.pop(field, None)
                     undo_corrections(game, baseline_data)
+                    undo_added_links(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()
                     self.assertEqual(digest, baseline['games'][game][entry['name']])
                     self.assertEqual(raw, map_text(data))
                     count += 1
-        self.assertEqual(count, 75)
+        self.assertEqual(count, 79)
 
     def test_current_pack_matches_shared_transition_expectations(self):
         for case in read_pack()['cases']:

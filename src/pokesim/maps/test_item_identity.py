@@ -40,7 +40,7 @@ class ItemIdentityTest(unittest.TestCase):
                         if record['kind'] == 'item':
                             self.assertIs(type(record['source_event']), int)
                             self.assertIn('hide_flag', record)
-        self.assertEqual(counts, {'frlg': [30, 3], 'bdsp': [15, 0]})
+        self.assertEqual(counts, {'frlg': [35, 3], 'bdsp': [15, 0]})
 
     def test_mine_escape_rope_and_potion_have_real_identities_and_collection_flags(self):
         data = identity.enrich_map(load(ROOT / 'data/games/bdsp/maps/runtime/OreburghMine.json'), 'bdsp')
