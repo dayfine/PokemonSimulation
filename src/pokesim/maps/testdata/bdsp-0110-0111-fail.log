@@ -1,0 +1,147 @@
+2026-11-08 18:38:21.237924 - [Program]: <b>Starting Program: PokemonBDSP:AutoStory</b>
+2026-11-08 18:38:21.238530 - [Program]: [Segment] BDSP: start, 2 checkpoints
+2026-11-08 18:38:21.238586 - [Program]: [Checkpoint] 01.10: start, 10 events
+2026-11-08 18:38:21.238593 - [Program]: [Event] 01.10/1 save: skipped
+2026-11-08 18:38:21.238607 - [Program]: [Event] 01.10/2 from_save: start
+2026-11-08 18:38:21.238613 - [Program]: [Event] 01.10/2 from_save: done
+2026-11-08 18:38:21.238616 - [Program]: [Event] 01.10/3 line_1: start
+2026-11-08 18:38:21.238619 - [Console 0]: [01.10] ROUTE line_1: a corner of the human's line
+2026-11-08 18:38:21.238976 - [Console 0]: [Route] line 1: 1 legs planned
+2026-11-08 18:38:21.238997 - [Console 0]: [Route] line 1: plan from Route 204 (20, 26):
+    south 1 (open) to Route 204 (20, 27)
+2026-11-08 18:38:21.239002 - [Console 0]: [Route] Leg 1/1: south 1 (open) to Route 204 (20, 27)
+2026-11-08 18:38:21.239009 - [Console 0]: [Route] Turning south.
+2026-11-08 18:38:23.598418 - [Console 0]: [Walk] line 1: south 1 (open): limit after 800ms, 1 moved chunks, 0 wild battle(s).
+2026-11-08 18:38:24.167949 - [Console 0]: [Route] line 1: south 1 (open): ended at Route 204 (20, 27) (walked).
+2026-11-08 18:38:24.167954 - [Console 0]: [Route] line 1: arrived at Route 204 (20, 27).
+2026-11-08 18:38:24.167965 - [Program]: [Event] 01.10/3 line_1: done
+2026-11-08 18:38:24.167970 - [Program]: [Event] 01.10/4 line_2: start
+2026-11-08 18:38:24.167974 - [Console 0]: [01.10] ROUTE line_2: a corner of the human's line
+2026-11-08 18:38:24.168130 - [Console 0]: [Route] line 2: 1 legs planned
+2026-11-08 18:38:24.168158 - [Console 0]: [Route] line 2: plan from Route 204 (20, 27):
+    west 9 (open) to Route 204 (11, 27)
+2026-11-08 18:38:24.168164 - [Console 0]: [Route] Leg 1/1: west 9 (open) to Route 204 (11, 27)
+2026-11-08 18:38:24.168170 - [Console 0]: [Route] Turning west.
+2026-11-08 18:38:30.569455 - [Console 0]: [Walk] line 2: west 9 (open): blocked after 4800ms, 4 moved chunks, 0 wild battle(s).
+2026-11-08 18:38:30.569465 - [Console 0]: [Route] line 2: west 9 (open): blocked after 4 of 9 tiles; waiting for the way to clear.
+2026-11-08 18:38:35.880636 - [Console 0]: [Walk] line 2: west 9 (open): the rest: blocked after 1600ms, 0 moved chunks, 0 wild battle(s).
+2026-11-08 18:38:36.781714 - [Console 0]: [Route] line 2: west 9 (open): someone is in the way; talking to them.
+2026-11-08 18:38:49.840601 - [Console 0]: [Route] someone in the way: no battle followed the talk.
+2026-11-08 18:38:51.890629 - [Console 0]: [Route] line 2: west 9 (open): something the map lacks is at Route 204 (15, 27); marked it.
+2026-11-08 18:38:51.890662 - [Console 0]: [Route] line 2: west 9 (open): blocked after 4 of 9 tiles, at Route 204 (16, 27); planning again.
+2026-11-08 18:38:51.890929 - [Console 0]: [Route] line 2: 3 legs planned
+2026-11-08 18:38:51.890952 - [Console 0]: [Route] line 2: plan from Route 204 (16, 27):
+    south 2 (open) to Route 204 (16, 29)
+    west 5 (open) to Route 204 (11, 29)
+    north 2 (open) to Route 204 (11, 27)
+2026-11-08 18:38:51.890960 - [Console 0]: [Route] Leg 1/3: south 2 (open) to Route 204 (16, 29)
+2026-11-08 18:38:51.890969 - [Console 0]: [Route] Turning south.
+2026-11-08 18:38:55.060809 - [Console 0]: [Walk] line 2: south 2 (open): limit after 1600ms, 2 moved chunks, 0 wild battle(s).
+2026-11-08 18:38:55.631345 - [Console 0]: [Route] line 2: south 2 (open): ended at Route 204 (16, 29) (walked).
+2026-11-08 18:38:55.631351 - [Console 0]: [Route] Leg 2/3: west 5 (open) to Route 204 (11, 29)
+2026-11-08 18:38:55.631362 - [Console 0]: [Route] Turning west.
+2026-11-08 18:39:01.224806 - [Console 0]: [Walk] line 2: west 5 (open): limit after 4000ms, 5 moved chunks, 0 wild battle(s).
+2026-11-08 18:39:01.793776 - [Console 0]: [Route] line 2: west 5 (open): ended at Route 204 (11, 29) (walked).
+2026-11-08 18:39:01.793783 - [Console 0]: [Route] Leg 3/3: north 2 (open) to Route 204 (11, 27)
+2026-11-08 18:39:01.793795 - [Console 0]: [Route] Turning north.
+2026-11-08 18:39:04.963877 - [Console 0]: [Walk] line 2: north 2 (open): limit after 1600ms, 2 moved chunks, 0 wild battle(s).
+2026-11-08 18:39:05.533860 - [Console 0]: [Route] line 2: north 2 (open): ended at Route 204 (11, 27) (walked).
+2026-11-08 18:39:05.533868 - [Console 0]: [Route] line 2: arrived at Route 204 (11, 27).
+2026-11-08 18:39:05.533881 - [Program]: [Event] 01.10/4 line_2: done
+2026-11-08 18:39:05.533893 - [Program]: [Event] 01.10/5 line_3: start
+2026-11-08 18:39:05.533898 - [Console 0]: [01.10] ROUTE line_3: a corner of the human's line
+2026-11-08 18:39:05.534072 - [Console 0]: [Route] line 3: 1 legs planned
+2026-11-08 18:39:05.534097 - [Console 0]: [Route] line 3: plan from Route 204 (11, 27):
+    north 5 (open) to Route 204 (11, 22)
+2026-11-08 18:39:05.534102 - [Console 0]: [Route] Leg 1/1: north 5 (open) to Route 204 (11, 22)
+2026-11-08 18:39:05.534108 - [Console 0]: [Route] Turning north.
+2026-11-08 18:39:11.121907 - [Console 0]: [Walk] line 3: north 5 (open): limit after 4000ms, 5 moved chunks, 0 wild battle(s).
+2026-11-08 18:39:11.691008 - [Console 0]: [Route] line 3: north 5 (open): ended at Route 204 (11, 22) (walked).
+2026-11-08 18:39:11.691014 - [Console 0]: [Route] line 3: arrived at Route 204 (11, 22).
+2026-11-08 18:39:11.691029 - [Program]: [Event] 01.10/5 line_3: done
+2026-11-08 18:39:11.691036 - [Program]: [Event] 01.10/6 line_4: start
+2026-11-08 18:39:11.691041 - [Console 0]: [01.10] ROUTE line_4: a corner of the human's line
+2026-11-08 18:39:11.691222 - [Console 0]: [Route] line 4: 1 legs planned
+2026-11-08 18:39:11.691231 - [Console 0]: [Route] line 4: plan from Route 204 (11, 22):
+    east 8 (open) to Route 204 (19, 22)
+2026-11-08 18:39:11.691235 - [Console 0]: [Route] Leg 1/1: east 8 (open) to Route 204 (19, 22)
+2026-11-08 18:39:11.691241 - [Console 0]: [Route] Turning east.
+2026-11-08 18:39:19.705085 - [Console 0]: [Walk] line 4: east 8 (open): limit after 6400ms, 8 moved chunks, 0 wild battle(s).
+2026-11-08 18:39:23.773630 - [Console 0]: [Route] line 4: east 8 (open): ended at Route 204 (19, 22) (walked).
+2026-11-08 18:39:23.773635 - [Console 0]: [Route] line 4: arrived at Route 204 (19, 22).
+2026-11-08 18:39:23.773648 - [Program]: [Event] 01.10/6 line_4: done
+2026-11-08 18:39:23.773656 - [Program]: [Event] 01.10/7 line_5: start
+2026-11-08 18:39:23.773661 - [Console 0]: [01.10] ROUTE line_5: a corner of the human's line
+2026-11-08 18:39:23.774368 - [Console 0]: [Route] line 5: 1 legs planned
+2026-11-08 18:39:23.774378 - [Console 0]: [Route] line 5: plan from Route 204 (19, 22):
+    north 10 (open) to Route 204 (19, 12)
+2026-11-08 18:39:23.774381 - [Console 0]: [Route] Leg 1/1: north 10 (open) to Route 204 (19, 12)
+2026-11-08 18:39:23.774388 - [Console 0]: [Route] Turning north.
+2026-11-08 18:39:33.401174 - [Console 0]: [Walk] line 5: north 10 (open): limit after 8000ms, 10 moved chunks, 0 wild battle(s).
+2026-11-08 18:39:37.475079 - [Console 0]: [Route] line 5: north 10 (open): ended at Route 204 (19, 12) (walked).
+2026-11-08 18:39:37.475085 - [Console 0]: [Route] line 5: arrived at Route 204 (19, 12).
+2026-11-08 18:39:37.475097 - [Program]: [Event] 01.10/7 line_5: done
+2026-11-08 18:39:37.475104 - [Program]: [Event] 01.10/8 line_6: start
+2026-11-08 18:39:37.475108 - [Console 0]: [01.10] ROUTE line_6: a corner of the human's line
+2026-11-08 18:39:37.475239 - [Console 0]: [Route] line 6: 1 legs planned
+2026-11-08 18:39:37.475250 - [Console 0]: [Route] line 6: plan from Route 204 (19, 12):
+    west 8 (open) to Route 204 (11, 12)
+2026-11-08 18:39:37.475254 - [Console 0]: [Route] Leg 1/1: west 8 (open) to Route 204 (11, 12)
+2026-11-08 18:39:37.475260 - [Console 0]: [Route] Turning west.
+2026-11-08 18:39:45.490667 - [Console 0]: [Walk] line 6: west 8 (open): limit after 6400ms, 8 moved chunks, 0 wild battle(s).
+2026-11-08 18:39:49.565700 - [Console 0]: [Route] line 6: west 8 (open): ended at Route 204 (11, 12) (walked).
+2026-11-08 18:39:49.565705 - [Console 0]: [Route] line 6: arrived at Route 204 (11, 12).
+2026-11-08 18:39:49.565715 - [Program]: [Event] 01.10/8 line_6: done
+2026-11-08 18:39:49.565721 - [Program]: [Event] 01.10/9 into_floaroma: start
+2026-11-08 18:39:49.565726 - [Console 0]: [01.10] LEGS into_floaroma: run north until Floaroma's banner; on after a wild battle
+2026-11-08 18:39:49.565730 - [Console 0]: [Route] Turning north.
+2026-11-08 18:39:52.477768 - [Console 0]: [Walk] into_floaroma: arrived after 2400ms, 6 moved chunks, 0 wild battle(s).
+2026-11-08 18:39:52.477796 - [Console 0]: [Story] into_floaroma: ran north to FloaromaTown's banner: arrived.
+2026-11-08 18:39:52.477805 - [Program]: [Event] 01.10/9 into_floaroma: done
+2026-11-08 18:39:52.477816 - [Program]: [Event] 01.10/10 save_here: start
+2026-11-08 18:39:52.477821 - [Console 0]: [01.10] SAVE save_here: the next checkpoint starts here
+2026-11-08 18:40:02.045848 - [Program]: [Event] 01.10/10 save_here: done
+2026-11-08 18:40:02.045856 - [Program]: [Checkpoint] 01.10: done, 9 run, 1 skipped
+2026-11-08 18:40:02.045861 - [Program]: [Checkpoint] 01.10: passed on attempt 1 (one-shot)
+2026-11-08 18:40:02.045899 - [Program]: [Checkpoint] 01.11: start, 10 events
+2026-11-08 18:40:02.045905 - [Program]: [Event] 01.11/1 save: start
+2026-11-08 18:40:02.045909 - [Console 0]: [01.11] SAVE save: the save a failed step resets to
+2026-11-08 18:40:11.593140 - [Program]: [Event] 01.11/1 save: done
+2026-11-08 18:40:11.593149 - [Program]: [Event] 01.11/2 from_save: start
+2026-11-08 18:40:11.593154 - [Program]: [Event] 01.11/2 from_save: done
+2026-11-08 18:40:11.593157 - [Program]: [Event] 01.11/3 west_along_the_field: start
+2026-11-08 18:40:11.593164 - [Console 0]: [01.11] LEGS west_along_the_field: 8 taps west along the row we stopped on
+2026-11-08 18:40:11.593172 - [Console 0]: [Route] Turning west.
+2026-11-08 18:40:19.608972 - [Console 0]: [Walk] west_along_the_field: limit after 6400ms, 8 moved chunks, 0 wild battle(s).
+2026-11-08 18:40:19.608986 - [Console 0]: [01.11] west_along_the_field: taps west moved 8 of 8 tiles.
+2026-11-08 18:40:19.608994 - [Program]: [Event] 01.11/3 west_along_the_field: done
+2026-11-08 18:40:19.609003 - [Program]: [Event] 01.11/4 up_to_the_old_woman: start
+2026-11-08 18:40:19.609007 - [Console 0]: [01.11] LEGS up_to_the_old_woman: north until she stops us
+2026-11-08 18:40:19.609012 - [Console 0]: [Route] Turning north.
+2026-11-08 18:40:23.201243 - [Console 0]: [Walk] up to the old woman: blocked after 2000ms, 3 moved chunks, 0 wild battle(s).
+2026-11-08 18:40:23.201252 - [Console 0]: [Walk] up to the old woman: stopped on blocked.
+2026-11-08 18:40:23.201260 - [Program]: [Event] 01.11/4 up_to_the_old_woman: done
+2026-11-08 18:40:23.201267 - [Program]: [Event] 01.11/5 old_woman: start
+2026-11-08 18:40:23.201272 - [Console 0]: [01.11] TALK old_woman: she gives Mew when a Let's Go save is on the console
+2026-11-08 18:40:23.201276 - [Console 0]: [Route] Turning north.
+2026-11-08 18:40:24.339262 - [Program]: [Event] 01.11/5 old_woman: done
+2026-11-08 18:40:24.339273 - [Program]: [Event] 01.11/6 old_woman_talks: start
+2026-11-08 18:40:24.339278 - [Console 0]: [01.11] MASH old_woman_talks: her lines
+2026-11-08 18:40:50.439958 - [Console 0]: [Story] old woman talks: settled on calm overworld; darkest frame 126.
+2026-11-08 18:40:50.439987 - [Program]: [Event] 01.11/6 old_woman_talks: done
+2026-11-08 18:40:50.440002 - [Program]: [Event] 01.11/7 below_the_old_man: start
+2026-11-08 18:40:50.440008 - [Console 0]: [01.11] LEGS below_the_old_man: a tile west
+2026-11-08 18:40:50.440013 - [Console 0]: [Route] Turning west.
+2026-11-08 18:40:52.803573 - [Console 0]: [Walk] below_the_old_man: limit after 800ms, 1 moved chunks, 0 wild battle(s).
+2026-11-08 18:40:52.803586 - [Console 0]: [01.11] below_the_old_man: taps west moved 1 of 1 tiles.
+2026-11-08 18:40:52.803593 - [Program]: [Event] 01.11/7 below_the_old_man: done
+2026-11-08 18:40:52.803601 - [Program]: [Event] 01.11/8 old_man: start
+2026-11-08 18:40:52.803605 - [Console 0]: [01.11] TALK old_man: he gives Jirachi with a Sword/Shield save
+2026-11-08 18:40:52.803608 - [Console 0]: [Route] Turning north.
+2026-11-08 18:41:01.440963 - [Console 0]: OperationFailedExceptionWithScreenshot: old man: nobody answered.
+2026-11-08 18:41:01.441552 - [Console 0]: checkpoint_reattempt_loop: attempt 0 failed: 01.11: old man: nobody answered.
+2026-11-08 18:41:01.515788 - [Program]: [Event] 01.11/8 old_man: failed: operation_failed: old man: nobody answered.
+2026-11-08 18:41:01.515808 - [Program]: [Checkpoint] 01.11: failed at 8 old_man: operation_failed: old man: nobody answered.
+2026-11-08 18:41:01.515825 - [Program]: [Segment] BDSP: 01.11 failed; stopping at the first failure, the game stays where it failed
+2026-11-08 18:41:01.515835 - [Program]: [Segment] BDSP: failed at 01.11 old_man: operation_failed: old man: nobody answered.
+2026-11-08 18:41:01.515969 - [Program]: Program stopped with an exception!

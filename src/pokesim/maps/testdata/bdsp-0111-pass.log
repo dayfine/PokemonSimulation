@@ -1,0 +1,54 @@
+2026-11-08 19:09:23.825688 - [Program]: <b>Starting Program: PokemonBDSP:AutoStory</b>
+2026-11-08 19:09:23.826029 - [Program]: [Segment] BDSP: start, 1 checkpoints
+2026-11-08 19:09:23.826061 - [Program]: [Checkpoint] 01.11: start, 11 events
+2026-11-08 19:09:23.826065 - [Program]: [Event] 01.11/1 save: skipped
+2026-11-08 19:09:23.826082 - [Program]: [Event] 01.11/2 from_save: start
+2026-11-08 19:09:23.826085 - [Program]: [Event] 01.11/2 from_save: done
+2026-11-08 19:09:23.826088 - [Program]: [Event] 01.11/3 west_to_the_field_edge: start
+2026-11-08 19:09:23.826092 - [Console 0]: [01.11] LEGS west_to_the_field_edge: until the field's edge stops us
+2026-11-08 19:09:23.826174 - [Console 0]: [Route] Turning west.
+2026-11-08 19:09:29.863426 - [Console 0]: [Walk] west to the field edge: blocked after 4400ms, 9 moved chunks, 0 wild battle(s).
+2026-11-08 19:09:29.863434 - [Console 0]: [Walk] west to the field edge: stopped on blocked.
+2026-11-08 19:09:29.863441 - [Program]: [Event] 01.11/3 west_to_the_field_edge: done
+2026-11-08 19:09:29.863449 - [Program]: [Event] 01.11/4 below_her_column: start
+2026-11-08 19:09:29.863454 - [Console 0]: [01.11] LEGS below_her_column: 4 taps east to her column (westedge batch 2026-11-08)
+2026-11-08 19:09:29.863458 - [Console 0]: [Route] Turning east.
+2026-11-08 19:09:34.648012 - [Console 0]: [Walk] below_her_column: limit after 3200ms, 4 moved chunks, 0 wild battle(s).
+2026-11-08 19:09:34.648022 - [Console 0]: [01.11] below_her_column: taps east moved 4 of 4 tiles.
+2026-11-08 19:09:34.648033 - [Program]: [Event] 01.11/4 below_her_column: done
+2026-11-08 19:09:34.648041 - [Program]: [Event] 01.11/5 up_to_the_old_woman: start
+2026-11-08 19:09:34.648045 - [Console 0]: [01.11] LEGS up_to_the_old_woman: north until she stops us
+2026-11-08 19:09:34.648049 - [Console 0]: [Route] Turning north.
+2026-11-08 19:09:37.831454 - [Console 0]: [Walk] up to the old woman: blocked after 1600ms, 2 moved chunks, 0 wild battle(s).
+2026-11-08 19:09:37.831470 - [Console 0]: [Walk] up to the old woman: stopped on blocked.
+2026-11-08 19:09:37.831479 - [Program]: [Event] 01.11/5 up_to_the_old_woman: done
+2026-11-08 19:09:37.831488 - [Program]: [Event] 01.11/6 old_woman: start
+2026-11-08 19:09:37.831493 - [Console 0]: [01.11] TALK old_woman: she gives Mew when a Let's Go save is on the console
+2026-11-08 19:09:37.831498 - [Console 0]: [Route] Turning north.
+2026-11-08 19:09:39.020894 - [Program]: [Event] 01.11/6 old_woman: done
+2026-11-08 19:09:39.020902 - [Program]: [Event] 01.11/7 old_woman_talks: start
+2026-11-08 19:09:39.020907 - [Console 0]: [01.11] MASH old_woman_talks: her lines
+2026-11-08 19:10:03.837685 - [Console 0]: [Story] old woman talks: settled on calm overworld; darkest frame 130.
+2026-11-08 19:10:03.837717 - [Program]: [Event] 01.11/7 old_woman_talks: done
+2026-11-08 19:10:03.837729 - [Program]: [Event] 01.11/8 below_the_old_man: start
+2026-11-08 19:10:03.837735 - [Console 0]: [01.11] LEGS below_the_old_man: a tile west
+2026-11-08 19:10:03.837739 - [Console 0]: [Route] Turning west.
+2026-11-08 19:10:06.199947 - [Console 0]: [Walk] below_the_old_man: limit after 800ms, 1 moved chunks, 0 wild battle(s).
+2026-11-08 19:10:06.199971 - [Console 0]: [01.11] below_the_old_man: taps west moved 1 of 1 tiles.
+2026-11-08 19:10:06.199979 - [Program]: [Event] 01.11/8 below_the_old_man: done
+2026-11-08 19:10:06.199989 - [Program]: [Event] 01.11/9 old_man: start
+2026-11-08 19:10:06.199993 - [Console 0]: [01.11] TALK old_man: he gives Jirachi with a Sword/Shield save
+2026-11-08 19:10:06.199997 - [Console 0]: [Route] Turning north.
+2026-11-08 19:10:07.387766 - [Program]: [Event] 01.11/9 old_man: done
+2026-11-08 19:10:07.387776 - [Program]: [Event] 01.11/10 old_man_talks: start
+2026-11-08 19:10:07.387782 - [Console 0]: [01.11] MASH old_man_talks: his lines
+2026-11-08 19:10:33.493522 - [Console 0]: [Story] old man talks: settled on calm overworld; darkest frame 126.
+2026-11-08 19:10:33.493564 - [Program]: [Event] 01.11/10 old_man_talks: done
+2026-11-08 19:10:33.493577 - [Program]: [Event] 01.11/11 save_here: start
+2026-11-08 19:10:33.493582 - [Console 0]: [01.11] SAVE save_here: the next checkpoint starts here
+2026-11-08 19:10:43.140826 - [Program]: [Event] 01.11/11 save_here: done
+2026-11-08 19:10:43.140834 - [Program]: [Checkpoint] 01.11: done, 10 run, 1 skipped
+2026-11-08 19:10:43.140849 - [Program]: [Checkpoint] 01.11: passed on attempt 1 (one-shot)
+2026-11-08 19:10:43.140862 - [Program]: [Segment] BDSP: 1 of 1 checkpoints one-shot
+2026-11-08 19:10:43.140865 - [Program]: [Segment] BDSP: done, 1 checkpoints
+2026-11-08 19:10:43.141005 - [Program]: Program finished normally!
