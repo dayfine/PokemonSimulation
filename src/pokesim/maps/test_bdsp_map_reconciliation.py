@@ -73,6 +73,29 @@ class BDSPMapReconciliationTest(unittest.TestCase):
         self.assertEqual(raw['points']['poketch_president'], [46, 35])
         # This is spawn data, not proof of his current position after the scene.
 
+    def test_floaroma_old_couple_columns_match_console_measurement(self):
+        raw = map_data('FloaromaTown')
+        # Console B, oldprobe/westedge (2026-11-08): from under the old man,
+        # D-pad taps west moved 3 tiles, then bumped the west edge (x 0). The
+        # old woman stands east of him. r251a's (2, 25)/(3, 25) was one column west.
+        couple = {'old_man': [3, 25], 'old_woman': [4, 25]}
+        npcs = {obj['name']: [obj['x'], obj['y']] for obj in raw['objects'] if obj['name'] in couple}
+        self.assertEqual(npcs, couple)
+        for name, coord in couple.items():
+            self.assertEqual(raw['points'][name], coord)
+        floaroma = LocalMap(raw, 'bdsp')
+        for x in range(0, 7):
+            with self.subTest(column=x):
+                step = world_step(floaroma, state('FloaromaTown', x, 26), D.NORTH)
+                self.assertIsInstance(step, Blocked if x in (3, 4) else Moved)
+        here = state('FloaromaTown', 3, 26)
+        for _ in range(3):
+            step = world_step(floaroma, here, D.WEST)
+            self.assertIsInstance(step, Moved)
+            here = step.state
+        self.assertEqual(here, state('FloaromaTown', 0, 26))
+        self.assertNotIsInstance(world_step(floaroma, here, D.WEST), Moved)
+
 
 if __name__ == '__main__':
     unittest.main()

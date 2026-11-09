@@ -1631,7 +1631,7 @@
         {
           "name": "FloaromaTown",
           "file": "data/games/bdsp/maps/runtime/FloaromaTown.json",
-          "sha256": "db03b0f79a5d7aa511453610467480638d1b39d888fe740cbcdf07e5293ac0e2",
+          "sha256": "dfbe0479940271320f13fc0001dc56814d35aa74f960d7c124926f328ce134c8",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/FloaromaTown.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0032.bin; zone_event narc_0404",
@@ -1667,15 +1667,15 @@
               "add": [
                 {
                   "name": "old_woman",
-                  "x": 3,
+                  "x": 4,
                   "y": 25,
-                  "measured_by": "r251a, 2026-10-31"
+                  "measured_by": "oldprobe/westedge, 2026-11-08"
                 },
                 {
                   "name": "old_man",
-                  "x": 2,
+                  "x": 3,
                   "y": 25,
-                  "measured_by": "r251a, 2026-10-31"
+                  "measured_by": "oldprobe/westedge, 2026-11-08"
                 }
               ]
             },
@@ -1691,7 +1691,7 @@
                 "old_man"
               ],
               "difference": "Added console obstacles absent from Diamond event data",
-              "evidence": "r251a, 2026-10-31; bdsp_decomp_map_builder.py OBJECTS/FloaromaTown",
+              "evidence": "row r251a, 2026-10-31; columns oldprobe/westedge, 2026-11-08 (old man x 3, old woman x 4); bdsp_decomp_map_builder.py OBJECTS/FloaromaTown",
               "status": "console-observed"
             }
           ],

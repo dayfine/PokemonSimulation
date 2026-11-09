@@ -15,6 +15,23 @@ from .runtime_world import RuntimeWorld
 # Canonical value digests survive branch deletion and squash merges of #55.
 BASELINE = ROOT / 'data/maps/v2-value-baseline.json'
 
+# Reviewed value corrections published after the v1 baseline, as
+# {(game, map): {name: (v1 coord, current coord)}} for points and NPCs.
+# Each is undone before digesting so every other value still matches v1.
+# Floaroma's old couple: console oldprobe/westedge, 2026-11-08 (one column east).
+CORRECTIONS = {
+    ('bdsp', 'FloaromaTown'): {'old_man': ([2, 25], [3, 25]), 'old_woman': ([3, 25], [4, 25])},
+}
+
+
+def undo_corrections(game, data):
+    for name, (before, after) in CORRECTIONS.get((game, data['name']), {}).items():
+        assert data['points'][name] == after, (name, data['points'][name])
+        data['points'][name] = before
+        npc = next(obj for obj in data['objects'] if obj['name'] == name)
+        assert [npc['x'], npc['y']] == after, (name, npc)
+        npc['x'], npc['y'] = before
+
 
 def current_world(game, names, context):
     return RuntimeWorld([LocalMap(json.loads((ROOT / 'data/games' / game / 'maps/runtime'
@@ -47,6 +64,7 @@ class PublicationTest(unittest.TestCase):
                                 continue
                             for field in ('item', 'quantity', 'source_event', 'hide_flag'):
                                 item.pop(field, None)
+                    undo_corrections(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()
                     self.assertEqual(digest, baseline['games'][game][entry['name']])
                     self.assertEqual(raw, map_text(data))
