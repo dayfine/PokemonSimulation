@@ -1,6 +1,8 @@
 # BDSP mine/Roark authored checkpoint
 
-Start with [the 15 authored events](bdsp-mine-01.03.plan.json) and [the readable cases](CASES.md). The native story table loads the same JSON. The old hand-transcribed BDSP draft had 16 events; it is not the source of this pilot.
+Arduino-Source owns the authored plan. `source.json` pins its repository revision, path and hash; consume that committed file with the command below. The checked-in [15-event snapshot](bdsp-mine-01.03.plan.json) is retained only as a frozen offline regression fixture.
+
+Start with [the 15 reference events](bdsp-mine-01.03.plan.json) and [the readable cases](CASES.md). The native story table loads the same JSON. The old hand-transcribed BDSP draft had 16 events; it is not the source of this pilot.
 
 Source: [Arduino-Source #226](https://github.com/dayfine/Arduino-Source/pull/226), exact revision `0738cd55b562d1dd685cdea289663a015a1cbe59`, `SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/PokemonBDSP_AutoStory_StoryTable.cpp`, `oreburgh_mine_to_roark()`. Barry and the first heal now belong to `01.02b`. This file preserves the current inbound/outbound legs, two-tile Center/exit beliefs, `counted_wall` and `to_wall` variants, failure policy, and save-card guard.
 
@@ -9,6 +11,11 @@ The native companion is [Arduino #263](https://github.com/dayfine/Arduino-Source
 ## Run the Python check
 
 ```sh
+# Authoritative plan from an explicitly fetched Arduino checkout:
+PYTHONPATH=src python3 -m pokesim.story.native_plan \
+  data/story/bdsp-mine-pilot/source.json --checkout ../Arduino-Source
+
+# Frozen historical regression snapshot (no external checkout required):
 PYTHONPATH=src python3 -m pokesim.story.checkpoint_replay \
   data/story/bdsp-mine-pilot/cases.json --case mine-all-events \
   --binding data/story/bdsp-mine-pilot/binding.json --summary
@@ -43,3 +50,5 @@ These are references preserved from #226's comments at `0738cd55b`, not new cons
 - Lab-B, 2026-11-08 13:50: a north tap/east wall hold matched the map only from column 46; east from `(48,57)` was blocked although the map showed `(49,57)` open. The current route avoids that street. The pilot does not change terrain to explain this unresolved discrepancy.
 
 Entry assumes the native preceding `01.02b` Barry/heal setup. The pilot does not invent party levels, HP, item counts, or quest-flag observations to turn that assumption into a verified precondition.
+
+Arduino CI replays its current plan against pinned simulator code and independent cases; it does not compare plan bytes between repositories. Route changes can legitimately require revised scenario expectations, but they do not require mirroring JSON or updating a simulator pin merely for whitespace or authoring changes. Update `source.json` when choosing a new native revision for offline analysis; after a draft native PR is squash-merged, repin to the merge commit on its target branch before retiring the source branch. Native literal Center/Roark anchors are checked against map-derived points, and the live route rationale stays beside the authoritative native JSON.

@@ -46,6 +46,7 @@ def published():
     yield 'authored-checkpoint', ROOT / 'data/story/bdsp-mine-pilot/bdsp-mine-01.03.plan.json'
     yield 'story-replay-binding', ROOT / 'data/story/bdsp-mine-pilot/binding.json'
     yield 'story-replay-cases', ROOT / 'data/story/bdsp-mine-pilot/cases.json'
+    yield 'native-plan-source', ROOT / 'data/story/bdsp-mine-pilot/source.json'
 
 
 def main():
