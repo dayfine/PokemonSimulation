@@ -51,6 +51,36 @@ origin/dimensions, source-game provenance and unresolved source revision status,
 entry assumptions, supplied flags/variables, costs, moves and limitations.
 Retain the JSON alongside the drawing when sharing a route.
 
+### Walked routes from run logs
+
+`--actual "x,y x,y ..."` draws a walked path (its corner tiles) dashed beside
+the planned one, and `--mark x,y[=label]` boxes and numbers a suspect tile,
+which is the map-fix evidence picture without hand edits:
+
+```sh
+PYTHONPATH=src python3 -m pokesim.cli.route --game bdsp --map FloaromaTown \
+  --start 11,28 --goal 3,26 --acknowledge-map-state \
+  --actual "11,28 3,28 3,26 2,26" --mark "3,25=old man on the map" --svg /tmp/couple.svg
+```
+
+`pokesim.cli.run_routes` reads a SerialPrograms log instead (BDSP and FRLG
+`[Route]` lines, BDSP story steps such as `[01.11] LEGS ...` with their tap
+counts, and older FRLG `Route:` lines) and writes, per checkpoint attempt, one
+SVG and PNG per map with its walks in order: plans solid, walks dashed and
+numbered, re-plans grey, battles, stops, re-anchors, talks and the failure
+marked. It also writes `index.html` and `trace.json`:
+
+```sh
+PYTHONPATH=src python3 -m pokesim.cli.run_routes SerialPrograms.log -o /tmp/runs \
+  --start 01.11=FloaromaTown:11,28 --mark FloaromaTown:3,25=old\ man
+```
+
+Story steps log no tiles: they start where the last walk ended, or at the
+checkpoint's `--start`. A tap count moves that many tiles; a walk stopped by
+"blocked" is drawn to the first blocked tile on the pinned map and listed as
+assumed, so it shows where the map says the walk stops, not where the
+console stopped.
+
 ## State and movement
 
 | Input/feature | Current handling |
