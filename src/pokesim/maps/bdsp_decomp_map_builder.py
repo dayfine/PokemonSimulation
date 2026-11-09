@@ -317,8 +317,8 @@ POINTS = {
     },
     'FloaromaTown': {
         'route_204_arrival': (11, 29),
-        'old_woman': (3, 25),
-        'old_man': (2, 25),
+        'old_woman': (4, 25),
+        'old_man': (3, 25),
         'pokemon_center_door': (16, 26),
     },
     'TwinleafTown': {
@@ -386,10 +386,12 @@ OBJECTS = {
         8: {'show': 'until the Valley Windworks'},
         3: {'show': 'not yet checked on the console'},
         'add': [
-            #   Not in Diamond's data. Walking north from (3, 29) stopped 3
-            #   tiles up at the old woman (r251a).
-            {'name': 'old_woman', 'x': 3, 'y': 25, 'measured_by': 'r251a, 2026-10-31'},
-            {'name': 'old_man', 'x': 2, 'y': 25, 'measured_by': 'r251a, 2026-10-31'},
+            #   Not in Diamond's data; found on row 25 by r251a. Their columns
+            #   come from oldprobe/westedge: from under the old man, D-pad taps
+            #   west moved 3 tiles before bumping the flower field's west edge
+            #   (x 0), so he is on x 3, and the woman stands east of him on x 4.
+            {'name': 'old_woman', 'x': 4, 'y': 25, 'measured_by': 'oldprobe/westedge, 2026-11-08'},
+            {'name': 'old_man', 'x': 3, 'y': 25, 'measured_by': 'oldprobe/westedge, 2026-11-08'},
         ],
     },
     'OreburghMine': {

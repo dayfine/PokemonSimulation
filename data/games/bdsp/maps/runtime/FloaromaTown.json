@@ -42,8 +42,8 @@
     ],
     "points": {
         "route_204_arrival": [11, 29],
-        "old_woman": [3, 25],
-        "old_man": [2, 25],
+        "old_woman": [4, 25],
+        "old_man": [3, 25],
         "pokemon_center_door": [16, 26]
     },
     "coord_events": [
@@ -66,7 +66,7 @@
         {"name": "grunt_m_7", "coord": [2, 1], "facing": "east"},
         {"name": "grunt_m_8", "coord": [3, 1], "facing": "west"},
         {"name": "camper_12", "coord": [6, 10]},
-        {"name": "old_woman", "coord": [3, 25]},
-        {"name": "old_man", "coord": [2, 25]}
+        {"name": "old_woman", "coord": [4, 25]},
+        {"name": "old_man", "coord": [3, 25]}
     ]
 }
