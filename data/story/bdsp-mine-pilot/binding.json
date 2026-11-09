@@ -2,7 +2,7 @@
   "format": "pokesim-story-replay-binding/1",
   "plan": {
     "file": "data/story/bdsp-mine-pilot/bdsp-mine-01.03.plan.json",
-    "sha256": "c51c7ad19c6f0c55bdb0d112cf794c3af987fbbdec7a80ca26257b9bdf5761d4"
+    "sha256": "128a8749774533db2ef87cd924e2ed61adc2021f253059cae827df1a58f196c9"
   },
   "map_revision": "4de7742a764d27293b4525d6ad2a6fc8a95f3e3a",
   "maps": {

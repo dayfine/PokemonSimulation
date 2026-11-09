@@ -36,7 +36,7 @@ All 15 events from current #226, with explicitly scripted door, dialogue, scene,
 
 | # | Event | Expected request |
 |---|---|---|
-| 1 | `above_the_mine` | Walk south for 37 tiles on OreburghCity |
+| 1 | `above_the_mine` | Walk south for 36 tiles on OreburghCity |
 | 2 | `above_the_mine` | Walk west for 1 tile on OreburghCity |
 | 3 | `above_the_mine` | Face south on OreburghCity |
 | 4 | `into_the_mine` | Follow the OreburghCity corridor south through the door to OreburghMineB1F. |
@@ -112,7 +112,7 @@ Reach the city mine doorway, but do not assume B1F arrival without evidence.
 
 | # | Event | Expected request |
 |---|---|---|
-| 1 | `above_the_mine` | Walk south for 37 tiles on OreburghCity |
+| 1 | `above_the_mine` | Walk south for 36 tiles on OreburghCity |
 | 2 | `above_the_mine` | Walk west for 1 tile on OreburghCity |
 | 3 | `above_the_mine` | Face south on OreburghCity |
 | 4 | `into_the_mine` | Follow the OreburghCity corridor south through the door to OreburghMineB1F. |
@@ -141,7 +141,7 @@ A battle during the south-five leg leaves two candidate tiles and unknown facing
 
 | # | Event | Expected request |
 |---|---|---|
-| 1 | `above_the_mine` | Walk south for 37 tiles on OreburghCity |
+| 1 | `above_the_mine` | Walk south for 36 tiles on OreburghCity |
 | 2 | `above_the_mine` | Walk west for 1 tile on OreburghCity |
 | 3 | `above_the_mine` | Face south on OreburghCity |
 | 4 | `into_the_mine` | Follow the OreburghCity corridor south through the door to OreburghMineB1F. |
