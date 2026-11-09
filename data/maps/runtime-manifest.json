@@ -277,6 +277,66 @@
           "preconditions": []
         },
         {
+          "name": "LavenderTown",
+          "file": "data/games/frlg/maps/runtime/LavenderTown.json",
+          "sha256": "bdbce59fea59953b524c51a0a7791efb0e2a70339a911ef737e1753241e94d1a",
+          "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/LavenderTown.json",
+          "source": {
+            "decomp_file": "data/maps/LavenderTown/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": []
+        },
+        {
+          "name": "LavenderTown_PokemonCenter_1F",
+          "file": "data/games/frlg/maps/runtime/LavenderTown_PokemonCenter_1F.json",
+          "sha256": "e8309c90cf3eae37a2a9ae3a5ea1a8a056939bde9118ad7061bd616d52a0e814",
+          "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/LavenderTown_PokemonCenter_1F.json",
+          "source": {
+            "decomp_file": "data/maps/LavenderTown_PokemonCenter_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 10,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": []
+        },
+        {
           "name": "MtMoon_1F",
           "file": "data/games/frlg/maps/runtime/MtMoon_1F.json",
           "sha256": "f75b1bfc6368868b0520cb71c02de2614fe6fc65644e92530deb3f43f34be444",
@@ -667,6 +727,66 @@
           "preconditions": []
         },
         {
+          "name": "RockTunnel_1F",
+          "file": "data/games/frlg/maps/runtime/RockTunnel_1F.json",
+          "sha256": "2e8f70c287a3486552cf28f1c328a47b2ce8b0ca7e2e000a58a46bef73358bd0",
+          "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/RockTunnel_1F.json",
+          "source": {
+            "decomp_file": "data/maps/RockTunnel_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": []
+        },
+        {
+          "name": "RockTunnel_B1F",
+          "file": "data/games/frlg/maps/runtime/RockTunnel_B1F.json",
+          "sha256": "8a5fee4e817d4b7e03667e44896547e8dcc70e536c18857af23adba071ed5b10",
+          "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/RockTunnel_B1F.json",
+          "source": {
+            "decomp_file": "data/maps/RockTunnel_B1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": []
+        },
+        {
           "name": "Route1",
           "file": "data/games/frlg/maps/runtime/Route1.json",
           "sha256": "78bf43c8bdf7a0c5dcb22880261626abc36d068c0dfbbc242056e12401c44033",
@@ -699,7 +819,7 @@
         {
           "name": "Route10",
           "file": "data/games/frlg/maps/runtime/Route10.json",
-          "sha256": "b5bad3c6b83ec7c14e0541fef756516aba27059baee42901a2988f3ac12002d8",
+          "sha256": "8acf0083caf04fe1b0078e8bb400a5221b4fcbc76bf28422aca2f49cf54b3ba1",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route10.json",
           "source": {
             "decomp_file": "data/maps/Route10/map.json",
@@ -1958,7 +2078,7 @@
         {
           "name": "OreburghMine",
           "file": "data/games/bdsp/maps/runtime/OreburghMine.json",
-          "sha256": "21319ba1d8507ae7a91fe2ad2d59f99df162dfb19f5ca9bcd4c30afc27f08560",
+          "sha256": "7e663fa1f5d4b43e663dfe957ed2ef07fb96724ac34701841cba6596cc850f66",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMine.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0314.bin; zone_event narc_0197",
@@ -1970,7 +2090,7 @@
               "events": "files/fielddata/eventdata/zone_event_release/narc_0197.bin",
               "events_sha256": "517473fcecb3bd0f0aea6d3db18d81bb5f13bbb6082d859198cca6554dffb977",
               "catalog": "data/maps/item-identities.json",
-              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
               "source_game": "diamond",
               "target_game": "bdsp",
               "target_game_relation": "remake_baseline",
@@ -2019,7 +2139,7 @@
         {
           "name": "OreburghMineB1F",
           "file": "data/games/bdsp/maps/runtime/OreburghMineB1F.json",
-          "sha256": "f136c91897bc100e3cfc2098f53ab1c44544a4cdd93114f1d1a08832fe21060b",
+          "sha256": "6092e5b318d85437e16b51d91cc5ed497eea4867d0d9868e25a30c60eff092d6",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/OreburghMineB1F.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0313.bin; zone_event narc_0196",
@@ -2031,7 +2151,7 @@
               "events": "files/fielddata/eventdata/zone_event_release/narc_0196.bin",
               "events_sha256": "fec75b45d815d678eff659c06b6f6ec9c531a724f1f3a2d25e16c3d586248f70",
               "catalog": "data/maps/item-identities.json",
-              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
               "source_game": "diamond",
               "target_game": "bdsp",
               "target_game_relation": "remake_baseline",
@@ -2189,7 +2309,7 @@
         {
           "name": "RavagedPath",
           "file": "data/games/bdsp/maps/runtime/RavagedPath.json",
-          "sha256": "363def1d70a2e8448f0c284cb5354b91e2f1d1ad923769499520ab5f26f60a72",
+          "sha256": "318fa667c7993012a8150294059d9f9dd6b65eb9fa1a993c4b70731d6ca71a64",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/RavagedPath.json",
           "source": {
             "decomp_file": "pret/pokeplatinum: res/field/maps/data/map_data_435.bin, res/field/maps/data/map_data_436.bin; events_ravaged_path.json",
@@ -2201,7 +2321,7 @@
               "events": "res/field/events/events_ravaged_path.json",
               "events_sha256": "0be81f9bc68472f19067a9df969b2c6d3e1a54e0779b934657daa0a0a3fbe7ff",
               "catalog": "data/maps/item-identities.json",
-              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
               "source_game": "platinum",
               "target_game": "bdsp",
               "target_game_relation": "remake_baseline",
@@ -2405,7 +2525,7 @@
         {
           "name": "Route202",
           "file": "data/games/bdsp/maps/runtime/Route202.json",
-          "sha256": "28341c7d8066f0906e6999cdfc9e3cb35898df9ea163268127e75d7753651903",
+          "sha256": "7b525532ca65e30a573d05fbeed0c70ca12507b00180d4569464f363562ab4c8",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route202.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0014.bin, files/fielddata/land_data/land_data_release/narc_0173.bin; zone_event narc_0328",
@@ -2417,7 +2537,7 @@
               "events": "files/fielddata/eventdata/zone_event_release/narc_0328.bin",
               "events_sha256": "17c0c1616d0cb8d4acbfd50e9ece28b7e4243ed1b527d5d1832956c508ca5c88",
               "catalog": "data/maps/item-identities.json",
-              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
               "source_game": "diamond",
               "target_game": "bdsp",
               "target_game_relation": "remake_baseline",
@@ -2532,7 +2652,7 @@
         {
           "name": "Route203",
           "file": "data/games/bdsp/maps/runtime/Route203.json",
-          "sha256": "a1c025a367daeb5f9ed4a728eb039ad5cc0f76ea5a90ed8289af93c32ce3fa54",
+          "sha256": "a8dc1954695475a9ee4b6b98da0541ab7fc0ce52dca1ffba278b59e12af517ad",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route203.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0016.bin, files/fielddata/land_data/land_data_release/narc_0019.bin, files/fielddata/land_data/land_data_release/narc_0020.bin; zone_event narc_0329",
@@ -2544,7 +2664,7 @@
               "events": "files/fielddata/eventdata/zone_event_release/narc_0329.bin",
               "events_sha256": "a5538e7025f82793f546381e76af7037daadad62b3ae2aed817aecb1578389aa",
               "catalog": "data/maps/item-identities.json",
-              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
               "source_game": "diamond",
               "target_game": "bdsp",
               "target_game_relation": "remake_baseline",
@@ -2590,7 +2710,7 @@
         {
           "name": "Route204North",
           "file": "data/games/bdsp/maps/runtime/Route204North.json",
-          "sha256": "0100bf6779a875b2ba89830492fe6755a90179f7c8ec780bacaa164fb5fc2d51",
+          "sha256": "b0d25e8378b9e226f55ce4d55212a138789eb9f29b4e41f0a612c5cadb413b56",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204North.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0031.bin; zone_event narc_0331",
@@ -2602,7 +2722,7 @@
               "events": "files/fielddata/eventdata/zone_event_release/narc_0331.bin",
               "events_sha256": "dc1454d9e10692dbb38660f260eb7eedfebd43d24c3d634460cf3e2428f655e0",
               "catalog": "data/maps/item-identities.json",
-              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
               "source_game": "diamond",
               "target_game": "bdsp",
               "target_game_relation": "remake_baseline",
@@ -2652,7 +2772,7 @@
         {
           "name": "Route204South",
           "file": "data/games/bdsp/maps/runtime/Route204South.json",
-          "sha256": "4760126039a763ad61953da2a551c66534383b221103f2a3534646100089e180",
+          "sha256": "efcce47dd6f4a3400709419a210cd18f48466d5a98b650f179264a29813a804d",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route204South.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0021.bin; zone_event narc_0330",
@@ -2664,7 +2784,7 @@
               "events": "files/fielddata/eventdata/zone_event_release/narc_0330.bin",
               "events_sha256": "57419b5fe791d60db542d30d18f9541258ba45c32a0a8b8165881fe000a126d0",
               "catalog": "data/maps/item-identities.json",
-              "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+              "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
               "source_game": "diamond",
               "target_game": "bdsp",
               "target_game_relation": "remake_baseline",

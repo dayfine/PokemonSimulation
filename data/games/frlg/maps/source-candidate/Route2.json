@@ -12,7 +12,7 @@
       "events": "data/maps/Route2/map.json",
       "events_sha256": "2562e3736b600c95b8c0a4c2a1bb3fb062f5c50208bebc43cd4303328ccda7ea",
       "catalog": "data/maps/item-identities.json",
-      "catalog_sha256": "97b4ec9c9cc4fc999274e583d97be7dc3ef310887726208c92c51eda417b07be",
+      "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
       "source_game": "firered",
       "target_game": "frlg",
       "target_game_relation": "native_decomp",

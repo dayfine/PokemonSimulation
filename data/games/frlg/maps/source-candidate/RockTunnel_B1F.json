@@ -6,6 +6,18 @@
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
     "date": "2026-10-31",
     "generation_status": "unreviewed-full-catalog-candidate",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "events": "data/maps/RockTunnel_B1F/map.json",
+      "events_sha256": "668c7ede675ec83008984303faafef1d0b4d6ec5f11bcfb852e73a6280ad3cb8",
+      "catalog": "data/maps/item-identities.json",
+      "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    },
     "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
   },
   "tiles": [
@@ -242,7 +254,7 @@
       "source_event": 9,
       "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_REVIVE",
       "source_script": "RockTunnel_B1F_EventScript_ItemRevive",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "revive"
     },
     {
       "name": "item_ball",
@@ -250,7 +262,7 @@
       "source_event": 10,
       "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_MAX_ETHER",
       "source_script": "RockTunnel_B1F_EventScript_ItemMaxEther",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "max_ether"
     }
   ]
 }

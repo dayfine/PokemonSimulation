@@ -25,7 +25,7 @@ class FullImportAuditTest(unittest.TestCase):
         self.assertEqual(report['totals']['scope_boundary_warps'], 103)
         self.assertEqual(report['totals']['scope_boundary_connections'], 2)
         self.assertEqual(report['totals']['unknown_tiles'], 0)
-        self.assertEqual(report['totals']['unresolved_pickups'], 84)
+        self.assertEqual(report['totals']['unresolved_pickups'], 79)
         self.assertEqual(report['totals']['unapplied_story_patches'], 1)
         self.assertEqual(report['elevation_grids_retained'], 14)
         self.assertEqual(report['elevation_grids_omitted'], 126)

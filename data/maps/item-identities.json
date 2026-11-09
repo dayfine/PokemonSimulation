@@ -1,6 +1,6 @@
 {
     "format": "pokesim-item-identities/1",
-    "inputs_sha256": "db20fff8bb430f4fcce5f412bf1a1d3c9fb6cd2adf5a2637a75f34e638ccf8e0",
+    "inputs_sha256": "110fe3b33843211354252d411605477e88836115495776da7b28b4e05de5893a",
     "sources": {
         "frlg": {
             "repository": "pret/pokefirered",
@@ -230,6 +230,57 @@
                         },
                         "interaction": {"kind": "starter_choice", "species": "charmander"},
                         "hide_flag": "FLAG_HIDE_CHARMANDER_BALL"
+                    }
+                ]
+            },
+            "RockTunnel_1F": {
+                "source": "frlg",
+                "events": "data/maps/RockTunnel_1F/map.json",
+                "events_sha256": "bf89c9e78f7373691783428c0143b6ecaa52be67edf508859ec175c79701a468",
+                "map_content_sha256": "5dc0423319af21a602127d89f19c69fb89902e405cb6eff967e9d95381c2f1ba",
+                "objects": [
+                    {
+                        "coord": [37, 5],
+                        "source_event": {"index": 7, "script": "RockTunnel_1F_EventScript_ItemRepel"},
+                        "item": "repel",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_REPEL"
+                    },
+                    {
+                        "coord": [33, 22],
+                        "source_event": {"index": 8, "script": "RockTunnel_1F_EventScript_ItemPearl"},
+                        "item": "pearl",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_PEARL"
+                    },
+                    {
+                        "coord": [22, 22],
+                        "source_event": {"index": 9, "script": "RockTunnel_1F_EventScript_ItemEscapeRope"},
+                        "item": "escape_rope",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_ESCAPE_ROPE"
+                    }
+                ]
+            },
+            "RockTunnel_B1F": {
+                "source": "frlg",
+                "events": "data/maps/RockTunnel_B1F/map.json",
+                "events_sha256": "668c7ede675ec83008984303faafef1d0b4d6ec5f11bcfb852e73a6280ad3cb8",
+                "map_content_sha256": "ef2463fd73d0fd4c6d35f2663f5e01f454944c9e5764512e798e7503aa481eee",
+                "objects": [
+                    {
+                        "coord": [2, 37],
+                        "source_event": {"index": 9, "script": "RockTunnel_B1F_EventScript_ItemRevive"},
+                        "item": "revive",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_REVIVE"
+                    },
+                    {
+                        "coord": [9, 2],
+                        "source_event": {"index": 10, "script": "RockTunnel_B1F_EventScript_ItemMaxEther"},
+                        "item": "max_ether",
+                        "quantity": 1,
+                        "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_MAX_ETHER"
                     }
                 ]
             },
