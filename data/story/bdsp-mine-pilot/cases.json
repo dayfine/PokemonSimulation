@@ -94,7 +94,7 @@
         "received": {},
         "save_performed": false,
         "actions": [
-          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 37},
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 36},
           {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "west", "tiles": 1},
           {"event": "above_the_mine", "kind": "turn", "map": "OreburghCity", "direction": "south"},
           {
@@ -252,7 +252,7 @@
         "received": {},
         "save_performed": false,
         "actions": [
-          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 37},
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 36},
           {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "west", "tiles": 1},
           {"event": "above_the_mine", "kind": "turn", "map": "OreburghCity", "direction": "south"},
           {
@@ -316,7 +316,7 @@
         "received": {},
         "save_performed": false,
         "actions": [
-          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 37},
+          {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "south", "tiles": 36},
           {"event": "above_the_mine", "kind": "walk", "map": "OreburghCity", "direction": "west", "tiles": 1},
           {"event": "above_the_mine", "kind": "turn", "map": "OreburghCity", "direction": "south"},
           {
