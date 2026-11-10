@@ -49,6 +49,22 @@ def array(value):
     return value
 
 
+def read_args(value):
+    """A step's args: flags, whole numbers and words by name, as the step's
+    action declares them in the game's C++ (StoryArgSpec); this reader checks
+    only the value types."""
+    if not isinstance(value, dict):
+        raise ValueError('expected args object')
+    result = {}
+    for key, item in value.items():
+        if type(item) is int:
+            integer(item, -9223372036854775808, 9223372036854775807)
+        elif type(item) is not bool and not isinstance(item, str):
+            raise ValueError('arg is not a flag, whole number or word: ' + key)
+        result[key] = item
+    return result
+
+
 def read_notes(root, result):
     """Copy non-empty `notes` paragraphs; no executor reads them."""
     notes = [text(v) for v in array(root.get('notes', []))]
@@ -79,7 +95,7 @@ def read_pose(value):
 
 def read_step(value):
     root = fields(value, ('id', 'kind', 'why', 'target', 'direction', 'legs', 'fight_wild',
-                         'yes', 'may_lose', 'battles', 'items', 'variant', 'skip_if', 'declared_after',
+                         'yes', 'may_lose', 'battles', 'items', 'variant', 'args', 'skip_if', 'declared_after',
                          'once_per_save', 'notes'))
     result = dict(id=text(root['id']), kind=choice(root['kind'], KINDS))
     if not result['id']:
@@ -115,6 +131,9 @@ def read_step(value):
         items.append(dict(item=text(item['item']), quantity=integer(item['quantity'], 0, 9223372036854775807)))
     if items:
         result['items'] = items
+    args = read_args(root.get('args', {}))
+    if args:
+        result['args'] = args
     skip = [text(v) for v in array(root.get('skip_if', []))]
     if skip:
         result['skip_if'] = skip

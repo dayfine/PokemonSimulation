@@ -255,6 +255,50 @@
         "value": {"map": "M", "certainty": "unknown", "where": {"kind": "gps"}}
       },
       "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "args",
+        "record": "step",
+        "value": {
+          "id": "buy",
+          "kind": "game_action",
+          "variant": "mart",
+          "args": {"map": "CeruleanCity_Mart", "budget": 3000, "if_present": true}
+        }
+      },
+      "expectation": {
+        "canonical": {
+          "id": "buy",
+          "kind": "game_action",
+          "variant": "mart",
+          "args": {"map": "CeruleanCity_Mart", "budget": 3000, "if_present": true}
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "fractional arg",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "variant": "mart", "args": {"budget": 1.5}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "nested arg",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "variant": "mart", "args": {"items": [1]}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "args not an object",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "variant": "mart", "args": ["map"]}
+      },
+      "expectation": {"rejected": true}
     }
   ]
 }
