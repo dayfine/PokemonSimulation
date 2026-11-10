@@ -83,8 +83,15 @@ class MapSetTest(unittest.TestCase):
         status = map_set.statuses(self.manifest)
         excluded = map_set.read_excluded(maps)
         boundary, pending, errors = map_set.link_gaps(maps, status, excluded)
-        self.assertEqual((len(boundary), len(pending), errors), (61, 31, []))
-        self.assertIn(('ViridianCity_Gym', 'ViridianCity', 'warp_2'), pending)
+        # Every source warp and connection is linked by name (OVERLAYS.md step 1): the
+        # 31 pending relinks are gone, and links into scope-excluded maps (scripted
+        # Centers and elevators included) keep their target as boundaries.
+        self.assertEqual((len(boundary), len(pending), errors), (102, 0, []))
+        self.assertIn(('ViridianCity', 'ViridianCity_Gym', 'warp_1'),
+                      [(n, w['to_map'], w['to_point']) for n, d in maps.items() for w in d['warps'] if 'to_map' in w])
+        self.assertIn(('ViridianCity', 'ViridianCity_PokemonCenter_1F', 'warp_1'),
+                      [(n, w['to_map'], w['to_point']) for n, d in maps.items() for w in d['warps'] if 'to_map' in w])
+        self.assertIn(('CeladonCity', 'CeladonCity_PokemonCenter_1F', 'warp_1'), boundary)
         # A verified map may not depend on a missing point, even in a candidate.
         broken = copy.deepcopy(maps)
         broken['ViridianCity']['warps'][0].update(to_map='Route11', to_point='warp_99')

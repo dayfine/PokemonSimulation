@@ -1,52 +1,78 @@
 {
-    "format": "pokesim-runtime-map/2",
-    "name": "Route10_PokemonCenter_1F",
-    "source": {
-        "decomp_file": "data/maps/Route10_PokemonCenter_1F/map.json",
-        "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-        "date": "2026-10-31"
+  "format": "pokesim-runtime-map/2",
+  "name": "Route10_PokemonCenter_1F",
+  "source": {
+    "decomp_file": "data/maps/Route10_PokemonCenter_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#.#############",
+    "###############",
+    "....###..##....",
+    "....#######....",
+    "...............",
+    "...............",
+    "#..........##..",
+    "...........##..",
+    "...............",
+    "###############"
+  ],
+  "elevation": [
+    "030000000000000",
+    "000000000000000",
+    "333300033003333",
+    "333300000003333",
+    "333333333333333",
+    "330333333333333",
+    "044033333330033",
+    "330333333330033",
+    "333333333333333",
+    "000000000000000"
+  ],
+  "points": {"warp_1": [7, 8], "warp_3": [1, 6]},
+  "warps": [
+    {"coord": [6, 8], "enter": "walk_into", "to_map": "Route10", "to_point": "warp_3"},
+    {"coord": [7, 8], "enter": "walk_south", "to_map": "Route10", "to_point": "warp_3"},
+    {"coord": [8, 8], "enter": "walk_into", "to_map": "Route10", "to_point": "warp_3"},
+    {"coord": [1, 6], "enter": "step_on", "to_map": "Route10_PokemonCenter_2F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "nurse",
+      "coord": [7, 2],
+      "source_event": 0,
+      "source_script": "Route10_PokemonCenter_1F_EventScript_Nurse",
+      "source_local_id": "LOCALID_ROUTE10_NURSE"
     },
-    "allow_running": false,
-    "tiles": [
-        "#.#############",
-        "###############",
-        "....###..##....",
-        "....#######....",
-        "...............",
-        "...............",
-        "#..........##..",
-        "...........##..",
-        "...............",
-        "###############"
-    ],
-    "elevation": [
-        "030000000000000",
-        "000000000000000",
-        "333300033003333",
-        "333300000003333",
-        "333333333333333",
-        "330333333333333",
-        "044033333330033",
-        "330333333330033",
-        "333333333333333",
-        "000000000000000"
-    ],
-    "points": {
-        "warp_1": [7, 8]
+    {
+      "name": "gentleman",
+      "coord": [9, 4],
+      "wander": {"min": [8, 4], "max": [10, 4]},
+      "source_event": 1,
+      "source_script": "Route10_PokemonCenter_1F_EventScript_Gentleman"
     },
-    "warps": [
-        {"coord": [6, 8], "enter": "walk_into", "to_map": "Route10", "to_point": "warp_3"},
-        {"coord": [7, 8], "enter": "walk_south", "to_map": "Route10", "to_point": "warp_3"},
-        {"coord": [8, 8], "enter": "walk_into", "to_map": "Route10", "to_point": "warp_3"},
-        {"coord": [1, 6], "enter": "step_on"}
-    ],
-    "flag_sets": {},
-    "connections": [],
-    "npcs": [
-        {"name": "nurse", "coord": [7, 2]},
-        {"name": "gentleman", "coord": [9, 4], "wander": {"min": [8, 4], "max": [10, 4]}},
-        {"name": "fat_man", "coord": [2, 3], "wander": {"min": [1, 3], "max": [3, 3]}},
-        {"name": "youngster", "coord": [14, 6]},
-        {"name": "scientist", "coord": [12, 5]}
-    ]
+    {
+      "name": "fat_man",
+      "coord": [2, 3],
+      "wander": {"min": [1, 3], "max": [3, 3]},
+      "source_event": 2,
+      "source_script": "Route10_PokemonCenter_1F_EventScript_FatMan"
+    },
+    {
+      "name": "youngster",
+      "coord": [14, 6],
+      "source_event": 3,
+      "source_script": "Route10_PokemonCenter_1F_EventScript_Youngster"
+    },
+    {
+      "name": "scientist",
+      "coord": [12, 5],
+      "source_event": 4,
+      "source_script": "Route10_PokemonCenter_1F_EventScript_Aide"
+    }
+  ]
 }

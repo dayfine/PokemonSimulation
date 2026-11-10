@@ -1,20 +1,49 @@
 # FRLG map set
 
-One copy of each FRLG map, in `runtime/`. Each map's **status** lives in its
-entry in [`data/maps/runtime-manifest.json`](../../../maps/runtime-manifest.json):
+Each FRLG map has up to three files (see [OVERLAYS.md](../../../../docs/maps/OVERLAYS.md)):
+
+| Directory | Content | Owner |
+|---|---|---|
+| `base/` | The map as generated from `pret/pokefirered@ce6406d8`: every source warp and connection linked by name, water as `w`, elevation grids, spinner/hole/button glyphs. | The generator; `--check` reproduces every file byte for byte. Never edited by hand. |
+| `overlays/` | Ordered authored operations over the base (`tile`, `link`, `object`, `trigger`, `point`), each with `why`, `when`, `evidence` and `status` ([schema](../../../../schemas/map-overlay.schema.json)). | Reviewed PRs, one operation per map fix. |
+| `runtime/` | The effective map, base + overlays at story state `complete` (every `when` passed), for consumers that do not apply overlays yet. A map without an overlay publishes its base bytes. | Derived by `map_overlays write`; `map_overlays check` fails on any difference. |
+
+Each map's **status** lives in its entry in
+[`data/maps/runtime-manifest.json`](../../../maps/runtime-manifest.json), with
+the runtime file's hash and `base` / `overlay` references (file and sha256):
 
 | Status | Meaning | Count |
 |---|---|---:|
 | `verified` | Reviewed content. `verified.basis` is `approved-runtime-pack` (in the approved pack before this set existed; no per-map run was recorded) or `console-run` (`run`, `date`, `checkpoint`, optional `consumer_revision`). | 57 |
-| `candidate` | Generated from `pret/pokefirered@ce6406d8`, unreviewed. Bytes are owned by the generator. | 95 |
+| `candidate` | Generated, unreviewed. | 95 |
 
 Every entry also records its `source` (pret file and commit), the same object
-as the map file's `source`. The status is kept out of the map bytes, so
-promoting a map changes only the manifest: map hashes stay the same.
+as the runtime file's `source`. The status is kept out of the map bytes, so
+promoting a map changes only the manifest.
 
 `runtime/` is the directory the published manifest and the Arduino-Source
 resource pin read (`data/games/frlg/maps/runtime/<Name>.json`). "Runtime" names
-the published map format, not approval. There is no other FRLG map directory.
+the published map format, not approval.
+
+## Overlays
+
+There is one overlay today:
+
+| Map | Operation | why | when |
+|---|---|---|---|
+| `VermilionCity_Gym` | `tile` (4..6, 6..7) to `.`: the electric beams are off | `story_state` | `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`, after checkpoint 00.23 |
+
+List a map's differences from its base, or see it at a story state:
+
+```sh
+PYTHONPATH=src python3 -m pokesim.maps.map_overlays audit VermilionCity_Gym
+PYTHONPATH=src python3 -m pokesim.maps.map_overlays audit --all
+PYTHONPATH=src python3 -m pokesim.maps.map_overlays effective VermilionCity_Gym --checkpoint 00.23
+```
+
+In Python, `map_overlays.effective_map(name, StoryState(checkpoint=..., flags=...))`
+returns base + the operations in effect; `StoryState()` is a new game and
+`COMPLETE` is past every `when`.
 
 ## Workflow
 
@@ -33,12 +62,14 @@ the published map format, not approval. There is no other FRLG map directory.
 3. **Publish the status.** Merge the manifest change to main and bump the
    consumer lock to that commit (`manifest_sha256` changes; map bytes do not).
 
-A map **fix** is a separate change. It edits the map, updates its manifest
-hash/corrections with evidence, and needs the usual review. Do not substitute a
-candidate's bytes for a verified map to make a route pass. To regenerate
-candidates after a generator change, generate into an empty directory, copy only
-`candidate` maps into `runtime/`, then run `frlg_map_set sync-candidates`.
-That command rewrites candidate entries from the files and never touches verified ones.
+A map **fix** adds one overlay operation with its evidence (the output of
+Arduino-Source's map-fix-evidence skill), then runs `map_overlays write`. It
+needs the usual review. Never edit `base/` or `runtime/` by hand.
+
+A **generator change** regenerates every base: generate into an empty
+directory, replace `base/` with it, run `map_overlays write` (a stale overlay
+operation, one that no longer changes anything, fails here), then
+`frlg_map_set sync-candidates` for new maps.
 
 ## Scope
 
@@ -76,29 +107,22 @@ PYTHONPATH=src python3 -m pokesim.maps.frlg_map_set check
 PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack
 PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all \
   --scope data/games/frlg/maps/pokeguy-map-scope.json --item-identities \
-  --out data/games/frlg/maps/runtime --manifest data/maps/runtime-manifest.json --check
+  --out data/games/frlg/maps/base --manifest data/maps/runtime-manifest.json --check
+PYTHONPATH=src python3 -m pokesim.maps.map_overlays check
 python3 -m pip install -r schemas/requirements.txt
 PYTHONPATH=src python3 -m pokesim.maps.frlg_import_audit data/games/frlg/maps/runtime \
   --schema --manifest data/maps/runtime-manifest.json \
   --scope data/games/frlg/maps/pokeguy-map-scope.json --out /tmp/frlg-import-audit.json
 ```
 
-The generator `--check` regenerates the in-scope catalog. It requires every
-candidate to match byte for byte and skips verified maps (reviewed content may
-legitimately differ from the generator). The pack audit allows exactly two
-kinds of unresolved link:
-
-- **Boundary**: the destination is scope-excluded and absent, so the link is a dead end, never a successful transition (59 warps, 2 connections).
-- **Pending relink**: a candidate warps into a verified map that has no return point yet (31 warps). Verified maps were built while their neighbors were absent, so their warps toward candidates carry no destination, and some candidate connections are one-way. Relinking edits reviewed maps and needs approval with evidence.
-
-Pending relinks by verified map: CeruleanCity (CeruleanCity_House1),
-LavenderTown (LavenderTown_Mart, LavenderTown_VolunteerPokemonHouse,
-PokemonTower_1F), Route2 (Route2_EastBuilding), Route22 (Route22_NorthEntrance),
-Route5 (Route5_SouthEntrance), Route6 (Route6_NorthEntrance),
-SSAnne_1F_Corridor (SSAnne_1F_Room6), VermilionCity (VermilionCity_Mart),
-ViridianCity (ViridianCity_Gym). One-way connections into verified maps come from
-Route21_North, Route12, Route23, Route8, SaffronCity_Connection, Route11 and
-SaffronCity.
+The generator `--check` regenerates every manifest map's base, verified maps
+outside the scope included, and requires each to match byte for byte. The pack
+audit allows one kind of unresolved link, a **boundary**: the destination is
+scope-excluded and absent, so the link is a dead end, never a successful
+transition (100 warps, 2 connections across the set; a link into a scripted
+Center or elevator keeps its target name). Since verified maps are generated
+bases too, every warp into a map of the set finds its return point: the 31
+pending relinks of #81 are gone.
 
 ## Candidate gaps
 
@@ -108,13 +132,17 @@ SaffronCity.
 | Dynamic warp destinations | 0 |
 | Pickups without a pinned identity catalog entry | 79 |
 
-84 candidates omit their elevation grid with an `elevation_omitted` reason in
-`source`. Every relevant walkable cell is then default ground (3). 11 keep their
-grids (bridges, stairs, multi-level terrain). Glyphs beyond the original set are
+70 candidates omit their elevation grid with an `elevation_omitted` reason in
+`source`: every walkable cell is then default ground (3). 25 keep their grids
+(water, bridges, stairs, multi-level terrain). A map with water always keeps
+its grid: a missing grid reads as ground everywhere, and water's level is what
+stops a walking player in Arduino's FRLG walker. Glyphs beyond the original set are
 documented in [tile-legend.json](tile-legend.json): spin tiles `u d l r o`
 (RocketHideout_B2F/B3F, ViridianCity_Gym), holes `H` (PokemonMansion_3F,
 VictoryRoad_3F) and Strength buttons `B` (VictoryRoad_1F/2F/3F). Arduino's
 native decoder needs those glyphs before those maps join its map list.
+A collision-free `MB_COUNTER` (PewterCity_Museum_1F (11, 5)) is floor: the
+counter only lets the player talk across it.
 
 NPCs and pickups keep source event, script and optional local-ID provenance.
 `source_event` is a zero-based source array index, not an in-game object ID.

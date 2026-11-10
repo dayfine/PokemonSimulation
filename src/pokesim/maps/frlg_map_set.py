@@ -3,11 +3,15 @@ r"""The single FRLG map set: one file per map, status recorded in the manifest.
 Every FRLG map lives in data/games/frlg/maps/runtime/ and has one manifest
 entry in data/maps/runtime-manifest.json with a ``status``:
 
-- ``candidate``: generated from pret/pokefirered, unreviewed. The generator
-  owns its bytes (``frlg_decomp_map_builder --check`` reproduces them).
+- ``candidate``: generated from pret/pokefirered, unreviewed.
 - ``verified``: reviewed content. ``verified`` records the basis: either an
   ``approved-runtime-pack`` (approved before per-map console records), or a
   ``console-run`` with the run, date and checkpoint that walked it.
+
+Either way the bytes are derived: ``maps/base/<Map>.json`` is the generator's
+(``frlg_decomp_map_builder --check``), ``maps/overlays/<Map>.json`` holds the
+authored operations, and the runtime file is base + overlays
+(``map_overlays check``). Each entry references its base and overlay with hashes.
 
 Promotion edits only the manifest, so map bytes and hashes stay unchanged.
 From the repository root:
@@ -27,6 +31,7 @@ import json
 from pathlib import Path
 import re
 
+from .map_overlays import pack_refs
 from .runtime_map_coordinates import legacy_map
 from .runtime_map_schema import validate
 
@@ -98,9 +103,10 @@ def link_gaps(maps, status, excluded):
     """Classify every named link that does not resolve inside the set.
 
     ``boundary``: the destination is scope-excluded and not in the set (a dead
-    end, never a successful transition). ``pending_relink``: a candidate links
-    into a verified map that does not (yet) define the return point or
-    connection, because reviewed maps were built without that neighbor.
+    end, never a successful transition; a scripted Center or elevator keeps its
+    name). ``pending_relink``: a candidate links into a verified map that does
+    not define the return point. Since verified maps are generated bases too,
+    there are none; the category stays to report a regression.
     Anything else is an error. Returns (boundary, pending_relink, errors).
     """
     boundary, pending, errors = [], [], []
@@ -116,7 +122,7 @@ def link_gaps(maps, status, excluded):
     return boundary, pending, errors
 
 
-def candidate_entry(name, raw):
+def candidate_entry(name, raw, root=ROOT):
     data = legacy_map(json.loads(raw))
     validate(data)
     return dict(name=name, file=f'{DIRECTORY}/{name}.json', sha256=hashlib.sha256(raw).hexdigest(),
@@ -125,7 +131,7 @@ def candidate_entry(name, raw):
                 coordinate_frame={'kind': 'local tiles', 'origin': [0, 0], 'width': len(data['tiles'][0]),
                                   'height': len(data['tiles']), 'origin_space': 'map layout'},
                 terrain_corrections=[], generation_overrides={'opened_tiles': []}, preconditions=[],
-                status='candidate')
+                status='candidate', **pack_refs(name, 'frlg', root))
 
 
 def sync_candidates(manifest, root=ROOT):
@@ -144,7 +150,7 @@ def sync_candidates(manifest, root=ROOT):
         entry = entries.get(name)
         if entry is not None and entry.get('status') != 'candidate':
             continue
-        fresh = candidate_entry(name, raw)
+        fresh = candidate_entry(name, raw, root)
         if entry != fresh:
             changed.append(name)
             if entry is None:

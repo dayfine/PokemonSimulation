@@ -2,7 +2,7 @@
   "format": "pokesim-route-golden/1",
   "game": "frlg",
   "map": "PalletTown",
-  "map_sha256": "0dc7446f568097b36a9479954f01afe546cb64c82bb0efa91da0cb66ad950f9f",
+  "map_sha256": "92ebe424c07773ba087b8fc8d2b8251876dd3b97b9aea47a1fee8d36abd6ab0c",
   "coordinate_frame": {
     "kind": "local tiles",
     "origin": [

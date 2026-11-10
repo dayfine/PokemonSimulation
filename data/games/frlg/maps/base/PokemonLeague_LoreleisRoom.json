@@ -1,0 +1,41 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "PokemonLeague_LoreleisRoom",
+  "source": {
+    "decomp_file": "data/maps/PokemonLeague_LoreleisRoom/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#############",
+    "#############",
+    "#############",
+    "#.#.......#.#",
+    "#...........#",
+    "#.#.......#.#",
+    "#.#.......#.#",
+    "#...........#",
+    "#.#.......#.#",
+    "#.#.......#.#",
+    "#...........#",
+    "#############",
+    "#############"
+  ],
+  "points": {"warp_0": [6, 12], "warp_1": [6, 2]},
+  "warps": [
+    {"coord": [6, 12], "enter": "walk_into", "to_map": "IndigoPlateau_PokemonCenter_1F", "to_point": "warp_1"},
+    {"coord": [6, 2], "enter": "walk_into", "to_map": "PokemonLeague_BrunosRoom", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "lorelei",
+      "coord": [6, 5],
+      "source_event": 0,
+      "source_script": "PokemonLeague_LoreleisRoom_EventScript_Lorelei"
+    }
+  ]
+}

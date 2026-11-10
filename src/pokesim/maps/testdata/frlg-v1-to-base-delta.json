@@ -1,0 +1,398 @@
+{
+  "format": "pokesim-frlg-v1-delta/1",
+  "note": "What each approved FRLG map gained between the reviewed v1 pack and the generated base + overlays (docs/maps/OVERLAYS.md step 1). The publication test undoes exactly this and must reproduce the v1 value digests.",
+  "maps": {
+    "CeruleanCave_1F": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["item_identities"]
+    },
+    "CeruleanCave_2F": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "CeruleanCave_B1F": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["item_identities"]
+    },
+    "CeruleanCity": {
+      "points_added": ["warp_0", "warp_2", "warp_8", "warp_12", "warp_13"],
+      "warps_linked": [0, 2, 8, 12, 13],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "CeruleanCity_BikeShop": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "CeruleanCity_Gym": {"object_fields_added": ["source_event", "source_script"]},
+    "CeruleanCity_House2": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "CeruleanCity_Mart": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"],
+      "elevation_omitted": [
+        "00000000000",
+        "00000000000",
+        "00303333330",
+        "33003333333",
+        "00003330030",
+        "33333330030",
+        "30033330030",
+        "33333333333",
+        "00000000000"
+      ]
+    },
+    "CeruleanCity_PokemonCenter_1F": {
+      "points_added": ["warp_3"],
+      "warps_linked": [3],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "LavenderTown": {
+      "points_added": ["warp_0", "warp_2", "warp_3", "warp_4", "warp_5"],
+      "warps_linked": [0, 2, 3, 4, 5],
+      "connections_added": [
+        {"side": "south", "to_map": "Route12", "offset": 0},
+        {"side": "west", "to_map": "Route8", "offset": 0}
+      ],
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "LavenderTown_PokemonCenter_1F": {
+      "points_added": ["warp_3"],
+      "warps_linked": [3],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "MtMoon_1F": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "MtMoon_B1F": {"source_fields_added": ["elevation_omitted"]},
+    "MtMoon_B2F": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "PalletTown": {
+      "connections_added": [{"side": "south", "to_map": "Route21_North", "offset": 0}],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "PalletTown_PlayersHouse_1F": {
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "PalletTown_ProfessorOaksLab": {
+      "object_fields_added": ["interaction", "source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "PalletTown_RivalsHouse": {
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "PewterCity": {
+      "points_added": ["warp_4", "warp_6"],
+      "warps_linked": [4, 6],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "PewterCity_Gym": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "PewterCity_Mart": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"],
+      "elevation_omitted": [
+        "00000000000",
+        "00000000000",
+        "00303333330",
+        "33003333333",
+        "00003330030",
+        "33333330030",
+        "30033330030",
+        "33333333333",
+        "00000000000"
+      ]
+    },
+    "PewterCity_Museum_1F": {
+      "points_added": ["warp_5"],
+      "warps_linked": [5],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "PewterCity_PokemonCenter_1F": {
+      "points_added": ["warp_3"],
+      "warps_linked": [3],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "RockTunnel_1F": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "RockTunnel_B1F": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "Route1": {"object_fields_added": ["source_event", "source_script"], "source_fields_added": ["elevation_omitted"]},
+    "Route10": {
+      "points_added": ["warp_2", "warp_4"],
+      "warps_linked": [2, 4],
+      "object_fields_added": ["source_event", "source_script"]
+    },
+    "Route10_PokemonCenter_1F": {
+      "points_added": ["warp_3"],
+      "warps_linked": [3],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "Route2": {
+      "points_added": ["warp_3", "warp_4", "warp_5", "warp_6"],
+      "warps_linked": [3, 4, 5, 6, 7, 8],
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "Route22": {
+      "points_added": ["warp_0"],
+      "warps_linked": [0, 1],
+      "connections_added": [{"side": "north", "to_map": "Route23", "offset": 0}],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "Route24": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["item_identities"]
+    },
+    "Route25": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["item_identities"]
+    },
+    "Route25_SeaCottage": {
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "Route2_ViridianForest_NorthEntrance": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "Route2_ViridianForest_SouthEntrance": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "Route3": {"object_fields_added": ["source_event", "source_script"], "source_fields_added": ["elevation_omitted"]},
+    "Route4": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["item_identities"]
+    },
+    "Route4_PokemonCenter_1F": {
+      "points_added": ["warp_3"],
+      "warps_linked": [3],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "Route5": {
+      "points_added": ["warp_1", "warp_2", "warp_3"],
+      "warps_linked": [1, 2, 3],
+      "connections_added": [{"side": "south", "to_map": "SaffronCity_Connection", "offset": 0}],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "Route6": {
+      "points_added": ["warp_1"],
+      "warps_linked": [1, 2],
+      "connections_added": [{"side": "north", "to_map": "SaffronCity_Connection", "offset": 0}],
+      "object_fields_added": ["source_event", "source_script"]
+    },
+    "Route9": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    },
+    "SSAnne_1F_Corridor": {
+      "points_added": ["warp_1", "warp_5", "warp_6", "warp_7", "warp_8", "warp_9", "warp_10", "warp_11", "warp_12"],
+      "warps_linked": [1, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"],
+      "elevation_omitted": [
+        "0000000000000000000000000000000",
+        "0000000000000000000000000000000",
+        "0000000000000000003330000000000",
+        "0000000000000000003330000000000",
+        "0000000000000000003330000000000",
+        "0000000000000000003330000000000",
+        "0000000000000000003330000000000",
+        "0000000000000000003330000000000",
+        "0003333333333333333333333333330",
+        "0003333333333333333333333333330",
+        "0333333333333333333333333333330",
+        "0333000000000000000000000033330",
+        "0333000000000000000000000033330",
+        "0333000000000000000000000033330",
+        "0333000000000000000000000033330",
+        "0333000000000000000000000033330",
+        "0333000000000000000000000033330",
+        "0333000000000000000000000000330",
+        "0333000000000000000000000000330",
+        "0000000000000000000000000000000",
+        "0000000000000000000000000000000"
+      ]
+    },
+    "SSAnne_2F_Corridor": {
+      "points_added": ["warp_1", "warp_3", "warp_4", "warp_5", "warp_6", "warp_7", "warp_8"],
+      "warps_linked": [1, 3, 4, 5, 6, 7, 8],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "SSAnne_CaptainsOffice": {
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "SSAnne_Exterior": {
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "water_was_wall": {
+        "0": "wwwwwwwwww##wwwwwwwwwwwwwwwwww#####wwwwwwwwww#########################",
+        "1": "wwwwwwwwww##wwwwwwwwwwwwwwwwww#####wwwwwwwwww#########################",
+        "2": "wwww##wwwwwwwwwwwwwwwwwwwwwwww#####wwwwwwwwww##........###.###########",
+        "3": "wwww##wwwwwwwwwwwwww####wwwwww#####wwwwwwwww###........###.###########",
+        "4": "##wwwwwwww##ww##ww######www##w#####w##wwww#####............###########",
+        "5": "##wwwww##w##########www#########.#######ww##wwwwwwwwwwwww..###########",
+        "6": "wwww##w####w##ww##wwwww####ww##...##ww####wwwwwwwwwwwwwww..###########",
+        "7": "wwww####w##wwwwwwwwwwwwwwwwwwww...wwwwww##wwwwwwwwwwwwwww..###########",
+        "8": "www##w##wwwwwwwwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwwwwwwwwww..###########",
+        "9": "w####wwwwwwwwwwwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwwwwwwwwww..###########",
+        "10": "w##wwwwwwwwwwwwwwwwwwww##wwwwww#.#wwwwww##wwwwwwwwwwwwwww..###########",
+        "11": "ww##wwwwwwwwwwwwwwwww####ww#####.###ww######wwwwwwwwwwwww..###########",
+        "12": "ww##wwwwwwwwwwwwwwwww##ww#######.#######ww##wwwwwwwwwwwww..###########",
+        "13": "##wwwwwwwwwwwwwwwwww##www##www##.##w##wwwwww##wwwwwwwwwww..###########",
+        "14": "##wwwwwwwwwwwwwwww####wwwwwwww##.##wwwwwwwww##wwwwwwwwwww..###########",
+        "15": "w##wwwwwwwwwwwwwww##wwwwwwwwww######wwwwwwwww##wwwwwwwwww..###########",
+        "16": "w##wwwwwwwwwwwwww##wwwwwwwwwwwwwwwwwwwwwwwwww##ww##wwwwww..###########",
+        "17": "ww##wwwwwwwwww##w##wwwwwwwwwwwwwwwwwwwwwwwwwwww####wwwwww..###########",
+        "18": "ww##w##wwwww######wwwwwwwwwwwwwwwwwwwwwwwwwwwww##w##wwwww..###########",
+        "19": "www####w##ww##ww##wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##wwwww..###########",
+        "20": "www##w######wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##www..###########",
+        "21": "wwwwww##ww##wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##www..###########",
+        "22": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##wwww..###########",
+        "23": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww####ww..###########",
+        "24": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##ww..###########",
+        "25": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##www..###########",
+        "26": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##www..###########",
+        "27": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##ww..###########",
+        "28": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww####..###########",
+        "29": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#################",
+        "30": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###############",
+        "31": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww################"
+      }
+    },
+    "UndergroundPath_NorthEntrance": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "UndergroundPath_NorthSouthTunnel": {"source_fields_added": ["elevation_omitted"]},
+    "UndergroundPath_SouthEntrance": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"]
+    },
+    "VermilionCity": {
+      "points_added": ["warp_3", "warp_6", "warp_7", "warp_8"],
+      "warps_linked": [3, 6, 7, 8],
+      "connections_added": [{"side": "east", "to_map": "Route11", "offset": 10}],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "water_was_wall": {
+        "2": "wwwwww####wwwwwwwwwww#...#######################",
+        "3": "wwww######www#####www#...#######################",
+        "4": "wwww##ww##############...#######################",
+        "5": "www##www##############...#######################",
+        "6": "www##www#D###SSD######...########S##############",
+        "7": "ww##wwww.................................#######",
+        "8": "ww##wwww.................................#######",
+        "9": "w##wwwww.................................#######",
+        "10": "w##wwwwwwwwwww...........................#######",
+        "11": "w##wwwwwwwwwww...........................#######",
+        "12": "w##wwwwwwwwwwwwwwwww.....................#######",
+        "13": "w##wwwwwwwwwwwwwwwww.....................#######",
+        "14": "w##wwwwwwww.....wwww.....................#######",
+        "15": "ww##wwww...#####..####.....####..........#######",
+        "16": "ww##wwww...#####..####.....####..........##.....",
+        "17": "www##www..S#D###..#D##.....SSD###############S##",
+        "18": "www##www..........................S.............",
+        "19": "ww##wwww........................................",
+        "20": "ww##wwww........................................",
+        "21": "ww##wwww.......................www.....wwwwwwwww",
+        "22": "ww##wwww...#######.........####www.....wwwwwwwww",
+        "23": "www##www...#######..wwww...####www64.64wwwwwwwww",
+        "24": "www##www##S########.wwww...#D##www.....ww#######",
+        "25": "www##www.....#D#....wwww.......wwww...www#######",
+        "26": "www##www............wwwwwwwwwwwwwww...www#######",
+        "27": "ww##wwww............wwwwwwwwwwwwwww...www#######",
+        "28": "ww##wwww............ww................www#######",
+        "29": "ww##wwwwwwwwwwwwwwwwww................www##wwwww",
+        "30": "ww##wwwwwwwwwwwwwwwwww................www##wwwww",
+        "31": "www##wwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwww##wwwww",
+        "32": "www##wwwwwwwwwwwwwwwww...wwwwwwwwwwwwwwww##wwwww",
+        "33": "wwwww##wwwwwwwwwwwww##...####wwwwwwwwwww##wwwwww",
+        "34": "wwwww##wwwwwwwww######...########wwww##w##wwwwww",
+        "35": "wwwwww##wwwwww######ww###wwww####wwww##w##wwwwww",
+        "36": "wwwwww####wwww##wwwwww###wwwwwwww##wwwww##wwwwww",
+        "37": "wwwwwwww######wwwwwwww.#.wwwwwwww########wwwwwww",
+        "38": "wwwwwwwwww####wwwwwwww.#.wwwwwwwwww######wwwwwww"
+      }
+    },
+    "VermilionCity_Gym": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted", "overlay"],
+      "elevation_omitted": [
+        "00000000000",
+        "00000000000",
+        "03303330330",
+        "03333333330",
+        "03333333330",
+        "03333333330",
+        "00000000000",
+        "00000000000",
+        "33333333333",
+        "33333333333",
+        "30303030303",
+        "33333333333",
+        "30303030303",
+        "33333333333",
+        "30303030303",
+        "33333333333",
+        "33333333333",
+        "33303330333",
+        "33333333333",
+        "33333333333",
+        "00000000000"
+      ]
+    },
+    "VermilionCity_PokemonCenter_1F": {
+      "points_added": ["warp_3"],
+      "warps_linked": [3],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "VermilionCity_PokemonFanClub": {"object_fields_added": ["source_event", "source_local_id", "source_script"]},
+    "ViridianCity": {
+      "points_added": ["warp_1", "warp_2", "warp_3"],
+      "warps_linked": [1, 2, 3],
+      "object_fields_added": ["item", "quantity", "source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["item_identities"]
+    },
+    "ViridianCity_Mart": {
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "source_fields_added": ["elevation_omitted"],
+      "elevation_omitted": [
+        "00000000000",
+        "00000000000",
+        "00303333330",
+        "33003333333",
+        "00003330030",
+        "33333330030",
+        "30033330030",
+        "33333333333",
+        "00000000000"
+      ]
+    },
+    "ViridianCity_PokemonCenter_1F": {
+      "points_added": ["warp_3"],
+      "warps_linked": [3],
+      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+    },
+    "ViridianForest": {
+      "object_fields_added": ["item", "quantity", "source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted", "item_identities"]
+    }
+  }
+}

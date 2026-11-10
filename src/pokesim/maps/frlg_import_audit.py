@@ -73,8 +73,7 @@ def audit(candidate, schema=False, scope=None, manifest=None):
             'unlinked_warps': sum('to_map' not in w for w in data.get('warps', [])),
             'dynamic_warps': sum(w.get('unresolved') == 'dynamic_destination' for w in data.get('warps', [])),
             'unresolved_pickups': sum('item' not in o for o in data.get('items', [])),
-            'identified_pickups': sum('item' in o for o in data.get('items', [])),
-            'unapplied_story_patches': int('unapplied_story_patch' in data['source'])}
+            'identified_pickups': sum('item' in o for o in data.get('items', []))}
         totals.update(counts)
         if any(v for k, v in counts.items() if k != 'identified_pickups'):
             gaps.append(dict(map=name, **counts))

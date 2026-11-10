@@ -21,8 +21,10 @@ tilesets' metatile_attributes.bin at --commit into --cache, then writes
 <out>/<map>.json in the schema of Pokemon::MapData (Pokemon_MapData.h).
 A map whose header doesn't allow running (indoors) says so; a trainer has
 their sight and the ways they look.
-Warps and connections lead only to maps in the same run: a warp to another map
-has no destination, and a connection to one is left out. A warp arrives at
+Warps and connections lead only to maps in the same run (with --all, the whole
+catalog, scope-excluded maps included, so every source link is emitted by
+name): a warp to a map outside the run has no destination, and a connection to
+one is left out. A warp arrives at
 point "warp_<n>" of its map, the tile of that map's warp n. Other named points
 and flag sets come from POINTS and FLAG_SETS below.
 
@@ -36,6 +38,12 @@ differs. With --manifest, maps whose status is verified are reviewed content:
 they are allowed outside the scope and not compared; every candidate must be
 in scope and match the generator byte for byte. Export the generated pack with pokesim.maps.runtime_map_pack for
 Arduino consumers.
+
+Base maps (docs/maps/OVERLAYS.md): with --all, --scope and --manifest, every
+manifest map gets a base, including verified maps outside the scope, and --check
+compares every one byte for byte. Bases are never edited by hand; story state,
+console measurements and remake deltas are overlay operations in
+data/games/frlg/maps/overlays/<Map>.json (pokesim.maps.map_overlays).
 """
 import argparse
 from collections import deque
@@ -80,9 +88,12 @@ WARP_ENTRIES = {
 }
 #   Ledges, by the way the player hops over them.
 LEDGES = {'MB_JUMP_' + direction.name: glyph for direction, glyph in LEDGE_GLYPHS.items()}
+#   MB_COUNTER only lets the player talk to someone across it
+#   (MetatileBehavior_IsCounter()); walking is decided by the collision bit, so a
+#   counter tile without collision (PewterCity_Museum_1F (11, 5)) is floor.
 FLOOR = (
     'MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS',
-    'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE',
+    'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE', 'MB_COUNTER',
 )
 # pret/pokefirered src/metatile_behavior.c, sBehaviorSurfable at COMMIT.
 # Preserve water in the full baseline; it remains blocked for walking. Surf,
@@ -145,18 +156,6 @@ FLAG_SETS = {
     'SSAnne_2F_Corridor': {'new_game': ['FLAG_HIDE_SS_ANNE_RIVAL']},
     'VermilionCity': {'new_game': ['FLAG_HIDE_VERMILION_CITY_OAKS_AIDE']},
 }
-
-#   Tiles a script changes for good once the story is past it, written as
-#   the story finds them after: Vermilion Gym's beams across rows 6 and 7
-#   go off once both switches are found
-#   (VermilionCity_Gym_EventScript_SetBeamsOff: (4..6, 6..7) floor,
-#   FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES). No route of the story's goes
-#   north of them before that, and one after can't end a leg on them as on
-#   a wall.
-OPENED_TILES = {
-    'VermilionCity_Gym': [(x, y) for y in (6, 7) for x in (4, 5, 6)],
-}
-
 
 class Decomp:
     def __init__(self, commit, cache):
@@ -377,15 +376,11 @@ def elevation_omission_reason(tiles, elevation, warps=None, points=None):
            for tile, level in zip(row, levels) if tile not in UNWALKABLE):
         return 'all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles'
 
-    # 2. Ground land with flat water: water has no bridges or level changes
-    no_bridge_levels = not any(c in '456789abcdef' for r in elevation for c in r if c != '3')
-    land_and_water = all((level == GROUND if tile != 'w' else level in ('0', '1', '3'))
-                         for row, levels in zip(tiles, elevation)
-                         for tile, level in zip(row, levels) if tile not in UNWALKABLE)
-    if land_and_water and no_bridge_levels:
-        return 'all walkable land is ground level (3); water is flat without bridges'
+    # Water is never omitted: Arduino's FRLG walker reads a missing grid as ground
+    # everywhere, and water's own level (1) is what stops a walking player from
+    # stepping onto it (the elevation mismatch that starts Surf instead).
 
-    # 3. Reachable tiles: all reachable land is level 3, and any non-3 tiles are isolated/unreachable obstacles
+    # 2. Reachable tiles: all reachable land (and water) is level 3, and any non-3 tiles are isolated/unreachable obstacles
     if warps is not None and points is not None:
         h, w = len(tiles), len(tiles[0])
         starts = set()
@@ -407,10 +402,11 @@ def elevation_omission_reason(tiles, elevation, warps=None, points=None):
                         visited.add((nx, ny))
                         queue.append((nx, ny))
 
-        reachable_land_3 = all(elevation[y][x] == GROUND for (x, y) in visited if tiles[y][x] not in UNWALKABLE and tiles[y][x] != 'w')
-        reachable_water_flat = all(elevation[y][x] in ('0', '1', '3') for (x, y) in visited if tiles[y][x] == 'w')
-        no_reachable_bridges = not any(elevation[y][x] in '456789abcdef' for (x, y) in visited if elevation[y][x] != '3')
-        if reachable_land_3 and reachable_water_flat and no_reachable_bridges:
+        reachable_ground = all(elevation[y][x] == GROUND for (x, y) in visited if tiles[y][x] not in UNWALKABLE)
+        #   A map entered only by its connections has no start to search from.
+        flat_water = all(level == GROUND for row, levels in zip(tiles, elevation)
+                         for tile, level in zip(row, levels) if tile == 'w')
+        if visited and reachable_ground and flat_water:
             return 'all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles'
 
     return None
@@ -472,8 +468,6 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     tiles, elevation, entries, wild_edges = grid(
         decomp, layouts[source['layout']], names, unhandled, signs, source['id'] in land_maps, unresolved
     )
-    for x, y in ([] if candidate else OPENED_TILES.get(name, [])):
-        tiles[y] = tiles[y][:x] + '.' + tiles[y][x + 1:]
     warp_events = source.get('warp_events', [])
     points = {n: [x, y] for n, (x, y) in POINTS.get(name, {}).items()}
     for index in sorted(arrivals(sources, loaded)[name]):
@@ -508,8 +502,6 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
                 obj['source_local_id'] = original['local_id']
         if unresolved:
             data['unresolved_tiles'] = unresolved
-        if name in OPENED_TILES:
-            data['source']['unapplied_story_patch'] = 'OPENED_TILES: preserve decomp baseline until story state is bound'
     if include_item_identities:
         events_hash = hashlib.sha256(decomp.read(f'data/maps/{name}/map.json')).hexdigest()
         data['objects'], identity_source = enrich_objects(data['objects'], 'frlg', name, events_hash, source_revision=getattr(decomp, 'commit', COMMIT))
@@ -565,18 +557,18 @@ def main():
     parser.add_argument('--check', action='store_true', help='check the files in --out instead of writing them')
     parser.add_argument('--all', dest='all_maps', action='store_true', help='generate the pinned full catalog into an empty candidate directory')
     parser.add_argument('--scope', help='with --all: explicit reviewed exclusion inventory; preserve boundary links')
-    parser.add_argument('--manifest', help='with --check: map statuses; verified maps are reviewed content, not compared')
+    parser.add_argument('--manifest', help='with --all and --scope: every manifest map gets a base, in scope or not')
     parser.add_argument('maps', nargs='*', help='default: the maps already in --out')
     args = parser.parse_args()
     decomp = Decomp(args.commit, args.cache)
     if args.scope and not args.all_maps:
         parser.error('--scope requires --all')
-    if args.manifest and not (args.check and args.scope):
-        parser.error('--manifest requires --check and --scope')
-    verified = set()
+    if args.manifest and not args.scope:
+        parser.error('--manifest requires --all and --scope')
+    listed = set()
     if args.manifest:
         status = statuses(json.loads(open(args.manifest).read()))
-        verified = {name for name, value in status.items() if value == 'verified'}
+        listed = set(status)
     if args.all_maps:
         if args.maps:
             parser.error('--all cannot be combined with explicit map names')
@@ -592,6 +584,8 @@ def main():
         parser.error('no maps given, and none in --out')
 
     excluded = read_scope(args.scope, args.maps, args.commit) if args.scope else {}
+    #   A listed map outside the scope (a verified Center, Cerulean Cave) still gets its base.
+    excluded = {name: reason for name, reason in excluded.items() if name not in listed}
     names = behaviors(decomp)
     layouts = {l['id']: l for l in json.loads(decomp.read('data/layouts/layouts.json'))['layouts'] if 'id' in l}
     sources = {m: json.loads(decomp.read(f'data/maps/{m}/map.json')) for m in args.maps}
@@ -600,7 +594,7 @@ def main():
     land_maps = land_encounter_maps(decomp)
     maps = []
     for name in args.maps:
-        if name in excluded or name in verified:
+        if name in excluded:
             continue
         data = map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities, candidate=args.all_maps)
         text = contract_json_text(compact_map(data)) if args.all_maps else json_text(data)
@@ -612,7 +606,7 @@ def main():
     if args.check:
         differ = []
         if args.scope:
-            unexpected = {f[:-5] for f in os.listdir(args.out) if f.endswith('.json')} - {n for n, _ in maps} - verified
+            unexpected = {f[:-5] for f in os.listdir(args.out) if f.endswith('.json')} - {n for n, _ in maps}
             if unexpected:
                 sys.exit('Out-of-scope map files: ' + ' '.join(sorted(unexpected)))
         for name, text in maps:
@@ -620,14 +614,12 @@ def main():
             if not os.path.exists(path) or open(path, newline='').read() != text:
                 differ.append(name)
         if args.manifest:
-            candidates = {name for name, value in status.items() if value == 'candidate'}
-            if candidates != {n for n, _ in maps}:
-                sys.exit('Candidate statuses differ from the generated scope: '
-                         + ' '.join(sorted(candidates ^ {n for n, _ in maps})))
+            if listed != {n for n, _ in maps}:
+                sys.exit('Manifest maps differ from the generated bases: '
+                         + ' '.join(sorted(listed ^ {n for n, _ in maps})))
         if differ:
             sys.exit(f'Differ from the generator: {" ".join(differ)}. Regenerate them without --check.')
-        skipped = f' ({len(verified)} verified maps not compared)' if verified else ''
-        print(f'{len(maps)} maps in {args.out} match the generator{skipped}.')
+        print(f'{len(maps)} maps in {args.out} match the generator.')
         return
     os.makedirs(args.out, exist_ok=True)
     for name, text in maps:

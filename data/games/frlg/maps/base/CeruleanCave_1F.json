@@ -1,0 +1,164 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeruleanCave_1F",
+  "source": {
+    "decomp_file": "data/maps/CeruleanCave_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "events": "data/maps/CeruleanCave_1F/map.json",
+      "events_sha256": "42a7d49479544125aa08209126948e3f57ff6040a2f6c1b5289e498de39d4e5c",
+      "catalog": "data/maps/item-identities.json",
+      "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    }
+  },
+  "tiles": [
+    "########################################",
+    "#######~~~##~#########wwwwwwwww#~~##~~##",
+    "#######~~~.~~#########wwwwwwwww#~~.~~~##",
+    "#######~~##~~#wwwwwwwwwwwwwwwww#~~~~~~##",
+    "##.####~~##~~#wwwwwwwwww#~~~#ww##.######",
+    "##~#~~~~~~~~~#wwwwwwwwww#~~~#wwwwwwwwww#",
+    "#~~#~~~~##~~~#www#~~~~~~~~~~#wwwwwwwwww#",
+    "#.~#~~~~##~~~#www#~~~~~~~~~~#wwwwwwwwww#",
+    "#~~#~~~~##~~~#www#~~~~~~~~~~~~~~~~~#www#",
+    "####~~~~##.###www#~~~######~~~#~~~~#www#",
+    "##~#~~~~#www##www#~~~##~####~~.~~~~#www#",
+    "##~~~~~~#www##www##.###~.~##~~~~~~~#www#",
+    "##~~~~~~#wwwwwwww#~~~~#~~~##~~~#####www#",
+    "##~~~~~~#wwwwwwww#~~#~##.###~~~###~~~~~#",
+    "##~~##~~#wwwwwwww#~~~~~~~~~#~~~#~~~~~~~#",
+    "##~~#.~~#www#~~~~##~~~~~~###~~~#~~~~~###",
+    "##~~~~~~#~~~#~~~~####~~~####~~~#~~~#####",
+    "##~~~~~~#~~~#~~~~~~~~~~~~~~~~~~#~~~#####",
+    "#####.###~~~##.#~~~~~~~~~~~~~~~#~~~#####",
+    "#####~~~~~~~~~~#~~~~~~~~~~~~~~~#~~~#####",
+    "#####~~~~~~~~~~#~~~~~~~~~~~~~~~#~~~#####",
+    "#####~~~~~~~~~~#################~.~#####",
+    "########################################"
+  ],
+  "elevation": [
+    "0000000000000000000000000000000000000000",
+    "0000000333003000000000111111111033003300",
+    "0000000333333000000000111111111033333300",
+    "0000000330033011111111111111111033333300",
+    "0030000330033011111111110444011003000000",
+    "0030333333333011111111110444011111111110",
+    "0330333300333011104444444444011111111110",
+    "0330333300333011104444444444011111111110",
+    "0330333300333011104444444444444444401110",
+    "0000333300300011104440000004440444401110",
+    "0030333301110011104440030000444444401110",
+    "0033333301110011100000033300444444401110",
+    "0033333301111111103333033300444000001110",
+    "0033333301111111103303003000444000333330",
+    "0033003301111111103333333330444033333330",
+    "0033033301110444400333333000444033333000",
+    "0033333303330444400003330000444033300000",
+    "0033333303330444444444444444444033300000",
+    "0000030003330000444444444444444033300000",
+    "0000033333333330444444444444444033300000",
+    "0000033333333330444444444444444033300000",
+    "0000033333333330000000000000000033300000",
+    "0000000000000000000000000000000000000000"
+  ],
+  "points": {
+    "entrance": [33, 21],
+    "warp_0": [33, 21],
+    "warp_1": [34, 2],
+    "warp_2": [1, 7],
+    "warp_3": [10, 2],
+    "warp_4": [5, 15],
+    "warp_5": [30, 10],
+    "warp_6": [24, 11],
+    "warp_7": [2, 4]
+  },
+  "warps": [
+    {"coord": [33, 21], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_7"},
+    {"coord": [34, 2], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_0"},
+    {"coord": [1, 7], "enter": "step_on", "to_map": "CeruleanCave_B1F", "to_point": "warp_0"},
+    {"coord": [10, 2], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_1"},
+    {"coord": [5, 15], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_2"},
+    {"coord": [30, 10], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_3"},
+    {"coord": [24, 11], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_4"},
+    {"coord": [2, 4], "enter": "step_on", "to_map": "CeruleanCave_2F", "to_point": "warp_5"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "rock_smash_rock",
+      "coord": [7, 21],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 3,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [13, 21],
+      "hide_flag": "FLAG_TEMP_13",
+      "source_event": 4,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [5, 20],
+      "hide_flag": "FLAG_TEMP_14",
+      "source_event": 5,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [14, 20],
+      "hide_flag": "FLAG_TEMP_15",
+      "source_event": 6,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [11, 21],
+      "hide_flag": "FLAG_TEMP_16",
+      "source_event": 7,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [9, 18],
+      "hide_flag": "FLAG_TEMP_17",
+      "source_event": 8,
+      "source_script": "EventScript_RockSmash"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [7, 3],
+      "source_event": 0,
+      "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET",
+      "source_script": "CeruleanCave_1F_EventScript_ItemNugget",
+      "item": "nugget"
+    },
+    {
+      "name": "item_ball",
+      "coord": [11, 16],
+      "source_event": 1,
+      "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE",
+      "source_script": "CeruleanCave_1F_EventScript_ItemFullRestore",
+      "item": "full_restore"
+    },
+    {
+      "name": "item_ball",
+      "coord": [25, 5],
+      "source_event": 2,
+      "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR",
+      "source_script": "CeruleanCave_1F_EventScript_ItemMaxElixir",
+      "item": "max_elixir"
+    }
+  ]
+}

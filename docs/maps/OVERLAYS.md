@@ -79,6 +79,87 @@ or overlays.
   not verify tiles the run never touched; the promotion records the run so
   that limit stays visible.
 
+## Step 1 as built (FRLG)
+
+### Layout and format
+
+- `data/games/frlg/maps/base/<Map>.json`: all 152 maps, `pokesim-runtime-map/2`
+  in the contract format. `frlg_decomp_map_builder --all --scope ... --manifest
+  ... --out data/games/frlg/maps/base --check` reproduces every one; with
+  `--manifest`, verified maps outside the scope (8 Centers, Cerulean Cave,
+  RivalsHouse, Museum) get bases too.
+- `data/games/frlg/maps/overlays/<Map>.json`: `pokesim-map-overlay/1`
+  (`schemas/map-overlay.schema.json`): `{format, map, operations}`. A `tile`
+  operation takes `coords` (a list, so one fix such as a gate is one
+  operation) and `glyph`; `when` is `{flag, after_checkpoint}` (either or both)
+  and is required for `story_state` and only there; a `generator_gap` names
+  its `evidence.generator_fix`. An operation that changes nothing fails, so a
+  generator fix cannot leave a stale operation behind.
+- `data/games/frlg/maps/runtime/<Map>.json`: unchanged path and format. It is
+  now derived: the base bytes for a map without an overlay, else base +
+  overlays at story state `complete` (every `when` passed), with
+  `source.overlay = {file, story_state}`.
+- Manifest: each FRLG entry keeps `file`/`sha256` (the runtime file) and adds
+  `base: {file, sha256}` and, when present, `overlay: {file, sha256}`.
+
+`pokesim.maps.map_overlays` implements `effective_map(name, story_state)`
+(`StoryState(checkpoint, flags)`, `NEW_GAME`, `COMPLETE`; an operation applies
+once its flag is set or once the state's checkpoint is later than
+`after_checkpoint`), `audit <Map>` / `audit --all`, `effective <Map>`,
+`check` and `write`.
+
+### What the verified maps' hand edits became
+
+Every difference between the 57 verified files and their regenerated bases:
+
+| Difference | Maps | Became |
+|---|---:|---|
+| Vermilion Gym's beams open, (4..6, 6..7) | 1 | Overlay: `tile`, `story_state`, when `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES` / after 00.23 (was `OPENED_TILES`). |
+| Water behind collision drawn as `#` (SSAnne_Exterior 602 tiles, VermilionCity 156) | 2 | Dropped, no overlay: consumers do not need it. Python routing blocks `w`; Arduino's walker blocks water by elevation and AutoStory's `story_route_costs()` forbids Surf. Both maps keep their elevation grids. |
+| Warps and connections into maps the v1 pack lacked (59 warps, 7 connections) and their arrival points | 21 | Generator output (the 31 pending relinks and the one-way connections are gone). |
+| Object provenance, pickup identities, starter interactions | 53 | Generator output (`source_event`, `source_script`, `source_local_id`, `item`, `quantity`, `interaction`). |
+| Elevation grid left out where every walkable tile is ground | 5 | Generator output with `source.elevation_omitted` (CeruleanCity_Mart, PewterCity_Mart, ViridianCity_Mart, SSAnne_1F_Corridor, VermilionCity_Gym). |
+
+`src/pokesim/maps/testdata/frlg-v1-to-base-delta.json` records the generated
+differences per map; the publication test undoes exactly those and still
+reproduces the reviewed v1 digests, so nothing else changed.
+
+Generator fixes in this step: every manifest map gets a base; the omission of
+an elevation grid is limited to lossless cases (never with water, never on a
+map with nowhere to search from); a collision-free `MB_COUNTER` is floor; and
+`OPENED_TILES` left the generator. 14 candidates gain their elevation grids.
+
+### Consumer (Arduino-Source)
+
+**Recommended interim:** keep reading `runtime/` (the pre-resolved effective
+maps at story state `complete`) and switch to base + overlays in step 4. The
+export layout, file names and count are unchanged (152 FRLG maps; the export
+copies `runtime/` only), so adopting this revision needs only:
+
+1. `devtools/maps/map-resources.lock.json`: `games.frlg.revision` to the merge
+   commit on main and `manifest_sha256` to that manifest's hash (`consumer_sync
+   update --layout resources`). 71 FRLG files change bytes (all 57 verified, 14
+   candidates); BDSP is untouched.
+2. Re-run the FRLG overworld map and route tests: verified maps now link the
+   gates, houses and connections they used to leave open, so a route may use
+   a newly linked map when both are loaded. Links into unloaded maps stay dead
+   ends (`take_warp`/`cross_edge` return nothing).
+3. `devtools/runtime-map-tests/prepare_parity.py` stays pinned to its v1
+   fixture revision. If it is moved to this revision, expect 348 pairs
+   (2 x (152 FRLG + 22 BDSP), not 150), and skip the `enrich_map` variant for
+   FRLG: the item catalog's FRLG map-content pins describe the v1 maps (FRLG
+   identities are generator-owned now; the pins retire with step 2's catalog
+   republish, which also touches BDSP).
+4. `Pokemon_MapData.cpp`'s glyph table still lacks `u d l r o H B`. None of
+   AutoStory's current maps contain them; add them before
+   RocketHideout_B2F/B3F, ViridianCity_Gym, PokemonMansion_3F or
+   VictoryRoad_1F-3F join its map list.
+
+**Step 4 (later):** read `base/` and `overlays/`, port `effective_map` to C++
+with shared test vectors from `test_map_overlays.py`, pass the checkpoint and
+flags AutoStory knows, and extend the export (`consumer_sync`) with the two
+directories.
+
 ## Migration
 
 Each step is its own PR; the existing tests must show no behaviour change
@@ -98,3 +179,9 @@ except where a step says otherwise.
 
 - 2026-11-09: design written after the FRLG single-map-set change (#81);
   step 1 started.
+- 2026-11-09: step 1 (FRLG): one generator mode for all 152 bases (every
+  warp and connection linked, water kept as water with its elevation grid,
+  OPENED_TILES removed); Vermilion Gym's beams are the only overlay
+  (`story_state`); water-as-wall dropped; `map_overlays` with
+  `effective_map`, `audit`, `check`, `write`; overlay schema; runtime files
+  pre-resolved at story state `complete` as the consumer's interim.

@@ -1,0 +1,84 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "PokemonTower_6F",
+  "source": {
+    "decomp_file": "data/maps/PokemonTower_6F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "########################",
+    "########################",
+    "########################",
+    "#######~~~~~~~~~########",
+    "######~~~~~~~~~~~~######",
+    "#####~####~~~##~~~######",
+    "###~~~~~~~~~~##~~~~#####",
+    "###~~~~~~~~~~##~~#######",
+    "##~~~~~~~~~~~##~~~~~~###",
+    "#####~~#~~~~~##~~~~#####",
+    "#####~~######~~~~~.#####",
+    "##~~~~~~#####~~~~~~#####",
+    "##~~~~~~~~~~~####~##~###",
+    "#####~~~###~~~~##~~#####",
+    "###~~~~~###~~####~######",
+    "#####~#####~~##~~~~#####",
+    "######~~###.~##~~#######",
+    "###########~############",
+    "########################",
+    "########################"
+  ],
+  "points": {"warp_0": [11, 16], "warp_1": [18, 10]},
+  "warps": [
+    {"coord": [11, 16], "enter": "walk_west", "to_map": "PokemonTower_7F", "to_point": "warp_0"},
+    {"coord": [18, 10], "enter": "walk_east", "to_map": "PokemonTower_5F", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "channeler",
+      "coord": [13, 10],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 0,
+      "source_script": "PokemonTower_6F_EventScript_Angelica"
+    },
+    {
+      "name": "channeler",
+      "coord": [18, 6],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "source_event": 1,
+      "source_script": "PokemonTower_6F_EventScript_Jennifer"
+    },
+    {
+      "name": "channeler",
+      "coord": [9, 6],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 2,
+      "source_script": "PokemonTower_6F_EventScript_Emilia"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [5, 15],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_POKEMON_TOWER_6F_RARE_CANDY",
+      "source_script": "PokemonTower_6F_EventScript_ItemRareCandy",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [15, 15],
+      "source_event": 4,
+      "hide_flag": "FLAG_HIDE_POKEMON_TOWER_6F_X_ACCURACY",
+      "source_script": "PokemonTower_6F_EventScript_ItemXAccuracy",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}

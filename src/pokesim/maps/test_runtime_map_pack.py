@@ -8,7 +8,7 @@ import sys
 import tempfile
 import unittest
 
-from pokesim.maps import bdsp_decomp_map_builder as bdsp, frlg_decomp_map_builder as frlg, runtime_map_pack as pack
+from pokesim.maps import bdsp_decomp_map_builder as bdsp, map_overlays as overlays, runtime_map_pack as pack
 
 
 class PackTest(unittest.TestCase):
@@ -30,8 +30,10 @@ class PackTest(unittest.TestCase):
                     self.assertEqual(entry['generation_overrides']['coord_events'],
                                      json.loads(json.dumps(bdsp.COORD_EVENTS.get(entry['name'], {}))))
                 else:
-                    self.assertEqual(entry['generation_overrides']['opened_tiles'],
-                                     [list(p) for p in frlg.OPENED_TILES.get(entry['name'], [])])
+                    # Authored changes are overlay operations now (map_overlays), not generator tables.
+                    self.assertEqual(entry['generation_overrides']['opened_tiles'], [])
+                    self.assertEqual({k: entry[k] for k in ('base', 'overlay') if k in entry},
+                                     overlays.pack_refs(entry['name']))
 
     def test_corrections_apply_to_copy_and_keep_evidence_and_extensions(self):
         raw = pack.load(pack.ROOT / 'data/games/bdsp/maps/runtime/Route202.json')
@@ -57,6 +59,8 @@ class PackTest(unittest.TestCase):
 
     def test_unresolved_warps_are_retained_not_walls(self):
         raw = pack.load(pack.ROOT / 'data/games/frlg/maps/runtime/VermilionCity.json')
+        # The generator links every FRLG source warp by name, so make one unresolved.
+        del raw['warps'][0]['to_map'], raw['warps'][0]['to_point']
         unresolved = [warp for warp in raw['warps'] if 'to_map' not in warp]
         self.assertTrue(unresolved)
         self.assertTrue(all(warp in pack.effective_map(raw)['warps'] for warp in unresolved))

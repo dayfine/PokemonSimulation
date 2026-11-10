@@ -161,6 +161,11 @@ separate integration change.
 
 ## Prepared resource packs
 
+FRLG runtime files are base + overlays pre-resolved at story state `complete`
+(the interim until the consumer applies overlays itself); see
+[OVERLAYS.md](../../docs/maps/OVERLAYS.md#consumer-arduino-source) for what a
+lock bump past that change needs.
+
 Use `consumer_sync --layout resources` with the separate resource lock and
 `Packages/Resources/Pokemon/Maps/{frlg,bdsp}` destination. `prepare` materializes
 an existing approved lock; `update` selects new approved pins; `check` is read-only.

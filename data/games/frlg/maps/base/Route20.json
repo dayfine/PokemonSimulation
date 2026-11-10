@@ -1,0 +1,146 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route20",
+  "source": {
+    "decomp_file": "data/maps/Route20/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31"
+  },
+  "tiles": [
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#####wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#######wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#########wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###########ww........wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwww.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###########...........wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwww....wwwwwwwwwwwwwwwwwwwwwwwwwwwww###########............wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwww.....wwwwwwwwwwwwwwwwwwwwwwwwwwww###########....#####...wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwww....wwwwwwwwwwwwwww...wwwwwwwwwww.#########....#######..wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww....wwwwwwwwww..###.###S...#########.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww....wwwwwwwwww............###########wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww..wwwwwwwwwww...........###########wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww.......wwww###########wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###########wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwww.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww.#########wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwww..wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwS###.###wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww.......wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww....wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+  ],
+  "elevation": [
+    "000000000000000000011100100000000000000011000011100000000100000100111100001111000000000000000000001110000000000000000000",
+    "100000000011001111000000001111110011111100000000001100001000000000000000000000110000000000000111001111100000000011000000",
+    "100000001100000000000011000000000000000000111100000011110000000001000011110000000011001111110000000011110000111100000000",
+    "111111111100110000111111110000001100000011110011110000100000000000113333333311000000000000000000110000000000000000111111",
+    "100111111001111111001133311111111111111111110011001100100000000000333333333331111100110000001111001100001111000011100111",
+    "000000000001001111001333333111111100111111111111001000000000000000333333333333111111111111111111001111111111111111100111",
+    "011000000111001111111333333311111100111111111111111000000000000000333300000333111111111111111111111111111111111111111111",
+    "111111111111111111111333333311111111111133333111110011130000000003333000000033111111111111111111111111111111111111111111",
+    "111111111111111111111333333111111111111133333311110010033000300003330000000003111111111111111111111111111111111111111111",
+    "111111111111111111111111111111111111111133333311110010033333333333300000000000111111111111111111111111111111111111111111",
+    "111111111111111111111111111111111111111133333311110011113333333333300000000000001111111111111111111111111111111111111111",
+    "111111111111111111111111111111111111111111333311111001113333333111100000000000001100111111111111111111111111111111111111",
+    "111111111111111111111111111111133311111111111111111001111111111110000000000000100100110011111111111111111111111111111111",
+    "111111111111111133311111111111133311111111111111111110011111111000030000000001100111110011111111111111111111111111111111",
+    "110011111111001333311111111111133111111111111111111110000000000001110000300011110011001111111111111111111111111111111111",
+    "110011111111001333311111111111111111111111111100111111100000000111113333333111110000001100111111110011111111111001111111",
+    "111111000011111111111111110011111111001111111100111111111111111111111113333111110000110000111111110011000011111001111111",
+    "111100000000110000001111000000111100000011000011001111111111111111111111111111000011110011110000111100000000001111000011",
+    "000000111100000000000000001100000000110000000000000000000000000000000000000000001100001100000000000000111100000000000000",
+    "000011000001001000010000110001000010001100111100110000000000000000000000000000110000000000001111000011000000110000111100"
+  ],
+  "points": {"warp_0": [60, 8], "warp_1": [72, 14]},
+  "warps": [
+    {"coord": [60, 8], "enter": "cave_entrance", "to_map": "SeafoamIslands_1F", "to_point": "warp_3"},
+    {"coord": [72, 14], "enter": "cave_entrance", "to_map": "SeafoamIslands_1F", "to_point": "warp_4"}
+  ],
+  "flag_sets": {},
+  "connections": [
+    {"side": "west", "to_map": "CinnabarIsland", "offset": 0},
+    {"side": "east", "to_map": "Route19", "offset": -40}
+  ],
+  "npcs": [
+    {
+      "name": "swimmer_f_water",
+      "coord": [8, 11],
+      "trainer": {"sight": 3, "looks": ["south", "north"]},
+      "source_event": 0,
+      "source_script": "Route20_EventScript_Melissa"
+    },
+    {
+      "name": "picnicker",
+      "coord": [16, 14],
+      "facing": "south",
+      "trainer": {"sight": 1},
+      "source_event": 1,
+      "source_script": "Route20_EventScript_Missy"
+    },
+    {
+      "name": "swimmer_f_water",
+      "coord": [34, 7],
+      "facing": "south",
+      "trainer": {"sight": 4},
+      "source_event": 2,
+      "source_script": "Route20_EventScript_Nora"
+    },
+    {
+      "name": "rocker",
+      "coord": [43, 9],
+      "wander": {"min": [42, 8], "max": [44, 10]},
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 3,
+      "source_script": "Route20_EventScript_Roger"
+    },
+    {
+      "name": "swimmer_m_water",
+      "coord": [23, 10],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 4,
+      "source_script": "Route20_EventScript_Dean"
+    },
+    {
+      "name": "picnicker",
+      "coord": [73, 16],
+      "facing": "west",
+      "trainer": {"sight": 2},
+      "source_event": 5,
+      "source_script": "Route20_EventScript_Irene"
+    },
+    {
+      "name": "swimmer_m_water",
+      "coord": [111, 9],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 6,
+      "source_script": "Route20_EventScript_Barry"
+    },
+    {
+      "name": "swimmer_m_water",
+      "coord": [106, 11],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 7,
+      "source_script": "Route20_EventScript_Darrin"
+    },
+    {
+      "name": "swimmer_f_water",
+      "coord": [93, 10],
+      "trainer": {"sight": 5, "looks": ["north", "east", "south", "west"]},
+      "source_event": 8,
+      "source_script": "Route20_EventScript_Shirley"
+    },
+    {
+      "name": "swimmer_f_water",
+      "coord": [54, 11],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 9,
+      "source_script": "Route20_EventScript_Tiffany"
+    },
+    {
+      "name": "camper",
+      "coord": [69, 3],
+      "wander": {"min": [67, 3], "max": [71, 3]},
+      "source_event": 10,
+      "source_script": "Route20_EventScript_Camper"
+    }
+  ]
+}

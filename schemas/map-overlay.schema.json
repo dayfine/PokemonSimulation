@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/map-overlay.schema.json",
+  "title": "Authored operations over a generated base map (docs/maps/OVERLAYS.md)",
+  "type": "object",
+  "properties": {
+    "format": {"const": "pokesim-map-overlay/1"},
+    "map": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+    "operations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/operation"}}
+  },
+  "required": ["format", "map", "operations"],
+  "additionalProperties": false,
+  "$defs": {
+    "coord": {
+      "type": "array",
+      "prefixItems": [{"type": "integer", "minimum": 0}, {"type": "integer", "minimum": 0}],
+      "items": false,
+      "minItems": 2
+    },
+    "glyph": {"type": "string", "pattern": "^[#.~w^v<>DS 8246udlroHB]$"},
+    "checkpoint": {"type": "string", "pattern": "^[0-9]+[a-z]*(\\.[0-9]+[a-z]*)*$"},
+    "common": {
+      "properties": {
+        "op": {"enum": ["tile", "link", "object", "trigger", "point"]},
+        "why": {"enum": ["console_measured", "remake_delta", "story_state", "generator_gap"]},
+        "when": {
+          "type": "object",
+          "properties": {
+            "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
+            "after_checkpoint": {"$ref": "#/$defs/checkpoint"}
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        },
+        "evidence": {"type": "object", "minProperties": 1},
+        "status": {"enum": ["candidate", "verified"]}
+      },
+      "required": ["op", "why", "evidence", "status"],
+      "allOf": [
+        {
+          "if": {"properties": {"why": {"const": "story_state"}}},
+          "then": {"required": ["when"]},
+          "else": {"not": {"required": ["when"]}}
+        },
+        {
+          "if": {"properties": {"why": {"const": "generator_gap"}}},
+          "then": {"properties": {"evidence": {"required": ["generator_fix"]}}}
+        }
+      ]
+    },
+    "operation": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "oneOf": [
+        {
+          "properties": {
+            "op": {"const": "tile"},
+            "coords": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/coord"}},
+            "glyph": {"$ref": "#/$defs/glyph"}
+          },
+          "required": ["coords", "glyph"]
+        },
+        {
+          "properties": {
+            "op": {"const": "point"},
+            "name": {"type": "string", "minLength": 1},
+            "coord": {"$ref": "#/$defs/coord"},
+            "remove": {"const": true}
+          },
+          "required": ["name"],
+          "oneOf": [{"required": ["coord"]}, {"required": ["remove"]}]
+        },
+        {
+          "properties": {
+            "op": {"const": "link"},
+            "kind": {"const": "warp"},
+            "index": {"type": "integer", "minimum": 0},
+            "to_map": {"type": "string"},
+            "to_point": {"type": "string"}
+          },
+          "required": ["kind", "index"]
+        },
+        {
+          "properties": {
+            "op": {"const": "link"},
+            "kind": {"const": "connection"},
+            "action": {"enum": ["add", "remove"]},
+            "side": {"enum": ["north", "south", "west", "east"]},
+            "to_map": {"type": "string"},
+            "offset": {"type": "integer"}
+          },
+          "required": ["kind", "action", "side", "to_map", "offset"]
+        },
+        {
+          "properties": {
+            "op": {"const": "object"},
+            "action": {"const": "add"},
+            "object": {
+              "type": "object",
+              "properties": {"name": {"type": "string"}, "kind": {"type": "string"}, "coord": {"$ref": "#/$defs/coord"}},
+              "required": ["name", "kind", "coord"]
+            }
+          },
+          "required": ["action", "object"]
+        },
+        {
+          "properties": {
+            "op": {"const": "object"},
+            "action": {"const": "remove"},
+            "name": {"type": "string"},
+            "at": {"$ref": "#/$defs/coord"}
+          },
+          "required": ["action", "name", "at"]
+        },
+        {
+          "properties": {
+            "op": {"const": "object"},
+            "action": {"const": "move"},
+            "name": {"type": "string"},
+            "at": {"$ref": "#/$defs/coord"},
+            "to": {"$ref": "#/$defs/coord"}
+          },
+          "required": ["action", "name", "at", "to"]
+        },
+        {"properties": {"op": {"const": "trigger"}, "action": {"enum": ["add", "remove"]}}, "required": ["action"]}
+      ]
+    }
+  }
+}

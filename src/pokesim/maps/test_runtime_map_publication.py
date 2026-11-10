@@ -55,6 +55,40 @@ def undo_added_links(game, data):
     data['connections'] = [c for c in data['connections'] if c['to_map'] not in connections]
 
 
+# What each approved FRLG map gained when it became generated base + overlays
+# (docs/maps/OVERLAYS.md step 1): every source warp and connection linked, their
+# arrival points, object provenance and pickup identities, elevation grids left
+# out where every walkable tile is ground, and water drawn as water. Nothing
+# else may differ from the reviewed pack, so undoing exactly this must
+# reproduce the v1 digests.
+FRLG_BASE_DELTA = ROOT / 'src/pokesim/maps/testdata/frlg-v1-to-base-delta.json'
+DELTA_KEYS = {'points_added', 'warps_linked', 'connections_added', 'object_fields_added',
+              'source_fields_added', 'elevation_omitted', 'water_was_wall'}
+
+
+def undo_base_delta(game, data, deltas):
+    delta = deltas.get(data['name'], {}) if game == 'frlg' else {}
+    assert set(delta) <= DELTA_KEYS, set(delta) - DELTA_KEYS
+    for name in delta.get('points_added', []):
+        del data['points'][name]
+    for index in delta.get('warps_linked', []):
+        del data['warps'][index]['to_map'], data['warps'][index]['to_point']
+    if 'connections_added' in delta:
+        data['connections'] = [c for c in data['connections'] if c not in delta['connections_added']]
+    for obj in data.get('objects', []):
+        for field in delta.get('object_fields_added', []):
+            obj.pop(field, None)
+    for field in delta.get('source_fields_added', []):
+        del data['source'][field]
+    if 'elevation_omitted' in delta:
+        assert 'elevation' not in data and 'elevation_omitted' in delta['source_fields_added']
+        data['elevation'] = delta['elevation_omitted']
+    for y, row in delta.get('water_was_wall', {}).items():
+        now = data['tiles'][int(y)]
+        assert all(a == b or (a, b) == ('#', 'w') for a, b in zip(row, now)), y
+        data['tiles'][int(y)] = row
+
+
 def current_world(game, names, context):
     return RuntimeWorld([LocalMap(json.loads((ROOT / 'data/games' / game / 'maps/runtime'
                         / (name + '.json')).read_text()), game,
@@ -67,6 +101,7 @@ class PublicationTest(unittest.TestCase):
         manifest = audit()
         self.assertEqual(manifest['runtime_format'], COMPACT)
         baseline = json.loads(BASELINE.read_text())
+        deltas = json.loads(FRLG_BASE_DELTA.read_text())['maps']
         self.assertEqual(set(baseline['games']), set(manifest['games']))
         count = 0
         for game, pack in manifest['games'].items():
@@ -90,11 +125,13 @@ class PublicationTest(unittest.TestCase):
                                 continue
                             for field in ('item', 'quantity', 'source_event', 'hide_flag'):
                                 item.pop(field, None)
+                    undo_base_delta(game, baseline_data, deltas)
                     undo_corrections(game, baseline_data)
                     undo_added_links(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()
                     self.assertEqual(digest, baseline['games'][game][entry['name']])
-                    self.assertEqual(raw, map_text(data))
+                    if game != 'frlg':  # FRLG runtime files are base + overlays in the contract format.
+                        self.assertEqual(raw, map_text(data))
                     count += 1
         self.assertEqual(count, 79)
 

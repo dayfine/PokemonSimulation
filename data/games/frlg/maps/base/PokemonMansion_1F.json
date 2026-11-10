@@ -1,0 +1,106 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "PokemonMansion_1F",
+  "source": {
+    "decomp_file": "data/maps/PokemonMansion_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "######################################",
+    "######################################",
+    "######################################",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#",
+    "#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#",
+    "#~~#~#~###~~~#~~~~~#~#~#~#~~#####~~~~#",
+    "#~~#~~~###~~~#~~~~~#~#~#~#~~#####~~~##",
+    "#~~~~~~~~~~~~#~~~~~~~~~~~~~~#####~~~##",
+    "#~~~~~~~~~~~~#~~~~~~~~~~~~~~#~~~~~~~~#",
+    "#~~~~~~~~~~~~##~~~####~~~####~~~~~~~~#",
+    "################~~###########~~~###~~#",
+    "################~~###########~~~###~~#",
+    "##############~~~~#~~~~~~~####~~~~~~~#",
+    "#~~~~~~~~~.###~~~~#~~~~~~~~###~~~~~~~#",
+    "#~~~~~~~~~~###~~~~#~~~~~~~~~##~~~~~~~#",
+    "#~~~~~~~~~~~~~~~~~#~~~~~~~~~##~~~~~~~#",
+    "#~~~~~~~~~~~~~~~~~#~~~~~~~~~##~~~~~~~#",
+    "#~~~~~~~~~~~~~~~###############~~~####",
+    "#~~~~~~~~~~~~~~~###############~~~####",
+    "##~~~~~~~~~~~~~~###############~~~####",
+    "###~~#~~~~~#~~~##~~#####~~~~~~~~~~~~~#",
+    "###~~#~~~~~#~~~##~~~~~~#~~~~~~~~~~~~~#",
+    "###~~#~~~~~#~~~##~~~~~~#~~~~~~~~~~~~~#",
+    "###~~~~~~~~~~~~~#~~~~~~#~~~~~~~~~~~~~#",
+    "#~~~~~~~~~~~~~~~#~~~~~~####~~~##~~~###",
+    "#~~~~#~~~~~#~~~~#~~~~~~###############",
+    "#~~~~#~~~~~#~~~~#~~###################",
+    "#~~~~#~~~~~#~~~~#~~~~~~##.~~~~~#~~~~~#",
+    "#~~~~~~~~~~~~~~~#~~~~~~##~~~~~~#~~~~~#",
+    "#~~~~~~~~~~~~~~~#~~~~~~~~~~~~~~#~~~~~#",
+    "#~~~~#~~~~~#~~~~#~~~~~~~~~~~~~~#~~~~~#",
+    "#~~~~#~~~~~#~~~~#~~~~~~~~~~~~~~#~~~~~#",
+    "#~~~~#~~~~~#~~~~#~~######~~~~~~#~~~~~#",
+    "#~~~~~~~.~~~~~~~#~~~~~~~~~~~~~~#~~.~~#",
+    "######################################"
+  ],
+  "points": {"warp_1": [8, 33], "warp_3": [10, 13], "warp_4": [25, 27], "warp_7": [19, 22], "warp_8": [20, 22]},
+  "warps": [
+    {"coord": [7, 33], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0"},
+    {"coord": [8, 33], "enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_0"},
+    {"coord": [9, 33], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0"},
+    {"coord": [10, 13], "enter": "walk_east", "to_map": "PokemonMansion_2F", "to_point": "warp_2"},
+    {"coord": [25, 27], "enter": "walk_west", "to_map": "PokemonMansion_B1F", "to_point": "warp_0"},
+    {"coord": [34, 33], "enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_0"},
+    {"coord": [35, 34], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0"},
+    {"coord": [19, 22], "enter": "walk_into", "to_map": "PokemonMansion_3F", "to_point": "warp_3"},
+    {"coord": [20, 22], "enter": "walk_into", "to_map": "PokemonMansion_3F", "to_point": "warp_4"},
+    {"coord": [11, 13], "enter": "walk_into", "to_map": "PokemonMansion_2F", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "scientist",
+      "coord": [22, 24],
+      "facing": "west",
+      "trainer": {"sight": 4},
+      "source_event": 0,
+      "source_script": "PokemonMansion_1F_EventScript_Ted"
+    },
+    {
+      "name": "youngster",
+      "coord": [8, 8],
+      "wander": {"min": [6, 8], "max": [10, 8]},
+      "trainer": {"sight": 1, "looks": ["west", "east"]},
+      "source_event": 4,
+      "source_script": "PokemonMansion_1F_EventScript_Johnson"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [29, 32],
+      "source_event": 1,
+      "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_CARBOS",
+      "source_script": "PokemonMansion_1F_EventScript_ItemCarbos",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [22, 6],
+      "source_event": 2,
+      "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_ESCAPE_ROPE",
+      "source_script": "PokemonMansion_1F_EventScript_ItemEscapeRope",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [27, 15],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_PROTEIN",
+      "source_script": "PokemonMansion_1F_EventScript_ItemProtein",
+      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+    }
+  ]
+}
