@@ -1,0 +1,67 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route18",
+  "source": {
+    "decomp_file": "data/maps/Route18/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+  },
+  "tiles": [
+    "wwwwwww#.........#wwwwwwwwwwwwww############################",
+    "wwwwwww#.........#wwwwwwwwwwwwww############################",
+    "wwwwwww#.........#wwwwwwwwwwwwww############################",
+    "wwwwwww#.........#wwwwwwwwwwwwww############################",
+    "wwwwwww#.........#wwwwwwwwwwwwww############################",
+    "wwwwwww#.........#wwwwwwwwwwwwww############################",
+    "wwwwwww#.........#wwwwwwwwwwwwww############################",
+    "wwwwwww#........................#####S###.######....S#######",
+    "wwwwwww#..................................######............",
+    "wwwwwww#..................................######............",
+    "wwwwwww#..................................######............",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##########..##########",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#...........##########",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.~~~~~~....##########",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.~~~~~~.#############",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.~~~~~~.#############",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#.~~~~~~.#############",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#........#############",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww##########wwwwww######",
+    "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww######"
+  ],
+  "points": {"warp_0": [41, 9], "warp_1": [48, 9]},
+  "warps": [
+    {"coord": [41, 9], "enter": "walk_east", "to_map": "Route18_EastEntrance_1F", "to_point": "warp_0"},
+    {"coord": [48, 9], "enter": "walk_west", "to_map": "Route18_EastEntrance_1F", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [
+    {"side": "north", "to_map": "Route17", "offset": 0},
+    {"side": "east", "to_map": "FuchsiaCity", "offset": -10}
+  ],
+  "npcs": [
+    {
+      "name": "rocker",
+      "coord": [46, 14],
+      "facing": "west",
+      "trainer": {"sight": 4},
+      "source_event": 0,
+      "source_script": "Route18_EventScript_Jacob"
+    },
+    {
+      "name": "rocker",
+      "coord": [41, 15],
+      "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
+      "source_event": 1,
+      "source_script": "Route18_EventScript_Ramiro"
+    },
+    {
+      "name": "rocker",
+      "coord": [39, 12],
+      "facing": "east",
+      "trainer": {"sight": 6},
+      "source_event": 2,
+      "source_script": "Route18_EventScript_Wilton"
+    }
+  ]
+}

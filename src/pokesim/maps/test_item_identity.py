@@ -22,6 +22,9 @@ class ItemIdentityTest(unittest.TestCase):
         counts = {'frlg': [0, 0], 'bdsp': [0, 0]}
         for game, pack in audit()['games'].items():
             for entry in pack['maps']:
+                if entry.get('status') == 'candidate':
+                    # Candidate pickup gaps are counted by frlg_import_audit.
+                    continue
                 data = load(ROOT / entry['file'])
                 original = copy.deepcopy(data)
                 enriched = identity.enrich_map(data, game)

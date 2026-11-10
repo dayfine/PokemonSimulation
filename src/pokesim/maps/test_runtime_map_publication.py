@@ -70,8 +70,12 @@ class PublicationTest(unittest.TestCase):
         self.assertEqual(set(baseline['games']), set(manifest['games']))
         count = 0
         for game, pack in manifest['games'].items():
-            self.assertEqual(set(baseline['games'][game]), {e['name'] for e in pack['maps']})
-            for entry in pack['maps']:
+            # The v1 baseline covers the approved legacy pack. FRLG maps added as candidates
+            # stay generator bytes (frlg_decomp_map_builder --check), also after promotion.
+            reviewed = [e for e in pack['maps']
+                        if 'status' not in e or e.get('verified', {}).get('basis') == 'approved-runtime-pack']
+            self.assertEqual(set(baseline['games'][game]), {e['name'] for e in reviewed})
+            for entry in reviewed:
                 with self.subTest(game=game, map=entry['name']):
                     raw = (ROOT / entry['file']).read_text()
                     data = json.loads(raw)

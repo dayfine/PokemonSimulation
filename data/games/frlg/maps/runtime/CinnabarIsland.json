@@ -1,0 +1,71 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CinnabarIsland",
+  "source": {
+    "decomp_file": "data/maps/CinnabarIsland/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+  },
+  "tiles": [
+    "wwwww#######....w##wwwww",
+    "wwwww#######.....######w",
+    "wwwww#######.....######w",
+    "wwwww###.###S....######w",
+    "wwwww..............#D##w",
+    "wwwww.................Sw",
+    "wwwww..................w",
+    "wwwww#######...........w",
+    "wwwww############......w",
+    "wwwww###DSS##########..w",
+    "wwwww.......#########..w",
+    "wwwww.......SSD##SSD#..w",
+    "wwwwwwww...............w",
+    "wwwwwwww...............w",
+    "wwwwwwww...............w",
+    "wwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwww",
+    "wwwwwwwwwwwwwwwwwwwwwwww"
+  ],
+  "points": {"warp_0": [8, 3], "warp_1": [20, 4], "warp_2": [8, 9], "warp_3": [14, 11], "warp_4": [19, 11]},
+  "warps": [
+    {"coord": [8, 3], "enter": "cave_entrance", "to_map": "PokemonMansion_1F", "to_point": "warp_1"},
+    {"coord": [20, 4], "enter": "walk_into", "to_map": "CinnabarIsland_Gym", "to_point": "warp_1"},
+    {"coord": [8, 9], "enter": "walk_into", "to_map": "CinnabarIsland_PokemonLab_Entrance", "to_point": "warp_1"},
+    {"coord": [14, 11], "enter": "walk_into", "to_map": "CinnabarIsland_PokemonCenter_1F", "to_point": "warp_0"},
+    {"coord": [19, 11], "enter": "walk_into", "to_map": "CinnabarIsland_Mart", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [
+    {"side": "north", "to_map": "Route21_South", "offset": 0},
+    {"side": "east", "to_map": "Route20", "offset": 0}
+  ],
+  "npcs": [
+    {
+      "name": "woman_2",
+      "coord": [14, 6],
+      "wander": {"min": [13, 6], "max": [15, 6]},
+      "source_event": 0,
+      "source_script": "CinnabarIsland_EventScript_Woman"
+    },
+    {"name": "old_man_1", "coord": [11, 11], "source_event": 1, "source_script": "CinnabarIsland_EventScript_OldMan"},
+    {
+      "name": "bill",
+      "coord": [20, 7],
+      "hide_flag": "FLAG_HIDE_CINNABAR_BILL",
+      "source_event": 2,
+      "source_script": "0x0",
+      "source_local_id": "LOCALID_CINNABAR_BILL"
+    },
+    {
+      "name": "seagallop",
+      "coord": [23, 7],
+      "hide_flag": "FLAG_HIDE_CINNABAR_SEAGALLOP",
+      "source_event": 3,
+      "source_script": "0x0",
+      "source_local_id": "LOCALID_CINNABAR_SEAGALLOP"
+    }
+  ]
+}

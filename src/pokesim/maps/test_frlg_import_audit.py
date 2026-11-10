@@ -1,4 +1,4 @@
-"""Full pinned source candidate integrity and conservative unresolved-state tests."""
+"""Candidate maps of the FRLG map set: integrity and conservative unresolved-state tests."""
 
 import copy
 import json
@@ -10,26 +10,34 @@ from .frlg_import_audit import audit
 from .frlg_decomp_map_builder import COMMIT
 from pokesim.formats.json_schema import ROOT
 
-CANDIDATE = ROOT / 'data/games/frlg/maps/source-candidate'
+CANDIDATE = ROOT / 'data/games/frlg/maps/runtime'
 SCOPE = CANDIDATE.parent / 'pokeguy-map-scope.json'
+MANIFEST = ROOT / 'data/maps/runtime-manifest.json'
 
 
 class FullImportAuditTest(unittest.TestCase):
-    def test_checked_full_catalog_has_fixed_links_and_visible_gaps(self):
-        report = audit(CANDIDATE, scope=SCOPE)
-        self.assertEqual(report['map_count'], 140)
+    def test_checked_candidates_have_fixed_links_and_visible_gaps(self):
+        report = audit(CANDIDATE, scope=SCOPE, manifest=MANIFEST)
+        self.assertEqual(report['map_count'], 95)
+        self.assertEqual(report['verified_map_count'], 57)
         self.assertEqual(report['excluded_map_count'], 285)
         self.assertEqual(report['source_revision'], COMMIT)
         self.assertEqual(report['totals']['dynamic_warps'], 0)
         self.assertEqual(report['totals']['unlinked_warps'], 0)
-        self.assertEqual(report['totals']['scope_boundary_warps'], 103)
+        self.assertEqual(report['totals']['scope_boundary_warps'], 59)
         self.assertEqual(report['totals']['scope_boundary_connections'], 2)
+        # Candidate warps into reviewed maps built without that neighbor.
+        self.assertEqual(report['totals']['pending_relink_warps'], 31)
         self.assertEqual(report['totals']['unknown_tiles'], 0)
         self.assertEqual(report['totals']['unresolved_pickups'], 79)
-        self.assertEqual(report['totals']['unapplied_story_patches'], 1)
-        self.assertEqual(report['elevation_grids_retained'], 14)
-        self.assertEqual(report['elevation_grids_omitted'], 126)
+        self.assertEqual(report['totals']['unapplied_story_patches'], 0)
+        self.assertEqual(report['elevation_grids_retained'], 11)
+        self.assertEqual(report['elevation_grids_omitted'], 84)
         self.assertFalse(report['schema_checked'])
+
+    def test_verified_maps_outside_scope_need_their_status(self):
+        with self.assertRaisesRegex(ValueError, 'do not match the declared map scope'):
+            audit(CANDIDATE, scope=SCOPE)
 
     def test_missing_destinations_require_an_explicit_scope(self):
         with self.assertRaisesRegex(ValueError, 'missing fixed warp destination'):
@@ -44,7 +52,7 @@ class FullImportAuditTest(unittest.TestCase):
                 self.assertTrue((CANDIDATE / (name + '.json')).is_file())
 
     def test_candidate_rejects_unresolved_tiles(self):
-        source = json.loads((CANDIDATE / 'PalletTown.json').read_text())
+        source = json.loads((CANDIDATE / 'Route11.json').read_text())
         changed = copy.deepcopy(source)
         changed['unresolved_tiles'] = {'MB_UNKNOWN_TEST': [[1, 1]]}
         with tempfile.TemporaryDirectory() as directory:
@@ -53,7 +61,7 @@ class FullImportAuditTest(unittest.TestCase):
                 audit(directory)
 
     def test_candidate_rejects_unmapped_spaces(self):
-        source = json.loads((CANDIDATE / 'PalletTown.json').read_text())
+        source = json.loads((CANDIDATE / 'Route11.json').read_text())
         changed = copy.deepcopy(source)
         changed['tiles'][1] = changed['tiles'][1][:1] + ' ' + changed['tiles'][1][2:]
         with tempfile.TemporaryDirectory() as directory:

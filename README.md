@@ -21,7 +21,7 @@ with configurable minimum-win-rate and reliability-quota criteria.
 
 The [AutoStory integration plan](docs/autostory-plan.md) tracks map ownership,
 route planning and shared FRLG/BDSP simulation. The [imported map packs](docs/maps/runtime-maps.md)
-include 53 FRLG and 22 BDSP maps, portable generators, corrections, provenance
+include 152 FRLG maps (57 verified, 95 candidates; one set with per-map status) and 22 BDSP maps, portable generators, corrections, provenance
 and a byte-identical export for Arduino consumers.
 The [local runtime-map planner](docs/navigation/RUNTIME_ROUTES.md) now computes
 and draws routes inside a pinned FRLG or BDSP map, recording its inputs and state.

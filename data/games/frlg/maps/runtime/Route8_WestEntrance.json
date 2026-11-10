@@ -1,0 +1,33 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route8_WestEntrance",
+  "source": {
+    "decomp_file": "data/maps/Route8_WestEntrance/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "#############",
+    "#############",
+    "##.........##",
+    "#.#########.#",
+    "#...........#",
+    "#...........#",
+    "#...........#",
+    "#.#########.#",
+    "##.........##"
+  ],
+  "points": {"warp_1": [1, 5], "warp_2": [11, 5]},
+  "warps": [
+    {"coord": [1, 4], "enter": "walk_into", "to_map": "SaffronCity", "to_point": "warp_10"},
+    {"coord": [1, 5], "enter": "walk_west", "to_map": "SaffronCity", "to_point": "warp_10"},
+    {"coord": [11, 5], "enter": "walk_east", "to_map": "Route8", "to_point": "warp_1"},
+    {"coord": [11, 6], "enter": "walk_into", "to_map": "Route8", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "policeman", "coord": [6, 2], "source_event": 0, "source_script": "Route8_WestEntrance_EventScript_Guard"}
+  ]
+}

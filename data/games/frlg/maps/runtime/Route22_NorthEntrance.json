@@ -1,0 +1,42 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route22_NorthEntrance",
+  "source": {
+    "decomp_file": "data/maps/Route22_NorthEntrance/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###############",
+    "#######.#######",
+    "##...........##",
+    "....#.....#....",
+    "...............",
+    "...............",
+    "...#.......#...",
+    "...............",
+    "...............",
+    "....#.....#....",
+    "##...........##",
+    "###############"
+  ],
+  "points": {"warp_0": [7, 1], "warp_2": [7, 10]},
+  "warps": [
+    {"coord": [7, 1], "enter": "cave_entrance", "to_map": "Route23", "to_point": "warp_2"},
+    {"coord": [6, 10], "enter": "walk_into", "to_map": "Route22", "to_point": "warp_0"},
+    {"coord": [7, 10], "enter": "walk_south", "to_map": "Route22", "to_point": "warp_0"},
+    {"coord": [8, 10], "enter": "walk_into", "to_map": "Route22", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "policeman",
+      "coord": [8, 2],
+      "source_event": 0,
+      "source_script": "Route22_NorthEntrance_EventScript_BoulderBadgeGuard"
+    }
+  ]
+}

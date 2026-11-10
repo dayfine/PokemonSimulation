@@ -15,7 +15,7 @@ class PackTest(unittest.TestCase):
     def test_inventory_checksums_geometry_and_graph(self):
         manifest = pack.audit()
         self.assertEqual({game: len(data['maps']) for game, data in manifest['games'].items()},
-                         {'frlg': 57, 'bdsp': 22})
+                         {'frlg': 152, 'bdsp': 22})
         for game, data in manifest['games'].items():
             for entry in data['maps']:
                 raw = pack.load(pack.ROOT / entry['file'])
