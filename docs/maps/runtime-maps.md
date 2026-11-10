@@ -41,6 +41,8 @@ refreshing that cache or claiming reproducible BDSP source generation.
 Imported Python and map JSON retain their Arduino lineage; the original MIT
 copyright notice is retained in the root [LICENSE](../../LICENSE).
 
+See [OVERLAYS.md](OVERLAYS.md) for the base + overlay design that replaces inline patches and builder tables.
+
 ## Runtime schema and frames
 
 The published pack uses `pokesim-runtime-map/2`, explicitly marked in every map
