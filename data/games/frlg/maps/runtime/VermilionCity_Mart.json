@@ -1,0 +1,46 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "VermilionCity_Mart",
+  "source": {
+    "decomp_file": "data/maps/VermilionCity_Mart/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "##.#......#",
+    "...#.......",
+    "####...##.#",
+    ".......##.#",
+    ".##....##.#",
+    "...........",
+    "###########"
+  ],
+  "points": {"warp_1": [4, 7]},
+  "warps": [
+    {"coord": [3, 7], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_7"},
+    {"coord": [4, 7], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_7"},
+    {"coord": [5, 7], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_7"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "VermilionCity_Mart_EventScript_Clerk"},
+    {
+      "name": "cooltrainer_f",
+      "coord": [4, 2],
+      "source_event": 1,
+      "source_script": "VermilionCity_Mart_EventScript_CooltrainerF"
+    },
+    {
+      "name": "balding_man",
+      "coord": [9, 4],
+      "wander": {"min": [8, 2], "max": [10, 6]},
+      "source_event": 2,
+      "source_script": "VermilionCity_Mart_EventScript_BaldingMan"
+    }
+  ]
+}

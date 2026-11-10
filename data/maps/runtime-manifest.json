@@ -7,6 +7,192 @@
       "upstream_revision": "51c0ce6128e5981da56b370a770874b96a1e129f",
       "maps": [
         {
+          "name": "CeladonCity",
+          "file": "data/games/frlg/maps/runtime/CeladonCity.json",
+          "sha256": "517c2949b6b24ad8d5d35ce0f471a4d1ceebc06bf45e73a0ca790ac2133bf5a9",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 60,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "CeladonCity_Condominiums_1F",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_Condominiums_1F.json",
+          "sha256": "27cf1036870fe6c1a4b3e64fd6c3ac8ed759251489d3292e394297721e0d3dac",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_Condominiums_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "CeladonCity_DepartmentStore_1F",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_DepartmentStore_1F.json",
+          "sha256": "2960b6f2d187b8ecc088164b15b2613b148fc2fc14de8ee4bb9cf055382c9611",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_DepartmentStore_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 16,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "CeladonCity_DepartmentStore_5F",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_DepartmentStore_5F.json",
+          "sha256": "1b3377d76190c0893f36d04744e9dbeb74e93832ab5aebca11758b33479b0c91",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_DepartmentStore_5F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 15,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "CeladonCity_GameCorner",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_GameCorner.json",
+          "sha256": "8b59cd7d31f3d19e64d3f193ff98f5b8fef7cf5a7fb7149589169ed0e2aa1369",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_GameCorner/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 18,
+            "height": 15,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "CeladonCity_Gym",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_Gym.json",
+          "sha256": "b94dfdd80f91dd5e365cc2958c5d74a52910a9cc1bf4953ae8b3051ced299cff",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_Gym/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
           "name": "CeruleanCave_1F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_1F.json",
           "sha256": "7b490bbe46c928145fdf920275787035e3f6536cfc34d5f5956b117186ce6b5b",
@@ -34,7 +220,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "CeruleanCave_2F",
@@ -64,7 +256,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "CeruleanCave_B1F",
@@ -94,7 +292,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "CeruleanCity",
@@ -124,7 +328,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "CeruleanCity_BikeShop",
@@ -154,7 +364,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "CeruleanCity_Gym",
@@ -184,7 +400,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "CeruleanCity_House1",
+          "file": "data/games/frlg/maps/runtime/CeruleanCity_House1.json",
+          "sha256": "1428173a46069914e2a47502c0cc034b0a8d0cff3e073f0a91b98b49fd66c8dd",
+          "source": {
+            "decomp_file": "data/maps/CeruleanCity_House1/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 10,
+            "height": 10,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "CeruleanCity_House2",
@@ -214,7 +467,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "CeruleanCity_Mart",
@@ -244,7 +503,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "CeruleanCity_PokemonCenter_1F",
@@ -274,7 +539,322 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "CinnabarIsland",
+          "file": "data/games/frlg/maps/runtime/CinnabarIsland.json",
+          "sha256": "3271e24d15dd94a532170ecd4f11ff61ff26eeeb7811282d42d90cfda5622c30",
+          "source": {
+            "decomp_file": "data/maps/CinnabarIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "CinnabarIsland_Gym",
+          "file": "data/games/frlg/maps/runtime/CinnabarIsland_Gym.json",
+          "sha256": "42c2a70ae464043641ad3a7a79e0ab73c6b0d7dc09190137dd886f0e2630d4b7",
+          "source": {
+            "decomp_file": "data/maps/CinnabarIsland_Gym/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 30,
+            "height": 25,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "CinnabarIsland_Mart",
+          "file": "data/games/frlg/maps/runtime/CinnabarIsland_Mart.json",
+          "sha256": "31921270f1eab70946eb5703aeef771e4535d1635d233d352285773622a28c57",
+          "source": {
+            "decomp_file": "data/maps/CinnabarIsland_Mart/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "FuchsiaCity",
+          "file": "data/games/frlg/maps/runtime/FuchsiaCity.json",
+          "sha256": "36bec5b60a05e989149cc3c603eb1189b0cb4c7eab9e11b04042875ddf28b745",
+          "source": {
+            "decomp_file": "data/maps/FuchsiaCity/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "FuchsiaCity_Gym",
+          "file": "data/games/frlg/maps/runtime/FuchsiaCity_Gym.json",
+          "sha256": "063136ce3937c79c65cd4c1c5673209dad08a75da68d7b6972ebb9246a92a861",
+          "source": {
+            "decomp_file": "data/maps/FuchsiaCity_Gym/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 23,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "FuchsiaCity_Mart",
+          "file": "data/games/frlg/maps/runtime/FuchsiaCity_Mart.json",
+          "sha256": "fc525197ac4b11110ad9a9819e2ad96436b19dbdd91a347d18517ad4b3cd4586",
+          "source": {
+            "decomp_file": "data/maps/FuchsiaCity_Mart/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "FuchsiaCity_SafariZone_Entrance",
+          "file": "data/games/frlg/maps/runtime/FuchsiaCity_SafariZone_Entrance.json",
+          "sha256": "c8ac9c445d950dc87907d479b3eb26ea6941d62e49b3c7ac5b73b15e6dfc40d3",
+          "source": {
+            "decomp_file": "data/maps/FuchsiaCity_SafariZone_Entrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 9,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "FuchsiaCity_WardensHouse",
+          "file": "data/games/frlg/maps/runtime/FuchsiaCity_WardensHouse.json",
+          "sha256": "70ad1e0c1b4165cc667c7e6e2ee9b98f685d8d0c656e4937ba8c2133540eb3dd",
+          "source": {
+            "decomp_file": "data/maps/FuchsiaCity_WardensHouse/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "IndigoPlateau_Exterior",
+          "file": "data/games/frlg/maps/runtime/IndigoPlateau_Exterior.json",
+          "sha256": "00273f4bbf17bb6090358ab51243c40a390c1933208063d093c3959f9390988f",
+          "source": {
+            "decomp_file": "data/maps/IndigoPlateau_Exterior/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "IndigoPlateau_PokemonCenter_1F",
+          "file": "data/games/frlg/maps/runtime/IndigoPlateau_PokemonCenter_1F.json",
+          "sha256": "930c40e59297aae14ac19b61c17e8bdd02ecdf273b822630155acc8a50361e57",
+          "source": {
+            "decomp_file": "data/maps/IndigoPlateau_PokemonCenter_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 25,
+            "height": 18,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "LavenderTown",
@@ -304,7 +884,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "LavenderTown_Mart",
+          "file": "data/games/frlg/maps/runtime/LavenderTown_Mart.json",
+          "sha256": "6243727ca1e6fc823c0f1be2cbbc010a3f505f1ecfcbd4347fd7a4d1c40a606d",
+          "source": {
+            "decomp_file": "data/maps/LavenderTown_Mart/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "LavenderTown_PokemonCenter_1F",
@@ -334,7 +951,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "LavenderTown_VolunteerPokemonHouse",
+          "file": "data/games/frlg/maps/runtime/LavenderTown_VolunteerPokemonHouse.json",
+          "sha256": "98a17ed3538e311728fa5a70ea12de8fa6f4b9c3f7c6f3531cc5c7972626236e",
+          "source": {
+            "decomp_file": "data/maps/LavenderTown_VolunteerPokemonHouse/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 12,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "MtMoon_1F",
@@ -364,7 +1018,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "MtMoon_B1F",
@@ -394,7 +1054,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "MtMoon_B2F",
@@ -424,7 +1090,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PalletTown",
@@ -454,7 +1126,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PalletTown_PlayersHouse_1F",
@@ -484,7 +1162,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PalletTown_PlayersHouse_2F",
@@ -514,7 +1198,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PalletTown_ProfessorOaksLab",
@@ -544,7 +1234,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PalletTown_RivalsHouse",
@@ -574,7 +1270,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PewterCity",
@@ -604,7 +1306,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PewterCity_Gym",
@@ -634,7 +1342,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PewterCity_Mart",
@@ -664,7 +1378,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PewterCity_Museum_1F",
@@ -694,7 +1414,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "PewterCity_PokemonCenter_1F",
@@ -724,7 +1450,539 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "PokemonLeague_AgathasRoom",
+          "file": "data/games/frlg/maps/runtime/PokemonLeague_AgathasRoom.json",
+          "sha256": "dd3d675f8899b63aa7c7a9d938e55f71e953cd02e0286e233fecf86aa71f38d8",
+          "source": {
+            "decomp_file": "data/maps/PokemonLeague_AgathasRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonLeague_BrunosRoom",
+          "file": "data/games/frlg/maps/runtime/PokemonLeague_BrunosRoom.json",
+          "sha256": "d784093bbc7c3f8d3ffccc7d105d1875d0aed372278e8bf49c3941fe73abb0b6",
+          "source": {
+            "decomp_file": "data/maps/PokemonLeague_BrunosRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonLeague_ChampionsRoom",
+          "file": "data/games/frlg/maps/runtime/PokemonLeague_ChampionsRoom.json",
+          "sha256": "760494eabba1d0dae1c70da9d7c272040fbe8e40d9ad5a465ce94a45f150a407",
+          "source": {
+            "decomp_file": "data/maps/PokemonLeague_ChampionsRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonLeague_HallOfFame",
+          "file": "data/games/frlg/maps/runtime/PokemonLeague_HallOfFame.json",
+          "sha256": "14f0fcfbea0d84ebc008fa467621e4f30e09e26d477864b057c6d9ac79ba1e31",
+          "source": {
+            "decomp_file": "data/maps/PokemonLeague_HallOfFame/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonLeague_LancesRoom",
+          "file": "data/games/frlg/maps/runtime/PokemonLeague_LancesRoom.json",
+          "sha256": "80bb156d2e5337b2dcd94ec8293330b6096c2bfeae88226dba68d4fdea5d4e07",
+          "source": {
+            "decomp_file": "data/maps/PokemonLeague_LancesRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 28,
+            "height": 24,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonLeague_LoreleisRoom",
+          "file": "data/games/frlg/maps/runtime/PokemonLeague_LoreleisRoom.json",
+          "sha256": "4ff19c68a4886814af3b6dece6da0a576e3c41d987542cf56e74b69fa1ea78be",
+          "source": {
+            "decomp_file": "data/maps/PokemonLeague_LoreleisRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonMansion_1F",
+          "file": "data/games/frlg/maps/runtime/PokemonMansion_1F.json",
+          "sha256": "0f902c1a0477e5ef17535572b48749026eac6d92250d97bacca3939f0143d5e3",
+          "source": {
+            "decomp_file": "data/maps/PokemonMansion_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 35,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonMansion_2F",
+          "file": "data/games/frlg/maps/runtime/PokemonMansion_2F.json",
+          "sha256": "a5c43cb0b06c242564977fa1ffcf12540cdb544d1cced6e106cc0621d2e43bda",
+          "source": {
+            "decomp_file": "data/maps/PokemonMansion_2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 38,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonMansion_3F",
+          "file": "data/games/frlg/maps/runtime/PokemonMansion_3F.json",
+          "sha256": "eb8933459f18412887d4225252d2f2f75907feae443301b41bf4122aeb0ca7b6",
+          "source": {
+            "decomp_file": "data/maps/PokemonMansion_3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 35,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonMansion_B1F",
+          "file": "data/games/frlg/maps/runtime/PokemonMansion_B1F.json",
+          "sha256": "91118982533aa4fd3a466f7307f40684eb68e91e7fbebeb0f69309fd22598242",
+          "source": {
+            "decomp_file": "data/maps/PokemonMansion_B1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 35,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonTower_1F",
+          "file": "data/games/frlg/maps/runtime/PokemonTower_1F.json",
+          "sha256": "78f21d8c2c91c68cab8a86780be6defa2cab0f2ebf2c5d7144963b78bfc7068f",
+          "source": {
+            "decomp_file": "data/maps/PokemonTower_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonTower_2F",
+          "file": "data/games/frlg/maps/runtime/PokemonTower_2F.json",
+          "sha256": "6e3dd2d839290824e26980b6562e6187a498c4dee27ca4cfff8d6b4ce453083e",
+          "source": {
+            "decomp_file": "data/maps/PokemonTower_2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonTower_3F",
+          "file": "data/games/frlg/maps/runtime/PokemonTower_3F.json",
+          "sha256": "3e6fa212fcd1008070e3717c60c19ae7dc08346ed0eb15a907a885b28f702424",
+          "source": {
+            "decomp_file": "data/maps/PokemonTower_3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonTower_4F",
+          "file": "data/games/frlg/maps/runtime/PokemonTower_4F.json",
+          "sha256": "5a42669d864f896c04ef0446c0f3e59409d9882a1eafb43abd9f8018e449a02f",
+          "source": {
+            "decomp_file": "data/maps/PokemonTower_4F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonTower_5F",
+          "file": "data/games/frlg/maps/runtime/PokemonTower_5F.json",
+          "sha256": "ce6771fbc71a673718e6152e3b137f297b06238d76f002160adc2ffd8ee1511a",
+          "source": {
+            "decomp_file": "data/maps/PokemonTower_5F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonTower_6F",
+          "file": "data/games/frlg/maps/runtime/PokemonTower_6F.json",
+          "sha256": "777067e79c1269c3f9e97b9cf88569654608fbd49ff4170bbc41b223306039b1",
+          "source": {
+            "decomp_file": "data/maps/PokemonTower_6F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "PokemonTower_7F",
+          "file": "data/games/frlg/maps/runtime/PokemonTower_7F.json",
+          "sha256": "0803896aa56b4a50adda36265946b3307d46d89dab45b3caa8eaae684578259e",
+          "source": {
+            "decomp_file": "data/maps/PokemonTower_7F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "RockTunnel_1F",
@@ -754,7 +2012,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "RockTunnel_B1F",
@@ -784,7 +2048,137 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "RocketHideout_B1F",
+          "file": "data/games/frlg/maps/runtime/RocketHideout_B1F.json",
+          "sha256": "8d1897c7b8f026e4f4b0a417cff3253de276f06564c820e13f931ff900b3e13e",
+          "source": {
+            "decomp_file": "data/maps/RocketHideout_B1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 28,
+            "height": 34,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "RocketHideout_B2F",
+          "file": "data/games/frlg/maps/runtime/RocketHideout_B2F.json",
+          "sha256": "7ea39b70a18ceaf19a4b520ab451413e8d641ec691e67690147cfbb3b376ef2d",
+          "source": {
+            "decomp_file": "data/maps/RocketHideout_B2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 32,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "RocketHideout_B3F",
+          "file": "data/games/frlg/maps/runtime/RocketHideout_B3F.json",
+          "sha256": "d0ee7d2bc9f5a495596d4ca8baa3def58124dfbb7db906153f20fb8ac1a1ba10",
+          "source": {
+            "decomp_file": "data/maps/RocketHideout_B3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 22,
+            "height": 27,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "RocketHideout_B4F",
+          "file": "data/games/frlg/maps/runtime/RocketHideout_B4F.json",
+          "sha256": "b85e958778de96c0ee99a024f0ae77ad988cbf251cb8b5a423dd016660cb4a50",
+          "source": {
+            "decomp_file": "data/maps/RocketHideout_B4F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 26,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "Route1",
@@ -814,7 +2208,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route10",
@@ -844,7 +2244,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route10_PokemonCenter_1F",
@@ -874,7 +2280,446 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "Route11",
+          "file": "data/games/frlg/maps/runtime/Route11.json",
+          "sha256": "608f10150cd73f3b46b8dfbf0d63e6ce5af3abfea5968709904a533bfd62e245",
+          "source": {
+            "decomp_file": "data/maps/Route11/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 72,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route11_EastEntrance_1F",
+          "file": "data/games/frlg/maps/runtime/Route11_EastEntrance_1F.json",
+          "sha256": "0f91f56e2344b005f43eb2cc1eb62ce5a73d20aaf046889b6bb32e87b3b27adb",
+          "source": {
+            "decomp_file": "data/maps/Route11_EastEntrance_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 12,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route12",
+          "file": "data/games/frlg/maps/runtime/Route12.json",
+          "sha256": "40f89d8728bd23d56f62df78ee4ccc750a2c01ce284cb04746d475846e43a664",
+          "source": {
+            "decomp_file": "data/maps/Route12/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 120,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route12_NorthEntrance_1F",
+          "file": "data/games/frlg/maps/runtime/Route12_NorthEntrance_1F.json",
+          "sha256": "d7952e73d60a33eefe9f2613b43eead09e10099b8a3c3f56eed31f2a4f8adf9c",
+          "source": {
+            "decomp_file": "data/maps/Route12_NorthEntrance_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route13",
+          "file": "data/games/frlg/maps/runtime/Route13.json",
+          "sha256": "39b964adcbdcd6fba3e242d7e83bc0c3401fb60ecda1345d683a799c5a9c0d9e",
+          "source": {
+            "decomp_file": "data/maps/Route13/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 72,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route14",
+          "file": "data/games/frlg/maps/runtime/Route14.json",
+          "sha256": "72da23f1dcec08bfcf6e115fcf920597383de549764c9696d027e53b7fcf69e3",
+          "source": {
+            "decomp_file": "data/maps/Route14/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 60,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route15",
+          "file": "data/games/frlg/maps/runtime/Route15.json",
+          "sha256": "c75c4abc6c0fb9585c3ebd302ffb7c7ea747fbdac1703943c84e5182470242ce",
+          "source": {
+            "decomp_file": "data/maps/Route15/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 72,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route15_WestEntrance_1F",
+          "file": "data/games/frlg/maps/runtime/Route15_WestEntrance_1F.json",
+          "sha256": "83fcaf6618300ac0cdc89a1ca0f24dda920e5586e55941048db40d66e564b540",
+          "source": {
+            "decomp_file": "data/maps/Route15_WestEntrance_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 12,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route16",
+          "file": "data/games/frlg/maps/runtime/Route16.json",
+          "sha256": "e79de8da8f8d4ceb73e9a8329dfa7e6d3739724d267648f17cfbdcba277dbdc8",
+          "source": {
+            "decomp_file": "data/maps/Route16/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route16_House",
+          "file": "data/games/frlg/maps/runtime/Route16_House.json",
+          "sha256": "b3dd44d35e994ffa35663851a651d7e859580edccd8fb5b40b3ad38bc9afa6f0",
+          "source": {
+            "decomp_file": "data/maps/Route16_House/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route16_NorthEntrance_1F",
+          "file": "data/games/frlg/maps/runtime/Route16_NorthEntrance_1F.json",
+          "sha256": "46627f2ed9059e94ca0830d5e36524fe6202452249261130fc413d1f9729ce93",
+          "source": {
+            "decomp_file": "data/maps/Route16_NorthEntrance_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 18,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route18",
+          "file": "data/games/frlg/maps/runtime/Route18.json",
+          "sha256": "6c9fc1b6c86a2adef3ee67c101c3ea9eda61845abe1353778b87d227cbb38d57",
+          "source": {
+            "decomp_file": "data/maps/Route18/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 60,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route18_EastEntrance_1F",
+          "file": "data/games/frlg/maps/runtime/Route18_EastEntrance_1F.json",
+          "sha256": "3279c34f5c27c8c4e49891757b96a163fd3ba71b2f2e4fb38b188fa5308aa0fd",
+          "source": {
+            "decomp_file": "data/maps/Route18_EastEntrance_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 12,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route19",
+          "file": "data/games/frlg/maps/runtime/Route19.json",
+          "sha256": "328524f0d96ed1714df25d2d7a3ac69df247c7c090fac252a93f6907e3cb414f",
+          "source": {
+            "decomp_file": "data/maps/Route19/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 60,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "Route2",
@@ -904,7 +2749,106 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "Route20",
+          "file": "data/games/frlg/maps/runtime/Route20.json",
+          "sha256": "2da48f6afb7408738ea6338904a098872e42e5fe251983effb490c029f8587cb",
+          "source": {
+            "decomp_file": "data/maps/Route20/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 120,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route21_North",
+          "file": "data/games/frlg/maps/runtime/Route21_North.json",
+          "sha256": "8dc2193dd34636a79e68abd3dbd86e3940fda3fce11f4fa01344482ebf50ff56",
+          "source": {
+            "decomp_file": "data/maps/Route21_North/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 50,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route21_South",
+          "file": "data/games/frlg/maps/runtime/Route21_South.json",
+          "sha256": "7e6916023124b37d83ae59bc778dbf1bb57370e47d48157942065491f82cf30f",
+          "source": {
+            "decomp_file": "data/maps/Route21_South/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 50,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "Route22",
@@ -934,7 +2878,75 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "Route22_NorthEntrance",
+          "file": "data/games/frlg/maps/runtime/Route22_NorthEntrance.json",
+          "sha256": "bbacfdf31ed8deb5e36d74f57091afabd165c7dbb776c50a955c0bf0302ddccd",
+          "source": {
+            "decomp_file": "data/maps/Route22_NorthEntrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 12,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route23",
+          "file": "data/games/frlg/maps/runtime/Route23.json",
+          "sha256": "00a6e123cce2cd62e32baf174c15e7a84b750a534f8d83b4386169d45900c43f",
+          "source": {
+            "decomp_file": "data/maps/Route23/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable land is ground level (3); water is flat without bridges"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 160,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "Route24",
@@ -964,7 +2976,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route25",
@@ -994,7 +3012,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route25_SeaCottage",
@@ -1024,7 +3048,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "Route2_EastBuilding",
+          "file": "data/games/frlg/maps/runtime/Route2_EastBuilding.json",
+          "sha256": "1e03b3dfca61e82a9b0c537039eb7c3b62f261162e9340af9b90733a9dde4cad",
+          "source": {
+            "decomp_file": "data/maps/Route2_EastBuilding/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 12,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "Route2_ViridianForest_NorthEntrance",
@@ -1054,7 +3115,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route2_ViridianForest_SouthEntrance",
@@ -1084,7 +3151,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route3",
@@ -1114,7 +3187,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route4",
@@ -1144,7 +3223,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route4_PokemonCenter_1F",
@@ -1174,7 +3259,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "Route5",
@@ -1204,7 +3295,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "Route5_SouthEntrance",
+          "file": "data/games/frlg/maps/runtime/Route5_SouthEntrance.json",
+          "sha256": "a3d6b9df455410df5e752ed038eaf84211c01b625e7489cf01d375f8c966f721",
+          "source": {
+            "decomp_file": "data/maps/Route5_SouthEntrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 9,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "Route6",
@@ -1234,7 +3362,168 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "Route6_NorthEntrance",
+          "file": "data/games/frlg/maps/runtime/Route6_NorthEntrance.json",
+          "sha256": "1938c83c169392ff710cb3ffc2efedfde1d730f1536a01cf38f6f91aa7dbaf4a",
+          "source": {
+            "decomp_file": "data/maps/Route6_NorthEntrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 9,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route7",
+          "file": "data/games/frlg/maps/runtime/Route7.json",
+          "sha256": "15367d31f80ff26dd8ae7e59e77f427968ec8d0ef6af981a7125d797715fc8e7",
+          "source": {
+            "decomp_file": "data/maps/Route7/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route7_EastEntrance",
+          "file": "data/games/frlg/maps/runtime/Route7_EastEntrance.json",
+          "sha256": "d1073d52636707c03882d34e05d0a11a5c3934e2396432144a76e3e8fba8bf8b",
+          "source": {
+            "decomp_file": "data/maps/Route7_EastEntrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route8",
+          "file": "data/games/frlg/maps/runtime/Route8.json",
+          "sha256": "38825b483e5aba71f37133af8b2acd79e3fe87e9bdaa9617669e48c1238f5ea8",
+          "source": {
+            "decomp_file": "data/maps/Route8/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 72,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "Route8_WestEntrance",
+          "file": "data/games/frlg/maps/runtime/Route8_WestEntrance.json",
+          "sha256": "55d6cec8853e8c81007f324b0bcdb0c1170ad21f7a79e12a4ca783a78bdf2cf1",
+          "source": {
+            "decomp_file": "data/maps/Route8_WestEntrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "Route9",
@@ -1264,7 +3553,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "SSAnne_1F_Corridor",
@@ -1294,7 +3589,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "SSAnne_1F_Room6",
+          "file": "data/games/frlg/maps/runtime/SSAnne_1F_Room6.json",
+          "sha256": "b1cb332de36333a516c29456353b19f20db0b239665ae9db7e1b636a6e8a33c3",
+          "source": {
+            "decomp_file": "data/maps/SSAnne_1F_Room6/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 6,
+            "height": 8,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "SSAnne_2F_Corridor",
@@ -1324,7 +3656,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "SSAnne_CaptainsOffice",
@@ -1354,7 +3692,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "SSAnne_Exterior",
@@ -1384,7 +3728,690 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "SafariZone_Center",
+          "file": "data/games/frlg/maps/runtime/SafariZone_Center.json",
+          "sha256": "c7ed845118b2ab707ba5003e289fba437b5241473b6721329226ebc23f41fa8d",
+          "source": {
+            "decomp_file": "data/maps/SafariZone_Center/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 51,
+            "height": 36,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SafariZone_East",
+          "file": "data/games/frlg/maps/runtime/SafariZone_East.json",
+          "sha256": "b0f95e65b2fc5452e13ccd5c76e444112c9eed30781616dc103a7577e9f1ddde",
+          "source": {
+            "decomp_file": "data/maps/SafariZone_East/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 54,
+            "height": 35,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SafariZone_North",
+          "file": "data/games/frlg/maps/runtime/SafariZone_North.json",
+          "sha256": "afb1fb89688fe98bfd9b793f538f5d54b9eee514d9531d3c8d058cbb4ca2a5a6",
+          "source": {
+            "decomp_file": "data/maps/SafariZone_North/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 57,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SafariZone_SecretHouse",
+          "file": "data/games/frlg/maps/runtime/SafariZone_SecretHouse.json",
+          "sha256": "52928753db01353c63bcb47ee9185e30d50955df129a7b626d7b176eedcb493e",
+          "source": {
+            "decomp_file": "data/maps/SafariZone_SecretHouse/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SafariZone_West",
+          "file": "data/games/frlg/maps/runtime/SafariZone_West.json",
+          "sha256": "6e93013a6bb5d0240d1c95fb15129c67e34ecfe8b731bd78895053dde545ebb1",
+          "source": {
+            "decomp_file": "data/maps/SafariZone_West/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 36,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SaffronCity",
+          "file": "data/games/frlg/maps/runtime/SaffronCity.json",
+          "sha256": "7e237be77238490ff14788abe8ba38e5f031e708d57fb1836cdb090b219f424b",
+          "source": {
+            "decomp_file": "data/maps/SaffronCity/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 66,
+            "height": 55,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SaffronCity_Connection",
+          "file": "data/games/frlg/maps/runtime/SaffronCity_Connection.json",
+          "sha256": "8b7f020b88fd81657c88005e15782dff4613eae9c630c58355d894825f733956",
+          "source": {
+            "decomp_file": "data/maps/SaffronCity_Connection/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SaffronCity_Gym",
+          "file": "data/games/frlg/maps/runtime/SaffronCity_Gym.json",
+          "sha256": "0c6bfc660f94ef3eee01b35276b3a04d09aae4e99de9c756c11b1d8e1df12c18",
+          "source": {
+            "decomp_file": "data/maps/SaffronCity_Gym/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 29,
+            "height": 25,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SaffronCity_Mart",
+          "file": "data/games/frlg/maps/runtime/SaffronCity_Mart.json",
+          "sha256": "1cedc27430b3ca1987909af1d2eeefdc209ce7ee7df5026a23e875246cb94c86",
+          "source": {
+            "decomp_file": "data/maps/SaffronCity_Mart/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_10F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_10F.json",
+          "sha256": "1e37a45e3eb6b23651132c7f1b5e1652db6c58c555cc8c14c85650bfd5c8d2d3",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_10F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 19,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_11F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_11F.json",
+          "sha256": "86d778cd24a1fb610f6f23fb5bc4ae24ff717efa05bce30b75cad0a1a96d2c19",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_11F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_1F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_1F.json",
+          "sha256": "85b07612e7a5cda4a87e535ef9f8e9c61dea8d1d61a8c5126b05820a8c37582b",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 36,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_2F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_2F.json",
+          "sha256": "79361bd28d6954b951be4aa5c9c06a911fbc49e783e952912e9674218037da51",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 36,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_3F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_3F.json",
+          "sha256": "c8126c1141382299f587ca88a8651c5f354913ed33db1d753db18ddae256c44f",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 36,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_4F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_4F.json",
+          "sha256": "7a373dad263678f4291877655fe5bc000574713b5add6e428ab5183d623445f0",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_4F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 36,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_5F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_5F.json",
+          "sha256": "93ecb143de01a2c2a3d618f5681e2ae5a48d59c699444ea5bcef6da5ecf93058",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_5F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 36,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_6F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_6F.json",
+          "sha256": "8adefa9bb1543f3f64a7cbe18c468710e4f1fde282010549f44ca80251798109",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_6F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 31,
+            "height": 19,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_7F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_7F.json",
+          "sha256": "d4a9f54f5e50ba64eb847e9f6c7758bed7aca6248cf6e65c7f30e4627b7a5953",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_7F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 31,
+            "height": 19,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_8F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_8F.json",
+          "sha256": "c40ad044f00a70728cb977863382f417086bfc688ac8f9d670e6d752991aa228",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_8F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 31,
+            "height": 19,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "SilphCo_9F",
+          "file": "data/games/frlg/maps/runtime/SilphCo_9F.json",
+          "sha256": "824eac5434aea0a465f31140fd715fff32b7c7f7eb62b0942905a122af4a6b5a",
+          "source": {
+            "decomp_file": "data/maps/SilphCo_9F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 31,
+            "height": 19,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "UndergroundPath_EastEntrance",
+          "file": "data/games/frlg/maps/runtime/UndergroundPath_EastEntrance.json",
+          "sha256": "bb3a41f1bd2a3fa38669e70b37117f5845f99ff1fbb4c61bfbf4f10cee75214b",
+          "source": {
+            "decomp_file": "data/maps/UndergroundPath_EastEntrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 10,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "UndergroundPath_EastWestTunnel",
+          "file": "data/games/frlg/maps/runtime/UndergroundPath_EastWestTunnel.json",
+          "sha256": "5c74f213da3d57de65e9b088ad4ba74efd7894de6c7198b85b6c99ebc58fca30",
+          "source": {
+            "decomp_file": "data/maps/UndergroundPath_EastWestTunnel/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 80,
+            "height": 7,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "UndergroundPath_NorthEntrance",
@@ -1414,7 +4441,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "UndergroundPath_NorthSouthTunnel",
@@ -1444,7 +4477,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "UndergroundPath_SouthEntrance",
@@ -1474,7 +4513,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "UndergroundPath_WestEntrance",
+          "file": "data/games/frlg/maps/runtime/UndergroundPath_WestEntrance.json",
+          "sha256": "abdd24732ddeac193cc0e4535cfed24bba604a5a12803976bd6e3b668703b973",
+          "source": {
+            "decomp_file": "data/maps/UndergroundPath_WestEntrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 10,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "VermilionCity",
@@ -1504,7 +4580,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "VermilionCity_Gym",
@@ -1561,7 +4643,44 @@
           },
           "preconditions": [
             "FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES set; electric barriers already open"
-          ]
+          ],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "VermilionCity_Mart",
+          "file": "data/games/frlg/maps/runtime/VermilionCity_Mart.json",
+          "sha256": "b8ea7082ed1adb1b10167c1ff50a4af68457cbbc12340a072f54505f5ce49c46",
+          "source": {
+            "decomp_file": "data/maps/VermilionCity_Mart/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "VermilionCity_PokemonCenter_1F",
@@ -1591,7 +4710,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "VermilionCity_PokemonFanClub",
@@ -1621,7 +4746,103 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "VictoryRoad_1F",
+          "file": "data/games/frlg/maps/runtime/VictoryRoad_1F.json",
+          "sha256": "057dcd01c2419bf96d00bc5db4f997a79e39deaed69c413c613d91c90afebe5b",
+          "source": {
+            "decomp_file": "data/maps/VictoryRoad_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "VictoryRoad_2F",
+          "file": "data/games/frlg/maps/runtime/VictoryRoad_2F.json",
+          "sha256": "9825d03e495583c79cf20756de5bc9057035511e8bd53b172fd9aafe129cf8f6",
+          "source": {
+            "decomp_file": "data/maps/VictoryRoad_2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 51,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
+        },
+        {
+          "name": "VictoryRoad_3F",
+          "file": "data/games/frlg/maps/runtime/VictoryRoad_3F.json",
+          "sha256": "9962a4b7c5203da0b55ffdb78e6f73bd99ac38c249ca76a632332a5f2f1ba0b8",
+          "source": {
+            "decomp_file": "data/maps/VictoryRoad_3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 45,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "ViridianCity",
@@ -1651,7 +4872,44 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
+        },
+        {
+          "name": "ViridianCity_Gym",
+          "file": "data/games/frlg/maps/runtime/ViridianCity_Gym.json",
+          "sha256": "d1b79588bc91cbb2562b088e9f3e3af10947d01f7abef025e22218e059e66d95",
+          "source": {
+            "decomp_file": "data/maps/ViridianCity_Gym/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 20,
+            "height": 24,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate"
         },
         {
           "name": "ViridianCity_Mart",
@@ -1681,7 +4939,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "ViridianCity_PokemonCenter_1F",
@@ -1711,7 +4975,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         },
         {
           "name": "ViridianForest",
@@ -1741,7 +5011,13 @@
           "generation_overrides": {
             "opened_tiles": []
           },
-          "preconditions": []
+          "preconditions": [],
+          "status": "verified",
+          "verified": {
+            "basis": "approved-runtime-pack",
+            "pack_revision": "6c2f5c85534186cd9d52af4f844b9847cfd0f33a",
+            "note": "In the approved runtime pack before the single map set; per-map console runs were not recorded. See verification and terrain_corrections for review evidence."
+          }
         }
       ]
     },

@@ -16,6 +16,7 @@ import json
 from pathlib import Path
 import shutil
 
+from . import frlg_map_set as map_set
 from .runtime_map_schema import validate
 from .runtime_map_coordinates import COMPACT, LEGACY, legacy_map
 
@@ -65,6 +66,13 @@ def audit(manifest_path=MANIFEST):
         actual = {p.stem for p in (ROOT / 'data/games' / game / 'maps/runtime').glob('*.json')}
         if actual != set(maps):
             raise ValueError('pack inventory mismatch: ' + game)
+        if game == 'frlg':
+            # One set with per-map status; see frlg_map_set for the link rules.
+            status = map_set.statuses(manifest)
+            _, _, errors = map_set.link_gaps(maps, status, map_set.read_excluded(maps))
+            if errors:
+                raise ValueError('unresolved FRLG links: ' + repr(errors[:5]))
+            continue
         for name, data in maps.items():
             for warp in data.get('warps', []):
                 if 'to_map' in warp:

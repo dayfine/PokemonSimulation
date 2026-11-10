@@ -1,0 +1,120 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "ViridianCity_Gym",
+  "source": {
+    "decomp_file": "data/maps/ViridianCity_Gym/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "####################",
+    "####################",
+    "#...#......o.......l",
+    "#...#......r.....odo",
+    "#...###.##.#######..",
+    "#...###.##.#######..",
+    "#.......#..#.....#..",
+    "#......###.......#..",
+    "######.########..#..",
+    "######.#.######..#..",
+    "....d#.#.........#..",
+    "o....#.#......##.#..",
+    "..##.#.#......##.#..",
+    ".o##.#.#.......#d#..",
+    "..##...#.......#.#ou",
+    "..##.#########..o...",
+    "..##.#########......",
+    "..##or.......o......",
+    "..##r........o......",
+    "..############......",
+    "uu############.S...S",
+    ".....o.......l......",
+    ".o...........l......",
+    "####################"
+  ],
+  "points": {"warp_1": [17, 22]},
+  "warps": [
+    {"coord": [16, 22], "enter": "walk_into", "to_map": "ViridianCity", "to_point": "warp_2"},
+    {"coord": [17, 22], "enter": "walk_south", "to_map": "ViridianCity", "to_point": "warp_2"},
+    {"coord": [18, 22], "enter": "walk_into", "to_map": "ViridianCity", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "black_belt",
+      "coord": [10, 2],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 0,
+      "source_script": "ViridianCity_Gym_EventScript_Takashi"
+    },
+    {
+      "name": "cooltrainer_m",
+      "coord": [12, 10],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 1,
+      "source_script": "ViridianCity_Gym_EventScript_Yuji"
+    },
+    {
+      "name": "black_belt",
+      "coord": [11, 14],
+      "facing": "north",
+      "trainer": {"sight": 3},
+      "source_event": 2,
+      "source_script": "ViridianCity_Gym_EventScript_Atsushi"
+    },
+    {
+      "name": "man",
+      "coord": [10, 10],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 3,
+      "source_script": "ViridianCity_Gym_EventScript_Jason"
+    },
+    {
+      "name": "man",
+      "coord": [2, 21],
+      "facing": "east",
+      "trainer": {"sight": 2},
+      "source_event": 4,
+      "source_script": "ViridianCity_Gym_EventScript_Cole"
+    },
+    {
+      "name": "black_belt",
+      "coord": [3, 11],
+      "facing": "west",
+      "trainer": {"sight": 2},
+      "source_event": 5,
+      "source_script": "ViridianCity_Gym_EventScript_Kiyo"
+    },
+    {
+      "name": "cooltrainer_m",
+      "coord": [6, 8],
+      "facing": "south",
+      "trainer": {"sight": 3},
+      "source_event": 6,
+      "source_script": "ViridianCity_Gym_EventScript_Samuel"
+    },
+    {
+      "name": "giovanni",
+      "coord": [2, 2],
+      "hide_flag": "FLAG_HIDE_VIRIDIAN_GIOVANNI",
+      "source_event": 7,
+      "source_script": "ViridianCity_Gym_EventScript_Giovanni",
+      "source_local_id": "LOCALID_VIRIDIAN_GIOVANNI"
+    },
+    {
+      "name": "cooltrainer_m",
+      "coord": [13, 7],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "source_event": 8,
+      "source_script": "ViridianCity_Gym_EventScript_Warren"
+    },
+    {"name": "gym_guy", "coord": [16, 20], "source_event": 9, "source_script": "ViridianCity_Gym_EventScript_GymGuy"}
+  ]
+}

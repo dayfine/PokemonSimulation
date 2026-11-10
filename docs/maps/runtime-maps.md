@@ -13,8 +13,12 @@ are implemented; Arduino adoption and required status settings are pending.
 
 | Pack | Maps | Arduino snapshot |
 |---|---:|---|
-| `data/games/frlg/maps/runtime/` | 53 | `frlg/stage7-celadon`, `51c0ce6128e5981da56b370a770874b96a1e129f` |
+| `data/games/frlg/maps/runtime/` | 152 (57 verified, 95 candidate) | `frlg/stage7-celadon`, `51c0ce6128e5981da56b370a770874b96a1e129f` (first 53) |
 | `data/games/bdsp/maps/runtime/` | 22 | `bdsp/autostory-v4`, `040693c62486439b4b473732860b0d4c6632dc2a` |
+
+FRLG is one map set with a per-map `status` (`verified` or `candidate`) in the
+manifest; see [its README](../../data/games/frlg/maps/README.md) for the
+statuses, scope and promotion workflow.
 
 [The manifest](../../data/maps/runtime-manifest.json) lists every file,
 its SHA-256, original path and revision, target/source game, crop origin,
@@ -130,7 +134,10 @@ planner or simulator, independent of AutoStory.
 Run from the repository root; Python stdlib only:
 
 ```sh
-PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out data/games/frlg/maps/runtime --check
+PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all \
+  --scope data/games/frlg/maps/pokeguy-map-scope.json --item-identities \
+  --out data/games/frlg/maps/runtime --manifest data/maps/runtime-manifest.json --check
+PYTHONPATH=src python3 -m pokesim.maps.frlg_map_set check
 PYTHONPATH=src python3 -m pokesim.maps.bdsp_decomp_map_builder --check
 PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack
 PYTHONPATH=src python3 -m unittest discover -s src/pokesim/maps -t src

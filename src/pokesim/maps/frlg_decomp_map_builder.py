@@ -4,9 +4,12 @@
 
 Owned by PokemonSimulation; export the JSON pack to console consumers.
 
-Usage:
-    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out data/games/frlg/maps/runtime \
-        Route3 Route4 Route4_PokemonCenter_1F
+Usage (the FRLG map set in data/games/frlg/maps/runtime; see its README.md):
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all \
+        --scope data/games/frlg/maps/pokeguy-map-scope.json --item-identities \
+        --out data/games/frlg/maps/runtime --manifest data/maps/runtime-manifest.json --check
+Other folders:
+    PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder> Route3 Route4
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder>
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --out <folder> --check
     PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all --out /tmp/frlg-world-candidate
@@ -29,7 +32,9 @@ With --scope, omit explicitly excluded maps but preserve their boundary links.
 Without map names, the maps are the ones already in --out; with them, those
 maps are added to the ones in --out, so warps and connections still join
 them all. --check writes nothing: it regenerates them and fails if any file
-differs. Export the generated pack with pokesim.maps.runtime_map_pack for
+differs. With --manifest, maps whose status is verified are reviewed content:
+they are allowed outside the scope and not compared; every candidate must be
+in scope and match the generator byte for byte. Export the generated pack with pokesim.maps.runtime_map_pack for
 Arduino consumers.
 """
 import argparse
@@ -48,6 +53,7 @@ from .item_identity import enrich_objects
 from .runtime_map_coordinates import compact_map
 from .runtime_map_format import map_text as readable_map_text
 from .frlg_map_scope import read_scope
+from .frlg_map_set import statuses
 
 COMMIT = 'ce6406d8c2eaf46d543c8a2606de0c3cb1951982'
 #   When COMMIT was pinned, for each map's "source".
@@ -500,7 +506,6 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
                 obj['source_script'] = original['script']
             if 'local_id' in original:
                 obj['source_local_id'] = original['local_id']
-        data['source']['generation_status'] = 'unreviewed-full-catalog-candidate'
         if unresolved:
             data['unresolved_tiles'] = unresolved
         if name in OPENED_TILES:
@@ -560,11 +565,18 @@ def main():
     parser.add_argument('--check', action='store_true', help='check the files in --out instead of writing them')
     parser.add_argument('--all', dest='all_maps', action='store_true', help='generate the pinned full catalog into an empty candidate directory')
     parser.add_argument('--scope', help='with --all: explicit reviewed exclusion inventory; preserve boundary links')
+    parser.add_argument('--manifest', help='with --check: map statuses; verified maps are reviewed content, not compared')
     parser.add_argument('maps', nargs='*', help='default: the maps already in --out')
     args = parser.parse_args()
     decomp = Decomp(args.commit, args.cache)
     if args.scope and not args.all_maps:
         parser.error('--scope requires --all')
+    if args.manifest and not (args.check and args.scope):
+        parser.error('--manifest requires --check and --scope')
+    verified = set()
+    if args.manifest:
+        status = statuses(json.loads(open(args.manifest).read()))
+        verified = {name for name, value in status.items() if value == 'verified'}
     if args.all_maps:
         if args.maps:
             parser.error('--all cannot be combined with explicit map names')
@@ -588,7 +600,7 @@ def main():
     land_maps = land_encounter_maps(decomp)
     maps = []
     for name in args.maps:
-        if name in excluded:
+        if name in excluded or name in verified:
             continue
         data = map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps, args.item_identities, candidate=args.all_maps)
         text = contract_json_text(compact_map(data)) if args.all_maps else json_text(data)
@@ -600,16 +612,22 @@ def main():
     if args.check:
         differ = []
         if args.scope:
-            unexpected = {f[:-5] for f in os.listdir(args.out) if f.endswith('.json')} - {n for n, _ in maps}
+            unexpected = {f[:-5] for f in os.listdir(args.out) if f.endswith('.json')} - {n for n, _ in maps} - verified
             if unexpected:
                 sys.exit('Out-of-scope map files: ' + ' '.join(sorted(unexpected)))
         for name, text in maps:
             path = os.path.join(args.out, name + '.json')
             if not os.path.exists(path) or open(path, newline='').read() != text:
                 differ.append(name)
+        if args.manifest:
+            candidates = {name for name, value in status.items() if value == 'candidate'}
+            if candidates != {n for n, _ in maps}:
+                sys.exit('Candidate statuses differ from the generated scope: '
+                         + ' '.join(sorted(candidates ^ {n for n, _ in maps})))
         if differ:
             sys.exit(f'Differ from the generator: {" ".join(differ)}. Regenerate them without --check.')
-        print(f'{len(maps)} maps in {args.out} match the generator.')
+        skipped = f' ({len(verified)} verified maps not compared)' if verified else ''
+        print(f'{len(maps)} maps in {args.out} match the generator{skipped}.')
         return
     os.makedirs(args.out, exist_ok=True)
     for name, text in maps:
