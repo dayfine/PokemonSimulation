@@ -120,6 +120,7 @@
           }
         },
         "variant": {"type": "string"},
+        "args": {"type": "object", "additionalProperties": {"type": ["boolean", "integer", "string"]}},
         "skip_if": {"type": "array", "items": {"type": "string"}},
         "once_per_save": {"type": "boolean"},
         "notes": {"$ref": "#/$defs/notes"}
