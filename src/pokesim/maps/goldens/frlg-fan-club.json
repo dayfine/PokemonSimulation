@@ -2,7 +2,7 @@
   "format": "pokesim-route-golden/1",
   "game": "frlg",
   "map": "VermilionCity_PokemonFanClub",
-  "map_sha256": "146f77582ebcc7a950c42d72d70d53b02b51af5bf6fc5ad54468cdc16d806c1c",
+  "map_sha256": "01d5650bcff496a61c2f26710ec339ff4802afac16d7b66732b46933e9667bc4",
   "coordinate_frame": {
     "kind": "local tiles",
     "origin": [

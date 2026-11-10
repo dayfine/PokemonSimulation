@@ -1,0 +1,92 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "VermilionCity_PokemonCenter_1F",
+  "source": {
+    "decomp_file": "data/maps/VermilionCity_PokemonCenter_1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#.#############",
+    "###############",
+    "....###..##....",
+    "....#######....",
+    "...............",
+    "...............",
+    "#..........##..",
+    "...........##..",
+    "...............",
+    "###############"
+  ],
+  "elevation": [
+    "030000000000000",
+    "000000000000000",
+    "333300033003333",
+    "333300000003333",
+    "333333333333333",
+    "330333333333333",
+    "044033333330033",
+    "330333333330033",
+    "333333333333333",
+    "000000000000000"
+  ],
+  "points": {"nurse_front": [7, 4], "warp_1": [7, 8], "warp_3": [1, 6]},
+  "warps": [
+    {"coord": [6, 8], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_4"},
+    {"coord": [7, 8], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_4"},
+    {"coord": [8, 8], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_4"},
+    {"coord": [1, 6], "enter": "step_on", "to_map": "VermilionCity_PokemonCenter_2F", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "nurse",
+      "coord": [7, 2],
+      "source_event": 0,
+      "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Nurse",
+      "source_local_id": "LOCALID_VERMILION_NURSE"
+    },
+    {
+      "name": "man",
+      "coord": [4, 8],
+      "wander": {"min": [3, 8], "max": [5, 8]},
+      "source_event": 1,
+      "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Man"
+    },
+    {
+      "name": "hiker",
+      "coord": [12, 5],
+      "source_event": 2,
+      "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Hiker"
+    },
+    {
+      "name": "youngster",
+      "coord": [14, 4],
+      "wander": {"min": [14, 3], "max": [14, 5]},
+      "source_event": 3,
+      "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Youngster"
+    },
+    {
+      "name": "cooltrainer_f",
+      "coord": [6, 4],
+      "source_event": 4,
+      "source_script": "VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman"
+    },
+    {
+      "name": "0",
+      "coord": [2, 1],
+      "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL",
+      "source_event": 5,
+      "source_script": "VermilionCity_PokemonCenter_1F_EventScript_PokemonJournalLtSurge"
+    },
+    {
+      "name": "0",
+      "coord": [3, 1],
+      "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL",
+      "source_event": 6,
+      "source_script": "VermilionCity_PokemonCenter_1F_EventScript_PokemonJournalLtSurge"
+    }
+  ]
+}

@@ -26,13 +26,13 @@ class FullImportAuditTest(unittest.TestCase):
         self.assertEqual(report['totals']['unlinked_warps'], 0)
         self.assertEqual(report['totals']['scope_boundary_warps'], 59)
         self.assertEqual(report['totals']['scope_boundary_connections'], 2)
-        # Candidate warps into reviewed maps built without that neighbor.
-        self.assertEqual(report['totals']['pending_relink_warps'], 31)
+        # Verified maps are generated bases too, so every return point exists.
+        self.assertEqual(report['totals']['pending_relink_warps'], 0)
         self.assertEqual(report['totals']['unknown_tiles'], 0)
         self.assertEqual(report['totals']['unresolved_pickups'], 79)
-        self.assertEqual(report['totals']['unapplied_story_patches'], 0)
-        self.assertEqual(report['elevation_grids_retained'], 11)
-        self.assertEqual(report['elevation_grids_omitted'], 84)
+        # Maps with water keep their grid: water's level is what stops walking onto it.
+        self.assertEqual(report['elevation_grids_retained'], 25)
+        self.assertEqual(report['elevation_grids_omitted'], 70)
         self.assertFalse(report['schema_checked'])
 
     def test_verified_maps_outside_scope_need_their_status(self):

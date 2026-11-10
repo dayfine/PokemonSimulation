@@ -1,0 +1,86 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "VermilionCity_PokemonFanClub",
+  "source": {
+    "decomp_file": "data/maps/VermilionCity_PokemonFanClub/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31"
+  },
+  "allow_running": false,
+  "tiles": [
+    "############",
+    "############",
+    "............",
+    ".....22.....",
+    "#....88....#",
+    "#..64##64..#",
+    "#..64##64..#",
+    "#..........#",
+    "#..........#",
+    "............",
+    "#..........#",
+    "############"
+  ],
+  "elevation": [
+    "000000000000",
+    "000000000000",
+    "333333333333",
+    "333333333333",
+    "033304403330",
+    "033330033330",
+    "033330033330",
+    "033333333330",
+    "033333333330",
+    "333333333333",
+    "033333333330",
+    "000000000000"
+  ],
+  "points": {"warp_1": [5, 10]},
+  "warps": [
+    {"coord": [4, 10], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_5"},
+    {"coord": [5, 10], "enter": "walk_south", "to_map": "VermilionCity", "to_point": "warp_5"},
+    {"coord": [6, 10], "enter": "walk_into", "to_map": "VermilionCity", "to_point": "warp_5"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "gentleman",
+      "coord": [5, 4],
+      "source_event": 0,
+      "source_script": "VermilionCity_PokemonFanClub_EventScript_Chairman"
+    },
+    {
+      "name": "worker_f",
+      "coord": [6, 4],
+      "source_event": 1,
+      "source_script": "VermilionCity_PokemonFanClub_EventScript_WorkerF"
+    },
+    {
+      "name": "pikachu",
+      "coord": [7, 6],
+      "source_event": 2,
+      "source_script": "VermilionCity_PokemonFanClub_EventScript_Pikachu"
+    },
+    {
+      "name": "seel",
+      "coord": [4, 6],
+      "source_event": 3,
+      "source_script": "VermilionCity_PokemonFanClub_EventScript_Seel"
+    },
+    {
+      "name": "woman_1",
+      "coord": [4, 5],
+      "source_event": 4,
+      "source_script": "VermilionCity_PokemonFanClub_EventScript_Woman",
+      "source_local_id": "LOCALID_POKEMON_FAN_CLUB_WOMAN"
+    },
+    {
+      "name": "fat_man",
+      "coord": [7, 5],
+      "source_event": 5,
+      "source_script": "VermilionCity_PokemonFanClub_EventScript_FatMan",
+      "source_local_id": "LOCALID_POKEMON_FAN_CLUB_FAT_MAN"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "VermilionCity_Gym",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[4, 6], [5, 6], [6, 6], [4, 7], [5, 7], [6, 7]],
+      "glyph": ".",
+      "why": "story_state",
+      "when": {"flag": "FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES", "after_checkpoint": "00.23"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/VermilionCity_Gym/scripts.inc: VermilionCity_Gym_EventScript_SetBeamsOff sets (4..6, 6..7) to floor once FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES is set",
+        "story": "Arduino-Source FRLG AutoStory 00.23 finds both switches (trash cans); 00.24 and 00.25 walk through the open beams to Lt. Surge",
+        "history": "Was OPENED_TILES in frlg_decomp_map_builder.py, baked into the approved runtime pack 6c2f5c85534186cd9d52af4f844b9847cfd0f33a"
+      },
+      "status": "verified"
+    }
+  ]
+}

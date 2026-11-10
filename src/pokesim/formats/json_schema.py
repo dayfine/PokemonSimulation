@@ -36,6 +36,10 @@ def published():
     """Enumerate current runtime packs and the checked-in FRLG case document."""
     for path in sorted(ROOT.glob('data/games/*/maps/runtime/*.json')):
         yield 'runtime-map-v2', path
+    for path in sorted(ROOT.glob('data/games/*/maps/base/*.json')):
+        yield 'runtime-map-v2', path
+    for path in sorted(ROOT.glob('data/games/*/maps/overlays/*.json')):
+        yield 'map-overlay', path
     yield 'frlg-battle-cases', ROOT / 'data/games/frlg/battles/cases.json'
     for path in sorted(ROOT.glob('data/story/native/*.json')):
         yield 'native-checkpoint-export', path

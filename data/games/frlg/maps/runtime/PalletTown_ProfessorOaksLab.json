@@ -1,50 +1,129 @@
 {
-    "format": "pokesim-runtime-map/2",
-    "name": "PalletTown_ProfessorOaksLab",
-    "source": {
-        "decomp_file": "data/maps/PalletTown_ProfessorOaksLab/map.json",
-        "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-        "date": "2026-10-31"
+  "format": "pokesim-runtime-map/2",
+  "name": "PalletTown_ProfessorOaksLab",
+  "source": {
+    "decomp_file": "data/maps/PalletTown_ProfessorOaksLab/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "events": "data/maps/PalletTown_ProfessorOaksLab/map.json",
+      "events_sha256": "37906ed851a344cc63b41b303b41b6da091328b97b05b6e38d2570486d104704",
+      "catalog": "data/maps/item-identities.json",
+      "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
     },
-    "allow_running": false,
-    "tiles": [
-        "#############",
-        "######SS#####",
-        ".............",
-        "#............",
-        "###.....###..",
-        ".##..........",
-        ".............",
-        ".............",
-        "#####...#####",
-        ".............",
-        ".............",
-        ".............",
-        "#...........#",
-        "#############"
-    ],
-    "points": {
-        "warp_0": [6, 12]
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#############",
+    "######SS#####",
+    ".............",
+    "#............",
+    "###.....###..",
+    ".##..........",
+    ".............",
+    ".............",
+    "#####...#####",
+    ".............",
+    ".............",
+    ".............",
+    "#...........#",
+    "#############"
+  ],
+  "points": {"warp_0": [6, 12]},
+  "warps": [
+    {"coord": [6, 12], "enter": "walk_south", "to_map": "PalletTown", "to_point": "warp_2"},
+    {"coord": [7, 12], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_2"},
+    {"coord": [5, 12], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "scientist",
+      "coord": [3, 11],
+      "source_event": 0,
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_Aide1"
     },
-    "warps": [
-        {"coord": [6, 12], "enter": "walk_south", "to_map": "PalletTown", "to_point": "warp_2"},
-        {"coord": [7, 12], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_2"},
-        {"coord": [5, 12], "enter": "walk_into", "to_map": "PalletTown", "to_point": "warp_2"}
-    ],
-    "flag_sets": {},
-    "connections": [],
-    "npcs": [
-        {"name": "scientist", "coord": [3, 11]},
-        {"name": "worker_f", "coord": [2, 10], "wander": {"min": [2, 6], "max": [2, 13]}},
-        {"name": "scientist", "coord": [11, 10]},
-        {"name": "prof_oak", "coord": [6, 3], "hide_flag": "FLAG_HIDE_OAK_IN_HIS_LAB"},
-        {"name": "blue", "coord": [5, 4], "hide_flag": "FLAG_HIDE_RIVAL_IN_LAB"},
-        {"name": "pokedex", "coord": [4, 1], "hide_flag": "FLAG_HIDE_POKEDEX"},
-        {"name": "pokedex", "coord": [5, 1], "hide_flag": "FLAG_HIDE_POKEDEX"}
-    ],
-    "items": [
-        {"name": "item_ball", "coord": [8, 4], "hide_flag": "FLAG_HIDE_BULBASAUR_BALL"},
-        {"name": "item_ball", "coord": [9, 4], "hide_flag": "FLAG_HIDE_SQUIRTLE_BALL"},
-        {"name": "item_ball", "coord": [10, 4], "hide_flag": "FLAG_HIDE_CHARMANDER_BALL"}
-    ]
+    {
+      "name": "worker_f",
+      "coord": [2, 10],
+      "wander": {"min": [2, 6], "max": [2, 13]},
+      "source_event": 1,
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_Aide3"
+    },
+    {
+      "name": "scientist",
+      "coord": [11, 10],
+      "source_event": 2,
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_Aide2"
+    },
+    {
+      "name": "prof_oak",
+      "coord": [6, 3],
+      "hide_flag": "FLAG_HIDE_OAK_IN_HIS_LAB",
+      "source_event": 3,
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_ProfOak",
+      "source_local_id": "LOCALID_OAKS_LAB_PROF_OAK"
+    },
+    {
+      "name": "blue",
+      "coord": [5, 4],
+      "hide_flag": "FLAG_HIDE_RIVAL_IN_LAB",
+      "source_event": 7,
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_Rival",
+      "source_local_id": "LOCALID_OAKS_LAB_RIVAL"
+    },
+    {
+      "name": "pokedex",
+      "coord": [4, 1],
+      "hide_flag": "FLAG_HIDE_POKEDEX",
+      "source_event": 8,
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_Pokedex",
+      "source_local_id": "LOCALID_POKEDEX_1"
+    },
+    {
+      "name": "pokedex",
+      "coord": [5, 1],
+      "hide_flag": "FLAG_HIDE_POKEDEX",
+      "source_event": 9,
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_Pokedex",
+      "source_local_id": "LOCALID_POKEDEX_2"
+    }
+  ],
+  "interactables": [
+    {
+      "name": "item_ball",
+      "coord": [8, 4],
+      "source_event": 4,
+      "hide_flag": "FLAG_HIDE_BULBASAUR_BALL",
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall",
+      "source_local_id": "LOCALID_BULBASAUR_BALL",
+      "interaction": {"kind": "starter_choice", "species": "bulbasaur"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [9, 4],
+      "source_event": 5,
+      "hide_flag": "FLAG_HIDE_SQUIRTLE_BALL",
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_SquirtleBall",
+      "source_local_id": "LOCALID_SQUIRTLE_BALL",
+      "interaction": {"kind": "starter_choice", "species": "squirtle"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [10, 4],
+      "source_event": 6,
+      "hide_flag": "FLAG_HIDE_CHARMANDER_BALL",
+      "source_script": "PalletTown_ProfessorOaksLab_EventScript_CharmanderBall",
+      "source_local_id": "LOCALID_CHARMANDER_BALL",
+      "interaction": {"kind": "starter_choice", "species": "charmander"}
+    }
+  ]
 }

@@ -68,7 +68,10 @@ and navigation fields and preserves unknown extensions.
 
 Tiles: `#` blocked, `.` open, `~` encounter terrain (including cave floor),
 `w` water, `^v<>` directional ledges, `D` door/warp entrance, `S` sign,
-space outside. **`8/2/4/6` close the north/south/west/east side of a tile**;
+space outside; FRLG adds spin tiles `u d l r` (forced north/south/west/east)
+and `o` (stop spinning), `H` hole (fall warp) and `B` Strength button. The
+canonical table is `data/games/frlg/maps/tile-legend.json` (with
+`runtime_symbols.SYMBOLS` and the runtime-map schema's tile pattern). **`8/2/4/6` close the north/south/west/east side of a tile**;
 they are not the forced-movement glyphs of the older `pokenav-map/1` schema.
 Some closed-side encounter tiles additionally appear in FRLG's `wild`
 region. Preserve elevation and region semantics when adapting these maps.
@@ -113,10 +116,12 @@ Do not promote a `show`/`still` assumption or an unverified interior into a
 confirmed BDSP fact. Older fixtures' pending offsets remain unresolved;
 they have not been silently applied to the new coordinate frames.
 
-FRLG also has scenario assumptions: Vermilion Gym's barriers are baked open
-by `OPENED_TILES` after `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`. The manifest
-labels this entry precondition. It is not an initial-state gym map. Story
-flag sets and NPC hide flags must eventually be replayed by the game adapter.
+FRLG also has scenario assumptions: Vermilion Gym's barriers are open in the
+published runtime file, through the `story_state` overlay operation that
+applies after `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES` (checkpoint 00.23); its
+base keeps them closed ([OVERLAYS.md](OVERLAYS.md)). The manifest labels this
+entry precondition. Story flag sets and NPC hide flags must eventually be
+replayed by the game adapter.
 
 ## Parser and builder modules
 
@@ -127,7 +132,8 @@ planner or simulator, independent of AutoStory.
 |---|---|
 | `dppt_map_decomp_parser.py` | Parse Diamond/Platinum source headers, matrices, land data and events. These are BDSP baselines, not BDSP-native files. |
 | `bdsp_decomp_map_builder.py` | Build BDSP runtime maps from those parsed sources, crops, console corrections and story assumptions. |
-| `frlg_decomp_map_builder.py` | Read pinned FireRed source maps/metatiles and build the FRLG runtime pack. |
+| `frlg_decomp_map_builder.py` | Read pinned FireRed source maps/metatiles and build the FRLG base maps. |
+| `map_overlays.py` | Apply authored overlay operations to a base (`effective_map(name, story_state)`), audit them and derive the FRLG runtime files. |
 | `runtime_map_schema.py` | Validate the shared runtime format's structural and coordinate invariants. |
 | `runtime_map_pack.py` | Audit, apply patches to copies, and export packs. |
 
@@ -138,7 +144,8 @@ Run from the repository root; Python stdlib only:
 ```sh
 PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all \
   --scope data/games/frlg/maps/pokeguy-map-scope.json --item-identities \
-  --out data/games/frlg/maps/runtime --manifest data/maps/runtime-manifest.json --check
+  --out data/games/frlg/maps/base --manifest data/maps/runtime-manifest.json --check
+PYTHONPATH=src python3 -m pokesim.maps.map_overlays check
 PYTHONPATH=src python3 -m pokesim.maps.frlg_map_set check
 PYTHONPATH=src python3 -m pokesim.maps.bdsp_decomp_map_builder --check
 PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack

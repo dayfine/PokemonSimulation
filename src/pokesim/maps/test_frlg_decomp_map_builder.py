@@ -197,7 +197,7 @@ class CandidateTerrainTest(unittest.TestCase):
         self.assertEqual(legacy[0], ['..'])
         self.assertEqual(unresolved, {'MB_CRACKED_ICE': [[0, 0]]})
 
-    def test_candidate_keeps_closed_source_gym_barriers(self):
+    def test_base_keeps_closed_source_gym_barriers_in_every_mode(self):
         from unittest.mock import patch
         sources = {'VermilionCity_Gym': {'id': 'GYM', 'layout': 'L'}}
         class Source:
@@ -209,9 +209,10 @@ class CandidateTerrainTest(unittest.TestCase):
                 {'L': {}}, {}, {'GYM': 'VermilionCity_Gym'}, {}, candidate=True)
             legacy = frlg_maps.map_json(Source(), 'VermilionCity_Gym', sources,
                 {'L': {}}, {}, {'GYM': 'VermilionCity_Gym'}, {})
+        # The opened beams are a story_state overlay operation, not generator output.
         self.assertEqual(candidate['tiles'][6][4], '#')
-        self.assertEqual(legacy['tiles'][6][4], '.')
-        self.assertIn('unapplied_story_patch', candidate['source'])
+        self.assertEqual(legacy['tiles'][6][4], '#')
+        self.assertNotIn('unapplied_story_patch', candidate['source'])
 
 
 class CandidateWaterTest(unittest.TestCase):
@@ -248,9 +249,14 @@ class ElevationElisionTest(unittest.TestCase):
         # 1. Pure ground
         self.assertIn('all walkable tiles are ground level',
                       frlg_maps.elevation_omission_reason(['..#'], ['331']))
-        # 2. Ground land with flat water
-        self.assertIn('water is flat without bridges',
-                      frlg_maps.elevation_omission_reason(['.w.'], ['313']))
+        # 2. Water keeps its grid: a missing grid reads as ground, and water's own
+        #    level is what stops a walking player (Arduino's FRLG walker).
+        self.assertIsNone(frlg_maps.elevation_omission_reason(['.w.'], ['313']))
+        self.assertIsNone(frlg_maps.elevation_omission_reason(['.w.'], ['313'], [{'coord': [0, 0]}], {}))
+        # A map entered only by its connections has nothing to search from.
+        self.assertIsNone(frlg_maps.elevation_omission_reason(['.#.'], ['330'], [], {}))
+        self.assertIn('all reachable land is ground level',
+                      frlg_maps.elevation_omission_reason(['.#.'], ['330'], [{'coord': [0, 0]}], {}))
         # 3. Multi-level bridge cannot be omitted
         self.assertIsNone(frlg_maps.elevation_omission_reason(['.w.'], ['3f3']))
         self.assertIsNone(frlg_maps.elevation_omission_reason(['...'], ['343']))

@@ -1,0 +1,46 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeruleanCity_Mart",
+  "source": {
+    "decomp_file": "data/maps/CeruleanCity_Mart/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "##.#......#",
+    "...#.......",
+    "####...##.#",
+    ".......##.#",
+    ".##....##.#",
+    "...........",
+    "###########"
+  ],
+  "points": {"clerk_front": [4, 3], "warp_1": [4, 7]},
+  "warps": [
+    {"coord": [3, 7], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_6"},
+    {"coord": [4, 7], "enter": "walk_south", "to_map": "CeruleanCity", "to_point": "warp_6"},
+    {"coord": [5, 7], "enter": "walk_into", "to_map": "CeruleanCity", "to_point": "warp_6"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "CeruleanCity_Mart_EventScript_Clerk"},
+    {
+      "name": "woman_1",
+      "coord": [9, 2],
+      "wander": {"min": [5, 2], "max": [10, 2]},
+      "source_event": 1,
+      "source_script": "CeruleanCity_Mart_EventScript_Woman"
+    },
+    {
+      "name": "youngster",
+      "coord": [1, 7],
+      "source_event": 2,
+      "source_script": "CeruleanCity_Mart_EventScript_Youngster"
+    }
+  ]
+}

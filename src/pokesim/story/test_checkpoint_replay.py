@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 
+from pokesim.maps.pinned_runtime_map import read_pinned_map
 from pokesim.maps.runtime_map_pack import ROOT
 from .replay_binding import PROFILE, load_binding
 from .checkpoint_replay import run, summary
@@ -197,10 +198,11 @@ class CheckpointReplayTest(unittest.TestCase):
             (root / 'capture.json').write_bytes(raw)
             profile['capture']['file'] = 'capture.json'
             profile['capture']['sha256'] = hashlib.sha256(raw).hexdigest()
-            for name in profile['maps']:
+            for name, digest in profile['maps'].items():
                 relative = Path('data/games/frlg/maps/runtime', name + '.json')
                 (root / relative).parent.mkdir(parents=True, exist_ok=True)
-                (root / relative).write_bytes((ROOT / relative).read_bytes())
+                # The pinned bytes (from local history once the published map moved on).
+                (root / relative).write_bytes(read_pinned_map(profile['map_revision'], 'frlg', name, digest))
             path = root / 'binding.json'
             path.write_text(json.dumps(profile))
             binding = load_binding(path, root)

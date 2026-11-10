@@ -23,7 +23,7 @@ jobs:
           --out "${{ runner.temp }}/frlg-source-audit.json"
       - name: Check FRLG map statuses
         run: PYTHONPATH=src python -m pokesim.maps.frlg_map_set check
-      # Candidate map bytes are checked exactly by frlg-source-reproduction below.
+      # Base map bytes are checked exactly by frlg-source-reproduction below.
       - name: Check the map scope's compact formatting
         run: >-
           PYTHONPATH=src python -m pokesim.formats.contract_format --check
@@ -44,9 +44,13 @@ jobs:
         with:
           path: ~/.cache/pokefirered
           key: frlg-source-ce6406d8c2eaf46d543c8a2606de0c3cb1951982
-      - name: Reproduce all candidate maps from the pinned public source
+      - name: Reproduce every FRLG base map from the pinned public source
         run: >-
           PYTHONPATH=src python -m pokesim.maps.frlg_decomp_map_builder --all
           --scope data/games/frlg/maps/pokeguy-map-scope.json
-          --item-identities --out data/games/frlg/maps/runtime
+          --item-identities --out data/games/frlg/maps/base
           --manifest data/maps/runtime-manifest.json --check
+      - name: Check runtime maps are base + overlays
+        run: PYTHONPATH=src python -m pokesim.maps.map_overlays check
+      - name: Audit every overlay
+        run: PYTHONPATH=src python -m pokesim.maps.map_overlays audit --all

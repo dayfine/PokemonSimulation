@@ -1,0 +1,33 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "Route7_EastEntrance",
+  "source": {
+    "decomp_file": "data/maps/Route7_EastEntrance/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "#############",
+    "#############",
+    "##.........##",
+    "#.#########.#",
+    "#...........#",
+    "#...........#",
+    "#...........#",
+    "#.#########.#",
+    "##.........##"
+  ],
+  "points": {"warp_0": [1, 5], "warp_2": [11, 5]},
+  "warps": [
+    {"coord": [1, 5], "enter": "walk_west", "to_map": "Route7", "to_point": "warp_1"},
+    {"coord": [1, 6], "enter": "walk_into", "to_map": "Route7", "to_point": "warp_1"},
+    {"coord": [11, 5], "enter": "walk_east", "to_map": "SaffronCity", "to_point": "warp_8"},
+    {"coord": [11, 6], "enter": "walk_into", "to_map": "SaffronCity", "to_point": "warp_8"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "policeman", "coord": [6, 2], "source_event": 0, "source_script": "Route7_EastEntrance_EventScript_Guard"}
+  ]
+}
