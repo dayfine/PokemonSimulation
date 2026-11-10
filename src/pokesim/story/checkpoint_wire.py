@@ -49,6 +49,13 @@ def array(value):
     return value
 
 
+def read_notes(root, result):
+    """Copy non-empty `notes` paragraphs; no executor reads them."""
+    notes = [text(v) for v in array(root.get('notes', []))]
+    if notes:
+        result['notes'] = notes
+
+
 def read_pose(value):
     root = fields(value, ('map', 'certainty', 'where'))
     result = dict(map=text(root['map']), certainty=choice(root['certainty'], CERTAINTIES))
@@ -72,7 +79,8 @@ def read_pose(value):
 
 def read_step(value):
     root = fields(value, ('id', 'kind', 'why', 'target', 'direction', 'legs', 'fight_wild',
-                         'yes', 'may_lose', 'battles', 'items', 'variant', 'skip_if', 'declared_after'))
+                         'yes', 'may_lose', 'battles', 'items', 'variant', 'skip_if', 'declared_after',
+                         'once_per_save', 'notes'))
     result = dict(id=text(root['id']), kind=choice(root['kind'], KINDS))
     if not result['id']:
         raise ValueError('empty story step id')
@@ -85,7 +93,7 @@ def read_step(value):
     direction = choice(root.get('direction', 'north'), DIRECTIONS)
     if direction != 'north':
         result['direction'] = direction
-    for key, default in (('fight_wild', False), ('yes', True), ('may_lose', False)):
+    for key, default in (('fight_wild', False), ('yes', True), ('may_lose', False), ('once_per_save', False)):
         flag = root.get(key, default)
         if type(flag) is not bool:
             raise ValueError('expected boolean: ' + key)
@@ -110,18 +118,45 @@ def read_step(value):
     skip = [text(v) for v in array(root.get('skip_if', []))]
     if skip:
         result['skip_if'] = skip
+    read_notes(root, result)
+    return result
+
+
+def read_section(value):
+    root = fields(value, ('id', 'title', 'notes', 'events'))
+    result = dict(id=text(root['id']), title=text(root['title']))
+    if not result['id']:
+        raise ValueError('empty section id')
+    read_notes(root, result)
+    result['events'] = [read_step(value) for value in array(root['events'])]
+    if not result['events']:
+        raise ValueError('section has no events: ' + result['id'])
     return result
 
 
 def read_checkpoint(value):
-    root = fields(value, ('id', 'title', 'start', 'events'))
+    """Read `events`, or named `sections` of events (exactly one of the two)."""
+    root = fields(value, ('id', 'title', 'notes', 'start', 'events', 'sections'))
     result = dict(id=text(root['id']), title=text(root['title']))
     if not result['id']:
         raise ValueError('empty checkpoint id')
+    read_notes(root, result)
     if 'start' in root:
         result['start'] = read_pose(root['start'])
-    result['events'] = [read_step(value) for value in array(root['events'])]
-    names = [step['id'] for step in result['events']]
+    if ('events' in root) == ('sections' in root):
+        raise ValueError('a checkpoint has events or sections, not both or neither')
+    if 'events' in root:
+        result['events'] = [read_step(value) for value in array(root['events'])]
+        steps = result['events']
+    else:
+        result['sections'] = [read_section(value) for value in array(root['sections'])]
+        if not result['sections']:
+            raise ValueError('no sections')
+        ids = [section['id'] for section in result['sections']]
+        if len(ids) != len(set(ids)):
+            raise ValueError('duplicate story section ids')
+        steps = [step for section in result['sections'] for step in section['events']]
+    names = [step['id'] for step in steps]
     if len(names) != len(set(names)):
         raise ValueError('duplicate story event ids')
     return result

@@ -30,7 +30,7 @@ class AuthoredCheckpointTests(unittest.TestCase):
         mutations = [lambda p: p.update(native_fields={}),
                      lambda p: p.update(game='bdsp'),
                      lambda p: p['execution'].update(menu='guess'),
-                     lambda p: p['execution'].update(supplies={}),
+                     lambda p: p['execution'].update(supplies={'hp_fill': 1.0}),
                      lambda p: p['checkpoint']['events'].append(p['checkpoint']['events'][0])]
         for mutate in mutations:
             plan = copy.deepcopy(original)

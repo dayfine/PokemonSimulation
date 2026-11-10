@@ -14,7 +14,21 @@
   "$defs": {
     "frlg_execution": {
       "type": "object",
-      "properties": {"menu": {"enum": ["before_pokemon", "before_pokedex", "full"]}},
+      "properties": {
+        "menu": {"enum": ["before_pokemon", "before_pokedex", "full"]},
+        "supplies": {
+          "type": "object",
+          "properties": {
+            "potions": {"$ref": "#/$defs/int32"},
+            "antidotes": {"$ref": "#/$defs/int32"},
+            "parlyz_heals": {"$ref": "#/$defs/int32"},
+            "lead": {"const": "after_brock"}
+          },
+          "additionalProperties": false
+        },
+        "live_start": {"type": "boolean"},
+        "handoff": {"enum": ["none", "sid_helper", "starter_rng", "gift_rng"]}
+      },
       "required": ["menu"],
       "additionalProperties": false
     },
@@ -27,7 +41,8 @@
         {"properties": {"on_failure": {"const": "reload_and_retry"}, "saves_in": {"minLength": 1}}},
         {"properties": {"on_failure": {"const": "stop"}, "saves_in": {"const": ""}}}
       ]
-    }
+    },
+    "int32": {"type": "integer", "minimum": -2147483648, "maximum": 2147483647}
   },
   "oneOf": [
     {"properties": {"game": {"const": "frlg"}, "execution": {"$ref": "#/$defs/frlg_execution"}}},

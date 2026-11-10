@@ -72,4 +72,4 @@ The native capture schema names C++ widths in `$defs` (`int32`, `uint8`,
 `uint16`, `count64`) and references them at each field. Stats use `uint16`;
 PP/levels use `uint8`. These encode storage bounds, not valid gameplay ranges.
 
-`authored-checkpoint.schema.json` defines the first executable native authoring pilot: common checkpoint data plus FRLG `execution.menu`. It is separate from the full native export snapshot. Replay bindings accept exactly one pinned `capture` or `plan` source.
+`authored-checkpoint.schema.json` defines executable native authoring: common checkpoint data plus FRLG `execution` (`menu`, and optional `supplies`, `live_start`, `handoff`). A checkpoint has `events` or named `sections` of events; `notes` (checkpoint, section, event) and `once_per_save` (event) come from Arduino-Source #314. `data/story/frlg-authored/` holds that PR's FRLG plans byte for byte (not reformatted) as schema/reader fixtures. It is separate from the full native export snapshot. Replay bindings accept exactly one pinned `capture` or `plan` source.

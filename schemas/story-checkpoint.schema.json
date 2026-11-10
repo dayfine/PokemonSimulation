@@ -6,12 +6,27 @@
   "properties": {
     "id": {"type": "string", "minLength": 1},
     "title": {"type": "string"},
+    "notes": {"$ref": "#/$defs/notes"},
     "start": {"$ref": "#/$defs/pose"},
-    "events": {"type": "array", "items": {"$ref": "#/$defs/step"}}
+    "events": {"type": "array", "items": {"$ref": "#/$defs/step"}},
+    "sections": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/section"}}
   },
-  "required": ["id", "title", "events"],
+  "required": ["id", "title"],
+  "oneOf": [{"required": ["events"]}, {"required": ["sections"]}],
   "additionalProperties": false,
   "$defs": {
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "section": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string"},
+        "notes": {"$ref": "#/$defs/notes"},
+        "events": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/step"}}
+      },
+      "required": ["id", "title", "events"],
+      "additionalProperties": false
+    },
     "pose": {
       "type": "object",
       "properties": {
@@ -105,7 +120,9 @@
           }
         },
         "variant": {"type": "string"},
-        "skip_if": {"type": "array", "items": {"type": "string"}}
+        "skip_if": {"type": "array", "items": {"type": "string"}},
+        "once_per_save": {"type": "boolean"},
+        "notes": {"$ref": "#/$defs/notes"}
       },
       "required": ["id", "kind"],
       "additionalProperties": false
