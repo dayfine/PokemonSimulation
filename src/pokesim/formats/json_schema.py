@@ -44,6 +44,8 @@ def published():
     for path in sorted(ROOT.glob('data/story/native/*.json')):
         yield 'native-checkpoint-export', path
     yield 'authored-checkpoint', ROOT / 'data/story/parcel-pilot/frlg-parcel-00.05.plan.json'
+    for path in sorted(ROOT.glob('data/story/frlg-authored/*.plan.json')):
+        yield 'authored-checkpoint', path
     yield 'story-replay-binding', ROOT / 'data/story/parcel-pilot/binding.json'
     yield 'story-replay-binding', ROOT / 'data/story/parcel-pilot/authored-binding.json'
     yield 'story-replay-cases', ROOT / 'data/story/parcel-pilot/cases.json'
