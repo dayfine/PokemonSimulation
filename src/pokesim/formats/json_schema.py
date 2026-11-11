@@ -43,7 +43,7 @@ def published():
     yield 'frlg-battle-cases', ROOT / 'data/games/frlg/battles/cases.json'
     for path in sorted(ROOT.glob('data/story/native/*.json')):
         yield 'native-checkpoint-export', path
-    yield 'authored-checkpoint', ROOT / 'data/story/parcel-pilot/frlg-parcel-00.05.plan.json'
+    yield 'authored-checkpoint', ROOT / 'data/story/parcel-pilot/frlg-parcel-02.01.plan.json'
     for path in sorted(ROOT.glob('data/story/frlg-authored/*.plan.json')):
         yield 'authored-checkpoint', path
     yield 'story-replay-binding', ROOT / 'data/story/parcel-pilot/binding.json'

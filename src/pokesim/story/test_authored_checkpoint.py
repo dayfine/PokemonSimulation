@@ -23,10 +23,10 @@ class AuthoredCheckpointTests(unittest.TestCase):
                 check_case(case, report)
                 self.assertIsNone(report['native_source_revision'])
                 self.assertEqual(report['authored_plan_sha256'], hashlib.sha256(
-                    (FOLDER / 'frlg-parcel-00.05.plan.json').read_bytes()).hexdigest())
+                    (FOLDER / 'frlg-parcel-02.01.plan.json').read_bytes()).hexdigest())
 
     def test_rejects_snapshot_fields_and_unsupported_executor_configuration(self):
-        original = json.loads((FOLDER / 'frlg-parcel-00.05.plan.json').read_text())
+        original = json.loads((FOLDER / 'frlg-parcel-02.01.plan.json').read_text())
         mutations = [lambda p: p.update(native_fields={}),
                      lambda p: p.update(game='bdsp'),
                      lambda p: p['execution'].update(menu='guess'),

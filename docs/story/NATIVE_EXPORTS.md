@@ -25,7 +25,7 @@ unknown native field, missing extension field or incorrectly claimed observation
 fails instead of silently discarding data. Source revision is an identity check,
 not cryptographic authentication of a caller-provided document.
 
-The [checked-in Parcel capture](../../data/story/native/frlg-parcel-00.05.json)
+The [checked-in Parcel capture](../../data/story/native/frlg-parcel-02.01.json)
 was produced by the compiled native table. Its [provenance](../../data/story/native/README.md)
 records the CI revision, run, artifact and original file hash. Python checks its
 schema, source identity, actual event order and key poses; it is no longer just

@@ -118,7 +118,7 @@ handoff/resume, battles or full PokeGuy story execution.
 
 ## Authored JSON pilot
 
-`frlg-parcel-00.05.plan.json` is the data-authored checkpoint consumed by the native story table in Arduino-Source #260. `pokesim-authored-checkpoint/1` contains common events/start plus the FRLG save-menu setting in `execution`; it does not contain export provenance, native supplies, or claimed observations. Its schema is `schemas/authored-checkpoint.schema.json`.
+`frlg-parcel-02.01.plan.json` is the data-authored checkpoint consumed by the native story table in Arduino-Source #260. `pokesim-authored-checkpoint/1` contains common events/start plus the FRLG save-menu setting in `execution`; it does not contain export provenance, native supplies, or claimed observations. Its schema is `schemas/authored-checkpoint.schema.json`.
 
 `authored-binding.json` pins that file and the same maps/action capabilities used by the existing replay scenarios. `test_authored_checkpoint.py` runs all seven cases with the same expected semantic actions and outcomes. The report has no native source revision: it identifies the authored file by SHA256. The old capture/binding remain migration fixtures.
 
