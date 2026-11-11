@@ -71,12 +71,12 @@ class NativeExportTests(unittest.TestCase):
             read_native_export(value)
 
     def test_actual_parcel_capture_from_clean_native_ci(self):
-        path = ROOT / 'data/story/native/frlg-parcel-00.05.json'
+        path = ROOT / 'data/story/native/frlg-parcel-02.01.json'
         source = json.loads(path.read_text())
         result = read_native_export(source, 'b170b7d2103e887ded825c37fdbdc19fd654fca8')
         self.assertEqual(result, source)
         row = result['checkpoint']
-        self.assertEqual(row['id'], '00.05')
+        self.assertEqual(row['id'], '02.01')
         self.assertEqual(row['start'], {
             'map': 'PalletTown_ProfessorOaksLab', 'certainty': 'tile',
             'where': {'kind': 'tiles', 'tiles': [[7, 8]], 'facing': 'south'}})

@@ -120,7 +120,7 @@ class JsonSchemaTests(unittest.TestCase):
         check = validator('authored-checkpoint')
         paths = sorted(FRLG_AUTHORED.glob('*.plan.json'))
         self.assertEqual(len(paths), 35)
-        for path in paths + [ROOT / 'data/story/parcel-pilot/frlg-parcel-00.05.plan.json']:
+        for path in paths + [ROOT / 'data/story/parcel-pilot/frlg-parcel-02.01.plan.json']:
             with self.subTest(path=path.name):
                 value = json.loads(path.read_text())
                 check.validate(value)

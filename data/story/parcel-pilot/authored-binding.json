@@ -1,8 +1,8 @@
 {
   "format": "pokesim-story-replay-binding/1",
   "plan": {
-    "file": "data/story/parcel-pilot/frlg-parcel-00.05.plan.json",
-    "sha256": "c6ebd128a7c1472671db78aa0bb0bd88317ee84109f5da458fee60b193ec5a3d"
+    "file": "data/story/parcel-pilot/frlg-parcel-02.01.plan.json",
+    "sha256": "e88c2e9f7a3506bed55e5386c6f32d97bc6be62e4e7800afca3f6437b0940775"
   },
   "map_revision": "e52be04ed7bb007c7219c7d2c96963cf053e0000",
   "maps": {
