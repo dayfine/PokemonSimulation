@@ -383,7 +383,9 @@ OBJECTS = {
         #   player on row 34, off Diamond's row 33. (1, 1) is the hand map's
         #   (jubilife_city.json); that frame says it may still be too small.
         25: {'show': '00.05', 'range': (1, 1), 'name': 'clown_mart'},
-        26: {'show': '00.05', 'range': (1, 1), 'name': 'clown_poketch_company'},
+        #   Diamond's range (1, 0): row 18 only, so 00.05b talks to him from
+        #   (15, 19) facing north. Nothing was seen of him off row 18.
+        26: {'show': '00.05', 'range': (1, 0), 'name': 'clown_poketch_company'},
     },
     'FloaromaTown': {
         #   Grunts at the Meadow until the Valley Windworks is cleared, and

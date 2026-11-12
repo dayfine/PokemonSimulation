@@ -6423,7 +6423,7 @@
         {
           "name": "JubilifeCity",
           "file": "data/games/bdsp/maps/runtime/JubilifeCity.json",
-          "sha256": "343ca2cf7201168c80fa2ba65d89be18d1684c99364f528cf61344695a3d3900",
+          "sha256": "db660ed379d9bcd69be31f95771be29f130876da7c35579f08a28bd7f109d4a5",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/JubilifeCity.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0015.bin, files/fielddata/land_data/land_data_release/narc_0016.bin, files/fielddata/land_data/land_data_release/narc_0017.bin, files/fielddata/land_data/land_data_release/narc_0018.bin; zone_event narc_0002",
@@ -6467,7 +6467,7 @@
                 "show": "00.05",
                 "range": [
                   1,
-                  1
+                  0
                 ],
                 "name": "clown_poketch_company"
               }
@@ -6503,8 +6503,8 @@
                 25,
                 26
               ],
-              "difference": "Diamond wanders them a tile east and west only (range 1, 0); BDSP moves the Mart clown off row 33 too, so both get range (1, 1)",
-              "evidence": "lab-B 2026-11-11 21:00, 00.05b mart_clown failure frame (clown about two rows below the player on row 34); range (1, 1) from data/games/bdsp/maps/jubilife_city.json",
+              "difference": "Diamond wanders them a tile east and west only (range 1, 0); BDSP moves the Mart clown off row 33 too, so he gets range (1, 1); the Poketch Company clown keeps Diamond's (1, 0), row 18 only",
+              "evidence": "lab-B 2026-11-11 21:00, 00.05b mart_clown failure frame (clown about two rows below the player on row 34); range (1, 1) from data/games/bdsp/maps/jubilife_city.json; Company clown row 18 only: ~/BDSPLab/captures/2026-11-11-jubilife-clowns/company-clown-box.png",
               "status": "console observation of one clown; the box size is not measured and may be too small"
             }
           ],
