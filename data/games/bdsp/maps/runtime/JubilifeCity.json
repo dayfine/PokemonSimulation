@@ -185,7 +185,7 @@
         {
             "name": "clown_poketch_company",
             "coord": [15, 18],
-            "wander": {"min": [14, 17], "max": [16, 19]},
+            "wander": {"min": [14, 18], "max": [16, 18]},
             "hide_flag": "flag 531"
         },
         {"name": "cashier_m_27", "coord": [26, 42]},

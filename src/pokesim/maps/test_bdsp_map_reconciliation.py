@@ -103,7 +103,7 @@ class BDSPMapReconciliationTest(unittest.TestCase):
         # Diamond hides them behind flag 531 outside the Poketch campaign.
         clowns = {obj['name']: obj for obj in raw['objects'] if obj['name'].startswith('clown_')}
         self.assertEqual(clowns['clown_mart']['wander'], {'x0': 54, 'y0': 32, 'x1': 56, 'y1': 34})
-        self.assertEqual(clowns['clown_poketch_company']['wander'], {'x0': 14, 'y0': 17, 'x1': 16, 'y1': 19})
+        self.assertEqual(clowns['clown_poketch_company']['wander'], {'x0': 14, 'y0': 18, 'x1': 16, 'y1': 18})
         for name in ('clown_mart', 'clown_poketch_company'):
             self.assertEqual(clowns[name]['hide_flag'], 'flag 531')
         self.assertNotIn('wander', clowns['clown_tv_station'])
