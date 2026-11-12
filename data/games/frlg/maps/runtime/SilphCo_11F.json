@@ -17,7 +17,8 @@
       "target_game_relation": "native_decomp",
       "verification": "FRLG source-derived; collection not observed"
     },
-    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+    "overlay": {"file": "data/games/frlg/maps/overlays/SilphCo_11F.json", "story_state": "complete"}
   },
   "tiles": [
     "#################",
@@ -43,9 +44,9 @@
   ],
   "points": {"warp_0": [7, 2], "warp_1": [2, 5]},
   "warps": [
-    {"coord": [7, 2], "enter": "walk_west", "to_map": "SilphCo_10F", "to_point": "warp_0"},
-    {"coord": [2, 5], "enter": "step_on", "to_map": "SilphCo_7F", "to_point": "warp_1"},
-    {"coord": [13, 3], "enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0"}
+    {"enter": "walk_west", "to_map": "SilphCo_10F", "to_point": "warp_0", "coord": [7, 2]},
+    {"enter": "step_on", "to_map": "SilphCo_7F", "to_point": "warp_1", "coord": [2, 5]},
+    {"enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0", "coord": [13, 3]}
   ],
   "flag_sets": {},
   "connections": [],
@@ -59,45 +60,45 @@
     }
   ],
   "npcs": [
-    {"name": "old_man_2", "coord": [9, 9], "source_event": 0, "source_script": "SilphCo_11F_EventScript_President"},
-    {"name": "worker_f", "coord": [11, 9], "source_event": 1, "source_script": "SilphCo_11F_EventScript_Secretary"},
+    {"name": "old_man_2", "source_event": 0, "source_script": "SilphCo_11F_EventScript_President", "coord": [9, 9]},
+    {"name": "worker_f", "source_event": 1, "source_script": "SilphCo_11F_EventScript_Secretary", "coord": [11, 9]},
     {
       "name": "giovanni",
-      "coord": [6, 11],
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 2,
       "source_script": "0x0",
-      "source_local_id": "LOCALID_SILPH_CO_GIOVANNI"
+      "source_local_id": "LOCALID_SILPH_CO_GIOVANNI",
+      "coord": [6, 11]
     },
     {
       "name": "rocket_m",
-      "coord": [16, 12],
       "facing": "north",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 3,
       "source_script": "SilphCo_11F_EventScript_Grunt1",
-      "source_local_id": "LOCALID_SILPH_CO_11F_GRUNT1"
+      "source_local_id": "LOCALID_SILPH_CO_11F_GRUNT1",
+      "coord": [16, 12]
     },
     {
       "name": "rocket_m",
-      "coord": [2, 19],
       "facing": "north",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 5,
       "source_script": "SilphCo_11F_EventScript_Grunt2",
-      "source_local_id": "LOCALID_SILPH_CO_11F_GRUNT2"
+      "source_local_id": "LOCALID_SILPH_CO_11F_GRUNT2",
+      "coord": [2, 19]
     }
   ],
   "items": [
     {
       "name": "item_ball",
-      "coord": [16, 18],
       "source_event": 4,
       "hide_flag": "FLAG_HIDE_SILPH_CO_11F_ZINC",
       "source_script": "SilphCo_11F_EventScript_ItemZinc",
-      "item": "zinc"
+      "item": "zinc",
+      "coord": [16, 18]
     }
   ]
 }

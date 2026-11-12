@@ -27,11 +27,12 @@ the published map format, not approval.
 
 ## Overlays
 
-There is one overlay today:
+Overlays today:
 
 | Map | Operation | why | when |
 |---|---|---|---|
 | `VermilionCity_Gym` | `tile` (4..6, 6..7) to `.`: the electric beams are off | `story_state` | `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`, after checkpoint 00.23 |
+| `SilphCo_2F` to `SilphCo_11F` | `tile` to `.`: one operation per Card Key door (20 in all; the base has them closed, as the OnLoad script leaves them at a new game). Evidence lists the opening script and the tiles to face | `story_state` | `FLAG_SILPH_<n>F_DOOR[_<m>]`, set when the door is opened with the Card Key |
 
 List a map's differences from its base, or see it at a story state:
 

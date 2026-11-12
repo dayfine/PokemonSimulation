@@ -1,0 +1,62 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "SilphCo_9F",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[2, 10], [3, 10], [2, 11], [3, 11]],
+      "glyph": ".",
+      "why": "story_state",
+      "when": {"flag": "FLAG_SILPH_9F_DOOR_1"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_9F_OnLoad calls EventScript_Close9FDoor1 while FLAG_SILPH_9F_DOOR_1 is unset, closing the barrier; SilphCo_9F_EventScript_Door1 (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open9FDoor1, then `special SetHiddenItemFlag` sets FLAG_SILPH_9F_DOOR_1 (VAR_0x8004)",
+        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
+        "interact_tiles": [[2, 10], [2, 11], [3, 10], [3, 11]],
+        "kept_closed": "the barrier's top row is a wall edge (impassable) and stays a wall when open"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "tile",
+      "coords": [[12, 16], [13, 16], [12, 17], [13, 17]],
+      "glyph": ".",
+      "why": "story_state",
+      "when": {"flag": "FLAG_SILPH_9F_DOOR_2"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_9F_OnLoad calls EventScript_Close9FDoor2 while FLAG_SILPH_9F_DOOR_2 is unset, closing the barrier; SilphCo_9F_EventScript_Door2 (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open9FDoor2, then `special SetHiddenItemFlag` sets FLAG_SILPH_9F_DOOR_2 (VAR_0x8004)",
+        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
+        "interact_tiles": [[12, 16], [12, 17], [13, 16], [13, 17]],
+        "kept_closed": "the barrier's top row is a wall edge (impassable) and stays a wall when open"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "tile",
+      "coords": [[21, 6], [22, 6], [21, 7], [22, 7]],
+      "glyph": ".",
+      "why": "story_state",
+      "when": {"flag": "FLAG_SILPH_9F_DOOR_3"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_9F_OnLoad calls EventScript_Close9FDoor3 while FLAG_SILPH_9F_DOOR_3 is unset, closing the barrier; SilphCo_9F_EventScript_Door3 (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open9FDoor3, then `special SetHiddenItemFlag` sets FLAG_SILPH_9F_DOOR_3 (VAR_0x8004)",
+        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
+        "interact_tiles": [[21, 6], [21, 7], [22, 6], [22, 7]],
+        "kept_closed": "none: all four barrier tiles open"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "tile",
+      "coords": [[21, 12], [22, 12], [21, 13], [22, 13]],
+      "glyph": ".",
+      "why": "story_state",
+      "when": {"flag": "FLAG_SILPH_9F_DOOR_4"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_9F_OnLoad calls EventScript_Close9FDoor4 while FLAG_SILPH_9F_DOOR_4 is unset, closing the barrier; SilphCo_9F_EventScript_Door4 (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open9FDoor4, then `special SetHiddenItemFlag` sets FLAG_SILPH_9F_DOOR_4 (VAR_0x8004)",
+        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
+        "interact_tiles": [[21, 12], [21, 13], [22, 12], [22, 13]],
+        "kept_closed": "none: all four barrier tiles open"
+      },
+      "status": "candidate"
+    }
+  ]
+}

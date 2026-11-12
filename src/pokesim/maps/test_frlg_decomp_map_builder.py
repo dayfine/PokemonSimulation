@@ -41,6 +41,30 @@ class TrainerTest(unittest.TestCase):
             self.assertNotIn('facing', data)
 
 
+class DoorScriptTest(unittest.TestCase):
+    SCRIPTS = (
+        'EventScript_Close5FDoor1:: @ comment\n'
+        '\tsetmetatile 7, 8, METATILE_SilphCo_VerticalBarrier_TopLeft, 1\n'
+        '\tsetmetatile 7, 9, METATILE_SilphCo_Floor_ShadeFull, 0\n'
+        '\treturn\n'
+        '\nSilphCo_5F_OnLoad::\n'
+        '\tcall_if_unset FLAG_SILPH_5F_DOOR_1, EventScript_Close5FDoor1\n'
+        '\tend\n')
+
+    def test_only_impassable_tiles_close(self):
+        blocks = frlg_maps.script_blocks(self.SCRIPTS)
+        self.assertEqual(frlg_maps.impassable_tiles(blocks['EventScript_Close5FDoor1']), [(7, 8)])
+
+    def test_on_load_names_the_flag_and_closing_script(self):
+        blocks = frlg_maps.script_blocks(self.SCRIPTS)
+        self.assertEqual(blocks['SilphCo_5F_OnLoad'][0].strip(),
+                         'call_if_unset FLAG_SILPH_5F_DOOR_1, EventScript_Close5FDoor1')
+        self.assertTrue(frlg_maps.CALL_IF_UNSET.match(blocks['SilphCo_5F_OnLoad'][0]))
+
+    def test_other_maps_have_no_doors(self):
+        self.assertEqual(frlg_maps.closed_doors(None, 'Route1'), [])
+
+
 class EncounterTest(unittest.TestCase):
     #   MtMoon_1F's cave floor: behavior MB_CAVE (0x08), encounter type LAND.
     CAVE_FLOOR = 0x08 | (frlg_maps.TILE_ENCOUNTER_LAND << frlg_maps.ENCOUNTER_TYPE_SHIFT)

@@ -5077,7 +5077,7 @@
         {
           "name": "SilphCo_10F",
           "file": "data/games/frlg/maps/runtime/SilphCo_10F.json",
-          "sha256": "702d5f95c4ec88c3222f3fc377c397b7b597bbbb9599555db6bbc434c1ba2d38",
+          "sha256": "f02c6c3eba3d87228221e3e11b070ffab75b9fa6638508c3aa4fe9f57d4aa7b1",
           "source": {
             "decomp_file": "data/maps/SilphCo_10F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5094,7 +5094,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_10F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5118,13 +5122,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_10F.json",
-            "sha256": "702d5f95c4ec88c3222f3fc377c397b7b597bbbb9599555db6bbc434c1ba2d38"
+            "sha256": "7c342cc292e8a192bd47f6a7ceb55bbe1641a4b9b7cc097d5936041482253d86"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_10F.json",
+            "sha256": "e85e83ab8f2481d8f433dc8afb18fb047728a275987c6fda88ba339096b2b0d1"
           }
         },
         {
           "name": "SilphCo_11F",
           "file": "data/games/frlg/maps/runtime/SilphCo_11F.json",
-          "sha256": "127d4f75a19af22616187a464cc8571915848ea18ff3b179e97db339521ffa18",
+          "sha256": "f59517693de47ac5cc7cc4c14325fc811fb7086939c9505001a917ed28422f99",
           "source": {
             "decomp_file": "data/maps/SilphCo_11F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5141,7 +5149,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_11F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5165,7 +5177,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_11F.json",
-            "sha256": "127d4f75a19af22616187a464cc8571915848ea18ff3b179e97db339521ffa18"
+            "sha256": "5eb991ec6d01df6c7b902927e36c6d42dbc77c25b47cc77e964eb438a745868a"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_11F.json",
+            "sha256": "5387f0cc7fc632343e32278845431f3bb541f42e4ad0197e3b99c6478477e2cb"
           }
         },
         {
@@ -5206,12 +5222,16 @@
         {
           "name": "SilphCo_2F",
           "file": "data/games/frlg/maps/runtime/SilphCo_2F.json",
-          "sha256": "c339277b33b3a43cdf1fecfddc4a7d74d92ed53040011310e1d43421f7c2cb2e",
+          "sha256": "96161ef0549635e7a7e6c5eefd9c00fad27b8248deccbb78791c9a271b1c9b16",
           "source": {
             "decomp_file": "data/maps/SilphCo_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_2F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5235,13 +5255,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_2F.json",
-            "sha256": "c339277b33b3a43cdf1fecfddc4a7d74d92ed53040011310e1d43421f7c2cb2e"
+            "sha256": "e0d2e34ba744b42768acee794c7b7d7e119d65d70a14f4d776851d2e1f8c3570"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_2F.json",
+            "sha256": "02e5d6668e7557bb42dd8ffe52dd13f6b22650649d3a0d9ad05f30eca6f698b9"
           }
         },
         {
           "name": "SilphCo_3F",
           "file": "data/games/frlg/maps/runtime/SilphCo_3F.json",
-          "sha256": "28cdc29b3323462dc9ed6fc2d67879cb5b9f8b4d88db9894989d8eaf603e84a8",
+          "sha256": "387d182bc9d4d7fab84fded2bb1f7d5601e925d76583d305ff3db972bc506637",
           "source": {
             "decomp_file": "data/maps/SilphCo_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5258,7 +5282,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_3F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5282,13 +5310,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_3F.json",
-            "sha256": "28cdc29b3323462dc9ed6fc2d67879cb5b9f8b4d88db9894989d8eaf603e84a8"
+            "sha256": "a264be1c2e39e661698635dfa679993d4e99c42342b46d173ddab3b46211a775"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_3F.json",
+            "sha256": "aec58c691e341bf0245ad847a5b5b397ca447dd35dfde370b08559901ade67a6"
           }
         },
         {
           "name": "SilphCo_4F",
           "file": "data/games/frlg/maps/runtime/SilphCo_4F.json",
-          "sha256": "8e71a62e4becf113925fa3784ddc8060ead96f78418776cbe6bd4d78152c1fe4",
+          "sha256": "2ddb9f480cdf727164efe5dec695b1a28f6e717392a6690b56c0981eb1543c38",
           "source": {
             "decomp_file": "data/maps/SilphCo_4F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5305,7 +5337,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_4F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5329,13 +5365,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_4F.json",
-            "sha256": "8e71a62e4becf113925fa3784ddc8060ead96f78418776cbe6bd4d78152c1fe4"
+            "sha256": "b4ccd3ea44923e1c9b41c24953a44b33f5e0d47c34e1672b23b0bf7cba46552b"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_4F.json",
+            "sha256": "c7b07e8f19b5e5729204fd572dec34bf5660db72388068e6dd44608720042fcf"
           }
         },
         {
           "name": "SilphCo_5F",
           "file": "data/games/frlg/maps/runtime/SilphCo_5F.json",
-          "sha256": "c4af655b1785f7ff039e9b08c32e3b8eb39f52ad0abab1944879e16fc0ce9f6b",
+          "sha256": "3e9950c7eda1667ce9c5c56d1b1e19e83807213d1b6ae4455bf1ceafc44e6b92",
           "source": {
             "decomp_file": "data/maps/SilphCo_5F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5352,7 +5392,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_5F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5376,13 +5420,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_5F.json",
-            "sha256": "c4af655b1785f7ff039e9b08c32e3b8eb39f52ad0abab1944879e16fc0ce9f6b"
+            "sha256": "5d4f4ca6c2b3ab5c97ad0666a4861f6d247b1ec8e7c55ca9fabc3ee07bffe672"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_5F.json",
+            "sha256": "39c1eb30dbfdc00df04e7970ea1c6dc85288d2f7287345104f72f7941851f091"
           }
         },
         {
           "name": "SilphCo_6F",
           "file": "data/games/frlg/maps/runtime/SilphCo_6F.json",
-          "sha256": "c1562d65d3e8d535f0a8633b4f93ee5eb83a706f42c4445a4200c1d754f7dcf0",
+          "sha256": "ef105a6b8b8bf03943e27aa2e14595aec07846c7fb7495ae30d4c179eb76ca3e",
           "source": {
             "decomp_file": "data/maps/SilphCo_6F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5399,7 +5447,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_6F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5423,13 +5475,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_6F.json",
-            "sha256": "c1562d65d3e8d535f0a8633b4f93ee5eb83a706f42c4445a4200c1d754f7dcf0"
+            "sha256": "5482c8d91cb5c46797c499402b19b6e56a7eaefa9d084f47e42e726f30cd80f2"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_6F.json",
+            "sha256": "302e1beac42b9a65d1da825dc25f0c931b6b07aecfd0ce767809725031beeb92"
           }
         },
         {
           "name": "SilphCo_7F",
           "file": "data/games/frlg/maps/runtime/SilphCo_7F.json",
-          "sha256": "8ed1336aa8f54a5a53f3c25662d3e6addcd7bdc085504a1cadc545d8d1cdd061",
+          "sha256": "828afb6bc3060b4d5b6591017504063100cd9686599bee05a6b8683b52fb1431",
           "source": {
             "decomp_file": "data/maps/SilphCo_7F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5446,7 +5502,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_7F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5470,13 +5530,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_7F.json",
-            "sha256": "8ed1336aa8f54a5a53f3c25662d3e6addcd7bdc085504a1cadc545d8d1cdd061"
+            "sha256": "b1b69910f8eb9cb9b82548c272c3d18bfc955f58aeceae75632f33e7bb1e2e81"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_7F.json",
+            "sha256": "116ebbb03181c00fd26e666ecfc1f9c26a72abb63f457cf80babcc00e660429e"
           }
         },
         {
           "name": "SilphCo_8F",
           "file": "data/games/frlg/maps/runtime/SilphCo_8F.json",
-          "sha256": "a881dbf229ac2ef6274129f93140ec4cc488370fc208b1368d92329ff64d0590",
+          "sha256": "65378a9491e8a7070681c176323bd1ff7f67c8e11124f8ed4e8a1d23a8129aa2",
           "source": {
             "decomp_file": "data/maps/SilphCo_8F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5492,6 +5556,10 @@
               "target_game": "frlg",
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
+            },
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_8F.json",
+              "story_state": "complete"
             }
           },
           "target_game": "frlg",
@@ -5516,17 +5584,25 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_8F.json",
-            "sha256": "a881dbf229ac2ef6274129f93140ec4cc488370fc208b1368d92329ff64d0590"
+            "sha256": "713b605541f86d471a9ddaec267066a11872a55a1ccca74533e57b30ee4cced2"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_8F.json",
+            "sha256": "ac3e70c7914d5cdb0432eb9c6888fef4dac57adb6be16083c9374d636c06dc22"
           }
         },
         {
           "name": "SilphCo_9F",
           "file": "data/games/frlg/maps/runtime/SilphCo_9F.json",
-          "sha256": "bba5f6da6a35c46e884543069c3d46ee708ff8a4c12d23860a884dcf433ff4e6",
+          "sha256": "b3485abd44df944e714f3d16515b232ac68dde2e50ff3843f92c56fd2be37ade",
           "source": {
             "decomp_file": "data/maps/SilphCo_9F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/SilphCo_9F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5550,7 +5626,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_9F.json",
-            "sha256": "bba5f6da6a35c46e884543069c3d46ee708ff8a4c12d23860a884dcf433ff4e6"
+            "sha256": "1cf2a6cc328fec5117af1bffeac2095269a755f58060156bd4cfd911c8ca5ec4"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/SilphCo_9F.json",
+            "sha256": "aad04142074b4609ec1bdd4056db1a5a18af82b5e89b3fba679b0363beb1fbb7"
           }
         },
         {

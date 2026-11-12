@@ -156,6 +156,31 @@ class PublishedPackTest(unittest.TestCase):
         self.assertEqual(runtime['source']['overlay'], {
             'file': 'data/games/frlg/maps/overlays/VermilionCity_Gym.json', 'story_state': 'complete'})
 
+    def test_silph_card_key_doors_are_walls_until_opened(self):
+        #   (flag, tiles that open) for each of the 20 doors; every barrier is
+        #   impassable in the base, the open tiles walkable once the flag is set.
+        doors = {
+            'SilphCo_5F': [('FLAG_SILPH_5F_DOOR_1', [(7, 9), (8, 9), (7, 10), (8, 10)]),
+                           ('FLAG_SILPH_5F_DOOR_2', [(7, 18), (8, 18), (7, 19), (8, 19)]),
+                           ('FLAG_SILPH_5F_DOOR_3', [(18, 13), (19, 13), (18, 14), (19, 14)])],
+            'SilphCo_11F': [('FLAG_SILPH_11F_DOOR', [(5, 16), (6, 16), (5, 17), (6, 17)])],
+        }
+        for name, floor in doors.items():
+            for flag, tiles in floor:
+                with self.subTest(map=name, flag=flag):
+                    closed = overlays.effective_map(name, NEW_GAME)
+                    opened = overlays.effective_map(name, StoryState(flags=frozenset({flag})))
+                    for x, y in tiles:
+                        self.assertEqual(closed['tiles'][y][x], '#')
+                        self.assertEqual(opened['tiles'][y][x], '.')
+        count = 0
+        for floor in range(2, 12):
+            overlay_file = overlays.read_overlay(f'SilphCo_{floor}F')
+            count += len(overlay_file['operations'])
+            for operation in overlay_file['operations']:
+                self.assertRegex(operation['when']['flag'], r'FLAG_SILPH_\d+F_DOOR(_\d)?\Z')
+        self.assertEqual(count, 20)
+
     def test_maps_without_overlays_publish_base_bytes(self):
         for name in ('VermilionCity', 'SSAnne_Exterior', 'Route1'):
             with self.subTest(map=name):

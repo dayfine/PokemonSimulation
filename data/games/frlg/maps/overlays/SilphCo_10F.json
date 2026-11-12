@@ -1,0 +1,20 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "SilphCo_10F",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[12, 11], [13, 11], [12, 12], [13, 12]],
+      "glyph": ".",
+      "why": "story_state",
+      "when": {"flag": "FLAG_SILPH_10F_DOOR"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_10F_OnLoad calls EventScript_Close10FDoor while FLAG_SILPH_10F_DOOR is unset, closing the barrier; SilphCo_10F_EventScript_Door (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open10FDoor, then `special SetHiddenItemFlag` sets FLAG_SILPH_10F_DOOR (VAR_0x8004)",
+        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
+        "interact_tiles": [[12, 11], [12, 12], [13, 11], [13, 12]],
+        "kept_closed": "none: all four barrier tiles open"
+      },
+      "status": "candidate"
+    }
+  ]
+}

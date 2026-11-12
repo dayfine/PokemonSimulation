@@ -1,0 +1,20 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "SilphCo_6F",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[5, 15], [6, 15], [5, 16], [6, 16]],
+      "glyph": ".",
+      "why": "story_state",
+      "when": {"flag": "FLAG_SILPH_6F_DOOR"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_6F_OnLoad calls EventScript_Close6FDoor while FLAG_SILPH_6F_DOOR is unset, closing the barrier; SilphCo_6F_EventScript_Door (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open6FDoor, then `special SetHiddenItemFlag` sets FLAG_SILPH_6F_DOOR (VAR_0x8004)",
+        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
+        "interact_tiles": [[5, 15], [5, 16], [6, 15], [6, 16]],
+        "kept_closed": "the barrier's top row is a wall edge (impassable) and stays a wall when open"
+      },
+      "status": "candidate"
+    }
+  ]
+}
