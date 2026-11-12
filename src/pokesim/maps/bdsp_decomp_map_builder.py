@@ -23,8 +23,10 @@ The tables below add what the decompilation doesn't say or BDSP changed:
   has single-tile points only.
 - OBJECTS: which of the events file's objects BDSP shows. People hidden by
   a story flag are left out, and people who stand still or wander are kept,
-  unless an entry here says otherwise (`show`, `hide`, `still`, `at`), or
-  adds someone the console found that Diamond doesn't have.
+  unless an entry here says otherwise (`show`, `hide`, `still`, `at`,
+  `range`), or adds someone the console found that Diamond doesn't have.
+  A wanderer shown despite a story flag keeps both their wander box and
+  the flag (`hide_flag`).
 - WARP_DOORS: warp tiles written 'D' so that no plan steps onto them; the
   other warp tiles are written '.', since the story arrives on them.
 - WARPS: doors that lead to a point of another map in OUT.
@@ -349,8 +351,9 @@ POINTS = {
 #   Overrides by events-file object index. `show`: a person hidden by a
 #   story flag who is there when the story walks the map. `hide`: someone
 #   BDSP doesn't have, or the story never meets. `still`: a wanderer who
-#   stood still on the console. `at`: where the console found them. `add`:
-#   people Diamond doesn't have, from the console.
+#   stood still on the console. `at`: where the console found them. `range`:
+#   (x, y) tiles a wanderer strays from their spawn in BDSP, when Diamond's
+#   differs. `add`: people Diamond doesn't have, from the console.
 OBJECTS = {
     'Route201': {
         #   The Potion lady stands a tile off her spawn on the console, and
@@ -375,9 +378,12 @@ OBJECTS = {
         #   00.05's story people, hidden before and after it.
         24: {'show': '00.05', 'name': 'poketch_president'},
         28: {'show': '00.05', 'name': 'clown_tv_station'},
-        #   Wander in Diamond; stood still on the console (00.05, three runs).
-        25: {'show': '00.05', 'still': '00.05, three runs', 'name': 'clown_mart'},
-        26: {'show': '00.05', 'still': '00.05, three runs', 'name': 'clown_poketch_company'},
+        #   Wander. Diamond's range is (1, 0), but lab-B 2026-11-11 21:00
+        #   (00.05b mart_clown) saw the Mart clown about two rows below the
+        #   player on row 34, off Diamond's row 33. (1, 1) is the hand map's
+        #   (jubilife_city.json); that frame says it may still be too small.
+        25: {'show': '00.05', 'range': (1, 1), 'name': 'clown_mart'},
+        26: {'show': '00.05', 'range': (1, 1), 'name': 'clown_poketch_company'},
     },
     'FloaromaTown': {
         #   Grunts at the Meadow until the Valley Windworks is cleared, and
@@ -515,9 +521,10 @@ def glyph(attr):
     return '.'
 
 
-def wander_box(obj, x, y, width, height):
-    return {'x0': max(0, x - obj.range_x), 'y0': max(0, y - obj.range_z),
-            'x1': min(width - 1, x + obj.range_x), 'y1': min(height - 1, y + obj.range_z)}
+def wander_box(obj, x, y, width, height, override=None):
+    range_x, range_z = (override or {}).get('range', (obj.range_x, obj.range_z))
+    return {'x0': max(0, x - range_x), 'y0': max(0, y - range_z),
+            'x1': min(width - 1, x + range_x), 'y1': min(height - 1, y + range_z)}
 
 
 def place_objects(name, events, rect, rows, include_item_identities=True):
@@ -554,7 +561,10 @@ def place_objects(name, events, rect, rows, include_item_identities=True):
         if obj.movement in FACING:
             entry['facing'] = FACING[obj.movement]
         if obj.movement.startswith(('WANDER', 'WALK')) and 'still' not in override:
-            entry['wander'] = wander_box(obj, x, y, width, height)
+            entry['wander'] = wander_box(obj, x, y, width, height, override)
+        if obj.hidden and 'wander' in entry:
+            #   The box is the story's while the flag shows them.
+            entry['hide_flag'] = obj.hidden
         objects.append(entry)
     for added in overrides.get('add', []):
         objects.append({'name': added['name'], 'kind': 'npc', 'x': added['x'], 'y': added['y']})
