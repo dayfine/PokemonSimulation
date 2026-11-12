@@ -62,6 +62,9 @@ def validate(data):
         tile(warp['x'], warp['y'])
         require(warp.get('enter', 'walk_into') in ENTRIES, 'invalid warp entry')
         require(('to_map' in warp) == ('to_point' in warp), 'partial warp destination')
+        require(warp.get('one_way', True) is True, 'one_way is true when present')
+        require((rows[warp['y']][warp['x']] == 'H') <= (warp.get('one_way') is True),
+                'a warp on a hole (H) is one_way: ' + repr((warp['x'], warp['y'])))
     for obj in data.get('objects', []):
         tile(obj['x'], obj['y'])
         require(isinstance(obj.get('name'), str) and isinstance(obj.get('kind'), str), 'object identity required')

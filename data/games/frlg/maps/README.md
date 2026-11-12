@@ -32,6 +32,7 @@ Overlays today:
 | Map | Operation | why | when |
 |---|---|---|---|
 | `VermilionCity_Gym` | `tile` (4..6, 6..7) to `.`: the electric beams are off | `story_state` | `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`, after checkpoint 00.23 |
+| `PokemonMansion_1F`, `_2F`, `_3F`, `_B1F` | `gate` open or closed: one operation per barrier (13 in all). The base and runtime tiles show each barrier as `G` (the base is the blockdata, the switch-off state); the effective map has it as the new game leaves it until the switch flag is set | `story_state` | `FLAG_POKEMON_MANSION_SWITCH_STATE`, set when a statue switch is pressed (a second press clears it) |
 | `SilphCo_2F` to `SilphCo_11F` | `gate` open: one operation per Card Key door (20 in all). The base and runtime tiles show the door as `G` and the map's `gates` table names it; the effective map has it closed (the OnLoad script's new-game state) until the flag is set. Evidence lists the opening script | `story_state` | `FLAG_SILPH_<n>F_DOOR[_<m>]`, set when the door is opened with the Card Key |
 
 ## Gates and story state
@@ -47,6 +48,35 @@ infers the gate states itself from the story state it records:
 | Gate kind | Table entry | Story state a consumer records | Open when |
 |---|---|---|---|
 | Silph Co. Card Key door | `{"opens_by": "card_key_face_a", "flag": "FLAG_SILPH_5F_DOOR_1", "new_game": "closed"}` | the set of `FLAG_SILPH_<n>F_DOOR[_<m>]` flags: each is set the moment that door is opened with the Card Key | its flag is set |
+
+The Mansion's gates belong to one **switch**, `mansion` (the `switches` table:
+the flag, `toggle`, the four `floors` that share it, and each statue's tile and
+the tile and direction to face it from). A consumer records one boolean, the
+switch state (`FLAG_POKEMON_MANSION_SWITCH_STATE`, off at a new game; every
+statue press asks yes/no and on yes flips it, and each floor redraws its gates
+when it loads), and infers every gate from it (`open_when` in the gates table).
+Gates open per switch state (tiles `x,y`; all other tiles never change):
+
+| Floor | Statue (stand on, face north) | Open with the switch OFF (closed with it ON) | Open with the switch ON (closed with it OFF) |
+|---|---|---|---|
+| `PokemonMansion_1F` | (5, 5) from (5, 6) | `barrier_2` (31..33, 18..19) | `barrier_1` (22..24, 10..11), `barrier_3` (27..29, 25..26), `barrier_4` (32..34, 25..26) |
+| `PokemonMansion_2F` | (2, 16) from (2, 17) | `barrier_1` (12, 6..8) | `barrier_2` (24..26, 14..15), `barrier_3` (10, 30..32) |
+| `PokemonMansion_3F` | (12, 5) from (12, 6) | `barrier_1` (21, 6..8) | `barrier_2` (17..19, 11..12) |
+| `PokemonMansion_B1F` | (24, 29) from (24, 30) and (27, 5) from (27, 6) | `barrier_2` (33..35, 20..21), `barrier_4` (16, 28..30) | `barrier_1` (12, 10..12), `barrier_3` (20..22, 22..23) |
+
+The runtime files are not resolved: they keep `G`. `map_overlays.effective_map`
+at `COMPLETE` (every `when` passed) is the switch-on state, which the story does
+not stay in, so use a recorded switch state (`StoryState(flags=...)`), not
+`COMPLETE`, for a Mansion route.
+
+## One-way warps
+
+A hole (tile `H`, decomp behavior `MB_FALL_WARP`) is a warp with `"one_way": true`:
+you fall to the warp event it names and the landing has no way back up. In the
+pack: `PokemonMansion_3F` (18..20, 18) and (23..24, 18), and `VictoryRoad_3F`
+(34, 18). The generator sets it on every warp on an `H` tile, and the validator
+requires it. Seafoam Islands (1F to B3F) and the Six Island Dotted Hole floors
+also have holes but are outside the pack's scope; they get it when added.
 
 List a map's differences from its base, or see it at a story state:
 

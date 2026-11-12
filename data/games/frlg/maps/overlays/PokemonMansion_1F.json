@@ -1,0 +1,58 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "PokemonMansion_1F",
+  "operations": [
+    {
+      "op": "gate",
+      "gate": "barrier_1",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_POKEMON_MANSION_SWITCH_STATE"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/pokemon_mansion.inc: PokemonMansion_1F_OnLoad calls PokemonMansion_EventScript_PressSwitch_1F while FLAG_POKEMON_MANSION_SWITCH_STATE is set, which redraws this gate's tiles (barrier to open floor: `setmetatile` with collision 0); PokemonMansion_1F_EventScript_Statue (bg_event) calls PokemonMansion_EventScript_SecretSwitch: on yes it sets FLAG_POKEMON_MANSION_SWITCH_STATE and runs PressSwitch_1F when the flag was clear, else clears it and runs ResetSwitch_1F (the blockdata state). The flag is shared by all four floors, so one press moves every floor's gates",
+        "toggles_by": "face a statue and press A, answer yes: [5, 5] from [5, 6] facing north. Every press flips the flag",
+        "state": "closed with the switch off, open with it on"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_2",
+      "state": "closed",
+      "why": "story_state",
+      "when": {"flag": "FLAG_POKEMON_MANSION_SWITCH_STATE"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/pokemon_mansion.inc: PokemonMansion_1F_OnLoad calls PokemonMansion_EventScript_PressSwitch_1F while FLAG_POKEMON_MANSION_SWITCH_STATE is set, which redraws this gate's tiles (open floor to barrier: `setmetatile` with collision 1); PokemonMansion_1F_EventScript_Statue (bg_event) calls PokemonMansion_EventScript_SecretSwitch: on yes it sets FLAG_POKEMON_MANSION_SWITCH_STATE and runs PressSwitch_1F when the flag was clear, else clears it and runs ResetSwitch_1F (the blockdata state). The flag is shared by all four floors, so one press moves every floor's gates",
+        "toggles_by": "face a statue and press A, answer yes: [5, 5] from [5, 6] facing north. Every press flips the flag",
+        "state": "open with the switch off, closed with it on"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_3",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_POKEMON_MANSION_SWITCH_STATE"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/pokemon_mansion.inc: PokemonMansion_1F_OnLoad calls PokemonMansion_EventScript_PressSwitch_1F while FLAG_POKEMON_MANSION_SWITCH_STATE is set, which redraws this gate's tiles (barrier to open floor: `setmetatile` with collision 0); PokemonMansion_1F_EventScript_Statue (bg_event) calls PokemonMansion_EventScript_SecretSwitch: on yes it sets FLAG_POKEMON_MANSION_SWITCH_STATE and runs PressSwitch_1F when the flag was clear, else clears it and runs ResetSwitch_1F (the blockdata state). The flag is shared by all four floors, so one press moves every floor's gates",
+        "toggles_by": "face a statue and press A, answer yes: [5, 5] from [5, 6] facing north. Every press flips the flag",
+        "state": "closed with the switch off, open with it on"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_4",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_POKEMON_MANSION_SWITCH_STATE"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/pokemon_mansion.inc: PokemonMansion_1F_OnLoad calls PokemonMansion_EventScript_PressSwitch_1F while FLAG_POKEMON_MANSION_SWITCH_STATE is set, which redraws this gate's tiles (barrier to open floor: `setmetatile` with collision 0); PokemonMansion_1F_EventScript_Statue (bg_event) calls PokemonMansion_EventScript_SecretSwitch: on yes it sets FLAG_POKEMON_MANSION_SWITCH_STATE and runs PressSwitch_1F when the flag was clear, else clears it and runs ResetSwitch_1F (the blockdata state). The flag is shared by all four floors, so one press moves every floor's gates",
+        "toggles_by": "face a statue and press A, answer yes: [5, 5] from [5, 6] facing north. Every press flips the flag",
+        "state": "closed with the switch off, open with it on"
+      },
+      "status": "candidate"
+    }
+  ]
+}
