@@ -6423,7 +6423,7 @@
         {
           "name": "JubilifeCity",
           "file": "data/games/bdsp/maps/runtime/JubilifeCity.json",
-          "sha256": "324c2a030ad85c76f4bacfff1c0d1bf12853acd45793424765c5c225e5552fae",
+          "sha256": "343ca2cf7201168c80fa2ba65d89be18d1684c99364f528cf61344695a3d3900",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/JubilifeCity.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0015.bin, files/fielddata/land_data/land_data_release/narc_0016.bin, files/fielddata/land_data/land_data_release/narc_0017.bin, files/fielddata/land_data/land_data_release/narc_0018.bin; zone_event narc_0002",
@@ -6457,12 +6457,18 @@
               },
               "25": {
                 "show": "00.05",
-                "still": "00.05, three runs",
+                "range": [
+                  1,
+                  1
+                ],
                 "name": "clown_mart"
               },
               "26": {
                 "show": "00.05",
-                "still": "00.05, three runs",
+                "range": [
+                  1,
+                  1
+                ],
                 "name": "clown_poketch_company"
               }
             },
@@ -6497,9 +6503,9 @@
                 25,
                 26
               ],
-              "difference": "Wander in Diamond; assumed still after three console runs of scene 00.05",
-              "evidence": "bdsp_decomp_map_builder.py OBJECTS/JubilifeCity, 00.05 three runs",
-              "status": "scenario observation; not proof of universally stationary NPCs"
+              "difference": "Diamond wanders them a tile east and west only (range 1, 0); BDSP moves the Mart clown off row 33 too, so both get range (1, 1)",
+              "evidence": "lab-B 2026-11-11 21:00, 00.05b mart_clown failure frame (clown about two rows below the player on row 34); range (1, 1) from data/games/bdsp/maps/jubilife_city.json",
+              "status": "console observation of one clown; the box size is not measured and may be too small"
             }
           ],
           "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",

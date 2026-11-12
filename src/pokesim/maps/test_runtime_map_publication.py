@@ -33,6 +33,18 @@ def undo_corrections(game, data):
         npc['x'], npc['y'] = before
 
 
+# Wanderers shown despite a story flag, published after the v1 baseline with
+# their wander box and the flag: the Jubilife clowns (lab-B 2026-11-11, 00.05b
+# mart_clown). Both fields are undone before digesting.
+ADDED_WANDER = {('bdsp', 'JubilifeCity'): {'clown_mart', 'clown_poketch_company'}}
+
+
+def undo_story_flags_and_wander(game, data):
+    for obj in data.get('objects', []):
+        if obj['name'] in ADDED_WANDER.get((game, data['name']), set()):
+            del obj['wander'], obj['hide_flag']
+
+
 # Links to maps published after the v1 baseline, as {(game, map): (points,
 # warp destinations by tile, connections)}. The v1 pack left these out because
 # their destinations weren't in it; the generator writes them once they are.
@@ -130,6 +142,7 @@ class PublicationTest(unittest.TestCase):
                                 item.pop(field, None)
                     undo_base_delta(game, baseline_data, deltas)
                     undo_corrections(game, baseline_data)
+                    undo_story_flags_and_wander(game, baseline_data)
                     undo_added_links(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()
                     self.assertEqual(digest, baseline['games'][game][entry['name']])

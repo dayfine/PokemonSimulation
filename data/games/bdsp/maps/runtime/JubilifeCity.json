@@ -181,8 +181,13 @@
         {"name": "pokefan_m_6", "coord": [41, 30], "wander": {"min": [40, 29], "max": [42, 31]}},
         {"name": "ace_trainer_m_22", "coord": [36, 25]},
         {"name": "poketch_president", "coord": [46, 35]},
-        {"name": "clown_mart", "coord": [55, 33]},
-        {"name": "clown_poketch_company", "coord": [15, 18]},
+        {"name": "clown_mart", "coord": [55, 33], "wander": {"min": [54, 32], "max": [56, 34]}, "hide_flag": "flag 531"},
+        {
+            "name": "clown_poketch_company",
+            "coord": [15, 18],
+            "wander": {"min": [14, 17], "max": [16, 19]},
+            "hide_flag": "flag 531"
+        },
         {"name": "cashier_m_27", "coord": [26, 42]},
         {"name": "clown_tv_station", "coord": [36, 16]},
         {"name": "kid_with_nds_29", "coord": [52, 46]},

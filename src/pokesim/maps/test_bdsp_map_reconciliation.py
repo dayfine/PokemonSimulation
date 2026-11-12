@@ -96,6 +96,22 @@ class BDSPMapReconciliationTest(unittest.TestCase):
         self.assertEqual(here, state('FloaromaTown', 0, 26))
         self.assertNotIsInstance(world_step(floaroma, here, D.WEST), Moved)
 
+    def test_jubilife_clowns_keep_their_wander_boxes_and_story_flag(self):
+        raw = map_data('JubilifeCity')
+        # lab-B 2026-11-11 21:00 (00.05b mart_clown): the Mart clown was found
+        # off his spawn row, so the story's sims must see both clowns move.
+        # Diamond hides them behind flag 531 outside the Poketch campaign.
+        clowns = {obj['name']: obj for obj in raw['objects'] if obj['name'].startswith('clown_')}
+        self.assertEqual(clowns['clown_mart']['wander'], {'x0': 54, 'y0': 32, 'x1': 56, 'y1': 34})
+        self.assertEqual(clowns['clown_poketch_company']['wander'], {'x0': 14, 'y0': 17, 'x1': 16, 'y1': 19})
+        for name in ('clown_mart', 'clown_poketch_company'):
+            self.assertEqual(clowns[name]['hide_flag'], 'flag 531')
+        self.assertNotIn('wander', clowns['clown_tv_station'])
+        shown = LocalMap(raw, 'bdsp')
+        hidden = LocalMap(raw, 'bdsp', Context(flags=frozenset({'flag 531'})))
+        self.assertIn(Tile(56, 34), shown.occupied)
+        self.assertNotIn(Tile(56, 34), hidden.occupied)
+
 
 if __name__ == '__main__':
     unittest.main()
