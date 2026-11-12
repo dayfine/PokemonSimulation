@@ -3,15 +3,14 @@
   "map": "SilphCo_11F",
   "operations": [
     {
-      "op": "tile",
-      "coords": [[5, 16], [6, 16], [5, 17], [6, 17]],
-      "glyph": ".",
+      "op": "gate",
+      "gate": "door",
+      "state": "open",
       "why": "story_state",
       "when": {"flag": "FLAG_SILPH_11F_DOOR"},
       "evidence": {
         "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_11F_OnLoad calls EventScript_Close11FDoor while FLAG_SILPH_11F_DOOR is unset, closing the barrier; SilphCo_11F_EventScript_Door (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open11FDoor, then `special SetHiddenItemFlag` sets FLAG_SILPH_11F_DOOR (VAR_0x8004)",
-        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
-        "interact_tiles": [[5, 16], [5, 17], [6, 16], [6, 17]],
+        "opens_by": "face a gate tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
         "kept_closed": "none: all four barrier tiles open"
       },
       "status": "candidate"

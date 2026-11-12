@@ -5077,7 +5077,7 @@
         {
           "name": "SilphCo_10F",
           "file": "data/games/frlg/maps/runtime/SilphCo_10F.json",
-          "sha256": "f02c6c3eba3d87228221e3e11b070ffab75b9fa6638508c3aa4fe9f57d4aa7b1",
+          "sha256": "ff8f54f0a5fe22bd979f28af43087c9bd669cb620d9d8f942572974961dcb483",
           "source": {
             "decomp_file": "data/maps/SilphCo_10F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5122,17 +5122,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_10F.json",
-            "sha256": "7c342cc292e8a192bd47f6a7ceb55bbe1641a4b9b7cc097d5936041482253d86"
+            "sha256": "9c37e03975f3c18364a8f9f89ffec91fb8fac496cf04cec735196fddba504452"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_10F.json",
-            "sha256": "e85e83ab8f2481d8f433dc8afb18fb047728a275987c6fda88ba339096b2b0d1"
+            "sha256": "a5d922313f6fbce37203824b3d1829524e67b48230740289f177d8db6827e017"
           }
         },
         {
           "name": "SilphCo_11F",
           "file": "data/games/frlg/maps/runtime/SilphCo_11F.json",
-          "sha256": "f59517693de47ac5cc7cc4c14325fc811fb7086939c9505001a917ed28422f99",
+          "sha256": "359ca6f8fbce3ecbfd71be43a3666d05e967fb4e02cf03d4afd4c0e5bff5df92",
           "source": {
             "decomp_file": "data/maps/SilphCo_11F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5177,11 +5177,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_11F.json",
-            "sha256": "5eb991ec6d01df6c7b902927e36c6d42dbc77c25b47cc77e964eb438a745868a"
+            "sha256": "9fee54396635e6c33f09789397eb0f502e7b63d2685ed6150746b0a7f76a53d1"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_11F.json",
-            "sha256": "5387f0cc7fc632343e32278845431f3bb541f42e4ad0197e3b99c6478477e2cb"
+            "sha256": "bc1eb270df88977c60ff039c652a9c00f30f615c6a77fe60fb5ed5f7c19b0acc"
           }
         },
         {
@@ -5222,7 +5222,7 @@
         {
           "name": "SilphCo_2F",
           "file": "data/games/frlg/maps/runtime/SilphCo_2F.json",
-          "sha256": "96161ef0549635e7a7e6c5eefd9c00fad27b8248deccbb78791c9a271b1c9b16",
+          "sha256": "12f7755b6e97b26dbe4a30c56bfa3f6487f42a6cc4a231d7363e5cbca9f7a6ab",
           "source": {
             "decomp_file": "data/maps/SilphCo_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5255,17 +5255,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_2F.json",
-            "sha256": "e0d2e34ba744b42768acee794c7b7d7e119d65d70a14f4d776851d2e1f8c3570"
+            "sha256": "c9ad714d2712433df60219eca8b64f55705149e1f974d16c69d4b60b4a931b62"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_2F.json",
-            "sha256": "02e5d6668e7557bb42dd8ffe52dd13f6b22650649d3a0d9ad05f30eca6f698b9"
+            "sha256": "f401b3d11159cf0916a8bde9ba93254eff1cb021244a2f1a17759365c4b1169d"
           }
         },
         {
           "name": "SilphCo_3F",
           "file": "data/games/frlg/maps/runtime/SilphCo_3F.json",
-          "sha256": "387d182bc9d4d7fab84fded2bb1f7d5601e925d76583d305ff3db972bc506637",
+          "sha256": "05a9cf1d08436c1b4b45f9e23cbc89aa8eed582b03d3ca6ace4bf5a46558d528",
           "source": {
             "decomp_file": "data/maps/SilphCo_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5310,17 +5310,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_3F.json",
-            "sha256": "a264be1c2e39e661698635dfa679993d4e99c42342b46d173ddab3b46211a775"
+            "sha256": "95f0b3c4f997c7bafe4bd5b3c202f91d1772cd4c7b0b9fc9a249951c621b778a"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_3F.json",
-            "sha256": "aec58c691e341bf0245ad847a5b5b397ca447dd35dfde370b08559901ade67a6"
+            "sha256": "111ef09808050a3c50ef52b326dc32ddf54bf460a722c3b54dd8faa057847bac"
           }
         },
         {
           "name": "SilphCo_4F",
           "file": "data/games/frlg/maps/runtime/SilphCo_4F.json",
-          "sha256": "2ddb9f480cdf727164efe5dec695b1a28f6e717392a6690b56c0981eb1543c38",
+          "sha256": "5c9b346932ec49b595ddfba10fcddff922fccbd0433a206c2106cb34b4705787",
           "source": {
             "decomp_file": "data/maps/SilphCo_4F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5365,17 +5365,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_4F.json",
-            "sha256": "b4ccd3ea44923e1c9b41c24953a44b33f5e0d47c34e1672b23b0bf7cba46552b"
+            "sha256": "dcd6c2a9c2e5aa8dbe9ed3b31a016e0eb9a4b2271f1320b2210f65a048b4f7fc"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_4F.json",
-            "sha256": "c7b07e8f19b5e5729204fd572dec34bf5660db72388068e6dd44608720042fcf"
+            "sha256": "18c5037ee54d011bc3a052cd4850ba122131be0ed320d49507c0252a7d0f77b4"
           }
         },
         {
           "name": "SilphCo_5F",
           "file": "data/games/frlg/maps/runtime/SilphCo_5F.json",
-          "sha256": "3e9950c7eda1667ce9c5c56d1b1e19e83807213d1b6ae4455bf1ceafc44e6b92",
+          "sha256": "d44c6fafc5779cea7425be540958eac7432152ec3bba44ccc5ec17d52600f6b4",
           "source": {
             "decomp_file": "data/maps/SilphCo_5F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5420,17 +5420,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_5F.json",
-            "sha256": "5d4f4ca6c2b3ab5c97ad0666a4861f6d247b1ec8e7c55ca9fabc3ee07bffe672"
+            "sha256": "ce43b0df2f2260a0348cdb3ce89d26ab01d0f88dd0d4eddb2e4c3f9373eedca3"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_5F.json",
-            "sha256": "39c1eb30dbfdc00df04e7970ea1c6dc85288d2f7287345104f72f7941851f091"
+            "sha256": "accf801f21321cd1e3c22e1fd4d8c4d92f35f55856e511758a76d84b44c05943"
           }
         },
         {
           "name": "SilphCo_6F",
           "file": "data/games/frlg/maps/runtime/SilphCo_6F.json",
-          "sha256": "ef105a6b8b8bf03943e27aa2e14595aec07846c7fb7495ae30d4c179eb76ca3e",
+          "sha256": "4f0a73675051d9df87fe7e7986da15708ca17199ff974e6970fdac2bd1c87974",
           "source": {
             "decomp_file": "data/maps/SilphCo_6F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5475,17 +5475,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_6F.json",
-            "sha256": "5482c8d91cb5c46797c499402b19b6e56a7eaefa9d084f47e42e726f30cd80f2"
+            "sha256": "38350cca192cc3ceb6814aa5ebaedac3a9c96dee0f718521048ddfe59ac5e916"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_6F.json",
-            "sha256": "302e1beac42b9a65d1da825dc25f0c931b6b07aecfd0ce767809725031beeb92"
+            "sha256": "68c712c8bcf8e1cec8a385c49cf79beea9d361fefc045e3507bb99f0edb92880"
           }
         },
         {
           "name": "SilphCo_7F",
           "file": "data/games/frlg/maps/runtime/SilphCo_7F.json",
-          "sha256": "828afb6bc3060b4d5b6591017504063100cd9686599bee05a6b8683b52fb1431",
+          "sha256": "add2ebf8c19c13e7d1e216b635df68374bef32cf3434b2d47d15c9b0bcb58d36",
           "source": {
             "decomp_file": "data/maps/SilphCo_7F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5530,17 +5530,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_7F.json",
-            "sha256": "b1b69910f8eb9cb9b82548c272c3d18bfc955f58aeceae75632f33e7bb1e2e81"
+            "sha256": "9a22e5dac1b0c36338c9ef60bce85951459ca732675e65bd120586d18d70c6a7"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_7F.json",
-            "sha256": "116ebbb03181c00fd26e666ecfc1f9c26a72abb63f457cf80babcc00e660429e"
+            "sha256": "859f89711df09356169a1d6bf9a2d8b949d7a1c956a2764d2b2533f3545cbbd0"
           }
         },
         {
           "name": "SilphCo_8F",
           "file": "data/games/frlg/maps/runtime/SilphCo_8F.json",
-          "sha256": "65378a9491e8a7070681c176323bd1ff7f67c8e11124f8ed4e8a1d23a8129aa2",
+          "sha256": "128ccec41d9637b0cf3c3bf097884335dfe5b9167e90978395de62c092036f89",
           "source": {
             "decomp_file": "data/maps/SilphCo_8F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5584,17 +5584,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_8F.json",
-            "sha256": "713b605541f86d471a9ddaec267066a11872a55a1ccca74533e57b30ee4cced2"
+            "sha256": "c322f056980fa5ceaf08fde86bfd996529cdd1e6cbc45352ab3626d6105b6832"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_8F.json",
-            "sha256": "ac3e70c7914d5cdb0432eb9c6888fef4dac57adb6be16083c9374d636c06dc22"
+            "sha256": "1154c5fac14a30531c5c51307fac1e73d235d1a75ddc74fea158615a37f2be67"
           }
         },
         {
           "name": "SilphCo_9F",
           "file": "data/games/frlg/maps/runtime/SilphCo_9F.json",
-          "sha256": "b3485abd44df944e714f3d16515b232ac68dde2e50ff3843f92c56fd2be37ade",
+          "sha256": "43ef692081d85e95ec17a0dc488f4b06791b03a25df2ea415c6d0647efd959c3",
           "source": {
             "decomp_file": "data/maps/SilphCo_9F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5626,11 +5626,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_9F.json",
-            "sha256": "1cf2a6cc328fec5117af1bffeac2095269a755f58060156bd4cfd911c8ca5ec4"
+            "sha256": "a1c7f82b8839beaace4d0b242035b76fa6e63f5052d49cf9c5bd1a46fad7ad36"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/SilphCo_9F.json",
-            "sha256": "aad04142074b4609ec1bdd4056db1a5a18af82b5e89b3fba679b0363beb1fbb7"
+            "sha256": "4f74c02f0b6b2a0a4f271ac226b514a84e7a8e94685ee2c413c5122c26366056"
           }
         },
         {

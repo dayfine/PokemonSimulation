@@ -61,6 +61,15 @@ class DoorScriptTest(unittest.TestCase):
                          'call_if_unset FLAG_SILPH_5F_DOOR_1, EventScript_Close5FDoor1')
         self.assertTrue(frlg_maps.CALL_IF_UNSET.match(blocks['SilphCo_5F_OnLoad'][0]))
 
+    def test_a_door_is_a_gate_of_its_walkable_closed_tiles(self):
+        #   The top row of a barrier is wall in the blockdata too: it is not part of the gate.
+        open_tiles = ['........', '.#......', '........']
+        doors = [('FLAG_SILPH_5F_DOOR_1', 'EventScript_Close5FDoor1', [(1, 1), (2, 1), (3, 1)])]
+        self.assertEqual(frlg_maps.door_gates(doors, open_tiles), {'door_1': {
+            'tiles': [[2, 1], [3, 1]], 'open_glyph': '.', 'new_game': 'closed',
+            'opens_by': 'card_key_face_a', 'flag': 'FLAG_SILPH_5F_DOOR_1'}})
+        self.assertEqual(frlg_maps.set_tiles(open_tiles, [(2, 1), (3, 1)], 'G')[1], '.#GG....')
+
     def test_other_maps_have_no_doors(self):
         self.assertEqual(frlg_maps.closed_doors(None, 'Route1'), [])
 

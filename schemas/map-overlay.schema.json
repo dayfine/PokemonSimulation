@@ -21,7 +21,7 @@
     "checkpoint": {"type": "string", "pattern": "^[0-9]+[a-z]*(\\.[0-9]+[a-z]*)*$"},
     "common": {
       "properties": {
-        "op": {"enum": ["tile", "link", "object", "trigger", "point"]},
+        "op": {"enum": ["tile", "link", "object", "trigger", "point", "gate"]},
         "why": {"enum": ["console_measured", "remake_delta", "story_state", "generator_gap"]},
         "when": {
           "type": "object",
@@ -58,6 +58,16 @@
             "glyph": {"$ref": "#/$defs/glyph"}
           },
           "required": ["coords", "glyph"]
+        },
+        {
+          "properties": {
+            "op": {"const": "gate"},
+            "gate": {"type": "string", "minLength": 1},
+            "state": {"enum": ["open", "closed"]},
+            "why": {"const": "story_state"},
+            "when": {"required": ["flag"]}
+          },
+          "required": ["gate", "state", "when"]
         },
         {
           "properties": {

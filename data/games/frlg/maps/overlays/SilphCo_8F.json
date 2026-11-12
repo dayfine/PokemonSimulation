@@ -3,15 +3,14 @@
   "map": "SilphCo_8F",
   "operations": [
     {
-      "op": "tile",
-      "coords": [[5, 10], [6, 10], [5, 11], [6, 11]],
-      "glyph": ".",
+      "op": "gate",
+      "gate": "door",
+      "state": "open",
       "why": "story_state",
       "when": {"flag": "FLAG_SILPH_8F_DOOR"},
       "evidence": {
         "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_8F_OnLoad calls EventScript_Close8FDoor while FLAG_SILPH_8F_DOOR is unset, closing the barrier; SilphCo_8F_EventScript_Door (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open8FDoor, then `special SetHiddenItemFlag` sets FLAG_SILPH_8F_DOOR (VAR_0x8004)",
-        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
-        "interact_tiles": [[5, 10], [5, 11], [6, 10], [6, 11]],
+        "opens_by": "face a gate tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
         "kept_closed": "the barrier's top row is a wall edge (impassable) and stays a wall when open"
       },
       "status": "candidate"

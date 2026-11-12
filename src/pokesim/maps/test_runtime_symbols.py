@@ -18,9 +18,14 @@ class RuntimeSymbolsTest(unittest.TestCase):
     def test_validation_accepts_every_canonical_symbol(self):
         for glyph in GLYPHS:
             with self.subTest(glyph=glyph):
-                validate(dict(name='M', source=dict(decomp_file='x', revision='x', date='x'), tiles=[glyph]))
+                data = dict(name='M', source=dict(decomp_file='x', revision='x', date='x'), tiles=[glyph])
+                if glyph == 'G':    #   a gate tile belongs to an entry of the `gates` table
+                    data['gates'] = {'g': {'tiles': [[0, 0]], 'open_glyph': '.', 'new_game': 'closed',
+                                           'opens_by': 'card_key_face_a', 'flag': 'FLAG_G'}}
+                validate(data)
         self.assertTrue(cell_for('w').blocked)
         self.assertTrue(cell_for('S').blocked)
+        self.assertTrue(cell_for('G').blocked)
         self.assertEqual(cell_for(' ', 3).behavior, Behavior.UNKNOWN)
         self.assertEqual(cell_for('~', 3).elevation, 3)
         self.assertEqual(cell_for('u').behavior, Behavior.FORCED_NORTH)

@@ -101,6 +101,12 @@
       "decomp_behavior": "MB_STRENGTH_BUTTON",
       "description": "Victory Road boulder switch triggered by pushing a boulder onto it"
     },
+    "G": {
+      "name": "gate",
+      "blocked": true,
+      "behavior": "none",
+      "description": "Barrier the story opens (Silph Co. Card Key door, Pokemon Mansion switch barrier); see the map's gates table. Closed unless the consumer resolves the gate from its story state"
+    },
     "8": {
       "name": "closed_north",
       "blocked": false,

@@ -32,7 +32,21 @@ Overlays today:
 | Map | Operation | why | when |
 |---|---|---|---|
 | `VermilionCity_Gym` | `tile` (4..6, 6..7) to `.`: the electric beams are off | `story_state` | `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`, after checkpoint 00.23 |
-| `SilphCo_2F` to `SilphCo_11F` | `tile` to `.`: one operation per Card Key door (20 in all; the base has them closed, as the OnLoad script leaves them at a new game). Evidence lists the opening script and the tiles to face | `story_state` | `FLAG_SILPH_<n>F_DOOR[_<m>]`, set when the door is opened with the Card Key |
+| `SilphCo_2F` to `SilphCo_11F` | `gate` open: one operation per Card Key door (20 in all). The base and runtime tiles show the door as `G` and the map's `gates` table names it; the effective map has it closed (the OnLoad script's new-game state) until the flag is set. Evidence lists the opening script | `story_state` | `FLAG_SILPH_<n>F_DOOR[_<m>]`, set when the door is opened with the Card Key |
+
+## Gates and story state
+
+`G` marks a **gate**: a barrier that the story opens (or closes). Every `G` tile
+is in an entry of the map's `gates` table (`tiles`, `open_glyph`, `new_game`,
+and what moves it). A consumer that does not read the table treats `G` as a
+wall. The base and runtime files keep `G`; `map_overlays.effective_map(name,
+state)` draws each gate open or closed for a story state (gate operations in
+the overlay say when), and the runtime files are not resolved, so a consumer
+infers the gate states itself from the story state it records:
+
+| Gate kind | Table entry | Story state a consumer records | Open when |
+|---|---|---|---|
+| Silph Co. Card Key door | `{"opens_by": "card_key_face_a", "flag": "FLAG_SILPH_5F_DOOR_1", "new_game": "closed"}` | the set of `FLAG_SILPH_<n>F_DOOR[_<m>]` flags: each is set the moment that door is opened with the Card Key | its flag is set |
 
 List a map's differences from its base, or see it at a story state:
 

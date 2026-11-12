@@ -3,29 +3,27 @@
   "map": "SilphCo_4F",
   "operations": [
     {
-      "op": "tile",
-      "coords": [[3, 16], [4, 16], [3, 17], [4, 17]],
-      "glyph": ".",
+      "op": "gate",
+      "gate": "door_1",
+      "state": "open",
       "why": "story_state",
       "when": {"flag": "FLAG_SILPH_4F_DOOR_1"},
       "evidence": {
         "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_4F_OnLoad calls EventScript_Close4FDoor1 while FLAG_SILPH_4F_DOOR_1 is unset, closing the barrier; SilphCo_4F_EventScript_Door1 (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open4FDoor1, then `special SetHiddenItemFlag` sets FLAG_SILPH_4F_DOOR_1 (VAR_0x8004)",
-        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
-        "interact_tiles": [[3, 16], [3, 17], [4, 16], [4, 17]],
+        "opens_by": "face a gate tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
         "kept_closed": "none: all four barrier tiles open"
       },
       "status": "candidate"
     },
     {
-      "op": "tile",
-      "coords": [[14, 11], [15, 11], [14, 12], [15, 12]],
-      "glyph": ".",
+      "op": "gate",
+      "gate": "door_2",
+      "state": "open",
       "why": "story_state",
       "when": {"flag": "FLAG_SILPH_4F_DOOR_2"},
       "evidence": {
         "source": "pret/pokefirered@ce6406d8 data/scripts/silphco_doors.inc: SilphCo_4F_OnLoad calls EventScript_Close4FDoor2 while FLAG_SILPH_4F_DOOR_2 is unset, closing the barrier; SilphCo_4F_EventScript_Door2 (a bg_event on every barrier tile that is not a top wall edge, any facing) calls EventScript_TryUnlockDoor, which with FLAG_HIDE_SILPH_CO_5F_CARD_KEY set (the Card Key picked up on 5F) plays the unlock and runs EventScript_Open4FDoor2, then `special SetHiddenItemFlag` sets FLAG_SILPH_4F_DOOR_2 (VAR_0x8004)",
-        "opens_by": "face a barrier tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
-        "interact_tiles": [[14, 11], [14, 12], [15, 11], [15, 12]],
+        "opens_by": "face a gate tile and press A with the Card Key in the bag; the door cannot be opened without it (EventScript_NeedCardKey)",
         "kept_closed": "none: all four barrier tiles open"
       },
       "status": "candidate"

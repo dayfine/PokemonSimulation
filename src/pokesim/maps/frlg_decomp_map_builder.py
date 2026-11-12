@@ -162,12 +162,16 @@ FLAG_SETS = {
 #   map's OnLoad script closes each one whose flag is unset
 #   (`call_if_unset FLAG, EventScript_Close<n>FDoor<m>` in
 #   data/scripts/silphco_doors.inc, closing by `setmetatile x, y, _, 1`, where
-#   1 is the impassable bit). A new game has every flag unset, so the base is
-#   closed; the overlay for each map opens the door once its flag is set.
+#   1 is the impassable bit). A new game has every flag unset, so every door is
+#   closed in the base. A door is a gate (glyph `G`, an entry of the map's
+#   `gates` table): its tiles are the ones the script closes that are walkable
+#   in the blockdata; the barrier's top wall edge stays `#` open or closed. The
+#   overlay for each map opens the gate once its flag is set.
 DOOR_SCRIPTS = 'data/scripts/silphco_doors.inc'
 DOOR_MAPS = frozenset(f'SilphCo_{floor}F' for floor in range(2, 12))
 SETMETATILE = re.compile(r'\s*setmetatile\s+(\d+),\s*(\d+),\s*\w+,\s*([01])\s*$')
 CALL_IF_UNSET = re.compile(r'\s*call_if_unset\s+(FLAG_\w+),\s*(\w+)\s*$')
+GATE_GLYPH = 'G'
 
 
 def script_blocks(text):
@@ -206,6 +210,30 @@ def closed_doors(decomp, name):
         if match:
             doors.append((match.group(1), match.group(2), impassable_tiles(scripts[match.group(2)])))
     return doors
+
+
+def door_gates(doors, open_tiles):
+    """The `gates` table of a Silph Co. map from its closed doors and the rows
+    of the blockdata (every door open). Keys are the flag without its
+    `FLAG_SILPH_<n>F_` prefix, lower case (`door`, `door_1`)."""
+    gates = {}
+    for flag, _script, closed in doors:
+        tiles = [(x, y) for x, y in closed if open_tiles[y][x] != '#']
+        glyphs = {open_tiles[y][x] for x, y in tiles}
+        if len(glyphs) != 1:
+            raise ValueError(f'{flag}: expected one open glyph, found {sorted(glyphs)}')
+        gates[re.sub(r'FLAG_SILPH_\d+F_', '', flag).lower()] = {
+            'tiles': sorted([x, y] for x, y in tiles), 'open_glyph': glyphs.pop(), 'new_game': 'closed',
+            'opens_by': 'card_key_face_a', 'flag': flag}
+    return gates
+
+
+def set_tiles(tiles, coords, glyph):
+    """`tiles` (row strings) with the given (x, y) tiles set to `glyph`."""
+    rows = list(tiles)
+    for x, y in coords:
+        rows[y] = rows[y][:x] + glyph + rows[y][x + 1:]
+    return rows
 
 
 class Decomp:
@@ -572,10 +600,8 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     #   Judge the elevation grid and hidden items on the map with its doors
     #   open: opening them is what a route needs, and it is the blockdata.
     open_tiles = tiles
-    tiles = list(open_tiles)
-    for _flag, _script, closed in closed_doors(decomp, name):
-        for x, y in closed:
-            tiles[y] = tiles[y][:x] + '#' + tiles[y][x + 1:]
+    gates = door_gates(closed_doors(decomp, name), open_tiles)
+    tiles = set_tiles(open_tiles, [tuple(c) for gate in gates.values() for c in gate['tiles']], GATE_GLYPH)
     warp_events = source.get('warp_events', [])
     points = {n: [x, y] for n, (x, y) in POINTS.get(name, {}).items()}
     for index in sorted(arrivals(sources, loaded)[name]):
@@ -617,6 +643,8 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
             identity_source = decomp_item_identities(decomp, data['objects'])
         if identity_source is not None:
             data['source']['item_identities'] = identity_source
+    if gates:
+        data['gates'] = gates
     hidden = hidden_items(source, open_tiles)
     if hidden:
         data['hidden_items'] = hidden
