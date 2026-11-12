@@ -50,6 +50,15 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [11, 21],
+      "item": "ultra_ball",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_2F_ULTRA_BALL",
+      "source_bg_event": 8
+    }
+  ],
   "npcs": [
     {
       "name": "rocket_m",

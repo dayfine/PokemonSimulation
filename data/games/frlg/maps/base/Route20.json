@@ -60,6 +60,15 @@
     {"side": "west", "to_map": "CinnabarIsland", "offset": 0},
     {"side": "east", "to_map": "Route19", "offset": -40}
   ],
+  "hidden_items": [
+    {
+      "coord": [23, 6],
+      "item": "stardust",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE20_STARDUST",
+      "source_bg_event": 2
+    }
+  ],
   "npcs": [
     {
       "name": "swimmer_f_water",

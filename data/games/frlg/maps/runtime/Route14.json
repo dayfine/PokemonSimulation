@@ -137,6 +137,16 @@
     {"side": "west", "to_map": "Route15", "offset": 40},
     {"side": "east", "to_map": "Route13", "offset": 0}
   ],
+  "hidden_items": [
+    {"coord": [9, 20], "item": "zinc", "quantity": 1, "flag": "FLAG_HIDDEN_ITEM_ROUTE14_ZINC", "source_bg_event": 1},
+    {
+      "coord": [19, 53],
+      "item": "pinap_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE14_PINAP_BERRY",
+      "source_bg_event": 2
+    }
+  ],
   "npcs": [
     {
       "name": "biker",

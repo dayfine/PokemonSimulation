@@ -57,7 +57,8 @@ import sys
 
 from pokesim.formats.contract_format import json_text as contract_json_text
 from .runtime_symbols import CLOSED_SIDES, LEDGE_GLYPHS
-from .item_identity import enrich_objects
+from .item_identity import INPUTS as ITEM_SOURCE_INPUTS, digest, enrich_objects
+from .item_pickup_sources import frlg_pickups, unresolved as unresolved_pickup
 from .runtime_map_coordinates import compact_map
 from .runtime_map_format import map_text as readable_map_text
 from .frlg_map_scope import read_scope
@@ -356,6 +357,56 @@ def map_object(obj, tiles, event_index=None):
     return data
 
 
+def item_scripts(decomp):
+    """The pinned item-ball script resolver inputs (item-source-inputs.json), read
+    from the decomp at its own commit and checked against their reviewed hashes."""
+    inputs = json.loads(ITEM_SOURCE_INPUTS.read_text())
+    source = inputs['sources']['frlg']
+    if source['revision'] != getattr(decomp, 'commit', COMMIT):
+        raise ValueError('item scripts are pinned at another decomp revision')
+    files = {}
+    for key, path in inputs['resolvers']['frlg'].items():
+        raw = decomp.read(path)
+        if digest(raw) != source['files'][path]['sha256']:
+            raise ValueError('item script hash mismatch: ' + path)
+        files[key] = (path, raw)
+    return source, files
+
+
+def decomp_item_identities(decomp, objects):
+    """Item balls on a map the pinned catalog doesn't list: their item and count
+    from the ball's own finditem script. A script that is not a plain finditem
+    stays unresolved."""
+    items = [o for o in objects if o.get('kind') == 'item']
+    if not items:
+        return None
+    source, files = item_scripts(decomp)
+    pickups = frlg_pickups(files['scripts'][1].decode(), files['macros'][1].decode())
+    for obj in items:
+        script = obj.get('source_event', {}).get('script') if isinstance(obj.get('source_event'), dict) else None
+        obj.pop('pickup', None)
+        obj.update(pickups.get(script) or unresolved_pickup('script is not a supported fixed item pickup'))
+    return dict(repository=source['repository'], revision=source['revision'],
+                scripts=files['scripts'][0], scripts_sha256=digest(files['scripts'][1]),
+                macros=files['macros'][0], macros_sha256=digest(files['macros'][1]),
+                source_game=source['source_game'], target_game=source['target_game'],
+                target_game_relation=source['target_game_relation'], verification=source['verification'])
+
+
+def hidden_items(source, tiles):
+    """Hidden items (bg_events of type hidden_item): data only, they never block."""
+    result = []
+    for index, event in enumerate(source.get('bg_events', [])):
+        if event.get('type') != 'hidden_item' or not (0 <= event['x'] < len(tiles[0]) and 0 <= event['y'] < len(tiles)):
+            continue
+        record = {'coord': [event['x'], event['y']], 'item': event['item'].replace('ITEM_', '', 1).lower(),
+                  'quantity': int(event.get('quantity', 1)), 'flag': event['flag'], 'source_bg_event': index}
+        if event.get('underfoot'):
+            record['underfoot'] = True
+        result.append(record)
+    return result
+
+
 #   Tiles the player never walks onto: their elevation only matters for doors,
 #   which the player is put on by a warp and leaves at once.
 UNWALKABLE = '#^v<>DS'
@@ -505,8 +556,13 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     if include_item_identities:
         events_hash = hashlib.sha256(decomp.read(f'data/maps/{name}/map.json')).hexdigest()
         data['objects'], identity_source = enrich_objects(data['objects'], 'frlg', name, events_hash, source_revision=getattr(decomp, 'commit', COMMIT))
+        if identity_source is None:
+            identity_source = decomp_item_identities(decomp, data['objects'])
         if identity_source is not None:
             data['source']['item_identities'] = identity_source
+    hidden = hidden_items(source, tiles)
+    if hidden:
+        data['hidden_items'] = hidden
     if candidate:
         for obj in data['objects']:
             event = obj.get('source_event')

@@ -101,6 +101,22 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [3, 22],
+      "item": "potion",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_POTION",
+      "source_bg_event": 6
+    },
+    {
+      "coord": [28, 57],
+      "item": "antidote",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_ANTIDOTE",
+      "source_bg_event": 7
+    }
+  ],
   "npcs": [
     {"name": "youngster", "coord": [29, 58], "source_event": 0, "source_script": "ViridianForest_EventScript_Youngster"},
     {"name": "boy", "coord": [45, 58], "source_event": 1, "source_script": "ViridianForest_EventScript_Boy"},

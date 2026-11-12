@@ -342,6 +342,64 @@
     {"side": "north", "to_map": "IndigoPlateau_Exterior", "offset": 0},
     {"side": "south", "to_map": "Route22", "offset": 0}
   ],
+  "hidden_items": [
+    {
+      "coord": [19, 42],
+      "item": "full_restore",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_FULL_RESTORE",
+      "source_bg_event": 0
+    },
+    {
+      "coord": [20, 72],
+      "item": "ultra_ball",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_ULTRA_BALL",
+      "source_bg_event": 1
+    },
+    {
+      "coord": [11, 101],
+      "item": "max_ether",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ETHER",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [3, 18],
+      "item": "lum_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LUM_BERRY",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [2, 29],
+      "item": "sitrus_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_SITRUS_BERRY",
+      "source_bg_event": 4
+    },
+    {
+      "coord": [10, 67],
+      "item": "aspear_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_ASPEAR_BERRY",
+      "source_bg_event": 5
+    },
+    {
+      "coord": [3, 128],
+      "item": "leppa_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LEPPA_BERRY",
+      "source_bg_event": 6
+    },
+    {
+      "coord": [9, 8],
+      "item": "max_elixir",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ELIXIR",
+      "source_bg_event": 7
+    }
+  ],
   "npcs": [
     {
       "name": "policeman",

@@ -2,7 +2,10 @@
 # Original path: devtools/maps/tests/test_frlg_maps.py
 import unittest
 
+from pokesim.grid.geometry import Tile
 from pokesim.maps import frlg_decomp_map_builder as frlg_maps
+from pokesim.maps.local_routing import LocalMap
+from pokesim.maps.runtime_map_pack import ROOT, load
 
 TILES = ['.....'] * 5
 
@@ -267,3 +270,30 @@ class ElevationElisionTest(unittest.TestCase):
         points = {'p': [1, 3]}
         self.assertIn('all reachable land is ground level',
                       frlg_maps.elevation_omission_reason(tiles, levels, warps, points))
+
+
+class ItemTest(unittest.TestCase):
+    def test_hidden_items_are_data_with_their_flag(self):
+        source = {'bg_events': [
+            {'type': 'sign', 'x': 1, 'y': 1},
+            {'type': 'hidden_item', 'x': 3, 'y': 2, 'item': 'ITEM_RARE_CANDY', 'flag': 'FLAG_HIDDEN_ITEM_X',
+             'quantity': 1, 'underfoot': False},
+            {'type': 'hidden_item', 'x': 9, 'y': 9, 'item': 'ITEM_ETHER', 'flag': 'FLAG_OFF_MAP', 'quantity': 1},
+        ]}
+        self.assertEqual(frlg_maps.hidden_items(source, TILES), [
+            {'coord': [3, 2], 'item': 'rare_candy', 'quantity': 1, 'flag': 'FLAG_HIDDEN_ITEM_X', 'source_bg_event': 1}])
+
+    def test_uncatalogued_item_balls_resolve_from_their_scripts(self):
+        expected = {'PokemonTower_5F': {(6, 16): 'nugget', (11, 9): 'cleanse_tag'},
+                    'PokemonTower_6F': {(5, 15): 'rare_candy', (15, 15): 'x_accuracy'}}
+        for name, items in expected.items():
+            data = load(ROOT / 'data/games/frlg/maps/runtime' / (name + '.json'))
+            balls = {(o['x'], o['y']): o for o in data['objects'] if o['kind'] == 'item'}
+            self.assertEqual({coord: o['item'] for coord, o in balls.items()}, items)
+            self.assertEqual(data['source']['item_identities']['scripts'], 'data/scripts/item_ball_scripts.inc')
+            world = LocalMap(data, 'frlg')
+            for coord in items:
+                self.assertIn(Tile(*coord), world.occupied)
+        tower = load(ROOT / 'data/games/frlg/maps/runtime/PokemonTower_5F.json')
+        for hidden in tower['hidden_items']:
+            self.assertNotIn(Tile(*hidden['coord']), LocalMap(tower, 'frlg').occupied)

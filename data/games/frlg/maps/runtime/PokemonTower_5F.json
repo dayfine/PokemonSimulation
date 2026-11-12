@@ -5,6 +5,18 @@
     "decomp_file": "data/maps/PokemonTower_5F/map.json",
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
     "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    },
     "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
   },
   "allow_running": false,
@@ -37,6 +49,15 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [7, 3],
+      "item": "big_mushroom",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_5F_BIG_MUSHROOM",
+      "source_bg_event": 0
+    }
+  ],
   "npcs": [
     {
       "name": "channeler",
@@ -77,7 +98,7 @@
       "source_event": 5,
       "hide_flag": "FLAG_HIDE_POKEMON_TOWER_5F_NUGGET",
       "source_script": "PokemonTower_5F_EventScript_ItemNugget",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "nugget"
     },
     {
       "name": "item_ball",
@@ -85,7 +106,7 @@
       "source_event": 6,
       "hide_flag": "FLAG_HIDE_POKEMON_TOWER_5F_CLEANSE_TAG",
       "source_script": "PokemonTower_5F_EventScript_ItemCleanseTag",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "cleanse_tag"
     }
   ]
 }

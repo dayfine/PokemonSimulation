@@ -84,6 +84,15 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [58, 28],
+      "item": "lava_cookie",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE",
+      "source_bg_event": 0
+    }
+  ],
   "npcs": [
     {
       "name": "ss_anne",

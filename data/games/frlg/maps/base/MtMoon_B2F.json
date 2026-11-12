@@ -101,6 +101,22 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [20, 16],
+      "item": "moon_stone",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B2F_MOON_STONE",
+      "source_bg_event": 0
+    },
+    {
+      "coord": [39, 11],
+      "item": "ether",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B2F_ETHER",
+      "source_bg_event": 1
+    }
+  ],
   "npcs": [
     {
       "name": "fossil",

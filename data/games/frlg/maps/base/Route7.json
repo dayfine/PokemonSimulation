@@ -38,5 +38,14 @@
   "connections": [
     {"side": "west", "to_map": "CeladonCity", "offset": -10},
     {"side": "east", "to_map": "SaffronCity_Connection", "offset": -10}
+  ],
+  "hidden_items": [
+    {
+      "coord": [16, 15],
+      "item": "wepear_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE7_WEPEAR_BERRY",
+      "source_bg_event": 1
+    }
   ]
 }

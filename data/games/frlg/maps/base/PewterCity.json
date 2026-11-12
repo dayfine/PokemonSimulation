@@ -73,6 +73,15 @@
     {"side": "south", "to_map": "Route2", "offset": 12},
     {"side": "east", "to_map": "Route3", "offset": 10}
   ],
+  "hidden_items": [
+    {
+      "coord": [6, 3],
+      "item": "poke_ball",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_PEWTER_CITY_POKE_BALL",
+      "source_bg_event": 5
+    }
+  ],
   "npcs": [
     {"name": "lass", "coord": [6, 15], "source_event": 0, "source_script": "PewterCity_EventScript_Lass"},
     {

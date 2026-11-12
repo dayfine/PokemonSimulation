@@ -119,6 +119,15 @@
     {"side": "north", "to_map": "Route6", "offset": 12},
     {"side": "east", "to_map": "Route11", "offset": 10}
   ],
+  "hidden_items": [
+    {
+      "coord": [14, 11],
+      "item": "max_ether",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_VERMILION_CITY_MAX_ETHER",
+      "source_bg_event": 5
+    }
+  ],
   "npcs": [
     {
       "name": "woman_1",

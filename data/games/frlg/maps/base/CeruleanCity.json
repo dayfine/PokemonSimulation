@@ -129,6 +129,15 @@
     {"side": "west", "to_map": "Route4", "offset": 10},
     {"side": "east", "to_map": "Route9", "offset": 10}
   ],
+  "hidden_items": [
+    {
+      "coord": [18, 7],
+      "item": "rare_candy",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_CERULEAN_CITY_RARE_CANDY",
+      "source_bg_event": 4
+    }
+  ],
   "npcs": [
     {
       "name": "policeman",

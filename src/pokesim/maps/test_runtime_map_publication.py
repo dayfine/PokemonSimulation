@@ -58,17 +58,20 @@ def undo_added_links(game, data):
 # What each approved FRLG map gained when it became generated base + overlays
 # (docs/maps/OVERLAYS.md step 1): every source warp and connection linked, their
 # arrival points, object provenance and pickup identities, elevation grids left
-# out where every walkable tile is ground, and water drawn as water. Nothing
+# out where every walkable tile is ground, water drawn as water, and hidden items
+# (data only). Nothing
 # else may differ from the reviewed pack, so undoing exactly this must
 # reproduce the v1 digests.
 FRLG_BASE_DELTA = ROOT / 'src/pokesim/maps/testdata/frlg-v1-to-base-delta.json'
 DELTA_KEYS = {'points_added', 'warps_linked', 'connections_added', 'object_fields_added',
-              'source_fields_added', 'elevation_omitted', 'water_was_wall'}
+              'source_fields_added', 'elevation_omitted', 'water_was_wall', 'hidden_items_added'}
 
 
 def undo_base_delta(game, data, deltas):
     delta = deltas.get(data['name'], {}) if game == 'frlg' else {}
     assert set(delta) <= DELTA_KEYS, set(delta) - DELTA_KEYS
+    if delta.get('hidden_items_added'):
+        del data['hidden_items']
     for name in delta.get('points_added', []):
         del data['points'][name]
     for index in delta.get('warps_linked', []):

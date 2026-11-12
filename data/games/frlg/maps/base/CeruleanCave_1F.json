@@ -91,6 +91,15 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [12, 2],
+      "item": "ultra_ball",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_CERULEAN_CAVE_1F_ULTRA_BALL",
+      "source_bg_event": 0
+    }
+  ],
   "npcs": [
     {
       "name": "rock_smash_rock",

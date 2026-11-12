@@ -39,6 +39,29 @@
     {"side": "west", "to_map": "SaffronCity_Connection", "offset": -10},
     {"side": "east", "to_map": "LavenderTown", "offset": 0}
   ],
+  "hidden_items": [
+    {
+      "coord": [42, 10],
+      "item": "rawst_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE8_RAWST_BERRY",
+      "source_bg_event": 1
+    },
+    {
+      "coord": [38, 11],
+      "item": "lum_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE8_LUM_BERRY",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [42, 15],
+      "item": "leppa_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE8_LEPPA_BERRY",
+      "source_bg_event": 3
+    }
+  ],
   "npcs": [
     {
       "name": "lass",

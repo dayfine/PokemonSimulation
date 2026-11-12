@@ -70,5 +70,49 @@
     {"coord": [45, 4], "enter": "step_on", "to_map": "Route4", "to_point": "warp_1"}
   ],
   "flag_sets": {},
-  "connections": []
+  "connections": [],
+  "hidden_items": [
+    {
+      "coord": [46, 2],
+      "item": "tiny_mushroom",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM",
+      "source_bg_event": 0
+    },
+    {
+      "coord": [26, 2],
+      "item": "tiny_mushroom",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_2",
+      "source_bg_event": 1
+    },
+    {
+      "coord": [39, 34],
+      "item": "tiny_mushroom",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_3",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [24, 35],
+      "item": "big_mushroom",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [6, 12],
+      "item": "big_mushroom",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_2",
+      "source_bg_event": 4
+    },
+    {
+      "coord": [25, 34],
+      "item": "big_mushroom",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_3",
+      "source_bg_event": 5
+    }
+  ]
 }

@@ -4,7 +4,19 @@
   "source": {
     "decomp_file": "data/maps/VictoryRoad_2F/map.json",
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-    "date": "2026-10-31"
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    }
   },
   "tiles": [
     "##########################################~~~~~~~~~",
@@ -178,7 +190,7 @@
       "source_event": 5,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_GUARD_SPEC",
       "source_script": "VictoryRoad_2F_EventScript_ItemGuardSpec",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "guard_spec"
     },
     {
       "name": "item_ball",
@@ -186,7 +198,7 @@
       "source_event": 6,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_TM07",
       "source_script": "VictoryRoad_2F_EventScript_ItemTM07",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "tm07"
     },
     {
       "name": "item_ball",
@@ -194,7 +206,7 @@
       "source_event": 7,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_FULL_HEAL",
       "source_script": "VictoryRoad_2F_EventScript_ItemFullHeal",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "full_heal"
     },
     {
       "name": "item_ball",
@@ -202,7 +214,7 @@
       "source_event": 8,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_TM37",
       "source_script": "VictoryRoad_2F_EventScript_ItemTM37",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "tm37"
     }
   ]
 }
