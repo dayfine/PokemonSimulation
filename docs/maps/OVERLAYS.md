@@ -185,3 +185,7 @@ except where a step says otherwise.
   (`story_state`); water-as-wall dropped; `map_overlays` with
   `effective_map`, `audit`, `check`, `write`; overlay schema; runtime files
   pre-resolved at story state `complete` as the consumer's interim.
+- 2026-11-11: generator: item balls on maps outside the pinned item catalog
+  get their item from their `finditem` script, and hidden items are published
+  as non-blocking `hidden_items`; Celadon Mansion 2F, 3F, Roof and RoofRoom
+  join the scope (156 maps). Objects only: no tile changes.

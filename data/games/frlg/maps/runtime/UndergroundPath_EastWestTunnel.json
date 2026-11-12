@@ -22,5 +22,56 @@
     {"coord": [3, 4], "enter": "walk_west", "to_map": "UndergroundPath_WestEntrance", "to_point": "warp_3"}
   ],
   "flag_sets": {},
-  "connections": []
+  "connections": [],
+  "hidden_items": [
+    {
+      "coord": [7, 3],
+      "item": "potion",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_POTION",
+      "source_bg_event": 0
+    },
+    {
+      "coord": [17, 5],
+      "item": "paralyze_heal",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_PARALYZE_HEAL",
+      "source_bg_event": 1
+    },
+    {
+      "coord": [31, 4],
+      "item": "awakening",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_AWAKENING",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [45, 3],
+      "item": "burn_heal",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_BURN_HEAL",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [70, 3],
+      "item": "ice_heal",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_ICE_HEAL",
+      "source_bg_event": 4
+    },
+    {
+      "coord": [55, 2],
+      "item": "ether",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_ETHER",
+      "source_bg_event": 5
+    },
+    {
+      "coord": [62, 5],
+      "item": "antidote",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_ANTIDOTE",
+      "source_bg_event": 6
+    }
+  ]
 }

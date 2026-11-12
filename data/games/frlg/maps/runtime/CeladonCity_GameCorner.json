@@ -34,6 +34,92 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [2, 4],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS",
+      "source_bg_event": 0
+    },
+    {
+      "coord": [3, 8],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_2",
+      "source_bg_event": 1
+    },
+    {
+      "coord": [2, 11],
+      "item": "none",
+      "quantity": 20,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_3",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [6, 12],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_4",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [9, 9],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_5",
+      "source_bg_event": 4
+    },
+    {
+      "coord": [8, 5],
+      "item": "none",
+      "quantity": 20,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_6",
+      "source_bg_event": 5
+    },
+    {
+      "coord": [10, 4],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_7",
+      "source_bg_event": 6
+    },
+    {
+      "coord": [13, 3],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_8",
+      "source_bg_event": 7
+    },
+    {
+      "coord": [15, 5],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_9",
+      "source_bg_event": 8
+    },
+    {
+      "coord": [17, 5],
+      "item": "none",
+      "quantity": 40,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_10",
+      "source_bg_event": 9
+    },
+    {
+      "coord": [15, 13],
+      "item": "none",
+      "quantity": 100,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_11",
+      "source_bg_event": 10
+    },
+    {
+      "coord": [12, 12],
+      "item": "none",
+      "quantity": 10,
+      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_12",
+      "source_bg_event": 11
+    }
+  ],
   "npcs": [
     {
       "name": "worker_f",

@@ -15,7 +15,7 @@ the runtime file's hash and `base` / `overlay` references (file and sha256):
 | Status | Meaning | Count |
 |---|---|---:|
 | `verified` | Reviewed content. `verified.basis` is `approved-runtime-pack` (in the approved pack before this set existed; no per-map run was recorded) or `console-run` (`run`, `date`, `checkpoint`, optional `consumer_revision`). | 57 |
-| `candidate` | Generated, unreviewed. | 95 |
+| `candidate` | Generated, unreviewed. | 99 |
 
 Every entry also records its `source` (pret file and commit), the same object
 as the runtime file's `source`. The status is kept out of the map bytes, so
@@ -73,7 +73,7 @@ operation, one that no longer changes anything, fails here), then
 
 ## Scope
 
-[`pokeguy-map-scope.json`](pokeguy-map-scope.json) lists the 285 catalog maps
+[`pokeguy-map-scope.json`](pokeguy-map-scope.json) lists the 281 catalog maps
 the generator does **not** publish as candidates (425-map catalog):
 
 | Excluded group | Maps |
@@ -81,7 +81,7 @@ the generator does **not** publish as candidates (425-map catalog):
 | Sevii, event islands and island Trainer Tower | 164 |
 | Multiplayer facilities | 5 |
 | Optional mainland caves, routes and legendary destinations | 13 |
-| Unused interiors, cabins and upper floors | 77 |
+| Unused interiors, cabins and upper floors | 73 |
 | Mainland Pokemon Centers and elevators (scripted in AutoStory) | 26 |
 
 **Pokemon Centers and elevators are scripted in AutoStory, not mapped.** The
@@ -146,6 +146,14 @@ counter only lets the player talk across it.
 
 NPCs and pickups keep source event, script and optional local-ID provenance.
 `source_event` is a zero-based source array index, not an in-game object ID.
-Scripted geometry, flags, hidden/background interactions, coordinate triggers
+An item ball's `item` and `quantity` come from the pinned catalog
+(`data/maps/item-identities.json`) or, for a map it doesn't list, from the
+ball's own `finditem` script in `data/scripts/item_ball_scripts.inc` (hash
+pinned in `data/maps/item-source-inputs.json`); a scripted ball (the Eevee
+ball, Silph Scope, Lift Key) stays `pickup: unresolved`. Item balls are
+objects and block movement. Hidden items (`bg_events` of type `hidden_item`)
+are `hidden_items` records (`coord`, `item`, `quantity`, `flag`,
+`source_bg_event`, optional `underfoot`): data only, they never block.
+Scripted geometry, flags, other background interactions, coordinate triggers
 and game-version differences still need review. Structural validity does not
 establish story traversability.

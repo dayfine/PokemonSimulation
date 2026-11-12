@@ -36,6 +36,15 @@
     {"side": "north", "to_map": "Route4", "offset": 60},
     {"side": "west", "to_map": "PewterCity", "offset": -10}
   ],
+  "hidden_items": [
+    {
+      "coord": [26, 9],
+      "item": "oran_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE3_ORAN_BERRY",
+      "source_bg_event": 1
+    }
+  ],
   "npcs": [
     {"name": "youngster", "coord": [70, 13], "source_event": 0, "source_script": "Route3_EventScript_Youngster"},
     {

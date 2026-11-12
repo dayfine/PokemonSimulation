@@ -101,6 +101,22 @@
     {"side": "north", "to_map": "SaffronCity_Connection", "offset": 0},
     {"side": "south", "to_map": "VermilionCity", "offset": -12}
   ],
+  "hidden_items": [
+    {
+      "coord": [5, 5],
+      "item": "sitrus_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE6_SITRUS_BERRY",
+      "source_bg_event": 1
+    },
+    {
+      "coord": [19, 5],
+      "item": "rare_candy",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE6_RARE_CANDY",
+      "source_bg_event": 2
+    }
+  ],
   "npcs": [
     {
       "name": "bug_catcher",

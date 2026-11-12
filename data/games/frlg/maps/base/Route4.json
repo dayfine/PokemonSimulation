@@ -73,6 +73,29 @@
     {"side": "south", "to_map": "Route3", "offset": -60},
     {"side": "east", "to_map": "CeruleanCity", "offset": -10}
   ],
+  "hidden_items": [
+    {
+      "coord": [43, 2],
+      "item": "great_ball",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE4_GREAT_BALL",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [5, 4],
+      "item": "persim_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE4_PERSIM_BERRY",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [67, 17],
+      "item": "razz_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE4_RAZZ_BERRY",
+      "source_bg_event": 4
+    }
+  ],
   "npcs": [
     {
       "name": "woman_1",

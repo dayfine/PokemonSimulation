@@ -23,7 +23,7 @@ class MapSetTest(unittest.TestCase):
         self.assertEqual(set(status), files)
         self.assertFalse((map_set.ROOT / 'data/games/frlg/maps/source-candidate').exists())
         self.assertEqual(list(status.values()).count('verified'), 57)
-        self.assertEqual(list(status.values()).count('candidate'), 95)
+        self.assertEqual(list(status.values()).count('candidate'), 99)
 
     def test_centers_and_elevators_are_scripted_not_candidates(self):
         status = map_set.statuses(self.manifest)
@@ -86,7 +86,7 @@ class MapSetTest(unittest.TestCase):
         # Every source warp and connection is linked by name (OVERLAYS.md step 1): the
         # 31 pending relinks are gone, and links into scope-excluded maps (scripted
         # Centers and elevators included) keep their target as boundaries.
-        self.assertEqual((len(boundary), len(pending), errors), (102, 0, []))
+        self.assertEqual((len(boundary), len(pending), errors), (100, 0, []))
         self.assertIn(('ViridianCity', 'ViridianCity_Gym', 'warp_1'),
                       [(n, w['to_map'], w['to_point']) for n, d in maps.items() for w in d['warps'] if 'to_map' in w])
         self.assertIn(('ViridianCity', 'ViridianCity_PokemonCenter_1F', 'warp_1'),

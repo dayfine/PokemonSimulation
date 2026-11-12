@@ -66,6 +66,24 @@
   "warps": [{"coord": [51, 4], "enter": "walk_into", "to_map": "Route25_SeaCottage", "to_point": "warp_1"}],
   "flag_sets": {},
   "connections": [{"side": "west", "to_map": "Route24", "offset": 0}],
+  "hidden_items": [
+    {"coord": [14, 2], "item": "elixir", "quantity": 1, "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ELIXIR", "source_bg_event": 1},
+    {"coord": [58, 6], "item": "ether", "quantity": 1, "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ETHER", "source_bg_event": 2},
+    {
+      "coord": [33, 8],
+      "item": "oran_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ORAN_BERRY",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [40, 3],
+      "item": "bluk_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE25_BLUK_BERRY",
+      "source_bg_event": 4
+    }
+  ],
   "npcs": [
     {
       "name": "hiker",

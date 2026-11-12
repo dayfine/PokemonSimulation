@@ -4,7 +4,8 @@
   "maps": {
     "CeruleanCave_1F": {
       "object_fields_added": ["item", "quantity", "source_event", "source_script"],
-      "source_fields_added": ["item_identities"]
+      "source_fields_added": ["item_identities"],
+      "hidden_items_added": true
     },
     "CeruleanCave_2F": {
       "object_fields_added": ["item", "quantity", "source_event", "source_script"],
@@ -17,7 +18,8 @@
     "CeruleanCity": {
       "points_added": ["warp_0", "warp_2", "warp_8", "warp_12", "warp_13"],
       "warps_linked": [0, 2, 8, 12, 13],
-      "object_fields_added": ["source_event", "source_local_id", "source_script"]
+      "object_fields_added": ["source_event", "source_local_id", "source_script"],
+      "hidden_items_added": true
     },
     "CeruleanCity_BikeShop": {
       "object_fields_added": ["source_event", "source_script"],
@@ -67,10 +69,11 @@
       "object_fields_added": ["item", "quantity", "source_event", "source_script"],
       "source_fields_added": ["elevation_omitted", "item_identities"]
     },
-    "MtMoon_B1F": {"source_fields_added": ["elevation_omitted"]},
+    "MtMoon_B1F": {"source_fields_added": ["elevation_omitted"], "hidden_items_added": true},
     "MtMoon_B2F": {
       "object_fields_added": ["item", "quantity", "source_event", "source_local_id", "source_script"],
-      "source_fields_added": ["elevation_omitted", "item_identities"]
+      "source_fields_added": ["elevation_omitted", "item_identities"],
+      "hidden_items_added": true
     },
     "PalletTown": {
       "connections_added": [{"side": "south", "to_map": "Route21_North", "offset": 0}],
@@ -92,7 +95,8 @@
       "points_added": ["warp_4", "warp_6"],
       "warps_linked": [4, 6],
       "object_fields_added": ["source_event", "source_local_id", "source_script"],
-      "source_fields_added": ["elevation_omitted"]
+      "source_fields_added": ["elevation_omitted"],
+      "hidden_items_added": true
     },
     "PewterCity_Gym": {
       "object_fields_added": ["source_event", "source_script"],
@@ -136,7 +140,8 @@
     "Route10": {
       "points_added": ["warp_2", "warp_4"],
       "warps_linked": [2, 4],
-      "object_fields_added": ["source_event", "source_script"]
+      "object_fields_added": ["source_event", "source_script"],
+      "hidden_items_added": true
     },
     "Route10_PokemonCenter_1F": {
       "points_added": ["warp_3"],
@@ -157,11 +162,13 @@
     },
     "Route24": {
       "object_fields_added": ["item", "quantity", "source_event", "source_local_id", "source_script"],
-      "source_fields_added": ["item_identities"]
+      "source_fields_added": ["item_identities"],
+      "hidden_items_added": true
     },
     "Route25": {
       "object_fields_added": ["item", "quantity", "source_event", "source_script"],
-      "source_fields_added": ["item_identities"]
+      "source_fields_added": ["item_identities"],
+      "hidden_items_added": true
     },
     "Route25_SeaCottage": {
       "object_fields_added": ["source_event", "source_local_id", "source_script"],
@@ -175,10 +182,15 @@
       "object_fields_added": ["source_event", "source_script"],
       "source_fields_added": ["elevation_omitted"]
     },
-    "Route3": {"object_fields_added": ["source_event", "source_script"], "source_fields_added": ["elevation_omitted"]},
+    "Route3": {
+      "object_fields_added": ["source_event", "source_script"],
+      "source_fields_added": ["elevation_omitted"],
+      "hidden_items_added": true
+    },
     "Route4": {
       "object_fields_added": ["item", "quantity", "source_event", "source_script"],
-      "source_fields_added": ["item_identities"]
+      "source_fields_added": ["item_identities"],
+      "hidden_items_added": true
     },
     "Route4_PokemonCenter_1F": {
       "points_added": ["warp_3"],
@@ -195,11 +207,13 @@
       "points_added": ["warp_1"],
       "warps_linked": [1, 2],
       "connections_added": [{"side": "north", "to_map": "SaffronCity_Connection", "offset": 0}],
-      "object_fields_added": ["source_event", "source_script"]
+      "object_fields_added": ["source_event", "source_script"],
+      "hidden_items_added": true
     },
     "Route9": {
       "object_fields_added": ["item", "quantity", "source_event", "source_local_id", "source_script"],
-      "source_fields_added": ["elevation_omitted", "item_identities"]
+      "source_fields_added": ["elevation_omitted", "item_identities"],
+      "hidden_items_added": true
     },
     "SSAnne_1F_Corridor": {
       "points_added": ["warp_1", "warp_5", "warp_6", "warp_7", "warp_8", "warp_9", "warp_10", "warp_11", "warp_12"],
@@ -275,13 +289,14 @@
         "29": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww#################",
         "30": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww###############",
         "31": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww################"
-      }
+      },
+      "hidden_items_added": true
     },
     "UndergroundPath_NorthEntrance": {
       "object_fields_added": ["source_event", "source_script"],
       "source_fields_added": ["elevation_omitted"]
     },
-    "UndergroundPath_NorthSouthTunnel": {"source_fields_added": ["elevation_omitted"]},
+    "UndergroundPath_NorthSouthTunnel": {"source_fields_added": ["elevation_omitted"], "hidden_items_added": true},
     "UndergroundPath_SouthEntrance": {
       "object_fields_added": ["source_event", "source_script"],
       "source_fields_added": ["elevation_omitted"]
@@ -329,7 +344,8 @@
         "36": "wwwwww####wwww##wwwwww###wwwwwwww##wwwww##wwwwww",
         "37": "wwwwwwww######wwwwwwww.#.wwwwwwww########wwwwwww",
         "38": "wwwwwwwwww####wwwwwwww.#.wwwwwwwwww######wwwwwww"
-      }
+      },
+      "hidden_items_added": true
     },
     "VermilionCity_Gym": {
       "object_fields_added": ["source_event", "source_script"],
@@ -392,7 +408,8 @@
     },
     "ViridianForest": {
       "object_fields_added": ["item", "quantity", "source_event", "source_script"],
-      "source_fields_added": ["elevation_omitted", "item_identities"]
+      "source_fields_added": ["elevation_omitted", "item_identities"],
+      "hidden_items_added": true
     }
   }
 }

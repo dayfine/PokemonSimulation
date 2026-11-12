@@ -42,6 +42,16 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [2, 2],
+      "item": "macho_brace",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_CITY_GYM_MACHO_BRACE",
+      "source_bg_event": 2,
+      "underfoot": true
+    }
+  ],
   "npcs": [
     {
       "name": "black_belt",

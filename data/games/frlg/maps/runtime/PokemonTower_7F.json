@@ -34,6 +34,16 @@
   "warps": [{"coord": [11, 16], "enter": "walk_west", "to_map": "PokemonTower_6F", "to_point": "warp_0"}],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [11, 4],
+      "item": "soothe_bell",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_7F_SOOTHE_BELL",
+      "source_bg_event": 0,
+      "underfoot": true
+    }
+  ],
   "npcs": [
     {
       "name": "mr_fuji",

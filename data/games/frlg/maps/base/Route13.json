@@ -57,6 +57,9 @@
     {"side": "north", "to_map": "Route12", "offset": 48},
     {"side": "west", "to_map": "Route14", "offset": 0}
   ],
+  "hidden_items": [
+    {"coord": [23, 14], "item": "pp_up", "quantity": 1, "flag": "FLAG_HIDDEN_ITEM_ROUTE13_PP_UP", "source_bg_event": 3}
+  ],
   "npcs": [
     {
       "name": "picnicker",

@@ -5,6 +5,18 @@
     "decomp_file": "data/maps/SilphCo_4F/map.json",
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
     "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    },
     "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
   },
   "tiles": [
@@ -50,6 +62,15 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [35, 20],
+      "item": "iron",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_4F_IRON",
+      "source_bg_event": 8
+    }
+  ],
   "npcs": [
     {
       "name": "rocket_m",
@@ -86,7 +107,7 @@
       "source_event": 4,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_MAX_REVIVE",
       "source_script": "SilphCo_4F_EventScript_ItemMaxRevive",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "max_revive"
     },
     {
       "name": "item_ball",
@@ -94,7 +115,7 @@
       "source_event": 5,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_ESCAPE_ROPE",
       "source_script": "SilphCo_4F_EventScript_ItemEscapeRope",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "escape_rope"
     },
     {
       "name": "item_ball",
@@ -102,7 +123,7 @@
       "source_event": 6,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_FULL_HEAL",
       "source_script": "SilphCo_4F_EventScript_ItemFullHeal",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "full_heal"
     },
     {
       "name": "item_ball",
@@ -110,7 +131,7 @@
       "source_event": 7,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_TM41",
       "source_script": "SilphCo_4F_EventScript_ItemTM41",
-      "pickup": {"status": "unresolved", "reason": "no pinned identity catalog for this map"}
+      "item": "tm41"
     }
   ]
 }

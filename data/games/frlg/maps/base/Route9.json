@@ -48,6 +48,23 @@
     {"side": "west", "to_map": "CeruleanCity", "offset": -10},
     {"side": "east", "to_map": "Route10", "offset": 0}
   ],
+  "hidden_items": [
+    {"coord": [15, 7], "item": "ether", "quantity": 1, "flag": "FLAG_HIDDEN_ITEM_ROUTE9_ETHER", "source_bg_event": 1},
+    {
+      "coord": [63, 2],
+      "item": "rare_candy",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE9_RARE_CANDY",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [48, 2],
+      "item": "chesto_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE9_CHESTO_BERRY",
+      "source_bg_event": 3
+    }
+  ],
   "npcs": [
     {
       "name": "picnicker",

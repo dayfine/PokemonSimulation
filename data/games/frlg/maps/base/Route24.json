@@ -109,6 +109,15 @@
     {"side": "south", "to_map": "CeruleanCity", "offset": -12},
     {"side": "east", "to_map": "Route25", "offset": 0}
   ],
+  "hidden_items": [
+    {
+      "coord": [19, 4],
+      "item": "pecha_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE24_PECHA_BERRY",
+      "source_bg_event": 0
+    }
+  ],
   "npcs": [
     {
       "name": "man",

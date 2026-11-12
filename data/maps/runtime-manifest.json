@@ -9,11 +9,23 @@
         {
           "name": "CeladonCity",
           "file": "data/games/frlg/maps/runtime/CeladonCity.json",
-          "sha256": "b51072488ab1c1fd1a0399dbe31068cadc1ff16f60fcdab5abc67f3cbded742a",
+          "sha256": "6633a14ec03259b9585e7dc5c1f0b6498edf7b7cc9187e755e8c357b0edcab34",
           "source": {
             "decomp_file": "data/maps/CeladonCity/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -37,7 +49,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CeladonCity.json",
-            "sha256": "b51072488ab1c1fd1a0399dbe31068cadc1ff16f60fcdab5abc67f3cbded742a"
+            "sha256": "6633a14ec03259b9585e7dc5c1f0b6498edf7b7cc9187e755e8c357b0edcab34"
           }
         },
         {
@@ -73,6 +85,158 @@
           "base": {
             "file": "data/games/frlg/maps/base/CeladonCity_Condominiums_1F.json",
             "sha256": "27cf1036870fe6c1a4b3e64fd6c3ac8ed759251489d3292e394297721e0d3dac"
+          }
+        },
+        {
+          "name": "CeladonCity_Condominiums_2F",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_Condominiums_2F.json",
+          "sha256": "0e13f1e9d52cd71480084a4f5fb9ed556b4495f1871b3152c905bedd5f1b721a",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_Condominiums_2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/CeladonCity_Condominiums_2F.json",
+            "sha256": "0e13f1e9d52cd71480084a4f5fb9ed556b4495f1871b3152c905bedd5f1b721a"
+          }
+        },
+        {
+          "name": "CeladonCity_Condominiums_3F",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_Condominiums_3F.json",
+          "sha256": "1f392547d95f3630cc7d0b2a98c2b5c472ce252d940563a9d5679e1175a9bd57",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_Condominiums_3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/CeladonCity_Condominiums_3F.json",
+            "sha256": "1f392547d95f3630cc7d0b2a98c2b5c472ce252d940563a9d5679e1175a9bd57"
+          }
+        },
+        {
+          "name": "CeladonCity_Condominiums_Roof",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_Condominiums_Roof.json",
+          "sha256": "78fe48ef281a2c5fb31671487e94fa80f255c65474f889175f3470ce26985f57",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_Condominiums_Roof/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 14,
+            "height": 23,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/CeladonCity_Condominiums_Roof.json",
+            "sha256": "78fe48ef281a2c5fb31671487e94fa80f255c65474f889175f3470ce26985f57"
+          }
+        },
+        {
+          "name": "CeladonCity_Condominiums_RoofRoom",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_Condominiums_RoofRoom.json",
+          "sha256": "92d1dd5a3c20a6bea7904f9092569dfae0a1cd41e0551993d18fcf434828e234",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_Condominiums_RoofRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 10,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/CeladonCity_Condominiums_RoofRoom.json",
+            "sha256": "92d1dd5a3c20a6bea7904f9092569dfae0a1cd41e0551993d18fcf434828e234"
           }
         },
         {
@@ -148,7 +312,7 @@
         {
           "name": "CeladonCity_GameCorner",
           "file": "data/games/frlg/maps/runtime/CeladonCity_GameCorner.json",
-          "sha256": "8b59cd7d31f3d19e64d3f193ff98f5b8fef7cf5a7fb7149589169ed0e2aa1369",
+          "sha256": "7e74e119a5b91728fdb7030591117cf6f5c21f3bb6914c3dd0bd068ee0c2ab53",
           "source": {
             "decomp_file": "data/maps/CeladonCity_GameCorner/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -177,7 +341,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CeladonCity_GameCorner.json",
-            "sha256": "8b59cd7d31f3d19e64d3f193ff98f5b8fef7cf5a7fb7149589169ed0e2aa1369"
+            "sha256": "7e74e119a5b91728fdb7030591117cf6f5c21f3bb6914c3dd0bd068ee0c2ab53"
           }
         },
         {
@@ -218,7 +382,7 @@
         {
           "name": "CeruleanCave_1F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_1F.json",
-          "sha256": "8d332dcddeb59194751a5cf9b0f534b65b01464b33e06d500f4c1c33ebeb109c",
+          "sha256": "7458c386e4a1db5f212c3890b0e688afb2bd861970fe57873b6919846fe1d15f",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_1F.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCave_1F/map.json",
@@ -264,7 +428,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCave_1F.json",
-            "sha256": "8d332dcddeb59194751a5cf9b0f534b65b01464b33e06d500f4c1c33ebeb109c"
+            "sha256": "7458c386e4a1db5f212c3890b0e688afb2bd861970fe57873b6919846fe1d15f"
           }
         },
         {
@@ -375,7 +539,7 @@
         {
           "name": "CeruleanCity",
           "file": "data/games/frlg/maps/runtime/CeruleanCity.json",
-          "sha256": "4f88ce08515bbb263c39c6444ee53b763851849541c210efa9a974b8cb976700",
+          "sha256": "426d07f97caf3709fc3540f39aacd15dad45a41cb1c7f361f08a51863bc87aa0",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCity/map.json",
@@ -409,7 +573,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCity.json",
-            "sha256": "4f88ce08515bbb263c39c6444ee53b763851849541c210efa9a974b8cb976700"
+            "sha256": "426d07f97caf3709fc3540f39aacd15dad45a41cb1c7f361f08a51863bc87aa0"
           }
         },
         {
@@ -757,7 +921,7 @@
         {
           "name": "FuchsiaCity",
           "file": "data/games/frlg/maps/runtime/FuchsiaCity.json",
-          "sha256": "184ecf31c6b7e7f518f9dce604b376db23b5b9d7f921f0b29d72ba6c5e74009a",
+          "sha256": "62d364f1a93a104ba4583c8325759d1755864d6bdcea412260f0b44d6424bce2",
           "source": {
             "decomp_file": "data/maps/FuchsiaCity/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -785,7 +949,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FuchsiaCity.json",
-            "sha256": "184ecf31c6b7e7f518f9dce604b376db23b5b9d7f921f0b29d72ba6c5e74009a"
+            "sha256": "62d364f1a93a104ba4583c8325759d1755864d6bdcea412260f0b44d6424bce2"
           }
         },
         {
@@ -896,11 +1060,23 @@
         {
           "name": "FuchsiaCity_WardensHouse",
           "file": "data/games/frlg/maps/runtime/FuchsiaCity_WardensHouse.json",
-          "sha256": "70ad1e0c1b4165cc667c7e6e2ee9b98f685d8d0c656e4937ba8c2133540eb3dd",
+          "sha256": "f4f9962f296bc91933dafa281c4cfe7319b7e1909a89cee7b2419acc0d478b0a",
           "source": {
             "decomp_file": "data/maps/FuchsiaCity_WardensHouse/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -925,7 +1101,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FuchsiaCity_WardensHouse.json",
-            "sha256": "70ad1e0c1b4165cc667c7e6e2ee9b98f685d8d0c656e4937ba8c2133540eb3dd"
+            "sha256": "f4f9962f296bc91933dafa281c4cfe7319b7e1909a89cee7b2419acc0d478b0a"
           }
         },
         {
@@ -1204,7 +1380,7 @@
         {
           "name": "MtMoon_B1F",
           "file": "data/games/frlg/maps/runtime/MtMoon_B1F.json",
-          "sha256": "81305b9364d34efd32a40d1a8dd1c5585022497534b7e5171d30b0b7ea322929",
+          "sha256": "077453c3403646a07f22f7739a179cd2420ff3c65466b3a175b4e847c820e0c2",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/MtMoon_B1F.json",
           "source": {
             "decomp_file": "data/maps/MtMoon_B1F/map.json",
@@ -1239,13 +1415,13 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/MtMoon_B1F.json",
-            "sha256": "81305b9364d34efd32a40d1a8dd1c5585022497534b7e5171d30b0b7ea322929"
+            "sha256": "077453c3403646a07f22f7739a179cd2420ff3c65466b3a175b4e847c820e0c2"
           }
         },
         {
           "name": "MtMoon_B2F",
           "file": "data/games/frlg/maps/runtime/MtMoon_B2F.json",
-          "sha256": "22b6a3c1994f2c188e5a8d84a55e20b41376df7c03f6ce36c4c9a0d96fcd5043",
+          "sha256": "436871222dbbc510050074d924debe977f9fa45bfde04a521d0ad8228c2dfafa",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/MtMoon_B2F.json",
           "source": {
             "decomp_file": "data/maps/MtMoon_B2F/map.json",
@@ -1292,7 +1468,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/MtMoon_B2F.json",
-            "sha256": "22b6a3c1994f2c188e5a8d84a55e20b41376df7c03f6ce36c4c9a0d96fcd5043"
+            "sha256": "436871222dbbc510050074d924debe977f9fa45bfde04a521d0ad8228c2dfafa"
           }
         },
         {
@@ -1513,7 +1689,7 @@
         {
           "name": "PewterCity",
           "file": "data/games/frlg/maps/runtime/PewterCity.json",
-          "sha256": "f538cd3276d830fb57a956ffd50e7d723b70324d12be64612cffa916933070a2",
+          "sha256": "3da486c09b14463a00a07f98b0280f62fc88f04b67acc583db456310735327df",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PewterCity.json",
           "source": {
             "decomp_file": "data/maps/PewterCity/map.json",
@@ -1548,7 +1724,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/PewterCity.json",
-            "sha256": "f538cd3276d830fb57a956ffd50e7d723b70324d12be64612cffa916933070a2"
+            "sha256": "3da486c09b14463a00a07f98b0280f62fc88f04b67acc583db456310735327df"
           }
         },
         {
@@ -1926,11 +2102,23 @@
         {
           "name": "PokemonMansion_1F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_1F.json",
-          "sha256": "0f902c1a0477e5ef17535572b48749026eac6d92250d97bacca3939f0143d5e3",
+          "sha256": "bdc673a1995e3538f1f0ada53daaaee3bbad787bebde3609ffe4bd97442f69ea",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -1955,17 +2143,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_1F.json",
-            "sha256": "0f902c1a0477e5ef17535572b48749026eac6d92250d97bacca3939f0143d5e3"
+            "sha256": "bdc673a1995e3538f1f0ada53daaaee3bbad787bebde3609ffe4bd97442f69ea"
           }
         },
         {
           "name": "PokemonMansion_2F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_2F.json",
-          "sha256": "a5c43cb0b06c242564977fa1ffcf12540cdb544d1cced6e106cc0621d2e43bda",
+          "sha256": "51255919e7d98f9d46a48a1683038f7820b564ffd03bdde76570a5f619ccbf6f",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
           },
           "target_game": "frlg",
@@ -1990,17 +2190,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_2F.json",
-            "sha256": "a5c43cb0b06c242564977fa1ffcf12540cdb544d1cced6e106cc0621d2e43bda"
+            "sha256": "51255919e7d98f9d46a48a1683038f7820b564ffd03bdde76570a5f619ccbf6f"
           }
         },
         {
           "name": "PokemonMansion_3F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_3F.json",
-          "sha256": "eb8933459f18412887d4225252d2f2f75907feae443301b41bf4122aeb0ca7b6",
+          "sha256": "3c5593079ea95fd343dbaeb50c8ba86009044317d56acdbd7d108e726e8f6563",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2025,17 +2237,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_3F.json",
-            "sha256": "eb8933459f18412887d4225252d2f2f75907feae443301b41bf4122aeb0ca7b6"
+            "sha256": "3c5593079ea95fd343dbaeb50c8ba86009044317d56acdbd7d108e726e8f6563"
           }
         },
         {
           "name": "PokemonMansion_B1F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_B1F.json",
-          "sha256": "91118982533aa4fd3a466f7307f40684eb68e91e7fbebeb0f69309fd22598242",
+          "sha256": "12bdce0ec034c062d31fb5525487c5aa7859494c40b28758797d11186a0b3435",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_B1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
           },
           "target_game": "frlg",
@@ -2060,7 +2284,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_B1F.json",
-            "sha256": "91118982533aa4fd3a466f7307f40684eb68e91e7fbebeb0f69309fd22598242"
+            "sha256": "12bdce0ec034c062d31fb5525487c5aa7859494c40b28758797d11186a0b3435"
           }
         },
         {
@@ -2136,11 +2360,23 @@
         {
           "name": "PokemonTower_3F",
           "file": "data/games/frlg/maps/runtime/PokemonTower_3F.json",
-          "sha256": "3e6fa212fcd1008070e3717c60c19ae7dc08346ed0eb15a907a885b28f702424",
+          "sha256": "113d590d8aac5fcd4b729067ba675be7c7f2c8cbf96c87bc53c44344c55f3ff3",
           "source": {
             "decomp_file": "data/maps/PokemonTower_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2165,17 +2401,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonTower_3F.json",
-            "sha256": "3e6fa212fcd1008070e3717c60c19ae7dc08346ed0eb15a907a885b28f702424"
+            "sha256": "113d590d8aac5fcd4b729067ba675be7c7f2c8cbf96c87bc53c44344c55f3ff3"
           }
         },
         {
           "name": "PokemonTower_4F",
           "file": "data/games/frlg/maps/runtime/PokemonTower_4F.json",
-          "sha256": "5a42669d864f896c04ef0446c0f3e59409d9882a1eafb43abd9f8018e449a02f",
+          "sha256": "090c8b1ac05c1bda1903392cd5152780b799650d057538b456c0ef43aa515e15",
           "source": {
             "decomp_file": "data/maps/PokemonTower_4F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2200,17 +2448,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonTower_4F.json",
-            "sha256": "5a42669d864f896c04ef0446c0f3e59409d9882a1eafb43abd9f8018e449a02f"
+            "sha256": "090c8b1ac05c1bda1903392cd5152780b799650d057538b456c0ef43aa515e15"
           }
         },
         {
           "name": "PokemonTower_5F",
           "file": "data/games/frlg/maps/runtime/PokemonTower_5F.json",
-          "sha256": "ce6771fbc71a673718e6152e3b137f297b06238d76f002160adc2ffd8ee1511a",
+          "sha256": "8098291f9d1650ea9d7e60c3efd00af762c7a238b0bb05f4a7ba9155f756e1e7",
           "source": {
             "decomp_file": "data/maps/PokemonTower_5F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2235,17 +2495,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonTower_5F.json",
-            "sha256": "ce6771fbc71a673718e6152e3b137f297b06238d76f002160adc2ffd8ee1511a"
+            "sha256": "8098291f9d1650ea9d7e60c3efd00af762c7a238b0bb05f4a7ba9155f756e1e7"
           }
         },
         {
           "name": "PokemonTower_6F",
           "file": "data/games/frlg/maps/runtime/PokemonTower_6F.json",
-          "sha256": "777067e79c1269c3f9e97b9cf88569654608fbd49ff4170bbc41b223306039b1",
+          "sha256": "9ac73990f3bc64b831a471981a8e58e24561333e8e5c971cb6b3f425acd087dc",
           "source": {
             "decomp_file": "data/maps/PokemonTower_6F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2270,13 +2542,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonTower_6F.json",
-            "sha256": "777067e79c1269c3f9e97b9cf88569654608fbd49ff4170bbc41b223306039b1"
+            "sha256": "9ac73990f3bc64b831a471981a8e58e24561333e8e5c971cb6b3f425acd087dc"
           }
         },
         {
           "name": "PokemonTower_7F",
           "file": "data/games/frlg/maps/runtime/PokemonTower_7F.json",
-          "sha256": "0803896aa56b4a50adda36265946b3307d46d89dab45b3caa8eaae684578259e",
+          "sha256": "55c20692690c392dea1d1fc900849b6ab592646b7877d8690108f4cf4adb4a84",
           "source": {
             "decomp_file": "data/maps/PokemonTower_7F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2305,7 +2577,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonTower_7F.json",
-            "sha256": "0803896aa56b4a50adda36265946b3307d46d89dab45b3caa8eaae684578259e"
+            "sha256": "55c20692690c392dea1d1fc900849b6ab592646b7877d8690108f4cf4adb4a84"
           }
         },
         {
@@ -2417,11 +2689,23 @@
         {
           "name": "RocketHideout_B1F",
           "file": "data/games/frlg/maps/runtime/RocketHideout_B1F.json",
-          "sha256": "8d1897c7b8f026e4f4b0a417cff3253de276f06564c820e13f931ff900b3e13e",
+          "sha256": "5efa59c439056d4378ae0144feeb5409befc5a303a2a1274af3c8226e8a69b5a",
           "source": {
             "decomp_file": "data/maps/RocketHideout_B1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2446,17 +2730,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/RocketHideout_B1F.json",
-            "sha256": "8d1897c7b8f026e4f4b0a417cff3253de276f06564c820e13f931ff900b3e13e"
+            "sha256": "5efa59c439056d4378ae0144feeb5409befc5a303a2a1274af3c8226e8a69b5a"
           }
         },
         {
           "name": "RocketHideout_B2F",
           "file": "data/games/frlg/maps/runtime/RocketHideout_B2F.json",
-          "sha256": "7ea39b70a18ceaf19a4b520ab451413e8d641ec691e67690147cfbb3b376ef2d",
+          "sha256": "70a63825b8e2f3ba83822eb525ae9d7d22a7ce2599e23b8c5749a33db52fef8b",
           "source": {
             "decomp_file": "data/maps/RocketHideout_B2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2481,17 +2777,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/RocketHideout_B2F.json",
-            "sha256": "7ea39b70a18ceaf19a4b520ab451413e8d641ec691e67690147cfbb3b376ef2d"
+            "sha256": "70a63825b8e2f3ba83822eb525ae9d7d22a7ce2599e23b8c5749a33db52fef8b"
           }
         },
         {
           "name": "RocketHideout_B3F",
           "file": "data/games/frlg/maps/runtime/RocketHideout_B3F.json",
-          "sha256": "d0ee7d2bc9f5a495596d4ca8baa3def58124dfbb7db906153f20fb8ac1a1ba10",
+          "sha256": "359ae7b7d54540ec8bd236b742517eeffc2dbf762f7b9c155097dccca577bbbb",
           "source": {
             "decomp_file": "data/maps/RocketHideout_B3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2516,17 +2824,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/RocketHideout_B3F.json",
-            "sha256": "d0ee7d2bc9f5a495596d4ca8baa3def58124dfbb7db906153f20fb8ac1a1ba10"
+            "sha256": "359ae7b7d54540ec8bd236b742517eeffc2dbf762f7b9c155097dccca577bbbb"
           }
         },
         {
           "name": "RocketHideout_B4F",
           "file": "data/games/frlg/maps/runtime/RocketHideout_B4F.json",
-          "sha256": "b85e958778de96c0ee99a024f0ae77ad988cbf251cb8b5a423dd016660cb4a50",
+          "sha256": "a7446111428a83b09fdc76d090074e8a9a9ad24adf9909ebacba46dc29fb4048",
           "source": {
             "decomp_file": "data/maps/RocketHideout_B4F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2551,7 +2871,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/RocketHideout_B4F.json",
-            "sha256": "b85e958778de96c0ee99a024f0ae77ad988cbf251cb8b5a423dd016660cb4a50"
+            "sha256": "a7446111428a83b09fdc76d090074e8a9a9ad24adf9909ebacba46dc29fb4048"
           }
         },
         {
@@ -2598,7 +2918,7 @@
         {
           "name": "Route10",
           "file": "data/games/frlg/maps/runtime/Route10.json",
-          "sha256": "50f909fb818cd373673816732e8391e132dde685babbe486493cab113b1b9807",
+          "sha256": "af453e3bd0656a54e973328781e28e6ce3db53f4671cd334f4c66ef33d655983",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route10.json",
           "source": {
             "decomp_file": "data/maps/Route10/map.json",
@@ -2632,7 +2952,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route10.json",
-            "sha256": "50f909fb818cd373673816732e8391e132dde685babbe486493cab113b1b9807"
+            "sha256": "af453e3bd0656a54e973328781e28e6ce3db53f4671cd334f4c66ef33d655983"
           }
         },
         {
@@ -2678,11 +2998,23 @@
         {
           "name": "Route11",
           "file": "data/games/frlg/maps/runtime/Route11.json",
-          "sha256": "84c79337b3911280f98c7200894fabfe67f865e5bbfdd1c0469f057d38ece38c",
+          "sha256": "8985056f969c0686850ad7c18e8f8bb2320b1785fc85aa1d2f273f134b69410e",
           "source": {
             "decomp_file": "data/maps/Route11/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -2706,7 +3038,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route11.json",
-            "sha256": "84c79337b3911280f98c7200894fabfe67f865e5bbfdd1c0469f057d38ece38c"
+            "sha256": "8985056f969c0686850ad7c18e8f8bb2320b1785fc85aa1d2f273f134b69410e"
           }
         },
         {
@@ -2747,11 +3079,23 @@
         {
           "name": "Route12",
           "file": "data/games/frlg/maps/runtime/Route12.json",
-          "sha256": "40f89d8728bd23d56f62df78ee4ccc750a2c01ce284cb04746d475846e43a664",
+          "sha256": "51774cdd0864d955138cd4d2d3372246689da65c3bf4d081a9f82c906c604632",
           "source": {
             "decomp_file": "data/maps/Route12/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -2775,7 +3119,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route12.json",
-            "sha256": "40f89d8728bd23d56f62df78ee4ccc750a2c01ce284cb04746d475846e43a664"
+            "sha256": "51774cdd0864d955138cd4d2d3372246689da65c3bf4d081a9f82c906c604632"
           }
         },
         {
@@ -2816,7 +3160,7 @@
         {
           "name": "Route13",
           "file": "data/games/frlg/maps/runtime/Route13.json",
-          "sha256": "6f8d729f418cb2a862704c56791d558b9b2a8b4a1c143f21894a7b6613e7e91c",
+          "sha256": "10559906dbaeab29029051c822f06e3fcc8a5af71ab4fc298b81fb80872208cd",
           "source": {
             "decomp_file": "data/maps/Route13/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2844,13 +3188,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route13.json",
-            "sha256": "6f8d729f418cb2a862704c56791d558b9b2a8b4a1c143f21894a7b6613e7e91c"
+            "sha256": "10559906dbaeab29029051c822f06e3fcc8a5af71ab4fc298b81fb80872208cd"
           }
         },
         {
           "name": "Route14",
           "file": "data/games/frlg/maps/runtime/Route14.json",
-          "sha256": "8b9cbb41c97eeef84b40efe42c1d160da65e42d55f573fe05a6c0a30fb71fcde",
+          "sha256": "2c7a2ca34580235a380e02fa981ea4fe4f281393df916b2871b60634cff52b07",
           "source": {
             "decomp_file": "data/maps/Route14/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2878,17 +3222,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route14.json",
-            "sha256": "8b9cbb41c97eeef84b40efe42c1d160da65e42d55f573fe05a6c0a30fb71fcde"
+            "sha256": "2c7a2ca34580235a380e02fa981ea4fe4f281393df916b2871b60634cff52b07"
           }
         },
         {
           "name": "Route15",
           "file": "data/games/frlg/maps/runtime/Route15.json",
-          "sha256": "c75c4abc6c0fb9585c3ebd302ffb7c7ea747fbdac1703943c84e5182470242ce",
+          "sha256": "58fb4669653f07fe3e9ab4a98c302de2e617b11abb8f017d5a0a932cfd186995",
           "source": {
             "decomp_file": "data/maps/Route15/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -2913,7 +3269,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route15.json",
-            "sha256": "c75c4abc6c0fb9585c3ebd302ffb7c7ea747fbdac1703943c84e5182470242ce"
+            "sha256": "58fb4669653f07fe3e9ab4a98c302de2e617b11abb8f017d5a0a932cfd186995"
           }
         },
         {
@@ -2954,7 +3310,7 @@
         {
           "name": "Route16",
           "file": "data/games/frlg/maps/runtime/Route16.json",
-          "sha256": "700428e5b7c291ef6e37f473e73d334fa24201e3a3f2cbc36aba784de6323089",
+          "sha256": "642273d4824f60c6c78953691c398b2f6522c8a15f91cdd9f0b745e5ecf9d563",
           "source": {
             "decomp_file": "data/maps/Route16/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2982,7 +3338,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route16.json",
-            "sha256": "700428e5b7c291ef6e37f473e73d334fa24201e3a3f2cbc36aba784de6323089"
+            "sha256": "642273d4824f60c6c78953691c398b2f6522c8a15f91cdd9f0b745e5ecf9d563"
           }
         },
         {
@@ -3214,7 +3570,7 @@
         {
           "name": "Route20",
           "file": "data/games/frlg/maps/runtime/Route20.json",
-          "sha256": "2453ea45b8a3b4a1e054add1ad45209811b598edaa7a8cd8e945904252cb2093",
+          "sha256": "3afd0264694c0635dbb2f719a0c24b700923930f2a3a7cc6c6b3fcd59136b46e",
           "source": {
             "decomp_file": "data/maps/Route20/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3242,13 +3598,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route20.json",
-            "sha256": "2453ea45b8a3b4a1e054add1ad45209811b598edaa7a8cd8e945904252cb2093"
+            "sha256": "3afd0264694c0635dbb2f719a0c24b700923930f2a3a7cc6c6b3fcd59136b46e"
           }
         },
         {
           "name": "Route21_North",
           "file": "data/games/frlg/maps/runtime/Route21_North.json",
-          "sha256": "daba49354f11915748e3d904198b117d9d220689a128f33598413aeed23c2fd6",
+          "sha256": "1ce912066dafdcf2b718ca4a883f766fc8889ef25a6be90c5ed63bd45619a7bd",
           "source": {
             "decomp_file": "data/maps/Route21_North/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3276,7 +3632,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route21_North.json",
-            "sha256": "daba49354f11915748e3d904198b117d9d220689a128f33598413aeed23c2fd6"
+            "sha256": "1ce912066dafdcf2b718ca4a883f766fc8889ef25a6be90c5ed63bd45619a7bd"
           }
         },
         {
@@ -3391,7 +3747,7 @@
         {
           "name": "Route23",
           "file": "data/games/frlg/maps/runtime/Route23.json",
-          "sha256": "08e44bf9a53813e6a3617e578e5c6a8de0f53ba17ca629b6a3932a4eef0661f8",
+          "sha256": "1e5fa20896fa8c8750a1306ff12e5ba5b319e24a69803a9b6011210b387da94f",
           "source": {
             "decomp_file": "data/maps/Route23/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3419,13 +3775,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route23.json",
-            "sha256": "08e44bf9a53813e6a3617e578e5c6a8de0f53ba17ca629b6a3932a4eef0661f8"
+            "sha256": "1e5fa20896fa8c8750a1306ff12e5ba5b319e24a69803a9b6011210b387da94f"
           }
         },
         {
           "name": "Route24",
           "file": "data/games/frlg/maps/runtime/Route24.json",
-          "sha256": "3b530da5b8923bc43513f5785d9010d6029f10d6bc0d38539f5c48e962e0027e",
+          "sha256": "e21b18485d4228270dded4a5a87db82237ad8b2ea14eb26171e6861af70dc211",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route24.json",
           "source": {
             "decomp_file": "data/maps/Route24/map.json",
@@ -3471,13 +3827,13 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route24.json",
-            "sha256": "3b530da5b8923bc43513f5785d9010d6029f10d6bc0d38539f5c48e962e0027e"
+            "sha256": "e21b18485d4228270dded4a5a87db82237ad8b2ea14eb26171e6861af70dc211"
           }
         },
         {
           "name": "Route25",
           "file": "data/games/frlg/maps/runtime/Route25.json",
-          "sha256": "df5350e4003e5ceeda017a5918b7b93ed960f045febc0a7727e56a17a3768f63",
+          "sha256": "41a94d698a61e9dfb65f4dec050117fcb0bb9c07a497e8fdc14921672a48091c",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route25.json",
           "source": {
             "decomp_file": "data/maps/Route25/map.json",
@@ -3523,7 +3879,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route25.json",
-            "sha256": "df5350e4003e5ceeda017a5918b7b93ed960f045febc0a7727e56a17a3768f63"
+            "sha256": "41a94d698a61e9dfb65f4dec050117fcb0bb9c07a497e8fdc14921672a48091c"
           }
         },
         {
@@ -3687,7 +4043,7 @@
         {
           "name": "Route3",
           "file": "data/games/frlg/maps/runtime/Route3.json",
-          "sha256": "5a896b30f51be20ba15adda28fc1c609d8453e1556d004c45778697262563b99",
+          "sha256": "8ce68fdb7cbcb30dd60c671c3e9f409f8b1479a5f39d859cdd1913ee83e19aa3",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route3.json",
           "source": {
             "decomp_file": "data/maps/Route3/map.json",
@@ -3722,13 +4078,13 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route3.json",
-            "sha256": "5a896b30f51be20ba15adda28fc1c609d8453e1556d004c45778697262563b99"
+            "sha256": "8ce68fdb7cbcb30dd60c671c3e9f409f8b1479a5f39d859cdd1913ee83e19aa3"
           }
         },
         {
           "name": "Route4",
           "file": "data/games/frlg/maps/runtime/Route4.json",
-          "sha256": "f0ee8ee46dcb322a11dc333dd8e8ae2a81545980ce61f3844c5e7ad5668a64ab",
+          "sha256": "0ec479fa8542b6da3af790d42d778df6b185806cf15efe9d7232019b7b180ded",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route4.json",
           "source": {
             "decomp_file": "data/maps/Route4/map.json",
@@ -3774,7 +4130,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route4.json",
-            "sha256": "f0ee8ee46dcb322a11dc333dd8e8ae2a81545980ce61f3844c5e7ad5668a64ab"
+            "sha256": "0ec479fa8542b6da3af790d42d778df6b185806cf15efe9d7232019b7b180ded"
           }
         },
         {
@@ -3896,7 +4252,7 @@
         {
           "name": "Route6",
           "file": "data/games/frlg/maps/runtime/Route6.json",
-          "sha256": "05b650326081afe6d023a07efd5242d4e56408b69e229e0402639cacc8bc1da9",
+          "sha256": "b0a250b98c319cd9ed328c0057d2cb4d742b783a1d7296c11aaa2777a8bf1628",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route6.json",
           "source": {
             "decomp_file": "data/maps/Route6/map.json",
@@ -3930,7 +4286,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route6.json",
-            "sha256": "05b650326081afe6d023a07efd5242d4e56408b69e229e0402639cacc8bc1da9"
+            "sha256": "b0a250b98c319cd9ed328c0057d2cb4d742b783a1d7296c11aaa2777a8bf1628"
           }
         },
         {
@@ -3971,7 +4327,7 @@
         {
           "name": "Route7",
           "file": "data/games/frlg/maps/runtime/Route7.json",
-          "sha256": "15367d31f80ff26dd8ae7e59e77f427968ec8d0ef6af981a7125d797715fc8e7",
+          "sha256": "9126020b446d2de12a03c23209b68c911d56537ea6a0098fae9cc8e57c7be2c4",
           "source": {
             "decomp_file": "data/maps/Route7/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -4000,7 +4356,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route7.json",
-            "sha256": "15367d31f80ff26dd8ae7e59e77f427968ec8d0ef6af981a7125d797715fc8e7"
+            "sha256": "9126020b446d2de12a03c23209b68c911d56537ea6a0098fae9cc8e57c7be2c4"
           }
         },
         {
@@ -4041,7 +4397,7 @@
         {
           "name": "Route8",
           "file": "data/games/frlg/maps/runtime/Route8.json",
-          "sha256": "38825b483e5aba71f37133af8b2acd79e3fe87e9bdaa9617669e48c1238f5ea8",
+          "sha256": "bf715f82fb2edb389e4fbc1cf5ccb542629ef05d9762fd08bb1dc877af90dd98",
           "source": {
             "decomp_file": "data/maps/Route8/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -4070,7 +4426,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route8.json",
-            "sha256": "38825b483e5aba71f37133af8b2acd79e3fe87e9bdaa9617669e48c1238f5ea8"
+            "sha256": "bf715f82fb2edb389e4fbc1cf5ccb542629ef05d9762fd08bb1dc877af90dd98"
           }
         },
         {
@@ -4111,7 +4467,7 @@
         {
           "name": "Route9",
           "file": "data/games/frlg/maps/runtime/Route9.json",
-          "sha256": "f1c7f5c9a3d402ef73c09c5967300df43165438d5bb700c7cfec95a151ccac70",
+          "sha256": "19d388a37d42126b5069e341b75c3b86a37a86b4b927c88a25b22dc37b57ed33",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route9.json",
           "source": {
             "decomp_file": "data/maps/Route9/map.json",
@@ -4158,7 +4514,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route9.json",
-            "sha256": "f1c7f5c9a3d402ef73c09c5967300df43165438d5bb700c7cfec95a151ccac70"
+            "sha256": "19d388a37d42126b5069e341b75c3b86a37a86b4b927c88a25b22dc37b57ed33"
           }
         },
         {
@@ -4322,7 +4678,7 @@
         {
           "name": "SSAnne_Exterior",
           "file": "data/games/frlg/maps/runtime/SSAnne_Exterior.json",
-          "sha256": "cd9e68c2b4707f702686de0e72bf3b6b3e8d18797e957152847f0a703bdf0e55",
+          "sha256": "8ee5bcbd226117f67b36c02c8ca0f68378a54c7b7b23edee7126a6a8a97700f9",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/SSAnne_Exterior.json",
           "source": {
             "decomp_file": "data/maps/SSAnne_Exterior/map.json",
@@ -4356,17 +4712,29 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/SSAnne_Exterior.json",
-            "sha256": "cd9e68c2b4707f702686de0e72bf3b6b3e8d18797e957152847f0a703bdf0e55"
+            "sha256": "8ee5bcbd226117f67b36c02c8ca0f68378a54c7b7b23edee7126a6a8a97700f9"
           }
         },
         {
           "name": "SafariZone_Center",
           "file": "data/games/frlg/maps/runtime/SafariZone_Center.json",
-          "sha256": "4d39fb7c4ae808582ab021109da23e7cffbc4aba2740634032f17371c40aa89b",
+          "sha256": "75ad570841fe2df3648207e07c8ec05f96efff64293a4640450afafa975e8df9",
           "source": {
             "decomp_file": "data/maps/SafariZone_Center/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -4390,17 +4758,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SafariZone_Center.json",
-            "sha256": "4d39fb7c4ae808582ab021109da23e7cffbc4aba2740634032f17371c40aa89b"
+            "sha256": "75ad570841fe2df3648207e07c8ec05f96efff64293a4640450afafa975e8df9"
           }
         },
         {
           "name": "SafariZone_East",
           "file": "data/games/frlg/maps/runtime/SafariZone_East.json",
-          "sha256": "b0f95e65b2fc5452e13ccd5c76e444112c9eed30781616dc103a7577e9f1ddde",
+          "sha256": "22af9e8f3756fed93e5d83cb230a630472ca900dc96a652da964768d9ea2ef69",
           "source": {
             "decomp_file": "data/maps/SafariZone_East/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -4424,17 +4804,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SafariZone_East.json",
-            "sha256": "b0f95e65b2fc5452e13ccd5c76e444112c9eed30781616dc103a7577e9f1ddde"
+            "sha256": "22af9e8f3756fed93e5d83cb230a630472ca900dc96a652da964768d9ea2ef69"
           }
         },
         {
           "name": "SafariZone_North",
           "file": "data/games/frlg/maps/runtime/SafariZone_North.json",
-          "sha256": "afb1fb89688fe98bfd9b793f538f5d54b9eee514d9531d3c8d058cbb4ca2a5a6",
+          "sha256": "0681ec6efd7a9b500c742d6a141f7deff710c428c7cb3a3f330b96e740ac9497",
           "source": {
             "decomp_file": "data/maps/SafariZone_North/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -4458,7 +4850,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SafariZone_North.json",
-            "sha256": "afb1fb89688fe98bfd9b793f538f5d54b9eee514d9531d3c8d058cbb4ca2a5a6"
+            "sha256": "0681ec6efd7a9b500c742d6a141f7deff710c428c7cb3a3f330b96e740ac9497"
           }
         },
         {
@@ -4499,11 +4891,23 @@
         {
           "name": "SafariZone_West",
           "file": "data/games/frlg/maps/runtime/SafariZone_West.json",
-          "sha256": "6e93013a6bb5d0240d1c95fb15129c67e34ecfe8b731bd78895053dde545ebb1",
+          "sha256": "2ca760fc952fbcc4649bae18d556a693d1a0602103192be348ccf08c96233100",
           "source": {
             "decomp_file": "data/maps/SafariZone_West/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -4527,7 +4931,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SafariZone_West.json",
-            "sha256": "6e93013a6bb5d0240d1c95fb15129c67e34ecfe8b731bd78895053dde545ebb1"
+            "sha256": "2ca760fc952fbcc4649bae18d556a693d1a0602103192be348ccf08c96233100"
           }
         },
         {
@@ -4673,11 +5077,23 @@
         {
           "name": "SilphCo_10F",
           "file": "data/games/frlg/maps/runtime/SilphCo_10F.json",
-          "sha256": "1e37a45e3eb6b23651132c7f1b5e1652db6c58c555cc8c14c85650bfd5c8d2d3",
+          "sha256": "702d5f95c4ec88c3222f3fc377c397b7b597bbbb9599555db6bbc434c1ba2d38",
           "source": {
             "decomp_file": "data/maps/SilphCo_10F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -4702,17 +5118,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_10F.json",
-            "sha256": "1e37a45e3eb6b23651132c7f1b5e1652db6c58c555cc8c14c85650bfd5c8d2d3"
+            "sha256": "702d5f95c4ec88c3222f3fc377c397b7b597bbbb9599555db6bbc434c1ba2d38"
           }
         },
         {
           "name": "SilphCo_11F",
           "file": "data/games/frlg/maps/runtime/SilphCo_11F.json",
-          "sha256": "86d778cd24a1fb610f6f23fb5bc4ae24ff717efa05bce30b75cad0a1a96d2c19",
+          "sha256": "127d4f75a19af22616187a464cc8571915848ea18ff3b179e97db339521ffa18",
           "source": {
             "decomp_file": "data/maps/SilphCo_11F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -4737,7 +5165,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_11F.json",
-            "sha256": "86d778cd24a1fb610f6f23fb5bc4ae24ff717efa05bce30b75cad0a1a96d2c19"
+            "sha256": "127d4f75a19af22616187a464cc8571915848ea18ff3b179e97db339521ffa18"
           }
         },
         {
@@ -4778,7 +5206,7 @@
         {
           "name": "SilphCo_2F",
           "file": "data/games/frlg/maps/runtime/SilphCo_2F.json",
-          "sha256": "79361bd28d6954b951be4aa5c9c06a911fbc49e783e952912e9674218037da51",
+          "sha256": "c339277b33b3a43cdf1fecfddc4a7d74d92ed53040011310e1d43421f7c2cb2e",
           "source": {
             "decomp_file": "data/maps/SilphCo_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -4807,17 +5235,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_2F.json",
-            "sha256": "79361bd28d6954b951be4aa5c9c06a911fbc49e783e952912e9674218037da51"
+            "sha256": "c339277b33b3a43cdf1fecfddc4a7d74d92ed53040011310e1d43421f7c2cb2e"
           }
         },
         {
           "name": "SilphCo_3F",
           "file": "data/games/frlg/maps/runtime/SilphCo_3F.json",
-          "sha256": "c8126c1141382299f587ca88a8651c5f354913ed33db1d753db18ddae256c44f",
+          "sha256": "28cdc29b3323462dc9ed6fc2d67879cb5b9f8b4d88db9894989d8eaf603e84a8",
           "source": {
             "decomp_file": "data/maps/SilphCo_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -4842,17 +5282,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_3F.json",
-            "sha256": "c8126c1141382299f587ca88a8651c5f354913ed33db1d753db18ddae256c44f"
+            "sha256": "28cdc29b3323462dc9ed6fc2d67879cb5b9f8b4d88db9894989d8eaf603e84a8"
           }
         },
         {
           "name": "SilphCo_4F",
           "file": "data/games/frlg/maps/runtime/SilphCo_4F.json",
-          "sha256": "7a373dad263678f4291877655fe5bc000574713b5add6e428ab5183d623445f0",
+          "sha256": "8e71a62e4becf113925fa3784ddc8060ead96f78418776cbe6bd4d78152c1fe4",
           "source": {
             "decomp_file": "data/maps/SilphCo_4F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -4877,17 +5329,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_4F.json",
-            "sha256": "7a373dad263678f4291877655fe5bc000574713b5add6e428ab5183d623445f0"
+            "sha256": "8e71a62e4becf113925fa3784ddc8060ead96f78418776cbe6bd4d78152c1fe4"
           }
         },
         {
           "name": "SilphCo_5F",
           "file": "data/games/frlg/maps/runtime/SilphCo_5F.json",
-          "sha256": "93ecb143de01a2c2a3d618f5681e2ae5a48d59c699444ea5bcef6da5ecf93058",
+          "sha256": "c4af655b1785f7ff039e9b08c32e3b8eb39f52ad0abab1944879e16fc0ce9f6b",
           "source": {
             "decomp_file": "data/maps/SilphCo_5F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -4912,17 +5376,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_5F.json",
-            "sha256": "93ecb143de01a2c2a3d618f5681e2ae5a48d59c699444ea5bcef6da5ecf93058"
+            "sha256": "c4af655b1785f7ff039e9b08c32e3b8eb39f52ad0abab1944879e16fc0ce9f6b"
           }
         },
         {
           "name": "SilphCo_6F",
           "file": "data/games/frlg/maps/runtime/SilphCo_6F.json",
-          "sha256": "8adefa9bb1543f3f64a7cbe18c468710e4f1fde282010549f44ca80251798109",
+          "sha256": "c1562d65d3e8d535f0a8633b4f93ee5eb83a706f42c4445a4200c1d754f7dcf0",
           "source": {
             "decomp_file": "data/maps/SilphCo_6F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -4947,17 +5423,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_6F.json",
-            "sha256": "8adefa9bb1543f3f64a7cbe18c468710e4f1fde282010549f44ca80251798109"
+            "sha256": "c1562d65d3e8d535f0a8633b4f93ee5eb83a706f42c4445a4200c1d754f7dcf0"
           }
         },
         {
           "name": "SilphCo_7F",
           "file": "data/games/frlg/maps/runtime/SilphCo_7F.json",
-          "sha256": "d4a9f54f5e50ba64eb847e9f6c7758bed7aca6248cf6e65c7f30e4627b7a5953",
+          "sha256": "8ed1336aa8f54a5a53f3c25662d3e6addcd7bdc085504a1cadc545d8d1cdd061",
           "source": {
             "decomp_file": "data/maps/SilphCo_7F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
             "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
           },
           "target_game": "frlg",
@@ -4982,17 +5470,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_7F.json",
-            "sha256": "d4a9f54f5e50ba64eb847e9f6c7758bed7aca6248cf6e65c7f30e4627b7a5953"
+            "sha256": "8ed1336aa8f54a5a53f3c25662d3e6addcd7bdc085504a1cadc545d8d1cdd061"
           }
         },
         {
           "name": "SilphCo_8F",
           "file": "data/games/frlg/maps/runtime/SilphCo_8F.json",
-          "sha256": "c40ad044f00a70728cb977863382f417086bfc688ac8f9d670e6d752991aa228",
+          "sha256": "a881dbf229ac2ef6274129f93140ec4cc488370fc208b1368d92329ff64d0590",
           "source": {
             "decomp_file": "data/maps/SilphCo_8F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5016,13 +5516,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_8F.json",
-            "sha256": "c40ad044f00a70728cb977863382f417086bfc688ac8f9d670e6d752991aa228"
+            "sha256": "a881dbf229ac2ef6274129f93140ec4cc488370fc208b1368d92329ff64d0590"
           }
         },
         {
           "name": "SilphCo_9F",
           "file": "data/games/frlg/maps/runtime/SilphCo_9F.json",
-          "sha256": "824eac5434aea0a465f31140fd715fff32b7c7f7eb62b0942905a122af4a6b5a",
+          "sha256": "bba5f6da6a35c46e884543069c3d46ee708ff8a4c12d23860a884dcf433ff4e6",
           "source": {
             "decomp_file": "data/maps/SilphCo_9F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5050,7 +5550,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SilphCo_9F.json",
-            "sha256": "824eac5434aea0a465f31140fd715fff32b7c7f7eb62b0942905a122af4a6b5a"
+            "sha256": "bba5f6da6a35c46e884543069c3d46ee708ff8a4c12d23860a884dcf433ff4e6"
           }
         },
         {
@@ -5091,7 +5591,7 @@
         {
           "name": "UndergroundPath_EastWestTunnel",
           "file": "data/games/frlg/maps/runtime/UndergroundPath_EastWestTunnel.json",
-          "sha256": "5c74f213da3d57de65e9b088ad4ba74efd7894de6c7198b85b6c99ebc58fca30",
+          "sha256": "73e74aeb591936f9d9fe310c98d26e8352f8b08491eda64d809b2b3afa6d7c9c",
           "source": {
             "decomp_file": "data/maps/UndergroundPath_EastWestTunnel/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5120,7 +5620,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/UndergroundPath_EastWestTunnel.json",
-            "sha256": "5c74f213da3d57de65e9b088ad4ba74efd7894de6c7198b85b6c99ebc58fca30"
+            "sha256": "73e74aeb591936f9d9fe310c98d26e8352f8b08491eda64d809b2b3afa6d7c9c"
           }
         },
         {
@@ -5167,7 +5667,7 @@
         {
           "name": "UndergroundPath_NorthSouthTunnel",
           "file": "data/games/frlg/maps/runtime/UndergroundPath_NorthSouthTunnel.json",
-          "sha256": "32a740f26ab1811406f6f6283c120ebb1186f90d5ad657a8d4bb499dae93fcea",
+          "sha256": "e6781291cc01407025d7457272e1ec59eaac4b205676e20e636748d75a605ba5",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/UndergroundPath_NorthSouthTunnel.json",
           "source": {
             "decomp_file": "data/maps/UndergroundPath_NorthSouthTunnel/map.json",
@@ -5202,7 +5702,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/UndergroundPath_NorthSouthTunnel.json",
-            "sha256": "32a740f26ab1811406f6f6283c120ebb1186f90d5ad657a8d4bb499dae93fcea"
+            "sha256": "e6781291cc01407025d7457272e1ec59eaac4b205676e20e636748d75a605ba5"
           }
         },
         {
@@ -5284,7 +5784,7 @@
         {
           "name": "VermilionCity",
           "file": "data/games/frlg/maps/runtime/VermilionCity.json",
-          "sha256": "18d4ecb06eabac6595183f67aa8b2c995b2ceb7ab50dc47094190d39d9a1d28d",
+          "sha256": "17fb9d8720426e05491b1a3fbea8c2e2ec6fb9a3974f182534c6d1ba42ed7333",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/VermilionCity.json",
           "source": {
             "decomp_file": "data/maps/VermilionCity/map.json",
@@ -5318,7 +5818,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/VermilionCity.json",
-            "sha256": "18d4ecb06eabac6595183f67aa8b2c995b2ceb7ab50dc47094190d39d9a1d28d"
+            "sha256": "17fb9d8720426e05491b1a3fbea8c2e2ec6fb9a3974f182534c6d1ba42ed7333"
           }
         },
         {
@@ -5490,11 +5990,23 @@
         {
           "name": "VictoryRoad_1F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_1F.json",
-          "sha256": "057dcd01c2419bf96d00bc5db4f997a79e39deaed69c413c613d91c90afebe5b",
+          "sha256": "be9b6fff1a0fe482525bda2d70d9f15dafaba2bdd1e031f48e0d81733ed22635",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5518,17 +6030,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_1F.json",
-            "sha256": "057dcd01c2419bf96d00bc5db4f997a79e39deaed69c413c613d91c90afebe5b"
+            "sha256": "be9b6fff1a0fe482525bda2d70d9f15dafaba2bdd1e031f48e0d81733ed22635"
           }
         },
         {
           "name": "VictoryRoad_2F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_2F.json",
-          "sha256": "9825d03e495583c79cf20756de5bc9057035511e8bd53b172fd9aafe129cf8f6",
+          "sha256": "fade4a3033afea6aee8afb3f372ecb189e1c095ee483768d7ebbb38c5830607d",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5552,17 +6076,29 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_2F.json",
-            "sha256": "9825d03e495583c79cf20756de5bc9057035511e8bd53b172fd9aafe129cf8f6"
+            "sha256": "fade4a3033afea6aee8afb3f372ecb189e1c095ee483768d7ebbb38c5830607d"
           }
         },
         {
           "name": "VictoryRoad_3F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_3F.json",
-          "sha256": "9962a4b7c5203da0b55ffdb78e6f73bd99ac38c249ca76a632332a5f2f1ba0b8",
+          "sha256": "79c3b641acb2d73625eda8b25ae4a8b8615110b54c82dcf6239a38699bfc28ee",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
-            "date": "2026-10-31"
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -5586,7 +6122,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_3F.json",
-            "sha256": "9962a4b7c5203da0b55ffdb78e6f73bd99ac38c249ca76a632332a5f2f1ba0b8"
+            "sha256": "79c3b641acb2d73625eda8b25ae4a8b8615110b54c82dcf6239a38699bfc28ee"
           }
         },
         {
@@ -5644,7 +6180,7 @@
         {
           "name": "ViridianCity_Gym",
           "file": "data/games/frlg/maps/runtime/ViridianCity_Gym.json",
-          "sha256": "d1b79588bc91cbb2562b088e9f3e3af10947d01f7abef025e22218e059e66d95",
+          "sha256": "339eb8ab2ebf2bc8e0504ebe8d4a3d0b391e937a2f9656b5e47e58132a0a97ba",
           "source": {
             "decomp_file": "data/maps/ViridianCity_Gym/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -5673,7 +6209,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/ViridianCity_Gym.json",
-            "sha256": "d1b79588bc91cbb2562b088e9f3e3af10947d01f7abef025e22218e059e66d95"
+            "sha256": "339eb8ab2ebf2bc8e0504ebe8d4a3d0b391e937a2f9656b5e47e58132a0a97ba"
           }
         },
         {
@@ -5760,7 +6296,7 @@
         {
           "name": "ViridianForest",
           "file": "data/games/frlg/maps/runtime/ViridianForest.json",
-          "sha256": "b076b2e982ed1095534dc8d471947d04735518859a092385f770b47ee2851a8b",
+          "sha256": "6da82d435cb16fced6d5582e4be80f09a95ddf015487554835fdfddfeb9d1a03",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/ViridianForest.json",
           "source": {
             "decomp_file": "data/maps/ViridianForest/map.json",
@@ -5807,7 +6343,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/ViridianForest.json",
-            "sha256": "b076b2e982ed1095534dc8d471947d04735518859a092385f770b47ee2851a8b"
+            "sha256": "6da82d435cb16fced6d5582e4be80f09a95ddf015487554835fdfddfeb9d1a03"
           }
         }
       ]

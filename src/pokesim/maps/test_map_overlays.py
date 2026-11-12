@@ -137,7 +137,7 @@ class ResolveTest(unittest.TestCase):
 
 class PublishedPackTest(unittest.TestCase):
     def test_runtime_files_are_base_plus_overlays(self):
-        self.assertEqual(overlays.check(), 152)
+        self.assertEqual(overlays.check(), 156)
 
     def test_vermilion_gym_beams_open_after_the_switches(self):
         beams = [(x, y) for y in (6, 7) for x in (4, 5, 6)]

@@ -121,6 +121,15 @@
     {"side": "west", "to_map": "Route18", "offset": 10},
     {"side": "east", "to_map": "Route15", "offset": 10}
   ],
+  "hidden_items": [
+    {
+      "coord": [33, 26],
+      "item": "max_revive",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_FUCHSIA_CITY_MAX_REVIVE",
+      "source_bg_event": 11
+    }
+  ],
   "npcs": [
     {"name": "fat_man", "coord": [37, 17], "source_event": 0, "source_script": "FuchsiaCity_EventScript_Erik"},
     {

@@ -1,0 +1,44 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "CeladonCity_Condominiums_Roof",
+  "source": {
+    "decomp_file": "data/maps/CeladonCity_Condominiums_Roof/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "##############",
+    "##############",
+    "#....###...###",
+    "#....###...###",
+    "#......#.....#",
+    "#......#...###",
+    "#####..#.....#",
+    "#####..#...###",
+    "#####..#.....#",
+    "#####..#...###",
+    "#####..#.....#",
+    "#####..#...###",
+    "##.##..#.....#",
+    "#......#.....#",
+    "#......#.....#",
+    "########.....#",
+    "#............#",
+    "###..........#",
+    "##############",
+    "##############",
+    "##############",
+    "##############",
+    "##############"
+  ],
+  "points": {"warp_0": [4, 2], "warp_1": [10, 2], "warp_2": [2, 12]},
+  "warps": [
+    {"coord": [4, 2], "enter": "walk_east", "to_map": "CeladonCity_Condominiums_3F", "to_point": "warp_1"},
+    {"coord": [10, 2], "enter": "walk_east", "to_map": "CeladonCity_Condominiums_3F", "to_point": "warp_2"},
+    {"coord": [2, 12], "enter": "cave_entrance", "to_map": "CeladonCity_Condominiums_RoofRoom", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": []
+}

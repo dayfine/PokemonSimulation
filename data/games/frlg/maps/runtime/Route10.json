@@ -183,6 +183,43 @@
     {"side": "south", "to_map": "LavenderTown", "offset": 0},
     {"side": "west", "to_map": "Route9", "offset": 0}
   ],
+  "hidden_items": [
+    {
+      "coord": [10, 19],
+      "item": "super_potion",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_SUPER_POTION",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [12, 40],
+      "item": "max_ether",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_MAX_ETHER",
+      "source_bg_event": 4
+    },
+    {
+      "coord": [6, 26],
+      "item": "cheri_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_CHERI_BERRY",
+      "source_bg_event": 5
+    },
+    {
+      "coord": [17, 29],
+      "item": "persim_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",
+      "source_bg_event": 6
+    },
+    {
+      "coord": [20, 57],
+      "item": "nanab_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_NANAB_BERRY",
+      "source_bg_event": 7
+    }
+  ],
   "npcs": [
     {
       "name": "picnicker",

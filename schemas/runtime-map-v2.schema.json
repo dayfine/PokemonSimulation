@@ -135,6 +135,23 @@
         "required": ["side", "offset"],
         "additionalProperties": true
       }
+    },
+    "hidden_items": {
+      "description": "Hidden items found by facing a tile and pressing A; data only, they never block movement.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "coord": {"$ref": "#/$defs/coord"},
+          "item": {"type": "string", "minLength": 1},
+          "quantity": {"type": "integer", "minimum": 1},
+          "flag": {"type": "string"},
+          "source_bg_event": {"type": "integer", "minimum": 0},
+          "underfoot": {"type": "boolean"}
+        },
+        "required": ["coord", "item", "quantity", "flag", "source_bg_event"],
+        "additionalProperties": false
+      }
     }
   },
   "required": ["format", "name", "source", "tiles"],

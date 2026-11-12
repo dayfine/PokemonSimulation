@@ -205,12 +205,8 @@
     },
     {
       "reason": "unused-interiors",
-      "basis": "No entry in the reviewed run; required reward rooms, traversed houses, ship healing cabin and uncertain Silph floors are retained.",
+      "basis": "No entry in the reviewed run; required reward rooms (the Celadon Mansion floors up to the Eevee room among them), traversed houses, ship healing cabin and uncertain Silph floors are retained.",
       "maps": [
-        "CeladonCity_Condominiums_2F",
-        "CeladonCity_Condominiums_3F",
-        "CeladonCity_Condominiums_Roof",
-        "CeladonCity_Condominiums_RoofRoom",
         "CeladonCity_DepartmentStore_2F",
         "CeladonCity_DepartmentStore_3F",
         "CeladonCity_DepartmentStore_4F",

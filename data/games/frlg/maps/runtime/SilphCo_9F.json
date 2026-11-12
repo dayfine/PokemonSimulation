@@ -58,6 +58,22 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "hidden_items": [
+    {
+      "coord": [11, 14],
+      "item": "max_potion",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_9F_MAX_POTION",
+      "source_bg_event": 0
+    },
+    {
+      "coord": [5, 8],
+      "item": "calcium",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_9F_CALCIUM",
+      "source_bg_event": 17
+    }
+  ],
   "npcs": [
     {
       "name": "scientist",

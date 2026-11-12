@@ -63,6 +63,16 @@
     {"side": "south", "to_map": "Route17", "offset": 0},
     {"side": "east", "to_map": "CeladonCity", "offset": -10}
   ],
+  "hidden_items": [
+    {
+      "coord": [31, 13],
+      "item": "leftovers",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE16_LEFTOVERS",
+      "source_bg_event": 2,
+      "underfoot": true
+    }
+  ],
   "npcs": [
     {
       "name": "biker",

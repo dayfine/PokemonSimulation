@@ -117,6 +117,15 @@
     {"side": "north", "to_map": "PalletTown", "offset": 0},
     {"side": "south", "to_map": "Route21_South", "offset": 0}
   ],
+  "hidden_items": [
+    {
+      "coord": [17, 42],
+      "item": "pearl",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE21_NORTH_PEARL",
+      "source_bg_event": 0
+    }
+  ],
   "npcs": [
     {"name": "fisher", "coord": [7, 27], "source_event": 0, "source_script": "Route21_North_EventScript_Ronald"},
     {"name": "fisher", "coord": [16, 26], "source_event": 1, "source_script": "Route21_North_EventScript_Wade"},
