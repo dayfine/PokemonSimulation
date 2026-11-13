@@ -363,6 +363,84 @@ class PublishedPackTest(unittest.TestCase):
                 self.assertRegex(operation['when']['flag'], r'FLAG_SILPH_\d+F_DOOR(_\d)?\Z')
         self.assertEqual(count, 20)
 
+    #   Pokemon Mansion: (floor) -> gates open with the switch on, gates open with it off.
+    MANSION = {
+        'PokemonMansion_1F': (
+            [[(22, 10), (23, 10), (24, 10), (22, 11), (23, 11), (24, 11)],
+             [(27, 25), (28, 25), (29, 25), (27, 26), (28, 26), (29, 26)],
+             [(32, 25), (33, 25), (34, 25), (32, 26), (33, 26), (34, 26)]],
+            [[(31, 18), (32, 18), (33, 18), (31, 19), (32, 19), (33, 19)]]),
+        'PokemonMansion_2F': (
+            [[(24, 14), (25, 14), (26, 14), (24, 15), (25, 15), (26, 15)], [(10, 30), (10, 31), (10, 32)]],
+            [[(12, 6), (12, 7), (12, 8)]]),
+        'PokemonMansion_3F': (
+            [[(17, 11), (18, 11), (19, 11), (17, 12), (18, 12), (19, 12)]],
+            [[(21, 6), (21, 7), (21, 8)]]),
+        'PokemonMansion_B1F': (
+            [[(12, 10), (12, 11), (12, 12)], [(20, 22), (21, 22), (22, 22), (20, 23), (21, 23), (22, 23)]],
+            [[(33, 20), (34, 20), (35, 20), (33, 21), (34, 21), (35, 21)], [(16, 28), (16, 29), (16, 30)]]),
+    }
+    SWITCH = 'FLAG_POKEMON_MANSION_SWITCH_STATE'
+
+    def test_mansion_barriers_follow_the_switch(self):
+        for name, (opens_on, opens_off) in self.MANSION.items():
+            base = json.loads(overlays.path_of('frlg', 'base', name).read_text())
+            runtime = json.loads(overlays.path_of('frlg', 'runtime', name).read_text())
+            off = overlays.effective_map(name, NEW_GAME)
+            on = overlays.effective_map(name, StoryState(flags=frozenset({self.SWITCH})))
+            for tiles, open_with in [(t, 'on') for t in opens_on] + [(t, 'off') for t in opens_off]:
+                for x, y in tiles:
+                    with self.subTest(map=name, tile=(x, y), open_with=open_with):
+                        self.assertEqual(base['tiles'][y][x], 'G')
+                        self.assertEqual(runtime['tiles'][y][x], 'G')
+                        self.assertEqual(off['tiles'][y][x], '#' if open_with == 'on' else '~')
+                        self.assertEqual(on['tiles'][y][x], '~' if open_with == 'on' else '#')
+            gates = base['gates']
+            self.assertEqual(sorted(sorted(map(tuple, g['tiles'])) for g in gates.values()),
+                             sorted(sorted(t) for t in opens_on + opens_off))
+            for gate_id, gate in gates.items():
+                self.assertEqual(gate['switch'], 'mansion')
+                self.assertEqual(gate['new_game'], 'closed' if gate['open_when'] == 'on' else 'open')
+            self.assertEqual(sorted(o['gate'] for o in overlays.read_overlay(name)['operations']), sorted(gates))
+            #   The only G tiles are gate tiles, and all else in the grid is unchanged by the switch.
+            changed = {(x, y) for y, row in enumerate(off['tiles']) for x, c in enumerate(row) if on['tiles'][y][x] != c}
+            self.assertEqual(changed, {tuple(t) for g in gates.values() for t in g['tiles']})
+
+    def test_mansion_switch_table_is_one_flag_across_the_floors(self):
+        floors = sorted(self.MANSION)
+        statues = {'PokemonMansion_1F': [[5, 5]], 'PokemonMansion_2F': [[2, 16]], 'PokemonMansion_3F': [[12, 5]],
+                   'PokemonMansion_B1F': [[24, 29], [27, 5]]}
+        for name in floors:
+            base = json.loads(overlays.path_of('frlg', 'base', name).read_text())
+            switch = base['switches']['mansion']
+            self.assertEqual((switch['flag'], switch['toggle'], sorted(switch['floors'])), (self.SWITCH, True, floors))
+            self.assertEqual([s['coord'] for s in switch['statues']], statues[name])
+            for statue in switch['statues']:
+                x, y = statue['coord']
+                fx, fy = statue['face_from']
+                self.assertEqual((statue['facing'], fx, fy), ('north', x, y + 1))
+                self.assertEqual(base['tiles'][y][x], '#')
+                self.assertEqual(base['tiles'][fy][fx], '~')
+
+    def test_holes_are_one_way_warps(self):
+        found = []
+        for name in overlays.names():
+            base = json.loads(overlays.path_of('frlg', 'base', name).read_text())
+            tiles = base['tiles']
+            for warp in base.get('warps', []):
+                x, y = warp['coord']
+                with self.subTest(map=name, warp=warp['coord']):
+                    self.assertEqual(tiles[y][x] == 'H', warp.get('one_way') is True)
+                if warp.get('one_way'):
+                    found.append((name, (x, y), warp['to_map'], warp['to_point']))
+        self.assertEqual(found, [
+            ('PokemonMansion_3F', (18, 18), 'PokemonMansion_1F', 'warp_7'),
+            ('PokemonMansion_3F', (19, 18), 'PokemonMansion_1F', 'warp_8'),
+            ('PokemonMansion_3F', (23, 18), 'PokemonMansion_2F', 'warp_4'),
+            ('PokemonMansion_3F', (20, 18), 'PokemonMansion_1F', 'warp_8'),
+            ('PokemonMansion_3F', (24, 18), 'PokemonMansion_2F', 'warp_4'),
+            ('VictoryRoad_3F', (34, 18), 'VictoryRoad_2F', 'warp_8')])
+
     def test_maps_without_overlays_publish_base_bytes(self):
         for name in ('VermilionCity', 'SSAnne_Exterior', 'Route1'):
             with self.subTest(map=name):

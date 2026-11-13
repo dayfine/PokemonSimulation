@@ -17,7 +17,8 @@
       "target_game_relation": "native_decomp",
       "verification": "FRLG source-derived; collection not observed"
     },
-    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+    "overlay": {"file": "data/games/frlg/maps/overlays/PokemonMansion_1F.json", "story_state": "complete"}
   },
   "tiles": [
     "######################################",
@@ -30,23 +31,23 @@
     "#~~~~~~~~~~~~#~~~~~~~~~~~~~~#####~~~##",
     "#~~~~~~~~~~~~#~~~~~~~~~~~~~~#~~~~~~~~#",
     "#~~~~~~~~~~~~##~~~####~~~####~~~~~~~~#",
-    "################~~###########~~~###~~#",
-    "################~~###########~~~###~~#",
+    "################~~####GGG####~~~###~~#",
+    "################~~####GGG####~~~###~~#",
     "##############~~~~#~~~~~~~####~~~~~~~#",
     "#~~~~~~~~~.###~~~~#~~~~~~~~###~~~~~~~#",
     "#~~~~~~~~~~###~~~~#~~~~~~~~~##~~~~~~~#",
     "#~~~~~~~~~~~~~~~~~#~~~~~~~~~##~~~~~~~#",
     "#~~~~~~~~~~~~~~~~~#~~~~~~~~~##~~~~~~~#",
     "#~~~~~~~~~~~~~~~###############~~~####",
-    "#~~~~~~~~~~~~~~~###############~~~####",
-    "##~~~~~~~~~~~~~~###############~~~####",
+    "#~~~~~~~~~~~~~~~###############GGG####",
+    "##~~~~~~~~~~~~~~###############GGG####",
     "###~~#~~~~~#~~~##~~#####~~~~~~~~~~~~~#",
     "###~~#~~~~~#~~~##~~~~~~#~~~~~~~~~~~~~#",
     "###~~#~~~~~#~~~##~~~~~~#~~~~~~~~~~~~~#",
     "###~~~~~~~~~~~~~#~~~~~~#~~~~~~~~~~~~~#",
     "#~~~~~~~~~~~~~~~#~~~~~~####~~~##~~~###",
-    "#~~~~#~~~~~#~~~~#~~~~~~###############",
-    "#~~~~#~~~~~#~~~~#~~###################",
+    "#~~~~#~~~~~#~~~~#~~~~~~####GGG##GGG###",
+    "#~~~~#~~~~~#~~~~#~~########GGG##GGG###",
     "#~~~~#~~~~~#~~~~#~~~~~~##.~~~~~#~~~~~#",
     "#~~~~~~~~~~~~~~~#~~~~~~##~~~~~~#~~~~~#",
     "#~~~~~~~~~~~~~~~#~~~~~~~~~~~~~~#~~~~~#",
@@ -58,19 +59,57 @@
   ],
   "points": {"warp_1": [8, 33], "warp_3": [10, 13], "warp_4": [25, 27], "warp_7": [19, 22], "warp_8": [20, 22]},
   "warps": [
-    {"coord": [7, 33], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0"},
-    {"coord": [8, 33], "enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_0"},
-    {"coord": [9, 33], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0"},
-    {"coord": [10, 13], "enter": "walk_east", "to_map": "PokemonMansion_2F", "to_point": "warp_2"},
-    {"coord": [25, 27], "enter": "walk_west", "to_map": "PokemonMansion_B1F", "to_point": "warp_0"},
-    {"coord": [34, 33], "enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_0"},
-    {"coord": [35, 34], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0"},
-    {"coord": [19, 22], "enter": "walk_into", "to_map": "PokemonMansion_3F", "to_point": "warp_3"},
-    {"coord": [20, 22], "enter": "walk_into", "to_map": "PokemonMansion_3F", "to_point": "warp_4"},
-    {"coord": [11, 13], "enter": "walk_into", "to_map": "PokemonMansion_2F", "to_point": "warp_2"}
+    {"enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0", "coord": [7, 33]},
+    {"enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_0", "coord": [8, 33]},
+    {"enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0", "coord": [9, 33]},
+    {"enter": "walk_east", "to_map": "PokemonMansion_2F", "to_point": "warp_2", "coord": [10, 13]},
+    {"enter": "walk_west", "to_map": "PokemonMansion_B1F", "to_point": "warp_0", "coord": [25, 27]},
+    {"enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_0", "coord": [34, 33]},
+    {"enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_0", "coord": [35, 34]},
+    {"enter": "walk_into", "to_map": "PokemonMansion_3F", "to_point": "warp_3", "coord": [19, 22]},
+    {"enter": "walk_into", "to_map": "PokemonMansion_3F", "to_point": "warp_4", "coord": [20, 22]},
+    {"enter": "walk_into", "to_map": "PokemonMansion_2F", "to_point": "warp_2", "coord": [11, 13]}
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "barrier_1": {
+      "tiles": [[22, 10], [22, 11], [23, 10], [23, 11], [24, 10], [24, 11]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "switch": "mansion",
+      "open_when": "on"
+    },
+    "barrier_2": {
+      "tiles": [[31, 18], [31, 19], [32, 18], [32, 19], [33, 18], [33, 19]],
+      "open_glyph": "~",
+      "new_game": "open",
+      "switch": "mansion",
+      "open_when": "off"
+    },
+    "barrier_3": {
+      "tiles": [[27, 25], [27, 26], [28, 25], [28, 26], [29, 25], [29, 26]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "switch": "mansion",
+      "open_when": "on"
+    },
+    "barrier_4": {
+      "tiles": [[32, 25], [32, 26], [33, 25], [33, 26], [34, 25], [34, 26]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "switch": "mansion",
+      "open_when": "on"
+    }
+  },
+  "switches": {
+    "mansion": {
+      "flag": "FLAG_POKEMON_MANSION_SWITCH_STATE",
+      "toggle": true,
+      "floors": ["PokemonMansion_1F", "PokemonMansion_2F", "PokemonMansion_3F", "PokemonMansion_B1F"],
+      "statues": [{"coord": [5, 5], "face_from": [5, 6], "facing": "north"}]
+    }
+  },
   "hidden_items": [
     {
       "coord": [2, 21],
@@ -83,45 +122,45 @@
   "npcs": [
     {
       "name": "scientist",
-      "coord": [22, 24],
       "facing": "west",
       "trainer": {"sight": 4},
       "source_event": 0,
-      "source_script": "PokemonMansion_1F_EventScript_Ted"
+      "source_script": "PokemonMansion_1F_EventScript_Ted",
+      "coord": [22, 24]
     },
     {
       "name": "youngster",
-      "coord": [8, 8],
       "wander": {"min": [6, 8], "max": [10, 8]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "source_event": 4,
-      "source_script": "PokemonMansion_1F_EventScript_Johnson"
+      "source_script": "PokemonMansion_1F_EventScript_Johnson",
+      "coord": [8, 8]
     }
   ],
   "items": [
     {
       "name": "item_ball",
-      "coord": [29, 32],
       "source_event": 1,
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_CARBOS",
       "source_script": "PokemonMansion_1F_EventScript_ItemCarbos",
-      "item": "carbos"
+      "item": "carbos",
+      "coord": [29, 32]
     },
     {
       "name": "item_ball",
-      "coord": [22, 6],
       "source_event": 2,
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_ESCAPE_ROPE",
       "source_script": "PokemonMansion_1F_EventScript_ItemEscapeRope",
-      "item": "escape_rope"
+      "item": "escape_rope",
+      "coord": [22, 6]
     },
     {
       "name": "item_ball",
-      "coord": [27, 15],
       "source_event": 3,
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_PROTEIN",
       "source_script": "PokemonMansion_1F_EventScript_ItemProtein",
-      "item": "protein"
+      "item": "protein",
+      "coord": [27, 15]
     }
   ]
 }

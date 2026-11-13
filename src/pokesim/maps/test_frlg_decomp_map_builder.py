@@ -74,6 +74,45 @@ class DoorScriptTest(unittest.TestCase):
         self.assertEqual(frlg_maps.closed_doors(None, 'Route1'), [])
 
 
+class MansionSwitchTest(unittest.TestCase):
+    #   A 2F-like floor: a barrier at x=1..2 (closed at reset, open when pressed)
+    #   and floor at x=5 (open at reset, a barrier when pressed). The statue's
+    #   eyes are drawn by both scripts and change nothing.
+    SCRIPTS = (
+        'PokemonMansion_EventScript_PressSwitch_2F::\n'
+        '\tsetmetatile 1, 0, METATILE_PokemonMansion_Floor, 0\n'
+        '\tsetmetatile 2, 0, METATILE_PokemonMansion_Floor, 0\n'
+        '\tsetmetatile 5, 0, METATILE_PokemonMansion_Barrier_Vertical_Mid, 1\n'
+        '\tsetmetatile 3, 0, METATILE_PokemonMansion_Statue_RedEyes, 0\n'
+        '\treturn\n'
+        '\nPokemonMansion_EventScript_ResetSwitch_2F::\n'
+        '\tsetmetatile 1, 0, METATILE_PokemonMansion_Barrier_Vertical_Mid, 1\n'
+        '\tsetmetatile 2, 0, METATILE_PokemonMansion_Barrier_Vertical_Mid, 1\n'
+        '\tsetmetatile 5, 0, METATILE_PokemonMansion_Floor, 0\n'
+        '\tsetmetatile 3, 0, METATILE_PokemonMansion_Statue_BlackEyes, 0\n'
+        '\treturn\n')
+
+    def test_gates_are_the_connected_tiles_the_press_changes(self):
+        gates = frlg_maps.mansion_gates(self.SCRIPTS, 'PokemonMansion_2F', ['.##.~~'])
+        self.assertEqual(gates, {
+            'barrier_1': {'tiles': [[1, 0], [2, 0]], 'open_glyph': '~', 'new_game': 'closed',
+                          'switch': 'mansion', 'open_when': 'on'},
+            'barrier_2': {'tiles': [[5, 0]], 'open_glyph': '~', 'new_game': 'open',
+                          'switch': 'mansion', 'open_when': 'off'}})
+
+    def test_blockdata_must_be_the_reset_state(self):
+        with self.assertRaisesRegex(ValueError, 'reset state'):
+            frlg_maps.mansion_gates(self.SCRIPTS, 'PokemonMansion_2F', ['.~~.~~'])
+
+    def test_statues_are_pressed_from_the_tile_they_are_faced_from(self):
+        source = {'bg_events': [
+            {'x': 2, 'y': 16, 'script': 'PokemonMansion_2F_EventScript_Statue', 'player_facing_dir': 'BG_EVENT_PLAYER_FACING_NORTH'},
+            {'x': 3, 'y': 3, 'script': 'Other_EventScript_Sign', 'player_facing_dir': 'BG_EVENT_PLAYER_FACING_ANY'}]}
+        statues = frlg_maps.mansion_switches(source)['mansion']
+        self.assertEqual(statues['statues'], [{'coord': [2, 16], 'face_from': [2, 17], 'facing': 'north'}])
+        self.assertEqual((statues['flag'], statues['floors'][0]), ('FLAG_POKEMON_MANSION_SWITCH_STATE', 'PokemonMansion_1F'))
+
+
 class EncounterTest(unittest.TestCase):
     #   MtMoon_1F's cave floor: behavior MB_CAVE (0x08), encounter type LAND.
     CAVE_FLOOR = 0x08 | (frlg_maps.TILE_ENCOUNTER_LAND << frlg_maps.ENCOUNTER_TYPE_SHIFT)

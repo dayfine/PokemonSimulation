@@ -87,7 +87,8 @@
             "enum": ["walk_into", "step_on", "cave_entrance", "walk_north", "walk_south", "walk_west", "walk_east"]
           },
           "to_map": {"type": "string"},
-          "to_point": {"type": "string"}
+          "to_point": {"type": "string"},
+          "one_way": {"const": true, "description": "A drop: a hole (tile H, MB_FALL_WARP) you fall through. The landing has no warp back up."}
         },
         "required": ["coord"],
         "additionalProperties": true,

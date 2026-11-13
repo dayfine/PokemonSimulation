@@ -59,7 +59,7 @@ and navigation fields and preserves unknown extensions.
 | `elevation` | Optional matching grid of hexadecimal Gen 3 elevations, default zero. |
 | `allow_running` | Optional boolean, default true. |
 | `points`, `regions` | Named `[x,y]` tiles and named lists of tiles. BDSP also encodes regions as numbered points. |
-| `warps` | `coord: [x,y]`, optional `enter` (default `walk_into`), paired `to_map,to_point` when resolved. |
+| `warps` | `coord: [x,y]`, optional `enter` (default `walk_into`), paired `to_map,to_point` when resolved, optional `one_way: true` for a drop (a hole, tile `H`: the landing has no warp back; required on every warp on an `H` tile). |
 | `connections` | `side,to_map,offset` for connected map edges. |
 | `npcs`, `items`, `signs`, `interactables` | Typed arrays of `name,coord` (identified pickups may derive `name` from `source_event` and default `quantity` to 1), optional facing, inclusive `wander` box (`min`, `max`), trainer sight/looks and hide flag. Section supplies kind; non-item interactions use `interactables` when enriched. |
 | `triggers`, `flag_sets` | Named story trigger boxes/conditions; named sets of game flags. Preserve game semantics. |

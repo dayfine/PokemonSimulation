@@ -2102,7 +2102,7 @@
         {
           "name": "PokemonMansion_1F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_1F.json",
-          "sha256": "bdc673a1995e3538f1f0ada53daaaee3bbad787bebde3609ffe4bd97442f69ea",
+          "sha256": "d49428ab398404e3d71bf98d01fa4576eae988fa0fe0679aca993d95717eba3f",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2119,7 +2119,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/PokemonMansion_1F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -2143,13 +2147,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_1F.json",
-            "sha256": "bdc673a1995e3538f1f0ada53daaaee3bbad787bebde3609ffe4bd97442f69ea"
+            "sha256": "f03de20f697471cf627598444282e8e4e1e9cb03da7b2442bb1ec2c049dd735f"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/PokemonMansion_1F.json",
+            "sha256": "8e9d1322f1460a062cbf4c3870fa759efb539e2b1a116d8f0f5d774e15f5c5e7"
           }
         },
         {
           "name": "PokemonMansion_2F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_2F.json",
-          "sha256": "51255919e7d98f9d46a48a1683038f7820b564ffd03bdde76570a5f619ccbf6f",
+          "sha256": "4f64797ec1c16e5850d536cbbff9e401cb36d9c9ea01fc12e64d675817903fa7",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2166,7 +2174,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/PokemonMansion_2F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -2190,13 +2202,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_2F.json",
-            "sha256": "51255919e7d98f9d46a48a1683038f7820b564ffd03bdde76570a5f619ccbf6f"
+            "sha256": "633a0701a9102b2e1dd3785de7874d30175797dc154d2b64624d57c3465e8c0e"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/PokemonMansion_2F.json",
+            "sha256": "5159a584386c12e0a8d2a96cbc3bb89c5c8a7dc2c81e0058c5768d8a66548d91"
           }
         },
         {
           "name": "PokemonMansion_3F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_3F.json",
-          "sha256": "3c5593079ea95fd343dbaeb50c8ba86009044317d56acdbd7d108e726e8f6563",
+          "sha256": "606545e09c97059bd993ee921243cc124736f7e7fbcd2c0a35c83f079c89364e",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2213,7 +2229,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/PokemonMansion_3F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -2237,13 +2257,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_3F.json",
-            "sha256": "3c5593079ea95fd343dbaeb50c8ba86009044317d56acdbd7d108e726e8f6563"
+            "sha256": "9ea38d900a3449643f8066f4259ba386010e0b9ae91ae4997caa7701fe369d03"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/PokemonMansion_3F.json",
+            "sha256": "b4dbd1b41a403409f2b7215f1defb6dd0c0b0b48a488cda77294d8529c54ea8d"
           }
         },
         {
           "name": "PokemonMansion_B1F",
           "file": "data/games/frlg/maps/runtime/PokemonMansion_B1F.json",
-          "sha256": "12bdce0ec034c062d31fb5525487c5aa7859494c40b28758797d11186a0b3435",
+          "sha256": "7ac5f8e8eaefbea9c737acee5e8824ca748eebb74221ee535aaef746bfcc2564",
           "source": {
             "decomp_file": "data/maps/PokemonMansion_B1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2260,7 +2284,11 @@
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
             },
-            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/PokemonMansion_B1F.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -2284,7 +2312,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonMansion_B1F.json",
-            "sha256": "12bdce0ec034c062d31fb5525487c5aa7859494c40b28758797d11186a0b3435"
+            "sha256": "32b896edd7dfc5e6e82bfd3511b41462710d53e33ade7adcc759617712f67bbd"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/PokemonMansion_B1F.json",
+            "sha256": "be7148bd2cf2f28ce65f0090517f8078b708d951236b3c3e109077414ed2f0ec"
           }
         },
         {
@@ -6162,7 +6194,7 @@
         {
           "name": "VictoryRoad_3F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_3F.json",
-          "sha256": "79c3b641acb2d73625eda8b25ae4a8b8615110b54c82dcf6239a38699bfc28ee",
+          "sha256": "e780871a25edca200fc9f37280238e07e721896b5f831c96f10c9315ba506e93",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6202,7 +6234,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_3F.json",
-            "sha256": "79c3b641acb2d73625eda8b25ae4a8b8615110b54c82dcf6239a38699bfc28ee"
+            "sha256": "e780871a25edca200fc9f37280238e07e721896b5f831c96f10c9315ba506e93"
           }
         },
         {

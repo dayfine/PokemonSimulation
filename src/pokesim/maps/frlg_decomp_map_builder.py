@@ -236,6 +236,107 @@ def set_tiles(tiles, coords, glyph):
     return rows
 
 
+#   Pokemon Mansion's statue switches. One flag, FLAG_POKEMON_MANSION_SWITCH_STATE,
+#   is shared by all four floors: facing a statue and pressing A asks "press
+#   the secret switch?"; on yes, data/scripts/pokemon_mansion.inc sets the flag
+#   (PokemonMansion_EventScript_PressSwitch_<floor>) or clears it
+#   (..._ResetSwitch_<floor>), and each `setmetatile x, y, LABEL, collision`
+#   there redraws barriers and floor. Each floor's OnLoad calls the press script
+#   while the flag is set. The blockdata is the reset state (checked below), so
+#   a new game's base is the blockdata. Each tile the press changes is part of a
+#   gate (glyph `G`): a connected group that opens when the switch is on (a
+#   barrier there at reset) or when it is off (open floor at reset).
+MANSION_SWITCH = 'mansion'
+MANSION_SWITCH_FLAG = 'FLAG_POKEMON_MANSION_SWITCH_STATE'
+MANSION_SCRIPTS = 'data/scripts/pokemon_mansion.inc'
+MANSION_FLOORS = ('PokemonMansion_1F', 'PokemonMansion_2F', 'PokemonMansion_3F', 'PokemonMansion_B1F')
+SETMETATILE_LABEL = re.compile(r'\s*setmetatile\s+(\d+),\s*(\d+),\s*(\w+),\s*([01])\s*$')
+FACING_STEP = {'north': (0, -1), 'south': (0, 1), 'west': (-1, 0), 'east': (1, 0)}
+
+
+def metatile_calls(block):
+    """The (x, y, label, collision) of each `setmetatile` call of a script,
+    except the statue's eyes (a picture; the tile keeps its collision)."""
+    calls = []
+    for line in block:
+        match = SETMETATILE_LABEL.match(line)
+        if match and 'Statue' not in match.group(3):
+            calls.append((int(match.group(1)), int(match.group(2)), match.group(3), int(match.group(4))))
+    return calls
+
+
+def connected(tiles):
+    """The 4-connected groups of a set of (x, y) tiles, each sorted."""
+    left, groups = set(tiles), []
+    while left:
+        stack, group = [min(left)], []
+        left.discard(stack[0])
+        while stack:
+            x, y = stack.pop()
+            group.append((x, y))
+            for step in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                near = (x + step[0], y + step[1])
+                if near in left:
+                    left.discard(near)
+                    stack.append(near)
+        groups.append(sorted(group))
+    return groups
+
+
+def mansion_gates(scripts, name, tiles):
+    """The `gates` table of a Mansion floor whose blockdata rows are `tiles`.
+    A barrier (collision 1) is `#`; any other metatile has the glyph the reset
+    script's blockdata tiles give its label. Raises if the blockdata is not the
+    reset state, so the generator and the scripts cannot drift apart."""
+    floor = name[len('PokemonMansion_'):]
+    blocks = script_blocks(scripts)
+    press = metatile_calls(blocks[f'PokemonMansion_EventScript_PressSwitch_{floor}'])
+    reset = metatile_calls(blocks[f'PokemonMansion_EventScript_ResetSwitch_{floor}'])
+    by_label = {}
+    for x, y, label, collision in reset:
+        glyph = tiles[y][x]
+        if (glyph == '#') != (collision == 1):
+            raise ValueError(f'{name} ({x}, {y}): blockdata {glyph!r} is not the reset state ({label}, collision {collision})')
+        if by_label.setdefault(label, glyph) != glyph:
+            raise ValueError(f'{name}: {label} is drawn as both {by_label[label]!r} and {glyph!r} in the blockdata')
+    opens_on, opens_off = {}, {}
+    for x, y, label, collision in press:
+        glyph = '#' if collision == 1 else by_label[label]
+        if tiles[y][x] == glyph:
+            continue
+        if glyph == '#':
+            opens_off[(x, y)] = tiles[y][x]
+        else:
+            opens_on[(x, y)] = glyph
+    groups = [(group, 'on', opens_on) for group in connected(opens_on)] + [
+        (group, 'off', opens_off) for group in connected(opens_off)]
+    groups.sort(key=lambda item: min((y, x) for x, y in item[0]))
+    gates = {}
+    for number, (group, open_when, glyphs) in enumerate(groups, 1):
+        open_glyphs = {glyphs[tile] for tile in group}
+        if len(open_glyphs) != 1:
+            raise ValueError(f'{name}: a gate at {group[0]} is open as {sorted(open_glyphs)}')
+        gates[f'barrier_{number}'] = {
+            'tiles': [list(tile) for tile in group], 'open_glyph': open_glyphs.pop(),
+            'new_game': 'open' if open_when == 'off' else 'closed',
+            'switch': MANSION_SWITCH, 'open_when': open_when}
+    return gates
+
+
+def mansion_switches(source):
+    """The `switches` table of a Mansion floor from its map.json: the statues
+    (bg_events running the floor's `_EventScript_Statue`), each pressed from the
+    tile it is faced from."""
+    statues = []
+    for event in source['bg_events']:
+        if event.get('script', '').endswith('_EventScript_Statue'):
+            facing = event['player_facing_dir'].removeprefix('BG_EVENT_PLAYER_FACING_').lower()
+            dx, dy = FACING_STEP[facing]
+            statues.append({'coord': [event['x'], event['y']], 'face_from': [event['x'] - dx, event['y'] - dy], 'facing': facing})
+    return {MANSION_SWITCH: {'flag': MANSION_SWITCH_FLAG, 'toggle': True, 'floors': list(MANSION_FLOORS),
+                             'statues': sorted(statues, key=lambda s: s['coord'])}}
+
+
 class Decomp:
     def __init__(self, commit, cache):
         self.commit = commit
@@ -601,6 +702,10 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     #   open: opening them is what a route needs, and it is the blockdata.
     open_tiles = tiles
     gates = door_gates(closed_doors(decomp, name), open_tiles)
+    switches = {}
+    if name in MANSION_FLOORS:
+        gates = mansion_gates(decomp.read(MANSION_SCRIPTS).decode(), name, open_tiles)
+        switches = mansion_switches(source)
     tiles = set_tiles(open_tiles, [tuple(c) for gate in gates.values() for c in gate['tiles']], GATE_GLYPH)
     warp_events = source.get('warp_events', [])
     points = {n: [x, y] for n, (x, y) in POINTS.get(name, {}).items()}
@@ -643,8 +748,15 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
             identity_source = decomp_item_identities(decomp, data['objects'])
         if identity_source is not None:
             data['source']['item_identities'] = identity_source
+    #   A hole (MB_FALL_WARP, glyph H) drops the player to the warp event it
+    #   names; the landing tile is no way back up, so the warp is one way.
+    for entry in data['warps']:
+        if open_tiles[entry['y']][entry['x']] == 'H':
+            entry['one_way'] = True
     if gates:
         data['gates'] = gates
+    if switches:
+        data['switches'] = switches
     hidden = hidden_items(source, open_tiles)
     if hidden:
         data['hidden_items'] = hidden

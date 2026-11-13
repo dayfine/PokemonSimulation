@@ -1,0 +1,45 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "PokemonMansion_2F",
+  "operations": [
+    {
+      "op": "gate",
+      "gate": "barrier_1",
+      "state": "closed",
+      "why": "story_state",
+      "when": {"flag": "FLAG_POKEMON_MANSION_SWITCH_STATE"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/pokemon_mansion.inc: PokemonMansion_2F_OnLoad calls PokemonMansion_EventScript_PressSwitch_2F while FLAG_POKEMON_MANSION_SWITCH_STATE is set, which redraws this gate's tiles (open floor to barrier: `setmetatile` with collision 1); PokemonMansion_2F_EventScript_Statue (bg_event) calls PokemonMansion_EventScript_SecretSwitch: on yes it sets FLAG_POKEMON_MANSION_SWITCH_STATE and runs PressSwitch_2F when the flag was clear, else clears it and runs ResetSwitch_2F (the blockdata state). The flag is shared by all four floors, so one press moves every floor's gates",
+        "toggles_by": "face a statue and press A, answer yes: [2, 16] from [2, 17] facing north. Every press flips the flag",
+        "state": "open with the switch off, closed with it on"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_2",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_POKEMON_MANSION_SWITCH_STATE"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/pokemon_mansion.inc: PokemonMansion_2F_OnLoad calls PokemonMansion_EventScript_PressSwitch_2F while FLAG_POKEMON_MANSION_SWITCH_STATE is set, which redraws this gate's tiles (barrier to open floor: `setmetatile` with collision 0); PokemonMansion_2F_EventScript_Statue (bg_event) calls PokemonMansion_EventScript_SecretSwitch: on yes it sets FLAG_POKEMON_MANSION_SWITCH_STATE and runs PressSwitch_2F when the flag was clear, else clears it and runs ResetSwitch_2F (the blockdata state). The flag is shared by all four floors, so one press moves every floor's gates",
+        "toggles_by": "face a statue and press A, answer yes: [2, 16] from [2, 17] facing north. Every press flips the flag",
+        "state": "closed with the switch off, open with it on"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_3",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_POKEMON_MANSION_SWITCH_STATE"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/scripts/pokemon_mansion.inc: PokemonMansion_2F_OnLoad calls PokemonMansion_EventScript_PressSwitch_2F while FLAG_POKEMON_MANSION_SWITCH_STATE is set, which redraws this gate's tiles (barrier to open floor: `setmetatile` with collision 0); PokemonMansion_2F_EventScript_Statue (bg_event) calls PokemonMansion_EventScript_SecretSwitch: on yes it sets FLAG_POKEMON_MANSION_SWITCH_STATE and runs PressSwitch_2F when the flag was clear, else clears it and runs ResetSwitch_2F (the blockdata state). The flag is shared by all four floors, so one press moves every floor's gates",
+        "toggles_by": "face a statue and press A, answer yes: [2, 16] from [2, 17] facing north. Every press flips the flag",
+        "state": "closed with the switch off, open with it on"
+      },
+      "status": "candidate"
+    }
+  ]
+}
