@@ -95,10 +95,14 @@ LEDGES = {'MB_JUMP_' + direction.name: glyph for direction, glyph in LEDGE_GLYPH
 FLOOR = (
     'MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS',
     'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE', 'MB_COUNTER',
+    #   Not surfable (sBehaviorSurfable): the player walks on it, as on the
+    #   sand bars of Route 21.
+    'MB_SHALLOW_WATER',
 )
 # pret/pokefirered src/metatile_behavior.c, sBehaviorSurfable at COMMIT.
-# Preserve water in the full baseline; it remains blocked for walking. Surf,
-# waterfall and current execution require separate game movement bindings.
+# Water is `w`, blocked for walking; Surf, waterfall and current execution
+# require separate game movement bindings. Water with the collision bit (the
+# sea rocks of Route 21) blocks Surf too, so it is `#` like any other tile.
 SURFABLE_WATER = frozenset({
     'MB_POND_WATER', 'MB_FAST_WATER', 'MB_DEEP_WATER', 'MB_WATERFALL',
     'MB_OCEAN_WATER', 'MB_UNUSED_WATER', 'MB_CYCLING_ROAD_WATER',
@@ -469,7 +473,7 @@ def tile_glyph(behavior, collision, unhandled, sign_event=False):
         return '.', WARP_ENTRIES[behavior]
     if behavior in TERRAIN:
         return TERRAIN[behavior], 'step_on' if behavior == 'MB_FALL_WARP' else None
-    if 'WATER' in behavior:
+    if 'WATER' in behavior and behavior not in FLOOR:
         return 'w', None
     if behavior not in FLOOR:
         unhandled[behavior] = unhandled.get(behavior, 0) + 1
@@ -518,7 +522,7 @@ def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=Fa
             if unresolved is not None and unhandled.get(behavior, 0) > before:
                 glyph = ' '  # Unknown cells are blocked by the shared movement model.
                 unresolved.setdefault(behavior, []).append([x, y])
-            if unresolved is not None and behavior in SURFABLE_WATER:
+            if unresolved is not None and behavior in SURFABLE_WATER and not collision:
                 glyph = 'w'
             if land_encounters and entry is None:
                 glyph = encounter_glyph(glyph, attributes)

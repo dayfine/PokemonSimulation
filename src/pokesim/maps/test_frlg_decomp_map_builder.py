@@ -330,19 +330,47 @@ class CandidateTerrainTest(unittest.TestCase):
 
 
 class CandidateWaterTest(unittest.TestCase):
-    def test_water_collision_is_preserved_as_water_not_a_generic_wall(self):
+    def grid(self, behavior, collision, **kwargs):
         import struct
         from unittest.mock import patch
         class Source:
             def read(self, path):
-                return struct.pack('<H', 1 << 10)
+                return struct.pack('<H', collision << 10)
         layout = {'width': 1, 'height': 1, 'blockdata_filepath': 'map.bin',
                   'primary_tileset': 'a', 'secondary_tileset': 'b'}
         with patch.object(frlg_maps, 'tileset_attributes', return_value=[1]):
-            candidate = frlg_maps.grid(Source(), layout, {1: 'MB_POND_WATER'}, {}, unresolved={})
-            legacy = frlg_maps.grid(Source(), layout, {1: 'MB_POND_WATER'}, {})
-        self.assertEqual(candidate[0], ['w'])
-        self.assertEqual(legacy[0], ['#'])
+            return frlg_maps.grid(Source(), layout, {1: behavior}, {}, **kwargs)[0]
+
+    def test_open_water_is_water(self):
+        self.assertEqual(self.grid('MB_OCEAN_WATER', 0, unresolved={}), ['w'])
+        self.assertEqual(self.grid('MB_OCEAN_WATER', 0), ['w'])
+
+    def test_water_with_collision_is_a_rock(self):
+        # A sea rock is ocean water with the collision bit (Route21_North (8, 16)).
+        self.assertEqual(self.grid('MB_POND_WATER', 1, unresolved={}), ['#'])
+        self.assertEqual(self.grid('MB_OCEAN_WATER', 1), ['#'])
+
+    def test_shallow_water_is_walked_on(self):
+        # MB_SHALLOW_WATER is not surfable (sBehaviorSurfable); the player walks on it.
+        unresolved = {}
+        self.assertEqual(self.grid('MB_SHALLOW_WATER', 0, unresolved=unresolved), ['.'])
+        self.assertEqual(unresolved, {})
+
+
+class SeaRouteTest(unittest.TestCase):
+    """Route 21's rocks and sand bars, checked on console 2026-11-13: a press
+    south from Route21_North (8, 15) does not move the player."""
+    def tile(self, name, x, y):
+        return load(ROOT / 'data/games/frlg/maps/runtime' / (name + '.json'))['tiles'][y][x]
+
+    def test_rocks_are_blocked(self):
+        self.assertEqual(self.tile('Route21_North', 8, 16), '#')
+        self.assertEqual(self.tile('Route21_North', 5, 34), '#')
+        self.assertEqual(self.tile('Route21_South', 5, 0), '#')
+
+    def test_sand_bar_shallows_are_walkable(self):
+        self.assertEqual(self.tile('Route21_North', 8, 27), '.')
+        self.assertEqual(self.tile('Route21_North', 8, 32), '.')
 
 
 class ElevationElisionTest(unittest.TestCase):
