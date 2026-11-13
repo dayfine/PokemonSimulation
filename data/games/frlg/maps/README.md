@@ -33,6 +33,7 @@ Overlays today:
 |---|---|---|---|
 | `VermilionCity_Gym` | `tile` (4..6, 6..7) to `.`: the electric beams are off | `story_state` | `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`, after checkpoint 00.23 |
 | `PokemonMansion_1F`, `_2F`, `_3F`, `_B1F` | `gate` open or closed: one operation per barrier (13 in all). The base and runtime tiles show each barrier as `G` (the base is the blockdata, the switch-off state); the effective map has it as the new game leaves it until the switch flag is set | `story_state` | `FLAG_POKEMON_MANSION_SWITCH_STATE`, set when a statue switch is pressed (a second press clears it) |
+| `VictoryRoad_1F`, `_2F`, `_3F` | `gate` open: one operation per barrier half (2 per barrier, 8 in all). The base and runtime tiles show the barrier as `G` (the base is the blockdata, the open state); the effective map has it closed (the OnLoad script's new-game state) until a boulder has been pushed onto the switch's button. | `story_state` | `VAR_MAP_SCENE_VICTORY_ROAD_*` (a VAR, set to 100 by the switch) |
 | `SilphCo_2F` to `SilphCo_11F` | `gate` open: one operation per Card Key door (20 in all). The base and runtime tiles show the door as `G` and the map's `gates` table names it; the effective map has it closed (the OnLoad script's new-game state) until the flag is set. Evidence lists the opening script | `story_state` | `FLAG_SILPH_<n>F_DOOR[_<m>]`, set when the door is opened with the Card Key |
 
 ## Gates and story state
@@ -68,6 +69,35 @@ The runtime files are not resolved: they keep `G`. `map_overlays.effective_map`
 at `COMPLETE` (every `when` passed) is the switch-on state, which the story does
 not stay in, so use a recorded switch state (`StoryState(flags=...)`), not
 `COMPLETE`, for a Mansion route.
+
+## Victory Road boulder switches
+
+A Strength boulder pushed onto a button tile (`B`, `MB_STRENGTH_BUTTON`) runs that tile's coord event
+(`src/field_player_avatar.c` `DoBoulderFinish`, then `HandleBoulderActivateVictoryRoadSwitch` in
+`src/field_control_avatar.c`); the player stepping on it does nothing. The script redraws a rock barrier
+open and sets a scene VAR to 100 (`data/maps/VictoryRoad_<f>/scripts.inc`, `FloorSwitch*`); each floor's
+OnLoad draws the barrier closed while the VAR is not 100. These are VARs, not flags, so the switch's
+`flag` names a `VAR_` and carries `set_value` (100), `toggle: false`, `pressed_by: strength_boulder` and
+its `buttons`; a consumer records the VAR as set once the boulder is on the button. Nothing unpresses a
+switch except `Route23_OnTransition` (`data/maps/Route23/scripts.inc`), which sets all four VARs back
+to 0 every time Route 23 loads, so a consumer clears them on entering Route 23. A barrier is two
+metatiles that open to different glyphs (`8`, a floor tile with its north side closed, over `~`), so
+each barrier is two gates, `barrier_<n>_top` and `barrier_<n>_bottom`, moved by `floor_switch_<n>`.
+
+| Floor | Button (switch) | VAR | Barrier |
+|---|---|---|---|
+| `VictoryRoad_1F` | (20, 16) `floor_switch_1` | `VAR_MAP_SCENE_VICTORY_ROAD_1F` | (12, 14), (12, 15) |
+| `VictoryRoad_2F` | (2, 19) `floor_switch_1` | `VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1` | (13, 10), (13, 11) |
+| `VictoryRoad_2F` | (14, 19) `floor_switch_2` | `VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2` | (33, 16), (33, 17) |
+| `VictoryRoad_3F` | (7, 7) `floor_switch_1` | `VAR_MAP_SCENE_VICTORY_ROAD_3F` | (12, 12), (12, 13) |
+
+The boulders themselves (Strength objects) are **not modelled**: the map format has no movable object,
+so the pack carries neither them nor where they can be pushed. Their start tiles in the decomp
+(`object_events`, `OBJ_EVENT_GFX_PUSHABLE_BOULDER`):
+1F (7, 18), (4, 12), (16, 3); 2F (8, 7), (6, 17), (33, 19) hidden until a 3F boulder falls
+(`FLAG_HIDE_VICTORY_ROAD_2F_BOULDER`); 3F (19, 15), (33, 18) hidden by `FLAG_HIDE_VICTORY_ROAD_3F_BOULDER`,
+(35, 13), (32, 5). A boulder pushed onto the hole `H` at 3F (34, 18) falls and reveals 2F's (33, 19)
+(`HandleBoulderFallThroughHole`). `Route23_OnTransition` also resets both hide flags (shows the 3F boulder, hides the 2F one).
 
 ## One-way warps
 

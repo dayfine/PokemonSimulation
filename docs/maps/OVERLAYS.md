@@ -251,3 +251,6 @@ except where a step says otherwise.
   manifest drops the copies of the tables. The runtime files did not change a
   byte. From #90: the Poketch Company clown's row-18 range is the
   `clown_poketch_company` operation, not a table edit.
+- 2026-11-12: FRLG Victory Road's three boulder switches and their rock barriers are
+  gates (8 gate operations, `when` a `VAR_`); the switches table gains the Strength-button kind.
+  The boulders are not modelled (no movable object in the format).

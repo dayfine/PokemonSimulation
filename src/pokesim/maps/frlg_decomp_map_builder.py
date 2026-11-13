@@ -337,6 +337,75 @@ def mansion_switches(source):
                              'statues': sorted(statues, key=lambda s: s['coord'])}}
 
 
+#   Victory Road's boulder switches. A Strength boulder pushed onto a button
+#   tile (MB_STRENGTH_BUTTON, glyph B) runs the coord event of that tile
+#   directly (src/field_player_avatar.c DoBoulderFinish ->
+#   src/field_control_avatar.c HandleBoulderActivateVictoryRoadSwitch; the
+#   event's own `var_value 99` is never met by walking, the var is 0). The
+#   script `<Floor>_EventScript_FloorSwitch<n>` redraws the barrier open with
+#   `setmetatile` and sets a scene VAR to 100, which is permanent until
+#   Route23_OnTransition resets every one of them to 0 (data/maps/Route23/
+#   scripts.inc). Each floor's OnLoad draws the barrier closed while its VAR is
+#   not 100 (`call_if_ne VAR, 100, <Floor>_EventScript_SetRockBarrier<n>`).
+#   The blockdata is the open state, so the base shows the barrier as gate
+#   tiles (G), closed at a new game. The barrier is two metatiles, `Top` and
+#   `Bottom`, which open to different glyphs, so each is a gate of its own.
+VICTORY_ROAD_FLOORS = ('VictoryRoad_1F', 'VictoryRoad_2F', 'VictoryRoad_3F')
+VICTORY_ROAD_SET_VALUE = 100
+CALL_IF_NE = re.compile(r'\s*call_if_ne\s+(VAR_\w+),\s*(\d+),\s*(\w+)\s*$')
+SETVAR = re.compile(r'\s*setvar\s+(VAR_\w+),\s*(\d+)\s*$')
+SETMETATILE_PART = re.compile(r'\s*setmetatile\s+(\d+),\s*(\d+),\s*METATILE_Cave_(?:RockBarrier|Floor_Ledge)_(Top|Bottom),\s*([01])\s*$')
+FLOOR_SWITCH = re.compile(r'\w+_EventScript_FloorSwitch\d*\Z')
+
+
+def victory_road_gates(scripts, source, name, tiles):
+    """(`gates`, `switches`) of a Victory Road floor from its scripts.inc text,
+    its map.json (`source`) and the blockdata rows `tiles` (barrier open).
+    Gates are `barrier_<n>_top` and `barrier_<n>_bottom` for the n-th
+    `call_if_ne` of OnLoad, moved by switch `floor_switch_<n>`; raises if a
+    floor switch does not redraw exactly the tiles OnLoad closes."""
+    blocks = script_blocks(scripts)
+    gates, switches = {}, {}
+    barriers = []
+    for line in blocks[f'{name}_OnLoad']:
+        match = CALL_IF_NE.match(line)
+        if match and int(match.group(2)) == VICTORY_ROAD_SET_VALUE:
+            barriers.append((match.group(1), match.group(3)))
+    pressers = [(event, blocks[event['script']]) for event in source.get('coord_events', [])
+                if FLOOR_SWITCH.match(event.get('script', ''))]
+    if len(barriers) != len(pressers):
+        raise ValueError(f'{name}: {len(barriers)} barriers but {len(pressers)} floor switches')
+    for number, (var, label) in enumerate(barriers, 1):
+        closes = {}
+        for line in blocks[label]:
+            match = SETMETATILE_PART.match(line)
+            if match and match.group(4) == '1':
+                closes[(int(match.group(1)), int(match.group(2)))] = match.group(3).lower()
+        found = [(event, block) for event, block in pressers
+                 if (var, str(VICTORY_ROAD_SET_VALUE)) in [m.groups() for m in map(SETVAR.match, block) if m]]
+        if len(found) != 1:
+            raise ValueError(f'{name}: {var} is set by {len(found)} floor switches')
+        event, block = found[0]
+        opens = {(int(m.group(1)), int(m.group(2))) for m in map(SETMETATILE_PART.match, block) if m and m.group(4) == '0'}
+        if opens != set(closes):
+            raise ValueError(f'{name}: {var} closes {sorted(closes)} in OnLoad but its floor switch opens {sorted(opens)}')
+        x, y = event['x'], event['y']
+        if tiles[y][x] != 'B':
+            raise ValueError(f'{name}: floor switch ({x}, {y}) is {tiles[y][x]!r}, not a Strength button')
+        for part in ('top', 'bottom'):
+            group = sorted([x_, y_] for (x_, y_), kind in closes.items() if kind == part)
+            glyphs = {tiles[y_][x_] for x_, y_ in group}
+            if len(glyphs) != 1:
+                raise ValueError(f'{name}: barrier {number} {part} is open as {sorted(glyphs)}')
+            gates[f'barrier_{number}_{part}'] = {
+                'tiles': group, 'open_glyph': glyphs.pop(), 'new_game': 'closed',
+                'switch': f'floor_switch_{number}', 'open_when': 'on'}
+        switches[f'floor_switch_{number}'] = {
+            'flag': var, 'set_value': VICTORY_ROAD_SET_VALUE, 'toggle': False, 'floors': [name],
+            'pressed_by': 'strength_boulder', 'buttons': [{'coord': [x, y]}]}
+    return gates, switches
+
+
 class Decomp:
     def __init__(self, commit, cache):
         self.commit = commit
@@ -706,6 +775,8 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     if name in MANSION_FLOORS:
         gates = mansion_gates(decomp.read(MANSION_SCRIPTS).decode(), name, open_tiles)
         switches = mansion_switches(source)
+    if name in VICTORY_ROAD_FLOORS:
+        gates, switches = victory_road_gates(decomp.read(f'data/maps/{name}/scripts.inc').decode(), source, name, open_tiles)
     tiles = set_tiles(open_tiles, [tuple(c) for gate in gates.values() for c in gate['tiles']], GATE_GLYPH)
     warp_events = source.get('warp_events', [])
     points = {n: [x, y] for n, (x, y) in POINTS.get(name, {}).items()}

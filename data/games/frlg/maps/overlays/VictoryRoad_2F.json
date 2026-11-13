@@ -1,0 +1,58 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "VictoryRoad_2F",
+  "operations": [
+    {
+      "op": "gate",
+      "gate": "barrier_1_top",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/VictoryRoad_2F/scripts.inc: VictoryRoad_2F_OnLoad calls the SetRockBarrier script (`setmetatile` RockBarrier_Top, collision 1: this gate's tiles close) while VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1 is not 100; the coord event at (2, 19) runs VictoryRoad_2F_EventScript_FloorSwitch*, which redraws the barrier open (Floor_Ledge_Top, collision 0), plays SE_ICE_BREAK, copies the boulders' positions to their permanent ones and sets VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1 to 100 (an already-pressed switch does nothing). Route23_OnTransition (data/maps/Route23/scripts.inc) sets it back to 0 on every entry to Route 23, so the barrier closes again",
+        "pressed_by": "push a Strength boulder onto the button tile (2, 19): src/field_player_avatar.c DoBoulderFinish calls HandleBoulderActivateVictoryRoadSwitch (src/field_control_avatar.c), which runs the coord event script of that tile when its metatile behavior is MB_STRENGTH_BUTTON. The player stepping on the tile does nothing: the event's var_value is 99 and the var is 0",
+        "reset": "closed again after Route 23 loads; a consumer clears this var on entering Route 23"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_1_bottom",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/VictoryRoad_2F/scripts.inc: VictoryRoad_2F_OnLoad calls the SetRockBarrier script (`setmetatile` RockBarrier_Bottom, collision 1: this gate's tiles close) while VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1 is not 100; the coord event at (2, 19) runs VictoryRoad_2F_EventScript_FloorSwitch*, which redraws the barrier open (Floor_Ledge_Bottom, collision 0), plays SE_ICE_BREAK, copies the boulders' positions to their permanent ones and sets VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1 to 100 (an already-pressed switch does nothing). Route23_OnTransition (data/maps/Route23/scripts.inc) sets it back to 0 on every entry to Route 23, so the barrier closes again",
+        "pressed_by": "push a Strength boulder onto the button tile (2, 19): src/field_player_avatar.c DoBoulderFinish calls HandleBoulderActivateVictoryRoadSwitch (src/field_control_avatar.c), which runs the coord event script of that tile when its metatile behavior is MB_STRENGTH_BUTTON. The player stepping on the tile does nothing: the event's var_value is 99 and the var is 0",
+        "reset": "closed again after Route 23 loads; a consumer clears this var on entering Route 23"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_2_top",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/VictoryRoad_2F/scripts.inc: VictoryRoad_2F_OnLoad calls the SetRockBarrier script (`setmetatile` RockBarrier_Top, collision 1: this gate's tiles close) while VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2 is not 100; the coord event at (14, 19) runs VictoryRoad_2F_EventScript_FloorSwitch*, which redraws the barrier open (Floor_Ledge_Top, collision 0), plays SE_ICE_BREAK, copies the boulders' positions to their permanent ones and sets VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2 to 100 (an already-pressed switch does nothing). Route23_OnTransition (data/maps/Route23/scripts.inc) sets it back to 0 on every entry to Route 23, so the barrier closes again",
+        "pressed_by": "push a Strength boulder onto the button tile (14, 19): src/field_player_avatar.c DoBoulderFinish calls HandleBoulderActivateVictoryRoadSwitch (src/field_control_avatar.c), which runs the coord event script of that tile when its metatile behavior is MB_STRENGTH_BUTTON. The player stepping on the tile does nothing: the event's var_value is 99 and the var is 0",
+        "reset": "closed again after Route 23 loads; a consumer clears this var on entering Route 23"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "barrier_2_bottom",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/VictoryRoad_2F/scripts.inc: VictoryRoad_2F_OnLoad calls the SetRockBarrier script (`setmetatile` RockBarrier_Bottom, collision 1: this gate's tiles close) while VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2 is not 100; the coord event at (14, 19) runs VictoryRoad_2F_EventScript_FloorSwitch*, which redraws the barrier open (Floor_Ledge_Bottom, collision 0), plays SE_ICE_BREAK, copies the boulders' positions to their permanent ones and sets VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2 to 100 (an already-pressed switch does nothing). Route23_OnTransition (data/maps/Route23/scripts.inc) sets it back to 0 on every entry to Route 23, so the barrier closes again",
+        "pressed_by": "push a Strength boulder onto the button tile (14, 19): src/field_player_avatar.c DoBoulderFinish calls HandleBoulderActivateVictoryRoadSwitch (src/field_control_avatar.c), which runs the coord event script of that tile when its metatile behavior is MB_STRENGTH_BUTTON. The player stepping on the tile does nothing: the event's var_value is 99 and the var is 0",
+        "reset": "closed again after Route 23 loads; a consumer clears this var on entering Route 23"
+      },
+      "status": "candidate"
+    }
+  ]
+}

@@ -89,7 +89,7 @@ def validate(data):
     require(isinstance(gates, dict) and isinstance(switches, dict), 'gates and switches must be objects')
     claimed = {}
     for gate_id, gate in gates.items():
-        require(isinstance(gate, dict) and gate.get('open_glyph') in ('.', '~'), f'gate {gate_id}: open_glyph')
+        require(isinstance(gate, dict) and gate.get('open_glyph') in ('.', '~', '2', '4', '6', '8'), f'gate {gate_id}: open_glyph')
         require(gate.get('new_game') in ('open', 'closed'), f'gate {gate_id}: new_game')
         require(isinstance(gate.get('tiles'), list) and gate['tiles'], f'gate {gate_id}: tiles')
         for x, y in gate['tiles']:
@@ -109,15 +109,25 @@ def validate(data):
         for x, glyph in enumerate(row):
             require(glyph != 'G' or (x, y) in claimed, f'G tile {(x, y)} is in no gate')
     for switch_id, switch in switches.items():
-        require(isinstance(switch.get('flag'), str) and switch.get('toggle') is True, f'switch {switch_id}: flag and toggle')
+        require(isinstance(switch.get('flag'), str) and isinstance(switch.get('toggle'), bool), f'switch {switch_id}: flag and toggle')
         require(isinstance(switch.get('floors'), list) and data['name'] in switch['floors'], f'switch {switch_id}: floors name this map')
-        require(isinstance(switch.get('statues'), list) and switch['statues'], f'switch {switch_id}: statues')
-        for statue in switch['statues']:
-            tile(*statue['coord'])
-            tile(*statue['face_from'])
-            dx, dy = FACING[statue['facing']]
-            require([statue['face_from'][0] + dx, statue['face_from'][1] + dy] == statue['coord'],
-                    f'switch {switch_id}: {statue["face_from"]} does not face {statue["coord"]} {statue["facing"]}')
+        if switch['toggle']:
+            require(isinstance(switch.get('statues'), list) and switch['statues'], f'switch {switch_id}: statues')
+            for statue in switch['statues']:
+                tile(*statue['coord'])
+                tile(*statue['face_from'])
+                dx, dy = FACING[statue['facing']]
+                require([statue['face_from'][0] + dx, statue['face_from'][1] + dy] == statue['coord'],
+                        f'switch {switch_id}: {statue["face_from"]} does not face {statue["coord"]} {statue["facing"]}')
+        else:
+            #   A Strength button: a boulder pushed onto it sets a scene VAR to
+            #   `set_value` for good (until the game resets it).
+            require(switch['flag'].startswith('VAR_') and type(switch.get('set_value')) is int, f'switch {switch_id}: a button sets a VAR to set_value')
+            require(switch.get('pressed_by') == 'strength_boulder' and 'statues' not in switch, f'switch {switch_id}: pressed_by')
+            require(isinstance(switch.get('buttons'), list) and switch['buttons'], f'switch {switch_id}: buttons')
+            for button in switch['buttons']:
+                tile(*button['coord'])
+                require(rows[button['coord'][1]][button['coord'][0]] == 'B', f'switch {switch_id}: {button["coord"]} is not a Strength button (B)')
     for connection in data.get('connections', []):
         require(connection['side'] in {'north', 'south', 'west', 'east'}, 'invalid connection side')
         require(type(connection['offset']) is int, 'invalid connection offset')

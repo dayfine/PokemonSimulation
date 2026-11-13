@@ -16,7 +16,8 @@
       "target_game": "frlg",
       "target_game_relation": "native_decomp",
       "verification": "FRLG source-derived; collection not observed"
-    }
+    },
+    "overlay": {"file": "data/games/frlg/maps/overlays/VictoryRoad_1F.json", "story_state": "complete"}
   },
   "tiles": [
     "################################################",
@@ -33,8 +34,8 @@
     "####~~#8888#~#~~###~~~##########################",
     "####~##~~~~###~~################################",
     "####~~#~~~~###~~################################",
-    "####~~#~~~~888~~##~~~###########################",
-    "###~~~#~~~~~~~~~#~~~~###########################",
+    "####~~#~~~~8G8~~##~~~###########################",
+    "###~~~#~~~~~G~~~#~~~~###########################",
     "##~~~##~#########~#~B###########################",
     "##~~##~~###~~~~~~~~~############################",
     "###~~~~~##~~~##~~~~~############################",
@@ -92,11 +93,37 @@
     ]
   },
   "warps": [
-    {"coord": [3, 2], "enter": "step_on", "to_map": "VictoryRoad_2F", "to_point": "warp_0"},
-    {"coord": [11, 20], "enter": "walk_south", "to_map": "Route23", "to_point": "warp_0"}
+    {"enter": "step_on", "to_map": "VictoryRoad_2F", "to_point": "warp_0", "coord": [3, 2]},
+    {"enter": "walk_south", "to_map": "Route23", "to_point": "warp_0", "coord": [11, 20]}
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "barrier_1_top": {
+      "tiles": [[12, 14]],
+      "open_glyph": "8",
+      "new_game": "closed",
+      "switch": "floor_switch_1",
+      "open_when": "on"
+    },
+    "barrier_1_bottom": {
+      "tiles": [[12, 15]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "switch": "floor_switch_1",
+      "open_when": "on"
+    }
+  },
+  "switches": {
+    "floor_switch_1": {
+      "flag": "VAR_MAP_SCENE_VICTORY_ROAD_1F",
+      "set_value": 100,
+      "toggle": false,
+      "floors": ["VictoryRoad_1F"],
+      "pressed_by": "strength_boulder",
+      "buttons": [{"coord": [20, 16]}]
+    }
+  },
   "hidden_items": [
     {
       "coord": [12, 12],
@@ -116,46 +143,46 @@
   "npcs": [
     {
       "name": "cooltrainer_m",
-      "coord": [5, 2],
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 0,
-      "source_script": "VictoryRoad_1F_EventScript_Rolando"
+      "source_script": "VictoryRoad_1F_EventScript_Rolando",
+      "coord": [5, 2]
     },
     {
       "name": "cooltrainer_f",
-      "coord": [14, 6],
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 1,
-      "source_script": "VictoryRoad_1F_EventScript_Naomi"
+      "source_script": "VictoryRoad_1F_EventScript_Naomi",
+      "coord": [14, 6]
     },
     {
       "name": "pushable_boulder",
-      "coord": [7, 18],
       "source_event": 4,
       "source_script": "EventScript_StrengthBoulder",
-      "source_local_id": "LOCALID_VICTORY_ROAD_1F_BOULDER"
+      "source_local_id": "LOCALID_VICTORY_ROAD_1F_BOULDER",
+      "coord": [7, 18]
     },
-    {"name": "pushable_boulder", "coord": [4, 12], "source_event": 5, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [16, 3], "source_event": 6, "source_script": "EventScript_StrengthBoulder"}
+    {"name": "pushable_boulder", "source_event": 5, "source_script": "EventScript_StrengthBoulder", "coord": [4, 12]},
+    {"name": "pushable_boulder", "source_event": 6, "source_script": "EventScript_StrengthBoulder", "coord": [16, 3]}
   ],
   "items": [
     {
       "name": "item_ball",
-      "coord": [12, 3],
       "source_event": 2,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_1F_RARE_CANDY",
       "source_script": "VictoryRoad_1F_EventScript_ItemRareCandy",
-      "item": "rare_candy"
+      "item": "rare_candy",
+      "coord": [12, 3]
     },
     {
       "name": "item_ball",
-      "coord": [14, 1],
       "source_event": 3,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_1F_TM02",
       "source_script": "VictoryRoad_1F_EventScript_ItemTM02",
-      "item": "tm02"
+      "item": "tm02",
+      "coord": [14, 1]
     }
   ]
 }

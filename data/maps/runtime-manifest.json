@@ -6102,7 +6102,7 @@
         {
           "name": "VictoryRoad_1F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_1F.json",
-          "sha256": "be9b6fff1a0fe482525bda2d70d9f15dafaba2bdd1e031f48e0d81733ed22635",
+          "sha256": "540d8b003c29f339956f3c0b5903dd4d49d05e8cd11adff7217bd3a28adeb3b6",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6118,6 +6118,10 @@
               "target_game": "frlg",
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
+            },
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/VictoryRoad_1F.json",
+              "story_state": "complete"
             }
           },
           "target_game": "frlg",
@@ -6142,13 +6146,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_1F.json",
-            "sha256": "be9b6fff1a0fe482525bda2d70d9f15dafaba2bdd1e031f48e0d81733ed22635"
+            "sha256": "e7decdf2108ca0d369c3af30106b3932ff3eac268f56581d63180243444a3daa"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/VictoryRoad_1F.json",
+            "sha256": "53579836d52e41baee36a7d8eece7255a9e1f4b1c908ad4ce9c2c90f3f1dbbc5"
           }
         },
         {
           "name": "VictoryRoad_2F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_2F.json",
-          "sha256": "fade4a3033afea6aee8afb3f372ecb189e1c095ee483768d7ebbb38c5830607d",
+          "sha256": "a8fea35e8a9c15a34aeee10604e42e711bcfb9f769636c18238f287d8b5cd565",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6164,6 +6172,10 @@
               "target_game": "frlg",
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
+            },
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/VictoryRoad_2F.json",
+              "story_state": "complete"
             }
           },
           "target_game": "frlg",
@@ -6188,13 +6200,17 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_2F.json",
-            "sha256": "fade4a3033afea6aee8afb3f372ecb189e1c095ee483768d7ebbb38c5830607d"
+            "sha256": "0ef4254d9ed8e2f6dab103ad5c00cc9eb4c8c9598f877b1534fc92bae8315195"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/VictoryRoad_2F.json",
+            "sha256": "cb8e102232f1f01aced211c1bf91253b8f89b8c99f9770358d03c18c114424ff"
           }
         },
         {
           "name": "VictoryRoad_3F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_3F.json",
-          "sha256": "e780871a25edca200fc9f37280238e07e721896b5f831c96f10c9315ba506e93",
+          "sha256": "a6235387c1e16954ddae4c2d24687533e207109a8cd7e9e57e6eaf09308a5ee4",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6210,6 +6226,10 @@
               "target_game": "frlg",
               "target_game_relation": "native_decomp",
               "verification": "FRLG source-derived; collection not observed"
+            },
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/VictoryRoad_3F.json",
+              "story_state": "complete"
             }
           },
           "target_game": "frlg",
@@ -6234,7 +6254,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_3F.json",
-            "sha256": "e780871a25edca200fc9f37280238e07e721896b5f831c96f10c9315ba506e93"
+            "sha256": "83d34c7f44e48b2cca263aca95793e6a9bf9f649e2a02405098bcfe6f542b8b1"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/VictoryRoad_3F.json",
+            "sha256": "f24fc1346ec0aa5f9a4b867f674b9eeadea37562457b0dfde232cc45013401fc"
           }
         },
         {
