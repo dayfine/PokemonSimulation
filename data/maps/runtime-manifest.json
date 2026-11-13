@@ -7048,7 +7048,7 @@
         {
           "name": "Route203",
           "file": "data/games/bdsp/maps/runtime/Route203.json",
-          "sha256": "a8dc1954695475a9ee4b6b98da0541ab7fc0ce52dca1ffba278b59e12af517ad",
+          "sha256": "dcd6281689cf6ca9d9586cd06558a5377d0e0e8b6e73c960a06802234375ba35",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/Route203.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0016.bin, files/fielddata/land_data/land_data_release/narc_0019.bin, files/fielddata/land_data/land_data_release/narc_0020.bin; zone_event narc_0329",
@@ -7086,10 +7086,6 @@
           "base": {
             "file": "data/games/bdsp/maps/base/Route203.json",
             "sha256": "dcd6281689cf6ca9d9586cd06558a5377d0e0e8b6e73c960a06802234375ba35"
-          },
-          "overlay": {
-            "file": "data/games/bdsp/maps/overlays/Route203.json",
-            "sha256": "23d969574938c73d33af3e8bec8705cb89e5563e95a1889ecb1d16d5a74b0f60"
           }
         },
         {

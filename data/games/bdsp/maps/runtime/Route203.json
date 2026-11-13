@@ -81,6 +81,7 @@
         }
     ],
     "npcs": [
+        {"name": "youngster_0", "coord": [54, 16]},
         {"name": "youngster_1", "coord": [13, 10], "facing": "west"},
         {"name": "lass_2", "coord": [43, 17], "facing": "west"},
         {"name": "youngster_3", "coord": [31, 16], "facing": "south"},

@@ -280,7 +280,7 @@ class PublishedPackTest(unittest.TestCase):
             for operation in overlays.read_overlay(name, 'bdsp')['operations']:
                 counts[operation['op'], operation['why']] = counts.get((operation['op'], operation['why']), 0) + 1
                 self.assertEqual(operation['status'], 'candidate')
-        self.assertEqual(sum(counts.values()), 45)
+        self.assertEqual(sum(counts.values()), 44)
         #  The 22 measured patches (Route201, Route202, Route204North, PlayerHouse1F) are 7 tile operations.
         self.assertEqual(counts['tile', 'console_measured'], 7)
         self.assertEqual(counts['tile', 'generator_gap'], 5)
