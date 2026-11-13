@@ -1,0 +1,17 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "Route204South",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[11, 1]],
+      "glyph": "D",
+      "why": "generator_gap",
+      "evidence": {
+        "observation": "The Ravaged Path's door: its warp tile is the mouth",
+        "generator_fix": "decode from the remake which warp tiles are entered by walking into a door and which are stepped on, instead of a hand list (Diamond only says \"warp\")"
+      },
+      "status": "candidate"
+    }
+  ]
+}

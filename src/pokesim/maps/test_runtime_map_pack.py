@@ -19,21 +19,15 @@ class PackTest(unittest.TestCase):
         for game, data in manifest['games'].items():
             for entry in data['maps']:
                 raw = pack.load(pack.ROOT / entry['file'])
-                self.assertEqual(entry['terrain_corrections'], raw.get('patches', []))
+                # Authored changes are overlay operations (map_overlays), not generator tables or manifest copies.
+                self.assertEqual({k: entry[k] for k in ('base', 'overlay') if k in entry},
+                                 overlays.pack_refs(entry['name'], game))
                 if game == 'bdsp':
                     self.assertEqual(entry['coordinate_frame']['origin'], list(bdsp.MAPS[entry['name']]['rect'][:2]))
-                    # JSON object keys become strings in the manifest.
-                    overrides = json.loads(json.dumps(bdsp.OBJECTS.get(entry['name'], {})))
-                    self.assertEqual(entry['generation_overrides']['objects'], overrides)
-                    self.assertEqual(entry['generation_overrides']['warp_doors'],
-                                     [list(tile) for tile in bdsp.WARP_DOORS.get(entry['name'], [])])
-                    self.assertEqual(entry['generation_overrides']['coord_events'],
-                                     json.loads(json.dumps(bdsp.COORD_EVENTS.get(entry['name'], {}))))
+                    self.assertFalse({'generation_overrides', 'bdsp_differences', 'terrain_corrections'} & set(entry))
                 else:
-                    # Authored changes are overlay operations now (map_overlays), not generator tables.
+                    self.assertEqual(entry['terrain_corrections'], raw.get('patches', []))
                     self.assertEqual(entry['generation_overrides']['opened_tiles'], [])
-                    self.assertEqual({k: entry[k] for k in ('base', 'overlay') if k in entry},
-                                     overlays.pack_refs(entry['name']))
 
     def test_corrections_apply_to_copy_and_keep_evidence_and_extensions(self):
         raw = pack.load(pack.ROOT / 'data/games/bdsp/maps/runtime/Route202.json')

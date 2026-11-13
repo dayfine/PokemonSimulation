@@ -1,6 +1,6 @@
 # Map overlays: generated base plus authored changes
 
-Status: accepted design, 2026-11-09. Migration in progress (see the end).
+Status: accepted design, 2026-11-09. Migration in progress (steps 1 and 2 done; see the end).
 
 ## Why
 
@@ -160,6 +160,60 @@ with shared test vectors from `test_map_overlays.py`, pass the checkpoint and
 flags AutoStory knows, and extend the export (`consumer_sync`) with the two
 directories.
 
+## Step 2 as built (BDSP)
+
+`data/games/bdsp/maps/{base,overlays,runtime}/`, the same three layers
+([README](../../data/games/bdsp/maps/README.md)). `bdsp_decomp_map_builder`
+writes the base: its tables `PATCHES`, `OBJECTS`, `COORD_EVENTS`, `WARP_DOORS`
+and `WARPS` are gone, and so are the manifest's `generation_overrides`,
+`terrain_corrections` and `bdsp_differences` copies of them (their notes are the
+operations' evidence). `POINTS` stays: route anchors, step 3. Generator
+defaults: objects hidden by a story flag are left out, warp tiles are `.`, coord
+events are `coord_event_<index>`.
+
+The runtime files are byte-identical to the published ones: `git diff
+data/games/bdsp/maps/runtime` is empty and every manifest runtime `sha256` is
+unchanged; only the manifest's metadata and the new `base`/`overlay` references
+changed.
+
+What the 45 operations (18 maps) are:
+
+| Was | Became | Count |
+|---|---|---:|
+| `PATCHES` (22 tiles) | `tile`, `console_measured`; published as the map's `patches` (run and date from the evidence) | 7 |
+| `WARP_DOORS` (17 tiles) | `tile` to `D`, `generator_gap` (waits on decoding door versus step-on) | 5 |
+| `WARPS` | `link` (warp add), `generator_gap` (the builder emits no warps) | 3 |
+| `OBJECTS` `show` (+ `range`, `name`) | `object` add with its wander box, `story_scope` | 13 |
+| `OBJECTS` `add` | `object` add, `console_measured` | 2 |
+| `OBJECTS` `hide` | `object` remove: `console_measured` (3: Route203, Sandgem), `story_scope` (1: Route201's Potion lady) | 4 |
+| `OBJECTS` `at`/`still`/`name` | `object` update (`to`, `set`), `console_measured` | 1 |
+| `COORD_EVENTS` names | `trigger` update (`set` the name), `story_scope` | 9 |
+| `COORD_EVENTS` `add` | `trigger` add, `console_measured` | 1 |
+
+New in the format for this: `why: story_scope` (below); `object` `update`
+(`to`, `set`: a value sets a field, `null` removes it) and an `index` on `object`
+add (position among the objects of the kind, since people keep the events
+file's order); `trigger` add, remove and update; `link` warp `add`. The
+resolver's `game` selects the publication conventions: BDSP publishes a
+`console_measured` tile as a `patch` over the raw tiles (the loader and the
+Arduino reader apply them), keeps every record key where the builder had it,
+writes the readable map format and carries no `source.overlay` stamp.
+
+`story_scope` is the fifth `why`: a choice about which people and labels the
+static map carries for our story (a person the decomp hides by flag but the
+story meets, one it walks to instead of routing around, a trigger's name). The
+Jubilife clowns' wander ranges (the point of #89 and #90) are the `object` add
+operations in `overlays/JubilifeCity.json`, with the capture and the limit of
+the measurement in their evidence. It has no `when`: several of these people
+are there only for a window of the story (00.05's clowns, Rowan at 00.03), but
+the resolver only has "from here on" (`story_state`), so they are present at
+every state until it learns windows.
+
+Left for later: `POINTS` (step 3); `story_scope` presence windows; the older
+snake-case `pokenav-map/1` fixtures under `data/games/bdsp/maps/*.json`, whose
+object lists are a second hand-kept copy; FRLG's runtime files, which predate
+key-order preservation and the patch convention.
+
 ## Migration
 
 Each step is its own PR; the existing tests must show no behaviour change
@@ -170,7 +224,8 @@ except where a step says otherwise.
    hole (`H`) and Strength button (`B`) glyphs. Hand edits in the verified
    FRLG maps become overlay operations (Vermilion Gym's gate as `story_state`).
 2. BDSP: move `PATCHES`, `OBJECTS`, `COORD_EVENTS`, `WARP_DOORS`, `WARPS` and
-   inline `patches` into overlay files, keeping their evidence.
+   inline `patches` into overlay files, keeping their evidence. Done
+   2026-11-12 (above).
 3. Move route anchors from map `points` into the checkpoint data.
 4. Resolver in both repos; Arduino-Source reads base + overlays instead of
    pre-baked files.
@@ -189,3 +244,10 @@ except where a step says otherwise.
   get their item from their `finditem` script, and hidden items are published
   as non-blocking `hidden_items`; Celadon Mansion 2F, 3F, Roof and RoofRoom
   join the scope (156 maps). Objects only: no tile changes.
+- 2026-11-12: step 2 (BDSP): the builder writes a pure base; `PATCHES`,
+  `OBJECTS`, `COORD_EVENTS`, `WARP_DOORS` and `WARPS` are 45 overlay operations
+  in 18 files with their evidence; `map_overlays` covers both games, adds the
+  `object` update, `trigger` and warp-add operations and `story_scope`; the
+  manifest drops the copies of the tables. The runtime files did not change a
+  byte. From #90: the Poketch Company clown's row-18 range is the
+  `clown_poketch_company` operation, not a table edit.
