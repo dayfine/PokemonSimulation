@@ -55,6 +55,17 @@ ADDED_LINKS = {
 }
 
 
+# People published after the v1 baseline, as {(game, map): names}: Route 203's
+# youngster at the Oreburgh Gate, whom v1 left out as a wanderer; he stopped
+# AutoStory 01.02 on lab-B (2026-11-12). Removed before digesting.
+ADDED_PEOPLE = {('bdsp', 'Route203'): {'youngster_0'}}
+
+
+def undo_added_people(game, data):
+    names = ADDED_PEOPLE.get((game, data['name']), set())
+    data['objects'] = [o for o in data.get('objects', []) if o['name'] not in names]
+
+
 def undo_added_links(game, data):
     if (game, data['name']) not in ADDED_LINKS:
         return
@@ -144,6 +155,7 @@ class PublicationTest(unittest.TestCase):
                     undo_corrections(game, baseline_data)
                     undo_story_flags_and_wander(game, baseline_data)
                     undo_added_links(game, baseline_data)
+                    undo_added_people(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()
                     self.assertEqual(digest, baseline['games'][game][entry['name']])
                     if game != 'frlg':  # FRLG runtime files are base + overlays in the contract format.

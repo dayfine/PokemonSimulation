@@ -105,7 +105,7 @@ keeps only `MAPS` (source game/header, world crop and verification limits) and
 other former tables (`PATCHES`, `OBJECTS`, `COORD_EVENTS`, `WARP_DOORS`,
 `WARPS`) are overlay operations; the
 [BDSP README](../../data/games/bdsp/maps/README.md) says which became what.
-Examples of explicit BDSP differences include wandering NPCs on Route203/Sandgem
+Examples of explicit BDSP differences include a wandering NPC in Sandgem
 and added Floaroma people.
 
 The overlays include **story-specific choices** (`why: story_scope`), not just remake deltas.
