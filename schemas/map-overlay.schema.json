@@ -39,7 +39,7 @@
         "when": {
           "type": "object",
           "properties": {
-            "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
+            "flag": {"type": "string", "pattern": "^(FLAG|VAR)_[A-Z0-9_]+$"},
             "after_checkpoint": {"$ref": "#/$defs/checkpoint"}
           },
           "minProperties": 1,
@@ -139,7 +139,11 @@
               },
               "required": ["name", "kind", "coord"]
             },
-            "index": {"type": "integer", "minimum": 0, "description": "position among the map's objects of the same kind; omitted: last"}
+            "index": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "position among the map's objects of the same kind; omitted: last"
+            }
           },
           "required": ["action", "object"]
         },

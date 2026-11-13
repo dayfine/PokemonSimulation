@@ -88,7 +88,10 @@
           },
           "to_map": {"type": "string"},
           "to_point": {"type": "string"},
-          "one_way": {"const": true, "description": "A drop: a hole (tile H, MB_FALL_WARP) you fall through. The landing has no warp back up."}
+          "one_way": {
+            "const": true,
+            "description": "A drop: a hole (tile H, MB_FALL_WARP) you fall through. The landing has no warp back up."
+          }
         },
         "required": ["coord"],
         "additionalProperties": true,
@@ -144,7 +147,7 @@
         "type": "object",
         "properties": {
           "tiles": {"type": "array", "items": {"$ref": "#/$defs/coord"}, "minItems": 1},
-          "open_glyph": {"enum": [".", "~"]},
+          "open_glyph": {"enum": [".", "~", "2", "4", "6", "8"]},
           "new_game": {"enum": ["open", "closed"]},
           "opens_by": {"enum": ["card_key_face_a"]},
           "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
@@ -153,33 +156,65 @@
         },
         "required": ["tiles", "open_glyph", "new_game"],
         "oneOf": [
-          {"required": ["opens_by", "flag"], "properties": {"new_game": {"const": "closed"}}, "not": {"anyOf": [{"required": ["switch"]}, {"required": ["open_when"]}]}},
+          {
+            "required": ["opens_by", "flag"],
+            "properties": {"new_game": {"const": "closed"}},
+            "not": {"anyOf": [{"required": ["switch"]}, {"required": ["open_when"]}]}
+          },
           {"required": ["switch", "open_when"], "not": {"anyOf": [{"required": ["opens_by"]}, {"required": ["flag"]}]}}
         ],
         "additionalProperties": false
       }
     },
     "switches": {
-      "description": "Toggle switches that open and close gates, by switch id. The flag is shared by every map in `floors`: pressing a statue flips it, and each floor redraws its gates when it loads.",
+      "description": "Switches that open and close gates, by switch id. A statue switch (toggle true) flips a flag shared by every map in `floors`: pressing a statue flips it, and each floor redraws its gates when it loads. A Strength button (toggle false) sets a scene VAR to `set_value` for good once a boulder is pushed onto one of its `buttons` (until the game resets the VAR).",
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
-          "toggle": {"const": true},
+          "flag": {"type": "string", "pattern": "^(FLAG|VAR)_[A-Z0-9_]+$"},
+          "toggle": {"type": "boolean"},
           "floors": {"type": "array", "items": {"type": "string"}, "minItems": 1},
           "statues": {
             "type": "array",
             "items": {
               "type": "object",
-              "properties": {"coord": {"$ref": "#/$defs/coord"}, "face_from": {"$ref": "#/$defs/coord"}, "facing": {"$ref": "#/$defs/direction"}},
+              "properties": {
+                "coord": {"$ref": "#/$defs/coord"},
+                "face_from": {"$ref": "#/$defs/coord"},
+                "facing": {"$ref": "#/$defs/direction"}
+              },
               "required": ["coord", "face_from", "facing"],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "set_value": {"type": "integer", "minimum": 1},
+          "pressed_by": {"const": "strength_boulder"},
+          "buttons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {"coord": {"$ref": "#/$defs/coord"}},
+              "required": ["coord"],
               "additionalProperties": false
             },
             "minItems": 1
           }
         },
-        "required": ["flag", "toggle", "floors", "statues"],
+        "required": ["flag", "toggle", "floors"],
+        "oneOf": [
+          {
+            "properties": {"toggle": {"const": true}, "flag": {"pattern": "^FLAG_"}},
+            "required": ["statues"],
+            "not": {"anyOf": [{"required": ["set_value"]}, {"required": ["pressed_by"]}, {"required": ["buttons"]}]}
+          },
+          {
+            "properties": {"toggle": {"const": false}, "flag": {"pattern": "^VAR_"}},
+            "required": ["set_value", "pressed_by", "buttons"],
+            "not": {"required": ["statues"]}
+          }
+        ],
         "additionalProperties": false
       }
     },

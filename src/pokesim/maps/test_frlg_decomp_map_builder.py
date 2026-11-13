@@ -113,6 +113,45 @@ class MansionSwitchTest(unittest.TestCase):
         self.assertEqual((statues['flag'], statues['floors'][0]), ('FLAG_POKEMON_MANSION_SWITCH_STATE', 'PokemonMansion_1F'))
 
 
+class VictoryRoadSwitchTest(unittest.TestCase):
+    #   A floor with one barrier at x=2 (top at y=0, bottom at y=1) and a button at x=0.
+    SCRIPTS = (
+        'VictoryRoad_2F_OnLoad::\n'
+        '\tcall_if_ne VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1, 100, VictoryRoad_2F_EventScript_SetRockBarrier1\n'
+        '\tend\n'
+        '\nVictoryRoad_2F_EventScript_SetRockBarrier1::\n'
+        '\tsetmetatile 2, 0, METATILE_Cave_RockBarrier_Top, 1\n'
+        '\tsetmetatile 2, 1, METATILE_Cave_RockBarrier_Bottom, 1\n'
+        '\treturn\n'
+        '\nVictoryRoad_2F_EventScript_FloorSwitch1::\n'
+        '\tlockall\n'
+        '\tgoto_if_eq VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1, 100, VictoryRoad_2F_EventScript_FloorSwitch1AlreadyPressed\n'
+        '\tsetmetatile 2, 0, METATILE_Cave_Floor_Ledge_Top, 0\n'
+        '\tsetmetatile 2, 1, METATILE_Cave_Floor_Ledge_Bottom, 0\n'
+        '\tsetvar VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1, 100\n'
+        '\treleaseall\n'
+        '\tend\n')
+    SOURCE = {'coord_events': [{'x': 0, 'y': 1, 'script': 'VictoryRoad_2F_EventScript_FloorSwitch1'}]}
+
+    def test_barrier_tiles_are_gates_per_metatile_and_the_button_is_a_switch(self):
+        gates, switches = frlg_maps.victory_road_gates(self.SCRIPTS, self.SOURCE, 'VictoryRoad_2F', ['..8', 'B.~'])
+        self.assertEqual(gates, {
+            'barrier_1_top': {'tiles': [[2, 0]], 'open_glyph': '8', 'new_game': 'closed', 'switch': 'floor_switch_1', 'open_when': 'on'},
+            'barrier_1_bottom': {'tiles': [[2, 1]], 'open_glyph': '~', 'new_game': 'closed', 'switch': 'floor_switch_1', 'open_when': 'on'}})
+        self.assertEqual(switches, {'floor_switch_1': {
+            'flag': 'VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1', 'set_value': 100, 'toggle': False, 'floors': ['VictoryRoad_2F'],
+            'pressed_by': 'strength_boulder', 'buttons': [{'coord': [0, 1]}]}})
+
+    def test_the_event_must_be_on_a_strength_button(self):
+        with self.assertRaisesRegex(ValueError, 'not a Strength button'):
+            frlg_maps.victory_road_gates(self.SCRIPTS, self.SOURCE, 'VictoryRoad_2F', ['..8', '..~'])
+
+    def test_the_switch_must_open_what_onload_closes(self):
+        scripts = self.SCRIPTS.replace('2, 1, METATILE_Cave_Floor_Ledge_Bottom', '3, 1, METATILE_Cave_Floor_Ledge_Bottom')
+        with self.assertRaisesRegex(ValueError, 'closes'):
+            frlg_maps.victory_road_gates(scripts, self.SOURCE, 'VictoryRoad_2F', ['..8', 'B.~'])
+
+
 class EncounterTest(unittest.TestCase):
     #   MtMoon_1F's cave floor: behavior MB_CAVE (0x08), encounter type LAND.
     CAVE_FLOOR = 0x08 | (frlg_maps.TILE_ENCOUNTER_LAND << frlg_maps.ENCOUNTER_TYPE_SHIFT)

@@ -16,7 +16,8 @@
       "target_game": "frlg",
       "target_game_relation": "native_decomp",
       "verification": "FRLG source-derived; collection not observed"
-    }
+    },
+    "overlay": {"file": "data/games/frlg/maps/overlays/VictoryRoad_2F.json", "story_state": "complete"}
   },
   "tiles": [
     "##########################################~~~~~~~~~",
@@ -29,14 +30,14 @@
     "##~~~~~~~#~~~#~~~~~~~~#~~~~~~~~~~~~#~~~~~#######~~~",
     "#~~~~~~~~~~~~#~~~~~~~~#~~~~~~~~~~~#########~~~~####",
     "#.#~~~~~~~~~~#~~~~~~~~#~~~~~~~~~~~.#~~.#~~~~~~~~###",
-    "#~~~~~~#888888888888888#~~~~~~~~~~~#~~~~~~~~~~~~~##",
-    "##~~~~~#~~~~~~~~~~~~~~~#~~~~~~~~~~~#~~~~~~~~~~~~~##",
+    "#~~~~~~#88888G888888888#~~~~~~~~~~~#~~~~~~~~~~~~~##",
+    "##~~~~~#~~~~~G~~~~~~~~~#~~~~~~~~~~~#~~~~~~~~~~~~~##",
     "##~~~~~##~######~~~~~~~#~~~~~~~~~~~#~~~~~~#####~.~#",
     "##~~~~~~~~~~~#~#####~~~#~~~~~~~~~~~########~~~#####",
     "##~~~~~~~~~~~#~~~~~#~~~#~~~~~~~~~~~~~~~~~~#~~~~~~#~",
     "###~~~~~~~~~~#~~~~~#~~~888888888##~~~~~~~~##~~~~~~~",
-    "###~~~~~~~~~~#~~~~~#~~~~~~~~~~~~#888#88#~~~##~~~~~~",
-    "##~~~~~~~~~~~#~~~~~#~~~~~~~~~~~~~~~~.~~#~~~#~~~~~~~",
+    "###~~~~~~~~~~#~~~~~#~~~~~~~~~~~~#G88#88#~~~##~~~~~~",
+    "##~~~~~~~~~~~#~~~~~#~~~~~~~~~~~~~G~~.~~#~~~#~~~~~~~",
     "##~#~~~~~#####~~~~~####~#######~########~~~#~#~~~~~",
     "##B~~~########B~~~~~~~~~~~~~~~~~~~~~~~~~~~~#~~~~~~~",
     "#################~~~~~~~~~~~~~~~~~~~~~~~~~~#~~~~~~~",
@@ -109,112 +110,160 @@
     ]
   },
   "warps": [
-    {"coord": [1, 9], "enter": "step_on", "to_map": "VictoryRoad_1F", "to_point": "warp_0"},
-    {"coord": [3, 3], "enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_0"},
-    {"coord": [34, 9], "enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_1"},
-    {"coord": [38, 9], "enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_2"},
-    {"coord": [36, 17], "enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_3"},
-    {"coord": [49, 13], "enter": "walk_into", "to_map": "Route23", "to_point": "warp_1"},
-    {"coord": [48, 12], "enter": "walk_south", "to_map": "Route23", "to_point": "warp_1"},
-    {"coord": [47, 13], "enter": "walk_into", "to_map": "Route23", "to_point": "warp_1"},
-    {"coord": [34, 19], "enter": "walk_into", "to_map": "VictoryRoad_3F", "to_point": "warp_4"}
+    {"enter": "step_on", "to_map": "VictoryRoad_1F", "to_point": "warp_0", "coord": [1, 9]},
+    {"enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_0", "coord": [3, 3]},
+    {"enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_1", "coord": [34, 9]},
+    {"enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_2", "coord": [38, 9]},
+    {"enter": "step_on", "to_map": "VictoryRoad_3F", "to_point": "warp_3", "coord": [36, 17]},
+    {"enter": "walk_into", "to_map": "Route23", "to_point": "warp_1", "coord": [49, 13]},
+    {"enter": "walk_south", "to_map": "Route23", "to_point": "warp_1", "coord": [48, 12]},
+    {"enter": "walk_into", "to_map": "Route23", "to_point": "warp_1", "coord": [47, 13]},
+    {"enter": "walk_into", "to_map": "VictoryRoad_3F", "to_point": "warp_4", "coord": [34, 19]}
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "barrier_1_top": {
+      "tiles": [[13, 10]],
+      "open_glyph": "8",
+      "new_game": "closed",
+      "switch": "floor_switch_1",
+      "open_when": "on"
+    },
+    "barrier_1_bottom": {
+      "tiles": [[13, 11]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "switch": "floor_switch_1",
+      "open_when": "on"
+    },
+    "barrier_2_top": {
+      "tiles": [[33, 16]],
+      "open_glyph": "8",
+      "new_game": "closed",
+      "switch": "floor_switch_2",
+      "open_when": "on"
+    },
+    "barrier_2_bottom": {
+      "tiles": [[33, 17]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "switch": "floor_switch_2",
+      "open_when": "on"
+    }
+  },
+  "switches": {
+    "floor_switch_1": {
+      "flag": "VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1",
+      "set_value": 100,
+      "toggle": false,
+      "floors": ["VictoryRoad_2F"],
+      "pressed_by": "strength_boulder",
+      "buttons": [{"coord": [2, 19]}]
+    },
+    "floor_switch_2": {
+      "flag": "VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2",
+      "set_value": 100,
+      "toggle": false,
+      "floors": ["VictoryRoad_2F"],
+      "pressed_by": "strength_boulder",
+      "buttons": [{"coord": [14, 19]}]
+    }
+  },
   "npcs": [
     {
       "name": "poke_maniac",
-      "coord": [7, 4],
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 0,
-      "source_script": "VictoryRoad_2F_EventScript_Dawson"
+      "source_script": "VictoryRoad_2F_EventScript_Dawson",
+      "coord": [7, 4]
     },
     {
       "name": "black_belt",
-      "coord": [20, 11],
       "trainer": {"sight": 4, "looks": ["south", "west"]},
       "source_event": 1,
-      "source_script": "VictoryRoad_2F_EventScript_Daisuke"
+      "source_script": "VictoryRoad_2F_EventScript_Daisuke",
+      "coord": [20, 11]
     },
     {
       "name": "rocker",
-      "coord": [31, 16],
       "facing": "west",
       "trainer": {"sight": 4},
       "source_event": 2,
-      "source_script": "VictoryRoad_2F_EventScript_Nelson"
+      "source_script": "VictoryRoad_2F_EventScript_Nelson",
+      "coord": [31, 16]
     },
     {
       "name": "man",
-      "coord": [26, 6],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
-      "source_script": "VictoryRoad_2F_EventScript_Vincent"
+      "source_script": "VictoryRoad_2F_EventScript_Vincent",
+      "coord": [26, 6]
     },
     {
       "name": "rocker",
-      "coord": [36, 5],
       "facing": "north",
       "trainer": {"sight": 3},
       "source_event": 4,
-      "source_script": "VictoryRoad_2F_EventScript_Gregory"
+      "source_script": "VictoryRoad_2F_EventScript_Gregory",
+      "coord": [36, 5]
     },
-    {"name": "pushable_boulder", "coord": [8, 7], "source_event": 9, "source_script": "EventScript_StrengthBoulder"},
+    {"name": "pushable_boulder", "source_event": 9, "source_script": "EventScript_StrengthBoulder", "coord": [8, 7]},
     {
       "name": "pushable_boulder",
-      "coord": [6, 17],
       "source_event": 10,
       "source_script": "EventScript_StrengthBoulder",
-      "source_local_id": "LOCALID_VICTORY_ROAD_2F_BOULDER1"
+      "source_local_id": "LOCALID_VICTORY_ROAD_2F_BOULDER1",
+      "coord": [6, 17]
     },
     {
       "name": "pushable_boulder",
-      "coord": [33, 19],
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_BOULDER",
       "source_event": 11,
       "source_script": "EventScript_StrengthBoulder",
-      "source_local_id": "LOCALID_VICTORY_ROAD_2F_BOULDER2"
+      "source_local_id": "LOCALID_VICTORY_ROAD_2F_BOULDER2",
+      "coord": [33, 19]
     },
     {
       "name": "cooltrainer_m",
-      "coord": [40, 9],
       "source_event": 12,
-      "source_script": "VictoryRoad_2F_EventScript_DoubleEdgeTutor"
+      "source_script": "VictoryRoad_2F_EventScript_DoubleEdgeTutor",
+      "coord": [40, 9]
     }
   ],
   "items": [
     {
       "name": "item_ball",
-      "coord": [17, 6],
       "source_event": 5,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_GUARD_SPEC",
       "source_script": "VictoryRoad_2F_EventScript_ItemGuardSpec",
-      "item": "guard_spec"
+      "item": "guard_spec",
+      "coord": [17, 6]
     },
     {
       "name": "item_ball",
-      "coord": [40, 7],
       "source_event": 6,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_TM07",
       "source_script": "VictoryRoad_2F_EventScript_ItemTM07",
-      "item": "tm07"
+      "item": "tm07",
+      "coord": [40, 7]
     },
     {
       "name": "item_ball",
-      "coord": [25, 13],
       "source_event": 7,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_FULL_HEAL",
       "source_script": "VictoryRoad_2F_EventScript_ItemFullHeal",
-      "item": "full_heal"
+      "item": "full_heal",
+      "coord": [25, 13]
     },
     {
       "name": "item_ball",
-      "coord": [14, 13],
       "source_event": 8,
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_TM37",
       "source_script": "VictoryRoad_2F_EventScript_ItemTM37",
-      "item": "tm37"
+      "item": "tm37",
+      "coord": [14, 13]
     }
   ]
 }

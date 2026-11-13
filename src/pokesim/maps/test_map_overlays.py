@@ -422,6 +422,41 @@ class PublishedPackTest(unittest.TestCase):
                 self.assertEqual(base['tiles'][y][x], '#')
                 self.assertEqual(base['tiles'][fy][fx], '~')
 
+    #   Victory Road: (floor) -> (button, var, [(gate, tile, open glyph)]) per switch.
+    VICTORY_ROAD = {
+        'VictoryRoad_1F': [((20, 16), 'VAR_MAP_SCENE_VICTORY_ROAD_1F', [((12, 14), '8'), ((12, 15), '~')])],
+        'VictoryRoad_2F': [((2, 19), 'VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1', [((13, 10), '8'), ((13, 11), '~')]),
+                           ((14, 19), 'VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2', [((33, 16), '8'), ((33, 17), '~')])],
+        'VictoryRoad_3F': [((7, 7), 'VAR_MAP_SCENE_VICTORY_ROAD_3F', [((12, 12), '8'), ((12, 13), '~')])],
+    }
+
+    def test_victory_road_barriers_follow_the_boulder_switches(self):
+        for name, switches in self.VICTORY_ROAD.items():
+            base = json.loads(overlays.path_of('frlg', 'base', name).read_text())
+            runtime = json.loads(overlays.path_of('frlg', 'runtime', name).read_text())
+            off = overlays.effective_map(name, NEW_GAME)
+            self.assertEqual(sorted(base['switches']), sorted(f'floor_switch_{n}' for n in range(1, len(switches) + 1)))
+            for number, (button, var, tiles) in enumerate(switches, 1):
+                switch = base['switches'][f'floor_switch_{number}']
+                self.assertEqual((switch['flag'], switch['set_value'], switch['toggle'], switch['pressed_by']),
+                                 (var, 100, False, 'strength_boulder'))
+                self.assertEqual(switch['buttons'], [{'coord': list(button)}])
+                self.assertEqual(base['tiles'][button[1]][button[0]], 'B')
+                on = overlays.effective_map(name, StoryState(flags=frozenset({var})))
+                for (x, y), glyph in tiles:
+                    with self.subTest(map=name, tile=(x, y)):
+                        self.assertEqual((base['tiles'][y][x], runtime['tiles'][y][x]), ('G', 'G'))
+                        self.assertEqual((off['tiles'][y][x], on['tiles'][y][x]), ('#', glyph))
+                gates = {g: v for g, v in base['gates'].items() if v['switch'] == f'floor_switch_{number}'}
+                self.assertEqual(sorted(tuple(g['tiles'][0]) for g in gates.values()), sorted(t for t, _ in tiles))
+            gates = base['gates']
+            self.assertEqual(sorted(o['gate'] for o in overlays.read_overlay(name)['operations']), sorted(gates))
+            changed = {(x, y) for y, row in enumerate(off['tiles']) for x, c in enumerate(row) if c != base['tiles'][y][x]}
+            self.assertEqual(changed, {tuple(t) for g in gates.values() for t in g['tiles']})
+            with self.subTest(map=name, state='all pressed'):
+                every = overlays.effective_map(name, StoryState(flags=frozenset(var for _, var, _ in switches)))
+                self.assertFalse([c for row in every['tiles'] for c in row if c == 'G'])
+
     def test_holes_are_one_way_warps(self):
         found = []
         for name in overlays.names():
