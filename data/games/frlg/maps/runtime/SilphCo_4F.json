@@ -17,7 +17,8 @@
       "target_game_relation": "native_decomp",
       "verification": "FRLG source-derived; collection not observed"
     },
-    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+    "overlay": {"file": "data/games/frlg/maps/overlays/SilphCo_4F.json", "story_state": "complete"}
   },
   "tiles": [
     "####################################",
@@ -31,13 +32,13 @@
     ".#######.##........##...............",
     ".#######.##........##...#####..#####",
     ".#######.##........##...#####..#####",
-    ".##.####.#####..#####...##..........",
-    ".##..###.#####..#####...##..........",
+    ".##.####.#####GG#####...##..........",
+    ".##..###.#####GG#####...##..........",
     ".#...##..##........##...##...###....",
     ".........##........##...##...###...#",
     ".........##........##...##..........",
-    "###..#########..#####...##..........",
-    "###..#########..#####...##...###...#",
+    "###GG#########..#####...##..........",
+    "###GG#########..#####...##...###...#",
     "#......####.............##...###....",
     "........................###.........",
     "........................###........#",
@@ -52,16 +53,32 @@
     "warp_5": [18, 14]
   },
   "warps": [
-    {"coord": [28, 2], "enter": "walk_west", "to_map": "SilphCo_5F", "to_point": "warp_0"},
-    {"coord": [18, 6], "enter": "step_on", "to_map": "SilphCo_6F", "to_point": "warp_3"},
-    {"coord": [30, 2], "enter": "walk_east", "to_map": "SilphCo_3F", "to_point": "warp_3"},
-    {"coord": [12, 9], "enter": "step_on", "to_map": "SilphCo_10F", "to_point": "warp_1"},
-    {"coord": [2, 20], "enter": "step_on", "to_map": "SilphCo_10F", "to_point": "warp_4"},
-    {"coord": [18, 14], "enter": "step_on", "to_map": "SilphCo_10F", "to_point": "warp_2"},
-    {"coord": [22, 3], "enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0"}
+    {"enter": "walk_west", "to_map": "SilphCo_5F", "to_point": "warp_0", "coord": [28, 2]},
+    {"enter": "step_on", "to_map": "SilphCo_6F", "to_point": "warp_3", "coord": [18, 6]},
+    {"enter": "walk_east", "to_map": "SilphCo_3F", "to_point": "warp_3", "coord": [30, 2]},
+    {"enter": "step_on", "to_map": "SilphCo_10F", "to_point": "warp_1", "coord": [12, 9]},
+    {"enter": "step_on", "to_map": "SilphCo_10F", "to_point": "warp_4", "coord": [2, 20]},
+    {"enter": "step_on", "to_map": "SilphCo_10F", "to_point": "warp_2", "coord": [18, 14]},
+    {"enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0", "coord": [22, 3]}
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "door_1": {
+      "tiles": [[3, 16], [3, 17], [4, 16], [4, 17]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "card_key_face_a",
+      "flag": "FLAG_SILPH_4F_DOOR_1"
+    },
+    "door_2": {
+      "tiles": [[14, 11], [14, 12], [15, 11], [15, 12]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "card_key_face_a",
+      "flag": "FLAG_SILPH_4F_DOOR_2"
+    }
+  },
   "hidden_items": [
     {
       "coord": [35, 20],
@@ -74,64 +91,64 @@
   "npcs": [
     {
       "name": "rocket_m",
-      "coord": [33, 16],
       "wander": {"min": [32, 15], "max": [34, 17]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 0,
-      "source_script": "SilphCo_4F_EventScript_Grunt2"
+      "source_script": "SilphCo_4F_EventScript_Grunt2",
+      "coord": [33, 16]
     },
     {
       "name": "rocket_m",
-      "coord": [10, 19],
       "facing": "east",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 1,
-      "source_script": "SilphCo_4F_EventScript_Grunt1"
+      "source_script": "SilphCo_4F_EventScript_Grunt1",
+      "coord": [10, 19]
     },
     {
       "name": "scientist",
-      "coord": [14, 8],
       "trainer": {"sight": 2, "looks": ["south", "west"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 2,
-      "source_script": "SilphCo_4F_EventScript_Rodney"
+      "source_script": "SilphCo_4F_EventScript_Rodney",
+      "coord": [14, 8]
     },
-    {"name": "worker_m", "coord": [5, 5], "source_event": 3, "source_script": "SilphCo_4F_EventScript_WorkerM"}
+    {"name": "worker_m", "source_event": 3, "source_script": "SilphCo_4F_EventScript_WorkerM", "coord": [5, 5]}
   ],
   "items": [
     {
       "name": "item_ball",
-      "coord": [3, 11],
       "source_event": 4,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_MAX_REVIVE",
       "source_script": "SilphCo_4F_EventScript_ItemMaxRevive",
-      "item": "max_revive"
+      "item": "max_revive",
+      "coord": [3, 11]
     },
     {
       "name": "item_ball",
-      "coord": [4, 12],
       "source_event": 5,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_ESCAPE_ROPE",
       "source_script": "SilphCo_4F_EventScript_ItemEscapeRope",
-      "item": "escape_rope"
+      "item": "escape_rope",
+      "coord": [4, 12]
     },
     {
       "name": "item_ball",
-      "coord": [2, 13],
       "source_event": 6,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_FULL_HEAL",
       "source_script": "SilphCo_4F_EventScript_ItemFullHeal",
-      "item": "full_heal"
+      "item": "full_heal",
+      "coord": [2, 13]
     },
     {
       "name": "item_ball",
-      "coord": [30, 18],
       "source_event": 7,
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_TM41",
       "source_script": "SilphCo_4F_EventScript_ItemTM41",
-      "item": "tm41"
+      "item": "tm41",
+      "coord": [30, 18]
     }
   ]
 }

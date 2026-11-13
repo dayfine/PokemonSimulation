@@ -52,7 +52,7 @@ ROOT = Path(__file__).resolve().parents[3]
 MANIFEST = ROOT / 'data/maps/runtime-manifest.json'
 FORMAT = 'pokesim-map-overlay/1'
 GAMES = ('frlg', 'bdsp')
-OPS = ('tile', 'link', 'object', 'trigger', 'point')
+OPS = ('tile', 'link', 'object', 'trigger', 'point', 'gate')
 #   story_scope: a choice about which of the world's people and labels our
 #   story's static map carries (a person the decomp hides by flag but the
 #   story meets, one it walks to rather than plans around, a trigger's name).
@@ -149,6 +149,11 @@ def check_overlay(overlay, name=None):
                 raise ValueError(where + ': when needs flag and/or after_checkpoint')
             if 'after_checkpoint' in when:
                 checkpoint_key(when['after_checkpoint'])
+        if op['op'] == 'gate':
+            if not isinstance(op.get('gate'), str) or op.get('state') not in ('open', 'closed'):
+                raise ValueError(where + ': a gate operation names its gate and a state, open or closed')
+            if op['why'] != 'story_state' or 'flag' not in op['when']:
+                raise ValueError(where + ': a gate operation is story_state, when a flag is set')
         if op['op'] == 'tile' and op.get('glyph') not in SYMBOLS:
             raise ValueError(where + ': unknown tile glyph ' + repr(op.get('glyph')))
         if op['why'] == 'generator_gap' and not op['evidence'].get('generator_fix'):
@@ -161,6 +166,41 @@ def _coord(value, where):
             or not all(type(v) is int and v >= 0 for v in value)):
         raise ValueError(where + ': coordinate must be [x, y]')
     return value
+
+
+def settle_gates(data):
+    """Draw every gate of the map in its new-game state (`new_game`), the state
+    the story is in before any gate operation applies. Resolved maps have no `G`."""
+    rows = [list(row) for row in data['tiles']]
+    for gate in data.get('gates', {}).values():
+        glyph = gate['open_glyph'] if gate['new_game'] == 'open' else '#'
+        for x, y in gate['tiles']:
+            rows[y][x] = glyph
+    data['tiles'] = [''.join(row) for row in rows]
+
+
+def _gate(data, op, where):
+    """Set a gate's tiles open or closed; the operation must agree with the
+    gate's own table (the flag or switch that moves it, and which way)."""
+    gate = data.get('gates', {}).get(op['gate'])
+    if gate is None:
+        raise ValueError(f'{where}: the map has no gate {op["gate"]}')
+    if 'flag' in gate:
+        flag, state = gate['flag'], 'open'
+    else:
+        flag = data['switches'][gate['switch']]['flag']
+        state = 'open' if gate['open_when'] == 'on' else 'closed'
+    if op['when']['flag'] != flag or op['state'] != state:
+        raise ValueError(f'{where}: gate {op["gate"]} is {state} when {flag} is set, not {op["state"]} when {op["when"]["flag"]}')
+    glyph = gate['open_glyph'] if state == 'open' else '#'
+    rows = [list(row) for row in data['tiles']]
+    effects = []
+    for x, y in gate['tiles']:
+        if rows[y][x] == glyph:
+            raise ValueError(f'{where}: gate {op["gate"]} tile ({x}, {y}) is already {glyph!r}')
+        rows[y][x] = glyph
+    data['tiles'] = [''.join(row) for row in rows]
+    return [f'gate {op["gate"]} {state}: {len(gate["tiles"])} tiles to {glyph!r}']
 
 
 def _tile_at(data, x, y):
@@ -247,6 +287,8 @@ def _apply(data, op, where, game=None):
                 effects.append(f'tile ({x}, {y}) {old!r} -> {op["glyph"]!r}')
                 rows[y][x] = op['glyph']
         data['tiles'] = [''.join(row) for row in rows]
+    elif kind == 'gate':
+        effects = _gate(data, op, where)
     elif kind == 'point':
         points = data.setdefault('points', {})
         old = points.get(op['name'])
@@ -349,17 +391,24 @@ def _canonical_order(data):
     return {**first, **data_rest}
 
 
-def resolve(base, overlay, state=COMPLETE, game=None):
+def resolve(base, overlay, state=COMPLETE, game=None, settle=True):
     """The effective map: a copy of `base` (wire or legacy form) with the
     overlay operations that apply at `state`, in order. Returns (map in
     legacy form, [(operation, effects)] of the applied operations). `game`
-    selects its publication conventions (patches, key order)."""
+    selects its publication conventions (patches, key order). Gates are
+    drawn open or closed (new-game state, then the gate operations) unless
+    `settle` is false: that keeps them as `G` for a consumer that resolves
+    them from its own story state, as the published runtime files do."""
     ordered = game in KEEP_KEY_ORDER
     data = legacy_map(base, ordered)
     applied = []
+    if settle:
+        settle_gates(data)
     if overlay is not None:
         check_overlay(overlay, data['name'])
         for index, op in enumerate(overlay['operations']):
+            if op['op'] == 'gate' and not settle:
+                continue
             if applies(op, state):
                 where = f'{data["name"]} operation {index}'
                 try:
@@ -393,7 +442,7 @@ def runtime_bytes(name, game='frlg', root=ROOT):
     overlay = read_overlay(name, game, root)
     if overlay is None:
         return base_path.read_bytes()
-    data, _ = resolve(read_json(base_path), overlay, COMPLETE, game)
+    data, _ = resolve(read_json(base_path), overlay, COMPLETE, game, settle=False)
     if game in STAMP_OVERLAY:
         data['source']['overlay'] = {'file': directory(game, 'overlays') + f'/{name}.json',
                                      'story_state': RUNTIME_STORY_STATE}

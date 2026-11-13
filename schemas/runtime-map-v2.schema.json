@@ -14,7 +14,7 @@
     },
     "tiles": {
       "type": "array",
-      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246udlroHB]+$"},
+      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246udlroHBG]+$"},
       "minItems": 1
     },
     "elevation": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]+$"}},
@@ -134,6 +134,52 @@
         },
         "required": ["side", "offset"],
         "additionalProperties": true
+      }
+    },
+    "gates": {
+      "description": "Barriers the story opens or closes, by gate id. The base and runtime tiles show every gate tile as G; its state at a story state comes from the flag (or switch) named here, and the map's overlay operations (op gate) say when.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "tiles": {"type": "array", "items": {"$ref": "#/$defs/coord"}, "minItems": 1},
+          "open_glyph": {"enum": [".", "~"]},
+          "new_game": {"enum": ["open", "closed"]},
+          "opens_by": {"enum": ["card_key_face_a"]},
+          "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
+          "switch": {"type": "string", "minLength": 1},
+          "open_when": {"enum": ["on", "off"]}
+        },
+        "required": ["tiles", "open_glyph", "new_game"],
+        "oneOf": [
+          {"required": ["opens_by", "flag"], "properties": {"new_game": {"const": "closed"}}, "not": {"anyOf": [{"required": ["switch"]}, {"required": ["open_when"]}]}},
+          {"required": ["switch", "open_when"], "not": {"anyOf": [{"required": ["opens_by"]}, {"required": ["flag"]}]}}
+        ],
+        "additionalProperties": false
+      }
+    },
+    "switches": {
+      "description": "Toggle switches that open and close gates, by switch id. The flag is shared by every map in `floors`: pressing a statue flips it, and each floor redraws its gates when it loads.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
+          "toggle": {"const": true},
+          "floors": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "statues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {"coord": {"$ref": "#/$defs/coord"}, "face_from": {"$ref": "#/$defs/coord"}, "facing": {"$ref": "#/$defs/direction"}},
+              "required": ["coord", "face_from", "facing"],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": ["flag", "toggle", "floors", "statues"],
+        "additionalProperties": false
       }
     },
     "hidden_items": {

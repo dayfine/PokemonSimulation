@@ -17,7 +17,8 @@
       "target_game_relation": "native_decomp",
       "verification": "FRLG source-derived; collection not observed"
     },
-    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles",
+    "overlay": {"file": "data/games/frlg/maps/overlays/SilphCo_7F.json", "story_state": "complete"}
   },
   "tiles": [
     "###############################",
@@ -27,14 +28,14 @@
     "......####..#..##..............",
     "......##....#..##..............",
     "...##########..................",
-    "......##............####..#####",
-    "......#####..####...####..#####",
-    "......#####..####...###........",
+    "......##............####GG#####",
+    "......#####GG####...####GG#####",
+    "......#####GG####...###........",
     "########.......##...##......##.",
     "########.##.##.##...###........",
     "......##.##.##.##...##.........",
-    "......##.......##...#####..####",
-    "......##.......##...#####..####",
+    "......##.......##...#####GG####",
+    "......##.......##...#####GG####",
     ".#..#.##.......##...##.........",
     "......###########...##........6",
     "......###########...##........6",
@@ -42,15 +43,38 @@
   ],
   "points": {"warp_0": [19, 2], "warp_1": [5, 8], "warp_2": [25, 17], "warp_3": [27, 2], "warp_4": [5, 4]},
   "warps": [
-    {"coord": [19, 2], "enter": "walk_west", "to_map": "SilphCo_6F", "to_point": "warp_0"},
-    {"coord": [5, 8], "enter": "step_on", "to_map": "SilphCo_11F", "to_point": "warp_1"},
-    {"coord": [25, 17], "enter": "step_on", "to_map": "SilphCo_5F", "to_point": "warp_5"},
-    {"coord": [27, 2], "enter": "walk_east", "to_map": "SilphCo_8F", "to_point": "warp_3"},
-    {"coord": [5, 4], "enter": "step_on", "to_map": "SilphCo_3F", "to_point": "warp_2"},
-    {"coord": [23, 3], "enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0"}
+    {"enter": "walk_west", "to_map": "SilphCo_6F", "to_point": "warp_0", "coord": [19, 2]},
+    {"enter": "step_on", "to_map": "SilphCo_11F", "to_point": "warp_1", "coord": [5, 8]},
+    {"enter": "step_on", "to_map": "SilphCo_5F", "to_point": "warp_5", "coord": [25, 17]},
+    {"enter": "walk_east", "to_map": "SilphCo_8F", "to_point": "warp_3", "coord": [27, 2]},
+    {"enter": "step_on", "to_map": "SilphCo_3F", "to_point": "warp_2", "coord": [5, 4]},
+    {"enter": "walk_into", "to_map": "SilphCo_Elevator", "to_point": "warp_0", "coord": [23, 3]}
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "door_1": {
+      "tiles": [[11, 8], [11, 9], [12, 8], [12, 9]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "card_key_face_a",
+      "flag": "FLAG_SILPH_7F_DOOR_1"
+    },
+    "door_2": {
+      "tiles": [[24, 7], [24, 8], [25, 7], [25, 8]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "card_key_face_a",
+      "flag": "FLAG_SILPH_7F_DOOR_2"
+    },
+    "door_3": {
+      "tiles": [[25, 13], [25, 14], [26, 13], [26, 14]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "card_key_face_a",
+      "flag": "FLAG_SILPH_7F_DOOR_3"
+    }
+  },
   "hidden_items": [
     {
       "coord": [22, 11],
@@ -63,75 +87,75 @@
   "npcs": [
     {
       "name": "blue",
-      "coord": [2, 6],
       "hide_flag": "FLAG_HIDE_SILPH_RIVAL",
       "source_event": 0,
       "source_script": "0x0",
-      "source_local_id": "LOCALID_SILPH_CO_RIVAL"
+      "source_local_id": "LOCALID_SILPH_CO_RIVAL",
+      "coord": [2, 6]
     },
-    {"name": "worker_m", "coord": [0, 7], "source_event": 1, "source_script": "SilphCo_7F_EventScript_LaprasGuy"},
+    {"name": "worker_m", "source_event": 1, "source_script": "SilphCo_7F_EventScript_LaprasGuy", "coord": [0, 7]},
     {
       "name": "rocket_m",
-      "coord": [24, 5],
       "facing": "west",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 2,
-      "source_script": "SilphCo_7F_EventScript_Grunt1"
+      "source_script": "SilphCo_7F_EventScript_Grunt1",
+      "coord": [24, 5]
     },
     {
       "name": "rocket_m",
-      "coord": [24, 15],
       "facing": "east",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 3,
-      "source_script": "SilphCo_7F_EventScript_Grunt2"
+      "source_script": "SilphCo_7F_EventScript_Grunt2",
+      "coord": [24, 15]
     },
     {
       "name": "rocket_m",
-      "coord": [13, 4],
       "facing": "south",
       "trainer": {"sight": 3},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 4,
-      "source_script": "SilphCo_7F_EventScript_Grunt3"
+      "source_script": "SilphCo_7F_EventScript_Grunt3",
+      "coord": [13, 4]
     },
-    {"name": "worker_f", "coord": [10, 10], "source_event": 5, "source_script": "SilphCo_7F_EventScript_WorkerF"},
-    {"name": "worker_m", "coord": [13, 14], "source_event": 6, "source_script": "SilphCo_7F_EventScript_WorkerM1"},
+    {"name": "worker_f", "source_event": 5, "source_script": "SilphCo_7F_EventScript_WorkerF", "coord": [10, 10]},
+    {"name": "worker_m", "source_event": 6, "source_script": "SilphCo_7F_EventScript_WorkerM1", "coord": [13, 14]},
     {
       "name": "worker_m",
-      "coord": [9, 14],
       "source_event": 7,
       "source_script": "SilphCo_7F_EventScript_WorkerM2",
-      "source_local_id": "LOCALID_SILPH_CO_7F_WORKER_M2"
+      "source_local_id": "LOCALID_SILPH_CO_7F_WORKER_M2",
+      "coord": [9, 14]
     },
     {
       "name": "scientist",
-      "coord": [3, 13],
       "wander": {"min": [1, 13], "max": [5, 13]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 8,
-      "source_script": "SilphCo_7F_EventScript_Joshua"
+      "source_script": "SilphCo_7F_EventScript_Joshua",
+      "coord": [3, 13]
     }
   ],
   "items": [
     {
       "name": "item_ball",
-      "coord": [0, 12],
       "source_event": 9,
       "hide_flag": "FLAG_HIDE_SILPH_CO_7F_CALCIUM",
       "source_script": "SilphCo_7F_EventScript_ItemCalcium",
-      "item": "calcium"
+      "item": "calcium",
+      "coord": [0, 12]
     },
     {
       "name": "item_ball",
-      "coord": [30, 11],
       "source_event": 10,
       "hide_flag": "FLAG_HIDE_SILPH_CO_7F_TM08",
       "source_script": "SilphCo_7F_EventScript_ItemTM08",
-      "item": "tm08"
+      "item": "tm08",
+      "coord": [30, 11]
     }
   ]
 }

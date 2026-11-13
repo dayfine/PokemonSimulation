@@ -64,12 +64,13 @@ and navigation fields and preserves unknown extensions.
 | `npcs`, `items`, `signs`, `interactables` | Typed arrays of `name,coord` (identified pickups may derive `name` from `source_event` and default `quantity` to 1), optional facing, inclusive `wander` box (`min`, `max`), trainer sight/looks and hide flag. Section supplies kind; non-item interactions use `interactables` when enriched. |
 | `triggers`, `flag_sets` | Named story trigger boxes/conditions; named sets of game flags. Preserve game semantics. |
 | `coord_events` | BDSP extension: named `coord,width,length,var,value,source` scene triggers. |
+| `gates`, `switches` | FRLG story barriers. `gates`: id -> `tiles`, `open_glyph` (`.` or `~`), `new_game` (`open`/`closed`) and what moves it: a Card Key door has `opens_by: card_key_face_a` and `flag`; a switch gate has `switch` (id in `switches`) and `open_when` (`on`/`off`). `switches`: id -> shared `flag`, `toggle`, `floors` (maps that share the state), `statues` (`coord`, `face_from`, `facing`). See the FRLG map README. |
 | `patches` | Ordered `coord,glyph,measured_by` overrides, applied by the loader over raw tiles. |
 
 Tiles: `#` blocked, `.` open, `~` encounter terrain (including cave floor),
 `w` water, `^v<>` directional ledges, `D` door/warp entrance, `S` sign,
 space outside; FRLG adds spin tiles `u d l r` (forced north/south/west/east)
-and `o` (stop spinning), `H` hole (fall warp) and `B` Strength button. The
+and `o` (stop spinning), `H` hole (fall warp), `B` Strength button and `G` gate (closed unless the consumer resolves the map's `gates` table from its story state). The
 canonical table is `data/games/frlg/maps/tile-legend.json` (with
 `runtime_symbols.SYMBOLS` and the runtime-map schema's tile pattern). **`8/2/4/6` close the north/south/west/east side of a tile**;
 they are not the forced-movement glyphs of the older `pokenav-map/1` schema.

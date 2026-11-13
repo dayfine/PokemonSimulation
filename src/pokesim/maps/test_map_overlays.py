@@ -136,6 +136,66 @@ class ResolveTest(unittest.TestCase):
             overlays.checkpoint_key('00.x5')
 
 
+def gate_map():
+    return base_map(
+        tiles=['....', '.GG.', '.G..', '...G'],
+        gates={'door': {'tiles': [[1, 1], [2, 1], [1, 2]], 'open_glyph': '.', 'new_game': 'closed',
+                        'opens_by': 'card_key_face_a', 'flag': 'FLAG_DOOR'},
+               'bars': {'tiles': [[3, 3]], 'open_glyph': '~', 'new_game': 'open',
+                        'switch': 'lever', 'open_when': 'off'}},
+        switches={'lever': {'flag': 'FLAG_LEVER', 'toggle': True, 'floors': ['Test'],
+                            'statues': [{'coord': [0, 0], 'face_from': [0, 1], 'facing': 'north'}]}})
+
+
+def gate_op(gate, state, flag):
+    return op('gate', why='story_state', gate=gate, state=state, when={'flag': flag})
+
+
+class GateTest(unittest.TestCase):
+    def test_gates_are_settled_to_their_new_game_state(self):
+        data, _ = overlays.resolve(gate_map(), None)
+        self.assertEqual(data['tiles'], ['....', '.##.', '.#..', '...~'])
+
+    def test_a_gate_operation_flips_its_tiles_once_its_flag_is_set(self):
+        file = overlay(gate_op('door', 'open', 'FLAG_DOOR'), gate_op('bars', 'closed', 'FLAG_LEVER'))
+        door = overlays.resolve(gate_map(), file, StoryState(flags=frozenset({'FLAG_DOOR'})))[0]
+        self.assertEqual(door['tiles'], ['....', '....', '....', '...~'])
+        lever = overlays.resolve(gate_map(), file, StoryState(flags=frozenset({'FLAG_LEVER'})))[0]
+        self.assertEqual(lever['tiles'], ['....', '.##.', '.#..', '...#'])
+        self.assertEqual(overlays.resolve(gate_map(), file, NEW_GAME)[0]['tiles'][3], '...~')
+
+    def test_unsettled_resolution_keeps_the_gate_glyph(self):
+        file = overlay(gate_op('door', 'open', 'FLAG_DOOR'))
+        data, applied = overlays.resolve(gate_map(), file, COMPLETE, settle=False)
+        self.assertEqual(data['tiles'], gate_map()['tiles'])
+        self.assertEqual(applied, [])
+
+    def test_an_operation_must_agree_with_the_gate_table(self):
+        wrong = [gate_op('door', 'closed', 'FLAG_DOOR'), gate_op('door', 'open', 'FLAG_OTHER'),
+                 gate_op('bars', 'open', 'FLAG_LEVER'), gate_op('missing', 'open', 'FLAG_DOOR')]
+        for operation in wrong:
+            with self.subTest(operation=operation), self.assertRaises(ValueError):
+                overlays.resolve(gate_map(), overlay(operation))
+
+    def test_the_gate_tables_are_validated(self):
+        from .runtime_map_schema import validate
+        validate(gate_map())
+        mutations = [
+            lambda d: d['tiles'].__setitem__(0, 'G...'),                        # G in no gate
+            lambda d: d['gates']['door'].update(new_game='open'),               # flag gate starts closed
+            lambda d: d['gates']['bars'].update(open_when='on'),                # switch starts off
+            lambda d: d['gates']['bars'].update(switch='nope'),
+            lambda d: d['gates']['bars']['tiles'].append([1, 1]),               # tile in two gates
+            lambda d: d['switches']['lever']['statues'][0].update(facing='south'),
+            lambda d: d['switches']['lever'].update(floors=['Other']),
+        ]
+        for mutate in mutations:
+            data = copy.deepcopy(gate_map())
+            mutate(data)
+            with self.subTest(mutate=mutate), self.assertRaises(ValueError):
+                validate(data)
+
+
 class BdspResolveTest(unittest.TestCase):
     """The operation kinds BDSP needs: published patches, object update/index, triggers, warp add."""
 
@@ -261,6 +321,47 @@ class PublishedPackTest(unittest.TestCase):
             self.assertEqual(runtime['tiles'][y][x], '.')
         self.assertEqual(runtime['source']['overlay'], {
             'file': 'data/games/frlg/maps/overlays/VermilionCity_Gym.json', 'story_state': 'complete'})
+
+    def test_silph_card_key_doors_are_gates_closed_until_opened(self):
+        #   (gate, flag, tiles that open); the base and runtime files show `G`,
+        #   the effective map is a wall until the flag is set, then open floor.
+        doors = {
+            'SilphCo_5F': [('door_1', 'FLAG_SILPH_5F_DOOR_1', [(7, 9), (8, 9), (7, 10), (8, 10)]),
+                           ('door_2', 'FLAG_SILPH_5F_DOOR_2', [(7, 18), (8, 18), (7, 19), (8, 19)]),
+                           ('door_3', 'FLAG_SILPH_5F_DOOR_3', [(18, 13), (19, 13), (18, 14), (19, 14)])],
+            'SilphCo_11F': [('door', 'FLAG_SILPH_11F_DOOR', [(5, 16), (6, 16), (5, 17), (6, 17)])],
+        }
+        for name, floor in doors.items():
+            base = json.loads(overlays.path_of('frlg', 'base', name).read_text())
+            runtime = json.loads(overlays.path_of('frlg', 'runtime', name).read_text())
+            for gate_id, flag, tiles in floor:
+                with self.subTest(map=name, gate=gate_id):
+                    gate = base['gates'][gate_id]
+                    self.assertEqual(sorted(map(tuple, gate['tiles'])), sorted(tiles))
+                    self.assertEqual((gate['flag'], gate['opens_by'], gate['new_game']),
+                                     (flag, 'card_key_face_a', 'closed'))
+                    closed = overlays.effective_map(name, NEW_GAME)
+                    opened = overlays.effective_map(name, StoryState(flags=frozenset({flag})))
+                    for x, y in tiles:
+                        self.assertEqual(base['tiles'][y][x], 'G')
+                        self.assertEqual(runtime['tiles'][y][x], 'G')
+                        self.assertEqual(closed['tiles'][y][x], '#')
+                        self.assertEqual(opened['tiles'][y][x], '.')
+            self.assertEqual(runtime['gates'], base['gates'])
+
+    def test_every_silph_gate_has_one_flag_operation(self):
+        count = 0
+        for floor in range(2, 12):
+            name = f'SilphCo_{floor}F'
+            gates = json.loads(overlays.path_of('frlg', 'base', name).read_text())['gates']
+            operations = overlays.read_overlay(name)['operations']
+            count += len(operations)
+            self.assertEqual(sorted(o['gate'] for o in operations), sorted(gates))
+            for operation in operations:
+                self.assertEqual(operation['op'], 'gate')
+                self.assertEqual(operation['when']['flag'], gates[operation['gate']]['flag'])
+                self.assertRegex(operation['when']['flag'], r'FLAG_SILPH_\d+F_DOOR(_\d)?\Z')
+        self.assertEqual(count, 20)
 
     def test_maps_without_overlays_publish_base_bytes(self):
         for name in ('VermilionCity', 'SSAnne_Exterior', 'Route1'):

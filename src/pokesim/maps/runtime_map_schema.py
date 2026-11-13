@@ -7,6 +7,8 @@ game-specific flag/trigger semantics belong to the replay adapter.
 from .runtime_symbols import GLYPHS
 from .runtime_map_coordinates import COMPACT, LEGACY, legacy_map
 
+#   The step from a tile to the one it faces, by direction.
+FACING = {'north': (0, -1), 'south': (0, 1), 'west': (-1, 0), 'east': (1, 0)}
 ENTRIES = {'walk_into', 'step_on', 'cave_entrance', 'walk_north',
            'walk_south', 'walk_west', 'walk_east'}
 
@@ -80,6 +82,39 @@ def validate(data):
         require(type(event['width']) is int and type(event['length']) is int
                 and event['width'] > 0 and event['length'] > 0, 'empty event')
         tile(event['x'] + event['width'] - 1, event['y'] + event['length'] - 1)
+    gates, switches = data.get('gates', {}), data.get('switches', {})
+    require(isinstance(gates, dict) and isinstance(switches, dict), 'gates and switches must be objects')
+    claimed = {}
+    for gate_id, gate in gates.items():
+        require(isinstance(gate, dict) and gate.get('open_glyph') in ('.', '~'), f'gate {gate_id}: open_glyph')
+        require(gate.get('new_game') in ('open', 'closed'), f'gate {gate_id}: new_game')
+        require(isinstance(gate.get('tiles'), list) and gate['tiles'], f'gate {gate_id}: tiles')
+        for x, y in gate['tiles']:
+            tile(x, y)
+            require((x, y) not in claimed, f'gate {gate_id}: tile {(x, y)} is also in gate {claimed.get((x, y))}')
+            claimed[(x, y)] = gate_id
+            require(rows[y][x] in ('G', '#', gate['open_glyph']), f'gate {gate_id}: tile {(x, y)} is {rows[y][x]!r}')
+        if 'flag' in gate:
+            require(gate.get('opens_by') == 'card_key_face_a' and gate['new_game'] == 'closed'
+                    and 'switch' not in gate and 'open_when' not in gate, f'gate {gate_id}: a flag gate opens by Card Key and starts closed')
+        else:
+            require(gate.get('switch') in switches, f'gate {gate_id}: unknown switch {gate.get("switch")!r}')
+            require(gate.get('open_when') in ('on', 'off') and 'opens_by' not in gate, f'gate {gate_id}: open_when')
+            require((gate['open_when'] == 'off') == (gate['new_game'] == 'open'),
+                    f'gate {gate_id}: a switch starts off, so it is open at a new game only when it opens when off')
+    for y, row in enumerate(rows):
+        for x, glyph in enumerate(row):
+            require(glyph != 'G' or (x, y) in claimed, f'G tile {(x, y)} is in no gate')
+    for switch_id, switch in switches.items():
+        require(isinstance(switch.get('flag'), str) and switch.get('toggle') is True, f'switch {switch_id}: flag and toggle')
+        require(isinstance(switch.get('floors'), list) and data['name'] in switch['floors'], f'switch {switch_id}: floors name this map')
+        require(isinstance(switch.get('statues'), list) and switch['statues'], f'switch {switch_id}: statues')
+        for statue in switch['statues']:
+            tile(*statue['coord'])
+            tile(*statue['face_from'])
+            dx, dy = FACING[statue['facing']]
+            require([statue['face_from'][0] + dx, statue['face_from'][1] + dy] == statue['coord'],
+                    f'switch {switch_id}: {statue["face_from"]} does not face {statue["coord"]} {statue["facing"]}')
     for connection in data.get('connections', []):
         require(connection['side'] in {'north', 'south', 'west', 'east'}, 'invalid connection side')
         require(type(connection['offset']) is int, 'invalid connection offset')
