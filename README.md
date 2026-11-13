@@ -29,6 +29,11 @@ The [shared story and simulation guide](docs/story/README.md) explains which
 data and regression scenarios both repositories share, what their separate
 implementations verify, and the next story-execution parity gate.
 
+The [SV Snacksworth plan](docs/sv/snacksworth-plan.md) describes proposed team
+preparation, capture policies, recovery, and validation for automating all 25
+treat encounters in either version. Its [route research](docs/sv/snacksworth-routes.md)
+covers helper acquisition and flight anchors; console routes are not yet validated.
+
 The [C-strategy comparison](docs/battles/pokeguy-c-comparison.md) reruns only
 the 12 setup fights and combines them with the retained baseline for a new
 risk ranking.
