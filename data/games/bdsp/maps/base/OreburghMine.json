@@ -1,0 +1,74 @@
+{
+    "format": "pokesim-runtime-map/2",
+    "name": "OreburghMine",
+    "source": {
+        "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0314.bin; zone_event narc_0197",
+        "revision": "default branch",
+        "date": "2026-10-31",
+        "item_identities": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "events": "files/fielddata/eventdata/zone_event_release/narc_0197.bin",
+            "events_sha256": "517473fcecb3bd0f0aea6d3db18d81bb5f13bbb6082d859198cca6554dffb977",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Diamond baseline; not verified against BDSP item data"
+        }
+    },
+    "tiles": [
+        "################################",
+        "###############.################",
+        "#############.....##############",
+        "#############.....##############",
+        "#############.....##############",
+        "#############.....##############",
+        "#############.....##############",
+        "#############...################",
+        "#############...################",
+        "#############.....##############",
+        "#############..#..##############",
+        "###############...##############",
+        "#############...################",
+        "#############.....##############",
+        "###############...##############",
+        "########...####..............###",
+        "######.....##.................##",
+        "##.#..........................##",
+        "##....####################....##",
+        "##vvv##..................#....##",
+        "##....#..................#....##",
+        "##.##.#..................#....##",
+        "##..###..................###..##",
+        "##..###..................###..##",
+        "##....#..................#....##",
+        "##.##.#..................#....##",
+        "####..####################....##",
+        "####..####################....##",
+        "####.............#.#........####",
+        "######......................####",
+        "################################",
+        "################################"
+    ],
+    "points": {
+        "roark": [18, 28],
+        "corridor_exit_start": [14, 10],
+        "corridor_top.1": [14, 2],
+        "corridor_top.2": [15, 2],
+        "corridor_top.3": [16, 2]
+    },
+    "npcs": [
+        {"name": "worker_5", "coord": [8, 28], "facing": "north"},
+        {"name": "worker_6", "coord": [26, 20], "facing": "west"},
+        {"name": "worker_7", "coord": [21, 15], "facing": "north"},
+        {"name": "machop_8", "coord": [12, 28], "wander": {"min": [11, 28], "max": [13, 28]}},
+        {"name": "machop_9", "coord": [20, 15]},
+        {"name": "machop_10", "coord": [27, 15], "facing": "north"}
+    ],
+    "items": [
+        {"coord": [4, 28], "source_event": 3, "hide_flag": "flag 993", "item": "escape_rope"},
+        {"coord": [26, 24], "source_event": 4, "hide_flag": "flag 994", "item": "potion"}
+    ]
+}

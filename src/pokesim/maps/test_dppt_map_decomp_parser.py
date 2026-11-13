@@ -227,17 +227,14 @@ class CoordEventsTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.events('pret/pokediamond')
 
-    def test_map_json_clips_names_and_adds(self):
+    def test_map_json_clips_events_and_names_them_by_index(self):
+        #  Hand names and additions are overlay operations (map_overlays), not generator tables.
         game, _ = self.events('pret/pokediamond')
-        names = {'TestTown': {0: 'tutorial', 'add': [
-            {'name': 'call', 'x': 1, 'y': 1, 'width': 1, 'length': 1, 'var': 'CONSOLE_CALL', 'value': 0, 'measured_by': 'r1'}]}}
-        with mock.patch.dict(bdsp_maps.COORD_EVENTS, names, clear=True):
-            out = bdsp_maps.coord_events('TestTown', 'pret/pokediamond', game, 331, (1, 1, 31, 6))
+        out = bdsp_maps.coord_events('TestTown', 'pret/pokediamond', game, 331, (1, 1, 31, 6))
         source = 'pret/pokediamond files/fielddata/eventdata/zone_event_release/narc_0331.bin coord_events[{}] ({}), script {}'
         self.assertEqual(out, [
-            {'name': 'tutorial', 'x': 1, 'y': 2, 'width': 1, 'length': 4, 'var': 'VAR_TEST_STATE', 'value': 0,
+            {'name': 'coord_event_0', 'x': 1, 'y': 2, 'width': 1, 'length': 4, 'var': 'VAR_TEST_STATE', 'value': 0,
              'source': source.format(0, '2, 3', 6)},
-            {'name': 'call', 'x': 1, 'y': 1, 'width': 1, 'length': 1, 'var': 'CONSOLE_CALL', 'value': 0, 'source': 'r1'},
         ])
         #  The second event's row 0 is above the rectangle; a taller one keeps it, cut at column 31.
         out = bdsp_maps.coord_events('TestTown', 'pret/pokediamond', game, 331, (0, 0, 32, 32))

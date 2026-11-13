@@ -17,12 +17,25 @@
       "items": false,
       "minItems": 2
     },
+    "wander": {
+      "type": "object",
+      "properties": {"min": {"$ref": "#/$defs/coord"}, "max": {"$ref": "#/$defs/coord"}},
+      "required": ["min", "max"],
+      "additionalProperties": false
+    },
+    "fields": {
+      "type": "object",
+      "minProperties": 1,
+      "not": {"anyOf": [{"required": ["coord"]}, {"required": ["x"]}, {"required": ["y"]}]},
+      "properties": {"wander": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/wander"}]}},
+      "description": "field -> new value; null removes the field; move an object with `to`"
+    },
     "glyph": {"type": "string", "pattern": "^[#.~w^v<>DS 8246udlroHB]$"},
     "checkpoint": {"type": "string", "pattern": "^[0-9]+[a-z]*(\\.[0-9]+[a-z]*)*$"},
     "common": {
       "properties": {
         "op": {"enum": ["tile", "link", "object", "trigger", "point"]},
-        "why": {"enum": ["console_measured", "remake_delta", "story_state", "generator_gap"]},
+        "why": {"enum": ["console_measured", "remake_delta", "story_state", "generator_gap", "story_scope"]},
         "when": {
           "type": "object",
           "properties": {
@@ -82,6 +95,18 @@
         {
           "properties": {
             "op": {"const": "link"},
+            "kind": {"const": "warp"},
+            "action": {"const": "add"},
+            "coord": {"$ref": "#/$defs/coord"},
+            "to_map": {"type": "string"},
+            "to_point": {"type": "string"}
+          },
+          "required": ["kind", "action", "coord", "to_map", "to_point"],
+          "not": {"required": ["index"]}
+        },
+        {
+          "properties": {
+            "op": {"const": "link"},
             "kind": {"const": "connection"},
             "action": {"enum": ["add", "remove"]},
             "side": {"enum": ["north", "south", "west", "east"]},
@@ -96,11 +121,28 @@
             "action": {"const": "add"},
             "object": {
               "type": "object",
-              "properties": {"name": {"type": "string"}, "kind": {"type": "string"}, "coord": {"$ref": "#/$defs/coord"}},
+              "properties": {
+                "name": {"type": "string"},
+                "kind": {"type": "string"},
+                "coord": {"$ref": "#/$defs/coord"},
+                "wander": {"$ref": "#/$defs/wander"}
+              },
               "required": ["name", "kind", "coord"]
-            }
+            },
+            "index": {"type": "integer", "minimum": 0, "description": "position among the map's objects of the same kind; omitted: last"}
           },
           "required": ["action", "object"]
+        },
+        {
+          "properties": {
+            "op": {"const": "object"},
+            "action": {"const": "update"},
+            "name": {"type": "string"},
+            "at": {"$ref": "#/$defs/coord"},
+            "to": {"$ref": "#/$defs/coord"},
+            "set": {"$ref": "#/$defs/fields"}
+          },
+          "required": ["action", "name", "at", "set"]
         },
         {
           "properties": {
@@ -121,7 +163,45 @@
           },
           "required": ["action", "name", "at", "to"]
         },
-        {"properties": {"op": {"const": "trigger"}, "action": {"enum": ["add", "remove"]}}, "required": ["action"]}
+        {
+          "properties": {
+            "op": {"const": "trigger"},
+            "action": {"const": "add"},
+            "trigger": {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "coord": {"$ref": "#/$defs/coord"},
+                "width": {"type": "integer", "minimum": 1},
+                "length": {"type": "integer", "minimum": 1},
+                "var": {"type": "string"},
+                "value": {"type": "integer"},
+                "source": {"type": "string"}
+              },
+              "required": ["name", "coord", "width", "length", "var", "value", "source"]
+            }
+          },
+          "required": ["action", "trigger"]
+        },
+        {
+          "properties": {
+            "op": {"const": "trigger"},
+            "action": {"const": "remove"},
+            "name": {"type": "string"},
+            "at": {"$ref": "#/$defs/coord"}
+          },
+          "required": ["action", "name", "at"]
+        },
+        {
+          "properties": {
+            "op": {"const": "trigger"},
+            "action": {"const": "update"},
+            "name": {"type": "string"},
+            "at": {"$ref": "#/$defs/coord"},
+            "set": {"$ref": "#/$defs/fields"}
+          },
+          "required": ["action", "name", "at", "set"]
+        }
       ]
     }
   }

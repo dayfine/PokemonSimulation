@@ -1,0 +1,42 @@
+{
+    "format": "pokesim-runtime-map/2",
+    "name": "PlayerHouse1F",
+    "source": {
+        "decomp_file": "pret/pokeplatinum: res/field/maps/data/map_data_186.bin; events_twinleaf_town_player_house_1f.json; decomp only, not checked on the console",
+        "revision": "c6689696d5fb",
+        "date": "2026-11-01"
+    },
+    "tiles": [
+        "#############",
+        "#############",
+        "#############",
+        "#SS..S####..#",
+        "#.....####..#",
+        "#SSS..SS....#",
+        "#...........#",
+        "#...........#",
+        "#..##.......#",
+        "##.##......##",
+        "##....D....##",
+        "#############"
+    ],
+    "points": {
+        "stairs": [10, 3],
+        "mom": [7, 8],
+        "door": [6, 10]
+    },
+    "coord_events": [
+        {
+            "name": "coord_event_0",
+            "coord": [6, 10],
+            "width": 1,
+            "length": 1,
+            "var": "VAR_PLAYER_HOUSE_STATE",
+            "value": 1,
+            "source": "pret/pokeplatinum res/field/events/events_twinleaf_town_player_house_1f.json coord_events[0] (6, 10), script 5"
+        }
+    ],
+    "npcs": [
+        {"name": "mom_0", "coord": [7, 8], "facing": "north"}
+    ]
+}

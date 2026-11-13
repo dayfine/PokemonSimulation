@@ -1,0 +1,66 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "PlayerHouse1F",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[4, 8]],
+      "glyph": ".",
+      "why": "console_measured",
+      "evidence": {
+        "run": "r32",
+        "date": "2026-11-01",
+        "observation": "Open on the console, a wall in the data: west along row 8 stops at x 4"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "link",
+      "kind": "warp",
+      "action": "add",
+      "coord": [6, 10],
+      "to_map": "TwinleafTown",
+      "to_point": "player_house_door",
+      "why": "generator_gap",
+      "evidence": {
+        "observation": "Stepping onto the door mat leaves the house",
+        "generator_fix": "emit the events file's warps with their target map and point; BDSP's builder emitted none"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_0",
+      "at": [6, 10],
+      "set": {"name": "moms_warning"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Mom's warning on the way out: a coord event on the player's door tile (6, 10)",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "add",
+      "trigger": {
+        "name": "moms_call",
+        "coord": [6, 10],
+        "width": 1,
+        "length": 1,
+        "var": "CONSOLE_MOMS_CALL",
+        "value": 0,
+        "source": "console r45, r46 (2026-11-01): after her heal Mom calls us back as we step onto the mat (6, 10); no coord event in the decomp"
+      },
+      "why": "console_measured",
+      "evidence": {
+        "run": "console r45, r46",
+        "date": "2026-11-01",
+        "observation": "After her heal Mom calls us back as we step onto the mat (6, 10); no coord event in the decomp",
+        "reconciliation": "docs/maps/BDSP_RECONCILIATION.md: adopted-reported (native checkpoint 00.04 and r45/r46 agree on the door mat)"
+      },
+      "status": "candidate"
+    }
+  ]
+}

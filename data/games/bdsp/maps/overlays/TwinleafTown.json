@@ -1,0 +1,19 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "TwinleafTown",
+  "operations": [
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_1",
+      "at": [9, 12],
+      "set": {"name": "barry_doorstep"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Barry's scene fires below his door (point barry_doorstep)",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    }
+  ]
+}

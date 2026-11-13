@@ -1,0 +1,75 @@
+{
+    "format": "pokesim-runtime-map/2",
+    "name": "Route204South",
+    "source": {
+        "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0021.bin; zone_event narc_0330",
+        "revision": "default branch",
+        "date": "2026-11-01",
+        "item_identities": {
+            "repository": "pret/pokediamond",
+            "revision": "b623abef1b4dfe204ca50aab42447ac00c134290",
+            "events": "files/fielddata/eventdata/zone_event_release/narc_0330.bin",
+            "events_sha256": "57419b5fe791d60db542d30d18f9541258ba45c32a0a8b8165881fe000a126d0",
+            "catalog": "data/maps/item-identities.json",
+            "catalog_sha256": "1d94d0ca7cc3ec2aa17274c9c279afbacf1d9cab3e2d25f5cad638cf3d4c09b8",
+            "source_game": "diamond",
+            "target_game": "bdsp",
+            "target_game_relation": "remake_baseline",
+            "verification": "Diamond baseline; not verified against BDSP item data"
+        }
+    },
+    "tiles": [
+        "################################",
+        "###########.###.################",
+        "########..S.....################",
+        "########........################",
+        "########........################",
+        "##########...~##################",
+        "##########...~##################",
+        "##########..~~##################",
+        "##########..~~###wwwwwwwww######",
+        "####~~~~~~~~~~###wwwwwwwww######",
+        "####~~~~~~~~~~###wwwwwwwww######",
+        "####~~~~~~~~~~###wwwwwwwww######",
+        "####~~~~~~~~~~###wwwwwwwww....##",
+        "####~~~~~~~~~~###wwwwwwwww....##",
+        "####~~~~~~~~~~#..wwwww##########",
+        "##~~~~~~~~~~~~#..wwwww##########",
+        "##~~~~~~~~~~~~#..wwwww##########",
+        "##~~~~~~~~~~~~S.################",
+        "##~~~~~.........#.##############",
+        "##~~~~~.........#.##############",
+        "##~~~~~.........#.##############",
+        "##.#########....#.##############",
+        "##wwwwwwwww#....#......~########",
+        "##wwwwwwwww#....#wwwww~~########",
+        "##wwwwwwwww#....#wwwww~~########",
+        "##wwwwwwwww#....#wwwww~~########",
+        "##wwwwwwwww#....#wwwww~~########",
+        "##wwwwwwwww#....#wwwww~~########",
+        "##..######.#....#..~~~~~########",
+        "##..######.#....#...~~~~########",
+        "##########.#....#.......########",
+        "############....######..########"
+    ],
+    "points": {
+        "below_door": [11, 2],
+        "jubilife_entry.1": [14, 31],
+        "jubilife_entry.2": [14, 30],
+        "jubilife_entry.3": [14, 29],
+        "trainer_samantha": [11, 8],
+        "trainer_sarah": [12, 21],
+        "trainer_tyler": [7, 18]
+    },
+    "npcs": [
+        {"name": "lass_0", "coord": [12, 21]},
+        {"name": "lass_1", "coord": [11, 8], "facing": "south"},
+        {"name": "youngster_2", "coord": [7, 18]},
+        {"name": "youngster_3", "coord": [13, 2], "wander": {"min": [12, 2], "max": [14, 2]}}
+    ],
+    "items": [
+        {"coord": [2, 28], "source_event": 7, "hide_flag": "flag 995", "item": "sea_incense"},
+        {"coord": [29, 12], "source_event": 8, "hide_flag": "flag 996", "item": "hp_up"},
+        {"coord": [17, 18], "source_event": 9, "hide_flag": "flag 1068", "item": "parlyz_heal"}
+    ]
+}

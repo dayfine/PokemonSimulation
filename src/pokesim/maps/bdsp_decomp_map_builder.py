@@ -15,31 +15,29 @@ decoded tile for tile by dppt_map_decomp_parser.py from files cached in
 it names any missing file. See docs/maps/runtime-maps.md for provenance limits.
 Diamond/Pearl provides a baseline; BDSP differences need explicit corrections.
 Diamond is read unless a map says otherwise.
-The tables below add what the decompilation doesn't say or BDSP changed:
+This script writes the BASE of each map: the decompilation's terrain, objects
+and coord events, and nothing authored by hand. Every correction BDSP needs
+(console-measured tiles, hidden or shown or moved people, door and warp
+classification, trigger names and additions, links between maps) is an overlay
+operation in data/games/bdsp/maps/overlays/<Map>.json, with its evidence
+(docs/maps/OVERLAYS.md); `python -m pokesim.maps.map_overlays --game bdsp write`
+derives data/games/bdsp/maps/runtime/ from base + overlays. Generator defaults:
 
-- POINTS: named tiles the story walks from and to. A region (a set of
-  tiles, in order where the order matters) is written as numbered points,
-  `<region>.1`, `<region>.2`, ...: the shared schema (Pokemon_MapData.h)
-  has single-tile points only.
-- OBJECTS: which of the events file's objects BDSP shows. People hidden by
-  a story flag are left out, and people who stand still or wander are kept,
-  unless an entry here says otherwise (`show`, `hide`, `still`, `at`,
-  `range`), or adds someone the console found that Diamond doesn't have.
-  A wanderer shown despite a story flag keeps both their wander box and
-  the flag (`hide_flag`).
-- WARP_DOORS: warp tiles written 'D' so that no plan steps onto them; the
-  other warp tiles are written '.', since the story arrives on them.
-- WARPS: doors that lead to a point of another map in OUT.
-- PATCHES: tiles measured on the console that differ from Diamond's, with
-  the run that measured them. The map's tiles stay the decompilation's; the
-  loader applies the patches.
-- COORD_EVENTS: names for the events file's coord events (the scene
-  triggers), and triggers found on the console that the decompilation
-  doesn't have, with the run that found them.
+- Objects hidden by a story flag are left out; people who stand still or wander
+  are kept.
+- Warp tiles are written '.', since the story arrives on them; an overlay
+  writes 'D' where a route enters by walking into the door.
+- Coord events are named coord_event_<index>; an overlay names them.
+
+POINTS below are named tiles the story walks from and to. A region (a set of
+tiles, in order where the order matters) is written as numbered points,
+`<region>.1`, `<region>.2`, ...: the shared schema (Pokemon_MapData.h) has
+single-tile points only. They are route anchors and move to the checkpoint data
+in step 3 of the overlay migration.
 
 The legend is the schema's: '#' wall, '.' open, '~' tall grass, 'w' water,
 '^' 'v' '<' '>' ledges hopped the arrow's way, 'D' a door or cave mouth
-(walked into) or a warp tile in WARP_DOORS, 'S' a sign or mailbox (read by
+(walked into; an overlay marks a warp tile as one), 'S' a sign or mailbox (read by
 facing it; a sign script on a wall too). Items on the ground are objects of
 kind "item"; rocks, cut trees, berry soil and steam vents are '#'.
 
@@ -69,7 +67,7 @@ from .item_identity import enrich_objects
 from .runtime_map_coordinates import compact_map
 from .runtime_map_format import map_text as readable_map_text
 
-OUT = 'data/games/bdsp/maps/runtime'
+OUT = 'data/games/bdsp/maps/base'
 CACHE = Path.home() / '.cache' / 'maps' / 'decomp'
 #   When the cache was filled from the decompilations' default branches.
 READ = '2026-10-31'
@@ -348,158 +346,6 @@ POINTS = {
 }
 
 
-#   Overrides by events-file object index. `show`: a person hidden by a
-#   story flag who is there when the story walks the map. `hide`: someone
-#   BDSP doesn't have, or the story never meets. `still`: a wanderer who
-#   stood still on the console. `at`: where the console found them. `range`:
-#   (x, y) tiles a wanderer strays from their spawn in BDSP, when Diamond's
-#   differs. `add`: people Diamond doesn't have, from the console.
-OBJECTS = {
-    'Route201': {
-        #   The Potion lady stands a tile off her spawn on the console, and
-        #   her talk is walked to, not planned (POINTS).
-        1: {'hide': 'her talk is walked to, not planned'},
-    },
-    'Route203': {
-        #   Stands still in Diamond, wanders near the Gate in BDSP (console).
-        0: {'hide': 'wanders in BDSP'},
-    },
-    'Route204North': {
-        #   Bug Catcher Brandon paces in Diamond from (22, 13); he stopped us
-        #   on row 12 (r246a), and the DP map draws him at (20, 12).
-        0: {'at': (20, 12), 'still': 'r246a', 'name': 'bug_catcher_brandon'},
-    },
-    'SandgemTown': {
-        #   Stand still in Diamond, wander on the console.
-        1: {'hide': 'wanders in BDSP'},
-        2: {'hide': 'wanders in BDSP'},
-    },
-    'JubilifeCity': {
-        #   00.05's story people, hidden before and after it.
-        24: {'show': '00.05', 'name': 'poketch_president'},
-        28: {'show': '00.05', 'name': 'clown_tv_station'},
-        #   Wander. Diamond's range is (1, 0), but lab-B 2026-11-11 21:00
-        #   (00.05b mart_clown) saw the Mart clown about two rows below the
-        #   player on row 34, off Diamond's row 33. (1, 1) is the hand map's
-        #   (jubilife_city.json); that frame says it may still be too small.
-        25: {'show': '00.05', 'range': (1, 1), 'name': 'clown_mart'},
-        #   Diamond's range (1, 0): row 18 only, so 00.05b talks to him from
-        #   (15, 19) facing north. Nothing was seen of him off row 18.
-        26: {'show': '00.05', 'range': (1, 0), 'name': 'clown_poketch_company'},
-    },
-    'FloaromaTown': {
-        #   Grunts at the Meadow until the Valley Windworks is cleared, and
-        #   the man with Cyrus's sprite (whether he is there is for the console).
-        7: {'show': 'until the Valley Windworks'},
-        8: {'show': 'until the Valley Windworks'},
-        3: {'show': 'not yet checked on the console'},
-        'add': [
-            #   Not in Diamond's data; found on row 25 by r251a. Their columns
-            #   come from oldprobe/westedge: from under the old man, D-pad taps
-            #   west moved 3 tiles before bumping the flower field's west edge
-            #   (x 0), so he is on x 3, and the woman stands east of him on x 4.
-            {'name': 'old_woman', 'x': 4, 'y': 25, 'measured_by': 'oldprobe/westedge, 2026-11-08'},
-            {'name': 'old_man', 'x': 3, 'y': 25, 'measured_by': 'oldprobe/westedge, 2026-11-08'},
-        ],
-    },
-    'OreburghMine': {
-        #   Hidden once his scene here is over; the story walks to him.
-        0: {'show': '01.03', 'name': 'roark'},
-    },
-    'RivalHouse2F': {
-        #   Barry in his room, until he leaves for the lake.
-        0: {'show': '00.01', 'name': 'barry'},
-    },
-    'RowansLab': {
-        #   Rowan at his desk when the story walks in.
-        0: {'show': '00.03', 'name': 'rowan'},
-    },
-    'LakeVerity': {
-        #   The starter scene's actors, where the walk in ends.
-        0: {'show': 'the starter scene', 'name': 'rowan'},
-        1: {'show': 'the starter scene', 'name': 'counterpart'},
-        3: {'show': 'the starter scene'},
-    },
-}
-
-
-WARP_DOORS = {
-    #   The Ravaged Path's door: its warp tile is the mouth.
-    'Route204South': [(11, 1)],
-    #   The Route 218 gate, and the doorways of the School and the Global
-    #   Terminal: entered, never stood on by a route.
-    'JubilifeCity': [(0, 22), (0, 23), (40, 40), (21, 42)],
-    #   The way up to the entrance hall: stepping on it leaves the room.
-    'OreburghMine': [(15, 1)],
-    #   The mine's mouth: 01.03 walks down to the row above it and steps on.
-    #   We come out on it too, and walk north off it to a wall first.
-    'OreburghCity': [(x, 59) for x in range(44, 49)],
-    #   Both rows are step-on warps (Diamond events narc_0196, reviewed
-    #   against #226): south from row 20 leaves the hall at row 21.
-    #   This classification does not establish a BDSP arrival pose.
-    'OreburghMineB1F': [(11, 1), (12, 1), (13, 1), (11, 21), (12, 21), (13, 21)],
-}
-
-
-#   Stepping onto (x, y) puts the player at a point of another map.
-WARPS = {
-    'PlayerHouse1F': [(6, 10, 'TwinleafTown', 'player_house_door')],
-    'RivalHouse1F': [(6, 10, 'TwinleafTown', 'rival_house_door')],
-    'RowansLab': [(7, 15, 'SandgemTown', 'lab_door')],
-}
-
-
-PATCHES = {
-    'Route202': (
-        #   BDSP has trees where Diamond's catch patch has its two bottom rows:
-        #   west along row 29 stopped at column 21, beside them.
-        [(x, y, '#', 'r253, 2026-11-01') for y in (28, 29) for x in range(15, 21)]
-        #   South from the pocket (21, 29), where the catch's save loads,
-        #   was blocked at once.
-        + [(21, 30, '#', 'r254, 2026-11-01')]
-    ),
-    'PlayerHouse1F': [
-        #   Open on the console, a wall in the data: west along row 8 stops
-        #   at x 4 (r32).
-        (4, 8, '.', 'r32, 2026-11-01'),
-    ],
-    'Route201': (
-        #   Row 18 west of the exit path is trees on the console, open in the
-        #   decomp, and the 201 sign stands at (13, 18), not (13, 17) (r16,
-        #   walked by hand).
-        [(x, 18, '#', 'r16, 2026-10-31') for x in range(8, 13)]
-        + [(13, 18, 'S', 'r16, 2026-10-31'), (13, 17, '.', 'r16, 2026-10-31')]
-    ),
-    'Route204North': [
-        #   Grass in the data, blocked on the console twice.
-        (12, 6, '#', 'r248a, 2026-10-31'),
-    ],
-}
-
-
-#   Coord events by events-file index: their names (the default is
-#   coord_event_<index>), and under 'add' the triggers the console found that
-#   the decompilation doesn't have.
-COORD_EVENTS = {
-    #   Barry stops us on row 18 (POINTS barry_warning); Rowan on column 5
-    #   (POINTS rowan_stop).
-    'Route201': {0: 'barry_warning', 1: 'rowan_stop'},
-    'Route202': {0: 'catch_tutorial'},
-    'SandgemTown': {0: 'dawn_walks_us_to_the_lab'},
-    'JubilifeCity': {0: 'dawn_at_the_steps', 4: 'poketch_president'},
-    'TwinleafTown': {1: 'barry_doorstep'},
-    'VerityLakefront': {0: 'lake_entrance'},
-    'PlayerHouse1F': {
-        0: 'moms_warning',
-        'add': [
-            {'name': 'moms_call', 'x': 6, 'y': 10, 'width': 1, 'length': 1, 'var': 'CONSOLE_MOMS_CALL', 'value': 0,
-             'measured_by': 'console r45, r46 (2026-11-01): after her heal Mom calls us back as we step onto'
-                            ' the mat (6, 10); no coord event in the decomp'},
-        ],
-    },
-}
-
-
 def no_fetch(repo, path):
     raise SystemExit(f'{repo}/{path} is not in {CACHE}. Populate the cache from the recorded pret source first; see docs/maps/runtime-maps.md.')
 
@@ -523,8 +369,8 @@ def glyph(attr):
     return '.'
 
 
-def wander_box(obj, x, y, width, height, override=None):
-    range_x, range_z = (override or {}).get('range', (obj.range_x, obj.range_z))
+def wander_box(obj, x, y, width, height):
+    range_x, range_z = obj.range_x, obj.range_z
     return {'x0': max(0, x - range_x), 'y0': max(0, y - range_z),
             'x1': min(width - 1, x + range_x), 'y1': min(height - 1, y + range_z)}
 
@@ -532,13 +378,11 @@ def wander_box(obj, x, y, width, height, override=None):
 def place_objects(name, events, rect, rows, include_item_identities=True):
     """Writes signs and obstacles into `rows`; returns the objects."""
     x0, z0, width, height = rect
-    overrides = OBJECTS.get(name, {})
     objects = []
     for index, obj in enumerate(events.objects):
         x, y = obj.x - x0, obj.z - z0
         if not (0 <= x < width and 0 <= y < height):
             continue
-        override = overrides.get(index, {})
         if obj.gfx in OBSTACLE_GFX:
             rows[y][x] = '#'
             continue
@@ -553,30 +397,23 @@ def place_objects(name, events, rect, rows, include_item_identities=True):
                     item['hide_flag'] = obj.hidden
             objects.append(item)
             continue
-        if obj.hidden and 'show' not in override or 'hide' in override:
+        if obj.hidden:
             continue
         if 'SIGN' in obj.gfx or obj.gfx in SIGN_GFX:
             rows[y][x] = 'S'
             continue
-        x, y = override.get('at', (x, y))
-        entry = {'name': override.get('name', f'{obj.gfx.lower()}_{index}'), 'kind': 'npc', 'x': x, 'y': y}
+        entry = {'name': f'{obj.gfx.lower()}_{index}', 'kind': 'npc', 'x': x, 'y': y}
         if obj.movement in FACING:
             entry['facing'] = FACING[obj.movement]
-        if obj.movement.startswith(('WANDER', 'WALK')) and 'still' not in override:
-            entry['wander'] = wander_box(obj, x, y, width, height, override)
-        if obj.hidden and 'wander' in entry:
-            #   The box is the story's while the flag shows them.
-            entry['hide_flag'] = obj.hidden
+        if obj.movement.startswith(('WANDER', 'WALK')):
+            entry['wander'] = wander_box(obj, x, y, width, height)
         objects.append(entry)
-    for added in overrides.get('add', []):
-        objects.append({'name': added['name'], 'kind': 'npc', 'x': added['x'], 'y': added['y']})
     return objects
 
 
 def coord_events(name, repo, game, events_id, rect):
-    """The map's coord events: the events file's, clipped to `rect`, then COORD_EVENTS' additions."""
+    """The map's coord events: the events file's, clipped to `rect`."""
     x0, z0, width, height = rect
-    names = COORD_EVENTS.get(name, {})
     out = []
     for index, event in enumerate(game.events(events_id).coord_events):
         left, top = max(event.x, x0), max(event.z, z0)
@@ -584,15 +421,12 @@ def coord_events(name, repo, game, events_id, rect):
         if left >= right or top >= bottom:
             continue
         out.append({
-            'name': names.get(index, f'coord_event_{index}'),
+            'name': f'coord_event_{index}',
             'x': left - x0, 'y': top - z0, 'width': right - left, 'length': bottom - top,
             'var': event.var, 'value': event.value,
             'source': f'{repo} {game.events_path(events_id)} coord_events[{index}] ({event.x}, {event.z}),'
                       f' script {event.script}',
         })
-    for added in names.get('add', []):
-        fields = {k: v for k, v in added.items() if k != 'measured_by'}
-        out.append({**fields, 'source': added['measured_by']})
     return out
 
 
@@ -619,11 +453,10 @@ def decode_map(name, include_item_identities=True):
         if 0 <= x < width and 0 <= y < height and rows[y][x] == '#':
             rows[y][x] = 'S'
     objects = place_objects(name, events, spec['rect'], rows, include_item_identities)
-    doors = set(WARP_DOORS.get(name, []))
     for y, row in enumerate(rows):
         for x, tile in enumerate(row):
             if tile == 'W':
-                row[x] = 'D' if (x, y) in doors else '.'
+                row[x] = '.'
     #  Every cell the rectangle touches, also when it does not start on a cell's edge.
     C = decomp.CELL
     lands = sorted({world.land_id(C * col, C * row) for row in range(z0 // C, (z0 + height - 1) // C + 1)
@@ -656,7 +489,7 @@ def points_of(name):
 
 
 def map_text(name, include_item_identities=True):
-    """The map's JSON: one line per row, point, object and patch."""
+    """The map's base JSON: one line per row, point, object and trigger."""
     tiles, objects, source, triggers = decode_map(name, include_item_identities)
     lines = ['{', f'    "name": {json.dumps(name)},', f'    "source": {json.dumps(source)},', '    "tiles": [']
     lines += [f'        {json.dumps(row)},' for row in tiles]
@@ -673,11 +506,8 @@ def map_text(name, include_item_identities=True):
         lines.append('    ' + ('}' if key == 'points' else ']'))
 
     section('points', [f'{json.dumps(p)}: [{x}, {y}]' for p, (x, y) in points_of(name).items()])
-    section('warps', [json.dumps({'x': x, 'y': y, 'to_map': m, 'to_point': p}) for x, y, m, p in WARPS.get(name, [])])
     section('objects', [json.dumps(o) for o in objects])
     section('coord_events', [json.dumps(e) for e in triggers])
-    section('patches', [json.dumps({'x': x, 'y': y, 'glyph': g, 'measured_by': m})
-                        for x, y, g, m in PATCHES.get(name, [])])
     lines.append('}')
     text = '\n'.join(lines) + '\n'
     return readable_map_text(compact_map(json.loads(text)))
