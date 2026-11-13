@@ -817,7 +817,7 @@
         {
           "name": "CinnabarIsland",
           "file": "data/games/frlg/maps/runtime/CinnabarIsland.json",
-          "sha256": "7b033425c173ba352c280c0393ec6a48972cfc796f6b552255d635515bf20642",
+          "sha256": "d53e78ce8e662a8a7973eec3557680c7ff8ab795e5b0af1a528e7c6e70706a3e",
           "source": {
             "decomp_file": "data/maps/CinnabarIsland/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -845,7 +845,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CinnabarIsland.json",
-            "sha256": "7b033425c173ba352c280c0393ec6a48972cfc796f6b552255d635515bf20642"
+            "sha256": "d53e78ce8e662a8a7973eec3557680c7ff8ab795e5b0af1a528e7c6e70706a3e"
           }
         },
         {
@@ -921,7 +921,7 @@
         {
           "name": "FuchsiaCity",
           "file": "data/games/frlg/maps/runtime/FuchsiaCity.json",
-          "sha256": "62d364f1a93a104ba4583c8325759d1755864d6bdcea412260f0b44d6424bce2",
+          "sha256": "7e12993a8b23f0d3e1ed50f3faab10997915db0e36cfd77e29cafa13cf6a18a5",
           "source": {
             "decomp_file": "data/maps/FuchsiaCity/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -949,7 +949,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FuchsiaCity.json",
-            "sha256": "62d364f1a93a104ba4583c8325759d1755864d6bdcea412260f0b44d6424bce2"
+            "sha256": "7e12993a8b23f0d3e1ed50f3faab10997915db0e36cfd77e29cafa13cf6a18a5"
           }
         },
         {
@@ -3111,7 +3111,7 @@
         {
           "name": "Route12",
           "file": "data/games/frlg/maps/runtime/Route12.json",
-          "sha256": "51774cdd0864d955138cd4d2d3372246689da65c3bf4d081a9f82c906c604632",
+          "sha256": "14d442d97d709d0a40be1622476c6828b33c97d33a00ece9ee3fcd9eb2895804",
           "source": {
             "decomp_file": "data/maps/Route12/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3151,7 +3151,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route12.json",
-            "sha256": "51774cdd0864d955138cd4d2d3372246689da65c3bf4d081a9f82c906c604632"
+            "sha256": "14d442d97d709d0a40be1622476c6828b33c97d33a00ece9ee3fcd9eb2895804"
           }
         },
         {
@@ -3192,7 +3192,7 @@
         {
           "name": "Route13",
           "file": "data/games/frlg/maps/runtime/Route13.json",
-          "sha256": "10559906dbaeab29029051c822f06e3fcc8a5af71ab4fc298b81fb80872208cd",
+          "sha256": "0ab17830586baa895708f6c290eb5e4ded94753ed1b278a55b4bbe34434c3209",
           "source": {
             "decomp_file": "data/maps/Route13/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3220,7 +3220,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route13.json",
-            "sha256": "10559906dbaeab29029051c822f06e3fcc8a5af71ab4fc298b81fb80872208cd"
+            "sha256": "0ab17830586baa895708f6c290eb5e4ded94753ed1b278a55b4bbe34434c3209"
           }
         },
         {
@@ -3446,7 +3446,7 @@
         {
           "name": "Route18",
           "file": "data/games/frlg/maps/runtime/Route18.json",
-          "sha256": "7342b0a98fea4ebdca031529a484aca564376b183c12b07fbc4861cbbd0bc4c2",
+          "sha256": "f2cc9b5b671e89771c16d1afe009747eee4df9bf190f72b182c4f2e08d3dff48",
           "source": {
             "decomp_file": "data/maps/Route18/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3474,7 +3474,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route18.json",
-            "sha256": "7342b0a98fea4ebdca031529a484aca564376b183c12b07fbc4861cbbd0bc4c2"
+            "sha256": "f2cc9b5b671e89771c16d1afe009747eee4df9bf190f72b182c4f2e08d3dff48"
           }
         },
         {
@@ -3515,7 +3515,7 @@
         {
           "name": "Route19",
           "file": "data/games/frlg/maps/runtime/Route19.json",
-          "sha256": "97dab054805f4cc1ed962c16345ed3e6c16151b88d59b33ae17a21688c3c080f",
+          "sha256": "32334780c5e81e03842354b7b6fbf0fb9fcfee8225bae4216c006d3617096a09",
           "source": {
             "decomp_file": "data/maps/Route19/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3543,7 +3543,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route19.json",
-            "sha256": "97dab054805f4cc1ed962c16345ed3e6c16151b88d59b33ae17a21688c3c080f"
+            "sha256": "32334780c5e81e03842354b7b6fbf0fb9fcfee8225bae4216c006d3617096a09"
           }
         },
         {
@@ -3602,7 +3602,7 @@
         {
           "name": "Route20",
           "file": "data/games/frlg/maps/runtime/Route20.json",
-          "sha256": "3afd0264694c0635dbb2f719a0c24b700923930f2a3a7cc6c6b3fcd59136b46e",
+          "sha256": "813ef18147a184416137408aedb46cae313d5dbe9b5d190115a2aaa07274c645",
           "source": {
             "decomp_file": "data/maps/Route20/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3630,13 +3630,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route20.json",
-            "sha256": "3afd0264694c0635dbb2f719a0c24b700923930f2a3a7cc6c6b3fcd59136b46e"
+            "sha256": "813ef18147a184416137408aedb46cae313d5dbe9b5d190115a2aaa07274c645"
           }
         },
         {
           "name": "Route21_North",
           "file": "data/games/frlg/maps/runtime/Route21_North.json",
-          "sha256": "1ce912066dafdcf2b718ca4a883f766fc8889ef25a6be90c5ed63bd45619a7bd",
+          "sha256": "083f789200e275429cffa470c9322878d61b7d9fcdbf42980abd47d2d813c2f4",
           "source": {
             "decomp_file": "data/maps/Route21_North/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3664,13 +3664,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route21_North.json",
-            "sha256": "1ce912066dafdcf2b718ca4a883f766fc8889ef25a6be90c5ed63bd45619a7bd"
+            "sha256": "083f789200e275429cffa470c9322878d61b7d9fcdbf42980abd47d2d813c2f4"
           }
         },
         {
           "name": "Route21_South",
           "file": "data/games/frlg/maps/runtime/Route21_South.json",
-          "sha256": "2f6363a0425f8e9bfcd5cc2921b959856880dec0f529073521bc394a72750e40",
+          "sha256": "b56e942575a45f8db54011fbc4d2cdba3b211183207ef62745de05cc786f2f7c",
           "source": {
             "decomp_file": "data/maps/Route21_South/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3698,7 +3698,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route21_South.json",
-            "sha256": "2f6363a0425f8e9bfcd5cc2921b959856880dec0f529073521bc394a72750e40"
+            "sha256": "b56e942575a45f8db54011fbc4d2cdba3b211183207ef62745de05cc786f2f7c"
           }
         },
         {
@@ -3779,7 +3779,7 @@
         {
           "name": "Route23",
           "file": "data/games/frlg/maps/runtime/Route23.json",
-          "sha256": "1e5fa20896fa8c8750a1306ff12e5ba5b319e24a69803a9b6011210b387da94f",
+          "sha256": "c9635cab3f2dbadb942ed2c46738a2f73679de8555bb653ee8ff17fe9177e43a",
           "source": {
             "decomp_file": "data/maps/Route23/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3807,7 +3807,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route23.json",
-            "sha256": "1e5fa20896fa8c8750a1306ff12e5ba5b319e24a69803a9b6011210b387da94f"
+            "sha256": "c9635cab3f2dbadb942ed2c46738a2f73679de8555bb653ee8ff17fe9177e43a"
           }
         },
         {
@@ -4710,7 +4710,7 @@
         {
           "name": "SSAnne_Exterior",
           "file": "data/games/frlg/maps/runtime/SSAnne_Exterior.json",
-          "sha256": "8ee5bcbd226117f67b36c02c8ca0f68378a54c7b7b23edee7126a6a8a97700f9",
+          "sha256": "a5352a0bda8dd01e8d105c00bf95ecb694fe5906b013514a3b1ad5c8a0010a53",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/SSAnne_Exterior.json",
           "source": {
             "decomp_file": "data/maps/SSAnne_Exterior/map.json",
@@ -4744,7 +4744,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/SSAnne_Exterior.json",
-            "sha256": "8ee5bcbd226117f67b36c02c8ca0f68378a54c7b7b23edee7126a6a8a97700f9"
+            "sha256": "a5352a0bda8dd01e8d105c00bf95ecb694fe5906b013514a3b1ad5c8a0010a53"
           }
         },
         {
@@ -5896,7 +5896,7 @@
         {
           "name": "VermilionCity",
           "file": "data/games/frlg/maps/runtime/VermilionCity.json",
-          "sha256": "17fb9d8720426e05491b1a3fbea8c2e2ec6fb9a3974f182534c6d1ba42ed7333",
+          "sha256": "6a1ba2482cee579265508ff6f837fca8bea0fcfeba02e1ea9351b8a0bb58a077",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/VermilionCity.json",
           "source": {
             "decomp_file": "data/maps/VermilionCity/map.json",
@@ -5930,7 +5930,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/VermilionCity.json",
-            "sha256": "17fb9d8720426e05491b1a3fbea8c2e2ec6fb9a3974f182534c6d1ba42ed7333"
+            "sha256": "6a1ba2482cee579265508ff6f837fca8bea0fcfeba02e1ea9351b8a0bb58a077"
           }
         },
         {
