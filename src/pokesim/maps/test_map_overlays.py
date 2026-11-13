@@ -10,6 +10,7 @@ except ImportError:
     jsonschema = None
 
 from . import map_overlays as overlays
+from .runtime_map_coordinates import compact_map
 from .map_overlays import COMPLETE, NEW_GAME, StoryState
 
 
@@ -135,9 +136,114 @@ class ResolveTest(unittest.TestCase):
             overlays.checkpoint_key('00.x5')
 
 
+class BdspResolveTest(unittest.TestCase):
+    """The operation kinds BDSP needs: published patches, object update/index, triggers, warp add."""
+
+    def base(self):
+        return base_map(npcs=[{'name': 'a', 'coord': [0, 0], 'facing': 'north'},
+                              {'name': 'b', 'coord': [2, 2], 'wander': {'min': [1, 2], 'max': [2, 2]}}],
+                        coord_events=[{'name': 'coord_event_0', 'coord': [1, 0], 'width': 1, 'length': 1,
+                                       'var': 'V', 'value': 0, 'source': 's'}])
+
+    def test_measured_tiles_are_published_as_patches_not_baked(self):
+        patch = op('tile', coords=[[0, 2], [1, 2]], glyph='#', evidence={'run': 'r1', 'date': '2026-01-02'})
+        data, applied = overlays.resolve(base_map(), overlay(patch), game='bdsp')
+        self.assertEqual(data['tiles'], base_map()['tiles'])
+        self.assertEqual(data['patches'], [{'x': 0, 'y': 2, 'glyph': '#', 'measured_by': 'r1, 2026-01-02'},
+                                           {'x': 1, 'y': 2, 'glyph': '#', 'measured_by': 'r1, 2026-01-02'}])
+        self.assertEqual(applied[0][1][0], "patch (0, 2) '.' -> '#'")
+        #  FRLG bakes every tile operation.
+        self.assertEqual(overlays.resolve(base_map(), overlay(patch))[0]['tiles'][2], '##.')
+
+    def test_a_patch_needs_run_and_date_and_may_not_repeat_the_tile(self):
+        with self.assertRaisesRegex(ValueError, 'run and date'):
+            overlays.resolve(base_map(), overlay(op('tile', coords=[[0, 2]], glyph='#')), game='bdsp')
+        twice = [op('tile', coords=[[0, 2]], glyph='#', evidence={'run': 'r1', 'date': 'd'}),
+                 op('tile', coords=[[0, 2]], glyph='#', evidence={'run': 'r2', 'date': 'd'})]
+        with self.assertRaisesRegex(ValueError, 'already'):
+            overlays.resolve(base_map(), overlay(*twice), game='bdsp')
+
+    def test_object_update_moves_renames_and_drops_the_wander_box(self):
+        data, _ = overlays.resolve(self.base(), overlay(
+            op('object', action='update', name='b', at=[2, 2], to=[2, 1],
+               set={'name': 'brandon', 'wander': None, 'facing': 'east'})))
+        self.assertEqual([(o['name'], o['x'], o['y'], o.get('wander'), o.get('facing')) for o in data['objects']],
+                         [('a', 0, 0, None, 'north'), ('brandon', 2, 1, None, 'east')])
+
+    def test_object_add_at_a_position_keeps_the_key_order(self):
+        add = op('object', action='add', index=1,
+                 object={'name': 'c', 'kind': 'npc', 'coord': [1, 1], 'facing': 'south',
+                         'wander': {'min': [0, 1], 'max': [2, 1]}})
+        data, _ = overlays.resolve(self.base(), overlay(add), game='bdsp')
+        wire = compact_map(data)
+        self.assertEqual([n['name'] for n in wire['npcs']], ['a', 'c', 'b'])
+        self.assertEqual(list(wire['npcs'][1]), ['name', 'coord', 'facing', 'wander'])
+        self.assertEqual(list(wire['npcs'][0]), ['name', 'coord', 'facing'])
+        far = op('object', action='add', index=5, object={'name': 'd', 'kind': 'npc', 'coord': [0, 1]})
+        with self.assertRaisesRegex(ValueError, 'no position'):
+            overlays.resolve(self.base(), overlay(far))
+
+    def test_trigger_rename_and_add(self):
+        data, _ = overlays.resolve(self.base(), overlay(
+            op('trigger', action='update', name='coord_event_0', at=[1, 0], set={'name': 'warning'}),
+            op('trigger', action='add', trigger={'name': 'call', 'coord': [2, 0], 'width': 1, 'length': 1,
+                                                 'var': 'W', 'value': 3, 'source': 'r9'})), game='bdsp')
+        self.assertEqual([(t['name'], t['x'], t['y']) for t in data['coord_events']],
+                         [('warning', 1, 0), ('call', 2, 0)])
+        with self.assertRaises(ValueError):
+            overlays.resolve(self.base(), overlay(
+                op('trigger', action='update', name='coord_event_0', at=[1, 0], set={'name': 'coord_event_0'})))
+
+    def test_warp_add_and_top_level_key_order(self):
+        data, _ = overlays.resolve(self.base(), overlay(
+            op('link', kind='warp', action='add', coord=[1, 2], to_map='Other', to_point='door')), game='bdsp')
+        self.assertEqual(list(compact_map(data))[:7],
+                         ['format', 'name', 'source', 'tiles', 'points', 'warps', 'connections'])
+        with self.assertRaises(ValueError):
+            overlays.resolve(self.base(), overlay(
+                op('link', kind='warp', action='add', coord=[0, 0], to_map='Other', to_point='door')), game='bdsp')
+
+
 class PublishedPackTest(unittest.TestCase):
     def test_runtime_files_are_base_plus_overlays(self):
         self.assertEqual(overlays.check(), 156)
+        self.assertEqual(overlays.check('bdsp'), 22)
+
+    def test_bdsp_builder_holds_no_authored_corrections(self):
+        from . import bdsp_decomp_map_builder as builder
+        for table in ('PATCHES', 'OBJECTS', 'COORD_EVENTS', 'WARP_DOORS', 'WARPS'):
+            self.assertFalse(hasattr(builder, table), table)
+
+    def test_bdsp_overlays_record_every_correction_with_evidence(self):
+        counts = {}
+        for name in overlays.overlay_names('bdsp'):
+            for operation in overlays.read_overlay(name, 'bdsp')['operations']:
+                counts[operation['op'], operation['why']] = counts.get((operation['op'], operation['why']), 0) + 1
+                self.assertEqual(operation['status'], 'candidate')
+        self.assertEqual(sum(counts.values()), 45)
+        #  The 22 measured patches (Route201, Route202, Route204North, PlayerHouse1F) are 7 tile operations.
+        self.assertEqual(counts['tile', 'console_measured'], 7)
+        self.assertEqual(counts['tile', 'generator_gap'], 5)
+        patches = sum(len(p['coords']) for name in overlays.overlay_names('bdsp')
+                      for p in overlays.read_overlay(name, 'bdsp')['operations']
+                      if (p['op'], p['why']) == ('tile', 'console_measured'))
+        self.assertEqual(patches, 22)
+
+    def test_bdsp_clown_ranges_are_in_the_overlay(self):
+        #  PR 90: the Company clown wanders on row 18 only; the Mart clown has (1, 1).
+        runtime = json.loads(overlays.path_of('bdsp', 'runtime', 'JubilifeCity').read_text())
+        boxes = {n['name']: n['wander'] for n in runtime['npcs'] if n['name'].startswith('clown_') and 'wander' in n}
+        self.assertEqual(boxes['clown_poketch_company'], {'min': [14, 18], 'max': [16, 18]})
+        self.assertEqual(boxes['clown_mart'], {'min': [54, 32], 'max': [56, 34]})
+        text = overlays.audit('JubilifeCity', 'bdsp')
+        self.assertIn('object clown_poketch_company added at (15, 18)', text)
+
+    def test_bdsp_measured_tiles_stay_patches_over_raw_tiles(self):
+        base = json.loads(overlays.path_of('bdsp', 'base', 'Route202').read_text())
+        runtime = json.loads(overlays.path_of('bdsp', 'runtime', 'Route202').read_text())
+        self.assertEqual(runtime['tiles'], base['tiles'])
+        self.assertEqual(len(runtime['patches']), 13)
+        self.assertEqual(runtime['patches'][0]['measured_by'], 'r253, 2026-11-01')
 
     def test_vermilion_gym_beams_open_after_the_switches(self):
         beams = [(x, y) for y in (6, 7) for x in (4, 5, 6)]
@@ -193,7 +299,16 @@ class OverlaySchemaTest(unittest.TestCase):
         check = validator('map-overlay')
         good = overlay(GATE, op('point', name='sign', coord=[2, 0]),
                        op('link', kind='connection', action='add', side='south', to_map='Else', offset=2),
-                       op('object', action='move', name='man', at=[2, 2], to=[2, 1]))
+                       op('object', action='move', name='man', at=[2, 2], to=[2, 1]),
+                       op('object', action='update', name='man', at=[2, 2], to=[2, 1], set={'name': 'x', 'wander': None}),
+                       op('object', action='add', index=0, object={'name': 'g', 'kind': 'npc', 'coord': [0, 2],
+                                                                  'wander': {'min': [0, 2], 'max': [1, 2]}}),
+                       op('link', kind='warp', action='add', coord=[1, 2], to_map='Other', to_point='door'),
+                       op('trigger', action='update', name='t', at=[0, 0], set={'name': 'u'}),
+                       op('trigger', action='add', why='generator_gap', evidence={'generator_fix': 'x'},
+                          trigger={'name': 't', 'coord': [0, 0], 'width': 1, 'length': 1, 'var': 'V', 'value': 0,
+                                   'source': 's'}),
+                       op('object', why='story_scope', action='remove', name='man', at=[2, 2]))
         self.assertEqual(list(check.iter_errors(good)), [])
         for change in (lambda o: o['operations'][0].pop('when'),
                        lambda o: o['operations'][1].update(when={'flag': 'FLAG_X'}),
@@ -207,6 +322,15 @@ class OverlaySchemaTest(unittest.TestCase):
                 self.assertTrue(list(check.iter_errors(data)))
                 with self.assertRaises(ValueError):
                     overlays.check_overlay(data)
+        #  Operation fields only the schema checks; the resolver fails on them when it applies the operation.
+        for change in (lambda o: o['operations'][4].update(set={'coord': [0, 0]}),
+                       lambda o: o['operations'][4].update(set={}),
+                       lambda o: o['operations'][6].pop('to_point'),
+                       lambda o: o['operations'][8]['trigger'].pop('source')):
+            data = copy.deepcopy(good)
+            change(data)
+            with self.subTest(data=data):
+                self.assertTrue(list(check.iter_errors(data)))
 
 
 if __name__ == '__main__':

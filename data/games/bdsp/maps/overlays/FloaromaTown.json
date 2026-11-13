@@ -1,0 +1,69 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "FloaromaTown",
+  "operations": [
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "cyrus_3", "kind": "npc", "coord": [11, 26]},
+      "index": 3,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown: the man with Cyrus's sprite, whether he is there is for the console to say",
+        "shown_during": "not yet checked on the console",
+        "history": "Was OBJECTS FloaromaTown[3] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "grunt_m_7", "kind": "npc", "coord": [2, 1], "facing": "east"},
+      "index": 5,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Grunts at the Meadow until the Valley Windworks is cleared",
+        "shown_during": "until the Valley Windworks",
+        "history": "Was OBJECTS FloaromaTown[7] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "grunt_m_8", "kind": "npc", "coord": [3, 1], "facing": "west"},
+      "index": 6,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Grunts at the Meadow until the Valley Windworks is cleared",
+        "shown_during": "until the Valley Windworks",
+        "history": "Was OBJECTS FloaromaTown[8] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "old_woman", "kind": "npc", "coord": [4, 25]},
+      "why": "console_measured",
+      "evidence": {
+        "run": "r251a, oldprobe/westedge",
+        "date": "2026-11-08",
+        "observation": "Not in Diamond's data; found on row 25 by r251a (2026-10-31). The woman stands east of the old man, on x 4. Added console obstacle"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "old_man", "kind": "npc", "coord": [3, 25]},
+      "why": "console_measured",
+      "evidence": {
+        "run": "r251a, oldprobe/westedge",
+        "date": "2026-11-08",
+        "observation": "Not in Diamond's data; found on row 25 by r251a (2026-10-31). From under him, D-pad taps west moved 3 tiles before bumping the flower field's west edge (x 0), so he is on x 3. Added console obstacle"
+      },
+      "status": "candidate"
+    }
+  ]
+}

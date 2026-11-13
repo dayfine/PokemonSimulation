@@ -55,7 +55,7 @@ pixels or global decomp `(x,z)` coordinates. Reviewed decisions are linked from
 **Mine hall:** Diamond events `narc_0196` lists B2F warps at `(11,21)`,
 `(12,21)`, `(13,21)`. Land data `narc_0313` has behavior `0x6f` at all three.
 The builder previously converted these warp glyphs to ordinary floor, despite
-retaining the row-22 cave mouths. Registering row 21 in `WARP_DOORS` makes a
+retaining the row-22 cave mouths. Registering row 21 as a `tile` `D` overlay operation (formerly `WARP_DOORS`) makes a
 south step from row 20 report an unresolved warp immediately. This agrees with
 #226's StorySim expectation `warped at (12,21)`. A route cannot clip through
 these stairs to a wall or assume it reached B2F. Arrival coordinates/facing need

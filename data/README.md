@@ -1,7 +1,8 @@
 # Reference data
 
-- `games/bdsp/maps/`: maps derived from pret/pokediamond with explicit console
-  checks and corrections in their metadata.
+- `games/bdsp/maps/`: maps derived from pret/pokediamond: a generated `base/`,
+  the console checks and corrections as `overlays/` with their evidence, and the
+  derived `runtime/` ([README](games/bdsp/maps/README.md)).
 - `games/bdsp/wall_hits.json`: measured walks used to validate the BDSP maps.
 - `games/frlg/battles/`: four benchmark cases and a pinned pret trainer/AI snapshot.
 - `games/frlg/routes/`: route fixtures for the FRLG planner.

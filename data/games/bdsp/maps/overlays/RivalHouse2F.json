@@ -1,0 +1,19 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "RivalHouse2F",
+  "operations": [
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "barry", "kind": "npc", "coord": [9, 5], "facing": "north"},
+      "index": 0,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Barry in his room, until he leaves for the lake",
+        "shown_during": "00.01",
+        "history": "Was OBJECTS RivalHouse2F[0] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    }
+  ]
+}

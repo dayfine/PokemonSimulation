@@ -6375,50 +6375,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "7": {
-                "show": "until the Valley Windworks"
-              },
-              "8": {
-                "show": "until the Valley Windworks"
-              },
-              "3": {
-                "show": "not yet checked on the console"
-              },
-              "add": [
-                {
-                  "name": "old_woman",
-                  "x": 4,
-                  "y": 25,
-                  "measured_by": "oldprobe/westedge, 2026-11-08"
-                },
-                {
-                  "name": "old_man",
-                  "x": 3,
-                  "y": 25,
-                  "measured_by": "oldprobe/westedge, 2026-11-08"
-                }
-              ]
-            },
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [
-            {
-              "kind": "added_objects",
-              "names": [
-                "old_woman",
-                "old_man"
-              ],
-              "difference": "Added console obstacles absent from Diamond event data",
-              "evidence": "row r251a, 2026-10-31; columns oldprobe/westedge, 2026-11-08 (old man x 3, old woman x 4); bdsp_decomp_map_builder.py OBJECTS/FloaromaTown",
-              "status": "console-observed"
-            }
-          ],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/FloaromaTown.json",
+            "sha256": "ca5a9b56827b2dc3e7cd821d765b62910e7468000a35904813d4235870778cc3"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/FloaromaTown.json",
+            "sha256": "f29d2ba9d4158b9fad549b460ca6be42ce53831c1ef482b10b50eb5c77491477"
+          }
         },
         {
           "name": "JubilifeCity",
@@ -6444,75 +6410,20 @@
             "height": 64,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "24": {
-                "show": "00.05",
-                "name": "poketch_president"
-              },
-              "28": {
-                "show": "00.05",
-                "name": "clown_tv_station"
-              },
-              "25": {
-                "show": "00.05",
-                "range": [
-                  1,
-                  1
-                ],
-                "name": "clown_mart"
-              },
-              "26": {
-                "show": "00.05",
-                "range": [
-                  1,
-                  0
-                ],
-                "name": "clown_poketch_company"
-              }
-            },
-            "warp_doors": [
-              [
-                0,
-                22
-              ],
-              [
-                0,
-                23
-              ],
-              [
-                40,
-                40
-              ],
-              [
-                21,
-                42
-              ]
-            ],
-            "coord_events": {
-              "0": "dawn_at_the_steps",
-              "4": "poketch_president"
-            }
-          },
           "preconditions": [],
-          "bdsp_differences": [
-            {
-              "kind": "npc_movement",
-              "source_object_indices": [
-                25,
-                26
-              ],
-              "difference": "Diamond wanders them a tile east and west only (range 1, 0); BDSP moves the Mart clown off row 33 too, so he gets range (1, 1); the Poketch Company clown keeps Diamond's (1, 0), row 18 only",
-              "evidence": "lab-B 2026-11-11 21:00, 00.05b mart_clown failure frame (clown about two rows below the player on row 34); range (1, 1) from data/games/bdsp/maps/jubilife_city.json; Company clown row 18 only: ~/BDSPLab/captures/2026-11-11-jubilife-clowns/company-clown-box.png",
-              "status": "console observation of one clown; the box size is not measured and may be too small"
-            }
-          ],
           "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
           "reconciliation_review": {
             "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
             "decision": "held",
             "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          },
+          "base": {
+            "file": "data/games/bdsp/maps/base/JubilifeCity.json",
+            "sha256": "3b42fd15bb2552f43e3686bdc52139c772e99a846eabd0a79fce61297aa4726f"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/JubilifeCity.json",
+            "sha256": "4ce5ba0019d4111e61b2d2097f61364648a0ae31981a8baaed584cb2767b4af1"
           }
         },
         {
@@ -6539,27 +6450,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "0": {
-                "show": "the starter scene",
-                "name": "rowan"
-              },
-              "1": {
-                "show": "the starter scene",
-                "name": "counterpart"
-              },
-              "3": {
-                "show": "the starter scene"
-              }
-            },
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/LakeVerity.json",
+            "sha256": "efc290cec5a2ad38625a6d5b6edf39c69a14e6f2ea98db7cad029ef0198a5ec9"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/LakeVerity.json",
+            "sha256": "1e16bf8a2483708e0506977c5243ce37261d174682adf9870c9b0e106097ea45"
+          }
         },
         {
           "name": "OreburghCity",
@@ -6585,36 +6485,16 @@
             "height": 64,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [
-              [
-                44,
-                59
-              ],
-              [
-                45,
-                59
-              ],
-              [
-                46,
-                59
-              ],
-              [
-                47,
-                59
-              ],
-              [
-                48,
-                59
-              ]
-            ],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/OreburghCity.json",
+            "sha256": "1ae5da4d5fef42c0c516c11c66cd55d342fcf89e3a6c2c053b451e47dd32e364"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/OreburghCity.json",
+            "sha256": "fe00673f75548cb3d54ce3b207f47a0723f4ffa8ccefb86984509cdcef8b5e42"
+          }
         },
         {
           "name": "OreburghGate",
@@ -6640,15 +6520,12 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/OreburghGate.json",
+            "sha256": "75c3d3492c2a46407e1fc2ba18106855ccc17c2f362d76deb62db53085d1b026"
+          }
         },
         {
           "name": "OreburghGym",
@@ -6674,15 +6551,12 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/OreburghGym.json",
+            "sha256": "7d622d51a1aa4898989df79488a879a1ef0a14093a837593d1fd9aa424b55455"
+          }
         },
         {
           "name": "OreburghMine",
@@ -6720,29 +6594,20 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "0": {
-                "show": "01.03",
-                "name": "roark"
-              }
-            },
-            "warp_doors": [
-              [
-                15,
-                1
-              ]
-            ],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
           "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
           "reconciliation_review": {
             "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
             "decision": "held",
             "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          },
+          "base": {
+            "file": "data/games/bdsp/maps/base/OreburghMine.json",
+            "sha256": "65807c01c12f25f823944bd573fe7f46278d41cf77d1bff702c3f1a82528fe3a"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/OreburghMine.json",
+            "sha256": "06bd52eb46d1d3457948f8568634a3a7890c452202f08eb218fd6b232457d0e2"
           }
         },
         {
@@ -6781,44 +6646,20 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [
-              [
-                11,
-                1
-              ],
-              [
-                12,
-                1
-              ],
-              [
-                13,
-                1
-              ],
-              [
-                11,
-                21
-              ],
-              [
-                12,
-                21
-              ],
-              [
-                13,
-                21
-              ]
-            ],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
           "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
           "reconciliation_review": {
             "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
             "decision": "adopted",
             "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          },
+          "base": {
+            "file": "data/games/bdsp/maps/base/OreburghMineB1F.json",
+            "sha256": "93a546d34bd5b5c809f938b0a7764518f0b4b157d66209bd77e6eb111c97a207"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/OreburghMineB1F.json",
+            "sha256": "d52680ca5b9f83045c991ac44474ddcd34ff1c3fd21ca7d98e60066228281e2b"
           }
         },
         {
@@ -6845,40 +6686,20 @@
             "height": 12,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [
-            {
-              "x": 4,
-              "y": 8,
-              "glyph": ".",
-              "measured_by": "r32, 2026-11-01"
-            }
-          ],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {
-              "0": "moms_warning",
-              "add": [
-                {
-                  "name": "moms_call",
-                  "x": 6,
-                  "y": 10,
-                  "width": 1,
-                  "length": 1,
-                  "var": "CONSOLE_MOMS_CALL",
-                  "value": 0,
-                  "measured_by": "console r45, r46 (2026-11-01): after her heal Mom calls us back as we step onto the mat (6, 10); no coord event in the decomp"
-                }
-              ]
-            }
-          },
           "preconditions": [],
-          "bdsp_differences": [],
           "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
           "reconciliation_review": {
             "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
             "decision": "adopted-reported",
             "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          },
+          "base": {
+            "file": "data/games/bdsp/maps/base/PlayerHouse1F.json",
+            "sha256": "a52d8d15c4a81509f87d353fbae7fefc9973461b12605a7c7f04f962e2f64daa"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/PlayerHouse1F.json",
+            "sha256": "2c8a99eb8539ac8cdde365222c07710e9163b1b7d5054ca236d48d16d73645c4"
           }
         },
         {
@@ -6905,15 +6726,12 @@
             "height": 12,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/PlayerHouse2F.json",
+            "sha256": "56379eab7a65770e55a87935343c696520d0bbd29be342721cfe6fec4e3a3ecf"
+          }
         },
         {
           "name": "RavagedPath",
@@ -6951,15 +6769,12 @@
             "height": 54,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/RavagedPath.json",
+            "sha256": "318fa667c7993012a8150294059d9f9dd6b65eb9fa1a993c4b70731d6ca71a64"
+          }
         },
         {
           "name": "RivalHouse1F",
@@ -6985,15 +6800,16 @@
             "height": 12,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/RivalHouse1F.json",
+            "sha256": "99e8512bcab473df6e435909d2883bc62e9b697c09b67b4265bc91341b68c6a2"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/RivalHouse1F.json",
+            "sha256": "7b998f506748eba5730280e7b2f328d80861b59e1559c4801d22c690db8a9a09"
+          }
         },
         {
           "name": "RivalHouse2F",
@@ -7019,20 +6835,16 @@
             "height": 12,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "0": {
-                "show": "00.01",
-                "name": "barry"
-              }
-            },
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/RivalHouse2F.json",
+            "sha256": "10f911254ad9758593309638a4c7ec4f2cecd1be0045b5897bcb9e928b73262e"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/RivalHouse2F.json",
+            "sha256": "48139d2a3e171e4d64c7dcb931d2beda81ea566ab7221b28f974418f0e0068ff"
+          }
         },
         {
           "name": "Route201",
@@ -7058,77 +6870,20 @@
             "height": 25,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [
-            {
-              "x": 8,
-              "y": 18,
-              "glyph": "#",
-              "measured_by": "r16, 2026-10-31"
-            },
-            {
-              "x": 9,
-              "y": 18,
-              "glyph": "#",
-              "measured_by": "r16, 2026-10-31"
-            },
-            {
-              "x": 10,
-              "y": 18,
-              "glyph": "#",
-              "measured_by": "r16, 2026-10-31"
-            },
-            {
-              "x": 11,
-              "y": 18,
-              "glyph": "#",
-              "measured_by": "r16, 2026-10-31"
-            },
-            {
-              "x": 12,
-              "y": 18,
-              "glyph": "#",
-              "measured_by": "r16, 2026-10-31"
-            },
-            {
-              "x": 13,
-              "y": 18,
-              "glyph": "S",
-              "measured_by": "r16, 2026-10-31"
-            },
-            {
-              "x": 13,
-              "y": 17,
-              "glyph": ".",
-              "measured_by": "r16, 2026-10-31"
-            }
-          ],
-          "generation_overrides": {
-            "objects": {
-              "1": {
-                "hide": "her talk is walked to, not planned"
-              }
-            },
-            "warp_doors": [],
-            "coord_events": {
-              "0": "barry_warning",
-              "1": "rowan_stop"
-            }
-          },
           "preconditions": [],
-          "bdsp_differences": [
-            {
-              "kind": "npc_movement",
-              "source_object_index": 1,
-              "difference": "Potion giver moves off her Diamond spawn; omitted from static routing, interaction approached separately",
-              "evidence": "bdsp_decomp_map_builder.py OBJECTS/Route201 console comment; 2026-10-28 to 30 POINTS evidence",
-              "status": "console-observed"
-            }
-          ],
           "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
           "reconciliation_review": {
             "arduino_revision": "01e6659116f520b51c35ee956aa6a222dfa864f8",
             "decision": "held",
             "evidence": "docs/maps/BDSP_RECONCILIATION.md"
+          },
+          "base": {
+            "file": "data/games/bdsp/maps/base/Route201.json",
+            "sha256": "a3fe9d115a79c788cf82d33fc312be61ddf20d56ae8627d510903ce1f7734d56"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/Route201.json",
+            "sha256": "6b6bc5c4296292037064ee450733e84606f6177a9ff09e53086eb1dea7b3000b"
           }
         },
         {
@@ -7167,96 +6922,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [
-            {
-              "x": 15,
-              "y": 28,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 16,
-              "y": 28,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 17,
-              "y": 28,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 18,
-              "y": 28,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 19,
-              "y": 28,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 20,
-              "y": 28,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 15,
-              "y": 29,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 16,
-              "y": 29,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 17,
-              "y": 29,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 18,
-              "y": 29,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 19,
-              "y": 29,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 20,
-              "y": 29,
-              "glyph": "#",
-              "measured_by": "r253, 2026-11-01"
-            },
-            {
-              "x": 21,
-              "y": 30,
-              "glyph": "#",
-              "measured_by": "r254, 2026-11-01"
-            }
-          ],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {
-              "0": "catch_tutorial"
-            }
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/Route202.json",
+            "sha256": "ee7c23bea0ceabec990b16723cfac9f5b63c26a1cb5b60102c836821bf733191"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/Route202.json",
+            "sha256": "77399532c35cd9dca599d9581a341aa5d2552f7081dbfe501c662c584fd60d92"
+          }
         },
         {
           "name": "Route203",
@@ -7294,27 +6969,16 @@
             "height": 24,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "0": {
-                "hide": "wanders in BDSP"
-              }
-            },
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [
-            {
-              "kind": "npc_movement",
-              "source_object_index": 0,
-              "difference": "Stationary in Diamond; wanders near Gate in BDSP; omitted from static objects",
-              "evidence": "bdsp_decomp_map_builder.py OBJECTS/Route203",
-              "status": "console-observed; run id unspecified"
-            }
-          ],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/Route203.json",
+            "sha256": "dcd6281689cf6ca9d9586cd06558a5377d0e0e8b6e73c960a06802234375ba35"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/Route203.json",
+            "sha256": "23d969574938c73d33af3e8bec8705cb89e5563e95a1889ecb1d16d5a74b0f60"
+          }
         },
         {
           "name": "Route204North",
@@ -7352,31 +7016,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [
-            {
-              "x": 12,
-              "y": 6,
-              "glyph": "#",
-              "measured_by": "r248a, 2026-10-31"
-            }
-          ],
-          "generation_overrides": {
-            "objects": {
-              "0": {
-                "at": [
-                  20,
-                  12
-                ],
-                "still": "r246a",
-                "name": "bug_catcher_brandon"
-              }
-            },
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/Route204North.json",
+            "sha256": "6e227edfcc5f2337002c08a20ca6f6b0e5627bca1493af9ed8e1144f17614372"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/Route204North.json",
+            "sha256": "c45b25f1aaa1d9a843a20777be9217e3e7d8e3c2124dba3cd3ba850cccb1de58"
+          }
         },
         {
           "name": "Route204South",
@@ -7414,20 +7063,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [
-              [
-                11,
-                1
-              ]
-            ],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/Route204South.json",
+            "sha256": "c86cd67f45fe3c1ab8d0cce9cbd9377173d87ca58baff27c984eba096cd65546"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/Route204South.json",
+            "sha256": "9a14efeebee02edf0adb7169b22f599dfc1dff45f3f7fc569653164609d98385"
+          }
         },
         {
           "name": "RowansLab",
@@ -7453,20 +7098,16 @@
             "height": 18,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "0": {
-                "show": "00.03",
-                "name": "rowan"
-              }
-            },
-            "warp_doors": [],
-            "coord_events": {}
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/RowansLab.json",
+            "sha256": "0fe6cfddf45ef254f89229d58396f780b7b2f72487757fd2f2cec0f023ac4a77"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/RowansLab.json",
+            "sha256": "2be82e5bfbddfee8d62fc55c5105bd9d73965c36e4047f3bbfb76db5d1003260"
+          }
         },
         {
           "name": "SandgemTown",
@@ -7492,35 +7133,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {
-              "1": {
-                "hide": "wanders in BDSP"
-              },
-              "2": {
-                "hide": "wanders in BDSP"
-              }
-            },
-            "warp_doors": [],
-            "coord_events": {
-              "0": "dawn_walks_us_to_the_lab"
-            }
-          },
           "preconditions": [],
-          "bdsp_differences": [
-            {
-              "kind": "npc_movement",
-              "source_object_indices": [
-                1,
-                2
-              ],
-              "difference": "Stationary in Diamond; wander on console; omitted from static objects",
-              "evidence": "bdsp_decomp_map_builder.py OBJECTS/SandgemTown",
-              "status": "console-observed; run id unspecified"
-            }
-          ],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/SandgemTown.json",
+            "sha256": "8086521d96c47767fc4d24fc68f8cb63e5ee6b9a4c72bf6e4d4a8a5b3f3d225d"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/SandgemTown.json",
+            "sha256": "d69b4b9328ef634580137b262367805bf5d17bdd1d96b08730c020a5e5b35f83"
+          }
         },
         {
           "name": "TwinleafTown",
@@ -7546,17 +7168,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {
-              "1": "barry_doorstep"
-            }
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/TwinleafTown.json",
+            "sha256": "59e35a8596e261b31a8294932bf97581d1c1b961e88c3336d23b07a64eefa68e"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/TwinleafTown.json",
+            "sha256": "649970e373df85faa4e7819dffc543060a72f14fdb39309d042bc4532e23e17e"
+          }
         },
         {
           "name": "VerityLakefront",
@@ -7582,17 +7203,16 @@
             "height": 32,
             "origin_space": "decomp matrix world (x,z)"
           },
-          "terrain_corrections": [],
-          "generation_overrides": {
-            "objects": {},
-            "warp_doors": [],
-            "coord_events": {
-              "0": "lake_entrance"
-            }
-          },
           "preconditions": [],
-          "bdsp_differences": [],
-          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established"
+          "terrain_correction_classification": "console navigation overrides; remake delta versus decoding/measurement discrepancy not established",
+          "base": {
+            "file": "data/games/bdsp/maps/base/VerityLakefront.json",
+            "sha256": "c20935eef7bd74731f3249254c08d31cf8ace4ab582cf1977d365f6df969d4ad"
+          },
+          "overlay": {
+            "file": "data/games/bdsp/maps/overlays/VerityLakefront.json",
+            "sha256": "efb8322ad0c4ed7b5ccbf96cd0f8ffec33aef0131e439b048bb74f1b220763ea"
+          }
         }
       ],
       "consumer_delta": {

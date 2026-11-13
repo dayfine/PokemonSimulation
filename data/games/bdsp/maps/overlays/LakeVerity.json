@@ -1,0 +1,42 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "LakeVerity",
+  "operations": [
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "rowan", "kind": "npc", "coord": [16, 11], "facing": "north"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown as the starter scene's actors, where the walk in ends",
+        "shown_during": "the starter scene",
+        "history": "Was OBJECTS LakeVerity[0] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "counterpart", "kind": "npc", "coord": [17, 11], "facing": "north"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown as the starter scene's actors, where the walk in ends",
+        "shown_during": "the starter scene",
+        "history": "Was OBJECTS LakeVerity[1] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "starly_3", "kind": "npc", "coord": [16, 19], "facing": "north"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown as the starter scene's actors, where the walk in ends",
+        "shown_during": "the starter scene",
+        "history": "Was OBJECTS LakeVerity[3] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    }
+  ]
+}

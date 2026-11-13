@@ -1,0 +1,45 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "SandgemTown",
+  "operations": [
+    {
+      "op": "object",
+      "action": "remove",
+      "name": "pokemon_breeder_m_1",
+      "at": [11, 22],
+      "why": "console_measured",
+      "evidence": {
+        "observation": "Stand still in Diamond, wander on the console; omitted from the static objects",
+        "run": "unspecified (console-observed)",
+        "history": "Was OBJECTS SandgemTown[1, 2] hide in bdsp_decomp_map_builder.py (before the overlay migration); the manifest listed them as bdsp_differences npc_movement"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "remove",
+      "name": "pokemon_breeder_f_2",
+      "at": [23, 20],
+      "why": "console_measured",
+      "evidence": {
+        "observation": "Stand still in Diamond, wander on the console; omitted from the static objects",
+        "run": "unspecified (console-observed)",
+        "history": "Was OBJECTS SandgemTown[1, 2] hide in bdsp_decomp_map_builder.py (before the overlay migration); the manifest listed them as bdsp_differences npc_movement"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_0",
+      "at": [4, 10],
+      "set": {"name": "dawn_walks_us_to_the_lab"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Dawn walks us to the Lab",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    }
+  ]
+}

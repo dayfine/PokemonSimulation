@@ -91,23 +91,23 @@ size `64×25`. That seven-row difference is a crop, not a BDSP terrain patch.
 ## BDSP differences and scenario assumptions
 
 There are 22 measured terrain patches across Route201, Route202,
-Route204North and PlayerHouse1F. JSON keeps the baseline tiles intact;
-`patches` carry console run/date evidence. The manifest repeats these separately
-from object/trigger/door interpretation overrides. A measured discrepancy is
+Route204North and PlayerHouse1F. Since the overlay migration they are `tile`
+operations in `data/games/bdsp/maps/overlays/` with their run, date and
+observation as evidence; the runtime JSON keeps the baseline tiles intact and
+publishes them as `patches` with `measured_by`. A measured discrepancy is
 an applied navigation correction, not automatically proof of a remake change:
 baseline decoding and measurement error remain possible explanations.
 
-`bdsp_decomp_map_builder.py` keeps the authored tables and explanatory evidence:
+`bdsp_decomp_map_builder.py` writes the base (`data/games/bdsp/maps/base/`) and
+keeps only `MAPS` (source game/header, world crop and verification limits) and
+`POINTS` (route anchors; step 3 of [OVERLAYS.md](OVERLAYS.md) moves them). The
+other former tables (`PATCHES`, `OBJECTS`, `COORD_EVENTS`, `WARP_DOORS`,
+`WARPS`) are overlay operations; the
+[BDSP README](../../data/games/bdsp/maps/README.md) says which became what.
+Examples of explicit BDSP differences include wandering NPCs on Route203/Sandgem
+and added Floaroma people.
 
-- `MAPS`: source game/header, world crop and verification limits.
-- `PATCHES`: console terrain corrections.
-- `OBJECTS`: source object index, position changes, stationary assumptions,
-  additions and omissions. Examples of explicit BDSP differences include
-  wandering NPCs on Route203/Sandgem and added Floaroma people.
-- `COORD_EVENTS`: source trigger names and console-only trigger additions.
-- `WARP_DOORS`, `WARPS`, `POINTS`: navigation interpretation and route anchors.
-
-These tables include **story-specific omissions**, not just remake deltas.
+The overlays include **story-specific choices** (`why: story_scope`), not just remake deltas.
 For example, the Route201 Potion giver is omitted from static planning because
 she moves and her interaction is approached separately. Hidden wandering
 NPCs still exist on console: future generic simulation must model their
@@ -131,9 +131,9 @@ planner or simulator, independent of AutoStory.
 | Module | Responsibility |
 |---|---|
 | `dppt_map_decomp_parser.py` | Parse Diamond/Platinum source headers, matrices, land data and events. These are BDSP baselines, not BDSP-native files. |
-| `bdsp_decomp_map_builder.py` | Build BDSP runtime maps from those parsed sources, crops, console corrections and story assumptions. |
+| `bdsp_decomp_map_builder.py` | Build the BDSP base maps from those parsed sources and crops; corrections and story assumptions are overlays. |
 | `frlg_decomp_map_builder.py` | Read pinned FireRed source maps/metatiles and build the FRLG base maps. |
-| `map_overlays.py` | Apply authored overlay operations to a base (`effective_map(name, story_state)`), audit them and derive the FRLG runtime files. |
+| `map_overlays.py` | Apply authored overlay operations to a base (`effective_map(name, story_state)`), audit them and derive the FRLG and BDSP runtime files. |
 | `runtime_map_schema.py` | Validate the shared runtime format's structural and coordinate invariants. |
 | `runtime_map_pack.py` | Audit, apply patches to copies, and export packs. |
 
@@ -148,6 +148,7 @@ PYTHONPATH=src python3 -m pokesim.maps.frlg_decomp_map_builder --all \
 PYTHONPATH=src python3 -m pokesim.maps.map_overlays check
 PYTHONPATH=src python3 -m pokesim.maps.frlg_map_set check
 PYTHONPATH=src python3 -m pokesim.maps.bdsp_decomp_map_builder --check
+PYTHONPATH=src python3 -m pokesim.maps.map_overlays --game bdsp check
 PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack
 PYTHONPATH=src python3 -m unittest discover -s src/pokesim/maps -t src
 PYTHONPATH=src python3 -m pokesim.maps.runtime_map_pack --export-game frlg --out /tmp/frlg-map-export

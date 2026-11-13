@@ -18,7 +18,10 @@ def _pair(value, label):
     return value
 
 
-def _convert_pair(record, old, new, compact):
+def _convert_pair(record, old, new, compact, ordered=False):
+    """Switch a record between the pair `new` and the fields `old`. Going to
+    the fields, `ordered` puts them where the pair was instead of at the end,
+    so that a legacy round trip leaves every key where it was."""
     if not isinstance(record, dict):
         raise ValueError('coordinate record must be an object')
     if compact:
@@ -36,21 +39,32 @@ def _convert_pair(record, old, new, compact):
     else:
         if new not in record or any(key in record for key in old):
             raise ValueError('expected only coordinate field ' + new)
-        value = _pair(record.pop(new), new)
-        record.update(zip(old, value))
+        value = _pair(record[new], new)
+        if ordered:
+            converted = {}
+            for key, item in record.items():
+                if key == new:
+                    converted.update(zip(old, value))
+                else:
+                    converted[key] = item
+            record.clear()
+            record.update(converted)
+        else:
+            del record[new]
+            record.update(zip(old, value))
 
 
-def _records(data, compact):
+def _records(data, compact, ordered=False):
     for section in SECTIONS:
         records = data.get(section, [])
         if not isinstance(records, list):
             raise ValueError(section + ' must be an array')
         for record in records:
-            _convert_pair(record, ('x', 'y'), 'coord', compact)
+            _convert_pair(record, ('x', 'y'), 'coord', compact, ordered)
             if section == 'objects' and 'wander' in record:
                 box = record['wander']
-                _convert_pair(box, ('x0', 'y0'), 'min', compact)
-                _convert_pair(box, ('x1', 'y1'), 'max', compact)
+                _convert_pair(box, ('x0', 'y0'), 'min', compact, ordered)
+                _convert_pair(box, ('x1', 'y1'), 'max', compact, ordered)
     return data
 
 
@@ -123,13 +137,15 @@ def _group(data):
     return data
 
 
-def legacy_map(data):
+def legacy_map(data, ordered=False):
     """Copy a v1/v2 map into the existing Python/native v1 representation.
 
     Reject conflicting encodings rather than choosing a coordinate silently.
     The wire-format marker is consumed; extensions outside known coordinate fields stay.
     V2 decodes NPCs/items/signs/interactables, retaining order within each group.
     Interactables use the legacy item-sprite kind solely for native compatibility.
+    `ordered` keeps x/y (and a wander box's corners) where the coordinate pair
+    was in the record; by default they move to the end of it.
     Names need not be unique. Cross-group order is not part of the v2 contract.
     Identified pickups in v2 default quantity to 1 and derive absent names from
     source_event. Geometry/flag validation remains the runtime schema's responsibility.
@@ -139,7 +155,7 @@ def legacy_map(data):
     result = copy.deepcopy(data)
     version = result.pop('format', LEGACY)
     if version == COMPACT:
-        return _records(_ungroup(result), compact=False)
+        return _records(_ungroup(result), compact=False, ordered=ordered)
     if version != LEGACY:
         raise ValueError('unsupported runtime map format: ' + repr(version))
     # Check spelling and grouping without altering the legacy representation.

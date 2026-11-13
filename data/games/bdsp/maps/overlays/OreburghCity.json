@@ -1,0 +1,17 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "OreburghCity",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[44, 59], [45, 59], [46, 59], [47, 59], [48, 59]],
+      "glyph": "D",
+      "why": "generator_gap",
+      "evidence": {
+        "observation": "The mine's mouth: 01.03 walks down to the row above it and steps on. We come out on it too, and walk north off it to a wall first",
+        "generator_fix": "decode from the remake which warp tiles are entered by walking into a door and which are stepped on, instead of a hand list (Diamond only says \"warp\")"
+      },
+      "status": "candidate"
+    }
+  ]
+}

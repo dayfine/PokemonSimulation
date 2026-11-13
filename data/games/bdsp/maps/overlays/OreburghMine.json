@@ -1,0 +1,30 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "OreburghMine",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[15, 1]],
+      "glyph": "D",
+      "why": "generator_gap",
+      "evidence": {
+        "observation": "The way up to the entrance hall: stepping on it leaves the room",
+        "generator_fix": "decode from the remake which warp tiles are entered by walking into a door and which are stepped on, instead of a hand list (Diamond only says \"warp\")"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "roark", "kind": "npc", "coord": [18, 28], "facing": "east"},
+      "index": 0,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden once his scene here is over; the story walks to him",
+        "shown_during": "01.03",
+        "history": "Was OBJECTS OreburghMine[0] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    }
+  ]
+}

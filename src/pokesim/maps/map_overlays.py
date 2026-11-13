@@ -1,9 +1,10 @@
 r"""Map overlays: a generated base plus authored operations (docs/maps/OVERLAYS.md).
 
-Each FRLG map has three published files:
+Each FRLG and BDSP map has three published files:
 
 - ``maps/base/<Map>.json``: the generator's output, never edited by hand
-  (``frlg_decomp_map_builder --check`` reproduces it byte for byte).
+  (``frlg_decomp_map_builder --check`` and ``bdsp_decomp_map_builder --check``
+  reproduce it byte for byte).
 - ``maps/overlays/<Map>.json`` (optional): the ordered operations authored on
   top of the base, each with why, when, evidence and status
   (``schemas/map-overlay.schema.json``).
@@ -11,17 +12,24 @@ Each FRLG map has three published files:
   pre-resolved for consumers that do not apply overlays yet. It is derived,
   never edited: ``check`` fails if it differs from base + overlays.
 
+BDSP's runtime files keep two conventions of the pack the consumers read: a
+``console_measured`` tile operation is published as an entry of the map's
+``patches`` (the raw tiles stay the base's; the loader applies the patches, see
+``runtime_map_pack.effective_map``) with ``measured_by`` = ``<run>, <date>`` from
+its evidence, and the files are written in the readable map format.
+
 From the repository root:
 
     PYTHONPATH=src python3 -m pokesim.maps.map_overlays audit VermilionCity_Gym
     PYTHONPATH=src python3 -m pokesim.maps.map_overlays audit --all
+    PYTHONPATH=src python3 -m pokesim.maps.map_overlays --game bdsp audit Route202
     PYTHONPATH=src python3 -m pokesim.maps.map_overlays effective VermilionCity_Gym --checkpoint 00.23
     PYTHONPATH=src python3 -m pokesim.maps.map_overlays check
     PYTHONPATH=src python3 -m pokesim.maps.map_overlays write
 
-``write`` regenerates every runtime file from base + overlays and refreshes the
-FRLG manifest entries (runtime hash and source, base and overlay references);
-statuses are kept.
+``check`` and ``write`` cover every game unless ``--game`` is given. ``write``
+regenerates every runtime file from base + overlays and refreshes the manifest
+entries (runtime hash and source, base and overlay references); statuses are kept.
 """
 
 import argparse
@@ -34,7 +42,8 @@ import re
 import sys
 
 from pokesim.formats.contract_format import json_text as contract_json_text
-from .runtime_map_coordinates import compact_map, legacy_map
+from .runtime_map_coordinates import compact_map, legacy_map, _convert_pair
+from .runtime_map_format import map_text as readable_map_text
 from .runtime_map_schema import validate
 from .runtime_symbols import SYMBOLS
 
@@ -42,14 +51,27 @@ from .runtime_symbols import SYMBOLS
 ROOT = Path(__file__).resolve().parents[3]
 MANIFEST = ROOT / 'data/maps/runtime-manifest.json'
 FORMAT = 'pokesim-map-overlay/1'
-GAMES = ('frlg',)
+GAMES = ('frlg', 'bdsp')
 OPS = ('tile', 'link', 'object', 'trigger', 'point')
-WHYS = ('console_measured', 'remake_delta', 'story_state', 'generator_gap')
+#   story_scope: a choice about which of the world's people and labels our
+#   story's static map carries (a person the decomp hides by flag but the
+#   story meets, one it walks to rather than plans around, a trigger's name).
+#   Unlike story_state it has no `when`: the effective map holds it at every
+#   state until the resolver can express presence windows.
+WHYS = ('console_measured', 'remake_delta', 'story_state', 'generator_gap', 'story_scope')
 STATUSES = ('candidate', 'verified')
 #   The story state the published runtime files are resolved at: every
 #   operation applies, as for a player past every `when`. This matches what
 #   the runtime files held before overlays (Vermilion Gym's beams open).
 RUNTIME_STORY_STATE = 'complete'
+#   How each game's runtime files are written. BDSP's predate the contract
+#   format, keep every key where the builder put it, publish measured tiles as
+#   `patches`, and carry no overlay stamp (the manifest has the reference).
+FORMATTERS = {'frlg': contract_json_text, 'bdsp': readable_map_text}
+KEEP_KEY_ORDER = frozenset({'bdsp'})
+PATCH_WHYS = {'bdsp': ('console_measured',)}
+STAMP_OVERLAY = frozenset({'frlg'})
+KEY_ORDER = ('name', 'source', 'tiles', 'elevation', 'points', 'warps', 'connections', 'coord_events', 'patches')
 CHECKPOINT = re.compile(r'(\d+)([a-z]*)\Z')
 
 
@@ -141,21 +163,89 @@ def _coord(value, where):
     return value
 
 
-def _apply(data, op, where):
+def _tile_at(data, x, y):
+    """The glyph of a tile with the map's published patches applied."""
+    glyph = data['tiles'][y][x]
+    for patch in data.get('patches', []):
+        if (patch['x'], patch['y']) == (x, y):
+            glyph = patch['glyph']
+    return glyph
+
+
+def _measured_by(op, where):
+    evidence = op['evidence']
+    if not all(isinstance(evidence.get(key), str) and evidence[key] for key in ('run', 'date')):
+        raise ValueError(f'{where}: a published patch needs evidence run and date')
+    return f'{evidence["run"]}, {evidence["date"]}'
+
+
+def _find(records, name, at, kind, where):
+    x, y = _coord(at, where)
+    found = [r for r in records if r.get('name') == name and (r['x'], r['y']) == (x, y)]
+    if len(found) != 1:
+        raise ValueError(f'{where}: expected one {kind} {name} at ({x}, {y}), found {len(found)}')
+    return found[0]
+
+
+def _set_fields(record, fields, where):
+    """Apply `set` to a record: a value sets a field (a new field goes last),
+    null removes it."""
+    effects = []
+    for key, value in fields.items():
+        if key in ('x', 'y', 'coord'):
+            raise ValueError(f'{where}: move with `to`, not set {key}')
+        old = record.get(key)
+        if value is None:
+            if key not in record:
+                raise ValueError(f'{where}: no field {key} to remove')
+            del record[key]
+        else:
+            if old == value:
+                raise ValueError(f'{where}: {key} is already {value!r}')
+            if key == 'wander':
+                value = copy.deepcopy(value)
+                _convert_pair(value, ('x0', 'y0'), 'min', False, True)
+                _convert_pair(value, ('x1', 'y1'), 'max', False, True)
+            record[key] = value
+        effects.append(f'{key} {old!r} -> {value!r}')
+    return effects
+
+
+def _legacy_record(record, where):
+    """An overlay's object or trigger record (coordinate pair, wander min/max)
+    as a legacy record, every key where the overlay wrote it."""
+    record = copy.deepcopy(record)
+    _coord(record.get('coord'), where)
+    _convert_pair(record, ('x', 'y'), 'coord', False, True)
+    if 'wander' in record:
+        _convert_pair(record['wander'], ('x0', 'y0'), 'min', False, True)
+        _convert_pair(record['wander'], ('x1', 'y1'), 'max', False, True)
+    return record
+
+
+def _apply(data, op, where, game=None):
     """Apply one operation to a legacy-form map in place; describe its effect.
     An operation that changes nothing is an error: it is stale."""
     kind = op['op']
     effects = []
     if kind == 'tile':
+        published = op['why'] in PATCH_WHYS.get(game, ())
         rows = [list(row) for row in data['tiles']]
+        measured_by = _measured_by(op, where) if published else None
         for coord in op['coords']:
             x, y = _coord(coord, where)
             if y >= len(rows) or x >= len(rows[0]):
                 raise ValueError(f'{where}: tile ({x}, {y}) is off the map')
-            if rows[y][x] == op['glyph']:
+            old = _tile_at(data, x, y) if published else rows[y][x]
+            if old == op['glyph']:
                 raise ValueError(f'{where}: tile ({x}, {y}) is already {op["glyph"]!r}')
-            effects.append(f'tile ({x}, {y}) {rows[y][x]!r} -> {op["glyph"]!r}')
-            rows[y][x] = op['glyph']
+            if published:
+                data.setdefault('patches', []).append(
+                    {'x': x, 'y': y, 'glyph': op['glyph'], 'measured_by': measured_by})
+                effects.append(f'patch ({x}, {y}) {old!r} -> {op["glyph"]!r}')
+            else:
+                effects.append(f'tile ({x}, {y}) {old!r} -> {op["glyph"]!r}')
+                rows[y][x] = op['glyph']
         data['tiles'] = [''.join(row) for row in rows]
     elif kind == 'point':
         points = data.setdefault('points', {})
@@ -171,6 +261,13 @@ def _apply(data, op, where):
                 raise ValueError(f'{where}: point {op["name"]} is already {new}')
             points[op['name']] = list(new)
             effects.append(f'point {op["name"]} {old} -> {new}')
+    elif kind == 'link' and op['kind'] == 'warp' and op.get('action') == 'add':
+        record = _legacy_record({'coord': op['coord'], 'to_map': op['to_map'], 'to_point': op['to_point']}, where)
+        warps = data.setdefault('warps', [])
+        if any((w['x'], w['y']) == (record['x'], record['y']) for w in warps):
+            raise ValueError(f'{where}: a warp is already at ({record["x"]}, {record["y"]})')
+        warps.append(record)
+        effects.append(f'warp added at ({record["x"]}, {record["y"]}) to {op["to_map"]} {op["to_point"]}')
     elif kind == 'link' and op['kind'] == 'warp':
         warps = data.get('warps', [])
         if not 0 <= op['index'] < len(warps):
@@ -201,39 +298,76 @@ def _apply(data, op, where):
     elif kind == 'object':
         objects = data.setdefault('objects', [])
         if op['action'] == 'add':
-            record = copy.deepcopy(op['object'])
-            x, y = _coord(record.pop('coord'), where)
-            record['x'], record['y'] = x, y
-            objects.append(record)
-            effects.append(f'object {record["name"]} added at ({x}, {y})')
+            record = _legacy_record(op['object'], where)
+            same_kind = [i for i, o in enumerate(objects) if o.get('kind') == record['kind']]
+            index = op.get('index', len(same_kind))
+            if not 0 <= index <= len(same_kind):
+                raise ValueError(f'{where}: no position {index} among {len(same_kind)} {record["kind"]} objects')
+            objects.insert(same_kind[index] if index < len(same_kind) else
+                           (same_kind[-1] + 1 if same_kind else len(objects)), record)
+            effects.append(f'object {record["name"]} added at ({record["x"]}, {record["y"]})'
+                           + (f' as {record["kind"]} {index}' if 'index' in op else ''))
         else:
-            x, y = _coord(op['at'], where)
-            found = [o for o in objects if o.get('name') == op['name'] and (o['x'], o['y']) == (x, y)]
-            if len(found) != 1:
-                raise ValueError(f'{where}: expected one {op["name"]} at ({x}, {y}), found {len(found)}')
+            found = _find(objects, op['name'], op['at'], 'object', where)
+            x, y = found['x'], found['y']
             if op['action'] == 'remove':
-                objects.remove(found[0])
+                objects.remove(found)
                 effects.append(f'object {op["name"]} at ({x}, {y}) removed')
             else:
-                to = _coord(op['to'], where)
-                found[0]['x'], found[0]['y'] = to
-                effects.append(f'object {op["name"]} ({x}, {y}) -> ({to[0]}, {to[1]})')
+                if op['action'] == 'move':
+                    to = _coord(op['to'], where)
+                    found['x'], found['y'] = to
+                    effects.append(f'object {op["name"]} ({x}, {y}) -> ({to[0]}, {to[1]})')
+                else:
+                    if 'to' in op:
+                        to = _coord(op['to'], where)
+                        found['x'], found['y'] = to
+                        effects.append(f'object {op["name"]} ({x}, {y}) -> ({to[0]}, {to[1]})')
+                    effects.extend(f'object {op["name"]}: {e}' for e in _set_fields(found, op['set'], where))
+    elif kind == 'trigger':
+        triggers = data.setdefault('coord_events', [])
+        if op['action'] == 'add':
+            record = _legacy_record(op['trigger'], where)
+            triggers.append(record)
+            effects.append(f'trigger {record["name"]} added at ({record["x"]}, {record["y"]})')
+        else:
+            found = _find(triggers, op['name'], op['at'], 'trigger', where)
+            if op['action'] == 'remove':
+                triggers.remove(found)
+                effects.append(f'trigger {op["name"]} removed')
+            else:
+                effects.extend(f'trigger {op["name"]}: {e}' for e in _set_fields(found, op['set'], where))
     else:
         raise ValueError(f'{where}: {kind} operations are not supported by this map format yet')
     return effects
 
 
-def resolve(base, overlay, state=COMPLETE):
+def _canonical_order(data):
+    """Top-level keys in the builder's order (BDSP's published files)."""
+    first = {key: data[key] for key in KEY_ORDER if key in data}
+    data_rest = {key: value for key, value in data.items() if key not in first}
+    return {**first, **data_rest}
+
+
+def resolve(base, overlay, state=COMPLETE, game=None):
     """The effective map: a copy of `base` (wire or legacy form) with the
     overlay operations that apply at `state`, in order. Returns (map in
-    legacy form, [(operation, effects)] of the applied operations)."""
-    data = legacy_map(base)
+    legacy form, [(operation, effects)] of the applied operations). `game`
+    selects its publication conventions (patches, key order)."""
+    ordered = game in KEEP_KEY_ORDER
+    data = legacy_map(base, ordered)
     applied = []
     if overlay is not None:
         check_overlay(overlay, data['name'])
         for index, op in enumerate(overlay['operations']):
             if applies(op, state):
-                applied.append((op, _apply(data, op, f'{data["name"]} operation {index}')))
+                where = f'{data["name"]} operation {index}'
+                try:
+                    applied.append((op, _apply(data, op, where, game)))
+                except (KeyError, TypeError) as error:
+                    raise ValueError(f'{where}: malformed {op["op"]} operation ({error!r})') from error
+    if ordered:
+        data = _canonical_order(data)
     validate(data)
     return data, applied
 
@@ -249,7 +383,7 @@ def read_overlay(name, game='frlg', root=ROOT):
 
 def effective_map(name, story_state=COMPLETE, game='frlg', root=ROOT):
     """Base + the overlay operations that apply at `story_state` (legacy form)."""
-    return resolve(read_json(path_of(game, 'base', name, root)), read_overlay(name, game, root), story_state)[0]
+    return resolve(read_json(path_of(game, 'base', name, root)), read_overlay(name, game, root), story_state, game)[0]
 
 
 def runtime_bytes(name, game='frlg', root=ROOT):
@@ -259,10 +393,11 @@ def runtime_bytes(name, game='frlg', root=ROOT):
     overlay = read_overlay(name, game, root)
     if overlay is None:
         return base_path.read_bytes()
-    data, _ = resolve(read_json(base_path), overlay, COMPLETE)
-    data['source']['overlay'] = {'file': directory(game, 'overlays') + f'/{name}.json',
-                                 'story_state': RUNTIME_STORY_STATE}
-    return contract_json_text(compact_map(data)).encode('utf-8')
+    data, _ = resolve(read_json(base_path), overlay, COMPLETE, game)
+    if game in STAMP_OVERLAY:
+        data['source']['overlay'] = {'file': directory(game, 'overlays') + f'/{name}.json',
+                                     'story_state': RUNTIME_STORY_STATE}
+    return FORMATTERS[game](compact_map(data)).encode('utf-8')
 
 
 def names(game='frlg', root=ROOT):
@@ -297,7 +432,7 @@ def audit(name, game='frlg', root=ROOT):
     if overlay is None:
         lines.append('  no overlay: the effective map is the base at every story state')
         return '\n'.join(lines)
-    _, applied = resolve(read_json(path_of(game, 'base', name, root)), overlay, COMPLETE)
+    _, applied = resolve(read_json(path_of(game, 'base', name, root)), overlay, COMPLETE, game)
     for why in WHYS:
         group = [(op, effects) for op, effects in applied if op['why'] == why]
         if not group:
@@ -373,9 +508,19 @@ def _state(args):
     return StoryState(checkpoint=args.checkpoint, flags=frozenset(args.flag or ()))
 
 
+def game_of(name, game=None):
+    """The game whose base has this map (or `game`, when given)."""
+    if game is not None:
+        return game
+    found = [g for g in GAMES if path_of(g, 'base', name).exists()]
+    if len(found) != 1:
+        raise ValueError(f'{name}: found in {len(found)} games\' bases; give --game')
+    return found[0]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--game', default='frlg', choices=GAMES)
+    parser.add_argument('--game', choices=GAMES, help='default: every game (audit and effective find the map\'s game)')
     sub = parser.add_subparsers(dest='command', required=True)
     up = sub.add_parser('audit', help='list a map\'s differences from its base, grouped by why')
     up.add_argument('map', nargs='?')
@@ -388,21 +533,30 @@ def main(argv=None):
     sub.add_parser('check', help='check overlays, runtime files and manifest references')
     sub.add_parser('write', help='write runtime files and manifest references from base + overlays')
     args = parser.parse_args(argv)
+    games = (args.game,) if args.game else GAMES
     try:
         if args.command == 'audit':
             if args.all == bool(args.map):
                 parser.error('give a map or --all')
-            for name in (overlay_names(args.game) if args.all else [args.map]):
-                print(audit(name, args.game))
+            if args.all:
+                for game in games:
+                    for name in overlay_names(game):
+                        print(audit(name, game))
+            else:
+                game = game_of(args.map, args.game)
+                print(audit(args.map, game))
         elif args.command == 'effective':
-            data = effective_map(args.map, _state(args), args.game)
-            sys.stdout.write(contract_json_text(compact_map(data)))
+            game = game_of(args.map, args.game)
+            data = effective_map(args.map, _state(args), game)
+            sys.stdout.write(FORMATTERS[game](compact_map(data)))
         elif args.command == 'check':
-            count = check(args.game)
-            print(f'{count} {args.game} runtime maps are base + overlays at story state {RUNTIME_STORY_STATE}; '
-                  f'{len(overlay_names(args.game))} overlay file(s)')
+            for game in games:
+                count = check(game)
+                print(f'{count} {game} runtime maps are base + overlays at story state {RUNTIME_STORY_STATE}; '
+                      f'{len(overlay_names(game))} overlay file(s)')
         else:
-            write(args.game)
+            for game in games:
+                write(game)
     except (ValueError, FileNotFoundError) as error:
         parser.exit(1, str(error) + '\n')
 

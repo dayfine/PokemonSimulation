@@ -1,0 +1,111 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "JubilifeCity",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[0, 22], [0, 23], [40, 40], [21, 42]],
+      "glyph": "D",
+      "why": "generator_gap",
+      "evidence": {
+        "observation": "The Route 218 gate, and the doorways of the School and the Global Terminal: entered, never stood on by a route",
+        "generator_fix": "decode from the remake which warp tiles are entered by walking into a door and which are stepped on, instead of a hand list (Diamond only says \"warp\")"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "poketch_president", "kind": "npc", "coord": [46, 35]},
+      "index": 8,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown because 00.05 walks the map while they stand there (hidden before and after)",
+        "shown_during": "00.05",
+        "history": "Was OBJECTS JubilifeCity[24] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {
+        "name": "clown_mart",
+        "kind": "npc",
+        "coord": [55, 33],
+        "wander": {"min": [54, 32], "max": [56, 34]},
+        "hide_flag": "flag 531"
+      },
+      "index": 9,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown because 00.05 walks the map while they stand there (hidden before and after)",
+        "shown_during": "00.05",
+        "range": "Diamond's wander range is (1, 0); (1, 1) here: lab-B 2026-11-11 21:00 (00.05b mart_clown) saw the Mart clown about two rows below the player on row 34, off Diamond's row 33. (1, 1) is the hand map's (data/games/bdsp/maps/jubilife_city.json)",
+        "limits": "one clown, one frame: the box size is not measured and may still be too small",
+        "history": "Was OBJECTS JubilifeCity[25] show + range (1, 1) in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {
+        "name": "clown_poketch_company",
+        "kind": "npc",
+        "coord": [15, 18],
+        "wander": {"min": [14, 18], "max": [16, 18]},
+        "hide_flag": "flag 531"
+      },
+      "index": 10,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown because 00.05 walks the map while they stand there (hidden before and after)",
+        "shown_during": "00.05",
+        "range": "Diamond's range (1, 0): row 18 only, so 00.05b talks to him from (15, 19) facing north. Nothing was seen of him off row 18 (PR 90)",
+        "capture": "~/BDSPLab/captures/2026-11-11-jubilife-clowns/company-clown-box.png",
+        "history": "Was OBJECTS JubilifeCity[26] show + range (1, 0) in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "clown_tv_station", "kind": "npc", "coord": [36, 16]},
+      "index": 12,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Hidden by a story flag in the decomp; shown because 00.05 walks the map while they stand there (hidden before and after)",
+        "shown_during": "00.05",
+        "history": "Was OBJECTS JubilifeCity[28] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_0",
+      "at": [45, 60],
+      "set": {"name": "dawn_at_the_steps"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Dawn at the steps below the 00.05 save",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_4",
+      "at": [44, 40],
+      "set": {"name": "poketch_president"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "the Poketch president's scene",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    }
+  ]
+}

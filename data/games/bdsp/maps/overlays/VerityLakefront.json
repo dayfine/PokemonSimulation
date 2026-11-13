@@ -1,0 +1,19 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "VerityLakefront",
+  "operations": [
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_0",
+      "at": [16, 12],
+      "set": {"name": "lake_entrance"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "the lake's scene fires here (point lake_entrance)",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    }
+  ]
+}
