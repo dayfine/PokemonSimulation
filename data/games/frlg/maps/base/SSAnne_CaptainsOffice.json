@@ -27,6 +27,7 @@
     {
       "name": "captain",
       "coord": [5, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 0,
       "source_script": "SSAnne_CaptainsOffice_EventScript_Captain",
       "source_local_id": "LOCALID_SS_ANNE_CAPTAIN"

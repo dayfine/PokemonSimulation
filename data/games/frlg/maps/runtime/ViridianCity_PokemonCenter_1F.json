@@ -44,6 +44,7 @@
     {
       "name": "nurse",
       "coord": [7, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "ViridianCity_PokemonCenter_1F_EventScript_Nurse",
       "source_local_id": "LOCALID_VIRIDIAN_NURSE"
@@ -51,18 +52,21 @@
     {
       "name": "gentleman",
       "coord": [12, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 1,
       "source_script": "ViridianCity_PokemonCenter_1F_EventScript_Gentleman"
     },
     {
       "name": "boy",
       "coord": [4, 7],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 2,
       "source_script": "ViridianCity_PokemonCenter_1F_EventScript_Boy"
     },
     {
       "name": "youngster",
       "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [1, 2], "max": [3, 4]},
       "source_event": 3,
       "source_script": "ViridianCity_PokemonCenter_1F_EventScript_Youngster"

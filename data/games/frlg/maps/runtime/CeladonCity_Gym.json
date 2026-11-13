@@ -42,6 +42,7 @@
     {
       "name": "lass",
       "coord": [3, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 0,
@@ -50,6 +51,7 @@
     {
       "name": "beauty",
       "coord": [9, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 1,
@@ -58,6 +60,7 @@
     {
       "name": "picnicker",
       "coord": [10, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "source_event": 2,
@@ -66,6 +69,7 @@
     {
       "name": "beauty",
       "coord": [2, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 3,
@@ -74,6 +78,7 @@
     {
       "name": "beauty",
       "coord": [5, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 4,
@@ -82,15 +87,23 @@
     {
       "name": "lass",
       "coord": [7, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "source_event": 5,
       "source_script": "CeladonCity_Gym_EventScript_Lisa"
     },
-    {"name": "erika", "coord": [6, 4], "source_event": 6, "source_script": "CeladonCity_Gym_EventScript_Erika"},
+    {
+      "name": "erika",
+      "coord": [6, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 6,
+      "source_script": "CeladonCity_Gym_EventScript_Erika"
+    },
     {
       "name": "cooltrainer_f",
       "coord": [8, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 2},
       "source_event": 7,
@@ -99,6 +112,7 @@
     {
       "name": "cut_tree",
       "coord": [6, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 8,
       "source_script": "EventScript_CutTree"
@@ -106,6 +120,7 @@
     {
       "name": "cut_tree",
       "coord": [3, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 9,
       "source_script": "EventScript_CutTree"
@@ -113,6 +128,7 @@
     {
       "name": "cut_tree",
       "coord": [9, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 10,
       "source_script": "EventScript_CutTree"

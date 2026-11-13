@@ -97,16 +97,24 @@
     {
       "name": "rocket_m",
       "coord": [25, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 0,
       "source_script": "SilphCo_3F_EventScript_Grunt"
     },
-    {"name": "worker_m", "coord": [31, 13], "source_event": 1, "source_script": "SilphCo_3F_EventScript_WorkerM"},
+    {
+      "name": "worker_m",
+      "coord": [31, 13],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "SilphCo_3F_EventScript_WorkerM"
+    },
     {
       "name": "scientist",
       "coord": [4, 12],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 2,
       "source_script": "SilphCo_3F_EventScript_Jose"
@@ -117,6 +125,7 @@
       "name": "item_ball",
       "coord": [8, 10],
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_3F_HYPER_POTION",
       "source_script": "SilphCo_3F_EventScript_ItemHyperPotion",
       "item": "hyper_potion"

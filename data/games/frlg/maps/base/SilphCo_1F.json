@@ -45,6 +45,7 @@
     {
       "name": "worker_f",
       "coord": [3, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFFRON_CIVILIANS",
       "source_event": 0,
       "source_script": "SilphCo_1F_EventScript_Receptionist"

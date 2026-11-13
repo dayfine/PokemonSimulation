@@ -36,6 +36,7 @@
     {
       "name": "policeman",
       "coord": [1, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route12_NorthEntrance_1F_EventScript_Guard"
     }

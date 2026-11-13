@@ -53,6 +53,7 @@
     {
       "name": "blue",
       "coord": [30, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SS_ANNE_RIVAL",
       "source_event": 0,
       "source_script": "0x0",
@@ -61,6 +62,7 @@
     {
       "name": "sailor",
       "coord": [2, 7],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 2]},
       "wander": {"min": [2, 5], "max": [2, 9]},
       "source_event": 1,
       "source_script": "SSAnne_2F_Corridor_EventScript_Sailor"

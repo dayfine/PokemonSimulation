@@ -41,12 +41,14 @@
     {
       "name": "policeman",
       "coord": [6, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route16_NorthEntrance_1F_EventScript_Guard"
     },
     {
       "name": "old_man_1",
       "coord": [7, 4],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [6, 4], "max": [8, 4]},
       "source_event": 1,
       "source_script": "Route16_NorthEntrance_1F_EventScript_OldMan"

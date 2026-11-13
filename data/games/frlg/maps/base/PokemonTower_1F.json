@@ -40,12 +40,31 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "worker_f", "coord": [18, 13], "source_event": 0, "source_script": "PokemonTower_1F_EventScript_WorkerF"},
-    {"name": "channeler", "coord": [18, 7], "source_event": 1, "source_script": "PokemonTower_1F_EventScript_Channeler"},
-    {"name": "woman_2", "coord": [15, 6], "source_event": 2, "source_script": "PokemonTower_1F_EventScript_Woman1"},
+    {
+      "name": "worker_f",
+      "coord": [18, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "PokemonTower_1F_EventScript_WorkerF"
+    },
+    {
+      "name": "channeler",
+      "coord": [18, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "PokemonTower_1F_EventScript_Channeler"
+    },
+    {
+      "name": "woman_2",
+      "coord": [15, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "PokemonTower_1F_EventScript_Woman1"
+    },
     {
       "name": "woman_3",
       "coord": [7, 8],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [6, 7], "max": [8, 9]},
       "source_event": 3,
       "source_script": "PokemonTower_1F_EventScript_Woman2"
@@ -53,6 +72,7 @@
     {
       "name": "balding_man",
       "coord": [8, 12],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 2]},
       "wander": {"min": [6, 10], "max": [10, 14]},
       "source_event": 4,
       "source_script": "PokemonTower_1F_EventScript_BaldingMan"

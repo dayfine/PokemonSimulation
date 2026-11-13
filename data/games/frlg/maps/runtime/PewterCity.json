@@ -83,19 +83,33 @@
     }
   ],
   "npcs": [
-    {"name": "lass", "coord": [6, 15], "source_event": 0, "source_script": "PewterCity_EventScript_Lass"},
+    {
+      "name": "lass",
+      "coord": [6, 15],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "PewterCity_EventScript_Lass"
+    },
     {
       "name": "man",
       "coord": [33, 17],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_PEWTER_MUSEUM_GUIDE",
       "source_event": 1,
       "source_script": "PewterCity_EventScript_MuseumGuide",
       "source_local_id": "LOCALID_PEWTER_MUSEUM_GUIDE"
     },
-    {"name": "fat_man", "coord": [21, 28], "source_event": 2, "source_script": "PewterCity_EventScript_FatMan"},
+    {
+      "name": "fat_man",
+      "coord": [21, 28],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "PewterCity_EventScript_FatMan"
+    },
     {
       "name": "bug_catcher",
       "coord": [33, 27],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [2, 1]},
       "wander": {"min": [31, 27], "max": [35, 27]},
       "source_event": 3,
       "source_script": "PewterCity_EventScript_BugCatcher"
@@ -103,6 +117,7 @@
     {
       "name": "boy",
       "coord": [42, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_PEWTER_CITY_GYM_GUIDE",
       "source_event": 4,
       "source_script": "PewterCity_EventScript_GymGuide",
@@ -111,6 +126,7 @@
     {
       "name": "cut_tree",
       "coord": [30, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 5,
       "source_script": "EventScript_CutTree"
@@ -118,6 +134,7 @@
     {
       "name": "scientist",
       "coord": [46, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY",
       "source_event": 6,
       "source_script": "PewterCity_EventScript_RunningShoesAide",

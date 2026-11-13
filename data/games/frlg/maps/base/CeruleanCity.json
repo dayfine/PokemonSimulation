@@ -142,6 +142,7 @@
     {
       "name": "policeman",
       "coord": [31, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CeruleanCity_EventScript_Policeman",
       "source_local_id": "LOCALID_CERULEAN_POLICEMAN"
@@ -149,6 +150,7 @@
     {
       "name": "rocket_m",
       "coord": [33, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_ROCKET",
       "source_event": 1,
       "source_script": "CeruleanCity_EventScript_Grunt",
@@ -157,6 +159,7 @@
     {
       "name": "little_boy",
       "coord": [16, 21],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 3]},
       "wander": {"min": [16, 18], "max": [16, 24]},
       "source_event": 2,
       "source_script": "CeruleanCity_EventScript_LittleBoy"
@@ -164,6 +167,7 @@
     {
       "name": "balding_man",
       "coord": [9, 23],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [8, 22], "max": [10, 24]},
       "source_event": 3,
       "source_script": "CeruleanCity_EventScript_BaldingMan"
@@ -171,6 +175,7 @@
     {
       "name": "slowbro",
       "coord": [32, 29],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 4,
       "source_script": "CeruleanCity_EventScript_Slowbro",
       "source_local_id": "LOCALID_CERULEAN_SLOWBRO"
@@ -178,14 +183,22 @@
     {
       "name": "lass",
       "coord": [33, 29],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 5,
       "source_script": "CeruleanCity_EventScript_Lass",
       "source_local_id": "LOCALID_CERULEAN_LASS"
     },
-    {"name": "youngster", "coord": [34, 22], "source_event": 6, "source_script": "CeruleanCity_EventScript_Youngster"},
+    {
+      "name": "youngster",
+      "coord": [34, 22],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 6,
+      "source_script": "CeruleanCity_EventScript_Youngster"
+    },
     {
       "name": "blue",
       "coord": [22, 0],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_RIVAL",
       "source_event": 7,
       "source_script": "0x0",
@@ -194,6 +207,7 @@
     {
       "name": "cut_tree",
       "coord": [26, 32],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 8,
       "source_script": "EventScript_CutTree"
@@ -201,6 +215,7 @@
     {
       "name": "woman_1",
       "coord": [12, 30],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 10,
       "source_script": "CeruleanCity_EventScript_Woman",
       "source_local_id": "LOCALID_CERULEAN_WOMAN"
@@ -208,6 +223,7 @@
     {
       "name": "cooltrainer_m",
       "coord": [1, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_GUARD",
       "source_event": 11,
       "source_script": "CeruleanCity_EventScript_CeruleanCaveGuard",

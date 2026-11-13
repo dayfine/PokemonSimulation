@@ -65,6 +65,7 @@
     {
       "name": "woman_1",
       "coord": [3, 10],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 4]},
       "wander": {"min": [2, 6], "max": [4, 14]},
       "source_event": 0,
       "source_script": "PalletTown_EventScript_SignLady",
@@ -73,6 +74,7 @@
     {
       "name": "fat_man",
       "coord": [13, 17],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [6, 2]},
       "wander": {"min": [7, 15], "max": [19, 19]},
       "source_event": 1,
       "source_script": "PalletTown_EventScript_FatMan",
@@ -81,6 +83,7 @@
     {
       "name": "prof_oak",
       "coord": [10, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_OAK_IN_PALLET_TOWN",
       "source_event": 2,
       "source_script": "0x0",

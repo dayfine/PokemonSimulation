@@ -139,6 +139,7 @@
       "name": "item_ball",
       "coord": [33, 5],
       "source_event": 0,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_NORTH_PROTEIN",
       "source_script": "SafariZone_North_EventScript_ItemProtein",
       "item": "protein"
@@ -147,6 +148,7 @@
       "name": "item_ball",
       "coord": [28, 9],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_NORTH_TM47",
       "source_script": "SafariZone_North_EventScript_ItemTM47",
       "item": "tm47"
@@ -155,6 +157,7 @@
       "name": "item_ball",
       "coord": [29, 17],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_NORTH_QUICK_CLAW",
       "source_script": "SafariZone_North_EventScript_ItemQuickClaw",
       "item": "quick_claw"

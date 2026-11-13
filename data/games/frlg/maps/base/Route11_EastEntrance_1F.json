@@ -35,12 +35,14 @@
     {
       "name": "policeman",
       "coord": [6, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route11_EastEntrance_1F_EventScript_TopGuard"
     },
     {
       "name": "policeman",
       "coord": [4, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 1,
       "source_script": "Route11_EastEntrance_1F_EventScript_BottomGuard"
     }

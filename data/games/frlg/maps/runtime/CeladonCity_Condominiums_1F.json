@@ -45,12 +45,14 @@
     {
       "name": "meowth",
       "coord": [1, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CeladonCity_Condominiums_1F_EventScript_Meowth"
     },
     {
       "name": "clefairy",
       "coord": [5, 13],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [4, 13], "max": [6, 13]},
       "source_event": 1,
       "source_script": "CeladonCity_Condominiums_1F_EventScript_Clefairy"
@@ -58,6 +60,7 @@
     {
       "name": "nidoran_f",
       "coord": [5, 8],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 1]},
       "wander": {"min": [3, 7], "max": [7, 9]},
       "source_event": 2,
       "source_script": "CeladonCity_Condominiums_1F_EventScript_Nidoran"
@@ -65,6 +68,7 @@
     {
       "name": "old_woman",
       "coord": [2, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 3,
       "source_script": "CeladonCity_Condominiums_1F_EventScript_TeaWoman"
     }

@@ -13,6 +13,12 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "woman_2", "coord": [3, 5], "source_event": 0, "source_script": "SSAnne_1F_Room6_EventScript_Woman"}
+    {
+      "name": "woman_2",
+      "coord": [3, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "SSAnne_1F_Room6_EventScript_Woman"
+    }
   ]
 }

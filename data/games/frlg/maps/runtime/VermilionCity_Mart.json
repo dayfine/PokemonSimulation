@@ -28,16 +28,24 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "VermilionCity_Mart_EventScript_Clerk"},
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "VermilionCity_Mart_EventScript_Clerk"
+    },
     {
       "name": "cooltrainer_f",
       "coord": [4, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 1,
       "source_script": "VermilionCity_Mart_EventScript_CooltrainerF"
     },
     {
       "name": "balding_man",
       "coord": [9, 4],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 2]},
       "wander": {"min": [8, 2], "max": [10, 6]},
       "source_event": 2,
       "source_script": "VermilionCity_Mart_EventScript_BaldingMan"

@@ -62,6 +62,7 @@
     {
       "name": "blue",
       "coord": [6, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "0x0",
       "source_local_id": "LOCALID_CHAMPIONS_ROOM_RIVAL"
@@ -69,6 +70,7 @@
     {
       "name": "prof_oak",
       "coord": [6, 15],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_OAK_IN_CHAMP_ROOM",
       "source_event": 1,
       "source_script": "0x0",

@@ -151,6 +151,7 @@
     {
       "name": "biker",
       "coord": [7, 37],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "source_event": 0,
@@ -159,6 +160,7 @@
     {
       "name": "rocker",
       "coord": [18, 35],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 2]},
       "wander": {"min": [16, 33], "max": [20, 37]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
@@ -167,6 +169,7 @@
     {
       "name": "rocker",
       "coord": [10, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "source_event": 2,
@@ -175,6 +178,7 @@
     {
       "name": "rocker",
       "coord": [16, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 3},
       "source_event": 3,
@@ -183,6 +187,7 @@
     {
       "name": "biker",
       "coord": [7, 31],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "source_event": 4,
@@ -191,6 +196,7 @@
     {
       "name": "biker",
       "coord": [7, 34],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "source_event": 5,
@@ -199,6 +205,7 @@
     {
       "name": "rocker",
       "coord": [8, 9],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [7, 9], "max": [9, 9]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "source_event": 6,
@@ -207,6 +214,7 @@
     {
       "name": "rocker",
       "coord": [7, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 1},
       "source_event": 7,
@@ -215,6 +223,8 @@
     {
       "name": "biker",
       "coord": [10, 37],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN", "range": [1, 6]},
+      "wander": {"min": [10, 31], "max": [10, 43]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 8,
       "source_script": "Route14_EventScript_Lukas"
@@ -222,6 +232,7 @@
     {
       "name": "rocker",
       "coord": [18, 47],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 2]},
       "wander": {"min": [16, 45], "max": [20, 49]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 9,
@@ -230,6 +241,7 @@
     {
       "name": "cut_tree",
       "coord": [7, 26],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 10,
       "source_script": "EventScript_CutTree"
@@ -237,6 +249,7 @@
     {
       "name": "cut_tree",
       "coord": [12, 35],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 11,
       "source_script": "EventScript_CutTree"
@@ -244,6 +257,7 @@
     {
       "name": "cut_tree",
       "coord": [1, 47],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 12,
       "source_script": "EventScript_CutTree",
@@ -252,6 +266,7 @@
     {
       "name": "little_girl",
       "coord": [13, 51],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 13,
@@ -260,6 +275,7 @@
     {
       "name": "little_girl",
       "coord": [12, 51],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 14,

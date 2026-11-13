@@ -91,6 +91,7 @@
   "npcs": [
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [32, 15], "max": [34, 17]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -100,6 +101,7 @@
     },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -109,18 +111,26 @@
     },
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["south", "west"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 2,
       "source_script": "SilphCo_4F_EventScript_Rodney",
       "coord": [14, 8]
     },
-    {"name": "worker_m", "source_event": 3, "source_script": "SilphCo_4F_EventScript_WorkerM", "coord": [5, 5]}
+    {
+      "name": "worker_m",
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 3,
+      "source_script": "SilphCo_4F_EventScript_WorkerM",
+      "coord": [5, 5]
+    }
   ],
   "items": [
     {
       "name": "item_ball",
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_MAX_REVIVE",
       "source_script": "SilphCo_4F_EventScript_ItemMaxRevive",
       "item": "max_revive",
@@ -129,6 +139,7 @@
     {
       "name": "item_ball",
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_ESCAPE_ROPE",
       "source_script": "SilphCo_4F_EventScript_ItemEscapeRope",
       "item": "escape_rope",
@@ -137,6 +148,7 @@
     {
       "name": "item_ball",
       "source_event": 6,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_FULL_HEAL",
       "source_script": "SilphCo_4F_EventScript_ItemFullHeal",
       "item": "full_heal",
@@ -145,6 +157,7 @@
     {
       "name": "item_ball",
       "source_event": 7,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_4F_TM41",
       "source_script": "SilphCo_4F_EventScript_ItemTM41",
       "item": "tm41",

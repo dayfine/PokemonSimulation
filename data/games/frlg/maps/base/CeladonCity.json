@@ -148,6 +148,7 @@
     {
       "name": "rocket_m",
       "coord": [48, 15],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [4, 1]},
       "wander": {"min": [44, 15], "max": [52, 15]},
       "hide_flag": "FLAG_HIDE_CELADON_ROCKETS",
       "source_event": 0,
@@ -156,6 +157,7 @@
     {
       "name": "fat_man",
       "coord": [38, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 1,
       "source_script": "CeladonCity_EventScript_FatMan",
       "source_local_id": "LOCALID_CELADON_FAT_MAN"
@@ -163,37 +165,61 @@
     {
       "name": "poliwrath",
       "coord": [36, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 2,
       "source_script": "CeladonCity_EventScript_Poliwrath",
       "source_local_id": "LOCALID_CELADON_POLIWRATH"
     },
-    {"name": "little_girl", "coord": [11, 18], "source_event": 3, "source_script": "CeladonCity_EventScript_LittleGirl"},
+    {
+      "name": "little_girl",
+      "coord": [11, 18],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP", "range": [4, 4]},
+      "wander": {"min": [7, 14], "max": [15, 22]},
+      "source_event": 3,
+      "source_script": "CeladonCity_EventScript_LittleGirl"
+    },
     {
       "name": "woman_2",
       "coord": [18, 22],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 5]},
       "wander": {"min": [16, 17], "max": [20, 27]},
       "source_event": 4,
       "source_script": "CeladonCity_EventScript_Woman"
     },
-    {"name": "old_man_1", "coord": [30, 24], "source_event": 5, "source_script": "CeladonCity_EventScript_OldMan2"},
+    {
+      "name": "old_man_1",
+      "coord": [30, 24],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 5,
+      "source_script": "CeladonCity_EventScript_OldMan2"
+    },
     {
       "name": "old_man_2",
       "coord": [26, 19],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 6,
       "source_script": "CeladonCity_EventScript_SoftboiledTutor"
     },
     {
       "name": "rocket_m",
       "coord": [38, 31],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [5, 1]},
       "wander": {"min": [33, 31], "max": [43, 31]},
       "hide_flag": "FLAG_HIDE_CELADON_ROCKETS",
       "source_event": 7,
       "source_script": "CeladonCity_EventScript_RocketGrunt2"
     },
-    {"name": "old_man_1", "coord": [9, 30], "source_event": 8, "source_script": "CeladonCity_EventScript_OldMan1"},
+    {
+      "name": "old_man_1",
+      "coord": [9, 30],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 8,
+      "source_script": "CeladonCity_EventScript_OldMan1"
+    },
     {
       "name": "cut_tree",
       "coord": [52, 22],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 9,
       "source_script": "EventScript_CutTree",
@@ -202,14 +228,22 @@
     {
       "name": "cut_tree",
       "coord": [40, 35],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 10,
       "source_script": "EventScript_CutTree"
     },
-    {"name": "boy", "coord": [25, 10], "source_event": 11, "source_script": "CeladonCity_EventScript_Boy"},
+    {
+      "name": "boy",
+      "coord": [25, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 11,
+      "source_script": "CeladonCity_EventScript_Boy"
+    },
     {
       "name": "scientist",
       "coord": [47, 24],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CELADON_ROCKETS",
       "source_event": 14,
       "source_script": "CeladonCity_EventScript_SilphCoScientist"
@@ -220,6 +254,7 @@
       "name": "item_ball",
       "coord": [5, 3],
       "source_event": 13,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CELADON_CITY_ETHER",
       "source_script": "CeladonCity_EventScript_ItemEther",
       "item": "ether"

@@ -29,10 +29,17 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "hiker", "coord": [1, 2], "source_event": 0, "source_script": "CeruleanCity_House2_EventScript_Hiker"},
+    {
+      "name": "hiker",
+      "coord": [1, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "CeruleanCity_House2_EventScript_Hiker"
+    },
     {
       "name": "lass",
       "coord": [7, 6],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [6, 5], "max": [8, 7]},
       "source_event": 1,
       "source_script": "CeruleanCity_House2_EventScript_Lass"

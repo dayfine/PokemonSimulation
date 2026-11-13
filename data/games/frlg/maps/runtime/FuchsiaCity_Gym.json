@@ -45,6 +45,7 @@
     {
       "name": "rocker",
       "coord": [12, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["south", "east"]},
       "source_event": 0,
       "source_script": "FuchsiaCity_Gym_EventScript_Kayden"
@@ -52,6 +53,7 @@
     {
       "name": "rocker",
       "coord": [2, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 1},
       "source_event": 1,
@@ -60,6 +62,7 @@
     {
       "name": "rocker",
       "coord": [11, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 2,
@@ -68,6 +71,7 @@
     {
       "name": "man",
       "coord": [13, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "FuchsiaCity_Gym_EventScript_Edgar"
@@ -75,6 +79,7 @@
     {
       "name": "man",
       "coord": [4, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 4,
       "source_script": "FuchsiaCity_Gym_EventScript_Phil"
@@ -82,12 +87,25 @@
     {
       "name": "rocker",
       "coord": [2, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 5,
       "source_script": "FuchsiaCity_Gym_EventScript_Nate"
     },
-    {"name": "koga", "coord": [7, 13], "source_event": 6, "source_script": "FuchsiaCity_Gym_EventScript_Koga"},
-    {"name": "gym_guy", "coord": [11, 19], "source_event": 7, "source_script": "FuchsiaCity_Gym_EventScript_GymGuy"}
+    {
+      "name": "koga",
+      "coord": [7, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 6,
+      "source_script": "FuchsiaCity_Gym_EventScript_Koga"
+    },
+    {
+      "name": "gym_guy",
+      "coord": [11, 19],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 7,
+      "source_script": "FuchsiaCity_Gym_EventScript_GymGuy"
+    }
   ]
 }

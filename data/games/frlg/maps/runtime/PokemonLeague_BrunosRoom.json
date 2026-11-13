@@ -34,6 +34,7 @@
     {
       "name": "bruno",
       "coord": [6, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "PokemonLeague_BrunosRoom_EventScript_Bruno",
       "source_local_id": "LOCALID_BRUNO"

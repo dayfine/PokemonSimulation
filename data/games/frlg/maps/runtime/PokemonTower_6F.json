@@ -53,6 +53,7 @@
     {
       "name": "channeler",
       "coord": [13, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 0,
@@ -61,6 +62,7 @@
     {
       "name": "channeler",
       "coord": [18, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 1,
@@ -69,6 +71,7 @@
     {
       "name": "channeler",
       "coord": [9, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 2,
@@ -80,6 +83,7 @@
       "name": "item_ball",
       "coord": [5, 15],
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_TOWER_6F_RARE_CANDY",
       "source_script": "PokemonTower_6F_EventScript_ItemRareCandy",
       "item": "rare_candy"
@@ -88,6 +92,7 @@
       "name": "item_ball",
       "coord": [15, 15],
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_TOWER_6F_X_ACCURACY",
       "source_script": "PokemonTower_6F_EventScript_ItemXAccuracy",
       "item": "x_accuracy"

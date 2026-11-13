@@ -108,6 +108,7 @@
     {
       "name": "scientist",
       "coord": [26, 16],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 1]},
       "wander": {"min": [26, 15], "max": [26, 17]},
       "trainer": {"sight": 2, "looks": ["north", "south"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -117,16 +118,24 @@
     {
       "name": "rocket_m",
       "coord": [15, 18],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 3},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 1,
       "source_script": "SilphCo_9F_EventScript_Grunt2"
     },
-    {"name": "woman_2", "coord": [2, 16], "source_event": 2, "source_script": "SilphCo_9F_EventScript_HealWoman"},
+    {
+      "name": "woman_2",
+      "coord": [2, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "SilphCo_9F_EventScript_HealWoman"
+    },
     {
       "name": "rocket_m",
       "coord": [1, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",

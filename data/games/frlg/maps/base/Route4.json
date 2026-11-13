@@ -100,6 +100,7 @@
     {
       "name": "woman_1",
       "coord": [9, 8],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [8, 7], "max": [10, 9]},
       "source_event": 0,
       "source_script": "Route4_EventScript_Woman"
@@ -107,6 +108,7 @@
     {
       "name": "lass",
       "coord": [75, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "source_event": 1,
@@ -115,18 +117,32 @@
     {
       "name": "boy",
       "coord": [15, 14],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [14, 14], "max": [16, 14]},
       "source_event": 3,
       "source_script": "Route4_EventScript_Boy"
     },
-    {"name": "black_belt", "coord": [47, 3], "source_event": 4, "source_script": "Route4_EventScript_MegaPunchTutor"},
-    {"name": "black_belt", "coord": [50, 3], "source_event": 5, "source_script": "Route4_EventScript_MegaKickTutor"}
+    {
+      "name": "black_belt",
+      "coord": [47, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 4,
+      "source_script": "Route4_EventScript_MegaPunchTutor"
+    },
+    {
+      "name": "black_belt",
+      "coord": [50, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
+      "source_event": 5,
+      "source_script": "Route4_EventScript_MegaKickTutor"
+    }
   ],
   "items": [
     {
       "name": "item_ball",
       "coord": [67, 5],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE4_TM05",
       "source_script": "Route4_EventScript_ItemTM05",
       "item": "tm05"

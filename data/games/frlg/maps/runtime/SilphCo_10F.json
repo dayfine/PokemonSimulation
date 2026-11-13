@@ -73,6 +73,7 @@
   "npcs": [
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 2]},
       "wander": {"min": [0, 5], "max": [4, 9]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -80,9 +81,16 @@
       "source_script": "SilphCo_10F_EventScript_Travis",
       "coord": [2, 7]
     },
-    {"name": "worker_f", "source_event": 1, "source_script": "SilphCo_10F_EventScript_WorkerF", "coord": [10, 17]},
+    {
+      "name": "worker_f",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "SilphCo_10F_EventScript_WorkerF",
+      "coord": [10, 17]
+    },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -95,6 +103,7 @@
     {
       "name": "item_ball",
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_10F_CARBOS",
       "source_script": "SilphCo_10F_EventScript_ItemCarbos",
       "item": "carbos",
@@ -103,6 +112,7 @@
     {
       "name": "item_ball",
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_10F_ULTRA_BALL",
       "source_script": "SilphCo_10F_EventScript_ItemUltraBall",
       "item": "ultra_ball",
@@ -111,6 +121,7 @@
     {
       "name": "item_ball",
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_10F_RARE_CANDY",
       "source_script": "SilphCo_10F_EventScript_ItemRareCandy",
       "item": "rare_candy",

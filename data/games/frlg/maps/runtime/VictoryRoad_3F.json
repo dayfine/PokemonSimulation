@@ -135,6 +135,7 @@
   "npcs": [
     {
       "name": "cooltrainer_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 1},
       "source_event": 0,
@@ -143,6 +144,7 @@
     },
     {
       "name": "cooltrainer_f",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "source_event": 1,
@@ -151,6 +153,7 @@
     },
     {
       "name": "cooltrainer_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 5},
       "source_event": 2,
@@ -159,6 +162,7 @@
     },
     {
       "name": "cooltrainer_f",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 5},
       "source_event": 3,
@@ -167,6 +171,7 @@
     },
     {
       "name": "pushable_boulder",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
       "source_event": 6,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_3F_BOULDER1",
@@ -174,14 +179,22 @@
     },
     {
       "name": "pushable_boulder",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_3F_BOULDER",
       "source_event": 7,
       "source_script": "EventScript_StrengthBoulder",
       "coord": [33, 18]
     },
-    {"name": "pushable_boulder", "source_event": 8, "source_script": "EventScript_StrengthBoulder", "coord": [35, 13]},
     {
       "name": "pushable_boulder",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
+      "source_event": 8,
+      "source_script": "EventScript_StrengthBoulder",
+      "coord": [35, 13]
+    },
+    {
+      "name": "pushable_boulder",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
       "source_event": 9,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_3F_BOULDER2",
@@ -189,6 +202,7 @@
     },
     {
       "name": "cooltrainer_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 10,
@@ -197,6 +211,7 @@
     },
     {
       "name": "cooltrainer_f",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 11,
@@ -208,6 +223,7 @@
     {
       "name": "item_ball",
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_3F_MAX_REVIVE",
       "source_script": "VictoryRoad_3F_EventScript_ItemMaxRevive",
       "item": "max_revive",
@@ -216,6 +232,7 @@
     {
       "name": "item_ball",
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_3F_TM50",
       "source_script": "VictoryRoad_3F_EventScript_ItemTM50",
       "item": "tm50",

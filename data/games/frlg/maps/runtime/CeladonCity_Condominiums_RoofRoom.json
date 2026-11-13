@@ -43,6 +43,7 @@
     {
       "name": "black_belt",
       "coord": [3, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CeladonCity_Condominiums_RoofRoom_EventScript_BlackBelt"
     }
@@ -52,6 +53,7 @@
       "name": "item_ball",
       "coord": [7, 3],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_EEVEE_BALL",
       "source_script": "CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall",
       "source_local_id": "LOCALID_EEVEE_POKEBALL",

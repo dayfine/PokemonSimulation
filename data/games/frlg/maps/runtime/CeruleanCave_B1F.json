@@ -76,6 +76,7 @@
     {
       "name": "mewtwo",
       "coord": [7, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_MEWTWO",
       "source_event": 2,
       "source_script": "CeruleanCave_B1F_EventScript_Mewtwo"
@@ -83,6 +84,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [37, 1],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 3,
       "source_script": "EventScript_RockSmash"
@@ -90,6 +92,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [38, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 4,
       "source_script": "EventScript_RockSmash"
@@ -97,6 +100,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [35, 1],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 5,
       "source_script": "EventScript_RockSmash"
@@ -104,6 +108,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [37, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_15",
       "source_event": 6,
       "source_script": "EventScript_RockSmash"
@@ -111,6 +116,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [35, 5],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_16",
       "source_event": 7,
       "source_script": "EventScript_RockSmash"
@@ -118,6 +124,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [2, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_17",
       "source_event": 8,
       "source_script": "EventScript_RockSmash"
@@ -125,6 +132,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [4, 1],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_18",
       "source_event": 9,
       "source_script": "EventScript_RockSmash"
@@ -132,6 +140,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [6, 1],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_19",
       "source_event": 10,
       "source_script": "EventScript_RockSmash"
@@ -139,6 +148,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [3, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_1A",
       "source_event": 11,
       "source_script": "EventScript_RockSmash"
@@ -149,6 +159,7 @@
       "name": "item_ball",
       "coord": [31, 9],
       "source_event": 0,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_ULTRA_BALL",
       "source_script": "CeruleanCave_B1F_EventScript_ItemUltraBall",
       "item": "ultra_ball"
@@ -157,6 +168,7 @@
       "name": "item_ball",
       "coord": [32, 2],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_B1F_MAX_REVIVE",
       "source_script": "CeruleanCave_B1F_EventScript_ItemMaxRevive",
       "item": "max_revive"

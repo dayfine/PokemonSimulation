@@ -31,6 +31,7 @@
     {
       "name": "clerk",
       "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 0,
       "source_script": "ViridianCity_Mart_EventScript_Clerk",
       "source_local_id": "LOCALID_VIRIDIAN_MART_CLERK"
@@ -38,6 +39,7 @@
     {
       "name": "youngster",
       "coord": [6, 2],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [5, 1], "max": [7, 3]},
       "source_event": 1,
       "source_script": "ViridianCity_Mart_EventScript_Youngster"
@@ -45,6 +47,7 @@
     {
       "name": "woman_1",
       "coord": [9, 5],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 1]},
       "wander": {"min": [9, 4], "max": [9, 6]},
       "source_event": 2,
       "source_script": "ViridianCity_Mart_EventScript_Woman"

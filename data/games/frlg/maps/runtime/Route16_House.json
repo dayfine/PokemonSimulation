@@ -31,6 +31,7 @@
     {
       "name": "woman_1",
       "coord": [4, 2],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [3, 1], "max": [5, 3]},
       "source_event": 0,
       "source_script": "Route16_House_EventScript_Woman"
@@ -38,6 +39,7 @@
     {
       "name": "fearow",
       "coord": [9, 3],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [8, 2], "max": [10, 4]},
       "source_event": 1,
       "source_script": "Route16_House_EventScript_Fearow"

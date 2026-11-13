@@ -118,11 +118,24 @@
     {"side": "south", "to_map": "CinnabarIsland", "offset": 0}
   ],
   "npcs": [
-    {"name": "fisher", "coord": [11, 8], "source_event": 0, "source_script": "Route21_South_EventScript_Claude"},
-    {"name": "fisher", "coord": [14, 15], "source_event": 1, "source_script": "Route21_South_EventScript_Nolan"},
+    {
+      "name": "fisher",
+      "coord": [11, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "Route21_South_EventScript_Claude"
+    },
+    {
+      "name": "fisher",
+      "coord": [14, 15],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "Route21_South_EventScript_Nolan"
+    },
     {
       "name": "swimmer_m_water",
       "coord": [15, 24],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["west", "east"]},
       "source_event": 2,
       "source_script": "Route21_South_EventScript_Jack"
@@ -130,6 +143,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [15, 38],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 3,
@@ -138,6 +152,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [10, 29],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 2]},
       "wander": {"min": [8, 27], "max": [12, 31]},
       "trainer": {"sight": 4, "looks": ["north", "east", "south", "west"]},
       "source_event": 4,

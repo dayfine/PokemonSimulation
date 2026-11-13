@@ -48,12 +48,14 @@
     {
       "name": "scientist",
       "coord": [3, 11],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [0, 0]},
       "source_event": 0,
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_Aide1"
     },
     {
       "name": "worker_f",
       "coord": [2, 10],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [0, 4]},
       "wander": {"min": [2, 6], "max": [2, 13]},
       "source_event": 1,
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_Aide3"
@@ -61,12 +63,14 @@
     {
       "name": "scientist",
       "coord": [11, 10],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [0, 0]},
       "source_event": 2,
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_Aide2"
     },
     {
       "name": "prof_oak",
       "coord": [6, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_OAK_IN_HIS_LAB",
       "source_event": 3,
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_ProfOak",
@@ -75,6 +79,7 @@
     {
       "name": "blue",
       "coord": [5, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_RIVAL_IN_LAB",
       "source_event": 7,
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_Rival",
@@ -83,6 +88,7 @@
     {
       "name": "pokedex",
       "coord": [4, 1],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEDEX",
       "source_event": 8,
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_Pokedex",
@@ -91,6 +97,7 @@
     {
       "name": "pokedex",
       "coord": [5, 1],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEDEX",
       "source_event": 9,
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_Pokedex",
@@ -102,6 +109,7 @@
       "name": "item_ball",
       "coord": [8, 4],
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_BULBASAUR_BALL",
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall",
       "source_local_id": "LOCALID_BULBASAUR_BALL",
@@ -111,6 +119,7 @@
       "name": "item_ball",
       "coord": [9, 4],
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SQUIRTLE_BALL",
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_SquirtleBall",
       "source_local_id": "LOCALID_SQUIRTLE_BALL",
@@ -120,6 +129,7 @@
       "name": "item_ball",
       "coord": [10, 4],
       "source_event": 6,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CHARMANDER_BALL",
       "source_script": "PalletTown_ProfessorOaksLab_EventScript_CharmanderBall",
       "source_local_id": "LOCALID_CHARMANDER_BALL",

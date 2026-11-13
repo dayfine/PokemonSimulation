@@ -77,6 +77,7 @@
     {
       "name": "biker",
       "coord": [16, 12],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
       "source_script": "Route16_EventScript_Lao"
@@ -84,6 +85,7 @@
     {
       "name": "biker",
       "coord": [14, 14],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
       "source_script": "Route16_EventScript_Koji"
@@ -91,6 +93,7 @@
     {
       "name": "biker",
       "coord": [12, 12],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 2,
       "source_script": "Route16_EventScript_Luke"
@@ -98,6 +101,7 @@
     {
       "name": "biker",
       "coord": [8, 12],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "Route16_EventScript_Ruben"
@@ -105,6 +109,7 @@
     {
       "name": "biker",
       "coord": [10, 14],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 4,
       "source_script": "Route16_EventScript_Hideo"
@@ -112,6 +117,7 @@
     {
       "name": "biker",
       "coord": [6, 14],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 5,
       "source_script": "Route16_EventScript_Camron"
@@ -119,6 +125,7 @@
     {
       "name": "cut_tree",
       "coord": [41, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 6,
       "source_script": "EventScript_CutTree",
@@ -127,6 +134,7 @@
     {
       "name": "beauty",
       "coord": [30, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 7,
@@ -135,6 +143,7 @@
     {
       "name": "man",
       "coord": [31, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 8,
@@ -143,6 +152,7 @@
     {
       "name": "snorlax",
       "coord": [31, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE_16_SNORLAX",
       "source_event": 9,
       "source_script": "Route16_EventScript_Snorlax"

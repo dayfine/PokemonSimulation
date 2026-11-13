@@ -104,6 +104,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [7, 21],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 3,
       "source_script": "EventScript_RockSmash"
@@ -111,6 +112,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [13, 21],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 4,
       "source_script": "EventScript_RockSmash"
@@ -118,6 +120,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [5, 20],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 5,
       "source_script": "EventScript_RockSmash"
@@ -125,6 +128,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [14, 20],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_15",
       "source_event": 6,
       "source_script": "EventScript_RockSmash"
@@ -132,6 +136,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [11, 21],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_16",
       "source_event": 7,
       "source_script": "EventScript_RockSmash"
@@ -139,6 +144,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [9, 18],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_17",
       "source_event": 8,
       "source_script": "EventScript_RockSmash"
@@ -149,6 +155,7 @@
       "name": "item_ball",
       "coord": [7, 3],
       "source_event": 0,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET",
       "source_script": "CeruleanCave_1F_EventScript_ItemNugget",
       "item": "nugget"
@@ -157,6 +164,7 @@
       "name": "item_ball",
       "coord": [11, 16],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE",
       "source_script": "CeruleanCave_1F_EventScript_ItemFullRestore",
       "item": "full_restore"
@@ -165,6 +173,7 @@
       "name": "item_ball",
       "coord": [25, 5],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR",
       "source_script": "CeruleanCave_1F_EventScript_ItemMaxElixir",
       "item": "max_elixir"

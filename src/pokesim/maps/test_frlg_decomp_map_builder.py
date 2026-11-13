@@ -41,6 +41,59 @@ class TrainerTest(unittest.TestCase):
             self.assertNotIn('facing', data)
 
 
+class MovementTest(unittest.TestCase):
+    def test_every_object_keeps_its_movement_type_and_range(self):
+        data = frlg_maps.map_object(event(movement_range_x=4, movement_range_y=2), TILES)
+        self.assertEqual(data['movement'], {'type': 'MOVEMENT_TYPE_FACE_RIGHT', 'range': [4, 2]})
+
+    def test_a_walk_sequence_has_the_box_of_its_range(self):
+        #   It walks each way until it leaves initial +- range (IsCoordOutsideObjectEventMovementRange()).
+        data = frlg_maps.map_object(event(movement_type='MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN',
+                                          movement_range_x=1, movement_range_y=2), TILES)
+        self.assertEqual(data['wander'], {'x0': 1, 'y0': 0, 'x1': 3, 'y1': 4})
+
+    def test_walking_back_and_forth_keeps_to_its_axis(self):
+        for movement, box in (('MOVEMENT_TYPE_WALK_UP_AND_DOWN', {'x0': 2, 'y0': 1, 'x1': 2, 'y1': 3}),
+                              ('MOVEMENT_TYPE_WALK_DOWN_AND_UP', {'x0': 2, 'y0': 1, 'x1': 2, 'y1': 3}),
+                              ('MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', {'x0': 1, 'y0': 2, 'x1': 3, 'y1': 2}),
+                              ('MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT', {'x0': 1, 'y0': 2, 'x1': 3, 'y1': 2})):
+            with self.subTest(movement=movement):
+                self.assertEqual(frlg_maps.map_object(event(movement_type=movement), TILES)['wander'], box)
+
+    def test_people_who_stand_have_no_box(self):
+        for movement in ('MOVEMENT_TYPE_FACE_DOWN', 'MOVEMENT_TYPE_LOOK_AROUND', 'MOVEMENT_TYPE_WALK_IN_PLACE_DOWN'):
+            with self.subTest(movement=movement):
+                self.assertNotIn('wander', frlg_maps.map_object(event(movement_type=movement), TILES))
+
+
+class MovingPeopleInThePackTest(unittest.TestCase):
+    """Moving people in the published maps, from pret map.json."""
+    def objects(self, name):
+        return load(ROOT / 'data/games/frlg/maps/runtime' / (name + '.json'))['objects']
+
+    def person(self, name, x, y):
+        [person] = [o for o in self.objects(name) if (o['x'], o['y']) == (x, y)]
+        return person
+
+    def test_swimmer_spencer_walks_his_range(self):
+        #   Object event 2: MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN, range 4 x 2.
+        spencer = self.person('Route21_North', 12, 44)
+        self.assertEqual(spencer['wander'], {'x0': 8, 'y0': 42, 'x1': 16, 'y1': 46})
+        self.assertEqual(spencer['movement'], {'type': 'MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN', 'range': [4, 2]})
+        self.assertEqual(spencer['trainer']['sight'], 1)
+
+    def test_cinnabar_woman_wanders_left_and_right(self):
+        woman = self.person('CinnabarIsland', 14, 6)
+        self.assertEqual(woman['wander'], {'x0': 13, 'y0': 6, 'x1': 15, 'y1': 6})
+        self.assertEqual(woman['movement'], {'type': 'MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT', 'range': [1, 1]})
+
+    def test_a_trainer_who_faces_one_way_has_no_box(self):
+        lil = self.person('Route21_North', 14, 35)
+        self.assertNotIn('wander', lil)
+        self.assertEqual(lil['movement'], {'type': 'MOVEMENT_TYPE_FACE_DOWN', 'range': [1, 1]})
+        self.assertEqual(lil['trainer'], {'sight': 1})
+
+
 class DoorScriptTest(unittest.TestCase):
     SCRIPTS = (
         'EventScript_Close5FDoor1:: @ comment\n'
@@ -349,6 +402,17 @@ class CandidateWaterTest(unittest.TestCase):
         # A sea rock is ocean water with the collision bit (Route21_North (8, 16)).
         self.assertEqual(self.grid('MB_POND_WATER', 1, unresolved={}), ['#'])
         self.assertEqual(self.grid('MB_OCEAN_WATER', 1), ['#'])
+
+    def test_currents_are_water(self):
+        # Currents are surfable (sBehaviorSurfable), though their names don't say water.
+        for behavior in ('MB_EASTWARD_CURRENT', 'MB_WESTWARD_CURRENT', 'MB_NORTHWARD_CURRENT', 'MB_SOUTHWARD_CURRENT'):
+            with self.subTest(behavior=behavior):
+                self.assertEqual(self.grid(behavior, 0), ['w'])
+
+    def test_only_listed_behaviors_are_water(self):
+        unhandled = {}
+        self.assertEqual(frlg_maps.tile_glyph('MB_NOT_REALLY_WATER', 0, unhandled), ('.', None))
+        self.assertEqual(unhandled, {'MB_NOT_REALLY_WATER': 1})
 
     def test_shallow_water_is_walked_on(self):
         # MB_SHALLOW_WATER is not surfable (sBehaviorSurfable); the player walks on it.

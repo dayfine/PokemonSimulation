@@ -28,17 +28,31 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "LavenderTown_Mart_EventScript_Clerk"},
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "LavenderTown_Mart_EventScript_Clerk"
+    },
     {
       "name": "balding_man",
       "coord": [6, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 1,
       "source_script": "LavenderTown_Mart_EventScript_BaldingMan"
     },
-    {"name": "rocker", "coord": [9, 2], "source_event": 2, "source_script": "LavenderTown_Mart_EventScript_Rocker"},
+    {
+      "name": "rocker",
+      "coord": [9, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "LavenderTown_Mart_EventScript_Rocker"
+    },
     {
       "name": "youngster",
       "coord": [9, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "source_event": 3,
       "source_script": "LavenderTown_Mart_EventScript_Youngster"
     }

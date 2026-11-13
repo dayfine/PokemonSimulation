@@ -35,15 +35,28 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "brock", "coord": [6, 5], "source_event": 0, "source_script": "PewterCity_Gym_EventScript_Brock"},
+    {
+      "name": "brock",
+      "coord": [6, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "PewterCity_Gym_EventScript_Brock"
+    },
     {
       "name": "camper",
       "coord": [3, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "source_event": 1,
       "source_script": "PewterCity_Gym_EventScript_Liam"
     },
-    {"name": "gym_guy", "coord": [7, 12], "source_event": 2, "source_script": "PewterCity_Gym_EventScript_GymGuy"}
+    {
+      "name": "gym_guy",
+      "coord": [7, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "PewterCity_Gym_EventScript_GymGuy"
+    }
   ]
 }

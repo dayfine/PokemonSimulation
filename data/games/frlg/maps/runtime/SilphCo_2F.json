@@ -79,6 +79,7 @@
   "npcs": [
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -88,6 +89,7 @@
     },
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["north", "west"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 1,
@@ -96,6 +98,7 @@
     },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["south", "north"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 2,
@@ -104,11 +107,18 @@
     },
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 3,
       "source_script": "SilphCo_2F_EventScript_Connor",
       "coord": [5, 19]
     },
-    {"name": "woman_2", "source_event": 4, "source_script": "SilphCo_2F_EventScript_ThunderWaveTutor", "coord": [10, 4]}
+    {
+      "name": "woman_2",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 4,
+      "source_script": "SilphCo_2F_EventScript_ThunderWaveTutor",
+      "coord": [10, 4]
+    }
   ]
 }

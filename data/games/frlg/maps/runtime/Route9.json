@@ -69,6 +69,7 @@
     {
       "name": "picnicker",
       "coord": [14, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 0,
@@ -77,6 +78,7 @@
     {
       "name": "hiker",
       "coord": [20, 17],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["north", "west"]},
       "source_event": 1,
       "source_script": "Route9_EventScript_Jeremy"
@@ -84,6 +86,7 @@
     {
       "name": "hiker",
       "coord": [61, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 2,
@@ -92,6 +95,7 @@
     {
       "name": "camper",
       "coord": [26, 7],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "Route9_EventScript_Chris"
@@ -99,6 +103,7 @@
     {
       "name": "bug_catcher",
       "coord": [26, 1],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "source_event": 4,
@@ -107,6 +112,7 @@
     {
       "name": "bug_catcher",
       "coord": [49, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 5,
@@ -115,6 +121,7 @@
     {
       "name": "hiker",
       "coord": [53, 2],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [3, 1]},
       "wander": {"min": [50, 2], "max": [56, 2]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "source_event": 6,
@@ -123,6 +130,7 @@
     {
       "name": "picnicker",
       "coord": [60, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "source_event": 7,
@@ -131,6 +139,7 @@
     {
       "name": "camper",
       "coord": [36, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 5},
       "source_event": 8,
@@ -139,6 +148,7 @@
     {
       "name": "cut_tree",
       "coord": [2, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 9,
       "source_script": "EventScript_CutTree",
@@ -150,6 +160,7 @@
       "name": "item_ball",
       "coord": [12, 17],
       "source_event": 10,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE9_TM40",
       "source_script": "Route9_EventScript_ItemTM40",
       "item": "tm40"
@@ -158,6 +169,7 @@
       "name": "item_ball",
       "coord": [65, 17],
       "source_event": 11,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE9_BURN_HEAL",
       "source_script": "Route9_EventScript_ItemBurnHeal",
       "item": "burn_heal"

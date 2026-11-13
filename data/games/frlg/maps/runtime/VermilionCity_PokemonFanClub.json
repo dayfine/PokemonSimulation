@@ -47,30 +47,35 @@
     {
       "name": "gentleman",
       "coord": [5, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "VermilionCity_PokemonFanClub_EventScript_Chairman"
     },
     {
       "name": "worker_f",
       "coord": [6, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 1,
       "source_script": "VermilionCity_PokemonFanClub_EventScript_WorkerF"
     },
     {
       "name": "pikachu",
       "coord": [7, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 2,
       "source_script": "VermilionCity_PokemonFanClub_EventScript_Pikachu"
     },
     {
       "name": "seel",
       "coord": [4, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 3,
       "source_script": "VermilionCity_PokemonFanClub_EventScript_Seel"
     },
     {
       "name": "woman_1",
       "coord": [4, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 4,
       "source_script": "VermilionCity_PokemonFanClub_EventScript_Woman",
       "source_local_id": "LOCALID_POKEMON_FAN_CLUB_WOMAN"
@@ -78,6 +83,7 @@
     {
       "name": "fat_man",
       "coord": [7, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 5,
       "source_script": "VermilionCity_PokemonFanClub_EventScript_FatMan",
       "source_local_id": "LOCALID_POKEMON_FAN_CLUB_FAT_MAN"

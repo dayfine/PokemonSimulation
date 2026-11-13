@@ -33,6 +33,7 @@
     {
       "name": "mom",
       "coord": [8, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [0, 0]},
       "source_event": 0,
       "source_script": "PalletTown_PlayersHouse_1F_EventScript_Mom",
       "source_local_id": "LOCALID_MOM"

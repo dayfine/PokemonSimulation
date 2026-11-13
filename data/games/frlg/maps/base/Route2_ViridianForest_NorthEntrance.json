@@ -34,18 +34,21 @@
     {
       "name": "youngster",
       "coord": [5, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route2_ViridianForest_NorthEntrance_EventScript_Youngster"
     },
     {
       "name": "old_man_1",
       "coord": [4, 7],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 1,
       "source_script": "Route2_ViridianForest_NorthEntrance_EventScript_OldMan"
     },
     {
       "name": "cooltrainer_f",
       "coord": [10, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 2,
       "source_script": "Route2_ViridianForest_NorthEntrance_EventScript_CooltrainerF"
     }

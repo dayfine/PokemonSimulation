@@ -66,6 +66,19 @@ def undo_added_people(game, data):
     data['objects'] = [o for o in data.get('objects', []) if o['name'] not in names]
 
 
+# Object movement published after the v1 baseline: every FRLG object's
+# `movement` (pret movement_type and range), and the box of each person who
+# walks on their own without wandering (walk sequences and back-and-forth
+# walkers: Route21_North's swimmer Spencer, 12.03). Both are undone before digesting.
+def undo_movement(game, data):
+    if game != 'frlg':
+        return
+    for obj in data.get('objects', []):
+        movement = obj.pop('movement', None)
+        if movement and not movement['type'].startswith('MOVEMENT_TYPE_WANDER_'):
+            obj.pop('wander', None)
+
+
 def undo_added_links(game, data):
     if (game, data['name']) not in ADDED_LINKS:
         return
@@ -156,6 +169,7 @@ class PublicationTest(unittest.TestCase):
                     undo_story_flags_and_wander(game, baseline_data)
                     undo_added_links(game, baseline_data)
                     undo_added_people(game, baseline_data)
+                    undo_movement(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()
                     self.assertEqual(digest, baseline['games'][game][entry['name']])
                     if game != 'frlg':  # FRLG runtime files are base + overlays in the contract format.

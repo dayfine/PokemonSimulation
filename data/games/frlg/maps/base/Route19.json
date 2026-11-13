@@ -141,6 +141,7 @@
     {
       "name": "swimmer_m_land",
       "coord": [15, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [6, 3]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 0,
@@ -149,6 +150,7 @@
     {
       "name": "swimmer_m_land",
       "coord": [10, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 1,
@@ -157,6 +159,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [12, 17],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
       "source_event": 2,
       "source_script": "Route19_EventScript_Tony"
@@ -164,6 +167,8 @@
     {
       "name": "swimmer_m_water",
       "coord": [18, 33],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN", "range": [5, 3]},
+      "wander": {"min": [13, 30], "max": [23, 36]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "Route19_EventScript_Matthew"
@@ -171,6 +176,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [8, 27],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 2]},
       "wander": {"min": [6, 25], "max": [10, 29]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 4,
@@ -179,6 +185,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [16, 22],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 6, "looks": ["west", "east"]},
       "source_event": 5,
       "source_script": "Route19_EventScript_David"
@@ -186,6 +193,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [11, 47],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 6,
       "source_script": "Route19_EventScript_Axle"
@@ -193,6 +201,7 @@
     {
       "name": "swimmer_f_water",
       "coord": [14, 48],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 7,
       "source_script": "Route19_EventScript_Alice"
@@ -200,6 +209,7 @@
     {
       "name": "swimmer_f_water",
       "coord": [12, 49],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 8,
       "source_script": "Route19_EventScript_Connie"
@@ -207,6 +217,7 @@
     {
       "name": "swimmer_f_water",
       "coord": [9, 48],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 9,
       "source_script": "Route19_EventScript_Anya"
@@ -214,6 +225,7 @@
     {
       "name": "swimmer_f_water",
       "coord": [8, 41],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 10,
@@ -222,6 +234,7 @@
     {
       "name": "tuber_m_water",
       "coord": [9, 41],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 11,

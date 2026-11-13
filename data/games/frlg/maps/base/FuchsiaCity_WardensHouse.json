@@ -45,13 +45,21 @@
     {
       "name": "old_man_2",
       "coord": [3, 5],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 0,
       "source_script": "FuchsiaCity_WardensHouse_EventScript_Warden"
     },
-    {"name": "pushable_boulder", "coord": [11, 6], "source_event": 1, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [11, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
+      "source_event": 1,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "0",
       "coord": [4, 1],
+      "movement": {"type": "MOVEMENT_TYPE_INVISIBLE", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL",
       "source_event": 3,
       "source_script": "FuchsiaCity_WardensHouse_EventScript_PokemonJournalKoga"
@@ -62,6 +70,7 @@
       "name": "item_ball",
       "coord": [11, 5],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_FUCHSIA_CITY_WARDENS_HOUSE_RARE_CANDY",
       "source_script": "FuchsiaCity_WardensHouse_EventScript_ItemRareCandy",
       "item": "rare_candy"

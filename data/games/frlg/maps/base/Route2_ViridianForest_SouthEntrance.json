@@ -34,12 +34,14 @@
     {
       "name": "woman_2",
       "coord": [10, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route2_ViridianForest_SouthEntrance_EventScript_Woman1"
     },
     {
       "name": "woman_1",
       "coord": [4, 7],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [3, 6], "max": [5, 8]},
       "source_event": 1,
       "source_script": "Route2_ViridianForest_SouthEntrance_EventScript_Woman2"

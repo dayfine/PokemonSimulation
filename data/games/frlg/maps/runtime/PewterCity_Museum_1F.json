@@ -36,6 +36,7 @@
     {
       "name": "worker_m",
       "coord": [16, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 0,
       "source_script": "PewterCity_Museum_1F_EventScript_Scientist1",
       "source_local_id": "LOCALID_MUSEUM_SCIENTIST1"
@@ -43,18 +44,21 @@
     {
       "name": "old_man_1",
       "coord": [2, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 1,
       "source_script": "PewterCity_Museum_1F_EventScript_OldMan"
     },
     {
       "name": "scientist",
       "coord": [21, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 2,
       "source_script": "PewterCity_Museum_1F_EventScript_OldAmberScientist"
     },
     {
       "name": "old_amber",
       "coord": [22, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_OLD_AMBER",
       "source_event": 3,
       "source_script": "PewterCity_Museum_1F_EventScript_OldAmber",
@@ -63,12 +67,14 @@
     {
       "name": "scientist",
       "coord": [26, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 4,
       "source_script": "PewterCity_Museum_1F_EventScript_Scientist2"
     },
     {
       "name": "scientist",
       "coord": [26, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 5,
       "source_script": "PewterCity_Museum_1F_EventScript_SeismicTossTutor"
     }

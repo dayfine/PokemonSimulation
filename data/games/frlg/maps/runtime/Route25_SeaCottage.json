@@ -33,6 +33,7 @@
     {
       "name": "bill",
       "coord": [7, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE",
       "source_event": 0,
       "source_script": "Route25_SeaCottage_EventScript_Bill",
@@ -41,6 +42,7 @@
     {
       "name": "clefairy",
       "coord": [10, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_BILL_CLEFAIRY",
       "source_event": 1,
       "source_script": "Route25_SeaCottage_EventScript_Bill",

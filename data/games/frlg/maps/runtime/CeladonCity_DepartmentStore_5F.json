@@ -37,6 +37,7 @@
     {
       "name": "gentleman",
       "coord": [11, 6],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [10, 6], "max": [12, 6]},
       "source_event": 0,
       "source_script": "CeladonCity_DepartmentStore_5F_EventScript_Gentleman"
@@ -44,6 +45,7 @@
     {
       "name": "sailor",
       "coord": [6, 8],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [5, 7], "max": [7, 9]},
       "source_event": 1,
       "source_script": "CeladonCity_DepartmentStore_5F_EventScript_Sailor"
@@ -51,12 +53,14 @@
     {
       "name": "clerk",
       "coord": [1, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [2, 1]},
       "source_event": 2,
       "source_script": "CeladonCity_DepartmentStore_5F_EventScript_ClerkXItems"
     },
     {
       "name": "clerk",
       "coord": [1, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [2, 1]},
       "source_event": 3,
       "source_script": "CeladonCity_DepartmentStore_5F_EventScript_ClerkVitamins"
     }

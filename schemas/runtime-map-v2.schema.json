@@ -33,6 +33,7 @@
           "hide_flag": {"type": "string"},
           "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
           "wander": {"$ref": "#/$defs/wander"},
+          "movement": {"$ref": "#/$defs/movement"},
           "item": {"type": "string", "minLength": 1},
           "quantity": {"type": "integer", "minimum": 1, "maximum": 9223372036854775807}
         },
@@ -253,6 +254,16 @@
       "required": ["min", "max"],
       "additionalProperties": true
     },
+    "movement": {
+      "description": "The source object event's movement type and its movement_range_x/y (pret map.json).",
+      "type": "object",
+      "properties": {
+        "type": {"type": "string", "minLength": 1},
+        "range": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 2, "maxItems": 2}
+      },
+      "required": ["type"],
+      "additionalProperties": true
+    },
     "npc": {
       "type": "object",
       "properties": {
@@ -261,7 +272,8 @@
         "facing": {"$ref": "#/$defs/direction"},
         "hide_flag": {"type": "string"},
         "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
-        "wander": {"$ref": "#/$defs/wander"}
+        "wander": {"$ref": "#/$defs/wander"},
+        "movement": {"$ref": "#/$defs/movement"}
       },
       "required": ["coord", "name"],
       "additionalProperties": true,

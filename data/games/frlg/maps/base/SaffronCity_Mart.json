@@ -28,11 +28,24 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "SaffronCity_Mart_EventScript_Clerk"},
-    {"name": "youngster", "coord": [1, 7], "source_event": 1, "source_script": "SaffronCity_Mart_EventScript_Youngster"},
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "SaffronCity_Mart_EventScript_Clerk"
+    },
+    {
+      "name": "youngster",
+      "coord": [1, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "SaffronCity_Mart_EventScript_Youngster"
+    },
     {
       "name": "lass",
       "coord": [9, 5],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 1]},
       "wander": {"min": [9, 4], "max": [9, 6]},
       "source_event": 2,
       "source_script": "SaffronCity_Mart_EventScript_Lass"

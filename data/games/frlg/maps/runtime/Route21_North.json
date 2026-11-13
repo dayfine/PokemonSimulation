@@ -127,11 +127,25 @@
     }
   ],
   "npcs": [
-    {"name": "fisher", "coord": [7, 27], "source_event": 0, "source_script": "Route21_North_EventScript_Ronald"},
-    {"name": "fisher", "coord": [16, 26], "source_event": 1, "source_script": "Route21_North_EventScript_Wade"},
+    {
+      "name": "fisher",
+      "coord": [7, 27],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "Route21_North_EventScript_Ronald"
+    },
+    {
+      "name": "fisher",
+      "coord": [16, 26],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "Route21_North_EventScript_Wade"
+    },
     {
       "name": "swimmer_m_water",
       "coord": [12, 44],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN", "range": [4, 2]},
+      "wander": {"min": [8, 42], "max": [16, 46]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 2,
       "source_script": "Route21_North_EventScript_Spencer"
@@ -139,6 +153,7 @@
     {
       "name": "swimmer_f_water",
       "coord": [14, 35],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 3,
@@ -147,6 +162,7 @@
     {
       "name": "tuber_m_water",
       "coord": [15, 35],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 4,

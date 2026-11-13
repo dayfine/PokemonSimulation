@@ -72,6 +72,7 @@
     {
       "name": "blue",
       "coord": [25, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE_22_RIVAL",
       "source_event": 0,
       "source_script": "0x0",

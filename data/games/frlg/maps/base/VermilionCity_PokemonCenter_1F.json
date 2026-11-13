@@ -44,6 +44,7 @@
     {
       "name": "nurse",
       "coord": [7, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Nurse",
       "source_local_id": "LOCALID_VERMILION_NURSE"
@@ -51,6 +52,7 @@
     {
       "name": "man",
       "coord": [4, 8],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [3, 8], "max": [5, 8]},
       "source_event": 1,
       "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Man"
@@ -58,12 +60,14 @@
     {
       "name": "hiker",
       "coord": [12, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 2,
       "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Hiker"
     },
     {
       "name": "youngster",
       "coord": [14, 4],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 1]},
       "wander": {"min": [14, 3], "max": [14, 5]},
       "source_event": 3,
       "source_script": "VermilionCity_PokemonCenter_1F_EventScript_Youngster"
@@ -71,12 +75,14 @@
     {
       "name": "cooltrainer_f",
       "coord": [6, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 4,
       "source_script": "VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman"
     },
     {
       "name": "0",
       "coord": [2, 1],
+      "movement": {"type": "MOVEMENT_TYPE_INVISIBLE", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL",
       "source_event": 5,
       "source_script": "VermilionCity_PokemonCenter_1F_EventScript_PokemonJournalLtSurge"
@@ -84,6 +90,7 @@
     {
       "name": "0",
       "coord": [3, 1],
+      "movement": {"type": "MOVEMENT_TYPE_INVISIBLE", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL",
       "source_event": 6,
       "source_script": "VermilionCity_PokemonCenter_1F_EventScript_PokemonJournalLtSurge"

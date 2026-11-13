@@ -43,6 +43,7 @@
     {
       "name": "worker_f",
       "coord": [6, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CeladonCity_DepartmentStore_1F_EventScript_Receptionist"
     }

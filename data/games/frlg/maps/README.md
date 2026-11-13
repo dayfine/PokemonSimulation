@@ -220,6 +220,12 @@ A collision-free `MB_COUNTER` (PewterCity_Museum_1F (11, 5)) is floor: the
 counter only lets the player talk across it.
 
 NPCs and pickups keep source event, script and optional local-ID provenance.
+Every object keeps its source movement as `movement`: the pret `movement_type`
+and `[movement_range_x, movement_range_y]`. A person who walks on their own
+(wanders, walks back and forth, or walks a sequence of directions) has a
+`wander` box, their start tile +- range kept inside the map
+(`IsCoordOutsideObjectEventMovementRange()`); back-and-forth walkers and
+`*_UP_AND_DOWN`/`*_LEFT_AND_RIGHT` wanderers keep to their axis.
 `source_event` is a zero-based source array index, not an in-game object ID.
 An item ball's `item` and `quantity` come from the pinned catalog
 (`data/maps/item-identities.json`) or, for a map it doesn't list, from the

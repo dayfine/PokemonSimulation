@@ -404,6 +404,7 @@
     {
       "name": "policeman",
       "coord": [15, 149],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route23_EventScript_CascadeBadgeGuard",
       "source_local_id": "LOCALID_CASCADE_BADGE_GUARD"
@@ -411,6 +412,7 @@
     {
       "name": "policeman",
       "coord": [8, 140],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 1,
       "source_script": "Route23_EventScript_ThunderBadgeGuard",
       "source_local_id": "LOCALID_THUNDER_BADGE_GUARD"
@@ -418,6 +420,7 @@
     {
       "name": "policeman",
       "coord": [14, 123],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 2,
       "source_script": "Route23_EventScript_RainbowBadgeGuard",
       "source_local_id": "LOCALID_RAINBOW_BADGE_GUARD"
@@ -425,6 +428,7 @@
     {
       "name": "policeman",
       "coord": [16, 112],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 3,
       "source_script": "Route23_EventScript_SoulBadgeGuard",
       "source_local_id": "LOCALID_SOUL_BADGE_GUARD"
@@ -432,6 +436,7 @@
     {
       "name": "policeman",
       "coord": [10, 94],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 4,
       "source_script": "Route23_EventScript_MarshBadgeGuard",
       "source_local_id": "LOCALID_MARSH_BADGE_GUARD"
@@ -439,6 +444,7 @@
     {
       "name": "policeman",
       "coord": [14, 61],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 5,
       "source_script": "Route23_EventScript_VolcanoBadgeGuard",
       "source_local_id": "LOCALID_VOLCANO_BADGE_GUARD"
@@ -446,6 +452,7 @@
     {
       "name": "policeman",
       "coord": [6, 35],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 6,
       "source_script": "Route23_EventScript_EarthBadgeGuard",
       "source_local_id": "LOCALID_EARTH_BADGE_GUARD"

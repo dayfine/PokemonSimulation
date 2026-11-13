@@ -56,6 +56,7 @@
     {
       "name": "black_belt",
       "coord": [10, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 0,
@@ -64,6 +65,7 @@
     {
       "name": "cooltrainer_m",
       "coord": [12, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 1,
@@ -72,6 +74,7 @@
     {
       "name": "black_belt",
       "coord": [11, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 3},
       "source_event": 2,
@@ -80,6 +83,7 @@
     {
       "name": "man",
       "coord": [10, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 3,
@@ -88,6 +92,7 @@
     {
       "name": "man",
       "coord": [2, 21],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "source_event": 4,
@@ -96,6 +101,7 @@
     {
       "name": "black_belt",
       "coord": [3, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 2},
       "source_event": 5,
@@ -104,6 +110,7 @@
     {
       "name": "cooltrainer_m",
       "coord": [6, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 6,
@@ -112,6 +119,7 @@
     {
       "name": "giovanni",
       "coord": [2, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VIRIDIAN_GIOVANNI",
       "source_event": 7,
       "source_script": "ViridianCity_Gym_EventScript_Giovanni",
@@ -120,11 +128,18 @@
     {
       "name": "cooltrainer_m",
       "coord": [13, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 8,
       "source_script": "ViridianCity_Gym_EventScript_Warren"
     },
-    {"name": "gym_guy", "coord": [16, 20], "source_event": 9, "source_script": "ViridianCity_Gym_EventScript_GymGuy"}
+    {
+      "name": "gym_guy",
+      "coord": [16, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 9,
+      "source_script": "ViridianCity_Gym_EventScript_GymGuy"
+    }
   ]
 }

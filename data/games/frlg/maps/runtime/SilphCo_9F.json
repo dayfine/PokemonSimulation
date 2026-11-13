@@ -108,6 +108,7 @@
   "npcs": [
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 1]},
       "wander": {"min": [26, 15], "max": [26, 17]},
       "trainer": {"sight": 2, "looks": ["north", "south"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -117,6 +118,7 @@
     },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 3},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -124,9 +126,16 @@
       "source_script": "SilphCo_9F_EventScript_Grunt2",
       "coord": [15, 18]
     },
-    {"name": "woman_2", "source_event": 2, "source_script": "SilphCo_9F_EventScript_HealWoman", "coord": [2, 16]},
+    {
+      "name": "woman_2",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "SilphCo_9F_EventScript_HealWoman",
+      "coord": [2, 16]
+    },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",

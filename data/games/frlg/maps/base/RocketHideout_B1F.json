@@ -79,6 +79,7 @@
     {
       "name": "rocket_m",
       "coord": [4, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -88,6 +89,7 @@
     {
       "name": "rocket_m",
       "coord": [24, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -97,6 +99,7 @@
     {
       "name": "rocket_m",
       "coord": [6, 32],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -106,6 +109,7 @@
     {
       "name": "rocket_m",
       "coord": [10, 22],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -115,6 +119,7 @@
     {
       "name": "rocket_m",
       "coord": [21, 27],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["north", "east"]},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
       "source_event": 4,
@@ -126,6 +131,7 @@
       "name": "item_ball",
       "coord": [5, 16],
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE",
       "source_script": "RocketHideout_B1F_EventScript_ItemEscapeRope",
       "item": "escape_rope"
@@ -134,6 +140,7 @@
       "name": "item_ball",
       "coord": [1, 22],
       "source_event": 6,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B1F_HYPER_POTION",
       "source_script": "RocketHideout_B1F_EventScript_ItemHyperPotion",
       "item": "hyper_potion"

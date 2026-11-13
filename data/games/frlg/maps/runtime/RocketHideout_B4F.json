@@ -75,6 +75,7 @@
     {
       "name": "giovanni",
       "coord": [19, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_HIDEOUT_GIOVANNI",
       "source_event": 0,
       "source_script": "RocketHideout_B4F_EventScript_Giovanni",
@@ -83,6 +84,7 @@
     {
       "name": "rocket_m",
       "coord": [4, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -92,6 +94,7 @@
     {
       "name": "rocket_m",
       "coord": [19, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
       "source_event": 4,
       "source_script": "RocketHideout_B4F_EventScript_Grunt3"
@@ -99,6 +102,7 @@
     {
       "name": "rocket_m",
       "coord": [16, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
       "source_event": 5,
       "source_script": "RocketHideout_B4F_EventScript_Grunt2"
@@ -109,6 +113,7 @@
       "name": "item_ball",
       "coord": [20, 5],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_SCOPE",
       "source_script": "RocketHideout_B4F_EventScript_SilphScope",
       "source_local_id": "LOCALID_SILPH_SCOPE",
@@ -118,6 +123,7 @@
       "name": "item_ball",
       "coord": [3, 2],
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_LIFT_KEY",
       "source_script": "RocketHideout_B4F_EventScript_LiftKey",
       "source_local_id": "LOCALID_LIFT_KEY",
@@ -127,6 +133,7 @@
       "name": "item_ball",
       "coord": [1, 6],
       "source_event": 6,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_TM49",
       "source_script": "RocketHideout_B4F_EventScript_ItemTM49",
       "item": "tm49"
@@ -135,6 +142,7 @@
       "name": "item_ball",
       "coord": [4, 14],
       "source_event": 7,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_MAX_ETHER",
       "source_script": "RocketHideout_B4F_EventScript_ItemMaxEther",
       "item": "max_ether"
@@ -143,6 +151,7 @@
       "name": "item_ball",
       "coord": [6, 23],
       "source_event": 8,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_CALCIUM",
       "source_script": "RocketHideout_B4F_EventScript_ItemCalcium",
       "item": "calcium"

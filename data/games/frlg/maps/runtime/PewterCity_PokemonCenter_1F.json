@@ -44,18 +44,21 @@
     {
       "name": "jigglypuff",
       "coord": [2, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "PewterCity_PokemonCenter_1F_EventScript_Jigglypuff"
     },
     {
       "name": "gentleman",
       "coord": [4, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "source_event": 1,
       "source_script": "PewterCity_PokemonCenter_1F_EventScript_Gentleman"
     },
     {
       "name": "nurse",
       "coord": [7, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 2,
       "source_script": "PewterCity_PokemonCenter_1F_EventScript_Nurse",
       "source_local_id": "LOCALID_PEWTER_NURSE"
@@ -63,19 +66,28 @@
     {
       "name": "youngster",
       "coord": [1, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 3,
       "source_script": "PewterCity_PokemonCenter_1F_EventScript_Youngster"
     },
-    {"name": "woman_1", "coord": [13, 2], "source_event": 4, "source_script": "MysteryEventClub_EventScript_Woman"},
+    {
+      "name": "woman_1",
+      "coord": [13, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 4,
+      "source_script": "MysteryEventClub_EventScript_Woman"
+    },
     {
       "name": "gba_kid",
       "coord": [10, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 5,
       "source_script": "PewterCity_PokemonCenter_1F_EventScript_GBAKid1"
     },
     {
       "name": "gba_kid",
       "coord": [14, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 6,
       "source_script": "PewterCity_PokemonCenter_1F_EventScript_GBAKid2"
     }

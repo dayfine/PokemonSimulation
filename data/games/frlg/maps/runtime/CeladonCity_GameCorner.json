@@ -124,61 +124,77 @@
     {
       "name": "worker_f",
       "coord": [4, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CeladonCity_GameCorner_EventScript_InfoClerk"
     },
     {
       "name": "worker_m",
       "coord": [6, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 1,
       "source_script": "CeladonCity_GameCorner_EventScript_CoinsClerk"
     },
     {
       "name": "balding_man",
       "coord": [1, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 2,
       "source_script": "CeladonCity_GameCorner_EventScript_BaldingMan"
     },
     {
       "name": "woman_2",
       "coord": [1, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 3,
       "source_script": "CeladonCity_GameCorner_EventScript_Woman1"
     },
-    {"name": "fisher", "coord": [4, 7], "source_event": 4, "source_script": "CeladonCity_GameCorner_EventScript_Fisher"},
+    {
+      "name": "fisher",
+      "coord": [4, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 4,
+      "source_script": "CeladonCity_GameCorner_EventScript_Fisher"
+    },
     {
       "name": "gym_guy",
       "coord": [7, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 5,
       "source_script": "CeladonCity_GameCorner_EventScript_GymGuy"
     },
     {
       "name": "woman_1",
       "coord": [7, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 6,
       "source_script": "CeladonCity_GameCorner_EventScript_Woman2"
     },
     {
       "name": "old_man_2",
       "coord": [10, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 7,
       "source_script": "CeladonCity_GameCorner_EventScript_OldMan"
     },
     {
       "name": "scientist",
       "coord": [13, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 8,
       "source_script": "CeladonCity_GameCorner_EventScript_Scientist"
     },
     {
       "name": "gentleman",
       "coord": [16, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 9,
       "source_script": "CeladonCity_GameCorner_EventScript_Gentleman"
     },
     {
       "name": "rocket_m",
       "coord": [11, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_GAME_CORNER_ROCKET",
       "source_event": 10,
       "source_script": "CeladonCity_GameCorner_EventScript_RocketGrunt",

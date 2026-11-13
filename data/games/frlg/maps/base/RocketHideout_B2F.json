@@ -57,6 +57,7 @@
     {
       "name": "rocket_m",
       "coord": [20, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
       "source_event": 0,
@@ -68,6 +69,7 @@
       "name": "item_ball",
       "coord": [15, 3],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_X_SPEED",
       "source_script": "RocketHideout_B2F_EventScript_ItemXSpeed",
       "item": "x_speed"
@@ -76,6 +78,7 @@
       "name": "item_ball",
       "coord": [2, 5],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_MOON_STONE",
       "source_script": "RocketHideout_B2F_EventScript_ItemMoonStone",
       "item": "moon_stone"
@@ -84,6 +87,7 @@
       "name": "item_ball",
       "coord": [5, 7],
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_TM12",
       "source_script": "RocketHideout_B2F_EventScript_ItemTM12",
       "item": "tm12"
@@ -92,6 +96,7 @@
       "name": "item_ball",
       "coord": [0, 14],
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_SUPER_POTION",
       "source_script": "RocketHideout_B2F_EventScript_ItemSuperPotion",
       "item": "super_potion"

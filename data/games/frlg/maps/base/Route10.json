@@ -224,6 +224,7 @@
     {
       "name": "picnicker",
       "coord": [7, 60],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
       "source_script": "Route10_EventScript_Carol"
@@ -231,6 +232,7 @@
     {
       "name": "hiker",
       "coord": [4, 62],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
       "source_script": "Route10_EventScript_Clark"
@@ -238,6 +240,7 @@
     {
       "name": "poke_maniac",
       "coord": [15, 70],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [2, 1]},
       "wander": {"min": [13, 70], "max": [17, 70]},
       "trainer": {"sight": 2, "looks": ["west", "east"]},
       "source_event": 2,
@@ -246,6 +249,7 @@
     {
       "name": "hiker",
       "coord": [4, 68],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 2},
       "source_event": 3,
@@ -254,6 +258,7 @@
     {
       "name": "poke_maniac",
       "coord": [13, 44],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 5},
       "source_event": 4,
@@ -262,6 +267,7 @@
     {
       "name": "picnicker",
       "coord": [9, 27],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "source_event": 5,
@@ -270,6 +276,7 @@
     {
       "name": "cut_tree",
       "coord": [10, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 6,
       "source_script": "EventScript_CutTree"
@@ -277,6 +284,7 @@
     {
       "name": "cut_tree",
       "coord": [10, 22],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 7,
       "source_script": "EventScript_CutTree"
@@ -284,6 +292,7 @@
     {
       "name": "cut_tree",
       "coord": [10, 24],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 8,
       "source_script": "EventScript_CutTree"
@@ -291,6 +300,7 @@
     {
       "name": "cut_tree",
       "coord": [10, 26],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_15",
       "source_event": 9,
       "source_script": "EventScript_CutTree"

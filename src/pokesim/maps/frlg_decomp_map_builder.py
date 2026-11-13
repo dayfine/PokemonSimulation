@@ -107,6 +107,9 @@ SURFABLE_WATER = frozenset({
     'MB_POND_WATER', 'MB_FAST_WATER', 'MB_DEEP_WATER', 'MB_WATERFALL',
     'MB_OCEAN_WATER', 'MB_UNUSED_WATER', 'MB_CYCLING_ROAD_WATER',
     'MB_EASTWARD_CURRENT', 'MB_WESTWARD_CURRENT', 'MB_NORTHWARD_CURRENT', 'MB_SOUTHWARD_CURRENT'})
+#   Tiles drawn as water: the surfable ones, and the seabed under them (Dive,
+#   which FRLG doesn't have).
+WATER = SURFABLE_WATER | {'MB_UNDERWATER_BLOCKED_ABOVE'}
 #   A metatile's encounter type (METATILE_ATTRIBUTE_ENCOUNTER_TYPE in
 #   include/fieldmap.h): on a map with land encounters, a step onto a LAND
 #   tile may start a wild battle, as on every floor tile of a cave.
@@ -473,7 +476,7 @@ def tile_glyph(behavior, collision, unhandled, sign_event=False):
         return '.', WARP_ENTRIES[behavior]
     if behavior in TERRAIN:
         return TERRAIN[behavior], 'step_on' if behavior == 'MB_FALL_WARP' else None
-    if 'WATER' in behavior and behavior not in FLOOR:
+    if behavior in WATER:
         return 'w', None
     if behavior not in FLOOR:
         unhandled[behavior] = unhandled.get(behavior, 0) + 1
@@ -522,8 +525,6 @@ def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=Fa
             if unresolved is not None and unhandled.get(behavior, 0) > before:
                 glyph = ' '  # Unknown cells are blocked by the shared movement model.
                 unresolved.setdefault(behavior, []).append([x, y])
-            if unresolved is not None and behavior in SURFABLE_WATER and not collision:
-                glyph = 'w'
             if land_encounters and entry is None:
                 glyph = encounter_glyph(glyph, attributes)
                 if wild_edge(glyph, attributes):
@@ -537,14 +538,24 @@ def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=Fa
     return tiles, elevation, entries, wild_edges
 
 
+#   Movement types that walk on their own: wandering, walking back and forth
+#   and walking a sequence of directions all stay within initial +- range
+#   (IsCoordOutsideObjectEventMovementRange() in src/event_object_movement.c).
+#   The pairs move along one axis only.
+MOVING = ('MOVEMENT_TYPE_WANDER_', 'MOVEMENT_TYPE_WALK_SEQUENCE_', 'MOVEMENT_TYPE_WALK_UP_AND_DOWN',
+          'MOVEMENT_TYPE_WALK_DOWN_AND_UP', 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 'MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT')
+VERTICAL = ('UP_AND_DOWN', 'DOWN_AND_UP')
+HORIZONTAL = ('LEFT_AND_RIGHT', 'RIGHT_AND_LEFT')
+
+
 def wander_box(obj, tiles):
-    """The tiles a wandering person may stand on, kept inside the map, or None
-    if they stand still."""
+    """The tiles a person who walks on their own may stand on, kept inside the
+    map, or None if they stand still."""
     movement = obj.get('movement_type', '')
-    if 'WANDER' not in movement:
+    if not movement.startswith(MOVING):
         return None
-    x = 0 if 'UP_AND_DOWN' in movement else int(obj.get('movement_range_x') or 0)
-    y = 0 if 'LEFT_AND_RIGHT' in movement else int(obj.get('movement_range_y') or 0)
+    x = 0 if movement.endswith(VERTICAL) else int(obj.get('movement_range_x') or 0)
+    y = 0 if movement.endswith(HORIZONTAL) else int(obj.get('movement_range_y') or 0)
     if x == 0 and y == 0:
         return None
     return {
@@ -594,6 +605,9 @@ def map_object(obj, tiles, event_index=None):
                      if value is not None}
         if reference:
             data['source_event'] = reference
+    if obj.get('movement_type'):
+        data['movement'] = {'type': obj['movement_type'],
+                            'range': [int(obj.get('movement_range_x') or 0), int(obj.get('movement_range_y') or 0)]}
     box = wander_box(obj, tiles)
     if box:
         data['wander'] = box

@@ -104,6 +104,7 @@
   "npcs": [
     {
       "name": "poke_maniac",
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
       "source_script": "PokemonMansion_2F_EventScript_Arnie",
@@ -114,6 +115,7 @@
     {
       "name": "item_ball",
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_2F_CALCIUM",
       "source_script": "PokemonMansion_2F_EventScript_ItemCalcium",
       "item": "calcium",
@@ -122,6 +124,7 @@
     {
       "name": "item_ball",
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_2F_ZINC",
       "source_script": "PokemonMansion_2F_EventScript_ItemZinc",
       "item": "zinc",
@@ -130,6 +133,7 @@
     {
       "name": "item_ball",
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_2F_HP_UP",
       "source_script": "PokemonMansion_2F_EventScript_ItemHPUp",
       "item": "hp_up",

@@ -68,11 +68,24 @@
     }
   ],
   "npcs": [
-    {"name": "old_man_2", "coord": [9, 9], "source_event": 0, "source_script": "SilphCo_11F_EventScript_President"},
-    {"name": "worker_f", "coord": [11, 9], "source_event": 1, "source_script": "SilphCo_11F_EventScript_Secretary"},
+    {
+      "name": "old_man_2",
+      "coord": [9, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "SilphCo_11F_EventScript_President"
+    },
+    {
+      "name": "worker_f",
+      "coord": [11, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "SilphCo_11F_EventScript_Secretary"
+    },
     {
       "name": "giovanni",
       "coord": [6, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 2,
       "source_script": "0x0",
@@ -81,6 +94,7 @@
     {
       "name": "rocket_m",
       "coord": [16, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -91,6 +105,7 @@
     {
       "name": "rocket_m",
       "coord": [2, 19],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -104,6 +119,7 @@
       "name": "item_ball",
       "coord": [16, 18],
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_11F_ZINC",
       "source_script": "SilphCo_11F_EventScript_ItemZinc",
       "item": "zinc"

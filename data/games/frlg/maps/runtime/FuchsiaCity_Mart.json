@@ -28,11 +28,24 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "FuchsiaCity_Mart_EventScript_Clerk"},
-    {"name": "gentleman", "coord": [6, 3], "source_event": 1, "source_script": "FuchsiaCity_Mart_EventScript_Gentleman"},
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "FuchsiaCity_Mart_EventScript_Clerk"
+    },
+    {
+      "name": "gentleman",
+      "coord": [6, 3],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "FuchsiaCity_Mart_EventScript_Gentleman"
+    },
     {
       "name": "cooltrainer_f",
       "coord": [9, 5],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [8, 4], "max": [10, 6]},
       "source_event": 2,
       "source_script": "FuchsiaCity_Mart_EventScript_CooltrainerF"

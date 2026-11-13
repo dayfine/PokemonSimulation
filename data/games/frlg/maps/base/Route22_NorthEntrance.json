@@ -35,6 +35,7 @@
     {
       "name": "policeman",
       "coord": [8, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route22_NorthEntrance_EventScript_BoulderBadgeGuard"
     }

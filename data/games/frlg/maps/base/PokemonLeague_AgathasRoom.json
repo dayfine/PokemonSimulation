@@ -34,6 +34,7 @@
     {
       "name": "agatha",
       "coord": [6, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "PokemonLeague_AgathasRoom_EventScript_Agatha"
     }

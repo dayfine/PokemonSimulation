@@ -136,6 +136,7 @@
       "name": "item_ball",
       "coord": [28, 14],
       "source_event": 0,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_WEST_GOLD_TEETH",
       "source_script": "SafariZone_West_EventScript_ItemGoldTeeth",
       "item": "gold_teeth"
@@ -144,6 +145,7 @@
       "name": "item_ball",
       "coord": [17, 13],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_WEST_TM32",
       "source_script": "SafariZone_West_EventScript_ItemTM32",
       "item": "tm32"
@@ -152,6 +154,7 @@
       "name": "item_ball",
       "coord": [16, 27],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_WEST_MAX_POTION",
       "source_script": "SafariZone_West_EventScript_ItemMaxPotion",
       "item": "max_potion"
@@ -160,6 +163,7 @@
       "name": "item_ball",
       "coord": [27, 24],
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_WEST_MAX_REVIVE",
       "source_script": "SafariZone_West_EventScript_ItemMaxRevive",
       "item": "max_revive"

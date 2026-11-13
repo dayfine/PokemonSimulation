@@ -101,6 +101,7 @@
     {
       "name": "rocket_m",
       "coord": [28, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -110,6 +111,7 @@
     {
       "name": "rocket_m",
       "coord": [10, 17],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 5},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -119,6 +121,7 @@
     {
       "name": "scientist",
       "coord": [9, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -128,17 +131,25 @@
     {
       "name": "worker_m",
       "coord": [2, 5],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [1, 5], "max": [3, 5]},
       "source_event": 3,
       "source_script": "SilphCo_8F_EventScript_WorkerM"
     },
-    {"name": "scientist", "coord": [29, 9], "source_event": 5, "source_script": "SilphCo_8F_EventScript_Scientist"}
+    {
+      "name": "scientist",
+      "coord": [29, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 5,
+      "source_script": "SilphCo_8F_EventScript_Scientist"
+    }
   ],
   "items": [
     {
       "name": "item_ball",
       "coord": [24, 8],
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_8F_IRON",
       "source_script": "SilphCo_8F_EventScript_ItemIron",
       "item": "iron"

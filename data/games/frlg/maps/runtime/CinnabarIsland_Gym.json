@@ -47,14 +47,22 @@
     {
       "name": "poke_maniac",
       "coord": [25, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CinnabarIsland_Gym_EventScript_Quinn",
       "source_local_id": "LOCALID_QUINN"
     },
-    {"name": "scientist", "coord": [25, 4], "source_event": 1, "source_script": "CinnabarIsland_Gym_EventScript_Erik"},
+    {
+      "name": "scientist",
+      "coord": [25, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "CinnabarIsland_Gym_EventScript_Erik"
+    },
     {
       "name": "scientist",
       "coord": [17, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 2,
       "source_script": "CinnabarIsland_Gym_EventScript_Avery",
       "source_local_id": "LOCALID_AVERY"
@@ -62,6 +70,7 @@
     {
       "name": "poke_maniac",
       "coord": [16, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 3,
       "source_script": "CinnabarIsland_Gym_EventScript_Ramon",
       "source_local_id": "LOCALID_RAMON"
@@ -69,6 +78,7 @@
     {
       "name": "scientist",
       "coord": [16, 18],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 4,
       "source_script": "CinnabarIsland_Gym_EventScript_Derek",
       "source_local_id": "LOCALID_DEREK"
@@ -76,6 +86,7 @@
     {
       "name": "poke_maniac",
       "coord": [4, 19],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 5,
       "source_script": "CinnabarIsland_Gym_EventScript_Dusty",
       "source_local_id": "LOCALID_DUSTY"
@@ -83,11 +94,24 @@
     {
       "name": "scientist",
       "coord": [4, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 6,
       "source_script": "CinnabarIsland_Gym_EventScript_Zac",
       "source_local_id": "LOCALID_ZAC"
     },
-    {"name": "blaine", "coord": [5, 4], "source_event": 7, "source_script": "CinnabarIsland_Gym_EventScript_Blaine"},
-    {"name": "gym_guy", "coord": [24, 20], "source_event": 8, "source_script": "CinnabarIsland_Gym_EventScript_GymGuy"}
+    {
+      "name": "blaine",
+      "coord": [5, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 7,
+      "source_script": "CinnabarIsland_Gym_EventScript_Blaine"
+    },
+    {
+      "name": "gym_guy",
+      "coord": [24, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 8,
+      "source_script": "CinnabarIsland_Gym_EventScript_GymGuy"
+    }
   ]
 }

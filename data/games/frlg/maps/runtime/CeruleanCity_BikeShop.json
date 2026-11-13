@@ -29,14 +29,27 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "man", "coord": [9, 3], "source_event": 0, "source_script": "CeruleanCity_BikeShop_EventScript_Clerk"},
+    {
+      "name": "man",
+      "coord": [9, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "CeruleanCity_BikeShop_EventScript_Clerk"
+    },
     {
       "name": "youngster",
       "coord": [9, 7],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [8, 6], "max": [10, 8]},
       "source_event": 1,
       "source_script": "CeruleanCity_BikeShop_EventScript_Youngster"
     },
-    {"name": "woman_2", "coord": [5, 5], "source_event": 2, "source_script": "CeruleanCity_BikeShop_EventScript_Woman"}
+    {
+      "name": "woman_2",
+      "coord": [5, 5],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "CeruleanCity_BikeShop_EventScript_Woman"
+    }
   ]
 }

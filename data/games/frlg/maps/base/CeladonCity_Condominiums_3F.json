@@ -43,24 +43,28 @@
     {
       "name": "rocker",
       "coord": [0, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CeladonCity_Condominiums_3F_EventScript_Programmer"
     },
     {
       "name": "man",
       "coord": [3, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 1,
       "source_script": "CeladonCity_Condominiums_3F_EventScript_Designer"
     },
     {
       "name": "poke_maniac",
       "coord": [4, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 2,
       "source_script": "CeladonCity_Condominiums_3F_EventScript_GraphicArtist"
     },
     {
       "name": "fat_man",
       "coord": [0, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 3,
       "source_script": "CeladonCity_Condominiums_3F_EventScript_Writer"
     }

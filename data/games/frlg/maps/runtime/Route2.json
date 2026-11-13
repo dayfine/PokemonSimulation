@@ -130,6 +130,7 @@
     {
       "name": "cut_tree",
       "coord": [16, 62],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 0,
       "source_script": "EventScript_CutTree"
@@ -137,6 +138,7 @@
     {
       "name": "cut_tree",
       "coord": [15, 69],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 1,
       "source_script": "EventScript_CutTree"
@@ -144,6 +146,7 @@
     {
       "name": "cut_tree",
       "coord": [11, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_15",
       "source_event": 2,
       "source_script": "EventScript_CutTree"
@@ -151,6 +154,7 @@
     {
       "name": "cut_tree",
       "coord": [18, 26],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_16",
       "source_event": 3,
       "source_script": "EventScript_CutTree"
@@ -161,6 +165,7 @@
       "name": "item_ball",
       "coord": [17, 54],
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE2_ETHER",
       "source_script": "Route2_EventScript_ItemEther",
       "item": "ether"
@@ -169,6 +174,7 @@
       "name": "item_ball",
       "coord": [17, 64],
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE2_PARALYZE_HEAL",
       "source_script": "Route2_EventScript_ItemParalyzeHeal",
       "item": "paralyze_heal"

@@ -41,9 +41,16 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "lt_surge", "source_event": 0, "source_script": "VermilionCity_Gym_EventScript_LtSurge", "coord": [5, 2]},
+    {
+      "name": "lt_surge",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "VermilionCity_Gym_EventScript_LtSurge",
+      "coord": [5, 2]
+    },
     {
       "name": "balding_man",
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
       "source_script": "VermilionCity_Gym_EventScript_Baily",
@@ -51,14 +58,22 @@
     },
     {
       "name": "sailor",
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
       "source_event": 2,
       "source_script": "VermilionCity_Gym_EventScript_Dwayne",
       "coord": [8, 13]
     },
-    {"name": "gym_guy", "source_event": 3, "source_script": "VermilionCity_Gym_EventScript_GymGuy", "coord": [4, 17]},
+    {
+      "name": "gym_guy",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 3,
+      "source_script": "VermilionCity_Gym_EventScript_GymGuy",
+      "coord": [4, 17]
+    },
     {
       "name": "gentleman",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 4,

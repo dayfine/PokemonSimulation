@@ -74,6 +74,7 @@
     {
       "name": "poke_maniac",
       "coord": [2, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
       "source_script": "RockTunnel_B1F_EventScript_Cooper"
@@ -81,6 +82,7 @@
     {
       "name": "hiker",
       "coord": [5, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 1,
@@ -89,6 +91,7 @@
     {
       "name": "picnicker",
       "coord": [11, 15],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 2,
@@ -97,6 +100,7 @@
     {
       "name": "hiker",
       "coord": [36, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 3,
@@ -105,6 +109,7 @@
     {
       "name": "hiker",
       "coord": [41, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 4,
@@ -113,6 +118,7 @@
     {
       "name": "poke_maniac",
       "coord": [23, 23],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "source_event": 5,
@@ -121,6 +127,7 @@
     {
       "name": "picnicker",
       "coord": [15, 33],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "source_event": 6,
@@ -129,6 +136,7 @@
     {
       "name": "poke_maniac",
       "coord": [29, 35],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 7,
@@ -137,12 +145,14 @@
     {
       "name": "youngster",
       "coord": [2, 29],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 8,
       "source_script": "RockTunnel_B1F_EventScript_RockSlideTutor"
     },
     {
       "name": "rock_smash_rock",
       "coord": [1, 20],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 11,
       "source_script": "EventScript_RockSmash"
@@ -150,6 +160,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [1, 22],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 12,
       "source_script": "EventScript_RockSmash"
@@ -157,6 +168,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [4, 23],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_14",
       "source_event": 13,
       "source_script": "EventScript_RockSmash"
@@ -164,6 +176,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [2, 23],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_15",
       "source_event": 14,
       "source_script": "EventScript_RockSmash"
@@ -171,6 +184,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [39, 26],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_16",
       "source_event": 15,
       "source_script": "EventScript_RockSmash"
@@ -178,6 +192,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [42, 26],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_17",
       "source_event": 16,
       "source_script": "EventScript_RockSmash"
@@ -185,6 +200,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [43, 28],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_18",
       "source_event": 17,
       "source_script": "EventScript_RockSmash"
@@ -192,6 +208,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [45, 30],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_19",
       "source_event": 18,
       "source_script": "EventScript_RockSmash"
@@ -199,6 +216,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [45, 33],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_1A",
       "source_event": 19,
       "source_script": "EventScript_RockSmash"
@@ -206,6 +224,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [25, 1],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_1B",
       "source_event": 20,
       "source_script": "EventScript_RockSmash"
@@ -213,6 +232,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [27, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_1C",
       "source_event": 21,
       "source_script": "EventScript_RockSmash"
@@ -220,6 +240,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [23, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_1D",
       "source_event": 22,
       "source_script": "EventScript_RockSmash"
@@ -227,6 +248,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [26, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_1E",
       "source_event": 23,
       "source_script": "EventScript_RockSmash"
@@ -234,6 +256,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [24, 7],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_1F",
       "source_event": 24,
       "source_script": "EventScript_RockSmash"
@@ -241,6 +264,7 @@
     {
       "name": "rock_smash_rock",
       "coord": [27, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_11",
       "source_event": 25,
       "source_script": "EventScript_RockSmash"
@@ -251,6 +275,7 @@
       "name": "item_ball",
       "coord": [2, 37],
       "source_event": 9,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_REVIVE",
       "source_script": "RockTunnel_B1F_EventScript_ItemRevive",
       "item": "revive"
@@ -259,6 +284,7 @@
       "name": "item_ball",
       "coord": [9, 2],
       "source_event": 10,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_MAX_ETHER",
       "source_script": "RockTunnel_B1F_EventScript_ItemMaxEther",
       "item": "max_ether"

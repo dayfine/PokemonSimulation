@@ -44,6 +44,7 @@
     {
       "name": "nurse",
       "coord": [7, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "LavenderTown_PokemonCenter_1F_EventScript_Nurse",
       "source_local_id": "LOCALID_LAVENDER_NURSE"
@@ -51,12 +52,14 @@
     {
       "name": "gentleman",
       "coord": [9, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 1,
       "source_script": "LavenderTown_PokemonCenter_1F_EventScript_Gentleman"
     },
     {
       "name": "lass",
       "coord": [5, 6],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 2]},
       "wander": {"min": [5, 4], "max": [5, 8]},
       "source_event": 2,
       "source_script": "LavenderTown_PokemonCenter_1F_EventScript_Lass"
@@ -64,6 +67,7 @@
     {
       "name": "youngster",
       "coord": [2, 2],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [1, 1], "max": [3, 3]},
       "source_event": 3,
       "source_script": "LavenderTown_PokemonCenter_1F_EventScript_Youngster"
@@ -71,6 +75,7 @@
     {
       "name": "balding_man",
       "coord": [14, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
       "source_event": 4,
       "source_script": "LavenderTown_PokemonCenter_1F_EventScript_BaldingMan"

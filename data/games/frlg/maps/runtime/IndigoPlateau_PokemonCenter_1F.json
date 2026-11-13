@@ -59,12 +59,14 @@
     {
       "name": "clerk",
       "coord": [0, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 0,
       "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_Clerk"
     },
     {
       "name": "nurse",
       "coord": [13, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 1,
       "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_Nurse",
       "source_local_id": "LOCALID_LEAGUE_NURSE"
@@ -72,12 +74,14 @@
     {
       "name": "gym_guy",
       "coord": [7, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 2,
       "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_GymGuy"
     },
     {
       "name": "cooltrainer_f",
       "coord": [5, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 3,
       "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_DoorGuard",
       "source_local_id": "LOCALID_LEAGUE_DOOR_GUARD"
@@ -85,6 +89,7 @@
     {
       "name": "black_belt",
       "coord": [23, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
       "source_event": 4,
       "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_BlackBelt"
@@ -92,6 +97,7 @@
     {
       "name": "0",
       "coord": [22, 9],
+      "movement": {"type": "MOVEMENT_TYPE_INVISIBLE", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
       "source_event": 5,
       "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_PokemonJournal"
@@ -99,6 +105,7 @@
     {
       "name": "cooltrainer_m",
       "coord": [16, 15],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [15, 14], "max": [17, 16]},
       "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
       "source_event": 6,
@@ -107,6 +114,7 @@
     {
       "name": "0",
       "coord": [23, 9],
+      "movement": {"type": "MOVEMENT_TYPE_INVISIBLE", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POSTGAME_GOSSIPERS",
       "source_event": 7,
       "source_script": "IndigoPlateau_PokemonCenter_1F_EventScript_PokemonJournal"

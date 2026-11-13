@@ -44,6 +44,7 @@
     {
       "name": "nurse",
       "coord": [7, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "Route10_PokemonCenter_1F_EventScript_Nurse",
       "source_local_id": "LOCALID_ROUTE10_NURSE"
@@ -51,6 +52,7 @@
     {
       "name": "gentleman",
       "coord": [9, 4],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [8, 4], "max": [10, 4]},
       "source_event": 1,
       "source_script": "Route10_PokemonCenter_1F_EventScript_Gentleman"
@@ -58,6 +60,7 @@
     {
       "name": "fat_man",
       "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [1, 3], "max": [3, 3]},
       "source_event": 2,
       "source_script": "Route10_PokemonCenter_1F_EventScript_FatMan"
@@ -65,12 +68,14 @@
     {
       "name": "youngster",
       "coord": [14, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "source_event": 3,
       "source_script": "Route10_PokemonCenter_1F_EventScript_Youngster"
     },
     {
       "name": "scientist",
       "coord": [12, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 4,
       "source_script": "Route10_PokemonCenter_1F_EventScript_Aide"
     }

@@ -67,14 +67,22 @@
     {
       "name": "woman_2",
       "coord": [14, 6],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 1]},
       "wander": {"min": [13, 6], "max": [15, 6]},
       "source_event": 0,
       "source_script": "CinnabarIsland_EventScript_Woman"
     },
-    {"name": "old_man_1", "coord": [11, 11], "source_event": 1, "source_script": "CinnabarIsland_EventScript_OldMan"},
+    {
+      "name": "old_man_1",
+      "coord": [11, 11],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "CinnabarIsland_EventScript_OldMan"
+    },
     {
       "name": "bill",
       "coord": [20, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CINNABAR_BILL",
       "source_event": 2,
       "source_script": "0x0",
@@ -83,6 +91,7 @@
     {
       "name": "seagallop",
       "coord": [23, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CINNABAR_SEAGALLOP",
       "source_event": 3,
       "source_script": "0x0",

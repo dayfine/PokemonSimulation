@@ -55,6 +55,7 @@
     {
       "name": "picnicker",
       "coord": [22, 13],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [21, 12], "max": [23, 14]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
@@ -63,6 +64,7 @@
     {
       "name": "rocker",
       "coord": [31, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 5},
       "source_event": 1,
@@ -71,6 +73,7 @@
     {
       "name": "rocker",
       "coord": [37, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 2},
       "source_event": 2,
@@ -79,6 +82,7 @@
     {
       "name": "picnicker",
       "coord": [44, 13],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [43, 12], "max": [45, 14]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
@@ -87,6 +91,7 @@
     {
       "name": "beauty",
       "coord": [50, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "source_event": 4,
@@ -95,6 +100,7 @@
     {
       "name": "biker",
       "coord": [59, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["south", "east"]},
       "source_event": 5,
       "source_script": "Route15_EventScript_Alex"
@@ -102,6 +108,7 @@
     {
       "name": "biker",
       "coord": [63, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["south", "north"]},
       "source_event": 6,
       "source_script": "Route15_EventScript_Ernest"
@@ -109,6 +116,7 @@
     {
       "name": "picnicker",
       "coord": [52, 8],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 4]},
       "wander": {"min": [50, 4], "max": [54, 12]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 7,
@@ -117,6 +125,7 @@
     {
       "name": "beauty",
       "coord": [54, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "source_event": 8,
@@ -125,6 +134,7 @@
     {
       "name": "picnicker",
       "coord": [28, 6],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [2, 4]},
       "wander": {"min": [26, 2], "max": [30, 10]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 9,
@@ -133,6 +143,7 @@
     {
       "name": "black_belt",
       "coord": [39, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 11,
@@ -141,6 +152,7 @@
     {
       "name": "crush_girl",
       "coord": [40, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 12,
@@ -152,6 +164,7 @@
       "name": "item_ball",
       "coord": [20, 6],
       "source_event": 10,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE15_TM18",
       "source_script": "Route15_EventScript_ItemTM18",
       "item": "tm18"

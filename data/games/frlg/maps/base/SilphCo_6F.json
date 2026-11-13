@@ -72,20 +72,52 @@
     {
       "name": "rocket_m",
       "coord": [21, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
       "source_event": 0,
       "source_script": "SilphCo_6F_EventScript_Grunt1"
     },
-    {"name": "worker_m", "coord": [23, 9], "source_event": 1, "source_script": "SilphCo_6F_EventScript_WorkerM1"},
-    {"name": "worker_f", "coord": [24, 9], "source_event": 2, "source_script": "SilphCo_6F_EventScript_WorkerF1"},
-    {"name": "worker_m", "coord": [22, 13], "source_event": 3, "source_script": "SilphCo_6F_EventScript_WorkerM2"},
-    {"name": "worker_m", "coord": [14, 9], "source_event": 4, "source_script": "SilphCo_6F_EventScript_WorkerM3"},
-    {"name": "worker_f", "coord": [16, 12], "source_event": 5, "source_script": "SilphCo_6F_EventScript_WorkerF2"},
+    {
+      "name": "worker_m",
+      "coord": [23, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "SilphCo_6F_EventScript_WorkerM1"
+    },
+    {
+      "name": "worker_f",
+      "coord": [24, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "SilphCo_6F_EventScript_WorkerF1"
+    },
+    {
+      "name": "worker_m",
+      "coord": [22, 13],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 3,
+      "source_script": "SilphCo_6F_EventScript_WorkerM2"
+    },
+    {
+      "name": "worker_m",
+      "coord": [14, 9],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 4,
+      "source_script": "SilphCo_6F_EventScript_WorkerM3"
+    },
+    {
+      "name": "worker_f",
+      "coord": [16, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 5,
+      "source_script": "SilphCo_6F_EventScript_WorkerF2"
+    },
     {
       "name": "scientist",
       "coord": [9, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -95,6 +127,7 @@
     {
       "name": "rocket_m",
       "coord": [18, 17],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -107,6 +140,7 @@
       "name": "item_ball",
       "coord": [2, 14],
       "source_event": 7,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_6F_HP_UP",
       "source_script": "SilphCo_6F_EventScript_ItemHPUp",
       "item": "hp_up"
@@ -115,6 +149,7 @@
       "name": "item_ball",
       "coord": [1, 17],
       "source_event": 8,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_6F_X_SPECIAL",
       "source_script": "SilphCo_6F_EventScript_ItemXSpecial",
       "item": "x_special"

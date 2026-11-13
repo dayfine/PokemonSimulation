@@ -43,6 +43,7 @@
     {
       "name": "0",
       "coord": [6, 6],
+      "movement": {"type": "MOVEMENT_TYPE_INVISIBLE", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS",
       "source_event": 0,
       "source_script": "CeladonCity_Condominiums_2F_EventScript_PokemonJournalErika"
@@ -50,6 +51,7 @@
     {
       "name": "0",
       "coord": [5, 6],
+      "movement": {"type": "MOVEMENT_TYPE_INVISIBLE", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS",
       "source_event": 1,
       "source_script": "CeladonCity_Condominiums_2F_EventScript_PokemonJournalErika"

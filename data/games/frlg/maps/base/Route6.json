@@ -121,16 +121,30 @@
     {
       "name": "bug_catcher",
       "coord": [3, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 5},
       "source_event": 0,
       "source_script": "Route6_EventScript_Keigo"
     },
-    {"name": "camper", "coord": [12, 21], "source_event": 1, "source_script": "Route6_EventScript_Ricky"},
-    {"name": "picnicker", "coord": [13, 21], "source_event": 2, "source_script": "Route6_EventScript_Nancy"},
+    {
+      "name": "camper",
+      "coord": [12, 21],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "Route6_EventScript_Ricky"
+    },
+    {
+      "name": "picnicker",
+      "coord": [13, 21],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "Route6_EventScript_Nancy"
+    },
     {
       "name": "bug_catcher",
       "coord": [20, 25],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 3,
@@ -139,6 +153,7 @@
     {
       "name": "picnicker",
       "coord": [13, 32],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 4,
@@ -147,6 +162,7 @@
     {
       "name": "camper",
       "coord": [13, 33],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 5,

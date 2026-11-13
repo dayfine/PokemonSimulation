@@ -173,6 +173,7 @@
     {
       "name": "poke_maniac",
       "coord": [7, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 0,
@@ -181,6 +182,7 @@
     {
       "name": "black_belt",
       "coord": [20, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["south", "west"]},
       "source_event": 1,
       "source_script": "VictoryRoad_2F_EventScript_Daisuke"
@@ -188,6 +190,7 @@
     {
       "name": "rocker",
       "coord": [31, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 4},
       "source_event": 2,
@@ -196,6 +199,8 @@
     {
       "name": "man",
       "coord": [26, 6],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_LEFT_UP", "range": [4, 4]},
+      "wander": {"min": [22, 2], "max": [30, 10]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "VictoryRoad_2F_EventScript_Vincent"
@@ -203,15 +208,23 @@
     {
       "name": "rocker",
       "coord": [36, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 3},
       "source_event": 4,
       "source_script": "VictoryRoad_2F_EventScript_Gregory"
     },
-    {"name": "pushable_boulder", "coord": [8, 7], "source_event": 9, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
+      "source_event": 9,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "pushable_boulder",
       "coord": [6, 17],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
       "source_event": 10,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_2F_BOULDER1"
@@ -219,6 +232,7 @@
     {
       "name": "pushable_boulder",
       "coord": [33, 19],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_BOULDER",
       "source_event": 11,
       "source_script": "EventScript_StrengthBoulder",
@@ -227,6 +241,7 @@
     {
       "name": "cooltrainer_m",
       "coord": [40, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 12,
       "source_script": "VictoryRoad_2F_EventScript_DoubleEdgeTutor"
     }
@@ -236,6 +251,7 @@
       "name": "item_ball",
       "coord": [17, 6],
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_GUARD_SPEC",
       "source_script": "VictoryRoad_2F_EventScript_ItemGuardSpec",
       "item": "guard_spec"
@@ -244,6 +260,7 @@
       "name": "item_ball",
       "coord": [40, 7],
       "source_event": 6,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_TM07",
       "source_script": "VictoryRoad_2F_EventScript_ItemTM07",
       "item": "tm07"
@@ -252,6 +269,7 @@
       "name": "item_ball",
       "coord": [25, 13],
       "source_event": 7,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_FULL_HEAL",
       "source_script": "VictoryRoad_2F_EventScript_ItemFullHeal",
       "item": "full_heal"
@@ -260,6 +278,7 @@
       "name": "item_ball",
       "coord": [14, 13],
       "source_event": 8,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_TM37",
       "source_script": "VictoryRoad_2F_EventScript_ItemTM37",
       "item": "tm37"

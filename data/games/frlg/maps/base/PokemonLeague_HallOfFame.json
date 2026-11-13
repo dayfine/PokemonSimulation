@@ -31,6 +31,7 @@
     {
       "name": "prof_oak",
       "coord": [6, 4],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "0x0",
       "source_local_id": "LOCALID_HALL_OF_FAME_PROF_OAK"

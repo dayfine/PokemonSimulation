@@ -122,6 +122,7 @@
   "npcs": [
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 4},
       "source_event": 0,
@@ -130,6 +131,7 @@
     },
     {
       "name": "youngster",
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [2, 1]},
       "wander": {"min": [6, 8], "max": [10, 8]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "source_event": 4,
@@ -141,6 +143,7 @@
     {
       "name": "item_ball",
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_CARBOS",
       "source_script": "PokemonMansion_1F_EventScript_ItemCarbos",
       "item": "carbos",
@@ -149,6 +152,7 @@
     {
       "name": "item_ball",
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_ESCAPE_ROPE",
       "source_script": "PokemonMansion_1F_EventScript_ItemEscapeRope",
       "item": "escape_rope",
@@ -157,6 +161,7 @@
     {
       "name": "item_ball",
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_1F_PROTEIN",
       "source_script": "PokemonMansion_1F_EventScript_ItemProtein",
       "item": "protein",

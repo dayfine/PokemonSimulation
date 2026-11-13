@@ -30,6 +30,12 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "policeman", "coord": [1, 5], "source_event": 0, "source_script": "Route5_SouthEntrance_EventScript_Guard"}
+    {
+      "name": "policeman",
+      "coord": [1, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "Route5_SouthEntrance_EventScript_Guard"
+    }
   ]
 }

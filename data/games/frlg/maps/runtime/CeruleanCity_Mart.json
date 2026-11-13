@@ -28,10 +28,17 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "CeruleanCity_Mart_EventScript_Clerk"},
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "CeruleanCity_Mart_EventScript_Clerk"
+    },
     {
       "name": "woman_1",
       "coord": [9, 2],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [4, 1]},
       "wander": {"min": [5, 2], "max": [10, 2]},
       "source_event": 1,
       "source_script": "CeruleanCity_Mart_EventScript_Woman"
@@ -39,6 +46,7 @@
     {
       "name": "youngster",
       "coord": [1, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 2,
       "source_script": "CeruleanCity_Mart_EventScript_Youngster"
     }

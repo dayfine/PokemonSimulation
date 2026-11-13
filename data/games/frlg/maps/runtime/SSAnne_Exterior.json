@@ -97,6 +97,7 @@
     {
       "name": "ss_anne",
       "coord": [30, 16],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SS_ANNE",
       "source_event": 0,
       "source_script": "0x0",

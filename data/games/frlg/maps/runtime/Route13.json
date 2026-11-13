@@ -64,6 +64,7 @@
     {
       "name": "picnicker",
       "coord": [62, 6],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [61, 5], "max": [63, 7]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
@@ -72,6 +73,7 @@
     {
       "name": "rocker",
       "coord": [63, 12],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [62, 11], "max": [64, 13]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
@@ -80,6 +82,7 @@
     {
       "name": "picnicker",
       "coord": [54, 11],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [53, 10], "max": [55, 12]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 2,
@@ -88,6 +91,7 @@
     {
       "name": "beauty",
       "coord": [42, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 3,
@@ -96,6 +100,7 @@
     {
       "name": "beauty",
       "coord": [43, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 4,
@@ -104,6 +109,7 @@
     {
       "name": "picnicker",
       "coord": [35, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 5,
@@ -112,6 +118,7 @@
     {
       "name": "picnicker",
       "coord": [29, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 6,
@@ -120,6 +127,7 @@
     {
       "name": "rocker",
       "coord": [9, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 3},
       "source_event": 7,
@@ -128,6 +136,7 @@
     {
       "name": "rocker",
       "coord": [16, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 3},
       "source_event": 8,
@@ -136,6 +145,7 @@
     {
       "name": "biker",
       "coord": [14, 8],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 9,
       "source_script": "Route13_EventScript_Jared"
@@ -143,6 +153,7 @@
     {
       "name": "cut_tree",
       "coord": [44, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 10,
       "source_script": "EventScript_CutTree"

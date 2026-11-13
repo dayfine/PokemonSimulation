@@ -28,8 +28,26 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "youngster", "coord": [8, 2], "source_event": 0, "source_script": "PewterCity_Mart_EventScript_Youngster"},
-    {"name": "boy", "coord": [6, 4], "source_event": 1, "source_script": "PewterCity_Mart_EventScript_Boy"},
-    {"name": "clerk", "coord": [2, 3], "source_event": 2, "source_script": "PewterCity_Mart_EventScript_Clerk"}
+    {
+      "name": "youngster",
+      "coord": [8, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "PewterCity_Mart_EventScript_Youngster"
+    },
+    {
+      "name": "boy",
+      "coord": [6, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "PewterCity_Mart_EventScript_Boy"
+    },
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 2,
+      "source_script": "PewterCity_Mart_EventScript_Clerk"
+    }
   ]
 }

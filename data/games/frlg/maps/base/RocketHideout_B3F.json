@@ -68,6 +68,7 @@
     {
       "name": "rocket_m",
       "coord": [19, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -77,6 +78,7 @@
     {
       "name": "rocket_m",
       "coord": [2, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -89,6 +91,7 @@
       "name": "item_ball",
       "coord": [12, 12],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B3F_RARE_CANDY",
       "source_script": "RocketHideout_B3F_EventScript_ItemRareCandy",
       "item": "rare_candy"
@@ -97,6 +100,7 @@
       "name": "item_ball",
       "coord": [19, 14],
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B3F_TM21",
       "source_script": "RocketHideout_B3F_EventScript_ItemTM21",
       "item": "tm21"
@@ -105,6 +109,7 @@
       "name": "item_ball",
       "coord": [14, 24],
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCKET_HIDEOUT_B3F_BLACK_GLASSES",
       "source_script": "RocketHideout_B3F_EventScript_ItemBlackGlasses",
       "item": "black_glasses"

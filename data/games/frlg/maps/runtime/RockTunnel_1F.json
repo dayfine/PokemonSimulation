@@ -83,6 +83,7 @@
     {
       "name": "picnicker",
       "coord": [26, 28],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "source_event": 0,
@@ -91,6 +92,7 @@
     {
       "name": "picnicker",
       "coord": [39, 27],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 4},
       "source_event": 1,
@@ -99,6 +101,7 @@
     {
       "name": "picnicker",
       "coord": [45, 24],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 5},
       "source_event": 2,
@@ -107,6 +110,7 @@
     {
       "name": "hiker",
       "coord": [20, 17],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 4},
       "source_event": 3,
@@ -115,6 +119,7 @@
     {
       "name": "hiker",
       "coord": [5, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 4,
@@ -123,6 +128,7 @@
     {
       "name": "hiker",
       "coord": [7, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 5,
@@ -131,6 +137,7 @@
     {
       "name": "poke_maniac",
       "coord": [27, 10],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 6,
@@ -142,6 +149,7 @@
       "name": "item_ball",
       "coord": [37, 5],
       "source_event": 7,
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_REPEL",
       "source_script": "RockTunnel_1F_EventScript_ItemRepel",
       "item": "repel"
@@ -150,6 +158,7 @@
       "name": "item_ball",
       "coord": [33, 22],
       "source_event": 8,
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_PEARL",
       "source_script": "RockTunnel_1F_EventScript_ItemPearl",
       "item": "pearl"
@@ -158,6 +167,7 @@
       "name": "item_ball",
       "coord": [22, 22],
       "source_event": 9,
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROCK_TUNNEL_1F_ESCAPE_ROPE",
       "source_script": "RockTunnel_1F_EventScript_ItemEscapeRope",
       "item": "escape_rope"

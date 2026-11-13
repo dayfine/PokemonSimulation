@@ -64,6 +64,7 @@
     {
       "name": "rocker",
       "coord": [46, 14],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 4},
       "source_event": 0,
@@ -72,6 +73,7 @@
     {
       "name": "rocker",
       "coord": [41, 15],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
       "source_script": "Route18_EventScript_Ramiro"
@@ -79,6 +81,7 @@
     {
       "name": "rocker",
       "coord": [39, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 6},
       "source_event": 2,

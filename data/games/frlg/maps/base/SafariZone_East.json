@@ -117,6 +117,7 @@
       "name": "item_ball",
       "coord": [13, 12],
       "source_event": 0,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_EAST_MAX_POTION",
       "source_script": "SafariZone_East_EventScript_ItemMaxPotion",
       "item": "max_potion"
@@ -125,6 +126,7 @@
       "name": "item_ball",
       "coord": [37, 15],
       "source_event": 1,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_EAST_FULL_RESTORE",
       "source_script": "SafariZone_East_EventScript_ItemFullRestore",
       "item": "full_restore"
@@ -133,6 +135,7 @@
       "name": "item_ball",
       "coord": [31, 18],
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_EAST_TM11",
       "source_script": "SafariZone_East_EventScript_ItemTM11",
       "item": "tm11"
@@ -141,6 +144,7 @@
       "name": "item_ball",
       "coord": [36, 17],
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SAFARI_ZONE_EAST_LEAF_STONE",
       "source_script": "SafariZone_East_EventScript_ItemLeafStone",
       "item": "leaf_stone"

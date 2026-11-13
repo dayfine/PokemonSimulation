@@ -62,6 +62,7 @@
     {
       "name": "channeler",
       "coord": [11, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
       "source_script": "PokemonTower_5F_EventScript_Ruth"
@@ -69,6 +70,7 @@
     {
       "name": "channeler",
       "coord": [19, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 3},
       "source_event": 1,
@@ -77,6 +79,7 @@
     {
       "name": "channeler",
       "coord": [7, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "source_event": 2,
@@ -85,17 +88,25 @@
     {
       "name": "channeler",
       "coord": [11, 16],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "PokemonTower_5F_EventScript_Janae"
     },
-    {"name": "channeler", "coord": [12, 8], "source_event": 4, "source_script": "PokemonTower_5F_EventScript_Channeler"}
+    {
+      "name": "channeler",
+      "coord": [12, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 4,
+      "source_script": "PokemonTower_5F_EventScript_Channeler"
+    }
   ],
   "items": [
     {
       "name": "item_ball",
       "coord": [6, 16],
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_TOWER_5F_NUGGET",
       "source_script": "PokemonTower_5F_EventScript_ItemNugget",
       "item": "nugget"
@@ -104,6 +115,7 @@
       "name": "item_ball",
       "coord": [11, 9],
       "source_event": 6,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_TOWER_5F_CLEANSE_TAG",
       "source_script": "PokemonTower_5F_EventScript_ItemCleanseTag",
       "item": "cleanse_tag"

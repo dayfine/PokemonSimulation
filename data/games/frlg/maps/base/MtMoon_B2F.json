@@ -121,6 +121,7 @@
     {
       "name": "fossil",
       "coord": [13, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_DOME_FOSSIL",
       "source_event": 0,
       "source_script": "MtMoon_B2F_EventScript_DomeFossil",
@@ -129,6 +130,7 @@
     {
       "name": "fossil",
       "coord": [14, 7],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_HELIX_FOSSIL",
       "source_event": 1,
       "source_script": "MtMoon_B2F_EventScript_HelixFossil",
@@ -137,6 +139,7 @@
     {
       "name": "scientist",
       "coord": [13, 11],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 2,
       "source_script": "MtMoon_B2F_EventScript_Miguel",
       "source_local_id": "LOCALID_MIGUEL"
@@ -144,6 +147,7 @@
     {
       "name": "rocket_m",
       "coord": [37, 21],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 3, "looks": ["north", "east", "south", "west"]},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
       "source_event": 3,
@@ -152,6 +156,7 @@
     {
       "name": "rocket_m",
       "coord": [12, 20],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -161,6 +166,7 @@
     {
       "name": "rocket_m",
       "coord": [35, 12],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "facing": "north",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -170,6 +176,7 @@
     {
       "name": "rocket_m",
       "coord": [18, 27],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_MISC_KANTO_ROCKETS",
@@ -182,6 +189,7 @@
       "name": "item_ball",
       "coord": [30, 26],
       "source_event": 7,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_MT_MOON_B2F_STAR_PIECE",
       "source_script": "MtMoon_B2F_EventScript_ItemStarPiece",
       "item": "star_piece"
@@ -190,6 +198,7 @@
       "name": "item_ball",
       "coord": [35, 5],
       "source_event": 8,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_MT_MOON_B2F_TM46",
       "source_script": "MtMoon_B2F_EventScript_ItemTM46",
       "item": "tm46"
@@ -198,6 +207,7 @@
       "name": "item_ball",
       "coord": [24, 6],
       "source_event": 9,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_MT_MOON_B2F_REVIVE",
       "source_script": "MtMoon_B2F_EventScript_ItemRevive",
       "item": "revive"
@@ -206,6 +216,7 @@
       "name": "item_ball",
       "coord": [3, 11],
       "source_event": 10,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_MT_MOON_B2F_ANTIDOTE",
       "source_script": "MtMoon_B2F_EventScript_ItemAntidote",
       "item": "antidote"

@@ -86,6 +86,7 @@
     {
       "name": "youngster",
       "coord": [19, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["south", "west"]},
       "source_event": 0,
       "source_script": "Route11_EventScript_Eddie"
@@ -93,6 +94,7 @@
     {
       "name": "old_man_1",
       "coord": [16, 17],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
       "source_script": "Route11_EventScript_Hugo"
@@ -100,6 +102,7 @@
     {
       "name": "youngster",
       "coord": [31, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["north", "west"]},
       "source_event": 2,
       "source_script": "Route11_EventScript_Dillon"
@@ -107,6 +110,8 @@
     {
       "name": "youngster",
       "coord": [28, 10],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_LEFT_UP", "range": [8, 4]},
+      "wander": {"min": [20, 6], "max": [36, 14]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "Route11_EventScript_Dave"
@@ -114,6 +119,7 @@
     {
       "name": "old_man_1",
       "coord": [38, 15],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 4,
       "source_script": "Route11_EventScript_Jasper"
@@ -121,6 +127,7 @@
     {
       "name": "old_man_1",
       "coord": [50, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 5,
       "source_script": "Route11_EventScript_Darian"
@@ -128,6 +135,7 @@
     {
       "name": "balding_man",
       "coord": [42, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["west", "east"]},
       "source_event": 6,
       "source_script": "Route11_EventScript_Braxton"
@@ -135,6 +143,8 @@
     {
       "name": "youngster",
       "coord": [50, 14],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN", "range": [1, 4]},
+      "wander": {"min": [50, 10], "max": [50, 18]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 7,
       "source_script": "Route11_EventScript_Yasu"
@@ -142,6 +152,7 @@
     {
       "name": "old_man_1",
       "coord": [57, 16],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 8,
       "source_script": "Route11_EventScript_Dirk"
@@ -149,6 +160,7 @@
     {
       "name": "balding_man",
       "coord": [32, 18],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 6, "looks": ["west", "east"]},
       "source_event": 9,
       "source_script": "Route11_EventScript_Bernie"
@@ -159,6 +171,7 @@
       "name": "item_ball",
       "coord": [42, 12],
       "source_event": 10,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE11_X_DEFEND",
       "source_script": "Route11_EventScript_ItemXDefend",
       "item": "x_defend"
@@ -167,6 +180,7 @@
       "name": "item_ball",
       "coord": [63, 13],
       "source_event": 11,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE11_GREAT_BALL",
       "source_script": "Route11_EventScript_ItemGreatBall",
       "item": "great_ball"
@@ -175,6 +189,7 @@
       "name": "item_ball",
       "coord": [13, 3],
       "source_event": 12,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE11_AWAKENING",
       "source_script": "Route11_EventScript_ItemAwakening",
       "item": "awakening"

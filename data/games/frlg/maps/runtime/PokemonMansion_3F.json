@@ -113,6 +113,7 @@
   "npcs": [
     {
       "name": "poke_maniac",
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [6, 12], "max": [8, 14]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 0,
@@ -121,6 +122,7 @@
     },
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 1,
@@ -132,6 +134,7 @@
     {
       "name": "item_ball",
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_3F_MAX_POTION",
       "source_script": "PokemonMansion_3F_EventScript_ItemMaxPotion",
       "item": "max_potion",
@@ -140,6 +143,7 @@
     {
       "name": "item_ball",
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_3F_IRON",
       "source_script": "PokemonMansion_3F_EventScript_ItemIron",
       "item": "iron",

@@ -114,6 +114,7 @@
   "npcs": [
     {
       "name": "poke_maniac",
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_AROUND", "range": [1, 1]},
       "wander": {"min": [19, 24], "max": [21, 26]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 1,
@@ -122,6 +123,7 @@
     },
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 6},
       "source_event": 2,
@@ -133,6 +135,7 @@
     {
       "name": "item_ball",
       "source_event": 0,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_B1F_TM22",
       "source_script": "PokemonMansion_B1F_EventScript_ItemTM22",
       "item": "tm22",
@@ -141,6 +144,7 @@
     {
       "name": "item_ball",
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_B1F_TM14",
       "source_script": "PokemonMansion_B1F_EventScript_ItemTM14",
       "item": "tm14",
@@ -149,6 +153,7 @@
     {
       "name": "item_ball",
       "source_event": 4,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_B1F_FULL_RESTORE",
       "source_script": "PokemonMansion_B1F_EventScript_ItemFullRestore",
       "item": "full_restore",
@@ -157,6 +162,7 @@
     {
       "name": "item_ball",
       "source_event": 5,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY",
       "source_script": "PokemonMansion_B1F_EventScript_ItemSecretKey",
       "item": "secret_key",

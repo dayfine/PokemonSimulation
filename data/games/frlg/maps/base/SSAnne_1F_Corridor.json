@@ -62,7 +62,19 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "sailor", "coord": [18, 8], "source_event": 0, "source_script": "SSAnne_1F_Corridor_EventScript_Sailor"},
-    {"name": "worker_m", "coord": [12, 9], "source_event": 1, "source_script": "SSAnne_1F_Corridor_EventScript_WorkerM"}
+    {
+      "name": "sailor",
+      "coord": [18, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "SSAnne_1F_Corridor_EventScript_Sailor"
+    },
+    {
+      "name": "worker_m",
+      "coord": [12, 9],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "SSAnne_1F_Corridor_EventScript_WorkerM"
+    }
   ]
 }

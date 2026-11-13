@@ -37,6 +37,7 @@
     {
       "name": "blue",
       "coord": [11, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CREDITS_RIVAL",
       "source_event": 0,
       "source_script": "0x0",
@@ -45,6 +46,7 @@
     {
       "name": "prof_oak",
       "coord": [11, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_CREDITS_OAK",
       "source_event": 1,
       "source_script": "0x0",

@@ -31,6 +31,7 @@
     {
       "name": "mr_fuji",
       "coord": [3, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_POKEHOUSE_FUJI",
       "source_event": 0,
       "source_script": "LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji"
@@ -38,30 +39,35 @@
     {
       "name": "nidorino",
       "coord": [1, 4],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 1,
       "source_script": "LavenderTown_VolunteerPokemonHouse_EventScript_Nidorino"
     },
     {
       "name": "psyduck",
       "coord": [9, 6],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 2,
       "source_script": "LavenderTown_VolunteerPokemonHouse_EventScript_Psyduck"
     },
     {
       "name": "little_boy",
       "coord": [9, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 3,
       "source_script": "LavenderTown_VolunteerPokemonHouse_EventScript_LittleBoy"
     },
     {
       "name": "youngster",
       "coord": [3, 5],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 4,
       "source_script": "LavenderTown_VolunteerPokemonHouse_EventScript_Youngster"
     },
     {
       "name": "little_girl",
       "coord": [7, 2],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
       "source_event": 5,
       "source_script": "LavenderTown_VolunteerPokemonHouse_EventScript_LittleGirl"
     }

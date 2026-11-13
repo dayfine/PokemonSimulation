@@ -60,6 +60,7 @@
     {
       "name": "clerk",
       "coord": [6, 28],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN", "range": [1, 1]},
       "wander": {"min": [6, 27], "max": [6, 29]},
       "source_event": 0,
       "source_script": "Route1_EventScript_MartClerk"
@@ -67,6 +68,7 @@
     {
       "name": "boy",
       "coord": [19, 16],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [1, 3]},
       "wander": {"min": [18, 16], "max": [20, 16]},
       "source_event": 1,
       "source_script": "Route1_EventScript_Boy"

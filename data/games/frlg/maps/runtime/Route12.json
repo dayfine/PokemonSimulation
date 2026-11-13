@@ -303,6 +303,7 @@
     {
       "name": "fisher",
       "coord": [17, 32],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["south", "north"]},
       "source_event": 0,
       "source_script": "Route12_EventScript_Ned"
@@ -310,6 +311,7 @@
     {
       "name": "fisher",
       "coord": [9, 40],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "source_event": 1,
       "source_script": "Route12_EventScript_Chip"
@@ -317,6 +319,7 @@
     {
       "name": "fisher",
       "coord": [16, 47],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT", "range": [1, 1]},
       "trainer": {"sight": 4, "looks": ["south", "west"]},
       "source_event": 2,
       "source_script": "Route12_EventScript_Hank"
@@ -324,6 +327,7 @@
     {
       "name": "fisher",
       "coord": [13, 59],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["south", "north"]},
       "source_event": 3,
       "source_script": "Route12_EventScript_Elliot"
@@ -331,6 +335,7 @@
     {
       "name": "snorlax",
       "coord": [14, 70],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE_12_SNORLAX",
       "source_event": 4,
       "source_script": "Route12_EventScript_Snorlax"
@@ -338,6 +343,8 @@
     {
       "name": "rocker",
       "coord": [13, 92],
+      "movement": {"type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_DOWN_RIGHT", "range": [4, 4]},
+      "wander": {"min": [9, 88], "max": [17, 96]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 5,
       "source_script": "Route12_EventScript_Luca"
@@ -345,6 +352,7 @@
     {
       "name": "camper",
       "coord": [10, 99],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 1},
       "source_event": 6,
@@ -353,6 +361,7 @@
     {
       "name": "fisher",
       "coord": [18, 108],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT", "range": [1, 1]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "source_event": 7,
       "source_script": "Route12_EventScript_Andrew"
@@ -360,15 +369,29 @@
     {
       "name": "cut_tree",
       "coord": [11, 100],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_12",
       "source_event": 8,
       "source_script": "EventScript_CutTree"
     },
-    {"name": "beauty", "coord": [19, 64], "source_event": 11, "source_script": "Route12_EventScript_Gia"},
-    {"name": "man", "coord": [19, 63], "source_event": 12, "source_script": "Route12_EventScript_Jes"},
+    {
+      "name": "beauty",
+      "coord": [19, 64],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 11,
+      "source_script": "Route12_EventScript_Gia"
+    },
+    {
+      "name": "man",
+      "coord": [19, 63],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 12,
+      "source_script": "Route12_EventScript_Jes"
+    },
     {
       "name": "cut_tree",
       "coord": [12, 111],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_TEMP_13",
       "source_event": 13,
       "source_script": "EventScript_CutTree"
@@ -379,6 +402,7 @@
       "name": "item_ball",
       "coord": [18, 36],
       "source_event": 9,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE12_TM48",
       "source_script": "Route12_EventScript_ItemTM48",
       "item": "tm48"
@@ -387,6 +411,7 @@
       "name": "item_ball",
       "coord": [9, 101],
       "source_event": 10,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_ROUTE12_IRON",
       "source_script": "Route12_EventScript_ItemIron",
       "item": "iron"

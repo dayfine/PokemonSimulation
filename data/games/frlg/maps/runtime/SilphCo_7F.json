@@ -87,15 +87,23 @@
   "npcs": [
     {
       "name": "blue",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_RIVAL",
       "source_event": 0,
       "source_script": "0x0",
       "source_local_id": "LOCALID_SILPH_CO_RIVAL",
       "coord": [2, 6]
     },
-    {"name": "worker_m", "source_event": 1, "source_script": "SilphCo_7F_EventScript_LaprasGuy", "coord": [0, 7]},
+    {
+      "name": "worker_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "SilphCo_7F_EventScript_LaprasGuy",
+      "coord": [0, 7]
+    },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
       "facing": "west",
       "trainer": {"sight": 4},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -105,6 +113,7 @@
     },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "facing": "east",
       "trainer": {"sight": 2},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -114,6 +123,7 @@
     },
     {
       "name": "rocket_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 3},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -121,10 +131,24 @@
       "source_script": "SilphCo_7F_EventScript_Grunt3",
       "coord": [13, 4]
     },
-    {"name": "worker_f", "source_event": 5, "source_script": "SilphCo_7F_EventScript_WorkerF", "coord": [10, 10]},
-    {"name": "worker_m", "source_event": 6, "source_script": "SilphCo_7F_EventScript_WorkerM1", "coord": [13, 14]},
+    {
+      "name": "worker_f",
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 5,
+      "source_script": "SilphCo_7F_EventScript_WorkerF",
+      "coord": [10, 10]
+    },
     {
       "name": "worker_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_LEFT", "range": [1, 1]},
+      "source_event": 6,
+      "source_script": "SilphCo_7F_EventScript_WorkerM1",
+      "coord": [13, 14]
+    },
+    {
+      "name": "worker_m",
+      "movement": {"type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT", "range": [1, 1]},
+      "wander": {"min": [8, 14], "max": [10, 14]},
       "source_event": 7,
       "source_script": "SilphCo_7F_EventScript_WorkerM2",
       "source_local_id": "LOCALID_SILPH_CO_7F_WORKER_M2",
@@ -132,6 +156,7 @@
     },
     {
       "name": "scientist",
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [2, 1]},
       "wander": {"min": [1, 13], "max": [5, 13]},
       "trainer": {"sight": 1, "looks": ["west", "east"]},
       "hide_flag": "FLAG_HIDE_SILPH_ROCKETS",
@@ -144,6 +169,7 @@
     {
       "name": "item_ball",
       "source_event": 9,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_7F_CALCIUM",
       "source_script": "SilphCo_7F_EventScript_ItemCalcium",
       "item": "calcium",
@@ -152,6 +178,7 @@
     {
       "name": "item_ball",
       "source_event": 10,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_SILPH_CO_7F_TM08",
       "source_script": "SilphCo_7F_EventScript_ItemTM08",
       "item": "tm08",

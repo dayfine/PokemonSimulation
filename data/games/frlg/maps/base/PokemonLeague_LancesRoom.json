@@ -45,6 +45,7 @@
     {
       "name": "lance",
       "coord": [6, 8],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "source_event": 0,
       "source_script": "PokemonLeague_LancesRoom_EventScript_Lance",
       "source_local_id": "LOCALID_LANCE"

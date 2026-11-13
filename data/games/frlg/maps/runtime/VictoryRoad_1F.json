@@ -143,6 +143,7 @@
   "npcs": [
     {
       "name": "cooltrainer_m",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 0,
@@ -151,6 +152,7 @@
     },
     {
       "name": "cooltrainer_f",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "facing": "south",
       "trainer": {"sight": 4},
       "source_event": 1,
@@ -159,18 +161,32 @@
     },
     {
       "name": "pushable_boulder",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
       "source_event": 4,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_1F_BOULDER",
       "coord": [7, 18]
     },
-    {"name": "pushable_boulder", "source_event": 5, "source_script": "EventScript_StrengthBoulder", "coord": [4, 12]},
-    {"name": "pushable_boulder", "source_event": 6, "source_script": "EventScript_StrengthBoulder", "coord": [16, 3]}
+    {
+      "name": "pushable_boulder",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
+      "source_event": 5,
+      "source_script": "EventScript_StrengthBoulder",
+      "coord": [4, 12]
+    },
+    {
+      "name": "pushable_boulder",
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [0, 0]},
+      "source_event": 6,
+      "source_script": "EventScript_StrengthBoulder",
+      "coord": [16, 3]
+    }
   ],
   "items": [
     {
       "name": "item_ball",
       "source_event": 2,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_1F_RARE_CANDY",
       "source_script": "VictoryRoad_1F_EventScript_ItemRareCandy",
       "item": "rare_candy",
@@ -179,6 +195,7 @@
     {
       "name": "item_ball",
       "source_event": 3,
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_1F_TM02",
       "source_script": "VictoryRoad_1F_EventScript_ItemTM02",
       "item": "tm02",

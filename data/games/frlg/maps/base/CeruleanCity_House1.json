@@ -33,6 +33,7 @@
     {
       "name": "gentleman",
       "coord": [6, 5],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
       "source_event": 0,
       "source_script": "CeruleanCity_House1_EventScript_BadgeGuy"
     }

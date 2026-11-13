@@ -31,10 +31,17 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "scientist", "coord": [4, 6], "source_event": 0, "source_script": "Route2_EastBuilding_EventScript_Aide"},
+    {
+      "name": "scientist",
+      "coord": [4, 6],
+      "movement": {"type": "MOVEMENT_TYPE_LOOK_AROUND", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "Route2_EastBuilding_EventScript_Aide"
+    },
     {
       "name": "rocker",
       "coord": [10, 3],
+      "movement": {"type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT", "range": [2, 1]},
       "wander": {"min": [8, 3], "max": [12, 3]},
       "source_event": 1,
       "source_script": "Route2_EastBuilding_EventScript_Rocker"

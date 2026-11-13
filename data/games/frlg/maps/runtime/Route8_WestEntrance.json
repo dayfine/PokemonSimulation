@@ -28,6 +28,12 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "policeman", "coord": [6, 2], "source_event": 0, "source_script": "Route8_WestEntrance_EventScript_Guard"}
+    {
+      "name": "policeman",
+      "coord": [6, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_DOWN", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "Route8_WestEntrance_EventScript_Guard"
+    }
   ]
 }

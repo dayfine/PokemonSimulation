@@ -28,11 +28,24 @@
   "flag_sets": {},
   "connections": [],
   "npcs": [
-    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "CinnabarIsland_Mart_EventScript_Clerk"},
-    {"name": "woman_2", "coord": [6, 2], "source_event": 1, "source_script": "CinnabarIsland_Mart_EventScript_Woman"},
+    {
+      "name": "clerk",
+      "coord": [2, 3],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_RIGHT", "range": [1, 1]},
+      "source_event": 0,
+      "source_script": "CinnabarIsland_Mart_EventScript_Clerk"
+    },
+    {
+      "name": "woman_2",
+      "coord": [6, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
+      "source_event": 1,
+      "source_script": "CinnabarIsland_Mart_EventScript_Woman"
+    },
     {
       "name": "scientist",
       "coord": [8, 2],
+      "movement": {"type": "MOVEMENT_TYPE_FACE_UP", "range": [1, 1]},
       "source_event": 2,
       "source_script": "CinnabarIsland_Mart_EventScript_Scientist"
     }
