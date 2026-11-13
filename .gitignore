@@ -4,6 +4,7 @@ __pycache__/
 .DS_Store
 external/*
 !external/README.md
+!external/keepingiticy-notes.md
 node_modules/
 
 .native-story-*/
