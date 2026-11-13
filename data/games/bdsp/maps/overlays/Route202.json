@@ -1,0 +1,56 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "Route202",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [
+        [15, 28],
+        [16, 28],
+        [17, 28],
+        [18, 28],
+        [19, 28],
+        [20, 28],
+        [15, 29],
+        [16, 29],
+        [17, 29],
+        [18, 29],
+        [19, 29],
+        [20, 29]
+      ],
+      "glyph": "#",
+      "why": "console_measured",
+      "evidence": {
+        "run": "r253",
+        "date": "2026-11-01",
+        "observation": "BDSP has trees where Diamond's catch patch has its two bottom rows: west along row 29 stopped at column 21, beside them"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "tile",
+      "coords": [[21, 30]],
+      "glyph": "#",
+      "why": "console_measured",
+      "evidence": {
+        "run": "r254",
+        "date": "2026-11-01",
+        "observation": "South from the pocket (21, 29), where the catch's save loads, was blocked at once"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_0",
+      "at": [21, 25],
+      "set": {"name": "catch_tutorial"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "the catch tutorial trigger",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    }
+  ]
+}

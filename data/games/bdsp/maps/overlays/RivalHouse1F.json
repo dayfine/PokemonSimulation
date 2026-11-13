@@ -1,0 +1,20 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "RivalHouse1F",
+  "operations": [
+    {
+      "op": "link",
+      "kind": "warp",
+      "action": "add",
+      "coord": [6, 10],
+      "to_map": "TwinleafTown",
+      "to_point": "rival_house_door",
+      "why": "generator_gap",
+      "evidence": {
+        "observation": "Stepping onto the door mat leaves the house",
+        "generator_fix": "emit the events file's warps with their target map and point; BDSP's builder emitted none"
+      },
+      "status": "candidate"
+    }
+  ]
+}

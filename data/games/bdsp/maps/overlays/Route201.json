@@ -1,0 +1,81 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "Route201",
+  "operations": [
+    {
+      "op": "tile",
+      "coords": [[8, 18], [9, 18], [10, 18], [11, 18], [12, 18]],
+      "glyph": "#",
+      "why": "console_measured",
+      "evidence": {
+        "run": "r16",
+        "date": "2026-10-31",
+        "observation": "Row 18 west of the exit path is trees on the console, open in the decomp (walked by hand)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "tile",
+      "coords": [[13, 18]],
+      "glyph": "S",
+      "why": "console_measured",
+      "evidence": {
+        "run": "r16",
+        "date": "2026-10-31",
+        "observation": "The 201 sign stands at (13, 18), not (13, 17) (walked by hand)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "tile",
+      "coords": [[13, 17]],
+      "glyph": ".",
+      "why": "console_measured",
+      "evidence": {
+        "run": "r16",
+        "date": "2026-10-31",
+        "observation": "The 201 sign is not at (13, 17), which the decomp has as the sign (walked by hand)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "remove",
+      "name": "cashier_m_1",
+      "at": [44, 3],
+      "why": "story_scope",
+      "evidence": {
+        "observation": "The Poke Mart lady (10 Potions) stands a tile off her Diamond spawn on the console and her talk is walked to, not planned (points potion_giver, potion_giver_talk_from)",
+        "runs": "console 2026-10-28 to 30 (CFR walk), commits 99715d5d6 and f823453e9; r135a missed her on row 4",
+        "history": "Was OBJECTS Route201[1] hide in bdsp_decomp_map_builder.py (before the overlay migration); the manifest listed it as bdsp_differences npc_movement"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_0",
+      "at": [14, 18],
+      "set": {"name": "barry_warning"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Barry stops us on row 18 (point barry_warning)",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "trigger",
+      "action": "update",
+      "name": "coord_event_1",
+      "at": [5, 14],
+      "set": {"name": "rowan_stop"},
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Rowan stops us on column 5 (point rowan_stop)",
+        "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
+      },
+      "status": "candidate"
+    }
+  ]
+}

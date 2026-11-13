@@ -1,0 +1,33 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "RowansLab",
+  "operations": [
+    {
+      "op": "link",
+      "kind": "warp",
+      "action": "add",
+      "coord": [7, 15],
+      "to_map": "SandgemTown",
+      "to_point": "lab_door",
+      "why": "generator_gap",
+      "evidence": {
+        "observation": "Stepping onto the door mat leaves the Lab",
+        "generator_fix": "emit the events file's warps with their target map and point; BDSP's builder emitted none"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "add",
+      "object": {"name": "rowan", "kind": "npc", "coord": [7, 5], "facing": "south"},
+      "index": 0,
+      "why": "story_scope",
+      "evidence": {
+        "observation": "Rowan at his desk when the story walks in",
+        "shown_during": "00.03",
+        "history": "Was OBJECTS RowansLab[0] show in bdsp_decomp_map_builder.py (before the overlay migration)"
+      },
+      "status": "candidate"
+    }
+  ]
+}

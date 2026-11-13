@@ -1,0 +1,32 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "Route204North",
+  "operations": [
+    {
+      "op": "object",
+      "action": "update",
+      "name": "bug_catcher_0",
+      "at": [22, 13],
+      "to": [20, 12],
+      "set": {"name": "bug_catcher_brandon", "wander": null},
+      "why": "console_measured",
+      "evidence": {
+        "run": "r246a",
+        "observation": "Bug Catcher Brandon paces in Diamond from (22, 13); he stopped us on row 12 (r246a), and the DP map draws him at (20, 12). Kept as a still object at (20, 12)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "tile",
+      "coords": [[12, 6]],
+      "glyph": "#",
+      "why": "console_measured",
+      "evidence": {
+        "run": "r248a",
+        "date": "2026-10-31",
+        "observation": "Grass in the data, blocked on the console twice"
+      },
+      "status": "candidate"
+    }
+  ]
+}
