@@ -253,6 +253,16 @@
       "required": ["min", "max"],
       "additionalProperties": true
     },
+    "path": {
+      "type": "object",
+      "description": "tiles a walk-sequence person steps through from their coord; after the last tile they go on from tiles[loop]",
+      "properties": {
+        "tiles": {"type": "array", "items": {"$ref": "#/$defs/coord"}, "minItems": 1},
+        "loop": {"type": "integer", "minimum": 0}
+      },
+      "required": ["tiles", "loop"],
+      "additionalProperties": false
+    },
     "npc": {
       "type": "object",
       "properties": {
@@ -261,7 +271,8 @@
         "facing": {"$ref": "#/$defs/direction"},
         "hide_flag": {"type": "string"},
         "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
-        "wander": {"$ref": "#/$defs/wander"}
+        "wander": {"$ref": "#/$defs/wander"},
+        "path": {"$ref": "#/$defs/path"}
       },
       "required": ["coord", "name"],
       "additionalProperties": true,

@@ -97,7 +97,27 @@
     {
       "name": "lass",
       "coord": [33, 4],
-      "wander": {"min": [28, 1], "max": [38, 7]},
+      "path": {
+        "tiles": [
+          [33, 4],
+          [32, 4],
+          [31, 4],
+          [30, 4],
+          [29, 4],
+          [28, 4],
+          [28, 5],
+          [28, 6],
+          [28, 7],
+          [29, 7],
+          [30, 7],
+          [31, 7],
+          [32, 7],
+          [33, 7],
+          [33, 6],
+          [33, 5]
+        ],
+        "loop": 0
+      },
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "MtMoon_1F_EventScript_Miriam"

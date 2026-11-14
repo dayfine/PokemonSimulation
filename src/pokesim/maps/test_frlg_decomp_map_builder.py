@@ -46,8 +46,7 @@ class WalkerBoxTest(unittest.TestCase):
         #   Each case: name, input (movement type, range), expectation (wander box or None).
         #   Walkers stay within initial +- range (IsCoordOutsideObjectEventMovementRange()).
         cases = (
-            ('a walk sequence walks its range', ('MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN', 1, 2),
-             {'x0': 1, 'y0': 0, 'x1': 3, 'y1': 4}),
+            ('a walk sequence walks a path, not a box', ('MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN', 1, 2), None),
             ('walking up and down keeps to its column', ('MOVEMENT_TYPE_WALK_UP_AND_DOWN', 1, 1),
              {'x0': 2, 'y0': 1, 'x1': 2, 'y1': 3}),
             ('walking down and up keeps to its column', ('MOVEMENT_TYPE_WALK_DOWN_AND_UP', 1, 1),
@@ -69,13 +68,93 @@ class WalkerBoxTest(unittest.TestCase):
                 self.assertEqual(data.get('wander'), box)
 
 
+def ground(rows, behaviors=None):
+    """A Ground from glyph rows: # blocked, w water (elevation 1), . land (elevation 3)."""
+    behaviors = behaviors or {}
+    return frlg_maps.Ground(
+        [[1 if glyph == '#' else 0 for glyph in row] for row in rows],
+        [[behaviors.get((x, y), '') for x in range(len(row))] for y, row in enumerate(rows)],
+        [[1 if glyph == 'w' else 3 for glyph in row] for row in rows])
+
+
+OPEN = ['.....'] * 5
+RIGHT_DOWN_LEFT_UP = (['RIGHT', 'DOWN', 'LEFT', 'UP'], (2, 'x'))
+DOWN_RIGHT_LEFT_UP = (['DOWN', 'RIGHT', 'LEFT', 'UP'], (2, 'x'))
+
+
+class WalkSequenceTest(unittest.TestCase):
+    def test_path_by_ground(self):
+        #   Each case: name, input (ground, start elevation, ranges, sequence,
+        #   people standing), expectation (tiles, loop). Start (1, 1).
+        cases = (
+            ('walks its range edges back to the start', (ground(OPEN), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
+             ([[1, 1], [2, 1], [3, 1], [3, 2], [3, 3], [2, 3], [1, 3], [1, 2]], 0)),
+            ('back on its start column it skips the rest of the way left',
+             (ground(OPEN), 3, (2, 2), DOWN_RIGHT_LEFT_UP, ()),
+             ([[1, 1], [1, 2], [1, 3], [2, 3], [3, 3], [2, 3], [1, 3], [1, 2]], 0)),
+            ('a wall stops it for good', (ground(['.....'] * 3 + ['...#.', '.....']), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
+             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+            ('a wall next to the start keeps it there', (ground(['.....', '..#..'] + ['.....'] * 3), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
+             ([[1, 1]], 0)),
+            ('a closed side stops it', (ground(OPEN, {(3, 2): 'MB_IMPASSABLE_SOUTH'}), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
+             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+            ('a swimmer stops at land', (ground(['wwwww'] * 3 + ['www.w', 'wwwww']), 1, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
+             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+            ('from elevation 0 it takes the elevation of the ground it steps on',
+             (ground(['wwwww'] * 3 + ['www.w', 'wwwww']), 0, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
+             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+            ('a person standing in the way stops it', (ground(OPEN), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ((3, 3),)),
+             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+            ('range 0 is no limit: it walks to the map edge', (ground(OPEN), 3, (2, 0), RIGHT_DOWN_LEFT_UP, ()),
+             ([[1, 1], [2, 1], [3, 1], [3, 2], [3, 3], [3, 4]], 5)),
+        )
+        for name, (land, elevation, ranges, (directions, shortcut), standing), (tiles, loop) in cases:
+            with self.subTest(name):
+                self.assertEqual(frlg_maps.walk_sequence((1, 1), elevation, ranges, directions, shortcut, land,
+                                                         frozenset(standing)),
+                                 {'tiles': tiles, 'loop': loop})
+
+
+class WalkSequencesInThePackTest(unittest.TestCase):
+    """People who walk a sequence in the published maps, from pret map.json."""
+    def test_published_paths(self):
+        #   Each case: name, input (map, start tile), expectation (path tiles, loop).
+        cases = (
+            ('Dave walks down 4 and right 8, and back', ('Route11', 28, 10),
+             ([[28, 10], [28, 11], [28, 12], [28, 13], [28, 14]] + [[x, 14] for x in range(29, 37)]
+              + [[x, 14] for x in range(35, 27, -1)] + [[28, 13], [28, 12], [28, 11]], 0)),
+            ('swimmer Spencer swims around his 4 x 2 range', ('Route21_North', 12, 44),
+             ([[12, 44], [11, 44], [10, 44], [9, 44], [8, 44], [8, 43], [8, 42], [9, 42], [10, 42], [11, 42],
+               [12, 42], [12, 43]], 0)),
+            ('Jaren walks right 5 and up 5, and back', ('Route8', 24, 17),
+             ([[x, 17] for x in range(24, 30)] + [[29, y] for y in range(16, 11, -1)]
+              + [[29, y] for y in range(13, 18)] + [[x, 17] for x in range(28, 24, -1)], 0)),
+        )
+        for name, (map_name, x, y), (tiles, loop) in cases:
+            with self.subTest(name):
+                objects = load(ROOT / 'data/games/frlg/maps/runtime' / (map_name + '.json'))['objects']
+                [person] = [o for o in objects if (o['x'], o['y']) == (x, y)]
+                self.assertEqual(person.get('path'), {'tiles': tiles, 'loop': loop})
+                self.assertNotIn('wander', person)
+
+    def test_routing_blocks_the_path_not_the_range(self):
+        #   Each case: name, input (tile on Route 11), expectation (occupied by Dave's path).
+        cases = (
+            ('on his way right', (32, 14), True),
+            ('inside his range, off his path', (32, 10), False),
+        )
+        world = LocalMap(load(ROOT / 'data/games/frlg/maps/runtime/Route11.json'), 'frlg')
+        for name, tile, occupied in cases:
+            with self.subTest(name):
+                self.assertEqual(Tile(*tile) in world.occupied, occupied)
+
+
 class WalkersInThePackTest(unittest.TestCase):
     """People who walk on their own in the published maps, from pret map.json."""
     def test_published_boxes(self):
         #   Each case: name, input (map, start tile), expectation (wander box or None).
         cases = (
-            ('swimmer Spencer walks a sequence over his 4 x 2 range', ('Route21_North', 12, 44),
-             {'x0': 8, 'y0': 42, 'x1': 16, 'y1': 46}),
+            ('swimmer Spencer walks a path, not a box', ('Route21_North', 12, 44), None),
             ('the Cinnabar woman wanders left and right', ('CinnabarIsland', 14, 6),
              {'x0': 13, 'y0': 6, 'x1': 15, 'y1': 6}),
             ('swimmer Lil faces down and stands', ('Route21_North', 14, 35), None),

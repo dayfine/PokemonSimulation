@@ -96,6 +96,14 @@ def _clip(zone, box):
     return clipped if clipped['x0'] <= clipped['x1'] and clipped['y0'] <= clipped['y1'] else None
 
 
+def _zones(obj, box):
+    """Where a person may stand, cut to the drawn rectangle: their wander box,
+    or each tile of the path they walk."""
+    zones = [obj['wander']] if 'wander' in obj else [
+        dict(x0=x, y0=y, x1=x, y1=y) for x, y in obj.get('path', {}).get('tiles', [])]
+    return [zone for zone in (_clip(zone, box) for zone in zones) if zone]
+
+
 def visible_objects(view):
     return [obj for obj in view.data.get('objects', [])
             if not obj.get('hide_flag') or obj['hide_flag'] not in view.context.flags]
@@ -194,8 +202,7 @@ def picture_svg(view, lines, markers=(), title='', subtitle='', notes=(), box=No
                 parts.append(f'<rect x="{px(tile[0])}" y="{py(tile[1])}" width="{t}" height="{t}" '
                              f'fill="none" stroke="{REGION_COLOR}" stroke-width="1.5"/>')
     for obj in visible_objects(view):
-        zone = obj.get('wander') and _clip(obj['wander'], (x0, y0, x1, y1))
-        if zone:
+        for zone in _zones(obj, (x0, y0, x1, y1)):
             parts.append(f'<rect x="{px(zone["x0"])}" y="{py(zone["y0"])}" width="{(zone["x1"] - zone["x0"] + 1) * t}" '
                          f'height="{(zone["y1"] - zone["y0"] + 1) * t}" fill="{ZONE_EDGE}" fill-opacity=".12" '
                          f'stroke="{ZONE_EDGE}" stroke-width="1.5" stroke-dasharray="4 3"/>')
@@ -300,8 +307,7 @@ def picture_png(view, lines, markers=(), box=None, regions=(), tile_px=16):
             if x0 <= x <= x1 and y0 <= y <= y1:
                 outline((x - x0) * t, (y - y0) * t, (x - x0 + 1) * t, (y - y0 + 1) * t, _RGB(REGION_COLOR))
     for obj in visible_objects(view):
-        zone = obj.get('wander') and _clip(obj['wander'], (x0, y0, x1, y1))
-        if zone:
+        for zone in _zones(obj, (x0, y0, x1, y1)):
             outline((zone['x0'] - x0) * t, (zone['y0'] - y0) * t, (zone['x1'] - x0 + 1) * t,
                     (zone['y1'] - y0 + 1) * t, _RGB(ZONE_EDGE), 2, 3)
         if x0 <= obj['x'] <= x1 and y0 <= obj['y'] <= y1:

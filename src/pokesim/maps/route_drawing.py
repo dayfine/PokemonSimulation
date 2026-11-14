@@ -58,6 +58,8 @@ def route_image(view, path, tile_px=16, goal_tiles=()):
         if box:
             _outline(image, box['x0'] * tile_px, box['y0'] * tile_px,
                      (box['x1'] + 1) * tile_px, (box['y1'] + 1) * tile_px, (145, 95, 20, 160))
+        for x, y in obj.get('path', {}).get('tiles', []):
+            _outline(image, x * tile_px, y * tile_px, (x + 1) * tile_px, (y + 1) * tile_px, (145, 95, 20, 160))
         cx, cy = (obj['x'] + .5) * tile_px, (obj['y'] + .5) * tile_px
         image.fill_rect(int(cx) - 3, int(cy) - 3, int(cx) + 3, int(cy) + 3, OBJECT_COLOR)
     for x in range(view.map_file.grid.width + 1):
@@ -117,6 +119,9 @@ def route_svg(view, path, title='', start_label='start', goal_label='goal',
             box = obj['wander']
             parts.append(f'<rect x="{box["x0"] * tile_px}" y="{box["y0"] * tile_px}" '
                          f'width="{(box["x1"] - box["x0"] + 1) * tile_px}" height="{(box["y1"] - box["y0"] + 1) * tile_px}" '
+                         'fill="#d98a13" fill-opacity=".08" stroke="#a46b16" stroke-dasharray="4 3"/>')
+        for x, y in obj.get('path', {}).get('tiles', []):
+            parts.append(f'<rect x="{x * tile_px}" y="{y * tile_px}" width="{tile_px}" height="{tile_px}" '
                          'fill="#d98a13" fill-opacity=".08" stroke="#a46b16" stroke-dasharray="4 3"/>')
         parts.append(f'<circle cx="{(obj["x"] + .5) * tile_px}" cy="{(obj["y"] + .5) * tile_px}" r="4" fill="#d98a13"/>')
         if obj.get('kind') == 'item' and obj.get('item'):

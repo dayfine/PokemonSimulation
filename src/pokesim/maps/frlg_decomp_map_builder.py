@@ -537,12 +537,13 @@ def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=Fa
     return tiles, elevation, entries, wild_edges
 
 
-#   Movement types that walk on their own: wandering, walking back and forth
-#   and walking a sequence of directions all stay within initial +- range
-#   (IsCoordOutsideObjectEventMovementRange() in src/event_object_movement.c).
-#   The pairs move along one axis only.
-MOVING = ('MOVEMENT_TYPE_WANDER_', 'MOVEMENT_TYPE_WALK_SEQUENCE_', 'MOVEMENT_TYPE_WALK_UP_AND_DOWN',
+#   Movement types that wander or walk back and forth: they stay within
+#   initial +- range (IsCoordOutsideObjectEventMovementRange() in
+#   src/event_object_movement.c). The pairs move along one axis only. Walk
+#   sequences (WALK_SEQUENCE) walk a fixed path instead; see walk_sequence().
+MOVING = ('MOVEMENT_TYPE_WANDER_', 'MOVEMENT_TYPE_WALK_UP_AND_DOWN',
           'MOVEMENT_TYPE_WALK_DOWN_AND_UP', 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 'MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT')
+WALK_SEQUENCE = 'MOVEMENT_TYPE_WALK_SEQUENCE_'
 VERTICAL = ('UP_AND_DOWN', 'DOWN_AND_UP')
 HORIZONTAL = ('LEFT_AND_RIGHT', 'RIGHT_AND_LEFT')
 
@@ -561,6 +562,146 @@ def wander_box(obj, tiles):
         'x0': max(obj['x'] - x, 0), 'y0': max(obj['y'] - y, 0),
         'x1': min(obj['x'] + x, len(tiles[0]) - 1), 'y1': min(obj['y'] + y, len(tiles) - 1),
     }
+
+
+
+class Ground:
+    """What a person's step checks on each tile of a map: the blockdata
+    collision bits, metatile behavior and elevation (GetCollisionAtCoords() in
+    src/event_object_movement.c), as rows."""
+    def __init__(self, collision, behavior, elevation):
+        self.collision, self.behavior, self.elevation = collision, behavior, elevation
+
+    def inside(self, x, y):
+        return 0 <= y < len(self.collision) and 0 <= x < len(self.collision[0])
+
+
+def read_ground(decomp, layout, names):
+    """The Ground of `layout`, from its blockdata and tilesets."""
+    width, height = layout['width'], layout['height']
+    blocks = decomp.read(layout['blockdata_filepath'])
+    primary = tileset_attributes(decomp, layout['primary_tileset'])
+    secondary = tileset_attributes(decomp, layout['secondary_tileset'])
+    collision, behavior, elevation = [], [], []
+    for y in range(height):
+        values = [struct.unpack_from('<H', blocks, 2 * (y * width + x))[0] for x in range(width)]
+        collision.append([(value >> 10) & 3 for value in values])
+        elevation.append([value >> 12 for value in values])
+        behavior.append([names.get((primary[value & 0x3ff] if value & 0x3ff < 640 else secondary[(value & 0x3ff) - 640]) & 0x1ff, '')
+                         for value in values])
+    return Ground(collision, behavior, elevation)
+
+
+STEPS = {'UP': (0, -1), 'DOWN': (0, 1), 'LEFT': (-1, 0), 'RIGHT': (1, 0)}
+#   The behaviors that close a tile's side (MetatileBehavior_Is*Blocked() in
+#   src/metatile_behavior.c), by side.
+CLOSED_BY = {
+    'UP': ('MB_IMPASSABLE_NORTH', 'MB_IMPASSABLE_NORTHEAST', 'MB_IMPASSABLE_NORTHWEST'),
+    'DOWN': ('MB_IMPASSABLE_SOUTH', 'MB_IMPASSABLE_SOUTHEAST', 'MB_IMPASSABLE_SOUTHWEST'),
+    'LEFT': ('MB_IMPASSABLE_WEST', 'MB_IMPASSABLE_NORTHWEST', 'MB_IMPASSABLE_SOUTHWEST'),
+    'RIGHT': ('MB_IMPASSABLE_EAST', 'MB_IMPASSABLE_NORTHEAST', 'MB_IMPASSABLE_SOUTHEAST'),
+}
+OPPOSITE = {'UP': 'DOWN', 'DOWN': 'UP', 'LEFT': 'RIGHT', 'RIGHT': 'LEFT'}
+
+
+def walk_sequence_rules(source):
+    """Each walk sequence's shortcut, from its MovementType_WalkSequence*_Step1()
+    in src/event_object_movement.c, by movement type: (index, axis), where at
+    sequence index `index`, back on its start column (axis x) or row (axis y),
+    the person skips to the next direction."""
+    rules = {}
+    for name, index, axis, to in re.findall(
+            r'MovementType_WalkSequence(\w+)_Step1\(.*?\)\s*\{.*?directionSequenceIndex == (\d) && '
+            r'objectEvent->initialCoords\.([xy]) == objectEvent->currentCoords\.\3\)\s*\{\s*'
+            r'objectEvent->directionSequenceIndex = (\d);', source, re.S):
+        if int(to) != int(index) + 1:
+            raise ValueError('unexpected walk sequence shortcut in ' + name)
+        movement = WALK_SEQUENCE + re.sub(r'(?<!^)(?=[A-Z])', '_', name).upper()
+        rules[movement] = (int(index), axis)
+    if len(rules) != 24:
+        raise ValueError(f'expected 24 walk sequences, read {len(rules)}')
+    return rules
+
+
+def walk_sequence(start, elevation, ranges, directions, shortcut, ground, objects=frozenset()):
+    """The tiles a person walking a sequence of `directions` steps through,
+    from `start` on the map `ground`, and the index of the tile they go on
+    from after the last: {'tiles': [[x, y], ...], 'loop': i}. A person stopped
+    for good (by a wall, other ground or a person in `objects`) has the tile
+    they stand on as the last and loop to it.
+
+    The rule of src/event_object_movement.c: each step,
+    MovementType_WalkSequence*_Step1() skips direction `shortcut` = (index,
+    axis) when back on the start column/row, then MoveNextDirectionInSequence()
+    goes back to direction 0 when on the start tile at direction 3, and tries
+    the current direction. GetCollisionAtCoords() answers
+    COLLISION_OUTSIDE_RANGE past start +- range (a range of 0 is no limit on
+    that axis; IsCoordOutsideObjectEventMovementRange()): the person turns to
+    the next direction and tries once more. Any other collision (blocked tile
+    or closed side, ground at another elevation, a person) and they walk in
+    place, keeping their direction, so a wall stops them for good. The player
+    and other walking people are not simulated; outside the map counts as
+    blocked."""
+    (x0, y0), (range_x, range_y), (skip_index, skip_axis) = start, ranges, shortcut
+
+    def outside_range(x, y):
+        return (range_x and not x0 - range_x <= x <= x0 + range_x) or (range_y and not y0 - range_y <= y <= y0 + range_y)
+
+    def collision(x, y, level, direction):
+        dx, dy = STEPS[direction]
+        tx, ty = x + dx, y + dy
+        if outside_range(tx, ty):
+            return 'outside_range'
+        if (not ground.inside(tx, ty) or ground.collision[ty][tx]
+                or ground.behavior[y][x] in CLOSED_BY[direction] or ground.behavior[ty][tx] in CLOSED_BY[OPPOSITE[direction]]):
+            return 'impassable'
+        if level != 0 and ground.elevation[ty][tx] not in (0, 15) and ground.elevation[ty][tx] != level:
+            return 'elevation'
+        if (tx, ty) in objects:
+            return 'object'
+        return None
+
+    def next_index(x, y, index):
+        if index == skip_index and (x if skip_axis == 'x' else y) == (x0 if skip_axis == 'x' else y0):
+            index += 1
+        if index == 3 and (x, y) == (x0, y0):
+            index = 0
+        return index
+
+    x, y, level = x0, y0, elevation
+    index = next_index(x, y, 0)
+    seen, tiles, tile_of_state = {}, [[x, y]], []
+    while (x, y, index, level) not in seen:
+        seen[(x, y, index, level)] = len(tile_of_state)
+        tile_of_state.append(len(tiles) - 1)
+        hit = collision(x, y, level, directions[index])
+        if hit == 'outside_range':
+            index += 1
+            if index > 3:
+                raise ValueError(f'walk sequence from {start} runs past its last direction')
+            hit = collision(x, y, level, directions[index])
+        if not hit:
+            dx, dy = STEPS[directions[index]]
+            x, y = x + dx, y + dy
+            if ground.elevation[y][x] != 15:
+                level = ground.elevation[y][x]
+            tiles.append([x, y])
+        index = next_index(x, y, index)
+    loop = tile_of_state[seen[(x, y, index, level)]]
+    if tiles[-1] == tiles[loop] and loop != len(tiles) - 1:
+        tiles.pop()    # back where the loop starts
+    return {'tiles': tiles, 'loop': loop}
+
+
+def sequence_path(obj, ground, rules, objects=frozenset()):
+    """A walk sequence's path (walk_sequence()), or None for any other movement."""
+    movement = obj.get('movement_type', '')
+    if not movement.startswith(WALK_SEQUENCE):
+        return None
+    directions = movement[len(WALK_SEQUENCE):].split('_')
+    ranges = (int(obj.get('movement_range_x') or 0), int(obj.get('movement_range_y') or 0))
+    return walk_sequence((obj['x'], obj['y']), int(obj.get('elevation') or 0), ranges, directions,
+                         rules[movement], ground, objects)
 
 
 #   Which way a person stands, by how they move.
@@ -595,7 +736,7 @@ def trainer(obj):
     return {'sight': sight, 'looks': TURNING_LOOKS.get(movement, ALL_LOOKS)}
 
 
-def map_object(obj, tiles, event_index=None):
+def map_object(obj, tiles, event_index=None, path=None):
     kind = obj['graphics_id'].replace('OBJ_EVENT_GFX_', '').lower()
     data = {'name': kind, 'kind': 'item' if kind == 'item_ball' else 'npc', 'x': obj['x'], 'y': obj['y']}
     if kind == 'item_ball' and event_index is not None:
@@ -607,6 +748,8 @@ def map_object(obj, tiles, event_index=None):
     box = wander_box(obj, tiles)
     if box:
         data['wander'] = box
+    if path:
+        data['path'] = path
     sight = trainer(obj)
     if sight:
         #   A trainer who faces one way looks that way.
@@ -774,6 +917,20 @@ def land_encounter_maps(decomp):
     return {e['map'] for group in groups for e in group.get('encounters', []) if 'land_mons' in e}
 
 
+def walk_sequence_paths(decomp, source, layouts, names):
+    """The path of each person on the map who walks a sequence, by object
+    event index. People who don't move on their own block them."""
+    objects = source.get('object_events', [])
+    walkers = [index for index, obj in enumerate(objects) if obj.get('movement_type', '').startswith(WALK_SEQUENCE)]
+    if not walkers:
+        return {}
+    rules = walk_sequence_rules(decomp.read('src/event_object_movement.c').decode())
+    land = read_ground(decomp, layouts[source['layout']], names)
+    standing = frozenset((obj['x'], obj['y']) for obj in objects
+                         if not obj.get('movement_type', '').startswith((WALK_SEQUENCE,) + MOVING))
+    return {index: sequence_path(objects[index], land, rules, standing) for index in walkers}
+
+
 def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps=frozenset(), include_item_identities=False, candidate=False):
     source = sources[name]
     signs = frozenset((e['x'], e['y']) for e in source.get('bg_events', []) if e.get('type') == 'sign')
@@ -796,6 +953,7 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
     points = {n: [x, y] for n, (x, y) in POINTS.get(name, {}).items()}
     for index in sorted(arrivals(sources, loaded)[name]):
         points[warp_point(index)] = [warp_events[index]['x'], warp_events[index]['y']]
+    paths = walk_sequence_paths(decomp, source, layouts, names)
     data = {
         'name': name,
         'source': {'decomp_file': f'data/maps/{name}/map.json', 'revision': getattr(decomp, 'commit', COMMIT), 'date': COMMIT_DATE},
@@ -806,7 +964,8 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
         'warps': [warp(event, entries, loaded, sources) for event in warp_events],
         #   A few objects stand off the map, where no route meets them.
         'objects': [
-            map_object(obj, tiles, index if include_item_identities else None) for index, obj in enumerate(source.get('object_events', []))
+            map_object(obj, tiles, index if include_item_identities else None, paths.get(index))
+            for index, obj in enumerate(source.get('object_events', []))
             if 0 <= obj['x'] < len(tiles[0]) and 0 <= obj['y'] < len(tiles)
         ],
         'flag_sets': FLAG_SETS.get(name, {}),

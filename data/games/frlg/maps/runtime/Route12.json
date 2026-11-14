@@ -338,7 +338,27 @@
     {
       "name": "rocker",
       "coord": [13, 92],
-      "wander": {"min": [9, 88], "max": [17, 96]},
+      "path": {
+        "tiles": [
+          [13, 92],
+          [12, 92],
+          [11, 92],
+          [10, 92],
+          [9, 92],
+          [9, 91],
+          [9, 90],
+          [9, 89],
+          [9, 88],
+          [9, 89],
+          [9, 90],
+          [9, 91],
+          [9, 92],
+          [10, 92],
+          [11, 92],
+          [12, 92]
+        ],
+        "loop": 0
+      },
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 5,
       "source_script": "Route12_EventScript_Luca"

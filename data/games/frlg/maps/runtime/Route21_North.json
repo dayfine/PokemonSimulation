@@ -132,7 +132,23 @@
     {
       "name": "swimmer_m_water",
       "coord": [12, 44],
-      "wander": {"min": [8, 42], "max": [16, 46]},
+      "path": {
+        "tiles": [
+          [12, 44],
+          [11, 44],
+          [10, 44],
+          [9, 44],
+          [8, 44],
+          [8, 43],
+          [8, 42],
+          [9, 42],
+          [10, 42],
+          [11, 42],
+          [12, 42],
+          [12, 43]
+        ],
+        "loop": 0
+      },
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 2,
       "source_script": "Route21_North_EventScript_Spencer"

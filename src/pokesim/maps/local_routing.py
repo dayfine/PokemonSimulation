@@ -95,6 +95,8 @@ class LocalMap(World):
             if box:
                 occupied.update(Tile(x, y) for y in range(box['y0'], box['y1'] + 1)
                                 for x in range(box['x0'], box['x1'] + 1))
+            elif 'path' in obj:
+                occupied.update(Tile(x, y) for x, y in obj['path']['tiles'])
             else:
                 occupied.add(Tile(obj['x'], obj['y']))
         return occupied

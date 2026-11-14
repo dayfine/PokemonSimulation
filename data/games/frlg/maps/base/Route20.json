@@ -104,7 +104,29 @@
     {
       "name": "swimmer_m_water",
       "coord": [23, 10],
-      "wander": {"min": [18, 6], "max": [28, 14]},
+      "path": {
+        "tiles": [
+          [23, 10],
+          [24, 10],
+          [25, 10],
+          [26, 10],
+          [27, 10],
+          [28, 10],
+          [28, 11],
+          [28, 12],
+          [28, 13],
+          [28, 14],
+          [27, 14],
+          [26, 14],
+          [25, 14],
+          [24, 14],
+          [23, 14],
+          [23, 13],
+          [23, 12],
+          [23, 11]
+        ],
+        "loop": 0
+      },
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 4,
       "source_script": "Route20_EventScript_Dean"
@@ -120,7 +142,27 @@
     {
       "name": "swimmer_m_water",
       "coord": [111, 9],
-      "wander": {"min": [106, 6], "max": [116, 12]},
+      "path": {
+        "tiles": [
+          [111, 9],
+          [111, 8],
+          [111, 7],
+          [111, 6],
+          [110, 6],
+          [109, 6],
+          [108, 6],
+          [107, 6],
+          [106, 6],
+          [106, 7],
+          [106, 8],
+          [106, 9],
+          [107, 9],
+          [108, 9],
+          [109, 9],
+          [110, 9]
+        ],
+        "loop": 0
+      },
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 6,
       "source_script": "Route20_EventScript_Barry"
@@ -128,7 +170,27 @@
     {
       "name": "swimmer_m_water",
       "coord": [106, 11],
-      "wander": {"min": [101, 8], "max": [111, 14]},
+      "path": {
+        "tiles": [
+          [106, 11],
+          [106, 12],
+          [106, 13],
+          [106, 14],
+          [105, 14],
+          [104, 14],
+          [103, 14],
+          [102, 14],
+          [101, 14],
+          [101, 13],
+          [101, 12],
+          [101, 11],
+          [102, 11],
+          [103, 11],
+          [104, 11],
+          [105, 11]
+        ],
+        "loop": 0
+      },
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 7,
       "source_script": "Route20_EventScript_Darrin"

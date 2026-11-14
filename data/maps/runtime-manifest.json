@@ -9,7 +9,7 @@
         {
           "name": "CeladonCity",
           "file": "data/games/frlg/maps/runtime/CeladonCity.json",
-          "sha256": "471291954df7eb407f16b7a5ab14d71040bdfbb22db1a85f6d20e0581a75dd43",
+          "sha256": "cfd8c70b8d3b6aa0ff728ad1bd72dea032ef4be79abfa42203a00345b0aeb6e0",
           "source": {
             "decomp_file": "data/maps/CeladonCity/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -49,7 +49,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CeladonCity.json",
-            "sha256": "471291954df7eb407f16b7a5ab14d71040bdfbb22db1a85f6d20e0581a75dd43"
+            "sha256": "cfd8c70b8d3b6aa0ff728ad1bd72dea032ef4be79abfa42203a00345b0aeb6e0"
           }
         },
         {
@@ -1327,7 +1327,7 @@
         {
           "name": "MtMoon_1F",
           "file": "data/games/frlg/maps/runtime/MtMoon_1F.json",
-          "sha256": "4caa1981f5362e8421287369c57e59ca1258afce655975b86aa60bfb284f4e50",
+          "sha256": "e462faf3beea52309507448aad655ea0693aa0b3eea628386c57715c0f21e89f",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/MtMoon_1F.json",
           "source": {
             "decomp_file": "data/maps/MtMoon_1F/map.json",
@@ -1374,7 +1374,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/MtMoon_1F.json",
-            "sha256": "4caa1981f5362e8421287369c57e59ca1258afce655975b86aa60bfb284f4e50"
+            "sha256": "e462faf3beea52309507448aad655ea0693aa0b3eea628386c57715c0f21e89f"
           }
         },
         {
@@ -3030,7 +3030,7 @@
         {
           "name": "Route11",
           "file": "data/games/frlg/maps/runtime/Route11.json",
-          "sha256": "d9d05a93fc2cd88b221c33afd74ab1a48646b5957968757cf6d74618bb0331b0",
+          "sha256": "4847b8a6300e13fdbf145e69e6f5ebb1b27a8482e7c39c21695c0388ff52c31b",
           "source": {
             "decomp_file": "data/maps/Route11/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3070,7 +3070,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route11.json",
-            "sha256": "d9d05a93fc2cd88b221c33afd74ab1a48646b5957968757cf6d74618bb0331b0"
+            "sha256": "4847b8a6300e13fdbf145e69e6f5ebb1b27a8482e7c39c21695c0388ff52c31b"
           }
         },
         {
@@ -3111,7 +3111,7 @@
         {
           "name": "Route12",
           "file": "data/games/frlg/maps/runtime/Route12.json",
-          "sha256": "8b771f5e3c10054ba3fb66b08d67818f208938d27b35fbca1c972d74a6f7507f",
+          "sha256": "b8314a42a10071cd42d97c7c5896f14b80009b1cb9a944074a64a3cf36148f20",
           "source": {
             "decomp_file": "data/maps/Route12/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3151,7 +3151,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route12.json",
-            "sha256": "8b771f5e3c10054ba3fb66b08d67818f208938d27b35fbca1c972d74a6f7507f"
+            "sha256": "b8314a42a10071cd42d97c7c5896f14b80009b1cb9a944074a64a3cf36148f20"
           }
         },
         {
@@ -3515,7 +3515,7 @@
         {
           "name": "Route19",
           "file": "data/games/frlg/maps/runtime/Route19.json",
-          "sha256": "68317662adda06e210e20bb040137ed453eb5fafe627df4cec90917778daa11e",
+          "sha256": "a6f2ecc476c8c37e9ba3e916637515e178e9e6b611acd4a95d6d34a8b6d3d885",
           "source": {
             "decomp_file": "data/maps/Route19/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3543,7 +3543,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route19.json",
-            "sha256": "68317662adda06e210e20bb040137ed453eb5fafe627df4cec90917778daa11e"
+            "sha256": "a6f2ecc476c8c37e9ba3e916637515e178e9e6b611acd4a95d6d34a8b6d3d885"
           }
         },
         {
@@ -3602,7 +3602,7 @@
         {
           "name": "Route20",
           "file": "data/games/frlg/maps/runtime/Route20.json",
-          "sha256": "ef3cf467f9595d7eb52a44c2b1ac5a7079aa9d63a02e38675bac46a7d0eb65ea",
+          "sha256": "f1cd80b9d12c9fc29edad8fd2703351e0619bca59e7a83caa4d7ec200f2ac91a",
           "source": {
             "decomp_file": "data/maps/Route20/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3630,13 +3630,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route20.json",
-            "sha256": "ef3cf467f9595d7eb52a44c2b1ac5a7079aa9d63a02e38675bac46a7d0eb65ea"
+            "sha256": "f1cd80b9d12c9fc29edad8fd2703351e0619bca59e7a83caa4d7ec200f2ac91a"
           }
         },
         {
           "name": "Route21_North",
           "file": "data/games/frlg/maps/runtime/Route21_North.json",
-          "sha256": "4a1d97dcbc0c16bedfd15f72d73e722283ead433a13978c6cc47258b6f9f294b",
+          "sha256": "3c57142eb80e6c284e49dc21dd678c0c5c201cd9ba16317953b7145deeb1cf08",
           "source": {
             "decomp_file": "data/maps/Route21_North/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3664,7 +3664,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route21_North.json",
-            "sha256": "4a1d97dcbc0c16bedfd15f72d73e722283ead433a13978c6cc47258b6f9f294b"
+            "sha256": "3c57142eb80e6c284e49dc21dd678c0c5c201cd9ba16317953b7145deeb1cf08"
           }
         },
         {
@@ -4429,7 +4429,7 @@
         {
           "name": "Route8",
           "file": "data/games/frlg/maps/runtime/Route8.json",
-          "sha256": "c634fe3004a2088a2385bfa2c8953ab81b3761cc951c03d702e905d9c3777d1b",
+          "sha256": "4836af2f2325d5c5581313a11f3cebd94b7530b988ff998d6b15370943599b35",
           "source": {
             "decomp_file": "data/maps/Route8/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -4458,7 +4458,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route8.json",
-            "sha256": "c634fe3004a2088a2385bfa2c8953ab81b3761cc951c03d702e905d9c3777d1b"
+            "sha256": "4836af2f2325d5c5581313a11f3cebd94b7530b988ff998d6b15370943599b35"
           }
         },
         {
@@ -6156,7 +6156,7 @@
         {
           "name": "VictoryRoad_2F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_2F.json",
-          "sha256": "bc973c40d2a7912571aab2d8a3711a5e5bbff78cbafb3bed0d4f22a231a6dc33",
+          "sha256": "12f4229f436df8c4a54fc9ac9653b30c88c7b3384188f57b26ff73a8e9e15211",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6200,7 +6200,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_2F.json",
-            "sha256": "f38dc06c805a79600e19bb8a45814276533a16e07b66b5a36cf56186e89f012a"
+            "sha256": "9e7e0031b951da22f58e7e842d59eb18f04f402165b4e65ea38fcbbed4048b3c"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VictoryRoad_2F.json",

@@ -45,17 +45,21 @@ def undo_story_flags_and_wander(game, data):
             del obj['wander'], obj['hide_flag']
 
 
-# Boxes of people who walk on their own without wandering (walk sequences and
-# back-and-forth walkers), published after the v1 baseline, as {(game, map):
-# {(name, start tile)}}: Mt. Moon's Miriam and Route 25's Chad. Names repeat
-# on a map, so the start tile picks the person. Undone before digesting.
-ADDED_WALKER_BOXES = {('frlg', 'MtMoon_1F'): {('lass', (33, 4))}, ('frlg', 'Route25'): {('youngster', (36, 4))}}
+# Where people who walk on their own without wandering may stand, published
+# after the v1 baseline, as {(game, map): {(name, start tile): field}}: Mt.
+# Moon's Miriam walks a sequence (`path`), Route 25's Chad back and forth
+# (`wander`). Names repeat on a map, so the start tile picks the person.
+# Undone before digesting.
+ADDED_WALKER_FIELDS = {('frlg', 'MtMoon_1F'): {('lass', (33, 4)): 'path'},
+                       ('frlg', 'Route25'): {('youngster', (36, 4)): 'wander'}}
 
 
-def undo_walker_boxes(game, data):
+def undo_walker_fields(game, data):
+    added = ADDED_WALKER_FIELDS.get((game, data['name']), {})
     for obj in data.get('objects', []):
-        if (obj['name'], (obj['x'], obj['y'])) in ADDED_WALKER_BOXES.get((game, data['name']), set()):
-            del obj['wander']
+        field = added.get((obj['name'], (obj['x'], obj['y'])))
+        if field:
+            del obj[field]
 
 
 # Links to maps published after the v1 baseline, as {(game, map): (points,
@@ -167,7 +171,7 @@ class PublicationTest(unittest.TestCase):
                     undo_base_delta(game, baseline_data, deltas)
                     undo_corrections(game, baseline_data)
                     undo_story_flags_and_wander(game, baseline_data)
-                    undo_walker_boxes(game, baseline_data)
+                    undo_walker_fields(game, baseline_data)
                     undo_added_links(game, baseline_data)
                     undo_added_people(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()

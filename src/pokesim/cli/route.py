@@ -137,7 +137,7 @@ def main(argv=None):
                 moves=[dict(direction=move.direction.name.lower(), kind=move.kind.value,
                             tile=list(move.to.place.tile), elevation=move.to.elevation) for move in path.moves],
                 limitations=['single-map static route; transitions excluded',
-                    'NPC wander boxes conservatively occupied; trainer sight and omitted NPCs not simulated',
+                    'NPC wander boxes and walk paths conservatively occupied; trainer sight and omitted NPCs not simulated',
                     'scene effects, encounters and recovery not simulated'])
             args.json.write_text(json.dumps(report, indent=2) + '\n')
         sys.stdout.write(ascii_route(view, path))
