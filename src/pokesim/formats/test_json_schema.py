@@ -48,21 +48,6 @@ class JsonSchemaTests(unittest.TestCase):
                 if name == 'runtime-map-v2':
                     validate_map(value)
 
-    def test_story_vectors_and_canonical_records(self):
-        schema = json.loads((SCHEMAS / 'story-checkpoint.schema.json').read_text())
-        cases = json.loads((ROOT / 'data/story/wire-conformance.json').read_text())['cases']
-        for row in cases:
-            record = row['input']['record']
-            selected = schema if record == 'checkpoint' else {
-                '$schema': schema['$schema'], '$defs': schema['$defs'], '$ref': '#/$defs/' + record}
-            check = jsonschema.Draft202012Validator(selected)
-            with self.subTest(name=row['input']['name']):
-                if 'canonical' in row['expectation']:
-                    check.validate(row['input']['value'])
-                    check.validate(row['expectation']['canonical'])
-                elif record != 'checkpoint' or 'duplicate' not in row['input']['name']:
-                    self.assertFalse(check.is_valid(row['input']['value']))
-
     def test_map_pair_types_and_pickup_defaults(self):
         source = json.loads((ROOT / 'data/games/bdsp/maps/runtime/OreburghMine.json').read_text())
         check = validator('runtime-map-v2')

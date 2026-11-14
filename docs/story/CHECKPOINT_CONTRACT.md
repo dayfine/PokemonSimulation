@@ -53,15 +53,20 @@ starter or battle strategy. Exporting current behavior precedes changing it.
 
 ## Implemented common record boundary
 
-The new native `Pokemon_StoryStepJson` codec and Python
-`pokesim.story.checkpoint_wire` reader cover these records:
+The native `Pokemon_StoryStepJson` reader and Python
+`pokesim.story.checkpoint_wire` (`read_story_checkpoint`, `read_story_step`,
+`read_grid_pose`, `read_declared_pose`) read these records:
 
 ```json
 {
   "id": "example",
   "title": "Synthetic checkpoint",
-  "start": {"map": "ExampleMap", "certainty": "set", "where": {"kind": "tiles", "tiles": [[1, 2], [1, 3]]}},
-  "events": [{"id": "answer_no", "kind": "answer", "yes": false}]
+  "start": {"map": "ExampleMap", "tiles": [[1, 2], [1, 3]]},
+  "events": [
+    {"id": "to_door", "kind": "route", "args": {"target": {"map": "ExampleMap", "tiles": [[4, 0]], "facing": "north"}}},
+    {"id": "buy", "kind": "game_action", "action": "mart", "args": {"map": "ExampleMart", "budget": 3000}},
+    {"id": "answer_no", "kind": "answer", "args": {"yes": false}}
+  ]
 }
 ```
 
@@ -69,31 +74,34 @@ This is a codec example, not an exported game plan. The common record has no
 implicit save, retry, handoff, inventory or observed effects. Those need the
 validated envelope and game bindings above. Loading this record does not run it.
 
-The codec retains every shared `StoryStep` field, including `variant`, `skip_if`,
-`fight_wild`, `may_lose`, training count, items and declared arrival. Native `MASH`
-is named `scene`; `GAME` is `game_action`. A `declared_after` is the native
-fallback declaration, not an observation. Optional start/target/arrival poses
-preserve absence, certainty, tile alternatives and unknown facing.
+A step names an `action` (empty: its kind's default) and the `args` that action
+takes. The built-in actions are `route` and `ready` (`target` pose), `legs`
+(`legs`, `fight_wild`), `face` (`direction`), `answer` (`yes`), `fight`
+(`may_lose`), `train` (`battles`) and `shop` (`items`); a game adds its own,
+each arg typed (boolean, integer, word, direction, grid_pose, legs, words,
+items, integer_rows, timed_legs) and required or given a fallback. Both readers
+check the args against the action's spec and fill in the fallbacks. Native
+`MASH` is named `scene`; `GAME` is `game_action` and must name its action.
 
-Only declared native defaults may be omitted: empty text/lists, north input
-direction, false `fight_wild`/`may_lose`, true `yes`, and zero `battles`. In
-particular, `yes: false` survives. A north action direction is an input parameter;
-an absent pose facing remains unknown. Zero coordinates and zero quantities or
-leg counts remain intact. Structural encoding does not approve a zero-quantity
-shop request or prove a route feasible; native authoring/execution validation
-still applies after binding.
+A pose is `{"map", "tiles", "facing"}`: several tiles are alternatives, no tiles
+is any tile of the map, and an absent facing is unknown. A `start` or
+`declared_after` may instead be a zone, `{"place", "spot", "heading"}`, for a
+game with no tiles. A `declared_after` is the fallback declaration, not an
+observation. Unknown fields, kinds, actions and args, missing required args,
+malformed pairs, duplicate event IDs and invalid primitive types fail.
 
-Unknown fields, action/position tags, malformed pairs, duplicate event IDs and
-invalid primitive types fail. Native non-tile `Position` subtypes are unsupported
-rather than converted to an empty belief. The first FRLG/BDSP adapters will bind
-these tile poses to their runtime-local frames through pinned map identities.
+The authored plans in `data/story/` and the replay still use the older record
+(poses with `certainty`/`where`, per-kind step fields, `variant`, `sections`
+and `notes`), read by `read_checkpoint`; the native reader no longer reads it.
 
 ## Validation and next slice
 
-`data/story/wire-conformance.json` contains synthetic input/expectation vectors
-for every common step kind and the difficult defaults/uncertainty cases. Python
-and the native executable consume the same data. Native-only cases cover the
-in-memory boundary. These tests are not captured controller replay.
+`data/story/wire-conformance.json` (`pokesim-story-wire-cases/2`) holds
+synthetic input/expectation vectors for every step kind, the built-in and test
+game actions (declared in its `actions`), poses and checkpoints. An accepted
+case's `read` is the record as read, args with their fallbacks. Python and the
+native reader consume the same file. These tests are not captured controller
+replay.
 
 Next, export evaluated FRLG `00.05` and BDSP `01.03` through game adapters that
 populate the shared envelope, then compare all native fields and policy/state

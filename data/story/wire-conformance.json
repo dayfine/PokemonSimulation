@@ -1,100 +1,135 @@
 {
-  "format": "pokesim-story-wire-cases/1",
+  "format": "pokesim-story-wire-cases/2",
   "status": "synthetic-contract-tests",
+  "actions": [
+    {
+      "kind": "game_action",
+      "name": "mart",
+      "args": [
+        {"key": "map", "type": "word", "required": true},
+        {"key": "budget", "type": "integer", "required": true},
+        {"key": "if_present", "type": "boolean", "fallback": false},
+        {"key": "skip", "type": "words"}
+      ]
+    },
+    {"kind": "game_action", "name": "walk", "args": [{"key": "legs", "type": "integer_rows", "required": true}]},
+    {"kind": "game_action", "name": "timed_walk", "args": [{"key": "legs", "type": "timed_legs", "required": true}]},
+    {"kind": "game_action", "name": "profile", "args": []}
+  ],
   "cases": [
     {
-      "input": {"name": "kind new_game", "record": "step", "value": {"id": "event", "kind": "new_game"}},
-      "expectation": {"canonical": {"id": "event", "kind": "new_game"}}
+      "input": {"name": "kind new_game", "record": "step", "value": {"id": "e", "kind": "new_game"}},
+      "expectation": {"read": {"id": "e", "kind": "new_game"}}
     },
     {
-      "input": {"name": "kind options", "record": "step", "value": {"id": "event", "kind": "options"}},
-      "expectation": {"canonical": {"id": "event", "kind": "options"}}
-    },
-    {
-      "input": {"name": "kind route", "record": "step", "value": {"id": "event", "kind": "route"}},
-      "expectation": {"canonical": {"id": "event", "kind": "route"}}
-    },
-    {
-      "input": {"name": "kind legs", "record": "step", "value": {"id": "event", "kind": "legs"}},
-      "expectation": {"canonical": {"id": "event", "kind": "legs"}}
-    },
-    {
-      "input": {"name": "kind step", "record": "step", "value": {"id": "event", "kind": "step"}},
-      "expectation": {"canonical": {"id": "event", "kind": "step"}}
-    },
-    {
-      "input": {"name": "kind talk", "record": "step", "value": {"id": "event", "kind": "talk"}},
-      "expectation": {"canonical": {"id": "event", "kind": "talk"}}
-    },
-    {
-      "input": {"name": "kind answer", "record": "step", "value": {"id": "event", "kind": "answer"}},
-      "expectation": {"canonical": {"id": "event", "kind": "answer"}}
-    },
-    {
-      "input": {"name": "kind scene", "record": "step", "value": {"id": "event", "kind": "scene"}},
-      "expectation": {"canonical": {"id": "event", "kind": "scene"}}
-    },
-    {
-      "input": {"name": "kind battle", "record": "step", "value": {"id": "event", "kind": "battle"}},
-      "expectation": {"canonical": {"id": "event", "kind": "battle"}}
-    },
-    {
-      "input": {"name": "kind train", "record": "step", "value": {"id": "event", "kind": "train"}},
-      "expectation": {"canonical": {"id": "event", "kind": "train"}}
-    },
-    {
-      "input": {"name": "kind heal", "record": "step", "value": {"id": "event", "kind": "heal"}},
-      "expectation": {"canonical": {"id": "event", "kind": "heal"}}
-    },
-    {
-      "input": {"name": "kind shop", "record": "step", "value": {"id": "event", "kind": "shop"}},
-      "expectation": {"canonical": {"id": "event", "kind": "shop"}}
-    },
-    {
-      "input": {"name": "kind save", "record": "step", "value": {"id": "event", "kind": "save"}},
-      "expectation": {"canonical": {"id": "event", "kind": "save"}}
-    },
-    {
-      "input": {"name": "kind ready", "record": "step", "value": {"id": "event", "kind": "ready"}},
-      "expectation": {"canonical": {"id": "event", "kind": "ready"}}
-    },
-    {
-      "input": {"name": "kind game_action", "record": "step", "value": {"id": "event", "kind": "game_action"}},
-      "expectation": {"canonical": {"id": "event", "kind": "game_action"}}
+      "input": {"name": "kind options", "record": "step", "value": {"id": "e", "kind": "options"}},
+      "expectation": {"read": {"id": "e", "kind": "options"}}
     },
     {
       "input": {
-        "name": "uncertain arrival",
-        "record": "pose",
+        "name": "kind route",
+        "record": "step",
+        "value": {"id": "e", "kind": "route", "args": {"target": {"map": "M", "tiles": [[1, 2]]}}}
+      },
+      "expectation": {
+        "read": {"id": "e", "kind": "route", "args": {"fight_wild": false, "target": {"map": "M", "tiles": [[1, 2]]}}}
+      }
+    },
+    {
+      "input": {
+        "name": "kind legs",
+        "record": "step",
         "value": {
-          "map": "M",
-          "certainty": "set",
-          "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
+          "id": "e",
+          "kind": "legs",
+          "action": "legs",
+          "args": {"legs": [{"direction": "south", "tiles": 2}], "fight_wild": true}
         }
       },
       "expectation": {
-        "canonical": {
-          "map": "M",
-          "certainty": "set",
-          "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
+        "read": {
+          "id": "e",
+          "kind": "legs",
+          "action": "legs",
+          "args": {"fight_wild": true, "legs": [{"direction": "south", "tiles": 2}]}
         }
       }
     },
     {
       "input": {
-        "name": "no position",
-        "record": "pose",
-        "value": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}
+        "name": "kind step",
+        "record": "step",
+        "value": {"id": "e", "kind": "step", "args": {"direction": "west"}}
       },
-      "expectation": {"canonical": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}}
+      "expectation": {"read": {"id": "e", "kind": "step", "args": {"direction": "west"}}}
+    },
+    {
+      "input": {"name": "kind talk", "record": "step", "value": {"id": "e", "kind": "talk"}},
+      "expectation": {"read": {"id": "e", "kind": "talk"}}
+    },
+    {
+      "input": {"name": "kind answer", "record": "step", "value": {"id": "e", "kind": "answer"}},
+      "expectation": {"read": {"id": "e", "kind": "answer", "args": {"yes": true}}}
+    },
+    {
+      "input": {"name": "answer no", "record": "step", "value": {"id": "e", "kind": "answer", "args": {"yes": false}}},
+      "expectation": {"read": {"id": "e", "kind": "answer", "args": {"yes": false}}}
+    },
+    {
+      "input": {"name": "kind scene", "record": "step", "value": {"id": "e", "kind": "scene"}},
+      "expectation": {"read": {"id": "e", "kind": "scene"}}
     },
     {
       "input": {
-        "name": "empty tile position",
-        "record": "pose",
-        "value": {"map": "M", "certainty": "unknown", "where": {"kind": "tiles", "tiles": []}}
+        "name": "kind battle",
+        "record": "step",
+        "value": {"id": "e", "kind": "battle", "args": {"may_lose": true}}
       },
-      "expectation": {"canonical": {"map": "M", "certainty": "unknown", "where": {"kind": "tiles", "tiles": []}}}
+      "expectation": {"read": {"id": "e", "kind": "battle", "args": {"may_lose": true}}}
+    },
+    {
+      "input": {
+        "name": "kind battle by its action name",
+        "record": "step",
+        "value": {"id": "e", "kind": "battle", "action": "fight"}
+      },
+      "expectation": {"read": {"id": "e", "kind": "battle", "action": "fight", "args": {"may_lose": false}}}
+    },
+    {
+      "input": {"name": "kind train", "record": "step", "value": {"id": "e", "kind": "train", "args": {"battles": 3}}},
+      "expectation": {"read": {"id": "e", "kind": "train", "args": {"battles": 3}}}
+    },
+    {
+      "input": {"name": "kind heal", "record": "step", "value": {"id": "e", "kind": "heal"}},
+      "expectation": {"read": {"id": "e", "kind": "heal"}}
+    },
+    {
+      "input": {
+        "name": "kind shop",
+        "record": "step",
+        "value": {"id": "e", "kind": "shop", "args": {"items": [{"item": "potion", "quantity": 5}]}}
+      },
+      "expectation": {"read": {"id": "e", "kind": "shop", "args": {"items": [{"item": "potion", "quantity": 5}]}}}
+    },
+    {
+      "input": {"name": "kind save", "record": "step", "value": {"id": "e", "kind": "save"}},
+      "expectation": {"read": {"id": "e", "kind": "save"}}
+    },
+    {
+      "input": {
+        "name": "kind ready",
+        "record": "step",
+        "value": {"id": "e", "kind": "ready", "args": {"target": {"map": "M", "tiles": [[1, 2]]}}}
+      },
+      "expectation": {"read": {"id": "e", "kind": "ready", "args": {"target": {"map": "M", "tiles": [[1, 2]]}}}}
+    },
+    {
+      "input": {
+        "name": "kind game_action",
+        "record": "step",
+        "value": {"id": "e", "kind": "game_action", "action": "profile"}
+      },
+      "expectation": {"read": {"id": "e", "kind": "game_action", "action": "profile"}}
     },
     {
       "input": {
@@ -103,133 +138,414 @@
         "value": {
           "id": "all",
           "kind": "game_action",
-          "why": "source",
-          "direction": "west",
-          "fight_wild": true,
-          "yes": false,
-          "may_lose": true,
-          "battles": 3,
-          "legs": [{"direction": "south", "tiles": 0}],
-          "items": [{"item": "potion", "quantity": 0}],
-          "target": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}},
-          "declared_after": {
-            "map": "M",
-            "certainty": "set",
-            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
-          },
-          "variant": "profile",
-          "skip_if": ["flag"]
+          "why": "source reason",
+          "action": "profile",
+          "skip_if": ["flag"],
+          "once_per_save": true,
+          "declared_after": {"map": "B", "tiles": [[0, 0], [1, 0]], "facing": "east"}
         }
       },
       "expectation": {
-        "canonical": {
+        "read": {
           "id": "all",
           "kind": "game_action",
-          "why": "source",
-          "direction": "west",
-          "fight_wild": true,
-          "yes": false,
-          "may_lose": true,
-          "battles": 3,
-          "legs": [{"direction": "south", "tiles": 0}],
-          "items": [{"item": "potion", "quantity": 0}],
-          "target": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}},
-          "declared_after": {
-            "map": "M",
-            "certainty": "set",
-            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
-          },
-          "variant": "profile",
-          "skip_if": ["flag"]
+          "why": "source reason",
+          "action": "profile",
+          "skip_if": ["flag"],
+          "declared_after": {"map": "B", "tiles": [[0, 0], [1, 0]], "facing": "east"},
+          "once_per_save": true
         }
       }
     },
     {
       "input": {
-        "name": "canonical default omission",
+        "name": "empty fields read as absent",
         "record": "step",
-        "value": {
-          "id": "default",
-          "kind": "step",
-          "direction": "north",
-          "fight_wild": false,
-          "yes": true,
-          "may_lose": false,
-          "battles": 0,
-          "items": [],
-          "legs": [],
-          "skip_if": [],
-          "variant": "",
-          "why": ""
-        }
+        "value": {"id": "e", "kind": "talk", "why": "", "action": "", "skip_if": [], "once_per_save": false}
       },
-      "expectation": {"canonical": {"id": "default", "kind": "step"}}
+      "expectation": {"read": {"id": "e", "kind": "talk"}}
     },
     {
       "input": {
-        "name": "checkpoint order and beliefs",
+        "name": "game args",
+        "record": "step",
+        "value": {
+          "id": "buy",
+          "kind": "game_action",
+          "action": "mart",
+          "args": {"map": "CeruleanCity_Mart", "budget": 3000, "if_present": true}
+        }
+      },
+      "expectation": {
+        "read": {
+          "id": "buy",
+          "kind": "game_action",
+          "action": "mart",
+          "args": {"budget": 3000, "if_present": true, "map": "CeruleanCity_Mart"}
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "game words",
+        "record": "step",
+        "value": {
+          "id": "buy",
+          "kind": "game_action",
+          "action": "mart",
+          "args": {"map": "M", "budget": 1, "skip": ["a", "b"]}
+        }
+      },
+      "expectation": {
+        "read": {
+          "id": "buy",
+          "kind": "game_action",
+          "action": "mart",
+          "args": {"budget": 1, "if_present": false, "map": "M", "skip": ["a", "b"]}
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "game integer rows",
+        "record": "step",
+        "value": {"id": "w", "kind": "game_action", "action": "walk", "args": {"legs": [[0, 4500], [-90, 0], []]}}
+      },
+      "expectation": {
+        "read": {"id": "w", "kind": "game_action", "action": "walk", "args": {"legs": [[0, 4500], [-90, 0], []]}}
+      }
+    },
+    {
+      "input": {
+        "name": "timed legs",
+        "record": "step",
+        "value": {"id": "w", "kind": "game_action", "action": "timed_walk", "args": {"legs": [[0, 4500], [-90, 1200]]}}
+      },
+      "expectation": {
+        "read": {"id": "w", "kind": "game_action", "action": "timed_walk", "args": {"legs": [[0, 4500], [-90, 1200]]}}
+      }
+    },
+    {
+      "input": {
+        "name": "zero coordinates and counts",
+        "record": "step",
+        "value": {"id": "z", "kind": "legs", "args": {"legs": [{"direction": "north", "tiles": 0}]}}
+      },
+      "expectation": {
+        "read": {"id": "z", "kind": "legs", "args": {"fight_wild": false, "legs": [{"direction": "north", "tiles": 0}]}}
+      }
+    },
+    {
+      "input": {"name": "unknown facing stays absent", "record": "pose", "value": {"map": "M", "tiles": [[0, 0]]}},
+      "expectation": {"read": {"map": "M", "tiles": [[0, 0]]}}
+    },
+    {
+      "input": {"name": "no tiles", "record": "pose", "value": {"map": "M", "tiles": []}},
+      "expectation": {"read": {"map": "M", "tiles": []}}
+    },
+    {
+      "input": {"name": "tiles absent", "record": "pose", "value": {"map": "M"}},
+      "expectation": {"read": {"map": "M", "tiles": []}}
+    },
+    {
+      "input": {
+        "name": "alternative tiles",
+        "record": "pose",
+        "value": {"map": "M", "tiles": [[0, 0], [1, 0]], "facing": "east"}
+      },
+      "expectation": {"read": {"map": "M", "tiles": [[0, 0], [1, 0]], "facing": "east"}}
+    },
+    {
+      "input": {
+        "name": "declared tile pose",
+        "record": "declared",
+        "value": {"map": "M", "tiles": [[1, 2]], "facing": "north"}
+      },
+      "expectation": {"read": {"map": "M", "tiles": [[1, 2]], "facing": "north"}}
+    },
+    {
+      "input": {
+        "name": "declared place",
+        "record": "declared",
+        "value": {"place": "LumioseCity", "spot": "HotelZ", "heading": 90}
+      },
+      "expectation": {"read": {"place": "LumioseCity", "spot": "HotelZ", "heading": 90}}
+    },
+    {
+      "input": {"name": "declared place alone", "record": "declared", "value": {"place": "HotelZ"}},
+      "expectation": {"read": {"place": "HotelZ"}}
+    },
+    {
+      "input": {
+        "name": "checkpoint starting at a place",
+        "record": "checkpoint",
+        "value": {
+          "id": "03.01",
+          "title": "Lobby",
+          "start": {"place": "HotelZ"},
+          "events": [{"id": "down", "kind": "scene", "declared_after": {"place": "HotelZLobby", "heading": 180}}]
+        }
+      },
+      "expectation": {
+        "read": {
+          "id": "03.01",
+          "title": "Lobby",
+          "start": {"place": "HotelZ"},
+          "events": [{"id": "down", "kind": "scene", "declared_after": {"place": "HotelZLobby", "heading": 180}}]
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "ordered checkpoint",
         "record": "checkpoint",
         "value": {
           "id": "00.05",
           "title": "synthetic ordered checkpoint",
-          "start": {
-            "map": "M",
-            "certainty": "set",
-            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
-          },
+          "start": {"map": "M", "tiles": [[0, 0], [1, 0]], "facing": "east"},
           "events": [
-            {"id": "first", "kind": "route"},
-            {
-              "id": "second",
-              "kind": "scene",
-              "declared_after": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}
-            }
+            {"id": "first", "kind": "route", "args": {"target": {"map": "M", "tiles": [[3, 4]]}}},
+            {"id": "second", "kind": "scene", "declared_after": {"map": "M"}}
           ]
         }
       },
       "expectation": {
-        "canonical": {
+        "read": {
           "id": "00.05",
           "title": "synthetic ordered checkpoint",
-          "start": {
-            "map": "M",
-            "certainty": "set",
-            "where": {"kind": "tiles", "tiles": [[0, 0], [1, 0]], "facing": "east"}
-          },
+          "start": {"map": "M", "tiles": [[0, 0], [1, 0]], "facing": "east"},
           "events": [
-            {"id": "first", "kind": "route"},
-            {
-              "id": "second",
-              "kind": "scene",
-              "declared_after": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}
-            }
+            {"id": "first", "kind": "route", "args": {"fight_wild": false, "target": {"map": "M", "tiles": [[3, 4]]}}},
+            {"id": "second", "kind": "scene", "declared_after": {"map": "M", "tiles": []}}
           ]
         }
       }
     },
     {
-      "input": {"name": "unsupported kind", "record": "step", "value": {"id": "a", "kind": "teleport"}},
+      "input": {
+        "name": "checkpoint metadata",
+        "record": "checkpoint",
+        "value": {
+          "id": "x",
+          "title": "X",
+          "events": [],
+          "metadata": {
+            "phase": "reproduction",
+            "source": "synthetic",
+            "verified": {"steps_hash": "abc", "build": "b", "date": "2026-11-14", "runs": "3/3"},
+            "postconditions": {
+              "position": {"map": "M", "tiles": [[3, 4]]},
+              "items": [{"item": "LIFT_KEY", "quantity": 1}],
+              "flags": ["f"]
+            }
+          }
+        }
+      },
+      "expectation": {
+        "read": {
+          "id": "x",
+          "title": "X",
+          "events": [],
+          "metadata": {
+            "phase": "reproduction",
+            "verified": {"steps_hash": "abc", "build": "b", "date": "2026-11-14", "runs": "3/3"},
+            "source": "synthetic",
+            "postconditions": {
+              "position": {"map": "M", "tiles": [[3, 4]]},
+              "items": [{"item": "LIFT_KEY", "quantity": 1}],
+              "flags": ["f"]
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "integer rows, not rows",
+        "record": "step",
+        "value": {"id": "w", "kind": "game_action", "action": "walk", "args": {"legs": [0, 4500]}}
+      },
       "expectation": {"rejected": true}
     },
     {
-      "input": {"name": "unknown field", "record": "step", "value": {"id": "a", "kind": "talk", "mystery": 1}},
+      "input": {
+        "name": "integer rows, fraction",
+        "record": "step",
+        "value": {"id": "w", "kind": "game_action", "action": "walk", "args": {"legs": [[0, 4.5]]}}
+      },
       "expectation": {"rejected": true}
     },
     {
-      "input": {"name": "boolean count", "record": "step", "value": {"id": "a", "kind": "train", "battles": false}},
+      "input": {
+        "name": "timed leg of three numbers",
+        "record": "step",
+        "value": {"id": "w", "kind": "game_action", "action": "timed_walk", "args": {"legs": [[0, 4500, 1]]}}
+      },
       "expectation": {"rejected": true}
     },
     {
-      "input": {"name": "negative count", "record": "step", "value": {"id": "a", "kind": "train", "battles": -1}},
+      "input": {
+        "name": "unknown arg",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "action": "mart", "args": {"map": "M", "budget": 1, "budgte": 1}}
+      },
       "expectation": {"rejected": true}
     },
     {
-      "input": {"name": "wrong boolean", "record": "step", "value": {"id": "a", "kind": "answer", "yes": 0}},
+      "input": {
+        "name": "missing required arg",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "action": "mart", "args": {"map": "M"}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "route without target", "record": "step", "value": {"id": "a", "kind": "route"}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "args on a kind with none",
+        "record": "step",
+        "value": {"id": "a", "kind": "talk", "args": {"yes": true}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "game step without action", "record": "step", "value": {"id": "a", "kind": "game_action"}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "unknown action name",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "action": "dance"}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "action of another kind",
+        "record": "step",
+        "value": {"id": "a", "kind": "shop", "action": "mart", "args": {"map": "M", "budget": 1}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "fractional arg",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "action": "mart", "args": {"map": "M", "budget": 1.5}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "args not an object",
+        "record": "step",
+        "value": {"id": "a", "kind": "game_action", "action": "mart", "args": ["map"]}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "old field", "record": "step", "value": {"id": "a", "kind": "battle", "may_lose": true}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "old variant", "record": "step", "value": {"id": "a", "kind": "game_action", "variant": "mart"}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "notes", "record": "step", "value": {"id": "a", "kind": "talk", "notes": ["n"]}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "unknown field", "record": "step", "value": {"id": "a", "kind": "talk", "mystery": 0}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "unknown kind", "record": "step", "value": {"id": "a", "kind": "magic"}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "boolean count",
+        "record": "step",
+        "value": {"id": "a", "kind": "train", "args": {"battles": false}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "wrong bool", "record": "step", "value": {"id": "a", "kind": "answer", "args": {"yes": 0}}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "once_per_save not boolean",
+        "record": "step",
+        "value": {"id": "a", "kind": "talk", "once_per_save": 1}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "unknown leg direction",
+        "record": "step",
+        "value": {"id": "a", "kind": "legs", "args": {"legs": [{"direction": "up", "tiles": 1}]}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "negative quantity",
+        "record": "step",
+        "value": {"id": "a", "kind": "shop", "args": {"items": [{"item": "potion", "quantity": -1}]}}
+      },
       "expectation": {"rejected": true}
     },
     {"input": {"name": "missing id", "record": "step", "value": {"kind": "talk"}}, "expectation": {"rejected": true}},
     {
       "input": {"name": "empty id", "record": "step", "value": {"id": "", "kind": "talk"}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "old pose",
+        "record": "pose",
+        "value": {"map": "M", "certainty": "unknown", "where": {"kind": "unknown"}}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "bad coordinate", "record": "pose", "value": {"map": "M", "tiles": [[0, true]]}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "tile of three coordinates", "record": "pose", "value": {"map": "M", "tiles": [[0, 1, 2]]}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "unknown facing", "record": "pose", "value": {"map": "M", "facing": "up"}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "declared map and place", "record": "declared", "value": {"map": "M", "place": "HotelZ"}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {
+        "name": "declared place with tiles",
+        "record": "declared",
+        "value": {"place": "HotelZ", "tiles": [[1, 2]]}
+      },
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "declared map with heading", "record": "declared", "value": {"map": "M", "heading": 90}},
+      "expectation": {"rejected": true}
+    },
+    {
+      "input": {"name": "declared neither", "record": "declared", "value": {"spot": "Lobby"}},
       "expectation": {"rejected": true}
     },
     {
@@ -241,62 +557,22 @@
       "expectation": {"rejected": true}
     },
     {
+      "input": {"name": "checkpoint without title", "record": "checkpoint", "value": {"id": "x", "events": []}},
+      "expectation": {"rejected": true}
+    },
+    {
       "input": {
-        "name": "bad pair",
-        "record": "pose",
-        "value": {"map": "M", "certainty": "tile", "where": {"kind": "tiles", "tiles": [[0, true]]}}
+        "name": "checkpoint sections",
+        "record": "checkpoint",
+        "value": {"id": "x", "title": "X", "sections": []}
       },
       "expectation": {"rejected": true}
     },
     {
       "input": {
-        "name": "unknown subtype",
-        "record": "pose",
-        "value": {"map": "M", "certainty": "unknown", "where": {"kind": "gps"}}
-      },
-      "expectation": {"rejected": true}
-    },
-    {
-      "input": {
-        "name": "args",
-        "record": "step",
-        "value": {
-          "id": "buy",
-          "kind": "game_action",
-          "variant": "mart",
-          "args": {"map": "CeruleanCity_Mart", "budget": 3000, "if_present": true}
-        }
-      },
-      "expectation": {
-        "canonical": {
-          "id": "buy",
-          "kind": "game_action",
-          "variant": "mart",
-          "args": {"map": "CeruleanCity_Mart", "budget": 3000, "if_present": true}
-        }
-      }
-    },
-    {
-      "input": {
-        "name": "fractional arg",
-        "record": "step",
-        "value": {"id": "a", "kind": "game_action", "variant": "mart", "args": {"budget": 1.5}}
-      },
-      "expectation": {"rejected": true}
-    },
-    {
-      "input": {
-        "name": "nested arg",
-        "record": "step",
-        "value": {"id": "a", "kind": "game_action", "variant": "mart", "args": {"items": [1]}}
-      },
-      "expectation": {"rejected": true}
-    },
-    {
-      "input": {
-        "name": "args not an object",
-        "record": "step",
-        "value": {"id": "a", "kind": "game_action", "variant": "mart", "args": ["map"]}
+        "name": "unknown phase",
+        "record": "checkpoint",
+        "value": {"id": "x", "title": "X", "events": [], "metadata": {"phase": "done"}}
       },
       "expectation": {"rejected": true}
     }
