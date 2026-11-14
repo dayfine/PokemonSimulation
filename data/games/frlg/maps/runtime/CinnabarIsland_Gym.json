@@ -5,7 +5,8 @@
     "decomp_file": "data/maps/CinnabarIsland_Gym/map.json",
     "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
     "date": "2026-10-31",
-    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles",
+    "overlay": {"file": "data/games/frlg/maps/overlays/CinnabarIsland_Gym.json", "story_state": "complete"}
   },
   "allow_running": false,
   "tiles": [
@@ -18,76 +19,120 @@
     "#.........###........#.......#",
     "#.........###........#.......#",
     "#####..##########..#######..##",
-    "##############################",
+    "#####GG##########GG#######GG##",
     "###.......#####......###.....#",
     "#.........###........#.......#",
     "#.........###........#.......#",
     "#.........###........#.......#",
     "#.........###........#####...#",
     "#.........#######..#######...#",
-    "#####..###############.......#",
-    "###############......#.......#",
+    "#####..##########GG###.......#",
+    "#####GG########......#.......#",
     "###.......###........#.......#",
     "#.........###........#.......#",
     "#.........###........#.S...S.#",
     "#.........###........#.......#",
-    "#..........#.........#.......#",
-    "#..........#.........#.......#",
+    "#..........G.........#.......#",
+    "#..........G.........#.......#",
     "##############################"
   ],
   "points": {"warp_1": [25, 23]},
   "warps": [
-    {"coord": [24, 23], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_1"},
-    {"coord": [25, 23], "enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_1"},
-    {"coord": [26, 23], "enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_1"}
+    {"enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_1", "coord": [24, 23]},
+    {"enter": "walk_south", "to_map": "CinnabarIsland", "to_point": "warp_1", "coord": [25, 23]},
+    {"enter": "walk_into", "to_map": "CinnabarIsland", "to_point": "warp_1", "coord": [26, 23]}
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "door_1": {
+      "tiles": [[26, 9], [27, 9]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "quiz_answer",
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_1"
+    },
+    "door_2": {
+      "tiles": [[17, 9], [18, 9]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "quiz_answer",
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_2"
+    },
+    "door_3": {
+      "tiles": [[17, 16], [18, 16]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "quiz_answer",
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_3"
+    },
+    "door_4": {
+      "tiles": [[11, 22], [11, 23]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "quiz_answer",
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_4"
+    },
+    "door_5": {
+      "tiles": [[5, 17], [6, 17]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "quiz_answer",
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_5"
+    },
+    "door_6": {
+      "tiles": [[5, 9], [6, 9]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "quiz_answer",
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_6"
+    }
+  },
   "npcs": [
     {
       "name": "poke_maniac",
-      "coord": [25, 11],
       "source_event": 0,
       "source_script": "CinnabarIsland_Gym_EventScript_Quinn",
-      "source_local_id": "LOCALID_QUINN"
+      "source_local_id": "LOCALID_QUINN",
+      "coord": [25, 11]
     },
-    {"name": "scientist", "coord": [25, 4], "source_event": 1, "source_script": "CinnabarIsland_Gym_EventScript_Erik"},
+    {"name": "scientist", "source_event": 1, "source_script": "CinnabarIsland_Gym_EventScript_Erik", "coord": [25, 4]},
     {
       "name": "scientist",
-      "coord": [17, 5],
       "source_event": 2,
       "source_script": "CinnabarIsland_Gym_EventScript_Avery",
-      "source_local_id": "LOCALID_AVERY"
+      "source_local_id": "LOCALID_AVERY",
+      "coord": [17, 5]
     },
     {
       "name": "poke_maniac",
-      "coord": [16, 11],
       "source_event": 3,
       "source_script": "CinnabarIsland_Gym_EventScript_Ramon",
-      "source_local_id": "LOCALID_RAMON"
+      "source_local_id": "LOCALID_RAMON",
+      "coord": [16, 11]
     },
     {
       "name": "scientist",
-      "coord": [16, 18],
       "source_event": 4,
       "source_script": "CinnabarIsland_Gym_EventScript_Derek",
-      "source_local_id": "LOCALID_DEREK"
+      "source_local_id": "LOCALID_DEREK",
+      "coord": [16, 18]
     },
     {
       "name": "poke_maniac",
-      "coord": [4, 19],
       "source_event": 5,
       "source_script": "CinnabarIsland_Gym_EventScript_Dusty",
-      "source_local_id": "LOCALID_DUSTY"
+      "source_local_id": "LOCALID_DUSTY",
+      "coord": [4, 19]
     },
     {
       "name": "scientist",
-      "coord": [4, 11],
       "source_event": 6,
       "source_script": "CinnabarIsland_Gym_EventScript_Zac",
-      "source_local_id": "LOCALID_ZAC"
+      "source_local_id": "LOCALID_ZAC",
+      "coord": [4, 11]
     },
-    {"name": "blaine", "coord": [5, 4], "source_event": 7, "source_script": "CinnabarIsland_Gym_EventScript_Blaine"},
-    {"name": "gym_guy", "coord": [24, 20], "source_event": 8, "source_script": "CinnabarIsland_Gym_EventScript_GymGuy"}
+    {"name": "blaine", "source_event": 7, "source_script": "CinnabarIsland_Gym_EventScript_Blaine", "coord": [5, 4]},
+    {"name": "gym_guy", "source_event": 8, "source_script": "CinnabarIsland_Gym_EventScript_GymGuy", "coord": [24, 20]}
   ]
 }

@@ -330,6 +330,36 @@ class VictoryRoadSwitchTest(unittest.TestCase):
             frlg_maps.victory_road_gates(scripts, self.SOURCE, 'VictoryRoad_2F', ['..8', 'B.~'])
 
 
+class QuizDoorTest(unittest.TestCase):
+    #   A door whose top wall edge (x=1..2, y=0) is floor in the blockdata and
+    #   whose barrier (y=1) is wall; the open script redraws both and the floor below.
+    SCRIPTS = (
+        'CinnabarIsland_Gym_OnLoad::\n'
+        '\tgoto_if_set FLAG_DEFEATED_BLAINE, CinnabarIsland_Gym_OnLoadOpenAllDoors\n'
+        '\tcall_if_set FLAG_CINNABAR_GYM_QUIZ_1, CinnabarIsland_Gym_OnLoadOpenDoor1\n'
+        '\tend\n'
+        '\nCinnabarIsland_Gym_OnLoadOpenDoor1::\n'
+        '\tcall CinnabarIsland_Gym_EventScript_OpenDoor1\n'
+        '\treturn\n'
+        '\nCinnabarIsland_Gym_EventScript_OpenDoor1::\n'
+        '\tsetmetatile 1, 0, METATILE_CinnabarGym_Floor_WallLeftCorner, 0\n'
+        '\tsetmetatile 1, 1, METATILE_CinnabarGym_Floor_WallLeftEdge, 0\n'
+        '\tsetmetatile 2, 1, METATILE_CinnabarGym_Floor_WallRightEdge, 0\n'
+        '\tsetmetatile 3, 1, METATILE_CinnabarGym_Wall_RetractedBarrier, 1\n'
+        '\tsetmetatile 1, 2, METATILE_CinnabarGym_Floor, 0\n'
+        '\treturn\n')
+
+    def test_a_door_is_a_gate_of_the_walls_its_answer_opens(self):
+        gates = frlg_maps.quiz_door_gates(self.SCRIPTS, 'CinnabarIsland_Gym', ['....', '####', '....'])
+        self.assertEqual(gates, {'door_1': {
+            'tiles': [[1, 1], [2, 1]], 'open_glyph': '.', 'new_game': 'closed',
+            'opens_by': 'quiz_answer', 'flag': 'FLAG_CINNABAR_GYM_QUIZ_1'}})
+
+    def test_a_door_that_opens_no_wall_is_an_error(self):
+        with self.assertRaisesRegex(ValueError, 'opens no wall'):
+            frlg_maps.quiz_door_gates(self.SCRIPTS, 'CinnabarIsland_Gym', ['....', '....', '....'])
+
+
 class EncounterTest(unittest.TestCase):
     #   MtMoon_1F's cave floor: behavior MB_CAVE (0x08), encounter type LAND.
     CAVE_FLOOR = 0x08 | (frlg_maps.TILE_ENCOUNTER_LAND << frlg_maps.ENCOUNTER_TYPE_SHIFT)

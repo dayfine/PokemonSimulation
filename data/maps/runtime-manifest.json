@@ -851,12 +851,16 @@
         {
           "name": "CinnabarIsland_Gym",
           "file": "data/games/frlg/maps/runtime/CinnabarIsland_Gym.json",
-          "sha256": "42c2a70ae464043641ad3a7a79e0ab73c6b0d7dc09190137dd886f0e2630d4b7",
+          "sha256": "e0a1ed2a853309c167aade668e663f8fc5ac37bd45ea546148fdedeb5b28738a",
           "source": {
             "decomp_file": "data/maps/CinnabarIsland_Gym/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
-            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/CinnabarIsland_Gym.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -880,7 +884,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CinnabarIsland_Gym.json",
-            "sha256": "42c2a70ae464043641ad3a7a79e0ab73c6b0d7dc09190137dd886f0e2630d4b7"
+            "sha256": "a99a5ac62c8d06e941ea39fa9bb90867998034861d792a8e6032642156f1244a"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/CinnabarIsland_Gym.json",
+            "sha256": "f3bd565f3a5419a066911f39411e49301d4d82e89c50a53ffa4d17f0f761669f"
           }
         },
         {

@@ -102,8 +102,9 @@ def validate(data):
             claimed[(x, y)] = gate_id
             require(rows[y][x] in ('G', '#', gate['open_glyph']), f'gate {gate_id}: tile {(x, y)} is {rows[y][x]!r}')
         if 'flag' in gate:
-            require(gate.get('opens_by') == 'card_key_face_a' and gate['new_game'] == 'closed'
-                    and 'switch' not in gate and 'open_when' not in gate, f'gate {gate_id}: a flag gate opens by Card Key and starts closed')
+            require(gate.get('opens_by') in ('card_key_face_a', 'quiz_answer') and gate['new_game'] == 'closed'
+                    and 'switch' not in gate and 'open_when' not in gate,
+                    f'gate {gate_id}: a flag gate opens by Card Key or a quiz answer and starts closed')
         else:
             require(gate.get('switch') in switches, f'gate {gate_id}: unknown switch {gate.get("switch")!r}')
             require(gate.get('open_when') in ('on', 'off') and 'opens_by' not in gate, f'gate {gate_id}: open_when')

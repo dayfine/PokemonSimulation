@@ -34,6 +34,7 @@ Overlays today:
 | `VermilionCity_Gym` | `tile` (4..6, 6..7) to `.`: the electric beams are off | `story_state` | `FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES`, after checkpoint 00.23 |
 | `PokemonMansion_1F`, `_2F`, `_3F`, `_B1F` | `gate` open or closed: one operation per barrier (13 in all). The base and runtime tiles show each barrier as `G` (the base is the blockdata, the switch-off state); the effective map has it as the new game leaves it until the switch flag is set | `story_state` | `FLAG_POKEMON_MANSION_SWITCH_STATE`, set when a statue switch is pressed (a second press clears it) |
 | `VictoryRoad_1F`, `_2F`, `_3F` | `gate` open: one operation per barrier half (2 per barrier, 8 in all). The base and runtime tiles show the barrier as `G` (the base is the blockdata, the open state); the effective map has it closed (the OnLoad script's new-game state) until a boulder has been pushed onto the switch's button. | `story_state` | `VAR_MAP_SCENE_VICTORY_ROAD_*` (a VAR, set to 100 by the switch) |
+| `CinnabarIsland_Gym` | `gate` open: one operation per quiz door (6). The blockdata has each door shut, so the base and runtime tiles show its barrier row as `G` and the map's `gates` table names it (`opens_by: quiz_answer`); the effective map has it closed until its flag is set. | `story_state` | `FLAG_CINNABAR_GYM_QUIZ_<n>`, set by the right answer at quiz machine <n> |
 | `SilphCo_2F` to `SilphCo_11F` | `gate` open: one operation per Card Key door (20 in all). The base and runtime tiles show the door as `G` and the map's `gates` table names it; the effective map has it closed (the OnLoad script's new-game state) until the flag is set. Evidence lists the opening script | `story_state` | `FLAG_SILPH_<n>F_DOOR[_<m>]`, set when the door is opened with the Card Key |
 
 ## Gates and story state
@@ -49,6 +50,7 @@ infers the gate states itself from the story state it records:
 | Gate kind | Table entry | Story state a consumer records | Open when |
 |---|---|---|---|
 | Silph Co. Card Key door | `{"opens_by": "card_key_face_a", "flag": "FLAG_SILPH_5F_DOOR_1", "new_game": "closed"}` | the set of `FLAG_SILPH_<n>F_DOOR[_<m>]` flags: each is set the moment that door is opened with the Card Key | its flag is set |
+| Cinnabar Gym quiz door | `{"opens_by": "quiz_answer", "flag": "FLAG_CINNABAR_GYM_QUIZ_1", "new_game": "closed"}` | the set of `FLAG_CINNABAR_GYM_QUIZ_<n>` flags: each is set by the right answer at quiz machine <n> (or beating its trainer); the gym's OnLoad keeps the door open while it is set | its flag is set |
 
 The Mansion's gates belong to one **switch**, `mansion` (the `switches` table:
 the flag, `toggle`, the four `floors` that share it, and each statue's tile and
