@@ -97,6 +97,7 @@
     {
       "name": "lass",
       "coord": [33, 4],
+      "path": [["west", 5], ["south", 3], ["east", 5], ["north", 3]],
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "MtMoon_1F_EventScript_Miriam"

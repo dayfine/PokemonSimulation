@@ -220,6 +220,22 @@ A collision-free `MB_COUNTER` (PewterCity_Museum_1F (11, 5)) is floor: the
 counter only lets the player talk across it.
 
 NPCs and pickups keep source event, script and optional local-ID provenance.
+A person who wanders or walks back and forth has a `wander` box: their start
+tile +- the pret movement range, kept inside the map
+(`IsCoordOutsideObjectEventMovementRange()`). Back-and-forth walkers and
+`*_UP_AND_DOWN`/`*_LEFT_AND_RIGHT` wanderers keep to their axis.
+A person who walks a sequence of directions (`MOVEMENT_TYPE_WALK_SEQUENCE_*`)
+has a `path` instead: legs `[direction, tiles]` (north/east/south/west) walked
+in order from their `coord`, back to it and over again, e.g. Route 11's Dave
+`[["south", 4], ["east", 8], ["west", 8], ["north", 4]]`. The generator walks
+pret's rule on the map's collision, behavior and elevation grids
+(`MoveNextDirectionInSequence()` and `MovementType_WalkSequence*_Step1()` in
+`src/event_object_movement.c`): at the edge of their range they turn to the
+next direction; any other collision (a wall, ground at another elevation, a
+person who stands still) makes them walk in place for good, which the last
+leg marks with a third element, `["east", 3, "stuck"]`. A walk that does
+neither fails the generator. Every FRLG sequence walker returns to its start;
+`npc_path.path_tiles()` expands legs to tiles.
 `source_event` is a zero-based source array index, not an in-game object ID.
 An item ball's `item` and `quantity` come from the pinned catalog
 (`data/maps/item-identities.json`) or, for a map it doesn't list, from the

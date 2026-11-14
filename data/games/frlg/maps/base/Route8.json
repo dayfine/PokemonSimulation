@@ -166,6 +166,7 @@
     {
       "name": "biker",
       "coord": [14, 16],
+      "path": [["east", 5], ["south", 2], ["west", 5], ["north", 2]],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 13,
       "source_script": "Route8_EventScript_Ricardo"
@@ -173,6 +174,7 @@
     {
       "name": "biker",
       "coord": [24, 17],
+      "path": [["east", 5], ["north", 5], ["south", 5], ["west", 5]],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 14,
       "source_script": "Route8_EventScript_Jaren"

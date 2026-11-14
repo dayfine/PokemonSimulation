@@ -338,6 +338,7 @@
     {
       "name": "rocker",
       "coord": [13, 92],
+      "path": [["west", 4], ["north", 4], ["south", 4], ["east", 4]],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 5,
       "source_script": "Route12_EventScript_Luca"

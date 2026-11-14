@@ -253,6 +253,21 @@
       "required": ["min", "max"],
       "additionalProperties": true
     },
+    "path": {
+      "type": "array",
+      "description": "legs a walk-sequence person walks from their coord, back to it and over again; a last leg marked stuck ends where they stop for good",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {"$ref": "#/$defs/direction"},
+          {"type": "integer", "minimum": 1},
+          {"const": "stuck"}
+        ],
+        "items": false,
+        "minItems": 2
+      }
+    },
     "npc": {
       "type": "object",
       "properties": {
@@ -261,7 +276,8 @@
         "facing": {"$ref": "#/$defs/direction"},
         "hide_flag": {"type": "string"},
         "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
-        "wander": {"$ref": "#/$defs/wander"}
+        "wander": {"$ref": "#/$defs/wander"},
+        "path": {"$ref": "#/$defs/path"}
       },
       "required": ["coord", "name"],
       "additionalProperties": true,

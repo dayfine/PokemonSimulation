@@ -167,7 +167,13 @@
       "source_script": "CeladonCity_EventScript_Poliwrath",
       "source_local_id": "LOCALID_CELADON_POLIWRATH"
     },
-    {"name": "little_girl", "coord": [11, 18], "source_event": 3, "source_script": "CeladonCity_EventScript_LittleGirl"},
+    {
+      "name": "little_girl",
+      "coord": [11, 18],
+      "path": [["east", 4], ["south", 4], ["west", 4], ["north", 4]],
+      "source_event": 3,
+      "source_script": "CeladonCity_EventScript_LittleGirl"
+    },
     {
       "name": "woman_2",
       "coord": [18, 22],

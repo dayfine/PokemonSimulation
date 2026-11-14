@@ -215,6 +215,7 @@
     {
       "name": "biker",
       "coord": [10, 37],
+      "wander": {"min": [10, 31], "max": [10, 43]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 8,
       "source_script": "Route14_EventScript_Lukas"

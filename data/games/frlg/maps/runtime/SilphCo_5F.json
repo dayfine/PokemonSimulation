@@ -138,7 +138,13 @@
       "source_script": "SilphCo_5F_EventScript_Grunt1",
       "coord": [9, 21]
     },
-    {"name": "scientist", "source_event": 8, "source_script": "SilphCo_5F_EventScript_Scientist", "coord": [2, 7]}
+    {
+      "name": "scientist",
+      "wander": {"min": [0, 7], "max": [4, 7]},
+      "source_event": 8,
+      "source_script": "SilphCo_5F_EventScript_Scientist",
+      "coord": [2, 7]
+    }
   ],
   "items": [
     {

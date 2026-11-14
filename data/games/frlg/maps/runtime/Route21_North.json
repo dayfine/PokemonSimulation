@@ -132,6 +132,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [12, 44],
+      "path": [["west", 4], ["north", 2], ["east", 4], ["south", 2]],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 2,
       "source_script": "Route21_North_EventScript_Spencer"

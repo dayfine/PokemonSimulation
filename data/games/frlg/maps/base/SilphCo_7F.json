@@ -125,6 +125,7 @@
     {
       "name": "worker_m",
       "coord": [9, 14],
+      "wander": {"min": [8, 14], "max": [10, 14]},
       "source_event": 7,
       "source_script": "SilphCo_7F_EventScript_WorkerM2",
       "source_local_id": "LOCALID_SILPH_CO_7F_WORKER_M2"

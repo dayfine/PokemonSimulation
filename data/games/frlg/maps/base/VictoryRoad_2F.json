@@ -196,6 +196,7 @@
     {
       "name": "man",
       "coord": [26, 6],
+      "path": [["south", 4], ["east", 4], ["west", 4], ["north", 4]],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "VictoryRoad_2F_EventScript_Vincent"
