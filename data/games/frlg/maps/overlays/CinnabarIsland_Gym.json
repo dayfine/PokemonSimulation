@@ -1,0 +1,84 @@
+{
+  "format": "pokesim-map-overlay/1",
+  "map": "CinnabarIsland_Gym",
+  "operations": [
+    {
+      "op": "gate",
+      "gate": "door_1",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_CINNABAR_GYM_QUIZ_1"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/CinnabarIsland_Gym/scripts.inc: the blockdata has door 1 shut; CinnabarIsland_Gym_OnLoad calls CinnabarIsland_Gym_EventScript_OpenDoor1 while FLAG_CINNABAR_GYM_QUIZ_1 is set (and every open script once FLAG_DEFEATED_BLAINE is set); the right answer at quiz machine 1 (Quiz1Correct) runs the same script and sets the flag, and beating the trainer beside the machine does too (Quiz1CompleteTrainer)",
+        "opens_by": "answer quiz machine 1 right (or beat its trainer); the door stays open, also after a save, by its flag",
+        "observed": "console B, 2026-11-14 (14.01, 14.02b): the walker held through the open door where the map has it shut; the user approved marking the doors as gates (2026-11-14)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "door_2",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_CINNABAR_GYM_QUIZ_2"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/CinnabarIsland_Gym/scripts.inc: the blockdata has door 2 shut; CinnabarIsland_Gym_OnLoad calls CinnabarIsland_Gym_EventScript_OpenDoor2 while FLAG_CINNABAR_GYM_QUIZ_2 is set (and every open script once FLAG_DEFEATED_BLAINE is set); the right answer at quiz machine 2 (Quiz2Correct) runs the same script and sets the flag, and beating the trainer beside the machine does too (Quiz2CompleteTrainer)",
+        "opens_by": "answer quiz machine 2 right (or beat its trainer); the door stays open, also after a save, by its flag",
+        "observed": "console B, 2026-11-14 (14.01, 14.02b): the walker held through the open door where the map has it shut; the user approved marking the doors as gates (2026-11-14)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "door_3",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_CINNABAR_GYM_QUIZ_3"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/CinnabarIsland_Gym/scripts.inc: the blockdata has door 3 shut; CinnabarIsland_Gym_OnLoad calls CinnabarIsland_Gym_EventScript_OpenDoor3 while FLAG_CINNABAR_GYM_QUIZ_3 is set (and every open script once FLAG_DEFEATED_BLAINE is set); the right answer at quiz machine 3 (Quiz3Correct) runs the same script and sets the flag, and beating the trainer beside the machine does too (Quiz3CompleteTrainer)",
+        "opens_by": "answer quiz machine 3 right (or beat its trainer); the door stays open, also after a save, by its flag",
+        "observed": "console B, 2026-11-14 (14.01, 14.02b): the walker held through the open door where the map has it shut; the user approved marking the doors as gates (2026-11-14)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "door_4",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_CINNABAR_GYM_QUIZ_4"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/CinnabarIsland_Gym/scripts.inc: the blockdata has door 4 shut; CinnabarIsland_Gym_OnLoad calls CinnabarIsland_Gym_EventScript_OpenDoor4 while FLAG_CINNABAR_GYM_QUIZ_4 is set (and every open script once FLAG_DEFEATED_BLAINE is set); the right answer at quiz machine 4 (Quiz4Correct) runs the same script and sets the flag, and beating the trainer beside the machine does too (Quiz4CompleteTrainer)",
+        "opens_by": "answer quiz machine 4 right (or beat its trainer); the door stays open, also after a save, by its flag",
+        "observed": "console B, 2026-11-14 (14.01, 14.02b): the walker held through the open door where the map has it shut; the user approved marking the doors as gates (2026-11-14)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "door_5",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_CINNABAR_GYM_QUIZ_5"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/CinnabarIsland_Gym/scripts.inc: the blockdata has door 5 shut; CinnabarIsland_Gym_OnLoad calls CinnabarIsland_Gym_EventScript_OpenDoor5 while FLAG_CINNABAR_GYM_QUIZ_5 is set (and every open script once FLAG_DEFEATED_BLAINE is set); the right answer at quiz machine 5 (Quiz5Correct) runs the same script and sets the flag, and beating the trainer beside the machine does too (Quiz5CompleteTrainer)",
+        "opens_by": "answer quiz machine 5 right (or beat its trainer); the door stays open, also after a save, by its flag",
+        "observed": "console B, 2026-11-14 (14.01, 14.02b): the walker held through the open door where the map has it shut; the user approved marking the doors as gates (2026-11-14)"
+      },
+      "status": "candidate"
+    },
+    {
+      "op": "gate",
+      "gate": "door_6",
+      "state": "open",
+      "why": "story_state",
+      "when": {"flag": "FLAG_CINNABAR_GYM_QUIZ_6"},
+      "evidence": {
+        "source": "pret/pokefirered@ce6406d8 data/maps/CinnabarIsland_Gym/scripts.inc: the blockdata has door 6 shut; CinnabarIsland_Gym_OnLoad calls CinnabarIsland_Gym_EventScript_OpenDoor6 while FLAG_CINNABAR_GYM_QUIZ_6 is set (and every open script once FLAG_DEFEATED_BLAINE is set); the right answer at quiz machine 6 (Quiz6Correct) runs the same script and sets the flag, and beating the trainer beside the machine does too (Quiz6CompleteTrainer)",
+        "opens_by": "answer quiz machine 6 right (or beat its trainer); the door stays open, also after a save, by its flag",
+        "observed": "console B, 2026-11-14 (14.01, 14.02b): the walker held through the open door where the map has it shut; the user approved marking the doors as gates (2026-11-14)"
+      },
+      "status": "candidate"
+    }
+  ]
+}

@@ -420,6 +420,77 @@ def victory_road_gates(scripts, source, name, tiles):
     return gates, switches
 
 
+#   Cinnabar Gym's quiz doors. The blockdata has every door shut; the map's
+#   OnLoad opens each one whose quiz flag is set (`call_if_set
+#   FLAG_CINNABAR_GYM_QUIZ_<n>, CinnabarIsland_Gym_OnLoadOpenDoor<n>`, which
+#   calls CinnabarIsland_Gym_EventScript_OpenDoor<n>), and a right answer at
+#   quiz machine <n> runs the same script and sets the flag. A new game has
+#   every flag unset, so every door is shut in the base. A door is a gate
+#   (glyph `G`): its tiles are those the open script makes passable
+#   (collision 0) that are walls in the blockdata; it opens to floor (`.`).
+QUIZ_DOOR_MAP = 'CinnabarIsland_Gym'
+CALL_IF_SET = re.compile(r'\s*call_if_set\s+(FLAG_\w+),\s*(\w+)\s*$')
+CALL = re.compile(r'\s*call\s+(\w+)\s*$')
+
+
+def quiz_door_gates(scripts, name, tiles):
+    """The `gates` table of Cinnabar Gym from its scripts.inc text and the
+    blockdata rows `tiles` (every door shut): `door_<n>` for quiz <n>, opened
+    by the right answer (`opens_by: quiz_answer`) and kept open by its flag.
+    Raises if a door's open script opens no wall or opens it to other than
+    floor."""
+    blocks = script_blocks(scripts)
+    gates = {}
+    for line in blocks[f'{name}_OnLoad']:
+        match = CALL_IF_SET.match(line)
+        if not match or not match.group(1).startswith('FLAG_CINNABAR_GYM_QUIZ_'):
+            continue
+        flag, on_load = match.groups()
+        opens = [m.group(1) for m in map(CALL.match, blocks[on_load]) if m]
+        if len(opens) != 1:
+            raise ValueError(f'{name}: {on_load} calls {opens}, not one open script')
+        group = []
+        for x, y, label, collision in metatile_calls(blocks[opens[0]]):
+            if collision == 0 and tiles[y][x] == '#':
+                if 'Floor' not in label:
+                    raise ValueError(f'{name} ({x}, {y}): {opens[0]} opens a wall to {label}, not floor')
+                group.append([x, y])
+        if not group:
+            raise ValueError(f'{name}: {opens[0]} opens no wall')
+        gates['door_' + flag[len('FLAG_CINNABAR_GYM_QUIZ_'):]] = {
+            'tiles': sorted(group), 'open_glyph': '.', 'new_game': 'closed',
+            'opens_by': 'quiz_answer', 'flag': flag}
+    return gates
+
+
+#   Cut trees. A tree is an object (OBJ_EVENT_GFX_CUT_TREE) on open ground;
+#   EventScript_CutTree removes it and sets its hide flag, a temporary flag
+#   (FLAG_TEMP_*) that a warp clears, so the tree grows back. Its tile is a
+#   gate (glyph `G`) that opens to the ground under it (`opens_by: cut`, the
+#   hide flag); the object stays in `objects`.
+CUT_TREE_GFX = 'OBJ_EVENT_GFX_CUT_TREE'
+
+
+def cut_tree_gates(objects, tiles):
+    """The `gates` of a map's cut trees, `cut_tree_<x>_<y>`, from its
+    `object_events` and the blockdata rows `tiles`. Raises if a tree stands on
+    a tile other than open ground or has no hide flag."""
+    gates = {}
+    for obj in objects:
+        if obj.get('graphics_id') != CUT_TREE_GFX or not (0 <= obj['y'] < len(tiles) and 0 <= obj['x'] < len(tiles[0])):
+            continue
+        x, y = obj['x'], obj['y']
+        ground = tiles[y][x]
+        if ground not in ('.', '~'):
+            raise ValueError(f'cut tree ({x}, {y}) stands on {ground!r}, not open ground')
+        flag = obj.get('flag') or '0'
+        if not flag.startswith('FLAG_'):
+            raise ValueError(f'cut tree ({x}, {y}) has no hide flag')
+        gates[f'cut_tree_{x}_{y}'] = {
+            'tiles': [[x, y]], 'open_glyph': ground, 'new_game': 'closed', 'opens_by': 'cut', 'flag': flag}
+    return gates
+
+
 class Decomp:
     def __init__(self, commit, cache):
         self.commit = commit
@@ -985,6 +1056,9 @@ def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps
         switches = mansion_switches(source)
     if name in VICTORY_ROAD_FLOORS:
         gates, switches = victory_road_gates(decomp.read(f'data/maps/{name}/scripts.inc').decode(), source, name, open_tiles)
+    if name == QUIZ_DOOR_MAP:
+        gates = quiz_door_gates(decomp.read(f'data/maps/{name}/scripts.inc').decode(), name, open_tiles)
+    gates = {**gates, **cut_tree_gates(source.get('object_events', []), open_tiles)}
     tiles = set_tiles(open_tiles, [tuple(c) for gate in gates.values() for c in gate['tiles']], GATE_GLYPH)
     warp_events = source.get('warp_events', [])
     points = {n: [x, y] for n, (x, y) in POINTS.get(name, {}).items()}

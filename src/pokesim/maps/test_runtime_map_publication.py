@@ -95,6 +95,20 @@ def undo_added_links(game, data):
     data['connections'] = [c for c in data['connections'] if c['to_map'] not in connections]
 
 
+# Cut trees published as gates after the v1 baseline (`opens_by: cut`): the
+# tree's tile is `G` and its gate opens to the ground the tree stands on.
+# Every such gate is removed and its tile drawn as that ground before digesting.
+def undo_cut_tree_gates(data):
+    gates = data.get('gates', {})
+    for gate_id in [g for g, gate in gates.items() if gate.get('opens_by') == 'cut']:
+        gate = gates.pop(gate_id)
+        for x, y in gate['tiles']:
+            row = data['tiles'][y]
+            data['tiles'][y] = row[:x] + gate['open_glyph'] + row[x + 1:]
+    if 'gates' in data and not gates:
+        del data['gates']
+
+
 # What each approved FRLG map gained when it became generated base + overlays
 # (docs/maps/OVERLAYS.md step 1): every source warp and connection linked, their
 # arrival points, object provenance and pickup identities, elevation grids left
@@ -168,6 +182,7 @@ class PublicationTest(unittest.TestCase):
                                 continue
                             for field in ('item', 'quantity', 'source_event', 'hide_flag'):
                                 item.pop(field, None)
+                    undo_cut_tree_gates(baseline_data)
                     undo_base_delta(game, baseline_data, deltas)
                     undo_corrections(game, baseline_data)
                     undo_story_flags_and_wander(game, baseline_data)

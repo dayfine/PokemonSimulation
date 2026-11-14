@@ -9,7 +9,7 @@
         {
           "name": "CeladonCity",
           "file": "data/games/frlg/maps/runtime/CeladonCity.json",
-          "sha256": "a32481268755b54eba82ccddd403ab93ef37538072562aad706f1771bddec435",
+          "sha256": "c9e5b936834df47bae9ccefb9944b41721d30eda45c278387e1157e964b4870c",
           "source": {
             "decomp_file": "data/maps/CeladonCity/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -49,7 +49,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CeladonCity.json",
-            "sha256": "a32481268755b54eba82ccddd403ab93ef37538072562aad706f1771bddec435"
+            "sha256": "c9e5b936834df47bae9ccefb9944b41721d30eda45c278387e1157e964b4870c"
           }
         },
         {
@@ -347,7 +347,7 @@
         {
           "name": "CeladonCity_Gym",
           "file": "data/games/frlg/maps/runtime/CeladonCity_Gym.json",
-          "sha256": "b94dfdd80f91dd5e365cc2958c5d74a52910a9cc1bf4953ae8b3051ced299cff",
+          "sha256": "82c5a7dbc270273c4d05152ce42be6d99055037efa8e2a4cdc21ff3ff7fb0182",
           "source": {
             "decomp_file": "data/maps/CeladonCity_Gym/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -376,7 +376,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CeladonCity_Gym.json",
-            "sha256": "b94dfdd80f91dd5e365cc2958c5d74a52910a9cc1bf4953ae8b3051ced299cff"
+            "sha256": "82c5a7dbc270273c4d05152ce42be6d99055037efa8e2a4cdc21ff3ff7fb0182"
           }
         },
         {
@@ -539,7 +539,7 @@
         {
           "name": "CeruleanCity",
           "file": "data/games/frlg/maps/runtime/CeruleanCity.json",
-          "sha256": "426d07f97caf3709fc3540f39aacd15dad45a41cb1c7f361f08a51863bc87aa0",
+          "sha256": "819a4d9aa38f9ce00433347eefcd82748e2b897984b836ce9705130272ec6322",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCity.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCity/map.json",
@@ -573,7 +573,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCity.json",
-            "sha256": "426d07f97caf3709fc3540f39aacd15dad45a41cb1c7f361f08a51863bc87aa0"
+            "sha256": "819a4d9aa38f9ce00433347eefcd82748e2b897984b836ce9705130272ec6322"
           }
         },
         {
@@ -851,12 +851,16 @@
         {
           "name": "CinnabarIsland_Gym",
           "file": "data/games/frlg/maps/runtime/CinnabarIsland_Gym.json",
-          "sha256": "42c2a70ae464043641ad3a7a79e0ab73c6b0d7dc09190137dd886f0e2630d4b7",
+          "sha256": "e0a1ed2a853309c167aade668e663f8fc5ac37bd45ea546148fdedeb5b28738a",
           "source": {
             "decomp_file": "data/maps/CinnabarIsland_Gym/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
             "date": "2026-10-31",
-            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles",
+            "overlay": {
+              "file": "data/games/frlg/maps/overlays/CinnabarIsland_Gym.json",
+              "story_state": "complete"
+            }
           },
           "target_game": "frlg",
           "source_game": "firered",
@@ -880,7 +884,11 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/CinnabarIsland_Gym.json",
-            "sha256": "42c2a70ae464043641ad3a7a79e0ab73c6b0d7dc09190137dd886f0e2630d4b7"
+            "sha256": "a99a5ac62c8d06e941ea39fa9bb90867998034861d792a8e6032642156f1244a"
+          },
+          "overlay": {
+            "file": "data/games/frlg/maps/overlays/CinnabarIsland_Gym.json",
+            "sha256": "f3bd565f3a5419a066911f39411e49301d4d82e89c50a53ffa4d17f0f761669f"
           }
         },
         {
@@ -921,7 +929,7 @@
         {
           "name": "FuchsiaCity",
           "file": "data/games/frlg/maps/runtime/FuchsiaCity.json",
-          "sha256": "7e12993a8b23f0d3e1ed50f3faab10997915db0e36cfd77e29cafa13cf6a18a5",
+          "sha256": "3158f40d83781c88eb91d0cdba0d47b29ce58c31a6bccbda6b14dab38222b77e",
           "source": {
             "decomp_file": "data/maps/FuchsiaCity/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -949,7 +957,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FuchsiaCity.json",
-            "sha256": "7e12993a8b23f0d3e1ed50f3faab10997915db0e36cfd77e29cafa13cf6a18a5"
+            "sha256": "3158f40d83781c88eb91d0cdba0d47b29ce58c31a6bccbda6b14dab38222b77e"
           }
         },
         {
@@ -1689,7 +1697,7 @@
         {
           "name": "PewterCity",
           "file": "data/games/frlg/maps/runtime/PewterCity.json",
-          "sha256": "3da486c09b14463a00a07f98b0280f62fc88f04b67acc583db456310735327df",
+          "sha256": "01309842cc67d52ace13ce9ac788836c8b0764101701be2f82670423359149a5",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/PewterCity.json",
           "source": {
             "decomp_file": "data/maps/PewterCity/map.json",
@@ -1724,7 +1732,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/PewterCity.json",
-            "sha256": "3da486c09b14463a00a07f98b0280f62fc88f04b67acc583db456310735327df"
+            "sha256": "01309842cc67d52ace13ce9ac788836c8b0764101701be2f82670423359149a5"
           }
         },
         {
@@ -2950,7 +2958,7 @@
         {
           "name": "Route10",
           "file": "data/games/frlg/maps/runtime/Route10.json",
-          "sha256": "af453e3bd0656a54e973328781e28e6ce3db53f4671cd334f4c66ef33d655983",
+          "sha256": "9cb1abae67b80756184ed1e8e992696798e18c64faae9cb0038829fc6ad324d8",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route10.json",
           "source": {
             "decomp_file": "data/maps/Route10/map.json",
@@ -2984,7 +2992,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route10.json",
-            "sha256": "af453e3bd0656a54e973328781e28e6ce3db53f4671cd334f4c66ef33d655983"
+            "sha256": "9cb1abae67b80756184ed1e8e992696798e18c64faae9cb0038829fc6ad324d8"
           }
         },
         {
@@ -3111,7 +3119,7 @@
         {
           "name": "Route12",
           "file": "data/games/frlg/maps/runtime/Route12.json",
-          "sha256": "152d55c8a18240b026e6cf67b30508d51a6aac06bea68719093e41d080dc7b1b",
+          "sha256": "70523f00ef17860123d9b8e5834b7c27d0ddd897f7db0b3e6d5085d3f59178c9",
           "source": {
             "decomp_file": "data/maps/Route12/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3151,7 +3159,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route12.json",
-            "sha256": "152d55c8a18240b026e6cf67b30508d51a6aac06bea68719093e41d080dc7b1b"
+            "sha256": "70523f00ef17860123d9b8e5834b7c27d0ddd897f7db0b3e6d5085d3f59178c9"
           }
         },
         {
@@ -3192,7 +3200,7 @@
         {
           "name": "Route13",
           "file": "data/games/frlg/maps/runtime/Route13.json",
-          "sha256": "0ab17830586baa895708f6c290eb5e4ded94753ed1b278a55b4bbe34434c3209",
+          "sha256": "ab082baaa3e38e72996fccaf94624f23a1a19c7e1a187450ed3731ef4b5cc72a",
           "source": {
             "decomp_file": "data/maps/Route13/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3220,13 +3228,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route13.json",
-            "sha256": "0ab17830586baa895708f6c290eb5e4ded94753ed1b278a55b4bbe34434c3209"
+            "sha256": "ab082baaa3e38e72996fccaf94624f23a1a19c7e1a187450ed3731ef4b5cc72a"
           }
         },
         {
           "name": "Route14",
           "file": "data/games/frlg/maps/runtime/Route14.json",
-          "sha256": "eda215f6fbf9f5da026dc3e62d016dcd79f87f97a5104a5d3020582501e79eab",
+          "sha256": "84a83f7226dce8beea025a94ba570c1b6be58220eb71eb62b238ded2d721f0f4",
           "source": {
             "decomp_file": "data/maps/Route14/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3254,7 +3262,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route14.json",
-            "sha256": "eda215f6fbf9f5da026dc3e62d016dcd79f87f97a5104a5d3020582501e79eab"
+            "sha256": "84a83f7226dce8beea025a94ba570c1b6be58220eb71eb62b238ded2d721f0f4"
           }
         },
         {
@@ -3342,7 +3350,7 @@
         {
           "name": "Route16",
           "file": "data/games/frlg/maps/runtime/Route16.json",
-          "sha256": "642273d4824f60c6c78953691c398b2f6522c8a15f91cdd9f0b745e5ecf9d563",
+          "sha256": "3a5a25056b98699993774ed31de4290f2feadbb5e4ac6626cee6b30652f22292",
           "source": {
             "decomp_file": "data/maps/Route16/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3370,7 +3378,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route16.json",
-            "sha256": "642273d4824f60c6c78953691c398b2f6522c8a15f91cdd9f0b745e5ecf9d563"
+            "sha256": "3a5a25056b98699993774ed31de4290f2feadbb5e4ac6626cee6b30652f22292"
           }
         },
         {
@@ -3549,7 +3557,7 @@
         {
           "name": "Route2",
           "file": "data/games/frlg/maps/runtime/Route2.json",
-          "sha256": "791f723a806c664b6892b101a866208745c4ed58f9e44dacbbc892780a62cc26",
+          "sha256": "2e2feb1973bea4a064a1d409d4073bb1a6dcae8504e16d22641ee51582c5d33f",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route2.json",
           "source": {
             "decomp_file": "data/maps/Route2/map.json",
@@ -3596,7 +3604,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route2.json",
-            "sha256": "791f723a806c664b6892b101a866208745c4ed58f9e44dacbbc892780a62cc26"
+            "sha256": "2e2feb1973bea4a064a1d409d4073bb1a6dcae8504e16d22641ee51582c5d33f"
           }
         },
         {
@@ -3865,7 +3873,7 @@
         {
           "name": "Route25",
           "file": "data/games/frlg/maps/runtime/Route25.json",
-          "sha256": "a5c4db46c5f057734da815e35d5449a0a6de58d1956ccbf3e4d38cd2ec62eeae",
+          "sha256": "8fdb04744b63fd3d24b6098e374f0b08664e33e356a25736b933b79935005696",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route25.json",
           "source": {
             "decomp_file": "data/maps/Route25/map.json",
@@ -3911,7 +3919,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route25.json",
-            "sha256": "a5c4db46c5f057734da815e35d5449a0a6de58d1956ccbf3e4d38cd2ec62eeae"
+            "sha256": "8fdb04744b63fd3d24b6098e374f0b08664e33e356a25736b933b79935005696"
           }
         },
         {
@@ -4429,7 +4437,7 @@
         {
           "name": "Route8",
           "file": "data/games/frlg/maps/runtime/Route8.json",
-          "sha256": "6765f3632f56b06e7eb1840133b915eb47a1e64f386820bcec9e0e65cf5b884f",
+          "sha256": "58f3908dff28620d06be5b4c5e6c0df7d2d1376dde8904fb275369cc0e2b2c20",
           "source": {
             "decomp_file": "data/maps/Route8/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -4458,7 +4466,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/Route8.json",
-            "sha256": "6765f3632f56b06e7eb1840133b915eb47a1e64f386820bcec9e0e65cf5b884f"
+            "sha256": "58f3908dff28620d06be5b4c5e6c0df7d2d1376dde8904fb275369cc0e2b2c20"
           }
         },
         {
@@ -4499,7 +4507,7 @@
         {
           "name": "Route9",
           "file": "data/games/frlg/maps/runtime/Route9.json",
-          "sha256": "19d388a37d42126b5069e341b75c3b86a37a86b4b927c88a25b22dc37b57ed33",
+          "sha256": "a30c2d7a65f38f8cbe94e6d6b8a0f8ba56d29d34b168c5c016639177d96e80a7",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/Route9.json",
           "source": {
             "decomp_file": "data/maps/Route9/map.json",
@@ -4546,7 +4554,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/Route9.json",
-            "sha256": "19d388a37d42126b5069e341b75c3b86a37a86b4b927c88a25b22dc37b57ed33"
+            "sha256": "a30c2d7a65f38f8cbe94e6d6b8a0f8ba56d29d34b168c5c016639177d96e80a7"
           }
         },
         {
@@ -5896,7 +5904,7 @@
         {
           "name": "VermilionCity",
           "file": "data/games/frlg/maps/runtime/VermilionCity.json",
-          "sha256": "6a1ba2482cee579265508ff6f837fca8bea0fcfeba02e1ea9351b8a0bb58a077",
+          "sha256": "ea2294f55e91d8d1c24cf094eb6aca0b4dd3b76c82ec12d0f40f38357b02b551",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/VermilionCity.json",
           "source": {
             "decomp_file": "data/maps/VermilionCity/map.json",
@@ -5930,7 +5938,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/VermilionCity.json",
-            "sha256": "6a1ba2482cee579265508ff6f837fca8bea0fcfeba02e1ea9351b8a0bb58a077"
+            "sha256": "ea2294f55e91d8d1c24cf094eb6aca0b4dd3b76c82ec12d0f40f38357b02b551"
           }
         },
         {
@@ -6264,7 +6272,7 @@
         {
           "name": "ViridianCity",
           "file": "data/games/frlg/maps/runtime/ViridianCity.json",
-          "sha256": "c18f797d9fe5edf8fceb86f5e439778b44f78cf4397cd6b566f3ff7246c2d8cb",
+          "sha256": "e1d3e20b047138e7132874ea92a8117f4db20ec677d797469127931a01deeff7",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/ViridianCity.json",
           "source": {
             "decomp_file": "data/maps/ViridianCity/map.json",
@@ -6310,7 +6318,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/ViridianCity.json",
-            "sha256": "c18f797d9fe5edf8fceb86f5e439778b44f78cf4397cd6b566f3ff7246c2d8cb"
+            "sha256": "e1d3e20b047138e7132874ea92a8117f4db20ec677d797469127931a01deeff7"
           }
         },
         {
