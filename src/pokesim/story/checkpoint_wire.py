@@ -29,9 +29,22 @@ CERTAINTIES = ('tile', 'column', 'row', 'set', 'unknown')
 
 
 def fields(value, allowed):
-    if not isinstance(value, dict) or set(value) - set(allowed):
-        raise ValueError('expected record with only fields: ' + ', '.join(allowed))
+    if not isinstance(value, dict):
+        raise ValueError('expected record')
+    unsupported = set(value) - set(allowed)
+    if unsupported:
+        raise ValueError('unsupported field: ' + str(min(unsupported, key=str)))
     return value
+
+
+def field(value, name, reader):
+    """Read required field `name`, naming it when absent or malformed."""
+    if name not in value:
+        raise ValueError('missing field: ' + name)
+    try:
+        return reader(value[name])
+    except ValueError as error:
+        raise ValueError(name + ': ' + str(error)) from error
 
 
 def text(value):
@@ -55,6 +68,12 @@ def integer(value, low, high):
 def array(value):
     if not isinstance(value, list):
         raise ValueError('expected array')
+    return value
+
+
+def boolean(value):
+    if type(value) is not bool:
+        raise ValueError('expected boolean')
     return value
 
 
@@ -236,9 +255,11 @@ def read_tiles(value):
 def read_grid_pose(value):
     """{"map", "tiles"?, "facing"?}; no tiles reads as none (any tile, or a zone game)."""
     root = fields(value, ('map', 'tiles', 'facing'))
-    result = dict(map=text(root['map']), tiles=read_tiles(root.get('tiles', [])))
+    result = dict(map=field(root, 'map', text), tiles=[])
+    if 'tiles' in root:
+        result['tiles'] = field(root, 'tiles', read_tiles)
     if 'facing' in root:
-        result['facing'] = choice(root['facing'], DIRECTIONS)
+        result['facing'] = field(root, 'facing', lambda item: choice(item, DIRECTIONS))
     return result
 
 
@@ -251,11 +272,11 @@ def read_declared_pose(value):
     if 'map' in value:
         return read_grid_pose(value)
     root = fields(value, ('place', 'spot', 'heading'))
-    result = dict(place=text(root['place']))
+    result = dict(place=field(root, 'place', text))
     if 'spot' in root:
-        result['spot'] = text(root['spot'])
+        result['spot'] = field(root, 'spot', text)
     if 'heading' in root:
-        result['heading'] = integer(root['heading'], INT_MIN, INT_MAX)
+        result['heading'] = field(root, 'heading', lambda item: integer(item, INT_MIN, INT_MAX))
     return result
 
 
@@ -267,7 +288,8 @@ def read_items(value):
     items = []
     for item in array(value):
         fields(item, ('item', 'quantity'))
-        items.append(dict(item=text(item['item']), quantity=integer(item['quantity'], 0, INT64_MAX)))
+        items.append(dict(item=field(item, 'item', text),
+                          quantity=field(item, 'quantity', lambda number: integer(number, 0, INT64_MAX))))
     return items
 
 
@@ -289,7 +311,8 @@ def read_arg(value, type_):
         legs = []
         for leg in array(value):
             fields(leg, ('direction', 'tiles'))
-            legs.append(dict(direction=choice(leg['direction'], DIRECTIONS), tiles=integer(leg['tiles'], INT_MIN, INT_MAX)))
+            legs.append(dict(direction=field(leg, 'direction', lambda item: choice(item, DIRECTIONS)),
+                             tiles=field(leg, 'tiles', lambda number: integer(number, INT_MIN, INT_MAX))))
         return legs
     if type_ == 'words':
         return read_strings(value)
@@ -314,15 +337,18 @@ def read_action_specs(value):
     for action in array(value):
         fields(action, ('kind', 'name', 'args'))
         args = []
-        for arg in array(action['args']):
+        for arg in field(action, 'args', array):
             fields(arg, ('key', 'type', 'required', 'fallback'))
-            spec = dict(key=text(arg['key']), type=choice(arg['type'], ARG_TYPES), required=arg.get('required', False))
-            if type(spec['required']) is not bool:
-                raise ValueError('expected boolean: required')
+            spec = dict(key=field(arg, 'key', text),
+                        type=field(arg, 'type', lambda item: choice(item, ARG_TYPES)),
+                        required=field(arg, 'required', boolean) if 'required' in arg else False)
+            if spec['required'] and 'fallback' in arg:
+                raise ValueError('fallback: required argument cannot have a fallback: ' + spec['key'])
             if 'fallback' in arg:
-                spec['fallback'] = read_arg(arg['fallback'], spec['type'])
+                spec['fallback'] = field(arg, 'fallback', lambda item: read_arg(item, spec['type']))
             args.append(spec)
-        actions.append(dict(kind=choice(action['kind'], KINDS), name=text(action['name']), args=args))
+        actions.append(dict(kind=field(action, 'kind', lambda item: choice(item, KINDS)),
+                            name=field(action, 'name', text), args=args))
     return tuple(BUILTIN_ACTIONS) + tuple(actions)
 
 
@@ -343,7 +369,10 @@ def read_step_args(value, action):
     for key, item in value.items():
         if key not in specs:
             raise ValueError('unknown argument: ' + key)
-        result[key] = read_arg(item, specs[key]['type'])
+        try:
+            result[key] = read_arg(item, specs[key]['type'])
+        except ValueError as error:
+            raise ValueError('argument ' + key + ': ' + str(error)) from error
     for key, spec in specs.items():
         if spec['required'] and key not in result:
             raise ValueError('missing argument: ' + key)
@@ -357,29 +386,30 @@ def read_story_step(value, actions=BUILTIN_ACTIONS):
     its args read against that action's spec. Empty why, action and skip_if and a
     false once_per_save read as absent."""
     root = fields(value, ('id', 'kind', 'why', 'action', 'args', 'skip_if', 'declared_after', 'once_per_save'))
-    result = dict(id=text(root['id']), kind=choice(root['kind'], KINDS))
+    result = dict(id=field(root, 'id', text), kind=field(root, 'kind', lambda item: choice(item, KINDS)))
     if not result['id']:
         raise ValueError('empty story step id')
     for key in ('why', 'action'):
-        if key in root and text(root[key]):
+        if key in root and field(root, key, text):
             result[key] = root[key]
     name = result.get('action', '')
     if result['kind'] == 'game_action' and not name:
         raise ValueError('game_action step names no action: ' + result['id'])
     action = find_action(actions, result['kind'], name)
     if action is None and name:
-        raise ValueError('unknown action: ' + name)
-    args = read_step_args(root.get('args', {}), action)
+        raise ValueError('action: unknown action: ' + name)
+    try:
+        args = read_step_args(root.get('args', {}), action)
+    except ValueError as error:
+        raise ValueError('args: ' + str(error)) from error
     if args:
         result['args'] = args
-    skip = read_strings(root.get('skip_if', []))
+    skip = field(root, 'skip_if', read_strings) if 'skip_if' in root else []
     if skip:
         result['skip_if'] = skip
     if 'declared_after' in root:
-        result['declared_after'] = read_declared_pose(root['declared_after'])
-    once = root.get('once_per_save', False)
-    if type(once) is not bool:
-        raise ValueError('expected boolean: once_per_save')
+        result['declared_after'] = field(root, 'declared_after', read_declared_pose)
+    once = field(root, 'once_per_save', boolean) if 'once_per_save' in root else False
     if once:
         result['once_per_save'] = True
     return result
@@ -389,39 +419,42 @@ def read_metadata(value):
     root = fields(value, ('phase', 'verified', 'source', 'postconditions'))
     result = {}
     if 'phase' in root:
-        result['phase'] = choice(root['phase'], PHASES)
+        result['phase'] = field(root, 'phase', lambda item: choice(item, PHASES))
     if 'verified' in root:
-        verified = fields(root['verified'], ('steps_hash', 'build', 'date', 'runs'))
-        result['verified'] = {key: text(verified[key]) for key in ('steps_hash', 'build', 'date', 'runs')
-                              if key == 'steps_hash' or key in verified}
+        verified = field(root, 'verified', lambda item: fields(item, ('steps_hash', 'build', 'date', 'runs')))
+        result['verified'] = {'steps_hash': field(verified, 'steps_hash', text)}
+        for key in ('build', 'date', 'runs'):
+            if key in verified:
+                result['verified'][key] = field(verified, key, text)
     if 'source' in root:
-        result['source'] = text(root['source'])
+        result['source'] = field(root, 'source', text)
     if 'postconditions' in root:
-        post = fields(root['postconditions'], ('position', 'items', 'flags'))
+        post = field(root, 'postconditions', lambda item: fields(item, ('position', 'items', 'flags')))
         result['postconditions'] = {}
         if 'position' in post:
-            result['postconditions']['position'] = read_grid_pose(post['position'])
+            result['postconditions']['position'] = field(post, 'position', read_grid_pose)
         if 'items' in post:
-            result['postconditions']['items'] = read_items(post['items'])
+            result['postconditions']['items'] = field(post, 'items', read_items)
         if 'flags' in post:
-            result['postconditions']['flags'] = read_strings(post['flags'])
+            result['postconditions']['flags'] = field(post, 'flags', read_strings)
     return result
 
 
 def read_story_checkpoint(value, actions=BUILTIN_ACTIONS):
     """A checkpoint's id, title, start, events (unique ids) and metadata."""
     root = fields(value, ('id', 'title', 'start', 'events', 'metadata'))
-    result = dict(id=text(root['id']), title=text(root['title']))
+    result = dict(id=field(root, 'id', text), title=field(root, 'title', text))
     if not result['id']:
         raise ValueError('empty checkpoint id')
     if 'start' in root:
-        result['start'] = read_declared_pose(root['start'])
-    result['events'] = [read_story_step(event, actions) for event in array(root['events'])]
+        result['start'] = field(root, 'start', read_declared_pose)
+    events = field(root, 'events', array)
+    result['events'] = [read_story_step(event, actions) for event in events]
     names = [step['id'] for step in result['events']]
     if len(names) != len(set(names)):
         raise ValueError('duplicate story event ids')
     if 'metadata' in root:
-        result['metadata'] = read_metadata(root['metadata'])
+        result['metadata'] = field(root, 'metadata', read_metadata)
     return result
 
 

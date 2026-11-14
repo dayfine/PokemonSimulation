@@ -20,7 +20,7 @@ class CheckpointWireTest(unittest.TestCase):
             value, expected = case['input'], case['expectation']
             with self.subTest(name=value['name']):
                 if expected.get('rejected'):
-                    with self.assertRaises((ValueError, KeyError, TypeError)):
+                    with self.assertRaises(ValueError):
                         readers[value['record']](value['value'])
                 else:
                     actual = readers[value['record']](value['value'])
@@ -36,6 +36,30 @@ class CheckpointWireTest(unittest.TestCase):
         spec = [{'kind': 'game_action', 'name': 'x', 'args': [{'key': 'n', 'type': 'integer', 'fallback': True}]}]
         with self.assertRaises(ValueError):
             read_action_specs(spec)
+
+    def test_required_arg_cannot_have_a_fallback(self):
+        spec = [{'kind': 'game_action', 'name': 'x',
+                 'args': [{'key': 'n', 'type': 'integer', 'required': True, 'fallback': 1}]}]
+        with self.assertRaisesRegex(ValueError, 'required argument cannot have a fallback'):
+            read_action_specs(spec)
+
+    def test_invalid_records_raise_field_level_value_errors(self):
+        cases = (
+            ('pose map', read_grid_pose, {}, 'missing field: map'),
+            ('declared place', read_declared_pose, {'place': 1}, 'place: expected string'),
+            ('action args', read_action_specs, [{'kind': 'game_action', 'name': 'x'}], 'missing field: args'),
+            ('step id', read_story_step, {'kind': 'talk'}, 'missing field: id'),
+            ('checkpoint events', read_story_checkpoint, {'id': 'x', 'title': 'X'}, 'missing field: events'),
+            ('item quantity', read_story_step,
+             {'id': 'shop', 'kind': 'shop', 'args': {'items': [{'item': 'potion'}]}},
+             'argument items: missing field: quantity'),
+            ('verification hash', read_story_checkpoint,
+             {'id': 'x', 'title': 'X', 'events': [], 'metadata': {'verified': {}}},
+             'missing field: steps_hash'),
+        )
+        for name, reader, value, message in cases:
+            with self.subTest(name=name), self.assertRaisesRegex(ValueError, message):
+                reader(value)
 
 
 if __name__ == '__main__':
