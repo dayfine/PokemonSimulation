@@ -1,9 +1,12 @@
 # Imported from dayfine/Arduino-Source@51c0ce6128e5981da56b370a770874b96a1e129f
 # Original path: devtools/maps/tests/test_frlg_maps.py
+import json
+import os
+from pathlib import Path
 import unittest
 
 from pokesim.grid.geometry import Tile
-from pokesim.maps import frlg_decomp_map_builder as frlg_maps
+from pokesim.maps import frlg_decomp_map_builder as frlg_maps, npc_path
 from pokesim.maps.local_routing import LocalMap
 from pokesim.maps.runtime_map_pack import ROOT, load
 
@@ -83,59 +86,109 @@ DOWN_RIGHT_LEFT_UP = (['DOWN', 'RIGHT', 'LEFT', 'UP'], (2, 'x'))
 
 
 class WalkSequenceTest(unittest.TestCase):
-    def test_path_by_ground(self):
+    def test_legs_by_ground(self):
         #   Each case: name, input (ground, start elevation, ranges, sequence,
-        #   people standing), expectation (tiles, loop). Start (1, 1).
+        #   people standing), expectation (path legs, None for standing still). Start (1, 1).
+        loop = [['east', 2], ['south', 2], ['west', 2], ['north', 2]]
+        stopped = [['east', 2], ['south', 1, 'stuck']]
         cases = (
-            ('walks its range edges back to the start', (ground(OPEN), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
-             ([[1, 1], [2, 1], [3, 1], [3, 2], [3, 3], [2, 3], [1, 3], [1, 2]], 0)),
+            ('walks its range edges back to the start', (ground(OPEN), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()), loop),
             ('back on its start column it skips the rest of the way left',
              (ground(OPEN), 3, (2, 2), DOWN_RIGHT_LEFT_UP, ()),
-             ([[1, 1], [1, 2], [1, 3], [2, 3], [3, 3], [2, 3], [1, 3], [1, 2]], 0)),
+             [['south', 2], ['east', 2], ['west', 2], ['north', 2]]),
             ('a wall stops it for good', (ground(['.....'] * 3 + ['...#.', '.....']), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
-             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
-            ('a wall next to the start keeps it there', (ground(['.....', '..#..'] + ['.....'] * 3), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
-             ([[1, 1]], 0)),
+             stopped),
+            ('a wall next to the start keeps it there',
+             (ground(['.....', '..#..'] + ['.....'] * 3), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()), None),
             ('a closed side stops it', (ground(OPEN, {(3, 2): 'MB_IMPASSABLE_SOUTH'}), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
-             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+             stopped),
             ('a swimmer stops at land', (ground(['wwwww'] * 3 + ['www.w', 'wwwww']), 1, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
-             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+             stopped),
             ('from elevation 0 it takes the elevation of the ground it steps on',
-             (ground(['wwwww'] * 3 + ['www.w', 'wwwww']), 0, (2, 2), RIGHT_DOWN_LEFT_UP, ()),
-             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
-            ('a person standing in the way stops it', (ground(OPEN), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ((3, 3),)),
-             ([[1, 1], [2, 1], [3, 1], [3, 2]], 3)),
+             (ground(['wwwww'] * 3 + ['www.w', 'wwwww']), 0, (2, 2), RIGHT_DOWN_LEFT_UP, ()), stopped),
+            ('a person standing in the way stops it', (ground(OPEN), 3, (2, 2), RIGHT_DOWN_LEFT_UP, ((3, 3),)), stopped),
             ('range 0 is no limit: it walks to the map edge', (ground(OPEN), 3, (2, 0), RIGHT_DOWN_LEFT_UP, ()),
-             ([[1, 1], [2, 1], [3, 1], [3, 2], [3, 3], [3, 4]], 5)),
+             [['east', 2], ['south', 3, 'stuck']]),
         )
-        for name, (land, elevation, ranges, (directions, shortcut), standing), (tiles, loop) in cases:
+        for name, (land, elevation, ranges, (directions, shortcut), standing), legs in cases:
             with self.subTest(name):
-                self.assertEqual(frlg_maps.walk_sequence((1, 1), elevation, ranges, directions, shortcut, land,
-                                                         frozenset(standing)),
-                                 {'tiles': tiles, 'loop': loop})
+                walk = frlg_maps.walk_sequence((1, 1), elevation, ranges, directions, shortcut, land, frozenset(standing))
+                self.assertEqual(frlg_maps.path_legs(walk), legs)
+
+    def test_a_walk_that_neither_returns_nor_stops_fails(self):
+        with self.assertRaises(ValueError):
+            frlg_maps.path_legs({'tiles': [[1, 1], [2, 1], [3, 1]], 'loop': 1})
+
+
+class PathTest(unittest.TestCase):
+    def test_path_errors(self):
+        #   Each case: name, input (legs from (1, 1) on a 5 x 5 map), expectation (error or None).
+        cases = (
+            ('a loop back to the start', [['east', 2], ['south', 1], ['west', 2], ['north', 1]], None),
+            ('stuck after a leg', [['east', 2], ['south', 1, 'stuck']], None),
+            ('not back at the start', [['east', 2], ['south', 1]], 'a path returns to its start unless stuck'),
+            ('off the map', [['north', 2], ['south', 2]], 'a path leaves the map'),
+            ('stuck before the last leg', [['east', 1, 'stuck'], ['west', 1]], 'only the last leg may be "stuck"'),
+            ('unmerged legs', [['east', 1], ['east', 1], ['west', 2]], 'consecutive legs go different ways'),
+            ('an empty leg', [['east', 0]], 'a leg walks at least one tile'),
+            ('a pret direction', [['RIGHT', 1], ['LEFT', 1]], 'a leg is [direction, tiles] or [direction, tiles, "stuck"]'),
+        )
+        for name, legs, error in cases:
+            with self.subTest(name):
+                self.assertEqual(npc_path.path_error((1, 1), legs, 5, 5), error)
+
+
+DECOMP_CACHE = Path(os.path.expanduser('~/.cache/pokefirered')) / frlg_maps.COMMIT
 
 
 class WalkSequencesInThePackTest(unittest.TestCase):
     """People who walk a sequence in the published maps, from pret map.json."""
-    def test_published_paths(self):
-        #   Each case: name, input (map, start tile), expectation (path tiles, loop).
+    def test_published_legs(self):
+        #   Each case: name, input (map, start tile), expectation (path legs).
         cases = (
             ('Dave walks down 4 and right 8, and back', ('Route11', 28, 10),
-             ([[28, 10], [28, 11], [28, 12], [28, 13], [28, 14]] + [[x, 14] for x in range(29, 37)]
-              + [[x, 14] for x in range(35, 27, -1)] + [[28, 13], [28, 12], [28, 11]], 0)),
+             [['south', 4], ['east', 8], ['west', 8], ['north', 4]]),
             ('swimmer Spencer swims around his 4 x 2 range', ('Route21_North', 12, 44),
-             ([[12, 44], [11, 44], [10, 44], [9, 44], [8, 44], [8, 43], [8, 42], [9, 42], [10, 42], [11, 42],
-               [12, 42], [12, 43]], 0)),
+             [['west', 4], ['north', 2], ['east', 4], ['south', 2]]),
             ('Jaren walks right 5 and up 5, and back', ('Route8', 24, 17),
-             ([[x, 17] for x in range(24, 30)] + [[29, y] for y in range(16, 11, -1)]
-              + [[29, y] for y in range(13, 18)] + [[x, 17] for x in range(28, 24, -1)], 0)),
+             [['east', 5], ['north', 5], ['south', 5], ['west', 5]]),
         )
-        for name, (map_name, x, y), (tiles, loop) in cases:
+        for name, (map_name, x, y), legs in cases:
             with self.subTest(name):
                 objects = load(ROOT / 'data/games/frlg/maps/runtime' / (map_name + '.json'))['objects']
                 [person] = [o for o in objects if (o['x'], o['y']) == (x, y)]
-                self.assertEqual(person.get('path'), {'tiles': tiles, 'loop': loop})
+                self.assertEqual(person.get('path'), legs)
                 self.assertNotIn('wander', person)
+
+    @unittest.skipUnless((DECOMP_CACHE / 'src/event_object_movement.c').exists(),
+                         'needs the pinned pokefirered files in ~/.cache/pokefirered (the generator fetches them)')
+    def test_legs_expand_to_the_simulated_walk(self):
+        decomp = frlg_maps.Decomp(frlg_maps.COMMIT, str(DECOMP_CACHE.parent))
+        names = frlg_maps.behaviors(decomp)
+        layouts = {l['id']: l for l in json.loads(decomp.read('data/layouts/layouts.json'))['layouts'] if 'id' in l}
+        rules = frlg_maps.walk_sequence_rules(decomp.read('src/event_object_movement.c').decode())
+        checked = 0
+        for path in sorted((ROOT / 'data/games/frlg/maps/runtime').glob('*.json')):
+            people = [o for o in load(path).get('objects', []) if 'path' in o]
+            if not people:
+                continue
+            source = json.loads(decomp.read(f'data/maps/{path.stem}/map.json'))
+            land = frlg_maps.read_ground(decomp, layouts[source['layout']], names)
+            standing = frozenset((e['x'], e['y']) for e in source['object_events'] if not e.get('movement_type', '')
+                                 .startswith((frlg_maps.WALK_SEQUENCE,) + frlg_maps.MOVING))
+            for person in people:
+                with self.subTest(path.stem, tile=(person['x'], person['y'])):
+                    [event] = [e for e in source['object_events'] if (e['x'], e['y']) == (person['x'], person['y'])]
+                    movement = event['movement_type']
+                    walk = frlg_maps.walk_sequence(
+                        (event['x'], event['y']), int(event.get('elevation') or 0),
+                        (int(event['movement_range_x']), int(event['movement_range_y'])),
+                        movement[len(frlg_maps.WALK_SEQUENCE):].split('_'), rules[movement], land, standing)
+                    self.assertEqual(walk['loop'], 0)
+                    expected = [tuple(t) for t in walk['tiles']] + [tuple(walk['tiles'][0])]
+                    self.assertEqual(npc_path.path_tiles((person['x'], person['y']), person['path']), expected)
+                    checked += 1
+        self.assertEqual(checked, 12)
 
     def test_routing_blocks_the_path_not_the_range(self):
         #   Each case: name, input (tile on Route 11), expectation (occupied by Dave's path).

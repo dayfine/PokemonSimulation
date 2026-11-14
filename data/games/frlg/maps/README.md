@@ -225,16 +225,17 @@ tile +- the pret movement range, kept inside the map
 (`IsCoordOutsideObjectEventMovementRange()`). Back-and-forth walkers and
 `*_UP_AND_DOWN`/`*_LEFT_AND_RIGHT` wanderers keep to their axis.
 A person who walks a sequence of directions (`MOVEMENT_TYPE_WALK_SEQUENCE_*`)
-has a `path` instead: `tiles`, the tiles they step through in order from their
-start tile, and `loop`, the index in `tiles` they go on from after the last
-one. The generator walks pret's rule on the map's collision, behavior and
-elevation grids (`MoveNextDirectionInSequence()` and
-`MovementType_WalkSequence*_Step1()` in `src/event_object_movement.c`): at the
-edge of their range they turn to the next direction; any other collision (a
-wall, ground at another elevation, a person who stands still) makes them walk
-in place for good, which a path shows as a last tile that loops to itself.
-E.g. Route 11's Dave walks down 4 and right 8 and back the same way. Every
-FRLG sequence walker loops back to its start tile (`loop` 0).
+has a `path` instead: legs `[direction, tiles]` (north/east/south/west) walked
+in order from their `coord`, back to it and over again, e.g. Route 11's Dave
+`[["south", 4], ["east", 8], ["west", 8], ["north", 4]]`. The generator walks
+pret's rule on the map's collision, behavior and elevation grids
+(`MoveNextDirectionInSequence()` and `MovementType_WalkSequence*_Step1()` in
+`src/event_object_movement.c`): at the edge of their range they turn to the
+next direction; any other collision (a wall, ground at another elevation, a
+person who stands still) makes them walk in place for good, which the last
+leg marks with a third element, `["east", 3, "stuck"]`. A walk that does
+neither fails the generator. Every FRLG sequence walker returns to its start;
+`npc_path.path_tiles()` expands legs to tiles.
 `source_event` is a zero-based source array index, not an in-game object ID.
 An item ball's `item` and `quantity` come from the pinned catalog
 (`data/maps/item-identities.json`) or, for a map it doesn't list, from the

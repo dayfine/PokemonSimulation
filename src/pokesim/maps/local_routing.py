@@ -16,6 +16,7 @@ from pokesim.grid.maps.world import Place, World
 from pokesim.grid.movement import (FLAT, Blocked, BlockReason, Edge, Hop, Moved,
                                    PlayerState, Warp, WorldState, step)
 from pokesim.grid.routing.shortest import Costs, shortest_path
+from .npc_path import path_tiles
 from .consumer_source import GitSource, lock_entry, published_pack, read_json
 from .runtime_map_pack import effective_map
 from .runtime_symbols import CLOSED_SIDES, cell_for
@@ -96,7 +97,7 @@ class LocalMap(World):
                 occupied.update(Tile(x, y) for y in range(box['y0'], box['y1'] + 1)
                                 for x in range(box['x0'], box['x1'] + 1))
             elif 'path' in obj:
-                occupied.update(Tile(x, y) for x, y in obj['path']['tiles'])
+                occupied.update(Tile(x, y) for x, y in path_tiles((obj['x'], obj['y']), obj['path']))
             else:
                 occupied.add(Tile(obj['x'], obj['y']))
         return occupied

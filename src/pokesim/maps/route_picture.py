@@ -20,6 +20,7 @@ from html import escape
 from pokesim.grid.geometry import Tile
 from pokesim.grid.maps.model import LEDGE_DIRECTION, Behavior
 from pokesim.png import Image
+from .npc_path import path_tiles
 from .runtime_symbols import CLOSED_SIDES
 
 
@@ -99,8 +100,12 @@ def _clip(zone, box):
 def _zones(obj, box):
     """Where a person may stand, cut to the drawn rectangle: their wander box,
     or each tile of the path they walk."""
-    zones = [obj['wander']] if 'wander' in obj else [
-        dict(x0=x, y0=y, x1=x, y1=y) for x, y in obj.get('path', {}).get('tiles', [])]
+    if 'wander' in obj:
+        zones = [obj['wander']]
+    elif 'path' in obj:
+        zones = [dict(x0=x, y0=y, x1=x, y1=y) for x, y in path_tiles((obj['x'], obj['y']), obj['path'])]
+    else:
+        zones = []
     return [zone for zone in (_clip(zone, box) for zone in zones) if zone]
 
 

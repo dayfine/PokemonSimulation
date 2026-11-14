@@ -56,6 +56,7 @@ import subprocess
 import sys
 
 from pokesim.formats.contract_format import json_text as contract_json_text
+from . import npc_path
 from .runtime_symbols import CLOSED_SIDES, LEDGE_GLYPHS
 from .item_identity import INPUTS as ITEM_SOURCE_INPUTS, digest, enrich_objects
 from .item_pickup_sources import frlg_pickups, unresolved as unresolved_pickup
@@ -693,15 +694,43 @@ def walk_sequence(start, elevation, ranges, directions, shortcut, ground, object
     return {'tiles': tiles, 'loop': loop}
 
 
+LEG_DIRECTIONS = {step: direction for direction, step in npc_path.STEPS.items()}
+
+
+def path_legs(walk):
+    """A walk_sequence() walk as path legs (npc_path), or None if the person
+    never leaves their start tile. Raises unless the walk loops back to its
+    start or stops for good."""
+    tiles, loop = walk['tiles'], walk['loop']
+    if len(tiles) == 1:
+        return None
+    if loop == 0:
+        steps, stops = tiles + [tiles[0]], False
+    elif loop == len(tiles) - 1:
+        steps, stops = tiles, True
+    else:
+        raise ValueError(f'walk from {tiles[0]} neither returns to its start nor stops')
+    legs = []
+    for (ax, ay), (bx, by) in zip(steps, steps[1:]):
+        direction = LEG_DIRECTIONS[(bx - ax, by - ay)]
+        if legs and legs[-1][0] == direction:
+            legs[-1][1] += 1
+        else:
+            legs.append([direction, 1])
+    if stops:
+        legs[-1].append(npc_path.STUCK)
+    return legs
+
+
 def sequence_path(obj, ground, rules, objects=frozenset()):
-    """A walk sequence's path (walk_sequence()), or None for any other movement."""
+    """A walk sequence's path legs (path_legs()), or None for any other movement."""
     movement = obj.get('movement_type', '')
     if not movement.startswith(WALK_SEQUENCE):
         return None
     directions = movement[len(WALK_SEQUENCE):].split('_')
     ranges = (int(obj.get('movement_range_x') or 0), int(obj.get('movement_range_y') or 0))
-    return walk_sequence((obj['x'], obj['y']), int(obj.get('elevation') or 0), ranges, directions,
-                         rules[movement], ground, objects)
+    return path_legs(walk_sequence((obj['x'], obj['y']), int(obj.get('elevation') or 0), ranges, directions,
+                                   rules[movement], ground, objects))
 
 
 #   Which way a person stands, by how they move.
@@ -928,7 +957,8 @@ def walk_sequence_paths(decomp, source, layouts, names):
     land = read_ground(decomp, layouts[source['layout']], names)
     standing = frozenset((obj['x'], obj['y']) for obj in objects
                          if not obj.get('movement_type', '').startswith((WALK_SEQUENCE,) + MOVING))
-    return {index: sequence_path(objects[index], land, rules, standing) for index in walkers}
+    paths = {index: sequence_path(objects[index], land, rules, standing) for index in walkers}
+    return {index: path for index, path in paths.items() if path}
 
 
 def map_json(decomp, name, sources, layouts, names, loaded, unhandled, land_maps=frozenset(), include_item_identities=False, candidate=False):

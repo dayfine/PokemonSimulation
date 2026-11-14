@@ -254,14 +254,19 @@
       "additionalProperties": true
     },
     "path": {
-      "type": "object",
-      "description": "tiles a walk-sequence person steps through from their coord; after the last tile they go on from tiles[loop]",
-      "properties": {
-        "tiles": {"type": "array", "items": {"$ref": "#/$defs/coord"}, "minItems": 1},
-        "loop": {"type": "integer", "minimum": 0}
-      },
-      "required": ["tiles", "loop"],
-      "additionalProperties": false
+      "type": "array",
+      "description": "legs a walk-sequence person walks from their coord, back to it and over again; a last leg marked stuck ends where they stop for good",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {"$ref": "#/$defs/direction"},
+          {"type": "integer", "minimum": 1},
+          {"const": "stuck"}
+        ],
+        "items": false,
+        "minItems": 2
+      }
     },
     "npc": {
       "type": "object",

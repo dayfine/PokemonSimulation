@@ -196,27 +196,7 @@
     },
     {
       "name": "man",
-      "path": {
-        "tiles": [
-          [26, 6],
-          [26, 7],
-          [26, 8],
-          [26, 9],
-          [26, 10],
-          [27, 10],
-          [28, 10],
-          [29, 10],
-          [30, 10],
-          [29, 10],
-          [28, 10],
-          [27, 10],
-          [26, 10],
-          [26, 9],
-          [26, 8],
-          [26, 7]
-        ],
-        "loop": 0
-      },
+      "path": [["south", 4], ["east", 4], ["west", 4], ["north", 4]],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "VictoryRoad_2F_EventScript_Vincent",

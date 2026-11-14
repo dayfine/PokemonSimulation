@@ -4,6 +4,7 @@ Unknown extensions remain intact. Geometric invariants are checked here;
 game-specific flag/trigger semantics belong to the replay adapter.
 """
 
+from .npc_path import path_error
 from .runtime_symbols import GLYPHS
 from .runtime_map_coordinates import COMPACT, LEGACY, legacy_map
 
@@ -81,15 +82,8 @@ def validate(data):
             tile(box['x1'], box['y1'])
             require(box['x0'] <= box['x1'] and box['y0'] <= box['y1'], 'inverted wander box')
         if 'path' in obj:
-            path = obj['path']
-            steps = path['tiles']
-            require(steps and steps[0] == [obj['x'], obj['y']], 'a path starts on its object')
-            for x, y in steps:
-                tile(x, y)
-            require(type(path['loop']) is int and 0 <= path['loop'] < len(steps), 'path loop outside its tiles')
-            ends = (steps[-1], steps[path['loop']])
-            for (ax, ay), (bx, by) in list(zip(steps, steps[1:])) + [ends]:
-                require(abs(ax - bx) + abs(ay - by) <= 1, 'a path moves one tile at a time')
+            error = path_error((obj['x'], obj['y']), obj['path'], width, height)
+            require(error is None, f"{obj['name']} ({obj['x']}, {obj['y']}): {error}")
     for event in data.get('coord_events', []):
         tile(event['x'], event['y'])
         require(type(event['width']) is int and type(event['length']) is int

@@ -164,27 +164,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [18, 33],
-      "path": {
-        "tiles": [
-          [18, 33],
-          [17, 33],
-          [16, 33],
-          [15, 33],
-          [14, 33],
-          [13, 33],
-          [13, 32],
-          [13, 31],
-          [13, 30],
-          [14, 30],
-          [15, 30],
-          [16, 30],
-          [17, 30],
-          [18, 30],
-          [18, 31],
-          [18, 32]
-        ],
-        "loop": 0
-      },
+      "path": [["west", 5], ["north", 3], ["east", 5], ["south", 3]],
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "Route19_EventScript_Matthew"
