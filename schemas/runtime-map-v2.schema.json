@@ -149,7 +149,7 @@
           "tiles": {"type": "array", "items": {"$ref": "#/$defs/coord"}, "minItems": 1},
           "open_glyph": {"enum": [".", "~", "2", "4", "6", "8"]},
           "new_game": {"enum": ["open", "closed"]},
-          "opens_by": {"enum": ["card_key_face_a", "quiz_answer"]},
+          "opens_by": {"enum": ["card_key_face_a", "quiz_answer", "cut"]},
           "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
           "switch": {"type": "string", "minLength": 1},
           "open_when": {"enum": ["on", "off"]}
@@ -259,11 +259,7 @@
       "minItems": 1,
       "items": {
         "type": "array",
-        "prefixItems": [
-          {"$ref": "#/$defs/direction"},
-          {"type": "integer", "minimum": 1},
-          {"const": "stuck"}
-        ],
+        "prefixItems": [{"$ref": "#/$defs/direction"}, {"type": "integer", "minimum": 1}, {"const": "stuck"}],
         "items": false,
         "minItems": 2
       }

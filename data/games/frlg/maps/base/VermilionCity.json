@@ -31,7 +31,7 @@
     "ww##wwww.......................www.....wwwwwwwww",
     "ww##wwww...#######.........####www.....wwwwwwwww",
     "www##www...#######..wwww...####www64.64wwwwwwwww",
-    "www##www##S########.wwww...#D##www.....ww#######",
+    "www##www##S########Gwwww...#D##www.....ww#######",
     "www##www.....#D#....wwww.......wwww...www#######",
     "www##www............wwwwwwwwwwwwwww...www#######",
     "ww##wwww............wwwwwwwwwwwwwww...www#######",
@@ -119,6 +119,15 @@
     {"side": "north", "to_map": "Route6", "offset": 12},
     {"side": "east", "to_map": "Route11", "offset": 10}
   ],
+  "gates": {
+    "cut_tree_19_24": {
+      "tiles": [[19, 24]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_12"
+    }
+  },
   "hidden_items": [
     {
       "coord": [14, 11],

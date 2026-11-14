@@ -360,6 +360,23 @@ class QuizDoorTest(unittest.TestCase):
             frlg_maps.quiz_door_gates(self.SCRIPTS, 'CinnabarIsland_Gym', ['....', '....', '....'])
 
 
+class CutTreeGateTest(unittest.TestCase):
+    TREE = {'graphics_id': 'OBJ_EVENT_GFX_CUT_TREE', 'x': 1, 'y': 0, 'flag': 'FLAG_TEMP_13', 'script': 'EventScript_CutTree'}
+
+    def test_a_cut_tree_is_a_gate_over_the_ground_it_stands_on(self):
+        gates = frlg_maps.cut_tree_gates([self.TREE], ['.~.'])
+        self.assertEqual(gates, {'cut_tree_1_0': {
+            'tiles': [[1, 0]], 'open_glyph': '~', 'new_game': 'closed', 'opens_by': 'cut', 'flag': 'FLAG_TEMP_13'}})
+
+    def test_other_objects_are_no_gate(self):
+        person = dict(self.TREE, graphics_id='OBJ_EVENT_GFX_LASS')
+        self.assertEqual(frlg_maps.cut_tree_gates([person], ['...']), {})
+
+    def test_a_tree_on_a_wall_is_an_error(self):
+        with self.assertRaisesRegex(ValueError, 'stands on'):
+            frlg_maps.cut_tree_gates([self.TREE], ['.#.'])
+
+
 class EncounterTest(unittest.TestCase):
     #   MtMoon_1F's cave floor: behavior MB_CAVE (0x08), encounter type LAND.
     CAVE_FLOOR = 0x08 | (frlg_maps.TILE_ENCOUNTER_LAND << frlg_maps.ENCOUNTER_TYPE_SHIFT)

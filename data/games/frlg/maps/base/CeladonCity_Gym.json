@@ -14,10 +14,10 @@
     "#...........#",
     "#..#######..#",
     "##.##....#.##",
-    "#........#..#",
-    "#..#........#",
+    "#..G.....#..#",
+    "#..#.....G..#",
     "#..#.....#..#",
-    "#..###.###..#",
+    "#..###G###..#",
     "#..##...##..#",
     "#..........##",
     "##..........#",
@@ -38,6 +38,29 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "cut_tree_6_8": {
+      "tiles": [[6, 8]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_12"
+    },
+    "cut_tree_3_5": {
+      "tiles": [[3, 5]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_13"
+    },
+    "cut_tree_9_6": {
+      "tiles": [[9, 6]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_14"
+    }
+  },
   "npcs": [
     {
       "name": "lass",

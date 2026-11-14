@@ -27,13 +27,13 @@
     "################..#www##",
     "################..#www##",
     "########.#######..#www##",
-    "##.........SSD##..#www##",
+    "##........GSSD##..#www##",
     "##..###S##........#www##",
-    "##................#www##",
+    "##........G.......#www##",
     "##........#.......#www##",
-    "##................#www##",
+    "##........G.......#www##",
     "##........#.......#www##",
-    "##................#www##",
+    "##........G.......#www##",
     "##........#.......#www##",
     "##................#www##",
     "##................#www##",
@@ -183,6 +183,36 @@
     {"side": "south", "to_map": "LavenderTown", "offset": 0},
     {"side": "west", "to_map": "Route9", "offset": 0}
   ],
+  "gates": {
+    "cut_tree_10_20": {
+      "tiles": [[10, 20]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_12"
+    },
+    "cut_tree_10_22": {
+      "tiles": [[10, 22]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_13"
+    },
+    "cut_tree_10_24": {
+      "tiles": [[10, 24]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_14"
+    },
+    "cut_tree_10_26": {
+      "tiles": [[10, 26]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_15"
+    }
+  },
   "hidden_items": [
     {
       "coord": [10, 19],

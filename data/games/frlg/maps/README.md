@@ -51,6 +51,7 @@ infers the gate states itself from the story state it records:
 |---|---|---|---|
 | Silph Co. Card Key door | `{"opens_by": "card_key_face_a", "flag": "FLAG_SILPH_5F_DOOR_1", "new_game": "closed"}` | the set of `FLAG_SILPH_<n>F_DOOR[_<m>]` flags: each is set the moment that door is opened with the Card Key | its flag is set |
 | Cinnabar Gym quiz door | `{"opens_by": "quiz_answer", "flag": "FLAG_CINNABAR_GYM_QUIZ_1", "new_game": "closed"}` | the set of `FLAG_CINNABAR_GYM_QUIZ_<n>` flags: each is set by the right answer at quiz machine <n> (or beating its trainer); the gym's OnLoad keeps the door open while it is set | its flag is set |
+| Cut tree | `{"opens_by": "cut", "flag": "FLAG_TEMP_13", "new_game": "closed"}`, id `cut_tree_<x>_<y>`, one tile; the tree object stays in `npcs` | the tree cut: Cut sets its hide flag, a temporary flag that every warp clears, so the tree grows back once the player leaves the map (a save keeps it cut) | it was cut since the last warp |
 
 The Mansion's gates belong to one **switch**, `mansion` (the `switches` table:
 the flag, `toggle`, the four `floors` that share it, and each statue's tile and
