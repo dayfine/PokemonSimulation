@@ -1,10 +1,19 @@
-"""Read the shared native checkpoint wire records without executing any action.
+"""Read the shared story records without executing any action.
 
     PYTHONPATH=src python3 -m pokesim.story.checkpoint_wire checkpoint.json
 
-The common record preserves all StoryStep/TilePose fields. Entry requirements,
-tracked state, save/failure/handoff policy and game bindings belong to the plan
-envelope; these records alone do not establish a runnable plan or observations.
+read_grid_pose, read_declared_pose, read_story_step and read_story_checkpoint
+read the records Arduino-Source's native reader (Pokemon_StoryStepJson) reads: a
+step names an action and its typed args, checked against the action's spec.
+data/story/wire-conformance.json holds the cases both readers share.
+
+read_pose, read_step and read_checkpoint read the older authored record (poses
+with certainty/where, per-kind step fields, sections and notes) that the
+authored plans and the replay still use.
+
+Entry requirements, tracked state, save/failure/handoff policy and game bindings
+belong to the plan envelope; these records alone do not establish a runnable
+plan or observations.
 """
 
 import argparse
@@ -178,6 +187,241 @@ def read_checkpoint(value):
     names = [step['id'] for step in steps]
     if len(names) != len(set(names)):
         raise ValueError('duplicate story event ids')
+    return result
+
+
+# The records Arduino-Source's Pokemon_StoryStepJson reads.
+
+ARG_TYPES = ('boolean', 'integer', 'word', 'direction', 'grid_pose', 'legs', 'words', 'items',
+             'integer_rows', 'timed_legs')
+PHASES = ('testing', 'verification', 'reproduction')
+INT_MIN, INT_MAX = -2147483648, 2147483647
+INT64_MIN, INT64_MAX = -9223372036854775808, 9223372036854775807
+
+
+def required(key, type_):
+    return dict(key=key, type=type_, required=True)
+
+
+def optional(key, type_, fallback=None):
+    spec = dict(key=key, type=type_, required=False)
+    if fallback is not None:
+        spec['fallback'] = fallback
+    return spec
+
+
+# Pokemon_BuiltinStoryActions.cpp: each kind's usual way; a kind's first
+# action is its default.
+BUILTIN_ACTIONS = (
+    dict(kind='route', name='route', args=[required('target', 'grid_pose'), optional('fight_wild', 'boolean', False)]),
+    dict(kind='ready', name='ready', args=[required('target', 'grid_pose')]),
+    dict(kind='legs', name='legs', args=[required('legs', 'legs'), optional('fight_wild', 'boolean', False)]),
+    dict(kind='step', name='face', args=[required('direction', 'direction')]),
+    dict(kind='answer', name='answer', args=[optional('yes', 'boolean', True)]),
+    dict(kind='battle', name='fight', args=[optional('may_lose', 'boolean', False)]),
+    dict(kind='train', name='train', args=[required('battles', 'integer')]),
+    dict(kind='shop', name='shop', args=[required('items', 'items')]),
+)
+
+
+def read_tiles(value):
+    tiles = []
+    for tile in array(value):
+        if len(array(tile)) != 2:
+            raise ValueError('a tile needs two coordinates')
+        tiles.append([integer(n, INT_MIN, INT_MAX) for n in tile])
+    return tiles
+
+
+def read_grid_pose(value):
+    """{"map", "tiles"?, "facing"?}; no tiles reads as none (any tile, or a zone game)."""
+    root = fields(value, ('map', 'tiles', 'facing'))
+    result = dict(map=text(root['map']), tiles=read_tiles(root.get('tiles', [])))
+    if 'facing' in root:
+        result['facing'] = choice(root['facing'], DIRECTIONS)
+    return result
+
+
+def read_declared_pose(value):
+    """A tile pose (grid pose with "map") or a zone one ({"place", "spot"?, "heading"?})."""
+    if not isinstance(value, dict):
+        raise ValueError('expected declared pose object')
+    if ('map' in value) == ('place' in value):
+        raise ValueError('a declared pose has a "map" or a "place", not both or neither')
+    if 'map' in value:
+        return read_grid_pose(value)
+    root = fields(value, ('place', 'spot', 'heading'))
+    result = dict(place=text(root['place']))
+    if 'spot' in root:
+        result['spot'] = text(root['spot'])
+    if 'heading' in root:
+        result['heading'] = integer(root['heading'], INT_MIN, INT_MAX)
+    return result
+
+
+def read_strings(value):
+    return [text(v) for v in array(value)]
+
+
+def read_items(value):
+    items = []
+    for item in array(value):
+        fields(item, ('item', 'quantity'))
+        items.append(dict(item=text(item['item']), quantity=integer(item['quantity'], 0, INT64_MAX)))
+    return items
+
+
+def read_arg(value, type_):
+    """One arg's value read as `type_` (StoryArgType)."""
+    if type_ == 'boolean':
+        if type(value) is not bool:
+            raise ValueError('expected boolean')
+        return value
+    if type_ == 'integer':
+        return integer(value, INT64_MIN, INT64_MAX)
+    if type_ == 'word':
+        return text(value)
+    if type_ == 'direction':
+        return choice(value, DIRECTIONS)
+    if type_ == 'grid_pose':
+        return read_grid_pose(value)
+    if type_ == 'legs':
+        legs = []
+        for leg in array(value):
+            fields(leg, ('direction', 'tiles'))
+            legs.append(dict(direction=choice(leg['direction'], DIRECTIONS), tiles=integer(leg['tiles'], INT_MIN, INT_MAX)))
+        return legs
+    if type_ == 'words':
+        return read_strings(value)
+    if type_ == 'items':
+        return read_items(value)
+    if type_ == 'integer_rows':
+        return [[integer(n, INT64_MIN, INT64_MAX) for n in array(row)] for row in array(value)]
+    if type_ == 'timed_legs':
+        legs = []
+        for leg in array(value):
+            if len(array(leg)) != 2:
+                raise ValueError('a timed leg is [turn degrees, ms]')
+            legs.append([integer(n, INT_MIN, INT_MAX) for n in leg])
+        return legs
+    raise ValueError('unsupported story arg type: ' + str(type_))
+
+
+def read_action_specs(value):
+    """Actions a game adds to the built-in ones: [{"kind", "name", "args": [{"key",
+    "type", "required"?, "fallback"?}]}], the fallbacks read as their types."""
+    actions = []
+    for action in array(value):
+        fields(action, ('kind', 'name', 'args'))
+        args = []
+        for arg in array(action['args']):
+            fields(arg, ('key', 'type', 'required', 'fallback'))
+            spec = dict(key=text(arg['key']), type=choice(arg['type'], ARG_TYPES), required=arg.get('required', False))
+            if type(spec['required']) is not bool:
+                raise ValueError('expected boolean: required')
+            if 'fallback' in arg:
+                spec['fallback'] = read_arg(arg['fallback'], spec['type'])
+            args.append(spec)
+        actions.append(dict(kind=choice(action['kind'], KINDS), name=text(action['name']), args=args))
+    return tuple(BUILTIN_ACTIONS) + tuple(actions)
+
+
+def find_action(actions, kind, name):
+    """The action of `kind` named `name`; for no name, the kind's first."""
+    for action in actions:
+        if action['kind'] == kind and (not name or action['name'] == name):
+            return action
+    return None
+
+
+def read_step_args(value, action):
+    """The args read against `action`'s spec, with its fallbacks filled in."""
+    specs = {arg['key']: arg for arg in (action['args'] if action else [])}
+    if not isinstance(value, dict):
+        raise ValueError('expected args object')
+    result = {}
+    for key, item in value.items():
+        if key not in specs:
+            raise ValueError('unknown argument: ' + key)
+        result[key] = read_arg(item, specs[key]['type'])
+    for key, spec in specs.items():
+        if spec['required'] and key not in result:
+            raise ValueError('missing argument: ' + key)
+        if key not in result and 'fallback' in spec:
+            result[key] = spec['fallback']
+    return dict(sorted(result.items()))
+
+
+def read_story_step(value, actions=BUILTIN_ACTIONS):
+    """A step: its action among `actions` (the kind's default when it names none),
+    its args read against that action's spec. Empty why, action and skip_if and a
+    false once_per_save read as absent."""
+    root = fields(value, ('id', 'kind', 'why', 'action', 'args', 'skip_if', 'declared_after', 'once_per_save'))
+    result = dict(id=text(root['id']), kind=choice(root['kind'], KINDS))
+    if not result['id']:
+        raise ValueError('empty story step id')
+    for key in ('why', 'action'):
+        if key in root and text(root[key]):
+            result[key] = root[key]
+    name = result.get('action', '')
+    if result['kind'] == 'game_action' and not name:
+        raise ValueError('game_action step names no action: ' + result['id'])
+    action = find_action(actions, result['kind'], name)
+    if action is None and name:
+        raise ValueError('unknown action: ' + name)
+    args = read_step_args(root.get('args', {}), action)
+    if args:
+        result['args'] = args
+    skip = read_strings(root.get('skip_if', []))
+    if skip:
+        result['skip_if'] = skip
+    if 'declared_after' in root:
+        result['declared_after'] = read_declared_pose(root['declared_after'])
+    once = root.get('once_per_save', False)
+    if type(once) is not bool:
+        raise ValueError('expected boolean: once_per_save')
+    if once:
+        result['once_per_save'] = True
+    return result
+
+
+def read_metadata(value):
+    root = fields(value, ('phase', 'verified', 'source', 'postconditions'))
+    result = {}
+    if 'phase' in root:
+        result['phase'] = choice(root['phase'], PHASES)
+    if 'verified' in root:
+        verified = fields(root['verified'], ('steps_hash', 'build', 'date', 'runs'))
+        result['verified'] = {key: text(verified[key]) for key in ('steps_hash', 'build', 'date', 'runs')
+                              if key == 'steps_hash' or key in verified}
+    if 'source' in root:
+        result['source'] = text(root['source'])
+    if 'postconditions' in root:
+        post = fields(root['postconditions'], ('position', 'items', 'flags'))
+        result['postconditions'] = {}
+        if 'position' in post:
+            result['postconditions']['position'] = read_grid_pose(post['position'])
+        if 'items' in post:
+            result['postconditions']['items'] = read_items(post['items'])
+        if 'flags' in post:
+            result['postconditions']['flags'] = read_strings(post['flags'])
+    return result
+
+
+def read_story_checkpoint(value, actions=BUILTIN_ACTIONS):
+    """A checkpoint's id, title, start, events (unique ids) and metadata."""
+    root = fields(value, ('id', 'title', 'start', 'events', 'metadata'))
+    result = dict(id=text(root['id']), title=text(root['title']))
+    if not result['id']:
+        raise ValueError('empty checkpoint id')
+    if 'start' in root:
+        result['start'] = read_declared_pose(root['start'])
+    result['events'] = [read_story_step(event, actions) for event in array(root['events'])]
+    names = [step['id'] for step in result['events']]
+    if len(names) != len(set(names)):
+        raise ValueError('duplicate story event ids')
+    if 'metadata' in root:
+        result['metadata'] = read_metadata(root['metadata'])
     return result
 
 
