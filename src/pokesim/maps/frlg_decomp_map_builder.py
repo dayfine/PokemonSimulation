@@ -107,6 +107,9 @@ SURFABLE_WATER = frozenset({
     'MB_POND_WATER', 'MB_FAST_WATER', 'MB_DEEP_WATER', 'MB_WATERFALL',
     'MB_OCEAN_WATER', 'MB_UNUSED_WATER', 'MB_CYCLING_ROAD_WATER',
     'MB_EASTWARD_CURRENT', 'MB_WESTWARD_CURRENT', 'MB_NORTHWARD_CURRENT', 'MB_SOUTHWARD_CURRENT'})
+#   Tiles drawn as water: the surfable ones, and the seabed under them (Dive,
+#   which FRLG doesn't have).
+WATER = SURFABLE_WATER | {'MB_UNDERWATER_BLOCKED_ABOVE'}
 #   A metatile's encounter type (METATILE_ATTRIBUTE_ENCOUNTER_TYPE in
 #   include/fieldmap.h): on a map with land encounters, a step onto a LAND
 #   tile may start a wild battle, as on every floor tile of a cave.
@@ -473,7 +476,7 @@ def tile_glyph(behavior, collision, unhandled, sign_event=False):
         return '.', WARP_ENTRIES[behavior]
     if behavior in TERRAIN:
         return TERRAIN[behavior], 'step_on' if behavior == 'MB_FALL_WARP' else None
-    if 'WATER' in behavior and behavior not in FLOOR:
+    if behavior in WATER:
         return 'w', None
     if behavior not in FLOOR:
         unhandled[behavior] = unhandled.get(behavior, 0) + 1
@@ -522,8 +525,6 @@ def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=Fa
             if unresolved is not None and unhandled.get(behavior, 0) > before:
                 glyph = ' '  # Unknown cells are blocked by the shared movement model.
                 unresolved.setdefault(behavior, []).append([x, y])
-            if unresolved is not None and behavior in SURFABLE_WATER and not collision:
-                glyph = 'w'
             if land_encounters and entry is None:
                 glyph = encounter_glyph(glyph, attributes)
                 if wild_edge(glyph, attributes):

@@ -350,6 +350,31 @@ class CandidateWaterTest(unittest.TestCase):
         self.assertEqual(self.grid('MB_POND_WATER', 1, unresolved={}), ['#'])
         self.assertEqual(self.grid('MB_OCEAN_WATER', 1), ['#'])
 
+    def test_water_is_the_listed_behaviors(self):
+        #   Each case: name, input (behavior), expectation (glyph, behaviors left unhandled).
+        cases = (
+            ('a current is surfable (sBehaviorSurfable), though its name does not say water',
+             'MB_EASTWARD_CURRENT', ('w', {})),
+            ('the seabed under water is drawn as water', 'MB_UNDERWATER_BLOCKED_ABOVE', ('w', {})),
+            ('shallow water is floor', 'MB_SHALLOW_WATER', ('.', {})),
+            ('a name with WATER in it is not enough', 'MB_NOT_REALLY_WATER', ('.', {'MB_NOT_REALLY_WATER': 1})),
+        )
+        for name, behavior, (glyph, unhandled) in cases:
+            with self.subTest(name):
+                seen = {}
+                self.assertEqual(frlg_maps.tile_glyph(behavior, 0, seen), (glyph, None))
+                self.assertEqual(seen, unhandled)
+
+    def test_currents_are_water_in_both_grids(self):
+        #   Each case: name, input (grid options), expectation (tiles).
+        cases = (
+            ('candidate grid', {'unresolved': {}}, ['w']),
+            ('legacy grid', {}, ['w']),
+        )
+        for name, options, tiles in cases:
+            with self.subTest(name):
+                self.assertEqual(self.grid('MB_WESTWARD_CURRENT', 0, **options), tiles)
+
     def test_shallow_water_is_walked_on(self):
         # MB_SHALLOW_WATER is not surfable (sBehaviorSurfable); the player walks on it.
         unresolved = {}
