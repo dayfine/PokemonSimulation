@@ -143,6 +143,7 @@
     {
       "name": "youngster",
       "coord": [36, 4],
+      "wander": {"min": [36, 1], "max": [36, 7]},
       "trainer": {"sight": 2, "looks": ["north", "east", "south", "west"]},
       "source_event": 7,
       "source_script": "Route25_EventScript_Chad"

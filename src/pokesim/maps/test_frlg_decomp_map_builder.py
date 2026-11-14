@@ -41,6 +41,52 @@ class TrainerTest(unittest.TestCase):
             self.assertNotIn('facing', data)
 
 
+class WalkerBoxTest(unittest.TestCase):
+    def test_box_by_movement(self):
+        #   Each case: name, input (movement type, range), expectation (wander box or None).
+        #   Walkers stay within initial +- range (IsCoordOutsideObjectEventMovementRange()).
+        cases = (
+            ('a walk sequence walks its range', ('MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN', 1, 2),
+             {'x0': 1, 'y0': 0, 'x1': 3, 'y1': 4}),
+            ('walking up and down keeps to its column', ('MOVEMENT_TYPE_WALK_UP_AND_DOWN', 1, 1),
+             {'x0': 2, 'y0': 1, 'x1': 2, 'y1': 3}),
+            ('walking down and up keeps to its column', ('MOVEMENT_TYPE_WALK_DOWN_AND_UP', 1, 1),
+             {'x0': 2, 'y0': 1, 'x1': 2, 'y1': 3}),
+            ('walking left and right keeps to its row', ('MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 1, 1),
+             {'x0': 1, 'y0': 2, 'x1': 3, 'y1': 2}),
+            ('walking right and left keeps to its row', ('MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT', 1, 1),
+             {'x0': 1, 'y0': 2, 'x1': 3, 'y1': 2}),
+            ('wandering down and up keeps to its column', ('MOVEMENT_TYPE_WANDER_DOWN_AND_UP', 1, 1),
+             {'x0': 2, 'y0': 1, 'x1': 2, 'y1': 3}),
+            ('facing one way stands', ('MOVEMENT_TYPE_FACE_DOWN', 1, 1), None),
+            ('looking around stands', ('MOVEMENT_TYPE_LOOK_AROUND', 1, 1), None),
+            ('walking in place stands', ('MOVEMENT_TYPE_WALK_IN_PLACE_DOWN', 1, 1), None),
+        )
+        for name, (movement, range_x, range_y), box in cases:
+            with self.subTest(name):
+                data = frlg_maps.map_object(event(movement_type=movement, movement_range_x=range_x,
+                                                  movement_range_y=range_y), TILES)
+                self.assertEqual(data.get('wander'), box)
+
+
+class WalkersInThePackTest(unittest.TestCase):
+    """People who walk on their own in the published maps, from pret map.json."""
+    def test_published_boxes(self):
+        #   Each case: name, input (map, start tile), expectation (wander box or None).
+        cases = (
+            ('swimmer Spencer walks a sequence over his 4 x 2 range', ('Route21_North', 12, 44),
+             {'x0': 8, 'y0': 42, 'x1': 16, 'y1': 46}),
+            ('the Cinnabar woman wanders left and right', ('CinnabarIsland', 14, 6),
+             {'x0': 13, 'y0': 6, 'x1': 15, 'y1': 6}),
+            ('swimmer Lil faces down and stands', ('Route21_North', 14, 35), None),
+        )
+        for name, (map_name, x, y), box in cases:
+            with self.subTest(name):
+                objects = load(ROOT / 'data/games/frlg/maps/runtime' / (map_name + '.json'))['objects']
+                [person] = [o for o in objects if (o['x'], o['y']) == (x, y)]
+                self.assertEqual(person.get('wander'), box)
+
+
 class DoorScriptTest(unittest.TestCase):
     SCRIPTS = (
         'EventScript_Close5FDoor1:: @ comment\n'

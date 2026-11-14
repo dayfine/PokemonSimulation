@@ -164,6 +164,7 @@
     {
       "name": "swimmer_m_water",
       "coord": [18, 33],
+      "wander": {"min": [13, 30], "max": [23, 36]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "Route19_EventScript_Matthew"

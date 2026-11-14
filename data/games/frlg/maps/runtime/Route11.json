@@ -107,6 +107,7 @@
     {
       "name": "youngster",
       "coord": [28, 10],
+      "wander": {"min": [20, 6], "max": [36, 14]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 3,
       "source_script": "Route11_EventScript_Dave"
@@ -135,6 +136,7 @@
     {
       "name": "youngster",
       "coord": [50, 14],
+      "wander": {"min": [50, 10], "max": [50, 18]},
       "trainer": {"sight": 1, "looks": ["north", "east", "south", "west"]},
       "source_event": 7,
       "source_script": "Route11_EventScript_Yasu"

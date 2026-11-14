@@ -45,6 +45,19 @@ def undo_story_flags_and_wander(game, data):
             del obj['wander'], obj['hide_flag']
 
 
+# Boxes of people who walk on their own without wandering (walk sequences and
+# back-and-forth walkers), published after the v1 baseline, as {(game, map):
+# {(name, start tile)}}: Mt. Moon's Miriam and Route 25's Chad. Names repeat
+# on a map, so the start tile picks the person. Undone before digesting.
+ADDED_WALKER_BOXES = {('frlg', 'MtMoon_1F'): {('lass', (33, 4))}, ('frlg', 'Route25'): {('youngster', (36, 4))}}
+
+
+def undo_walker_boxes(game, data):
+    for obj in data.get('objects', []):
+        if (obj['name'], (obj['x'], obj['y'])) in ADDED_WALKER_BOXES.get((game, data['name']), set()):
+            del obj['wander']
+
+
 # Links to maps published after the v1 baseline, as {(game, map): (points,
 # warp destinations by tile, connections)}. The v1 pack left these out because
 # their destinations weren't in it; the generator writes them once they are.
@@ -154,6 +167,7 @@ class PublicationTest(unittest.TestCase):
                     undo_base_delta(game, baseline_data, deltas)
                     undo_corrections(game, baseline_data)
                     undo_story_flags_and_wander(game, baseline_data)
+                    undo_walker_boxes(game, baseline_data)
                     undo_added_links(game, baseline_data)
                     undo_added_people(game, baseline_data)
                     digest = hashlib.sha256(json.dumps(compact_map(baseline_data), sort_keys=True).encode()).hexdigest()

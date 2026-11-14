@@ -537,14 +537,24 @@ def grid(decomp, layout, names, unhandled, signs=frozenset(), land_encounters=Fa
     return tiles, elevation, entries, wild_edges
 
 
+#   Movement types that walk on their own: wandering, walking back and forth
+#   and walking a sequence of directions all stay within initial +- range
+#   (IsCoordOutsideObjectEventMovementRange() in src/event_object_movement.c).
+#   The pairs move along one axis only.
+MOVING = ('MOVEMENT_TYPE_WANDER_', 'MOVEMENT_TYPE_WALK_SEQUENCE_', 'MOVEMENT_TYPE_WALK_UP_AND_DOWN',
+          'MOVEMENT_TYPE_WALK_DOWN_AND_UP', 'MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT', 'MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT')
+VERTICAL = ('UP_AND_DOWN', 'DOWN_AND_UP')
+HORIZONTAL = ('LEFT_AND_RIGHT', 'RIGHT_AND_LEFT')
+
+
 def wander_box(obj, tiles):
-    """The tiles a wandering person may stand on, kept inside the map, or None
-    if they stand still."""
+    """The tiles a person who walks on their own may stand on, kept inside the
+    map, or None if they stand still."""
     movement = obj.get('movement_type', '')
-    if 'WANDER' not in movement:
+    if not movement.startswith(MOVING):
         return None
-    x = 0 if 'UP_AND_DOWN' in movement else int(obj.get('movement_range_x') or 0)
-    y = 0 if 'LEFT_AND_RIGHT' in movement else int(obj.get('movement_range_y') or 0)
+    x = 0 if movement.endswith(VERTICAL) else int(obj.get('movement_range_x') or 0)
+    y = 0 if movement.endswith(HORIZONTAL) else int(obj.get('movement_range_y') or 0)
     if x == 0 and y == 0:
         return None
     return {
