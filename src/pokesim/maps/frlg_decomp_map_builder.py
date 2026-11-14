@@ -331,6 +331,9 @@ def mansion_gates(scripts, name, tiles):
     return gates
 
 
+FACING_DIR_PREFIX = 'BG_EVENT_PLAYER_FACING_'
+
+
 def mansion_switches(source):
     """The `switches` table of a Mansion floor from its map.json: the statues
     (bg_events running the floor's `_EventScript_Statue`), each pressed from the
@@ -338,7 +341,10 @@ def mansion_switches(source):
     statues = []
     for event in source['bg_events']:
         if event.get('script', '').endswith('_EventScript_Statue'):
-            facing = event['player_facing_dir'].removeprefix('BG_EVENT_PLAYER_FACING_').lower()
+            facing = event['player_facing_dir']
+            if facing.startswith(FACING_DIR_PREFIX):  # str.removeprefix needs Python 3.9; CI runs 3.8
+                facing = facing[len(FACING_DIR_PREFIX):]
+            facing = facing.lower()
             dx, dy = FACING_STEP[facing]
             statues.append({'coord': [event['x'], event['y']], 'face_from': [event['x'] - dx, event['y'] - dy], 'facing': facing})
     return {MANSION_SWITCH: {'flag': MANSION_SWITCH_FLAG, 'toggle': True, 'floors': list(MANSION_FLOORS),
