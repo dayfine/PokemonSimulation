@@ -1,7 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/story-checkpoint.schema.json",
-  "title": "Common native story checkpoint",
+  "title": "Legacy authored story checkpoint",
+  "description": "Legacy certainty/where and sections format read by read_checkpoint; v2 is defined by checkpoint_wire.py and data/story/wire-conformance.json.",
   "type": "object",
   "properties": {
     "id": {"type": "string", "minLength": 1},

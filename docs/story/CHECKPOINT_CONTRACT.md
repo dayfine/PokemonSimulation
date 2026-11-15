@@ -93,6 +93,9 @@ malformed pairs, duplicate event IDs and invalid primitive types fail.
 The authored plans in `data/story/` and the replay still use the older record
 (poses with `certainty`/`where`, per-kind step fields, `variant`, `sections`
 and `notes`), read by `read_checkpoint`; the native reader no longer reads it.
+`schemas/story-checkpoint.schema.json` describes only that older record, not
+the v2 common record. For v2, `pokesim.story.checkpoint_wire` and
+`data/story/wire-conformance.json` are authoritative.
 
 ## Validation and next slice
 
