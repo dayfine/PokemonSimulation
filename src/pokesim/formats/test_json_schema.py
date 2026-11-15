@@ -14,8 +14,9 @@ from pokesim.maps.runtime_map_schema import validate as validate_map
 from pokesim.story.authored_checkpoint import read_authored_checkpoint
 from pokesim.story.checkpoint_wire import read_checkpoint
 
-# Copied byte for byte from dayfine/Arduino-Source #314 (frlg/story-json) at
-# 3dcf3e8a231fce9935de5c60729272fa5347f52e, StoryData/frlg-00.*.plan.json.
+# From dayfine/Arduino-Source #314 (frlg/story-json) at
+# 3dcf3e8a231fce9935de5c60729272fa5347f52e, StoryData/frlg-00.*.plan.json,
+# converted to the v2 record by tools/frlg_plans_v2.py.
 FRLG_AUTHORED = ROOT / 'data/story/frlg-authored'
 
 
@@ -115,14 +116,15 @@ class JsonSchemaTests(unittest.TestCase):
         source = json.loads((FRLG_AUTHORED / 'frlg-00.28.plan.json').read_text())
         check = validator('authored-checkpoint')
         variants = [
-            ('events and sections', lambda v: v['checkpoint'].update(events=[])),
-            ('neither events nor sections', lambda v: v['checkpoint'].pop('sections')),
-            ('no sections', lambda v: v['checkpoint'].update(sections=[])),
-            ('empty section', lambda v: v['checkpoint']['sections'][0].update(events=[])),
-            ('unknown section field', lambda v: v['checkpoint']['sections'][0].update(mystery=1)),
-            ('empty section id', lambda v: v['checkpoint']['sections'][0].update(id='')),
-            ('note not a string', lambda v: v['checkpoint'].update(notes=[1])),
-            ('once_per_save not boolean', lambda v: v['checkpoint']['sections'][0]['events'][0].update(once_per_save=1)),
+            ('sections', lambda v: v['checkpoint'].update(sections=[])),
+            ('no events', lambda v: v['checkpoint'].pop('events')),
+            ('checkpoint notes', lambda v: v['checkpoint'].update(notes=['a'])),
+            ('older pose', lambda v: v['checkpoint'].update(start={'certainty': 'tile', 'map': 'Route10', 'where': {
+                'kind': 'tiles', 'tiles': [[8, 20]]}})),
+            ('variant', lambda v: v['checkpoint']['events'][0].update(variant='run')),
+            ('step notes', lambda v: v['checkpoint']['events'][0].update(notes=['a'])),
+            ('note not a string', lambda v: v['execution'].update(notes={'checkpoint': [1]})),
+            ('once_per_save not boolean', lambda v: v['checkpoint']['events'][0].update(once_per_save=1)),
             ('unknown execution field', lambda v: v['execution'].update(mystery=1)),
             ('unknown handoff', lambda v: v['execution'].update(handoff='trade')),
             ('live_start not boolean', lambda v: v['execution'].update(live_start='yes')),

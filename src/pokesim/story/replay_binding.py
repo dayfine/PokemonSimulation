@@ -15,7 +15,7 @@ from pokesim.maps.pinned_runtime_map import read_pinned_map
 from pokesim.maps.runtime_map_pack import ROOT
 from pokesim.maps.runtime_world import RuntimeWorld
 from pokesim.grid.routing.shortest import Costs
-from .checkpoint_wire import read_checkpoint
+from .checkpoint_wire import read_checkpoint, read_story_checkpoint
 from .replay_handlers import exact, resolve_action
 from pokesim.games.frlg.story_replay import FRLGReplay
 from pokesim.games.bdsp_story_replay import BDSPReplay
@@ -23,6 +23,19 @@ from pokesim.games.bdsp_story_replay import BDSPReplay
 PROFILE = ROOT / 'data/story/parcel-pilot/binding.json'
 OFFLINE_POLICY = {'basis': 'synthetic-offline-policy', 'entry': 'scripted-observation',
                   'attempts': 1, 'failure': 'stop', 'save': 'never'}
+
+
+def replay_view(checkpoint):
+    """A v2 checkpoint's steps with their args as fields, as the replay reads
+    them; a fight_wild left at its fallback (false) is dropped."""
+    events = []
+    for step in checkpoint['events']:
+        event = {key: value for key, value in step.items() if key != 'args'}
+        for key, value in step.get('args', {}).items():
+            if not (key == 'fight_wild' and value is False):
+                event[key] = value
+        events.append(event)
+    return dict(checkpoint, events=events)
 
 
 def positive(value):
@@ -62,7 +75,7 @@ def load_binding(path=PROFILE, root=ROOT):
         raise ValueError('capture hash mismatch')
     capture = read_json(capture_raw)
     if authored:
-        from .authored_checkpoint import read_authored_checkpoint
+        from .authored_checkpoint import frlg_actions, read_authored_checkpoint
         plan = read_authored_checkpoint(capture)
         # Internal report provenance, not an invented native export or observation.
         capture = dict(plan, source_revision=None, authored_plan_sha256=pin['sha256'],
@@ -72,7 +85,10 @@ def load_binding(path=PROFILE, root=ROOT):
             or capture['state_basis'] != 'native-table-bookkeeping'):
         raise ValueError('unsupported capture identity/state basis')
     game = capture['game']
-    checkpoint = read_checkpoint(capture['checkpoint'])
+    if authored and game == 'frlg':
+        checkpoint = replay_view(read_story_checkpoint(capture['checkpoint'], frlg_actions()))
+    else:
+        checkpoint = read_checkpoint(capture['checkpoint'])
     if not checkpoint['events'] or 'start' not in checkpoint:
         raise ValueError('replay currently requires a nonempty checkpoint with a starting pose')
     allowed = {'route': {'id', 'kind', 'why', 'target'},

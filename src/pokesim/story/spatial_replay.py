@@ -66,14 +66,21 @@ class RuntimeSpatialReplay:
         return state, Direction[value['facing'].upper()]
 
     def authored_pose(self, wire):
-        where = wire['where']
-        if wire['certainty'] != 'tile' or where['kind'] != 'tiles' or len(where['tiles']) != 1 or 'facing' not in where:
+        """A v2 pose {map, tiles, facing}, or the older record's {certainty, map, where} (native captures)."""
+        if 'where' in wire:
+            where = wire['where']
+            if wire['certainty'] != 'tile' or where['kind'] != 'tiles':
+                raise ValueError('spatial replay requires one authored tile and known facing')
+            tiles, facing = where['tiles'], where.get('facing')
+        else:
+            tiles, facing = wire.get('tiles', []), wire.get('facing')
+        if len(tiles) != 1 or facing is None:
             raise ValueError('spatial replay requires one authored tile and known facing')
-        place = Place(wire['map'], Tile(*where['tiles'][0]))
+        place = Place(wire['map'], Tile(*tiles[0]))
         cell = self.world.at(place)
         if cell is None:
             raise ValueError('authored pose outside bound maps')
-        result = pose(WorldState(place, cell.elevation), Direction[where['facing'].upper()])
+        result = pose(WorldState(place, cell.elevation), Direction[facing.upper()])
         self.validate_pose(result)
         return result
 
