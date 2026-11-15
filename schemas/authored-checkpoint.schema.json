@@ -2,11 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/authored-checkpoint.schema.json",
   "title": "Authored tile-game checkpoint with game-specific executor settings",
+  "description": "FRLG checkpoints are the v2 record (story-wire-checkpoint); BDSP's are still the legacy one (story-checkpoint).",
   "type": "object",
   "properties": {
     "format": {"const": "pokesim-authored-checkpoint/1"},
     "game": {"enum": ["frlg", "bdsp"]},
-    "checkpoint": {"$ref": "story-checkpoint.schema.json"},
+    "checkpoint": {"type": "object"},
     "execution": {"type": "object"}
   },
   "required": ["format", "game", "checkpoint", "execution"],
@@ -27,7 +28,8 @@
           "additionalProperties": false
         },
         "live_start": {"type": "boolean"},
-        "handoff": {"enum": ["none", "sid_helper", "starter_rng", "gift_rng"]}
+        "handoff": {"enum": ["none", "sid_helper", "starter_rng", "gift_rng"]},
+        "notes": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}}
       },
       "required": ["menu"],
       "additionalProperties": false
@@ -45,7 +47,19 @@
     "int32": {"type": "integer", "minimum": -2147483648, "maximum": 2147483647}
   },
   "oneOf": [
-    {"properties": {"game": {"const": "frlg"}, "execution": {"$ref": "#/$defs/frlg_execution"}}},
-    {"properties": {"game": {"const": "bdsp"}, "execution": {"$ref": "#/$defs/bdsp_execution"}}}
+    {
+      "properties": {
+        "game": {"const": "frlg"},
+        "checkpoint": {"$ref": "story-wire-checkpoint.schema.json"},
+        "execution": {"$ref": "#/$defs/frlg_execution"}
+      }
+    },
+    {
+      "properties": {
+        "game": {"const": "bdsp"},
+        "checkpoint": {"$ref": "story-checkpoint.schema.json"},
+        "execution": {"$ref": "#/$defs/bdsp_execution"}
+      }
+    }
   ]
 }

@@ -1,0 +1,101 @@
+{
+  "format": "pokesim-story-actions/1",
+  "game": "frlg",
+  "source": "Arduino-Source 220a483f8 PokemonFRLG_AutoStoryStepTable.cpp story_action_specs(), the actions these plans use; grind and grind_check add beat and chance from c35b68396 PokemonFRLG_AutoStoryGrind.h",
+  "actions": [
+    {
+      "kind": "route",
+      "name": "run",
+      "args": [
+        {"key": "target", "type": "grid_pose", "required": true},
+        {"key": "fight_wild", "type": "boolean", "fallback": false}
+      ]
+    },
+    {
+      "kind": "legs",
+      "name": "run",
+      "args": [
+        {"key": "legs", "type": "legs", "required": true},
+        {"key": "fight_wild", "type": "boolean", "fallback": false}
+      ]
+    },
+    {"kind": "step", "name": "trainer_line", "args": [{"key": "direction", "type": "direction", "required": true}]},
+    {"kind": "step", "name": "trainer_wait", "args": [{"key": "direction", "type": "direction", "required": true}]},
+    {"kind": "game_action", "name": "close_trainer_card", "args": []},
+    {"kind": "game_action", "name": "leave_gift_summary", "args": []},
+    {"kind": "game_action", "name": "cut_tree", "args": [{"key": "direction", "type": "direction", "required": true}]},
+    {"kind": "game_action", "name": "trash_cans", "args": []},
+    {
+      "kind": "game_action",
+      "name": "pc",
+      "args": [
+        {"key": "do", "type": "word", "required": true},
+        {"key": "slot", "type": "integer", "required": true},
+        {"key": "box", "type": "integer", "required": true},
+        {"key": "if_present", "type": "boolean", "fallback": false}
+      ]
+    },
+    {
+      "kind": "game_action",
+      "name": "capture",
+      "args": [
+        {"key": "species", "type": "word", "required": true},
+        {"key": "catches", "type": "integer", "fallback": 1},
+        {"key": "encounters", "type": "integer", "fallback": 20},
+        {"key": "balls", "type": "integer", "fallback": 5},
+        {"key": "pace", "type": "direction", "fallback": "east"},
+        {"key": "move", "type": "integer"},
+        {"key": "turns", "type": "integer", "fallback": 2}
+      ]
+    },
+    {"kind": "game_action", "name": "fossil", "args": [{"key": "fossil", "type": "word", "required": true}]},
+    {
+      "kind": "game_action",
+      "name": "mart",
+      "args": [
+        {"key": "map", "type": "word", "required": true},
+        {"key": "budget", "type": "integer", "required": true},
+        {"key": "floor", "type": "integer"},
+        {"key": "items", "type": "items", "required": true}
+      ]
+    },
+    {
+      "kind": "game_action",
+      "name": "teach",
+      "args": [
+        {"key": "item", "type": "word", "required": true},
+        {"key": "move", "type": "word", "required": true},
+        {"key": "slot", "type": "integer", "required": true},
+        {"key": "forget", "type": "word"},
+        {"key": "forget_slot", "type": "integer"}
+      ]
+    },
+    {
+      "kind": "game_action",
+      "name": "grind",
+      "args": [
+        {"key": "slot", "type": "integer", "required": true},
+        {"key": "level", "type": "integer", "required": true},
+        {"key": "encounters", "type": "integer", "fallback": 60},
+        {"key": "pace", "type": "direction", "fallback": "east"},
+        {"key": "heal_every", "type": "integer", "fallback": 0},
+        {"key": "nurse", "type": "grid_pose", "required": true},
+        {"key": "beat", "type": "word"},
+        {"key": "chance", "type": "integer"}
+      ]
+    },
+    {
+      "kind": "game_action",
+      "name": "grind_check",
+      "args": [
+        {"key": "slot", "type": "integer", "required": true},
+        {"key": "level", "type": "integer", "required": true},
+        {"key": "encounters", "type": "integer", "fallback": 60},
+        {"key": "pace", "type": "direction", "fallback": "east"},
+        {"key": "heal_every", "type": "integer", "fallback": 0},
+        {"key": "beat", "type": "word"},
+        {"key": "chance", "type": "integer"}
+      ]
+    }
+  ]
+}

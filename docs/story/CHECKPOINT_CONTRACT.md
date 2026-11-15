@@ -90,11 +90,15 @@ game with no tiles. A `declared_after` is the fallback declaration, not an
 observation. Unknown fields, kinds, actions and args, missing required args,
 malformed pairs, duplicate event IDs and invalid primitive types fail.
 
-The authored plans in `data/story/` and the replay still use the older record
-(poses with `certainty`/`where`, per-kind step fields, `variant`, `sections`
-and `notes`), read by `read_checkpoint`; the native reader no longer reads it.
-`schemas/story-checkpoint.schema.json` describes only that older record, not
-the v2 common record. For v2, `pokesim.story.checkpoint_wire` and
+The FRLG authored plans (`data/story/frlg-authored/`, the Parcel pilot) are v2,
+read with FRLG's actions (`data/story/frlg-authored/frlg-actions.json`); their
+notes are in `execution.notes`. The BDSP pilot plan and the native captures
+still use the older record (poses with `certainty`/`where`, per-kind step
+fields, `variant`, `sections` and `notes`), read by `read_checkpoint`; the
+native reader no longer reads it.
+`schemas/story-checkpoint.schema.json` describes only that older record;
+`schemas/story-wire-checkpoint.schema.json` the v2 record's structure. For v2,
+`pokesim.story.checkpoint_wire` and
 `data/story/wire-conformance.json` are authoritative.
 
 ## Validation and next slice

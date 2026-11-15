@@ -8,8 +8,8 @@ step names an action and its typed args, checked against the action's spec.
 data/story/wire-conformance.json holds the cases both readers share.
 
 read_pose, read_step and read_checkpoint read the older authored record (poses
-with certainty/where, per-kind step fields, sections and notes) that the
-authored plans and the replay still use.
+with certainty/where, per-kind step fields, sections and notes) that the BDSP
+pilot plan and the native captures still use.
 
 Entry requirements, tracked state, save/failure/handoff policy and game bindings
 belong to the plan envelope; these records alone do not establish a runnable

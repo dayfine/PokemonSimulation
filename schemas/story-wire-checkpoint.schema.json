@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/story-wire-checkpoint.schema.json",
+  "title": "Story checkpoint (v2: steps as an action plus typed args)",
+  "description": "Structure only; read_story_checkpoint checks each step's args against its action's spec.",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "title": {"type": "string"},
+    "start": {"$ref": "#/$defs/declared_pose"},
+    "events": {"type": "array", "items": {"$ref": "#/$defs/step"}},
+    "metadata": {"type": "object"}
+  },
+  "required": ["id", "title", "events"],
+  "additionalProperties": false,
+  "$defs": {
+    "direction": {"enum": ["north", "east", "south", "west"]},
+    "grid_pose": {
+      "type": "object",
+      "properties": {
+        "map": {"type": "string"},
+        "tiles": {
+          "type": "array",
+          "items": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2}
+        },
+        "facing": {"$ref": "#/$defs/direction"}
+      },
+      "required": ["map"],
+      "additionalProperties": false
+    },
+    "zone_pose": {
+      "type": "object",
+      "properties": {"place": {"type": "string"}, "spot": {"type": "string"}, "heading": {"type": "integer"}},
+      "required": ["place"],
+      "additionalProperties": false
+    },
+    "declared_pose": {"oneOf": [{"$ref": "#/$defs/grid_pose"}, {"$ref": "#/$defs/zone_pose"}]},
+    "step": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {
+          "enum": [
+            "new_game",
+            "options",
+            "route",
+            "legs",
+            "step",
+            "talk",
+            "answer",
+            "scene",
+            "battle",
+            "train",
+            "heal",
+            "shop",
+            "save",
+            "ready",
+            "game_action"
+          ]
+        },
+        "why": {"type": "string"},
+        "action": {"type": "string"},
+        "args": {"type": "object"},
+        "skip_if": {"type": "array", "items": {"type": "string"}},
+        "declared_after": {"$ref": "#/$defs/declared_pose"},
+        "once_per_save": {"type": "boolean"}
+      },
+      "required": ["id", "kind"],
+      "additionalProperties": false
+    }
+  }
+}

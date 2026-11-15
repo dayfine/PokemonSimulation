@@ -31,7 +31,11 @@ class AuthoredCheckpointTests(unittest.TestCase):
                      lambda p: p.update(game='bdsp'),
                      lambda p: p['execution'].update(menu='guess'),
                      lambda p: p['execution'].update(supplies={'hp_fill': 1.0}),
-                     lambda p: p['checkpoint']['events'].append(p['checkpoint']['events'][0])]
+                     lambda p: p['checkpoint']['events'].append(p['checkpoint']['events'][0]),
+                     lambda p: p['checkpoint']['events'][0].update(variant='run'),
+                     lambda p: p['checkpoint']['events'][0]['args'].update(mystery=1),
+                     lambda p: p['execution'].update(notes={'no_such_step': ['a']}),
+                     lambda p: p['execution'].update(notes={'checkpoint': 'a'})]
         for mutate in mutations:
             plan = copy.deepcopy(original)
             mutate(plan)
