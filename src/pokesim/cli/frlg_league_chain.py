@@ -76,7 +76,7 @@ def summarize(records):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--policy', default='replica', choices=['replica', 'replica_full', 'current_c'])
+    parser.add_argument('--policy', default='replica', choices=['video', 'c2', 'c2_budget', 'replica_budget', 'replica', 'replica_full', 'replica_margin', 'current_c'])
     parser.add_argument('--chains', type=int, default=200)
     parser.add_argument('--workers', type=int, default=4)
     parser.add_argument('--bag', type=json.loads, default=None, help='JSON bag; default the restocked bag of 2026-11-16 (X Special 15, Super Potion 6)')

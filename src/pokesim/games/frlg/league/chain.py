@@ -18,6 +18,10 @@ from pokesim.games.frlg.league.replica import POLICIES
 FIGHTS = ('lorelei', 'bruno', 'agatha', 'lance', 'champion')
 # PokeGuy's recorded entry HP share: Bruno 130/162, Agatha 45/165 (Torrent on), Lance and Champion full.
 ENTRY_TARGET = {'bruno': 0.80, 'agatha': 0.27, 'lance': 1.0, 'champion': 1.0}
+# On video he healed nothing before Bruno (130/162, kept as an 80% floor: 30% lost 26% of chains at Bruno)
+# or Agatha (45/165) and fully before Lance and the
+# Champion; we keep Bruno/Agatha above an Earthquake-sized floor and use Super Potions first.
+VIDEO_ENTRY_TARGET = {'bruno': 0.80, 'agatha': 0.27, 'lance': 1.0, 'champion': 1.0}
 MOVE_PP = {'BITE': 25, 'SURF': 15, 'BLIZZARD': 5, 'STRENGTH': 15}
 
 
@@ -42,14 +46,14 @@ def fight_scenario(case, pret, carry, stats, level):
     return scenario_for(scenario, pret)
 
 
-def play(engine, scenario, ai, policy, seed, turn_limit=300):
+def play(engine, scenario, ai, policy, seed, turn_limit=300, fight=None):
     seeds = random.Random('engine:' + seed)
     state = engine.request(command='start', scenario=scenario, seed=[seeds.randrange(65536) for _ in range(4)])
     rng = random.Random('ai:' + seed)
     known, decisions = set(), []
     flags = scenario['trainer']['ai']
     items = [item.lower().replace('_', '') for item in scenario['trainer']['items']]
-    goals = scenario.get('planning_goals') or {}
+    goals = dict(scenario.get('planning_goals') or {}, _fight=fight, _entry_bag=dict(scenario['bag']))
     while not state['ended'] and state['turn'] <= turn_limit:
         reveal(state, known)
         if state['needs_switch']:
@@ -80,7 +84,8 @@ def between_fights(carry, max_hp, policy_name, next_fight):
     # out of battle only when a status needs it or the Super Potions run out.
     if carry['status'] and bag.get('fullrestore'):
         bag['fullrestore'] -= 1; used['fullrestore'] += 1; carry['hp'] = max_hp; carry['status'] = ''
-    target = max_hp * (ENTRY_TARGET.get(next_fight, 1.0) if policy_name == 'replica' else 1.0)
+    targets = VIDEO_ENTRY_TARGET if policy_name == 'video' else ENTRY_TARGET
+    target = max_hp * (targets.get(next_fight, 1.0) if policy_name != 'replica_full' else 1.0)
     while carry['hp'] < target and bag.get('superpotion'):
         bag['superpotion'] -= 1; used['superpotion'] += 1; carry['hp'] = min(max_hp, carry['hp'] + 50)
     if carry['hp'] < target and bag.get('fullrestore'):
@@ -109,7 +114,7 @@ def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=
         top = between_fights(carry, max_hp, policy_name, fight) if index else Counter()
         entry = {'hp': carry['hp'], 'max_hp': max_hp, 'pp': dict(carry['pp']), 'bag': dict(carry['bag'])}
         scenario = fight_scenario(cases[fight], pret, carry, stats, levels[fight] if levels else None)
-        state, decisions = play(engine, scenario, ai, policy, '{}:{}'.format(seed, fight))
+        state, decisions = play(engine, scenario, ai, policy, '{}:{}'.format(seed, fight), fight=fight)
         won = state['winner'] == 'Player'
         own = state['own']
         carry['hp'] = own['hp']

@@ -20,10 +20,12 @@ from pokesim.games.frlg.league.chain import play
 from pokesim.games.frlg.league.replica import POLICIES
 
 # Bag and PP deltas between consecutive recorded League entries (docs/battles/pokeguy-conditions.md).
-RECORDED = {
-    'lorelei': {'fullrestore': 1, 'xspecial': 4, 'xspeed': 0, 'attacks': 7, 'surf': 1},
+RECORDED = {  # from the video transcription (notes/pokeguy-league-turns.md)
+    'lorelei': {'fullrestore': 1, 'xspecial': 4, 'xspeed': 0, 'attacks': 8, 'surf': 1},
     'bruno': {'fullrestore': 0, 'xspecial': 2, 'xspeed': 1, 'attacks': 5, 'surf': 5},
-    'agatha': {'fullrestore': 1, 'xspecial': 1, 'xspeed': 1, 'attacks': 5, 'surf': 5},
+    'agatha': {'fullrestore': 0, 'xspecial': 1, 'xspeed': 1, 'attacks': 5, 'surf': 5},
+    'lance': {'fullrestore': 1, 'xspecial': 1, 'xspeed': 0, 'attacks': 7, 'surf': 1},
+    'champion': {'fullrestore': 1, 'xspecial': 2, 'xspeed': 1, 'attacks': 6, 'surf': 4},
 }
 
 
@@ -35,7 +37,7 @@ def worker(job):
     with Engine() as engine:
         scenario = scenario_for(cases[fight], pret)
         for seed in seeds:
-            state, decisions = play(engine, scenario, ai, POLICIES[policy], seed)
+            state, decisions = play(engine, scenario, ai, POLICIES[policy], seed, fight=fight)
             used = Counter(state['items_used'])
             moves = Counter(d['move'] for d in decisions if d['move'])
             rows.append({'won': state['winner'] == 'Player', 'fullrestore': used['fullrestore'],
