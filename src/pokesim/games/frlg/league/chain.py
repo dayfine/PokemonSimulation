@@ -47,12 +47,15 @@ def ours_at(level, measured=True):
             'spd': 140 + round(3.5 * d), 'spe': 111 + 2 * d}
 
 
-def fight_scenario(case, pret, carry, stats, level, only_foe=None, bench=True):
+def fight_scenario(case, pret, carry, stats, level, only_foe=None, bench=True, held_item=None):
+    """held_item None keeps the case's (PokeGuy's Black Glasses); '' holds nothing."""
     scenario = copy.deepcopy(case)
     if bench:
         scenario['bench'] = copy.deepcopy(BENCH)
     scenario.pop('progression', None)
     player = scenario['player']
+    if held_item is not None:
+        player['held_item'] = held_item
     if stats is not None:
         player['stats'] = dict(stats)
         player['level'] = level
@@ -186,10 +189,48 @@ def autostory_between(carry, max_hp, new, next_fight):
     return used
 
 
+def pokeguy_between(carry, max_hp, next_fight):
+    """PokeGuy's out-of-battle play on video (state-history.json): no HP top-up before Bruno (130/162)
+    or Agatha (45/165); a Full Restore to full before Lance and the Champion (his Super Potions stayed 4);
+    his one Elixir before the Champion. A status is cured first (he had none; dedicated cure, Full Heal,
+    Full Restore)."""
+    used = Counter()
+    bag = carry['bag']
+
+    def use(item):
+        bag[item] -= 1
+        used[item] += 1
+
+    if carry['status']:
+        cure = {'par': 'parlyzheal', 'psn': 'antidote', 'tox': 'antidote', 'slp': 'awakening'}.get(carry['status'])
+        for item in (cure, 'fullheal', 'fullrestore'):
+            if item and bag.get(item):
+                use(item)
+                carry['status'] = ''
+                if item == 'fullrestore':
+                    carry['hp'] = max_hp
+                break
+    if next_fight in ('lance', 'champion') and carry['hp'] < max_hp and bag.get('fullrestore'):
+        use('fullrestore')
+        carry['hp'] = max_hp
+    pp = carry['pp']
+    if next_fight == 'champion' and any(pp[name] < MOVE_PP[name] for name in pp):
+        item = next((i for i in ('elixir', 'maxelixir') if bag.get(i)), None)
+        if item:
+            use(item)
+            for name in pp:
+                pp[name] = MOVE_PP[name] if item == 'maxelixir' else min(MOVE_PP[name], pp[name] + 10)
+    return used
+
+
 def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None, fights=FIGHTS, only_foe=None,
-              budget=None, plan=None, bench=True):
+              budget=None, plan=None, bench=True, between=None, held_item=None):
     """budget: per-fight item budgets {fight: {item: n}} in place of the planner's split (autostory only).
-    plan: the League plan (policy 'planned'); bench: our HM users in the party (Roar/Whirlwind work)."""
+    plan: the League plan (policy 'planned'); bench: our HM users in the party (Roar/Whirlwind work).
+    levels None: each fight's recorded stats from the case (PokeGuy's Lv51-55).
+    between: 'pokeguy' for PokeGuy's out-of-battle healing in place of the policy's own.
+    held_item: None keeps each case's (PokeGuy's Black Glasses, so our-Blastoise runs held them too);
+    '' for none (our console Blastoise holds nothing)."""
     policy = POLICIES[policy_name]
     carry = {'hp': entry_hp, 'status': '', 'pp': dict(MOVE_PP), 'bag': dict(bag)}
     record = {'seed': seed, 'fights': [], 'outcome': 'win'}
@@ -204,9 +245,15 @@ def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=
         max_hp = stats['hp'] if stats else cases[fight]['player']['stats']['hp']
         if carry['hp'] is None:
             carry['hp'] = max_hp
-        top = between_fights(carry, max_hp, policy_name, fight, extra and extra.get('_league_plan')) if index else Counter()
+        if not index:
+            top = Counter()
+        elif between == 'pokeguy':
+            top = pokeguy_between(carry, max_hp, fight)
+        else:
+            top = between_fights(carry, max_hp, policy_name, fight, extra and extra.get('_league_plan'))
         entry = {'hp': carry['hp'], 'max_hp': max_hp, 'pp': dict(carry['pp']), 'bag': dict(carry['bag'])}
-        scenario = fight_scenario(cases[fight], pret, carry, stats, levels[fight] if levels else None, only_foe, bench)
+        scenario = fight_scenario(cases[fight], pret, carry, stats, levels[fight] if levels else None, only_foe, bench,
+                                  held_item)
         state, decisions = play(engine, scenario, ai, policy, '{}:{}'.format(seed, fight), fight=fight,
             extra_goals=dict(extra) if extra else None)
         won = state['winner'] == 'Player'
