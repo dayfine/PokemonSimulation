@@ -350,6 +350,8 @@ def between(carry, max_hp, plan, next_fight, move_pp):
         bag[name] -= 1
         used[name] = used.get(name, 0) + 1
 
+    if row.get('between', {}).get('heal') == 'one':
+        return _one_heal(carry, max_hp, row, can, use, move_pp, used)
     if carry['status']:
         for name in (CURES.get(carry['status']), 'fullheal', 'fullrestore'):
             if name and can(name):
@@ -383,6 +385,46 @@ def between(carry, max_hp, plan, next_fight, move_pp):
     return used
 
 
+def _one_heal(carry, max_hp, row, can, use, move_pp, used):
+    """`between.heal == "one"`: one heal item before the fight. A status takes its cure or a Full Heal (a Full
+    Restore if neither, which is then the heal). Missing HP <= 50: a Super Potion; <= 100 with two spendable: two
+    Super Potions; more: a Full Restore (up to two Super Potions when no Full Restore is spendable). Then a PP item
+    if a move is under `between.pp`."""
+    healed = False
+    if carry['status']:
+        for name in (CURES.get(carry['status']), 'fullheal', 'fullrestore'):
+            if name and can(name):
+                use(name)
+                carry['status'] = ''
+                if name == 'fullrestore':
+                    carry['hp'], healed = max_hp, True
+                break
+    missing = max_hp - carry['hp']
+    spare = carry['bag'].get('superpotion', 0) - row.get('reserve', {}).get('items', {}).get('superpotion', 0)
+    if not healed and missing > 0:
+        if missing <= SUPER_POTION_HP * spare and missing <= 2 * SUPER_POTION_HP:
+            potions = 1 if missing <= SUPER_POTION_HP else 2
+        elif can('fullrestore'):
+            use('fullrestore')
+            carry['hp'], potions = max_hp, 0
+        else:
+            potions = min(2, max(0, spare))
+        for _ in range(potions):
+            use('superpotion')
+            carry['hp'] = min(max_hp, carry['hp'] + SUPER_POTION_HP)
+    floor = row['between'].get('pp', {})
+    pp = carry['pp']
+    if any(pp.get(k.upper(), 0) < v for k, v in floor.items()):
+        for name in PP_ITEMS:
+            if can(name):
+                use(name)
+                for k in pp:
+                    pp[k] = move_pp[k] if name == 'maxelixir' else min(move_pp[k], pp[k] + 10)
+                break
+    return used
+
+
+SUPER_POTION_HP = 50
 FIGHTS = ('lorelei', 'bruno', 'agatha', 'lance', 'champion')
 
 
