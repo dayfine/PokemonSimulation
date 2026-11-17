@@ -26,6 +26,22 @@ One JSON file for the whole League:
                  "items": {"fullrestore": 6, "maxelixir": 1}}}}}  // bag counts it must leave
 ```
 
+Optional per-foe keys (format stays `/1`; a reader that doesn't know them can ignore them):
+
+```json
+{"species": "machamp", "moves": ["surf"],
+ "heal": {"below": 80, "heal_at_least": 50,      // HP < 80: the smallest spendable heal restoring >= 50 HP
+          "heal_when_can_ko": false,             // false (default): a sure KO this turn comes first
+          "ko_rule": true},                      // true (default): the KO-risk heal row still applies
+ "sequence": ["strength", "bite", "bite"],       // our n-th attack on this foe; then `moves`
+ "kill_order": true}                             // false: skip the kill_order row for this foe
+```
+
+- `heal.below` is HP points (not a fraction). Items are tried Super Potion, Hyper Potion, Max Potion, Full Restore;
+  one is taken only if its spendable count is above the fight's reserve (so a Full Restore budget still holds).
+  Two heal turns in a row with the foe's HP unchanged stop the block (the KO-risk row's streak rule).
+- A foe with a `sequence` skips the `kill_order` row.
+
 - A foe that isn't found at its slot is looked up by species.
 - A setup goal whose `serves` move has no PP above the reserve is skipped.
   Guard Spec's goal is met while Mist is up.
@@ -47,6 +63,7 @@ One JSON file for the whole League:
 | `sure_ko` | a move's lowest roll KOs (accuracy with both stat stages, evasion included; foe HP after its trainer's Full Restore) and we move first (speed with stages and paralysis); not while this is the plan's setup foe and we are safe | the cheapest such move (Strength, Bite, Surf, Blizzard) |
 | `sleep_cure` | asleep / frozen with a cure | Full Restore at KO risk, else Awakening, Full Heal |
 | `status_ko` | a status and HP <= D | Full Restore |
+| `foe_heal` | the foe's `heal` block: HP < `below` (before `sure_ko` when `heal_when_can_ko`) | the smallest spendable heal restoring >= `heal_at_least` |
 | `ko_heal` | HP <= D < max HP, where D is the foe's worst normal hit now, against our current Def/Sp. Def stages. D is 0 while the foe recharges, sleeps, uses an item, or has a charge move it isn't holding | the smallest heal that clears D with a mean hit to spare. After two medicine turns with the foe's HP unchanged: Full Restore. D >= max HP: attack |
 | `cure` | paralysis or poison, no KO risk, no medicine streak | its cure, Full Heal |
 | `kill_order` | the trainer has an open item slot and the planned hit can leave the foe at 1-24% | a hit leaving it at 25% or more, after which the finisher's lowest roll KOs; else the strongest hit that stays at 25% or more |

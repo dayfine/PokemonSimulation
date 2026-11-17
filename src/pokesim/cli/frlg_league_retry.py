@@ -149,6 +149,10 @@ def run_fight(fight, carry_in, plan, seed, risk, top_up):
     return {'won': state['winner'] == 'Player' and not reset, 'reset': reset,
             'lost': state['winner'] != 'Player' and not reset, 'fr': used.get('fullrestore', 0), 'used': dict(used),
             'pre': pre, 'turns': len(decisions), 'cause': cause,
+            # Per decision: foe, our HP, Speed stage, our action (move id or item), foe move, foe crit.
+            'trace': [(str(d['foe']).upper(), d['hp'], d['boosts'].get('spe', 0),
+                       d['move'] or d['own'].get('item') or d['own'].get('kind'), d['foe_move'],
+                       d['turn'] in state['foe_crit_turns']) for d in decisions],
             'end': {'hp': own['hp'], 'status': own.get('status', '') or '',
                     'pp': {k: pp.get(k, 0) for k in MOVE_PP}, 'bag': {k: v for k, v in state['bag'].items()}}}
 

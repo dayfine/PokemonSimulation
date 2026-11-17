@@ -161,9 +161,38 @@ def setup_goal(state, goals, plan_foe):
     return None
 
 
+def foe_heal(state, goals, plan_foe):
+    """The foe's `heal` block: below `below` HP, the smallest spendable heal that restores at least
+    `heal_at_least` HP (Super Potion 50, Full Restore to full)."""
+    rule = plan_foe.get('heal')
+    own, bag = state['own'], state['bag']
+    if not rule or own['hp'] >= rule['below']:
+        return None
+    missing = own['max_hp'] - own['hp']
+    for name in ('superpotion', 'hyperpotion', 'maxpotion', 'fullrestore'):
+        if spendable(goals, bag, name) > 0 and min(missing, HEALS[name]) >= min(missing, rule.get('heal_at_least', 0)):
+            return name
+    return None
+
+
+def sequence_move(state, goals, plan_foe):
+    """The foe's `sequence`: our n-th attack on this foe uses its n-th move (then `moves`)."""
+    seq = plan_foe.get('sequence')
+    if not seq:
+        return None
+    n = goals.setdefault('_memo', {}).get(('attacks', state['foe']['party_index']), 0)
+    if n >= len(seq):
+        return None
+    usable = dict((m['id'], (slot, m)) for slot, m in attacks.usable(state['own']))
+    return usable.get(seq[n])
+
+
 def planned_move(state, goals, plan_foe):
     own = state['own']
     usable = dict((m['id'], (slot, m)) for slot, m in attacks.usable(own))
+    chosen = sequence_move(state, goals, plan_foe)
+    if chosen:
+        return chosen
     for name in plan_foe.get('moves', ()):
         if name in usable and pp_left(goals, usable[name][1]) > 0:
             return usable[name]
@@ -215,6 +244,9 @@ def action(state, ai, flags, items, goals):
     foe_key = (state['foe']['species'], state['foe']['hp'])
     streak = memo.get('streak', 0) if memo.get('foe') == foe_key else 0
     why, choice = choose(state, goals, streak)
+    if choice.get('kind') == 'move':
+        key = ('attacks', state['foe']['party_index'])
+        memo[key] = memo.get(key, 0) + 1
     memo['foe'] = foe_key
     memo['streak'] = streak + 1 if _medicine(choice) else 0
     goals['_why'] = why
@@ -241,6 +273,11 @@ def choose(state, goals, streak):
     # A sure KO waits while this foe is the plan's setup foe and we are safe: setup carries to the next foes.
     goal_first = own['hp'] > D and setup_goal(state, goals, plan_foe) is not None and sum(
         p['hp'] > 0 for p in state['party']) > 1
+    heal_rule = plan_foe.get('heal') or {}
+    if heal_rule.get('heal_when_can_ko') and streak < 2:
+        name = foe_heal(state, goals, plan_foe)
+        if name:
+            return 'foe_heal', item(name)
     if awake and not goal_first:
         kos = [(PP_VALUE.get(m['id'], 5), slot, m) for slot, m in attacks.usable(own)
                if sure_ko(m, target_hp) and we_move_first(state, m) and (pp_left(goals, m) > 0 or own['hp'] <= D)]
@@ -254,8 +291,12 @@ def choose(state, goals, streak):
         for name in (cure, 'fullheal', 'fullrestore'):
             if name and bag.get(name):
                 return 'sleep_cure', item(name)
+    if heal_rule and streak < 2:
+        name = foe_heal(state, goals, plan_foe)
+        if name:
+            return 'foe_heal', item(name)
     risk = own['hp'] <= D
-    if risk and D < own['max_hp']:
+    if risk and D < own['max_hp'] and heal_rule.get('ko_rule', True):
         if own['status'] and bag.get('fullrestore'):
             return 'status_ko', item('fullrestore')
         if streak >= 2:
@@ -287,7 +328,7 @@ def choose(state, goals, streak):
                 return 'plan:setup_heal', item(heal)
     if chosen is None:
         return 'plan:struggle', attacks.attack(state)
-    if awake:
+    if awake and plan_foe.get('kill_order', True) and not plan_foe.get('sequence'):
         swap = kill_order(state, goals, chosen)
         if swap:
             return 'kill_order', {'kind': 'move', 'slot': swap[0]}
