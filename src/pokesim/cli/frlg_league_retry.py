@@ -19,6 +19,10 @@ Model:
     to its PP floor). Lorelei starts full with BAG_NOW. Same seeds across k and variants (paired).
   * E4 variants: plan; late_heal (heal only when the foe's mean hit KOs, not its worst roll);
     more_setup (+2 X Special stages on the plan's setup foe); risky (both).
+  * Bruno and the Champion: a Roar / Whirlwind that lands is a soft reset (the console reloads the save before
+    the fight): the try ends there, neither a loss nor an accepted win, and counts as one try.
+  * Bruno 'pokeguy' (PokeGuy's line): +2 Sp. Atk (again after a reset-free Roar on any foe), X Speed when Rock
+    Tomb drops Speed, Surf everything, heal only when the foe's lowest roll KOs; 'pokeguy_noheal' never heals.
   * Champion: Full Restores at entry c = 0..8, four setups on Pidgeot (plan, risky, safer, long), three entry
     states (sampled from Lance's accepted wins; full HP/PP with the median leftover bag; full HP/PP with
     BAG_NOW's whole non-FR bag).
@@ -46,12 +50,25 @@ E4 = ('lorelei', 'bruno', 'agatha', 'lance')
 KS = (0, 1, 2, 3, 4, 8)
 FR_POOL = 8
 POOL_K = 3
+# Bruno and the Champion: a Roar / Whirlwind that lands means soft reset and reload the save before the fight.
+# The try ends there: no loss, no accepted win, one try spent.
+RESET_FIGHTS = ('bruno', 'champion')
 E4_VARIANTS = {
     'plan': dict(risk=None, extra_xsp=0),
     'late_heal': dict(risk='mean', extra_xsp=0),
     'more_setup': dict(risk=None, extra_xsp=2),
     'risky': dict(risk='mean', extra_xsp=2),
+    # PokeGuy's Bruno (events.json 1:49:15-1:50:49): +2 Sp. Atk on Onix (again on any foe after a Roar), X Speed
+    # when Rock Tomb drops Speed, Surf everything, heal only when the lowest roll KOs (or never).
+    'pokeguy': dict(risk='sure', extra_xsp=0, fights=('bruno',)),
+    'pokeguy_noheal': dict(risk='never', extra_xsp=0, fights=('bruno',)),
 }
+POKEGUY_BRUNO_SETUP = [{'item': 'xspecial', 'stage': 2, 'serves': 'surf'},
+                       {'item': 'xspeed', 'stage': 0, 'serves': 'surf'}]
+
+
+def variants_for(fight):
+    return [v for v, spec in E4_VARIANTS.items() if fight in spec.get('fights', E4)]
 
 
 def goal(item, stage=1, serves='blizzard'):
@@ -89,6 +106,10 @@ def run_plan(base, fight, variant='plan', k=None, champ=None):
     for g in row['foes'][0]['setup']:
         if g['item'] == 'xspecial':
             g['stage'] += extra
+    if variant.startswith('pokeguy'):
+        for foe in row['foes']:
+            foe['moves'] = ['surf']
+            foe['setup'] = copy.deepcopy(POKEGUY_BRUNO_SETUP)
     if champ:
         plan['fights']['champion']['foes'][0]['setup'] = copy.deepcopy(CHAMP_SETUPS[champ])
     items = row['reserve']['items']
@@ -121,8 +142,13 @@ def run_fight(fight, carry_in, plan, seed, risk, top_up):
     pp = {m['id'].upper(): m['pp'] for m in own['moves']}
     used = Counter(state['items_used'])
     used.update(top)
-    return {'won': state['winner'] == 'Player', 'fr': used.get('fullrestore', 0), 'used': dict(used),
-            'pre': pre, 'turns': len(decisions),
+    last = decisions[-1] if decisions else {}
+    cause = {'roared': any(d['own'].get('kind') == 'switch' for d in decisions), 'foe': last.get('foe'),
+             'move': last.get('foe_move'), 'crit': last.get('turn') in state['foe_crit_turns']}
+    reset = cause['roared'] and fight in RESET_FIGHTS
+    return {'won': state['winner'] == 'Player' and not reset, 'reset': reset,
+            'lost': state['winner'] != 'Player' and not reset, 'fr': used.get('fullrestore', 0), 'used': dict(used),
+            'pre': pre, 'turns': len(decisions), 'cause': cause,
             'end': {'hp': own['hp'], 'status': own.get('status', '') or '',
                     'pp': {k: pp.get(k, 0) for k in MOVE_PP}, 'bag': {k: v for k, v in state['bag'].items()}}}
 
@@ -173,7 +199,8 @@ def e4_sweep(ex, seeds, workers, base):
     pool = [full_carry(BAG_NOW)]
     for index, fight in enumerate(E4):
         cells = {}
-        for variant, v in E4_VARIANTS.items():
+        for variant in variants_for(fight):
+            v = E4_VARIANTS[variant]
             for k in KS:
                 cells[(variant, k)] = (fight, run_plan(base, fight, variant, k), v['risk'],
                                        entries_for(seeds, fight, pool, FR_POOL), index > 0)
@@ -181,9 +208,13 @@ def e4_sweep(ex, seeds, workers, base):
         for earlier in E4[:index]:
             for name, n in planned.setup_count(base['fights'][earlier]['foes']).items():
                 full_bag[name] -= n
-        for k in KS:
-            cells[('full', k)] = (fight, run_plan(base, fight, 'plan', k), None,
-                                  entries_for(seeds, fight, [full_carry(full_bag)], FR_POOL), False)
+        for variant in variants_for(fight):
+            if variant not in ('plan', 'pokeguy', 'pokeguy_noheal'):
+                continue
+            name = 'full' if variant == 'plan' else 'full_' + variant
+            for k in KS:
+                cells[(name, k)] = (fight, run_plan(base, fight, variant, k), E4_VARIANTS[variant]['risk'],
+                                    entries_for(seeds, fight, [full_carry(full_bag)], FR_POOL), False)
         out = run_cells(ex, cells, workers)
         results[fight] = out
         pool = [r['end'] for r in accepted(out[('plan', POOL_K)], POOL_K)]
@@ -209,7 +240,8 @@ def champion_sweep(ex, seeds, workers, base, lance_pool):
                 cells[(mode, setup, c)] = ('champion', plan, None,
                                            entries_for(seeds, 'champion', [full_carry(bag)], c), False)
     out = run_cells(ex, cells, workers)
-    return {key: sum(r['won'] for r in rs) / len(rs) for key, rs in out.items()}, leftover, out
+    resets = {key: sum(r['reset'] for r in rs) / len(rs) for key, rs in out.items()}
+    return {key: sum(r['won'] for r in rs) / len(rs) for key, rs in out.items()}, leftover, resets
 
 
 def x_use(e4_variants, champ):
@@ -227,7 +259,7 @@ def x_use(e4_variants, champ):
 def allocations(e4, champ_win):
     """Every (k, variant) per E4 fight and Champion setup with sum k + c = 8 and X items within BAG_NOW."""
     rows = []
-    options = {f: [(k, v, rate(e4[f][(v, k)], k)) for k in KS if k <= 4 for v in E4_VARIANTS] for f in E4}
+    options = {f: [(k, v, rate(e4[f][(v, k)], k)) for k in KS if k <= 4 for v in variants_for(f)] for f in E4}
     for combo in itertools.product(*(options[f] for f in E4)):
         c = FR_POOL - sum(o[0] for o in combo)
         if c < 0:
@@ -269,7 +301,7 @@ def pct(x):
     return '{:5.1%}'.format(x)
 
 
-def render_champion(champ_win, leftover, runs, seed):
+def render_champion(champ_win, leftover, runs, seed, champ_reset):
     lines = ['TABLE 1. Champion alone: win rate by Full Restores at entry ({} runs per cell, seed {})'.format(runs, seed),
              '  setups on Pidgeot: plan = Guard Spec, X Sp +2, X Acc +2, X Spe +1;  risky = X Sp +2, X Spe +1;',
              '                     safer = plan with X Acc +3;  long = Guard Spec, X Sp +4, X Acc +3, X Spe +2',
@@ -284,6 +316,12 @@ def render_champion(champ_win, leftover, runs, seed):
         for setup in CHAMP_SETUPS:
             lines.append('  {:9s} {:7s} '.format(mode, setup) + ' '.join(
                 '{:>6s}'.format(pct(champ_win[(mode, setup, c)]).strip()) for c in range(FR_POOL + 1)))
+    lines.append('  Win = per try: a Whirlwind/Roar that lands is a reset (a failed try), counted apart from losses.')
+    lines.append('  Reset / loss per try (entry sampled):')
+    for setup in CHAMP_SETUPS:
+        lines.append('    {:7s} '.format(setup) + '  '.join('c={} reset {} loss {}'.format(
+            c, pct(champ_reset[('sampled', setup, c)]),
+            pct(1 - champ_win[('sampled', setup, c)] - champ_reset[('sampled', setup, c)])) for c in (2, 4, 8)))
     return '\n'.join(lines)
 
 
@@ -298,7 +336,8 @@ def render_e4(e4, runs, seed):
         lines.append('  {}'.format(fight.upper()))
         lines.append('    {:11s} {:>6s}  {:>24s}  '.format('variant', 'win%', 'FR used in wins 0/1/2/3/4+') +
                      '  '.join('P(k={}) tries'.format(k) for k in range(4)))
-        for variant in list(E4_VARIANTS) + ['full']:
+        names = variants_for(fight) + [n for n in ('full', 'full_pokeguy', 'full_pokeguy_noheal') if (n, 8) in e4[fight]]
+        for variant in names:
             free = e4[fight][(variant, 8)]
             wins = [r for r in free if r['won']]
             dist = Counter(min(r['fr'], 4) for r in wins)
@@ -346,6 +385,48 @@ def render_alloc(rows, checks, runs):
     return '\n'.join(lines)
 
 
+def bruno_report(e4):
+    """Bruno: the PokeGuy line against the plan and late_heal, and how the losses happen."""
+    rows = e4['bruno']
+    lines = ['BRUNO: PokeGuy\'s line (pokeguy = heal only on a sure KO, i.e. lowest roll >= HP; pokeguy_noheal = never heal)',
+             '  entry sampled = Lorelei\'s accepted wins + 80% HP top-up; full = full HP/PP.  FR dist from the k=8 run.',
+             '  win% per try; reset = Roar landed (soft reset, a failed try); loss = a real loss.',
+             '  {:22s} {:>6s} {:>6s} {:>6s}  {:>22s}  {:>7s} {:>7s} {:>7s}'.format(
+                 'variant / entry', 'win%', 'reset', 'loss', 'FR in wins 0/1/2/3/4+', 'P(k=0)', 'P(k=1)', 'P(k=2)')]
+    names = [('plan', 'sampled'), ('late_heal', 'sampled'), ('pokeguy', 'sampled'), ('pokeguy_noheal', 'sampled'),
+             ('full', 'full (plan)'), ('full_pokeguy', 'full (pokeguy)'), ('full_pokeguy_noheal', 'full (noheal)')]
+    for key, label in names:
+        free = rows[(key, 8)]
+        wins = [r for r in free if r['won']]
+        dist = Counter(min(r['fr'], 4) for r in wins)
+        lines.append('  {:22s} {:>6s} {:>6s} {:>6s}  {:>22s}  '.format(
+            (key.replace('full_', '') if key != 'full' else 'plan') + ' / ' + label.split(' ')[0], pct(len(wins) / len(free)),
+            pct(sum(r['reset'] for r in free) / len(free)), pct(sum(r['lost'] for r in free) / len(free)),
+            '/'.join('{:.0%}'.format(dist[i] / max(1, len(wins))) for i in range(5))) +
+            ' '.join('{:>7s}'.format(pct(rate(rows[(key, k)], k))) for k in range(3)))
+    lines.append('')
+    lines.append('  Loss causes (k=8 runs, real losses only, the killing blow)')
+    for key, label in names:
+        losses = [r for r in rows[(key, 8)] if r['lost']]
+        if not losses:
+            continue
+        n = len(losses)
+        kills = Counter()
+        for r in losses:
+            c = r['cause']
+            if c['foe'] == 'MACHAMP' or (c['foe'] or '').lower() == 'machamp':
+                kills['Machamp'] += 1
+            elif c['move'] == 'earthquake' and c['crit']:
+                kills['Earthquake crit'] += 1
+            elif c['move'] == 'machpunch':
+                kills['Mach Punch'] += 1
+            else:
+                kills['{} {}{}'.format(str(c['foe']).lower(), c['move'], ' crit' if c['crit'] else '')] += 1
+        lines.append('    {:22s} losses {:3d}  '.format(key.replace('full_', '') + ' / ' + label.split(' ')[0], n) +
+            ', '.join('{} {:.0%}'.format(k, v / n) for k, v in kills.most_common(6)))
+    return '\n'.join(lines)
+
+
 def entry_hp_effect(e4, pools, base_seeds):
     """Does a weaker accepted win (low end HP / fewer Super Potions) hurt the next fight? Plan, k = 2."""
     lines = ['  Entry effect (plan, k=2): next fight\'s P(accept) by the previous win\'s end HP and Super Potions left']
@@ -374,21 +455,22 @@ def main(argv=None):
     base = planned.load_plan()
     with ProcessPoolExecutor(args.workers, initializer=_init) as ex:
         e4, pools = e4_sweep(ex, seeds, args.workers, base)
-        champ_win, leftover, _ = champion_sweep(ex, seeds, args.workers, base, pools['lance'])
+        champ_win, leftover, champ_reset = champion_sweep(ex, seeds, args.workers, base, pools['lance'])
         print('champion done', flush=True)
         rows = allocations(e4, champ_win)
         c4 = next(r for r in rows if r['c'] == 4)
         checks = [('best: ' + '/'.join(map(str, rows[0]['k'])) + ' c=%d' % rows[0]['c'],
                    validate(ex, seeds, args.workers, base, rows[0])),
                   ('c=4: ' + '/'.join(map(str, c4['k'])), validate(ex, seeds, args.workers, base, c4))]
-    text = '\n\n'.join([render_champion(champ_win, leftover, args.runs, args.seed), render_e4(e4, args.runs, args.seed),
-                        entry_hp_effect(e4, pools, seeds), render_alloc(rows, checks, args.runs)])
+    text = '\n\n'.join([render_champion(champ_win, leftover, args.runs, args.seed, champ_reset), render_e4(e4, args.runs, args.seed),
+                        entry_hp_effect(e4, pools, seeds), bruno_report(e4), render_alloc(rows, checks, args.runs)])
     print(text)
     (args.out_dir / 'tables.txt').write_text(text + '\n')
     (args.out_dir / 'allocations.json').write_text(json.dumps(rows[:50], indent=1) + '\n')
     summary = {'champion': {'/'.join(map(str, k)): v for k, v in champ_win.items()},
                'e4': {f: {'{}/{}'.format(*key): {'win': sum(r['won'] for r in rs) / len(rs),
                                                  'accept': rate(rs, key[1]) if key[1] < 8 else None,
+                                                 'reset': sum(r['reset'] for r in rs) / len(rs),
                                                  'fr_in_wins': dict(Counter(r['fr'] for r in rs if r['won']))}
                           for key, rs in e4[f].items()} for f in E4}}
     (args.out_dir / 'summary.json').write_text(json.dumps(summary) + '\n')

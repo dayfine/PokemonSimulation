@@ -17,3 +17,8 @@ About 8.5 expected tries for the whole League (played forward with these rules),
 The Champion with 4 Full Restores wins 61% per try from a real Lance win (70% with the whole non-FR bag); it
 saturates at ~71% from 6. Stacking setup on Pidgeot loses to Whirlwind (0%), and +2 X Special on Bruno's Onix drops
 Bruno to 18%.
+
+Bruno played PokeGuy's way (+2 Sp. Atk, Surf only, heal only on a sure KO) wins 60% per try against the plan's 82%;
+never healing wins 20%. Roar/Whirlwind count as a soft reset (one failed try) at Bruno and the Champion, but pret's AI
+only picks them once one of our stats is at +3 or more, so the +2 plans never see them, while the long Champion
+setup (X Sp +4) is reset 93-100% of the time.

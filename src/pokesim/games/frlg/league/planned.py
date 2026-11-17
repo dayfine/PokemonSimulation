@@ -109,7 +109,7 @@ def danger(state, goals):
     residual = own['max_hp'] // 8 * (int(own['status'] in ('psn', 'tox')) + int('leechseed' in own['volatiles']))
     if (foe['locked_move'] == 'recharge' or (foe['status'] == 'slp' and foe['sleep_turns'] > 1)
             or foe['status'] == 'frz' or trainer_item(state, goals.get('_trainer_items', ()))):
-        return {'normal_max': residual, 'mean': residual}
+        return {'normal_max': residual, 'mean': residual, 'sure': residual}
     usable = [m for _, m in attacks.usable(foe) if max(m.get('damage', [0])) > 0]
     charging = any(m['id'] == foe['locked_move'] for m in usable if m.get('two_turn'))
     sun = state['foe'].get('weather') == 'AI_WEATHER_SUN'
@@ -117,7 +117,8 @@ def danger(state, goals):
             or not m.get('two_turn') or sun and m['id'] == 'solarbeam']
     worst = max((max(m['damage']) for m in hits), default=0)
     mean = max((sum(m['damage']) / len(m['damage']) * m['accuracy'] for m in hits), default=0)
-    return {'normal_max': residual + worst, 'mean': residual + mean}
+    sure = max((min(m['damage']) for m in hits), default=0)
+    return {'normal_max': residual + worst, 'mean': residual + mean, 'sure': residual + sure}
 
 
 def _heal(state, d, goals, fight_reserve=True):
@@ -228,9 +229,12 @@ def choose(state, goals, streak):
         return 'locked', forced
     plan_foe = foe_plan(goals, foe)
     d = danger(state, goals)
-    if goals.get('_risk') == 'mean':
-        # Riskier variant: heal only when the foe's mean hit (not its worst roll) KOs.
-        d = dict(d, normal_max=d['mean'])
+    risk_mode = goals.get('_risk')
+    if risk_mode in ('mean', 'sure'):
+        # Riskier variants: heal only when the foe's mean hit ('mean') or its lowest roll ('sure') KOs.
+        d = dict(d, normal_max=d[risk_mode])
+    elif risk_mode == 'never':
+        d = dict(d, normal_max=0)
     D = d['normal_max']
     target_hp = foe_hp_at_our_move(state, goals)
     awake = own['status'] not in ('slp', 'frz')
@@ -276,7 +280,7 @@ def choose(state, goals, streak):
         if goal:
             turns = sum(1 for g in plan_foe.get('setup', ()) if g['item'] != 'guardspec')
             keep = min(own['max_hp'] * 0.75, D + max(0, turns - 1) * d['mean'])
-            if own['hp'] >= keep or foe_hp_at_our_move(state, goals) != foe['hp']:
+            if own['hp'] >= keep or foe_hp_at_our_move(state, goals) != foe['hp'] or risk_mode in ('sure', 'never'):
                 return 'plan:setup', item(goal['item'])
             heal = _heal(state, d, goals)
             if heal and heal != 'fullrestore' or (heal and spendable(goals, bag, 'fullrestore') > 0):
