@@ -187,10 +187,12 @@ def autostory_between(carry, max_hp, new, next_fight):
 
 
 def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None, fights=FIGHTS, only_foe=None,
-              budget=None, plan=None, bench=True):
+              budget=None, plan=None, bench=True, policy_fn=None, on_between=None):
     """budget: per-fight item budgets {fight: {item: n}} in place of the planner's split (autostory only).
-    plan: the League plan (policy 'planned'); bench: our HM users in the party (Roar/Whirlwind work)."""
-    policy = POLICIES[policy_name]
+    plan: the League plan (policy 'planned'); bench: our HM users in the party (Roar/Whirlwind work).
+    policy_fn: called in place of POLICIES[policy_name] (a recorder wrapping it); on_between(fight, carry
+    before, max_hp, used): each between-fight top-up."""
+    policy = policy_fn or POLICIES[policy_name]
     carry = {'hp': entry_hp, 'status': '', 'pp': dict(MOVE_PP), 'bag': dict(bag)}
     record = {'seed': seed, 'fights': [], 'outcome': 'win'}
     extra = None
@@ -204,7 +206,10 @@ def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=
         max_hp = stats['hp'] if stats else cases[fight]['player']['stats']['hp']
         if carry['hp'] is None:
             carry['hp'] = max_hp
+        before = copy.deepcopy(carry)
         top = between_fights(carry, max_hp, policy_name, fight, extra and extra.get('_league_plan')) if index else Counter()
+        if index and on_between:
+            on_between(fight, before, max_hp, top)
         entry = {'hp': carry['hp'], 'max_hp': max_hp, 'pp': dict(carry['pp']), 'bag': dict(carry['bag'])}
         scenario = fight_scenario(cases[fight], pret, carry, stats, levels[fight] if levels else None, only_foe, bench)
         state, decisions = play(engine, scenario, ai, policy, '{}:{}'.format(seed, fight), fight=fight,
