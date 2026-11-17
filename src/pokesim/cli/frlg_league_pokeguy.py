@@ -10,6 +10,8 @@ Scenarios (same engine, seeds and table as frlg_league_plan eval):
   E         C with Black Glasses held
   P         our Blastoise at Lv54, our bag, planned policy (plan.json), no held item
   D         P with Black Glasses held (the #111 planned-54 table: those runs inherited his glasses)
+  V         A with policy 'video' (his on-video setup, X Accuracy ignores Double Team) in place of C2
+  W         C with policy 'video'
 
 A and B keep his Black Glasses. Gen 3 Black Glasses: 1.1x Sp. Atk for Dark moves (Showdown's gen3 mod;
 @smogon/calc previews the same).
@@ -58,6 +60,9 @@ SCENARIOS = {
     'E': dict(policy='c2', bag='ours', levels=54, between='pokeguy', held='BLACK_GLASSES'),
     'P': dict(policy='planned', bag='ours', levels=54, between=None, held=''),
     'D': dict(policy='planned', bag='ours', levels=54, between=None, held='BLACK_GLASSES'),
+    # His setup as seen on video (replica.VIDEO_GOALS): no X Accuracy chase of Gengar's Double Team.
+    'V': dict(policy='video', bag='pokeguy', levels=None, between='pokeguy', held=None),
+    'W': dict(policy='video', bag='ours', levels=54, between='pokeguy', held=''),
 }
 
 
