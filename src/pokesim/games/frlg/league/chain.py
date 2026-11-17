@@ -13,7 +13,10 @@ from collections import Counter
 from pokesim.games.frlg.battle.benchmark import scenario_for, reveal
 from pokesim.games.frlg.battle.npc_actions import trainer_item, replacement
 from pokesim.games.frlg.battle.player_strategy.attacks import locked
-from pokesim.games.frlg.league.replica import POLICIES
+from pokesim.games.frlg.league.replica import POLICIES as REPLICA_POLICIES
+from pokesim.games.frlg.league import autostory
+
+POLICIES = dict(REPLICA_POLICIES, **autostory.POLICIES)
 
 FIGHTS = ('lorelei', 'bruno', 'agatha', 'lance', 'champion')
 # PokeGuy's recorded entry HP share: Bruno 130/162, Agatha 45/165 (Torrent on), Lance and Champion full.
@@ -46,14 +49,14 @@ def fight_scenario(case, pret, carry, stats, level):
     return scenario_for(scenario, pret)
 
 
-def play(engine, scenario, ai, policy, seed, turn_limit=300, fight=None):
+def play(engine, scenario, ai, policy, seed, turn_limit=300, fight=None, extra_goals=None):
     seeds = random.Random('engine:' + seed)
     state = engine.request(command='start', scenario=scenario, seed=[seeds.randrange(65536) for _ in range(4)])
     rng = random.Random('ai:' + seed)
     known, decisions = set(), []
     flags = scenario['trainer']['ai']
     items = [item.lower().replace('_', '') for item in scenario['trainer']['items']]
-    goals = dict(scenario.get('planning_goals') or {}, _fight=fight, _entry_bag=dict(scenario['bag']))
+    goals = dict(scenario.get('planning_goals') or {}, _fight=fight, _entry_bag=dict(scenario['bag']), **(extra_goals or {}))
     while not state['ended'] and state['turn'] <= turn_limit:
         reveal(state, known)
         if state['needs_switch']:
@@ -76,6 +79,8 @@ def between_fights(carry, max_hp, policy_name, next_fight):
     bag = carry['bag']
     if carry['status'] and bag.get('fullheal'):
         bag['fullheal'] -= 1; used['fullheal'] += 1; carry['status'] = ''
+    if policy_name.startswith('autostory'):
+        return autostory_between(carry, max_hp, policy_name == 'autostory_new', next_fight)
     if policy_name == 'current_c':
         if carry['hp'] * 2 < max_hp and bag.get('fullrestore'):
             bag['fullrestore'] -= 1; used['fullrestore'] += 1; carry['hp'] = max_hp; carry['status'] = ''
@@ -102,10 +107,55 @@ def between_fights(carry, max_hp, policy_name, next_fight):
     return used
 
 
+def autostory_between(carry, max_hp, new, next_fight):
+    """between_fight_action(): a cure (own, Full Heal, Full Restore); HP to the entry target with
+    Super Potions, then (new) Hyper / Max Potions, a Full Restore last; Elixir to the PP floor."""
+    used = Counter()
+    bag = carry['bag']
+
+    def use(item):
+        bag[item] -= 1
+        used[item] += 1
+
+    cure = {'par': 'parlyzheal', 'psn': 'antidote', 'tox': 'antidote', 'slp': 'awakening'}.get(carry['status'])
+    if carry['status']:
+        for item in (cure, 'fullheal', 'fullrestore'):
+            if item and bag.get(item):
+                use(item)
+                carry['status'] = ''
+                if item == 'fullrestore':
+                    carry['hp'] = max_hp
+                break
+    target = -(-max_hp * int(ENTRY_TARGET.get(next_fight, 1.0) * 100) // 100)
+    order = ('superpotion', 'hyperpotion', 'maxpotion', 'fullrestore') if new else ('superpotion', 'fullrestore')
+    for _ in range(20):
+        if carry['hp'] >= target:
+            break
+        item = next((i for i in order if bag.get(i)), None)
+        if item is None:
+            break
+        use(item)
+        carry['hp'] = min(max_hp, carry['hp'] + {'superpotion': 50, 'hyperpotion': 200}.get(item, max_hp))
+    need = {'bruno': 7, 'agatha': 6, 'lance': 6, 'champion': 8}.get(next_fight, 0)
+    blizzard = {'lance': 5, 'champion': 2}.get(next_fight, 0)
+    pp = carry['pp']
+    if pp['SURF'] < need or pp['BLIZZARD'] < blizzard:
+        reaches = pp['SURF'] + 10 >= need and min(5, pp['BLIZZARD'] + 10) >= blizzard
+        item = next((i for i in (('elixir', 'maxelixir') if reaches else ('maxelixir', 'elixir')) if bag.get(i)), None)
+        if item:
+            use(item)
+            for name in pp:
+                pp[name] = MOVE_PP[name] if item == 'maxelixir' else min(MOVE_PP[name], pp[name] + 10)
+    return used
+
+
 def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None):
     policy = POLICIES[policy_name]
     carry = {'hp': entry_hp, 'status': '', 'pp': dict(MOVE_PP), 'bag': dict(bag)}
     record = {'seed': seed, 'fights': [], 'outcome': 'win'}
+    extra = None
+    if policy_name.startswith('autostory'):
+        extra = {'_plan': autostory.plan(bag, policy_name == 'autostory_new'), '_start_bag': dict(bag)}
     for index, fight in enumerate(FIGHTS):
         stats = ours_at(levels[fight]) if levels else None
         max_hp = stats['hp'] if stats else cases[fight]['player']['stats']['hp']
@@ -114,7 +164,8 @@ def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=
         top = between_fights(carry, max_hp, policy_name, fight) if index else Counter()
         entry = {'hp': carry['hp'], 'max_hp': max_hp, 'pp': dict(carry['pp']), 'bag': dict(carry['bag'])}
         scenario = fight_scenario(cases[fight], pret, carry, stats, levels[fight] if levels else None)
-        state, decisions = play(engine, scenario, ai, policy, '{}:{}'.format(seed, fight), fight=fight)
+        state, decisions = play(engine, scenario, ai, policy, '{}:{}'.format(seed, fight), fight=fight,
+            extra_goals=dict(extra) if extra else None)
         won = state['winner'] == 'Player'
         own = state['own']
         carry['hp'] = own['hp']

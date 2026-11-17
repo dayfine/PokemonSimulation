@@ -76,23 +76,25 @@ def summarize(records):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--policy', default='replica', choices=['video', 'c2', 'c2_budget', 'replica_budget', 'replica', 'replica_full', 'replica_margin', 'current_c'])
+    parser.add_argument('--policy', default='replica', choices=['video', 'c2', 'c2_budget', 'replica_budget', 'replica', 'replica_full', 'replica_margin', 'current_c', 'autostory_old', 'autostory_new'])
     parser.add_argument('--chains', type=int, default=200)
     parser.add_argument('--workers', type=int, default=4)
     parser.add_argument('--bag', type=json.loads, default=None, help='JSON bag; default the restocked bag of 2026-11-16 (X Special 15, Super Potion 6)')
     parser.add_argument('--add', type=json.loads, default={}, help='JSON items added to the bag')
     parser.add_argument('--seed', default='s1')
+    parser.add_argument('--level', type=int, default=None, help='one level for every fight (sweep)')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args(argv)
     bag = dict(args.bag or BAG_NOW)
     for k, v in args.add.items():
         bag[k] = bag.get(k, 0) + v
     seeds = ['{}:{}'.format(args.seed, i) for i in range(args.chains)]
-    jobs = [(args.policy, bag, LEVELS_NOW, seeds[i::args.workers]) for i in range(args.workers)]
+    levels = {f: args.level for f in FIGHTS} if args.level else LEVELS_NOW
+    jobs = [(args.policy, bag, levels, seeds[i::args.workers]) for i in range(args.workers)]
     with ProcessPoolExecutor(args.workers) as pool:
         records = [r for part in pool.map(worker, jobs) for r in part]
     summary = summarize(records)
-    summary.update(policy=args.policy, bag=bag, levels=LEVELS_NOW, seed=args.seed)
+    summary.update(policy=args.policy, bag=bag, levels=levels, seed=args.seed)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps({'summary': summary, 'records': records}) + '\n')
     print(json.dumps(summary, indent=1))
