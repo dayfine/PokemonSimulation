@@ -171,9 +171,16 @@ class BattleIntegrationTest(unittest.TestCase):
     def test_full_heal_is_gated_by_remaining_party(self):
         state = self.start(CASES[-1])
         state["foe"]["status"] = "par"
+        # pret ShouldUseItem: slot 1 of MAX_TRAINER_ITEMS (4) waits until at most 4 Pokemon are alive.
         items = ["superpotion", "fullheal"]
+        while len(state["party"]) < 5:
+            state["party"].append(dict(state["party"][-1], hp=1))
         self.assertIsNone(trainer_item(state, items))
-        state["party"][1]["hp"] = 0
+        next(p for p in state["party"] if p["party_index"] != state["foe"]["party_index"])["hp"] = 0
+        alive = sum(p["hp"] > 0 for p in state["party"])
+        for mon in state["party"]:
+            if alive > 4 and mon["hp"] > 0 and mon["party_index"] != state["foe"]["party_index"]:
+                mon["hp"], alive = 0, alive - 1
         self.assertEqual(trainer_item(state, items), {"kind": "item", "item": "fullheal"})
 
     def test_compulsory_replacement_does_not_cost_a_player_attack(self):
