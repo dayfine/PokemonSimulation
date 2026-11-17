@@ -154,6 +154,13 @@ def run_fight(fight, carry_in, plan, seed, risk, top_up):
             'trace': [(str(d['foe']).upper(), d['hp'], d['boosts'].get('spe', 0),
                        d['move'] or d['own'].get('item') or d['own'].get('kind'), d['foe_move'],
                        d['turn'] in state['foe_crit_turns']) for d in decisions],
+            # Item decisions: (foe, policy row, item, our HP before it); top-ups before the fight are in `top`.
+            'items': [(str(d['foe']).upper(), d['own'].get('why', ''), d['own']['item'], d['hp'])
+                      for d in decisions if d['own'].get('kind') == 'item'],
+            'top': dict(top),
+            # The last step's lines about our faint (the killing damage source, Perish Song).
+            'ko_log': [line for line in state.get('log', ()) if line.startswith(('|-damage|p1a', '|faint|p1a'))
+                       or 'perish' in line.lower()],
             'end': {'hp': own['hp'], 'status': own.get('status', '') or '',
                     'pp': {k: pp.get(k, 0) for k in MOVE_PP}, 'bag': {k: v for k, v in state['bag'].items()}}}
 
