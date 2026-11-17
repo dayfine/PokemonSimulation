@@ -42,6 +42,22 @@ Optional per-foe keys (format stays `/1`; a reader that doesn't know them can ig
   Two heal turns in a row with the foe's HP unchanged stop the block (the KO-risk row's streak rule).
 - A foe with a `sequence` skips the `kill_order` row.
 
+Optional per-fight keys:
+
+```json
+{"goal": "Win with <= 1 Full Restore: ...",            // the fight's goal in words
+ "caps": {"fullrestore": 1, "xspecial": 6, "superpotion": 1},  // what an accepted win may spend (top-ups included)
+ "reset": {"roar": true,                               // a Roar / Whirlwind that lands: soft reset
+           "after_foe": {"index": 0, "speed_below": 0, "items_used": {"xspeed": 3}}}}
+                                                       // when slot 0 falls: reset if Speed < 0 with 3 X Speed spent
+```
+
+- `caps` is the accept rule: a win counts only if no item's use exceeds its cap. `reserve.items` must equal
+  the later fights' caps (`planned.reserves_from_caps`), so a fight can spend its cap and never a later
+  fight's; `test_plan_budget.py` checks that and that Full Restores, X Special, X Speed and the Max Elixir
+  caps add up to the whole bag. `python3 -m pokesim.cli.frlg_league_final` searches the Super Potion caps
+  and runs the chain forward under these accept rules.
+
 - A foe that isn't found at its slot is looked up by species.
 - A setup goal whose `serves` move has no PP above the reserve is skipped.
   Guard Spec's goal is met while Mist is up.

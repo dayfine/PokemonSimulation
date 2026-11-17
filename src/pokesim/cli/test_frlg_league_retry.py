@@ -24,8 +24,8 @@ class BudgetTest(unittest.TestCase):
     def test_more_setup_and_long_champion_setup_exceed_x_special(self):
         use = retry.x_use(['more_setup', 'plan', 'plan', 'plan'], 'long')
         self.assertGreater(use['xspecial'], retry.BAG_NOW['xspecial'])
-        use = retry.x_use(['more_setup', 'plan', 'plan', 'plan'], 'plan')
-        self.assertLessEqual(use['xspecial'], retry.BAG_NOW['xspecial'])
+        use = retry.x_use(['plan', 'plan', 'plan', 'plan'], 'plan')
+        self.assertEqual(use['xspecial'], retry.BAG_NOW['xspecial'])  # plan.json: Lorelei already at +6
 
 
 if __name__ == '__main__':

@@ -132,6 +132,7 @@ def run_fight(fight, carry_in, plan, seed, risk, top_up):
         carry['hp'] = max_hp
     pre = {'hp': carry['hp'], 'superpotion': carry['bag'].get('superpotion', 0)}
     top = planned.between(carry, max_hp, plan, fight, MOVE_PP) if top_up else {}
+    pre['entry'] = {'hp': carry['hp'], 'pp': dict(carry['pp'])}
     scenario = fight_scenario(w['cases'][fight], w['pret'], carry, w['stats'], LEVEL, None, True, '')
     goals = {'_league_plan': plan}
     if risk:

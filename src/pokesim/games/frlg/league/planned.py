@@ -362,7 +362,8 @@ def between(carry, max_hp, plan, next_fight, move_pp):
     for _ in range(20):
         if carry['hp'] >= target:
             break
-        if can('superpotion') and (target - carry['hp'] <= 50 * bag['superpotion'] or not can('fullrestore')):
+        spare = bag.get('superpotion', 0) - rsv.get('superpotion', 0)
+        if can('superpotion') and (target - carry['hp'] <= 50 * spare or not can('fullrestore')):
             use('superpotion')
             carry['hp'] = min(max_hp, carry['hp'] + 50)
         elif can('fullrestore'):
@@ -383,6 +384,21 @@ def between(carry, max_hp, plan, next_fight, move_pp):
 
 
 FIGHTS = ('lorelei', 'bruno', 'agatha', 'lance', 'champion')
+
+
+def caps(plan, fight):
+    """The fight's item caps: what its accepted win may spend (top-ups before it included)."""
+    return plan['fights'][fight].get('caps', {})
+
+
+def reserves_from_caps(plan):
+    """{fight: {item: count}}: what each fight must leave for the later fights' caps."""
+    names = {name for fight in FIGHTS for name in caps(plan, fight)}
+    out = {}
+    for i, fight in enumerate(FIGHTS):
+        later = {name: sum(caps(plan, f).get(name, 0) for f in FIGHTS[i + 1:]) for name in names}
+        out[fight] = {name: n for name, n in later.items() if n}
+    return out
 SPECIES = {
     'lorelei': ('dewgong', 'cloyster', 'slowbro', 'jynx', 'lapras'),
     'bruno': ('onix', 'hitmonchan', 'hitmonlee', 'onix', 'machamp'),
