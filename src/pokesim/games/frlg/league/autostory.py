@@ -130,6 +130,17 @@ def plan(bag, new):
     return cumulative
 
 
+def cumulative(split):
+    """Per-fight budgets {fight: {item: n}} as the running totals budget_left() reads."""
+    items = {item for row in split.values() for item in row}
+    out, total = {}, dict.fromkeys(items, 0)
+    for fight in FIGHTS:
+        for item in items:
+            total[item] += split.get(fight, {}).get(item, 0)
+        out[fight] = dict(total)
+    return out
+
+
 ALIASES = {'maxelixir': 'elixir', 'maxpotion': 'hyperpotion'}
 
 

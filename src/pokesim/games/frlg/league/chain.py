@@ -156,13 +156,16 @@ def autostory_between(carry, max_hp, new, next_fight):
     return used
 
 
-def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None, fights=FIGHTS, only_foe=None):
+def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None, fights=FIGHTS, only_foe=None,
+              budget=None):
+    """budget: per-fight item budgets {fight: {item: n}} in place of the planner's split (autostory only)."""
     policy = POLICIES[policy_name]
     carry = {'hp': entry_hp, 'status': '', 'pp': dict(MOVE_PP), 'bag': dict(bag)}
     record = {'seed': seed, 'fights': [], 'outcome': 'win'}
     extra = None
     if policy_name.startswith('autostory'):
-        extra = {'_plan': autostory.plan(bag, policy_name == 'autostory_new'), '_start_bag': dict(bag)}
+        plan = autostory.cumulative(budget) if budget else autostory.plan(bag, policy_name == 'autostory_new')
+        extra = {'_plan': plan, '_start_bag': dict(bag)}
     for index, fight in enumerate(fights):
         stats = ours_at(levels[fight]) if levels else None
         max_hp = stats['hp'] if stats else cases[fight]['player']['stats']['hp']

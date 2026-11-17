@@ -29,13 +29,14 @@ def league_cases():
 
 
 def worker(job):
-    policy, bag, levels, seeds, fights, only_foe = job
+    policy, bag, levels, seeds, fights, only_foe, budget = job
     cases, pret = league_cases()
     ai = NPCTrainerAI(pret)
     out = []
     with Engine() as engine:
         for seed in seeds:
-            record = run_chain(engine, cases, pret, ai, policy, bag, levels, seed, fights=fights, only_foe=only_foe)
+            record = run_chain(engine, cases, pret, ai, policy, bag, levels, seed, fights=fights, only_foe=only_foe,
+                               budget=budget)
             for fight in record['fights']:
                 fight.pop('decisions')
             out.append(record)
@@ -85,6 +86,8 @@ def main(argv=None):
     parser.add_argument('--level', type=int, default=None, help='one level for every fight (sweep)')
     parser.add_argument('--fights', default=','.join(FIGHTS), help='comma-separated subset, in order')
     parser.add_argument('--only-foe', default=None, help="cut each fight's party to this species (e.g. lapras)")
+    parser.add_argument('--budget', type=json.loads, default=None,
+                        help='JSON per-fight budgets {fight: {item: n}} in place of the planner split (autostory policies)')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args(argv)
     bag = dict(args.bag or BAG_NOW)
@@ -93,11 +96,11 @@ def main(argv=None):
     seeds = ['{}:{}'.format(args.seed, i) for i in range(args.chains)]
     levels = {f: args.level for f in FIGHTS} if args.level else LEVELS_NOW
     fights = tuple(args.fights.split(','))
-    jobs = [(args.policy, bag, levels, seeds[i::args.workers], fights, args.only_foe) for i in range(args.workers)]
+    jobs = [(args.policy, bag, levels, seeds[i::args.workers], fights, args.only_foe, args.budget) for i in range(args.workers)]
     with ProcessPoolExecutor(args.workers) as pool:
         records = [r for part in pool.map(worker, jobs) for r in part]
     summary = summarize(records)
-    summary.update(policy=args.policy, bag=bag, levels=levels, seed=args.seed, fights=fights, only_foe=args.only_foe)
+    summary.update(policy=args.policy, bag=bag, levels=levels, seed=args.seed, fights=fights, only_foe=args.only_foe, budget=args.budget)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps({'summary': summary, 'records': records}) + '\n')
     print(json.dumps(summary, indent=1))
