@@ -228,6 +228,9 @@ def choose(state, goals, streak):
         return 'locked', forced
     plan_foe = foe_plan(goals, foe)
     d = danger(state, goals)
+    if goals.get('_risk') == 'mean':
+        # Riskier variant: heal only when the foe's mean hit (not its worst roll) KOs.
+        d = dict(d, normal_max=d['mean'])
     D = d['normal_max']
     target_hp = foe_hp_at_our_move(state, goals)
     awake = own['status'] not in ('slp', 'frz')
