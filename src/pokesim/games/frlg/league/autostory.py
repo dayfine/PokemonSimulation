@@ -49,6 +49,38 @@ ROWS = {
     'champion': (22, 4, 2, 2, 1, 1, 2, 1),
 }
 CHAMPION_FULL_RESTORES = 3
+# The plan's foe_threats rows (frlg-20.01.plan.json at Arduino-Source e45433617), by the foe's party
+# slot: speed, likely, mean, worst case, worst normal hit (D), lowers accuracy, explodes[, phazes].
+# PokemonSimulation's planning_risk() made them against PokeGuy's Lv55 Blastoise (171 HP, Def 118,
+# Sp. Def 134); the program reads them as they are, whatever our level, and so does this port.
+FOE_THREATS = {
+    'lorelei': ((93, 21, 13, 45, 30, 0, 0), (91, 0, 0, 0, 15, 0, 0), (45, 27, 9, 60, 30, 0, 0),
+                (110, 25, 9, 57, 28, 0, 0), (94, 36, 15, 78, 39, 0, 0)),
+    'bruno': ((81, 32, 19, 75, 37, 0, 0, 1), (101, 51, 28, 132, 66, 0, 0), (113, 65, 52, 136, 68, 0, 0),
+              (96, 41, 41, 84, 42, 0, 0), (83, 0, 5, 183, 91, 0, 0)),
+    'agatha': ((126, 32, 10, 72, 36, 0, 0), (129, 33, 31, 69, 34, 0, 0), (108, 0, 0, 0, 48, 0, 0),
+               (111, 61, 61, 126, 63, 0, 0), (150, 47, 40, 99, 49, 0, 0)),
+    'lance': ((112, 40, 32, 42, 93, 0, 0), (96, 40, 17, 87, 62, 0, 0), (96, 0, 0, 0, 62, 0, 0),
+              (173, 47, 47, 96, 78, 0, 0), (107, 64, 24, 144, 114, 0, 0)),
+    'champion': ((130, 41, 27, 87, 43, 1, 0, 1), (159, 77, 70, 159, 79, 0, 0), (70, 0, 10, 210, 105, 0, 0),
+                 (118, 51, 46, 110, 55, 0, 0), (139, 50, 51, 104, 52, 0, 0, 1), (125, 217, 218, 444, 222, 0, 0)),
+}
+FOE_SPECIES = {
+    'lorelei': ('dewgong', 'cloyster', 'slowbro', 'jynx', 'lapras'),
+    'bruno': ('onix', 'hitmonchan', 'hitmonlee', 'onix', 'machamp'),
+    'agatha': ('gengar', 'golbat', 'haunter', 'arbok', 'gengar'),
+    'lance': ('gyarados', 'dragonair', 'dragonair', 'aerodactyl', 'dragonite'),
+    'champion': ('pidgeot', 'alakazam', 'rhydon', 'gyarados', 'arcanine', 'venusaur'),
+}
+
+
+def foe_row(fight, foe):
+    """The foe's row by its party slot; by species when the party was cut down (tests, single foes)."""
+    species = FOE_SPECIES.get(fight, ())
+    index = foe['party_index']
+    if index >= len(species) or species[index] != foe['species']:
+        index = species.index(foe['species']) if foe['species'] in species else None
+    return None if index is None else FOE_THREATS[fight][index]
 
 
 def _split_weight(total, weights):
@@ -239,10 +271,38 @@ def _policy(new):
     return action
 
 
+def _charging(foe):
+    return any(m['id'] == foe['locked_move'] and m.get('two_turn') for m in foe['moves'])
+
+
+def danger(state, ai, flags, goals):
+    """PolicyState::danger(): the plan's row for this foe plus poison, as the program reads it.
+
+    One correction the rows can't carry: a two-turn move (Solar Beam without sun, Dive) spends its
+    first turn charging, so it threatens nothing this turn unless the foe is already charging. Then
+    D is the foe's worst other ordinary hit (live preview), 0 when it has none (Venusaur).
+    """
+    own, foe = state['own'], state['foe']
+    residual = own['max_hp'] // 8 if own['status'] in ('psn', 'tox') else 0
+    row = foe_row(goals.get('_fight'), foe)
+    if row is None:
+        return {'likely': residual, 'mean': residual, 'max': residual, 'normal_max': residual}
+    _, likely, mean, worst, normal_max = row[:5]
+    usable = [m for _, m in attacks.usable(foe) if max(m.get('damage', [0])) > 0]
+    sun = foe.get('weather') == 'AI_WEATHER_SUN'
+    best = max(usable, key=lambda m: max(m['damage']), default=None)
+    if best is not None and best.get('two_turn') and not sun and not _charging(foe):
+        hit = max((max(m['damage']) for m in usable if not m.get('two_turn')), default=0)
+        crit = max((max(m['critical']) for m in usable if not m.get('two_turn')), default=0)
+        likely, mean, worst, normal_max = min(likely, hit), min(mean, hit), crit, hit
+    return {'likely': residual + likely, 'mean': residual + mean, 'max': residual + worst,
+            'normal_max': residual + normal_max}
+
+
 def _choose(state, ai, flags, goals, new, streak):
     own, bag = state['own'], state['bag']
-    danger = planning.planning_risk(state, ai, flags)
-    D = danger['normal_max']
+    danger_ = danger(state, ai, flags, goals)
+    D = danger_['normal_max']
     fast_ko = sure_ko_first(state)
     if fast_ko:
         if new:
@@ -272,7 +332,7 @@ def _choose(state, ai, flags, goals, new, streak):
     if own['hp'] <= D:
         if D >= own['max_hp']:
             return strongest(state)
-        heal = ko_heal_new(state, danger, goals) if new else ko_heal_old(state, danger)
+        heal = ko_heal_new(state, danger_, goals) if new else ko_heal_old(state, danger_)
         return heal or strongest(state)
     if own['status'] == 'slp':
         return strongest(state)
@@ -285,10 +345,10 @@ def _choose(state, ai, flags, goals, new, streak):
         return strongest(state)
     g = GOALS[goals['_fight']]
     turns = planning.setup_turns(state, g, planned)
-    reserve = min(own['max_hp'] * .75, D + max(0, turns - 1) * danger['mean'])
+    reserve = min(own['max_hp'] * .75, D + max(0, turns - 1) * danger_['mean'])
     if own['hp'] >= reserve:
         return planned
-    return reserve_heal(state, danger, reserve, goals) or strongest(state)
+    return reserve_heal(state, danger_, reserve, goals) or strongest(state)
 
 
 POLICIES = {'autostory_old': _policy(False), 'autostory_new': _policy(True)}

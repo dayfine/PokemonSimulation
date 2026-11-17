@@ -35,7 +35,7 @@ def ours_at(level):
             'spd': 140 + round(3.5 * d), 'spe': 111 + 2 * d}
 
 
-def fight_scenario(case, pret, carry, stats, level):
+def fight_scenario(case, pret, carry, stats, level, only_foe=None):
     scenario = copy.deepcopy(case)
     scenario.pop('progression', None)
     player = scenario['player']
@@ -46,14 +46,17 @@ def fight_scenario(case, pret, carry, stats, level):
     player['status'] = carry['status']
     player['moves'] = [{'name': name, 'pp': pp} for name, pp in carry['pp'].items()]
     scenario['bag'] = {k: v for k, v in carry['bag'].items() if v > 0}
-    return scenario_for(scenario, pret)
+    scenario = scenario_for(scenario, pret)
+    if only_foe:
+        scenario['trainer']['party'] = [p for p in scenario['trainer']['party'] if p['species'] == only_foe.upper()]
+    return scenario
 
 
 def play(engine, scenario, ai, policy, seed, turn_limit=300, fight=None, extra_goals=None):
     seeds = random.Random('engine:' + seed)
     state = engine.request(command='start', scenario=scenario, seed=[seeds.randrange(65536) for _ in range(4)])
     rng = random.Random('ai:' + seed)
-    known, decisions = set(), []
+    known, decisions, crits = set(), [], []
     flags = scenario['trainer']['ai']
     items = [item.lower().replace('_', '') for item in scenario['trainer']['items']]
     goals = dict(scenario.get('planning_goals') or {}, _fight=fight, _entry_bag=dict(scenario['bag']), **(extra_goals or {}))
@@ -69,7 +72,11 @@ def play(engine, scenario, ai, policy, seed, turn_limit=300, fight=None, extra_g
             'boosts': dict(state['own']['boosts']), 'foe_evasion': state['foe']['boosts'].get('evasion', 0),
             'own': own, 'opponent': foe,
             'move': state['own']['moves'][own['slot']]['id'] if own.get('kind') == 'move' else None})
+        turn = state['turn']
         state = engine.request(command='step', own=own, foe=foe)
+        if any(line.startswith('|-crit|p1a') for line in state['log']):
+            crits.append(turn)
+    state['foe_crit_turns'] = crits
     return state, decisions
 
 
@@ -149,21 +156,21 @@ def autostory_between(carry, max_hp, new, next_fight):
     return used
 
 
-def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None):
+def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None, fights=FIGHTS, only_foe=None):
     policy = POLICIES[policy_name]
     carry = {'hp': entry_hp, 'status': '', 'pp': dict(MOVE_PP), 'bag': dict(bag)}
     record = {'seed': seed, 'fights': [], 'outcome': 'win'}
     extra = None
     if policy_name.startswith('autostory'):
         extra = {'_plan': autostory.plan(bag, policy_name == 'autostory_new'), '_start_bag': dict(bag)}
-    for index, fight in enumerate(FIGHTS):
+    for index, fight in enumerate(fights):
         stats = ours_at(levels[fight]) if levels else None
         max_hp = stats['hp'] if stats else cases[fight]['player']['stats']['hp']
         if carry['hp'] is None:
             carry['hp'] = max_hp
         top = between_fights(carry, max_hp, policy_name, fight) if index else Counter()
         entry = {'hp': carry['hp'], 'max_hp': max_hp, 'pp': dict(carry['pp']), 'bag': dict(carry['bag'])}
-        scenario = fight_scenario(cases[fight], pret, carry, stats, levels[fight] if levels else None)
+        scenario = fight_scenario(cases[fight], pret, carry, stats, levels[fight] if levels else None, only_foe)
         state, decisions = play(engine, scenario, ai, policy, '{}:{}'.format(seed, fight), fight=fight,
             extra_goals=dict(extra) if extra else None)
         won = state['winner'] == 'Player'
@@ -177,7 +184,7 @@ def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=
         attacks = sum(1 for d in decisions if d['own'].get('kind') == 'move')
         record['fights'].append({'fight': fight, 'won': won, 'entry': entry, 'between_used': dict(top),
             'used': dict(used), 'attacks': attacks, 'turns': len(decisions), 'hp_left': own['hp'],
-            'foe_at_end': state['foe']['species'], 'decisions': decisions})
+            'foe_at_end': state['foe']['species'], 'foe_crit_turns': state['foe_crit_turns'], 'decisions': decisions})
         if not won:
             record['outcome'] = 'loss@' + fight
             break
