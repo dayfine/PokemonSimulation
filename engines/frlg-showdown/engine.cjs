@@ -103,7 +103,7 @@ function createBattle(scenario, seed) {
     },
     onBattleStart() {
       for (const side of [this.p1, this.p2]) {
-        const inputs = side === this.p1 ? [scenario.player] : scenario.trainer.party;
+        const inputs = side === this.p1 ? [scenario.player, ...(scenario.bench || [])] : scenario.trainer.party;
         const bag = side === this.p1 ? scenario.bag : scenario.trainer.bag;
         side.pokesimBag = Object.fromEntries(Object.entries(bag || {}).map(([k, v]) => [toID(k), v]));
         side.pokesimUsed = {};
@@ -118,7 +118,8 @@ function createBattle(scenario, seed) {
     },
   });
   const battle = new Battle({format, seed, strictChoices: true,
-    p1: {name: 'Player', team: [teamMember(scenario.player)]},
+    // bench: the rest of our party (HM users). Roar/Whirlwind need a switch-in to succeed.
+    p1: {name: 'Player', team: [scenario.player, ...(scenario.bench || [])].map(teamMember)},
     p2: {name: 'Trainer', team: scenario.trainer.party.map(teamMember)},
   });
   battle.pokesimScenario = scenario;
@@ -191,6 +192,9 @@ function snapshot(battle, traceFrom = 0) {
     request: battle.requestState, needs_switch: needsSwitch,
     own: monState(own, foe, !needsSwitch), foe: monState(foe, own),
     party: battle.p2.pokemon.map(p => monState(p, own, needsSwitch)),
+    own_needs_switch: !!battle.p1.activeRequest?.forceSwitch,
+    own_party: battle.p1.pokemon.map(p => ({species: p.species.id, hp: p.hp, max_hp: p.maxhp,
+      position: p.position, party_index: p.pokesimPartyIndex})),
     bag: {...battle.p1.pokesimBag}, trainer_bag: {...battle.p2.pokesimBag},
     items_used: {...battle.p1.pokesimUsed}, trainer_items_used: {...battle.p2.pokesimUsed},
     progression: own.pokesimProgression ? {exp: own.pokesimProgression.exp,
