@@ -1,0 +1,1210 @@
+{
+  "format": "pokesim-frlg-league-turns/1",
+  "source": {
+    "video": "https://www.youtube.com/watch?v=CbfjWuRWH10",
+    "verified_run": "https://www.speedrun.com/pkmnfrlg/runs/z5kkjogz",
+    "clock": "video playback seconds, not the run timer",
+    "method": "Turn-by-turn video transcription of 1:46:00-1:58:45: 1 fps frame sheets, 2-6 fps around item and menu turns. Foe HP percentages were measured from the bar pixels (48-pixel bar, +-2%)."
+  },
+  "scope": "Elite Four and Champion. Player lead BLASTOISE ('A'), solo. HP values are read from the HP box: [before, after] for the whole turn, including foe moves and level-up HP. foe_hp_pct is the active foe's bar [before, after] the player's action.",
+  "conventions": {
+    "order": "item_first: the item resolves, then the foe moves. player_first / foe_first: who attacked first.",
+    "foe_action": "The active foe's move that turn; absent when the foe fainted first."
+  },
+  "fights": [
+    {
+      "id": "lorelei",
+      "trainer": "TRAINER_ELITE_FOUR_LORELEI",
+      "video_start": 6397,
+      "video_end": 6533,
+      "entry": {
+        "level": 51,
+        "hp": [
+          159,
+          159
+        ],
+        "status": "",
+        "pp": {
+          "BITE": 25
+        },
+        "bag": {
+          "X_SPEED": 4,
+          "X_SPECIAL": 15,
+          "X_ACCURACY": 3,
+          "GUARD_SPEC": 2,
+          "FULL_RESTORE": 13,
+          "ELIXIR": 1,
+          "SUPER_POTION": 4,
+          "PARLYZ_HEAL": 2
+        },
+        "bag_seen_at": [
+          6406,
+          6515
+        ]
+      },
+      "turns": [
+        {
+          "t": 6406,
+          "action": "X_SPECIAL",
+          "hp": [
+            159,
+            140
+          ],
+          "foe": "DEWGONG",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "SURF",
+          "order": "item_first",
+          "notes": "X Special 15->14; 'A's SP. ATK rose' in the bag (+1). Dewgong Surf, not very effective (159->152->140)."
+        },
+        {
+          "t": 6413,
+          "action": "X_SPECIAL",
+          "hp": [
+            140,
+            121
+          ],
+          "foe": "DEWGONG",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "ICE_BEAM",
+          "order": "item_first",
+          "notes": "X Special 14->13 (+2). Dewgong Ice Beam, not very effective."
+        },
+        {
+          "t": 6420,
+          "action": "X_SPECIAL",
+          "hp": [
+            121,
+            101
+          ],
+          "foe": "DEWGONG",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "SURF",
+          "order": "item_first",
+          "notes": "X Special 13->12, 'A's SP. ATK rose!' (+3). Dewgong Surf, not very effective."
+        },
+        {
+          "t": 6428,
+          "action": "X_SPECIAL",
+          "hp": [
+            101,
+            101
+          ],
+          "foe": "DEWGONG",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "SAFEGUARD",
+          "order": "item_first",
+          "notes": "X Special 12->11, 'A's SP. ATK rose!' (+4). Dewgong Safeguard ('Foe's party is covered by a veil')."
+        },
+        {
+          "t": 6433,
+          "action": "BITE",
+          "hp": [
+            101,
+            101
+          ],
+          "foe": "DEWGONG",
+          "foe_hp_pct": [
+            100,
+            41
+          ],
+          "order": "player_first",
+          "notes": "Bite PP 25/25 shown before use. Dewgong flinched."
+        },
+        {
+          "t": 6439,
+          "action": "BITE",
+          "hp": [
+            101,
+            101
+          ],
+          "foe": "DEWGONG",
+          "foe_hp_pct": [
+            41,
+            0
+          ],
+          "order": "player_first",
+          "notes": "KO. EXP 1960."
+        },
+        {
+          "t": 6450,
+          "action": "BITE",
+          "hp": [
+            101,
+            101
+          ],
+          "foe": "CLOYSTER",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "One-hit KO. EXP 2218."
+        },
+        {
+          "t": 6462,
+          "action": "BITE",
+          "hp": [
+            101,
+            101
+          ],
+          "foe": "SLOWBRO",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Critical hit, super effective, KO. EXP 1827."
+        },
+        {
+          "t": 6480,
+          "action": "SURF",
+          "hp": [
+            101,
+            104
+          ],
+          "foe": "JYNX",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Safeguard ended when Jynx came in. KO. EXP 1584; A grows to Lv52 (101/159 -> 104/162)."
+        },
+        {
+          "t": 6497,
+          "action": "BITE",
+          "hp": [
+            104,
+            71
+          ],
+          "foe": "LAPRAS",
+          "foe_hp_pct": [
+            100,
+            55
+          ],
+          "foe_action": "BODY_SLAM",
+          "order": "player_first",
+          "notes": "Bite PP 21/25 shown before use. Lapras Body Slam 104->71 and paralysis."
+        },
+        {
+          "t": 6503,
+          "action": "BITE",
+          "hp": [
+            71,
+            33
+          ],
+          "foe": "LAPRAS",
+          "foe_hp_pct": [
+            55,
+            27
+          ],
+          "foe_action": "BODY_SLAM",
+          "order": "foe_first",
+          "notes": "Lapras moves first (A paralyzed): Body Slam 71->33. Bite takes Lapras to 12%; its Sitrus Berry restores it to 27%."
+        },
+        {
+          "t": 6515,
+          "action": "FULL_RESTORE",
+          "hp": [
+            33,
+            130
+          ],
+          "foe": "LAPRAS",
+          "foe_hp_pct": [
+            27,
+            27
+          ],
+          "foe_action": "BODY_SLAM",
+          "order": "item_first",
+          "notes": "Full Restore 13->12: 33->162/162, paralysis cured. Lapras Body Slam 162->130."
+        },
+        {
+          "t": 6525,
+          "action": "BITE",
+          "hp": [
+            130,
+            130
+          ],
+          "foe": "LAPRAS",
+          "foe_hp_pct": [
+            27,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Critical hit, KO. Lorelei defeated, 5400 prize."
+        }
+      ],
+      "exit": {
+        "level": 52,
+        "hp": [
+          130,
+          162
+        ],
+        "status": "",
+        "pp": {
+          "BITE": 18
+        },
+        "bag": {
+          "X_SPEED": 4,
+          "X_SPECIAL": 11,
+          "X_ACCURACY": 3,
+          "GUARD_SPEC": 2,
+          "FULL_RESTORE": 12,
+          "ELIXIR": 1
+        }
+      },
+      "summary": {
+        "setup": "Four X Specials on turns 1-4 against Dewgong (Sp. Atk +4); no X Speed, X Accuracy or Guard Spec. Then attacked: Bite for Dewgong, Cloyster, Slowbro and Lapras, Surf for Jynx.",
+        "heals": "Full Restore at 33/162 (20%) while paralyzed, after Lapras's second Body Slam. No heal at 101/162 (62%) during setup.",
+        "pp_items": "None.",
+        "move_uses": {
+          "BITE": 7,
+          "SURF": 1
+        },
+        "item_uses": {
+          "X_SPECIAL": 4,
+          "FULL_RESTORE": 1
+        }
+      }
+    },
+    {
+      "id": "bruno",
+      "trainer": "TRAINER_ELITE_FOUR_BRUNO",
+      "video_start": 6555,
+      "video_end": 6649,
+      "entry": {
+        "level": 52,
+        "hp": [
+          130,
+          162
+        ],
+        "status": "",
+        "pp": {
+          "BITE": 18,
+          "SURF": 14
+        },
+        "bag": {
+          "X_SPEED": 4,
+          "X_SPECIAL": 11,
+          "X_ACCURACY": 3,
+          "GUARD_SPEC": 2,
+          "ELIXIR": 1,
+          "FULL_RESTORE": 12
+        },
+        "bag_seen_at": [
+          6565
+        ]
+      },
+      "turns": [
+        {
+          "t": 6565,
+          "action": "X_SPECIAL",
+          "hp": [
+            130,
+            114
+          ],
+          "foe": "ONIX",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "ROCK_TOMB",
+          "order": "item_first",
+          "notes": "X Special 11->10 (+1); the use message is between 1 fps samples, the count is 10 at 6574. Onix Rock Tomb 130->116->114, 'A's SPEED fell!' (-1)."
+        },
+        {
+          "t": 6574,
+          "action": "X_SPECIAL",
+          "hp": [
+            114,
+            79
+          ],
+          "foe": "ONIX",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "EARTHQUAKE",
+          "order": "item_first",
+          "notes": "X Special 10->9, 'A's SP. ATK rose' (+2). Onix Earthquake."
+        },
+        {
+          "t": 6580,
+          "action": "X_SPEED",
+          "hp": [
+            79,
+            42
+          ],
+          "foe": "ONIX",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "EARTHQUAKE",
+          "order": "item_first",
+          "notes": "X Speed 4->3 (Speed back to +0). Onix Earthquake 79->42 (Torrent range from here on: 42 <= 162/3)."
+        },
+        {
+          "t": 6585,
+          "action": "SURF",
+          "hp": [
+            42,
+            42
+          ],
+          "foe": "ONIX",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Super effective, KO."
+        },
+        {
+          "t": 6598,
+          "action": "SURF",
+          "hp": [
+            42,
+            42
+          ],
+          "foe": "HITMONCHAN",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "KO. EXP 1590."
+        },
+        {
+          "t": 6612,
+          "action": "SURF",
+          "hp": [
+            42,
+            42
+          ],
+          "foe": "HITMONLEE",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "KO."
+        },
+        {
+          "t": 6624,
+          "action": "SURF",
+          "hp": [
+            42,
+            45
+          ],
+          "foe": "MACHAMP",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "KO. A grows to Lv53 (45/165)."
+        },
+        {
+          "t": 6638,
+          "action": "SURF",
+          "hp": [
+            45,
+            45
+          ],
+          "foe": "ONIX",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Onix Lv54, super effective, KO. EXP 1249. Bruno defeated, 5600 prize."
+        }
+      ],
+      "exit": {
+        "level": 53,
+        "hp": [
+          45,
+          165
+        ],
+        "status": "",
+        "pp": {
+          "BITE": 18,
+          "SURF": 9
+        },
+        "bag": {
+          "X_SPEED": 3,
+          "X_SPECIAL": 9,
+          "X_ACCURACY": 3,
+          "GUARD_SPEC": 2,
+          "FULL_RESTORE": 12,
+          "ELIXIR": 1
+        }
+      },
+      "summary": {
+        "setup": "Against Onix: X Special, X Special (Sp. Atk +2), then X Speed to cancel the Rock Tomb Speed drop. Took two Earthquakes during setup (130 -> 42), which put A in Torrent range for every Surf.",
+        "heals": "None. Attacked at 42/162 (26%).",
+        "pp_items": "None.",
+        "move_uses": {
+          "SURF": 5
+        },
+        "item_uses": {
+          "X_SPECIAL": 2,
+          "X_SPEED": 1
+        }
+      }
+    },
+    {
+      "id": "agatha",
+      "trainer": "TRAINER_ELITE_FOUR_AGATHA",
+      "video_start": 6672,
+      "video_end": 6759,
+      "entry": {
+        "level": 53,
+        "hp": [
+          45,
+          165
+        ],
+        "status": "",
+        "pp": {
+          "SURF": 9
+        },
+        "bag": {
+          "X_SPEED": 3,
+          "X_SPECIAL": 9,
+          "X_ACCURACY": 3,
+          "GUARD_SPEC": 2,
+          "SUPER_POTION": 4,
+          "PARLYZ_HEAL": 2
+        },
+        "bag_seen_at": [
+          6678
+        ]
+      },
+      "turns": [
+        {
+          "t": 6678,
+          "action": "X_SPEED",
+          "hp": [
+            45,
+            45
+          ],
+          "foe": "GENGAR",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "DOUBLE_TEAM",
+          "order": "item_first",
+          "notes": "X Speed 3->2. No heal at 45/165. Gengar Double Team ('evasiveness rose', +1)."
+        },
+        {
+          "t": 6685,
+          "action": "X_SPECIAL",
+          "hp": [
+            45,
+            45
+          ],
+          "foe": "GENGAR",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "DOUBLE_TEAM",
+          "order": "item_first",
+          "notes": "X Special 9->8, 'A's SP. ATK rose!' (+1). Gengar Double Team (+2 evasion)."
+        },
+        {
+          "t": 6693,
+          "action": "SURF",
+          "hp": [
+            45,
+            45
+          ],
+          "foe": "GENGAR",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Hits through +2 evasion, KO. EXP 2197."
+        },
+        {
+          "t": 6705,
+          "action": "SURF",
+          "hp": [
+            45,
+            45
+          ],
+          "foe": "GOLBAT",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "KO. EXP 1978."
+        },
+        {
+          "t": 6721,
+          "action": "SURF",
+          "hp": [
+            45,
+            48
+          ],
+          "foe": "ARBOK",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Arbok Intimidate cut A's Attack on entry. Critical hit, KO. A grows to Lv54 (48/168)."
+        },
+        {
+          "t": 6740,
+          "action": "SURF",
+          "hp": [
+            48,
+            48
+          ],
+          "foe": "GENGAR",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Gengar Lv58, KO. EXP 2361."
+        },
+        {
+          "t": 6752,
+          "action": "SURF",
+          "hp": [
+            48,
+            48
+          ],
+          "foe": "HAUNTER",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "KO. Agatha defeated, 5800 prize."
+        }
+      ],
+      "exit": {
+        "level": 54,
+        "hp": [
+          48,
+          168
+        ],
+        "status": "",
+        "pp": {
+          "SURF": 4
+        },
+        "bag": {
+          "X_SPEED": 2,
+          "X_SPECIAL": 8,
+          "X_ACCURACY": 3,
+          "GUARD_SPEC": 2,
+          "FULL_RESTORE": 12,
+          "ELIXIR": 1
+        }
+      },
+      "summary": {
+        "setup": "Against Gengar: X Speed (+1), then X Special (Sp. Atk +1). Gengar used Double Team twice (+2 evasion); no X Accuracy.",
+        "heals": "None. Whole fight at 45-48 HP (27-29%), Torrent active.",
+        "pp_items": "None.",
+        "move_uses": {
+          "SURF": 5
+        },
+        "item_uses": {
+          "X_SPEED": 1,
+          "X_SPECIAL": 1
+        }
+      }
+    },
+    {
+      "id": "lance",
+      "trainer": "TRAINER_ELITE_FOUR_LANCE",
+      "video_start": 6787,
+      "video_end": 6929,
+      "entry": {
+        "level": 54,
+        "hp": [
+          168,
+          168
+        ],
+        "status": "",
+        "pp": {
+          "SURF": 4,
+          "BITE": 18
+        },
+        "bag": {
+          "X_SPEED": 2,
+          "X_SPECIAL": 8,
+          "X_ACCURACY": 3,
+          "GUARD_SPEC": 2,
+          "ELIXIR": 1,
+          "FULL_RESTORE": 11
+        },
+        "bag_seen_at": [
+          6817,
+          6826,
+          6832
+        ]
+      },
+      "turns": [
+        {
+          "t": 6811,
+          "action": "BITE",
+          "hp": [
+            168,
+            128
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            100,
+            80
+          ],
+          "foe_action": "DRAGON_RAGE",
+          "order": "player_first",
+          "notes": "Gyarados Intimidate on entry. Move menu shows Surf 4/15, then Bite 18/25. Gyarados Dragon Rage (40)."
+        },
+        {
+          "t": 6817,
+          "action": "X_SPECIAL",
+          "hp": [
+            128,
+            89
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            80,
+            80
+          ],
+          "foe_action": "BITE",
+          "order": "item_first",
+          "notes": "Cursor passes Full Restore and Elixir; X Special 8->7, 'A's SP. ATK rose' (+1). Gyarados Bite, critical hit (128->119->89)."
+        },
+        {
+          "t": 6826,
+          "action": "X_ACCURACY",
+          "hp": [
+            89,
+            49
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            80,
+            80
+          ],
+          "foe_action": "DRAGON_RAGE",
+          "order": "item_first",
+          "notes": "X Accuracy 3->2 (+1); the bag at 6832 shows 2. Gyarados Dragon Rage 89->62->49."
+        },
+        {
+          "t": 6832,
+          "action": "FULL_RESTORE",
+          "hp": [
+            49,
+            78
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            80,
+            80
+          ],
+          "foe_action": "HYPER_BEAM",
+          "order": "item_first",
+          "notes": "Full Restore 11->10: 49->168 ('restored by 119'). Gyarados Hyper Beam 168->127->78."
+        },
+        {
+          "t": 6842,
+          "action": "BLIZZARD",
+          "hp": [
+            78,
+            78
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            80,
+            35
+          ],
+          "foe_action": "RECHARGE",
+          "order": "player_first",
+          "notes": "Gyarados must recharge."
+        },
+        {
+          "t": 6848,
+          "action": "BLIZZARD",
+          "hp": [
+            78,
+            78
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            35,
+            0
+          ],
+          "order": "player_first",
+          "notes": "KO. EXP 2568."
+        },
+        {
+          "t": 6859,
+          "action": "BLIZZARD",
+          "hp": [
+            78,
+            78
+          ],
+          "foe": "DRAGONAIR",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Super effective, KO. EXP 1665."
+        },
+        {
+          "t": 6873,
+          "action": "BLIZZARD",
+          "hp": [
+            78,
+            81
+          ],
+          "foe": "DRAGONAIR",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Super effective, KO. A grows to Lv55 (81/171); declines Skull Bash."
+        },
+        {
+          "t": 6893,
+          "action": "BLIZZARD",
+          "hp": [
+            81,
+            81
+          ],
+          "foe": "DRAGONITE",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Super effective, KO. Blizzard PP now 0."
+        },
+        {
+          "t": 6909,
+          "action": "SURF",
+          "hp": [
+            81,
+            37
+          ],
+          "foe": "AERODACTYL",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "foe_action": "ANCIENTPOWER",
+          "order": "foe_first",
+          "notes": "Surf 4/15 shown before use. Aerodactyl moves first: AncientPower 81->72->37. Surf super effective, KO. Lance defeated, 6000 prize."
+        }
+      ],
+      "exit": {
+        "level": 55,
+        "hp": [
+          37,
+          171
+        ],
+        "status": "",
+        "pp": {
+          "BITE": 17,
+          "SURF": 3,
+          "BLIZZARD": 0,
+          "STRENGTH": 15
+        },
+        "bag": {
+          "X_SPEED": 2,
+          "X_SPECIAL": 7,
+          "X_ACCURACY": 2,
+          "GUARD_SPEC": 2,
+          "FULL_RESTORE": 10,
+          "ELIXIR": 1
+        }
+      },
+      "summary": {
+        "setup": "Bite on turn 1, then X Special (Sp. Atk +1) and X Accuracy (+1). Full Restore on turn 4, then Blizzard for every dragon and Surf for Aerodactyl.",
+        "heals": "Full Restore at 49/168 (29%) after two Dragon Rages and a critical Bite. No heal at 37/171 at the end.",
+        "pp_items": "None in battle. Blizzard ran out (5 uses) on Dragonite.",
+        "move_uses": {
+          "BITE": 1,
+          "BLIZZARD": 5,
+          "SURF": 1
+        },
+        "item_uses": {
+          "X_SPECIAL": 1,
+          "X_ACCURACY": 1,
+          "FULL_RESTORE": 1
+        }
+      }
+    },
+    {
+      "id": "champion",
+      "trainer": "TRAINER_CHAMPION_FIRST_BULBASAUR",
+      "video_start": 6944,
+      "video_end": 7122,
+      "entry": {
+        "level": 55,
+        "hp": [
+          171,
+          171
+        ],
+        "status": "",
+        "pp": {
+          "BITE": 25,
+          "SURF": 13,
+          "BLIZZARD": 5,
+          "STRENGTH": 15
+        },
+        "bag": {
+          "X_SPEED": 2,
+          "X_SPECIAL": 7,
+          "X_ACCURACY": 2,
+          "GUARD_SPEC": 2,
+          "FULL_RESTORE": 9,
+          "SUPER_POTION": 4,
+          "PARLYZ_HEAL": 2
+        },
+        "bag_seen_at": [
+          6971,
+          6980,
+          6987,
+          6993,
+          7013,
+          7071
+        ]
+      },
+      "turns": [
+        {
+          "t": 6971,
+          "action": "GUARD_SPEC",
+          "hp": [
+            171,
+            84
+          ],
+          "foe": "PIDGEOT",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "AERIAL_ACE",
+          "order": "item_first",
+          "notes": "Guard Spec 2->1, 'Ally became shrouded in MIST'. Pidgeot Aerial Ace, critical hit (171->126->84)."
+        },
+        {
+          "t": 6980,
+          "action": "X_SPEED",
+          "hp": [
+            84,
+            42
+          ],
+          "foe": "PIDGEOT",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "AERIAL_ACE",
+          "order": "item_first",
+          "notes": "Cursor passes Guard Spec and X Special; X Speed 2->1, 'A's SPEED rose' (+1). Pidgeot Aerial Ace 84->80->42."
+        },
+        {
+          "t": 6987,
+          "action": "X_SPECIAL",
+          "hp": [
+            42,
+            42
+          ],
+          "foe": "PIDGEOT",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "SAND_ATTACK",
+          "order": "item_first",
+          "notes": "X Special 7->6, 'A's ...' message in the bag (+1). Pidgeot Sand-Attack: 'A is protected by MIST!'"
+        },
+        {
+          "t": 6993,
+          "action": "X_SPECIAL",
+          "hp": [
+            42,
+            3
+          ],
+          "foe": "PIDGEOT",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "AERIAL_ACE",
+          "order": "item_first",
+          "notes": "X Special 6->5 (+2). Pidgeot Aerial Ace 42->4->3. No heal."
+        },
+        {
+          "t": 6998,
+          "action": "SURF",
+          "hp": [
+            3,
+            3
+          ],
+          "foe": "PIDGEOT",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "A moves first at 3 HP (Speed +1). KO. EXP 2173. Venusaur sent out, then 'Ally's MIST wore off!'"
+        },
+        {
+          "t": 7013,
+          "action": "X_ACCURACY",
+          "hp": [
+            3,
+            3
+          ],
+          "foe": "VENUSAUR",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "SOLARBEAM_CHARGE",
+          "order": "item_first",
+          "notes": "Still no heal at 3/171. X Accuracy 2->1, 'A's accuracy rose!' (+1). Venusaur 'took in sunlight' (SolarBeam charge)."
+        },
+        {
+          "t": 7019,
+          "action": "BLIZZARD",
+          "hp": [
+            3,
+            6
+          ],
+          "foe": "VENUSAUR",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Blizzard 5/5 shown before use. Super effective, KO before SolarBeam fires. EXP 2808; A grows to Lv56 (6/174)."
+        },
+        {
+          "t": 7039,
+          "action": "SURF",
+          "hp": [
+            6,
+            6
+          ],
+          "foe": "ALAKAZAM",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Surf 12/15 shown before use. Critical hit, KO. EXP 2271."
+        },
+        {
+          "t": 7052,
+          "action": "SURF",
+          "hp": [
+            6,
+            6
+          ],
+          "foe": "RHYDON",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Super effective, KO."
+        },
+        {
+          "t": 7071,
+          "action": "FULL_RESTORE",
+          "hp": [
+            6,
+            174
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            100,
+            100
+          ],
+          "foe_action": "HYDRO_PUMP_MISS",
+          "order": "item_first",
+          "notes": "Gyarados Intimidate on entry. Full Restore 9->8: 6->174 ('restored by 168'); bag shows X Accuracy 1. Gyarados Hydro Pump missed."
+        },
+        {
+          "t": 7082,
+          "action": "BLIZZARD",
+          "hp": [
+            174,
+            174
+          ],
+          "foe": "GYARADOS",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "order": "player_first",
+          "notes": "Move menu cursor on Bite 25/25 first. Critical hit, KO. EXP 2704."
+        },
+        {
+          "t": 7101,
+          "action": "SURF",
+          "hp": [
+            174,
+            134
+          ],
+          "foe": "ARCANINE",
+          "foe_hp_pct": [
+            100,
+            0
+          ],
+          "foe_action": "EXTREMESPEED",
+          "order": "foe_first",
+          "notes": "Arcanine Intimidate on entry. ExtremeSpeed first (174->153->131). Surf super effective, KO. EXP 2784; A grows to Lv57 (134/177). Champion defeated."
+        }
+      ],
+      "exit": {
+        "level": 57,
+        "hp": [
+          134,
+          177
+        ],
+        "status": "",
+        "pp": {
+          "BITE": 25,
+          "SURF": 9,
+          "BLIZZARD": 3,
+          "STRENGTH": 15
+        },
+        "bag": {
+          "X_SPEED": 1,
+          "X_SPECIAL": 5,
+          "X_ACCURACY": 1,
+          "GUARD_SPEC": 1,
+          "FULL_RESTORE": 8
+        }
+      },
+      "summary": {
+        "setup": "Against Pidgeot: Guard Spec (Mist), X Speed (+1), X Special, X Special (Sp. Atk +2), then Surf at 3 HP. Against Venusaur: X Accuracy (+1) at 3 HP, then Blizzard.",
+        "heals": "No heal at 3/171 against Pidgeot or Venusaur. Full Restore at 6/174 (3%) when Gyarados came in.",
+        "pp_items": "Elixir outside battle before the Champion room (Surf 3 -> 13, Blizzard 0 -> 5, Bite 17 -> 25).",
+        "move_uses": {
+          "SURF": 4,
+          "BLIZZARD": 2
+        },
+        "item_uses": {
+          "GUARD_SPEC": 1,
+          "X_SPEED": 1,
+          "X_SPECIAL": 2,
+          "X_ACCURACY": 1,
+          "FULL_RESTORE": 1
+        }
+      }
+    }
+  ],
+  "between_fights": [
+    {
+      "after": "agatha",
+      "before": "lance",
+      "t": 6782,
+      "item": "FULL_RESTORE",
+      "hp": [
+        48,
+        168
+      ],
+      "bag_before": {
+        "X_SPEED": 2,
+        "X_SPECIAL": 8,
+        "X_ACCURACY": 3,
+        "GUARD_SPEC": 2,
+        "ELIXIR": 1,
+        "FULL_RESTORE": 12
+      },
+      "notes": "Full Restore 12->11 outside battle, 'A's HP was restored by 120'. No other item."
+    },
+    {
+      "after": "lance",
+      "before": "champion",
+      "t": 6936,
+      "item": "FULL_RESTORE",
+      "hp": [
+        37,
+        171
+      ],
+      "bag_before": {
+        "X_SPECIAL": 7,
+        "X_ACCURACY": 2,
+        "GUARD_SPEC": 2,
+        "ELIXIR": 1,
+        "FULL_RESTORE": 10
+      },
+      "notes": "Full Restore 10->9, 'restored by 134'."
+    },
+    {
+      "after": "lance",
+      "before": "champion",
+      "t": 6940,
+      "item": "ELIXIR",
+      "pp": {
+        "BITE": [
+          17,
+          25
+        ],
+        "SURF": [
+          3,
+          13
+        ],
+        "BLIZZARD": [
+          0,
+          5
+        ],
+        "STRENGTH": [
+          15,
+          15
+        ]
+      },
+      "notes": "Elixir 1->0 right after the Full Restore. Before values follow from the Lance moves; after values match Surf 12/15 after one Surf and Bite 25/25 in the Champion fight."
+    },
+    {
+      "after": "lorelei",
+      "before": "bruno",
+      "notes": "No item; enters Bruno at 130/162 (the Lorelei exit HP)."
+    },
+    {
+      "after": "bruno",
+      "before": "agatha",
+      "notes": "No item; enters Agatha at 45/165."
+    }
+  ],
+  "conflicts": [
+    "Bite PP: Lorelei used 7 Bites (Dewgong 2, Cloyster 1, Slowbro 1, Lapras 3), not 6. Bite is 18/25 on Lance turn 1 (seen at 6811). pokeguy-conditions.md gives Bite 19/25 at Bruno, Agatha and Lance entry; it should be 18. state-history.json says Lorelei BITE 6, SURF 1; observed BITE 7, SURF 1.",
+    "Agatha: the conditions doc's opening action is 'Use potion' at 45/165. Pokeguy never healed in that fight: X Speed, X Special, then five Surfs at 45-48 HP.",
+    "Lance: the doc's opening action is 'Use xspecial'. Pokeguy opened with Bite, then X Special. Observed setup is Sp. Atk +1 and accuracy +1, against the doc's targets of Sp. Atk +3 and accuracy +2. No X Speed in this fight.",
+    "Champion: the doc's accuracy target is +2. Pokeguy used one X Accuracy (+1), against Venusaur. Sp. Atk +2 and the Guard Spec opening match.",
+    "Lorelei: no X Speed (still 4 at Bruno), though the doc's goals include 'outspeed'. Sp. Atk +4 matches.",
+    "Bruno: Sp. Atk +2 matches. He let Earthquakes push A from 130 to 42 HP during setup, so Torrent was active by the first Surf, as target_torrent describes.",
+    "Champion and Lance item order differs from events.json. Champion: both extra X Specials were used on Pidgeot turns 3-4 (7->6->5); against Venusaur he used only X Accuracy. events.json puts one X Special on Venusaur. Lance: events.json says 'Bag opened on Guard Spec, not used' on turn 2; that turn used X Special 8->7.",
+    "Agatha bag: the doc lists potion x4 and superpotion x4. The bag views show Super Potion 4 and Parlyz Heal 2; no Potion line was seen in the visible part of the list. Not a contradiction, since the list was never scrolled to the top."
+  ]
+}
