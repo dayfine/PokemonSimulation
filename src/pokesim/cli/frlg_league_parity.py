@@ -12,7 +12,8 @@ One JSON document: {"format": "frlg-league-parity/1", "decisions": [...]}. A dec
            "is fast asleep"), Hyper Beam recharge, the two-turn move it charges
   field    weather and turns left, the foe side's Reflect / Light Screen turns left
   trainer  its party slots still standing and the Full Restores it has used
-  bag, streak (the medicine turns in a row against this foe at this HP), choice (row, item, move slot)
+  bag, streak (the medicine turns in a row against this foe at this HP), attacks (our attacks on this foe's
+  party slot so far: a foe's `sequence` picks by it), choice (row, item, move slot)
 and, apart, "hidden": what the sim's policy reads but the program can't (the foe's exact HP, its
 exact sleep counter, its moves' PP). The C++ parity test builds the program-visible state, then the
 same state with "hidden" put back, so a gap is either a port bug or one of these visibility limits.
@@ -108,7 +109,7 @@ def foe_line(state, moves, sleep):
             'reflect_turns': side.get('reflect', 0), 'light_screen_turns': side.get('lightscreen', 0)}
 
 
-def turn_line(state, goals, streak, choice, context):
+def turn_line(state, goals, streak, attacks, choice, context):
     moves, sleep = context['moves'], context['sleep']
     sleep.read(state.get('log', ()))
     foe = state['foe']
@@ -126,7 +127,7 @@ def turn_line(state, goals, streak, choice, context):
             'trainer_state': {'foes_left': sum(p['hp'] > 0 for p in state['party']),
                               'full_restores_used': state.get('trainer_items_used', {}).get('fullrestore', 0)},
             'bag': {item_slug(k): v for k, v in sorted(state['bag'].items()) if v > 0},
-            'streak': streak, 'choice': action,
+            'streak': streak, 'attacks': attacks, 'choice': action,
             'hidden': {'foe_hp': foe['hp'], 'foe_sleep_turns': foe['sleep_turns'] if foe['status'] == 'slp' else 0,
                        'foe_pp': {moves.get(m['id'], m['id']): m['pp'] for m in foe['moves']}}}
 
@@ -136,12 +137,13 @@ def recorder(lines, context):
     def policy(state, ai, flags, items, goals):
         memo = goals.get('_memo', {})
         streak = memo.get('streak', 0) if memo.get('foe') == (state['foe']['species'], state['foe']['hp']) else 0
+        attacks = memo.get(('attacks', state['foe']['party_index']), 0)
         choice = planned.action(state, ai, flags, items, goals)
         if context.get('fight') != goals.get('_fight'):
             context['fight'], context['sleep'] = goals['_fight'], SleepCount()
             context['level'] = context['levels'][context['fight']]
             context['stats'] = context['stats_by_fight'][context['fight']]
-        lines.append(turn_line(state, goals, streak, choice, context))
+        lines.append(turn_line(state, goals, streak, attacks, choice, context))
         return choice
     return policy
 
@@ -170,7 +172,7 @@ def dump(chains, seed, levels=LEVELS_NOW, bag=BAG_NOW):
             def on_between(fight, carry, max_hp, used, chain=chain):
                 lines.append(between_line(chain, fight, carry, max_hp, used))
             run_chain(engine, cases, pret, ai, 'planned', dict(bag), levels, '{}:{}'.format(seed, chain),
-                      policy_fn=recorder(lines, context), on_between=on_between)
+                      policy_fn=recorder(lines, context), on_between=on_between, held_item='')
     return {'format': FORMAT, 'chains': chains, 'seed': seed, 'decisions': lines}
 
 
