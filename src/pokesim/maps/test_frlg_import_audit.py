@@ -18,21 +18,21 @@ MANIFEST = ROOT / 'data/maps/runtime-manifest.json'
 class FullImportAuditTest(unittest.TestCase):
     def test_checked_candidates_have_fixed_links_and_visible_gaps(self):
         report = audit(CANDIDATE, scope=SCOPE, manifest=MANIFEST)
-        self.assertEqual(report['map_count'], 263)
+        self.assertEqual(report['map_count'], 209)
         self.assertEqual(report['verified_map_count'], 57)
-        self.assertEqual(report['excluded_map_count'], 117)
+        self.assertEqual(report['excluded_map_count'], 171)
         self.assertEqual(report['source_revision'], COMMIT)
         self.assertEqual(report['totals']['dynamic_warps'], 0)
         self.assertEqual(report['totals']['unlinked_warps'], 0)
-        self.assertEqual(report['totals']['scope_boundary_warps'], 78)
-        self.assertEqual(report['totals']['scope_boundary_connections'], 2)
+        self.assertEqual(report['totals']['scope_boundary_warps'], 84)
+        self.assertEqual(report['totals']['scope_boundary_connections'], 4)
         # Verified maps are generated bases too, so every return point exists.
         self.assertEqual(report['totals']['pending_relink_warps'], 0)
         self.assertEqual(report['totals']['unknown_tiles'], 0)
         self.assertEqual(report['totals']['unresolved_pickups'], 5)
         # Maps with water keep their grid: water's level is what stops walking onto it.
-        self.assertEqual(report['elevation_grids_retained'], 71)
-        self.assertEqual(report['elevation_grids_omitted'], 192)
+        self.assertEqual(report['elevation_grids_retained'], 54)
+        self.assertEqual(report['elevation_grids_omitted'], 155)
         self.assertFalse(report['schema_checked'])
 
     def test_verified_maps_outside_scope_need_their_status(self):

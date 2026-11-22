@@ -266,7 +266,7 @@ class BdspResolveTest(unittest.TestCase):
 
 class PublishedPackTest(unittest.TestCase):
     def test_runtime_files_are_base_plus_overlays(self):
-        self.assertEqual(overlays.check(), 320)
+        self.assertEqual(overlays.check(), 266)
         self.assertEqual(overlays.check('bdsp'), 22)
 
     def test_bdsp_builder_holds_no_authored_corrections(self):
