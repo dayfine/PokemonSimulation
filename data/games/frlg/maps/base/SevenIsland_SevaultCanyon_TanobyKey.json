@@ -1,0 +1,83 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SevenIsland_SevaultCanyon_TanobyKey",
+  "source": {
+    "decomp_file": "data/maps/SevenIsland_SevaultCanyon_TanobyKey/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "###############",
+    "###############",
+    "#######B#######",
+    "######...######",
+    "####B.....B####",
+    "#####.#.#.#####",
+    "#####B...B#####",
+    "######...######",
+    "#####B...B#####",
+    "#####.....#####",
+    "#####.....#####",
+    "#####.vvv.#####",
+    "#####.....#####",
+    "#####.....#####",
+    "###############",
+    "###############"
+  ],
+  "points": {"warp_0": [7, 13]},
+  "warps": [{"coord": [7, 13], "enter": "walk_south", "to_map": "SevenIsland_SevaultCanyon", "to_point": "warp_0"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {
+      "name": "pushable_boulder",
+      "coord": [7, 6],
+      "source_event": 0,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER1"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 6],
+      "source_event": 1,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER2"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 9],
+      "source_event": 2,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER3"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 10],
+      "source_event": 3,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER4"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 10],
+      "source_event": 4,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER5"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 9],
+      "source_event": 5,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER6"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 6],
+      "source_event": 6,
+      "source_script": "EventScript_StrengthBoulder",
+      "source_local_id": "LOCALID_TANOBY_KEY_BOULDER7"
+    }
+  ]
+}

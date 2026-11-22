@@ -1,0 +1,37 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "FourIsland_Mart",
+  "source": {
+    "decomp_file": "data/maps/FourIsland_Mart/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "##.#......#",
+    "...#.......",
+    "####...##.#",
+    ".......##.#",
+    ".##....##.#",
+    "...........",
+    "###########"
+  ],
+  "points": {"warp_0": [4, 7]},
+  "warps": [{"coord": [4, 7], "enter": "walk_south", "to_map": "FourIsland", "to_point": "warp_7"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "FourIsland_Mart_EventScript_Clerk"},
+    {"name": "old_man_1", "coord": [6, 5], "source_event": 1, "source_script": "FourIsland_Mart_EventScript_OldMan"},
+    {
+      "name": "camper",
+      "coord": [8, 3],
+      "wander": {"min": [6, 2], "max": [10, 4]},
+      "source_event": 2,
+      "source_script": "FourIsland_Mart_EventScript_Camper"
+    }
+  ]
+}

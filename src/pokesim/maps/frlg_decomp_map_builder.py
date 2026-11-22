@@ -96,6 +96,9 @@ LEDGES = {'MB_JUMP_' + direction.name: glyph for direction, glyph in LEDGE_GLYPH
 FLOOR = (
     'MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS',
     'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE', 'MB_COUNTER',
+    'MB_PUDDLE', 'MB_HOT_SPRINGS',
+    #   Cracks on the first step and falls through on the second (Icefall Cave).
+    'MB_THIN_ICE',
     #   Not surfable (sBehaviorSurfable): the player walks on it, as on the
     #   sand bars of Route 21.
     'MB_SHALLOW_WATER',
@@ -148,6 +151,12 @@ POINTS = {
     'CeruleanCave_1F': {'entrance': (33, 21)},
     #   Mewtwo's tile. Its battle starts by talking to it from the south.
     'CeruleanCave_B1F': {'mewtwo': (7, 12)},
+    'PowerPlant': {'zapdos': (5, 11)},
+    'SeafoamIslands_B4F': {'articuno': (9, 2)},
+    'MtEmber_Summit': {'moltres': (9, 6)},
+    'BirthIsland_Exterior': {'deoxys': (15, 3)},
+    'NavelRock_Summit': {'ho_oh': (9, 6)},
+    'NavelRock_Base': {'lugia': (10, 15)},
     'VermilionCity_PokemonCenter_1F': {'nurse_front': (7, 4)},
 }
 FLAG_SETS = {

@@ -1,0 +1,43 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SixIsland_Mart",
+  "source": {
+    "decomp_file": "data/maps/SixIsland_Mart/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "###########",
+    "###########",
+    "##.#......#",
+    "...#.......",
+    "####...##.#",
+    ".......##.#",
+    ".##....##.#",
+    "...........",
+    "###########"
+  ],
+  "points": {"warp_0": [4, 7]},
+  "warps": [{"coord": [4, 7], "enter": "walk_south", "to_map": "SixIsland", "to_point": "warp_3"}],
+  "flag_sets": {},
+  "connections": [],
+  "npcs": [
+    {"name": "clerk", "coord": [2, 3], "source_event": 0, "source_script": "SixIsland_Mart_EventScript_Clerk"},
+    {
+      "name": "old_woman",
+      "coord": [8, 3],
+      "wander": {"min": [7, 2], "max": [9, 4]},
+      "source_event": 1,
+      "source_script": "SixIsland_Mart_EventScript_OldWoman"
+    },
+    {
+      "name": "picnicker",
+      "coord": [7, 7],
+      "wander": {"min": [6, 6], "max": [8, 8]},
+      "source_event": 2,
+      "source_script": "SixIsland_Mart_EventScript_Picnicker"
+    }
+  ]
+}

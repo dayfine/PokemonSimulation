@@ -1,0 +1,61 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "NavelRock_Summit",
+  "source": {
+    "decomp_file": "data/maps/NavelRock_Summit/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "#########8#########",
+    "#########.#########",
+    "#########.#########",
+    "#########.#########",
+    "#########.#########",
+    "#######.....#######",
+    "#######.....#######",
+    "#######.....#######",
+    "#######.....#######",
+    "###################",
+    "###################",
+    "###################",
+    "###################",
+    "###################"
+  ],
+  "points": {"ho_oh": [9, 6], "warp_0": [10, 18]},
+  "warps": [{"coord": [10, 18], "enter": "step_on", "to_map": "NavelRock_SummitPath_5F", "to_point": "warp_1"}],
+  "flag_sets": {},
+  "connections": [],
+  "hidden_items": [
+    {
+      "coord": [9, 11],
+      "item": "sacred_ash",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_NAVEL_ROCK_SUMMIT_SACRED_ASH",
+      "source_bg_event": 0,
+      "underfoot": true
+    }
+  ],
+  "npcs": [
+    {
+      "name": "ho_oh",
+      "coord": [9, 6],
+      "hide_flag": "FLAG_HIDE_HO_OH",
+      "source_event": 0,
+      "source_script": "0x0",
+      "source_local_id": "LOCALID_NAVEL_ROCK_HO_OH"
+    }
+  ]
+}

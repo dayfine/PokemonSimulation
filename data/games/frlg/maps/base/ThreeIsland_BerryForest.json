@@ -1,0 +1,398 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "ThreeIsland_BerryForest",
+  "source": {
+    "decomp_file": "data/maps/ThreeIsland_BerryForest/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    }
+  },
+  "tiles": [
+    "#########################################################",
+    "#########################################################",
+    "#########################################################",
+    "#########################################################",
+    "#########################################################",
+    "###......###......###.......................~...#########",
+    "###.~~~..###..~...###......######..........~.~~.#########",
+    "###.~~~..###.~###~.G...~...############...~.~~~~#########",
+    "###..~~~.###~.###.~###~.###############vvv###~~~#########",
+    "###......###.~###~~###~~######~~~######...###~~~#########",
+    "###...######..~~~~~###~~######~~~~~.......###~~~#########",
+    "###...######G..~~~~~~~~~###..~~~~~~~......###.~~#########",
+    "###...######.###~.~~~~~~###wwwwwwwww......###~.~#########",
+    "###...###....###.~.~~######wwwwwwwww###vvv###.~.#########",
+    "###...###.~..###~.~..######wwwwwwwww###...###~..#########",
+    "###...###~.~.........######.........###.........#########",
+    "###...###.~.~...........###......#########......#########",
+    "###...###~~~~~..~~~..~.G###......#########......#########",
+    "###...###~~~~~~~~~~~###.###vvvvvv###...######...#########",
+    "###...###~~###~~~######.~~~~.....###......###...#########",
+    "###...###~~############..~~~~.######..###.###...#########",
+    "###...###.~#########~.~.~~~~..###.....###.###...#########",
+    "###...###~.~..###~~~~~...~~######.....###.###...#########",
+    "###...###.~.....~.~~~.~...~######.....G.....G......######",
+    "###...###........~.###.....######...###.....###....######",
+    "###...###..........###.....###......###.....###....######",
+    "###...###wwwwwwwwww###..######......######..###....######",
+    "###....S.wwwwwwwwww~.~..######..###~######..###....######",
+    "###......wwwwwwwwww~~...######..###~######..###....######",
+    "###..........~.~~~~~~~..######..###~###.~...G......######",
+    "######....~.~.~.~~~~~#########..###~###~.~###......######",
+    "######...~.~.~~~~~~~~#########~.###~###.~~###......######",
+    "######wwwwww##################.~.~~~###~~~###...#########",
+    "######wwwwww##################~.~~~~###~~~~.....#########",
+    "######wwwwww##################~~~~~.###~~~...############",
+    "######wwwwww##################~~~~.~###Svvvvv############",
+    "######wwwwww##################~~~.~.###......############",
+    "######wwwwww##################.~.............############",
+    "######......##################~..............############",
+    "######.....G~~G~~G~~.#########...............############",
+    "##################~~~#####################...############",
+    "##################~~~#####################...############",
+    "##################~~~####################################",
+    "############..~~G~~~.####################################",
+    "#########################################################",
+    "#########################################################",
+    "#########################################################"
+  ],
+  "elevation": [
+    "000000000000000000000000000000000000000000000000000000000",
+    "000000000000000000000000000000000000000000000000000000000",
+    "000000000000000000000000000000000000000000000000000000000",
+    "000000000000000000000000000000000000000000000000000000000",
+    "000000000000000000000000000000000000000000000000000000000",
+    "000333333000333333000333333333333333333333333333000000000",
+    "000333333000333333000333333000000333333333333333000000000",
+    "000333333000330003333333333000000000000333333333000000000",
+    "000333333000330003300033000000000000000000000333000000000",
+    "000333333000330003300033000000333000000333000333000000000",
+    "000333000000333333300033000000333333333333000333000000000",
+    "000333000000333333333333000333333333333333000333000000000",
+    "000333000000300033333333000111111111333333000333000000000",
+    "000333000333300033333000000111111111000000000333000000000",
+    "000333000333300033333000000111111111000333000333000000000",
+    "000333000333333333333000000333333333000333333333000000000",
+    "000333000333333333333333000333333000000000333333000000000",
+    "000333000333333333333333000333333000000000333333000000000",
+    "000333000333333333330003000000000000333000000333000000000",
+    "000333000330003330000003333333333000333333000333000000000",
+    "000333000330000000000003333333000000330003000333000000000",
+    "000333000330000000003333333333000333330003000333000000000",
+    "000333000333330003333333333000000333330003000333000000000",
+    "000333000333333333333333333000000333333333333333333000000",
+    "000333000333333333300033333000000333000333330003333000000",
+    "000333000333333333300033333000333333000333330003333000000",
+    "000333000111111111100033000000333333000000330003333000000",
+    "000333303111111111133333000000330003000000330003333000000",
+    "000333333111111111133333000000330003000000330003333000000",
+    "000333333333333333333333000000330003000333333333333000000",
+    "000000333333333333333000000000330003000333000333333000000",
+    "000000333333333333333000000000330003000333000333333000000",
+    "000000111111000000000000000000333333000333000333000000000",
+    "000000111111000000000000000000333333000333333333000000000",
+    "000000111111000000000000000000333333000333333000000000000",
+    "000000111111000000000000000000333333000000000000000000000",
+    "000000111111000000000000000000333333000333333000000000000",
+    "000000111111000000000000000000333333333333333000000000000",
+    "000000333333000000000000000000333333333333333000000000000",
+    "000000333333333333333000000000333333333333333000000000000",
+    "000000000000000000333000000000000000000000333000000000000",
+    "000000000000000000333000000000000000000000333000000000000",
+    "000000000000000000333000000000000000000000000000000000000",
+    "000000000000333333333000000000000000000000000000000000000",
+    "000000000000000000000000000000000000000000000000000000000",
+    "000000000000000000000000000000000000000000000000000000000",
+    "000000000000000000000000000000000000000000000000000000000"
+  ],
+  "points": {"warp_0": [43, 41]},
+  "warps": [
+    {"coord": [43, 41], "enter": "walk_south", "to_map": "ThreeIsland_BondBridge", "to_point": "warp_0"},
+    {"coord": [42, 41], "enter": "walk_south", "to_map": "ThreeIsland_BondBridge", "to_point": "warp_0"},
+    {"coord": [44, 41], "enter": "walk_south", "to_map": "ThreeIsland_BondBridge", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "gates": {
+    "cut_tree_12_11": {
+      "tiles": [[12, 11]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_12"
+    },
+    "cut_tree_19_7": {
+      "tiles": [[19, 7]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_13"
+    },
+    "cut_tree_23_17": {
+      "tiles": [[23, 17]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_14"
+    },
+    "cut_tree_38_23": {
+      "tiles": [[38, 23]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_15"
+    },
+    "cut_tree_44_23": {
+      "tiles": [[44, 23]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_16"
+    },
+    "cut_tree_44_29": {
+      "tiles": [[44, 29]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_17"
+    },
+    "cut_tree_16_43": {
+      "tiles": [[16, 43]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_18"
+    },
+    "cut_tree_17_39": {
+      "tiles": [[17, 39]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_19"
+    },
+    "cut_tree_14_39": {
+      "tiles": [[14, 39]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_1A"
+    },
+    "cut_tree_11_39": {
+      "tiles": [[11, 39]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "cut",
+      "flag": "FLAG_TEMP_1B"
+    }
+  },
+  "hidden_items": [
+    {
+      "coord": [31, 25],
+      "item": "razz_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_RAZZ_BERRY",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [15, 15],
+      "item": "bluk_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_BLUK_BERRY",
+      "source_bg_event": 3
+    },
+    {
+      "coord": [25, 24],
+      "item": "nanab_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_NANAB_BERRY",
+      "source_bg_event": 4
+    },
+    {
+      "coord": [11, 24],
+      "item": "wepear_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_WEPEAR_BERRY",
+      "source_bg_event": 5
+    },
+    {
+      "coord": [37, 18],
+      "item": "oran_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_ORAN_BERRY",
+      "source_bg_event": 6
+    },
+    {
+      "coord": [14, 23],
+      "item": "cheri_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_CHERI_BERRY",
+      "source_bg_event": 7
+    },
+    {
+      "coord": [47, 5],
+      "item": "chesto_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_CHESTO_BERRY",
+      "source_bg_event": 8
+    },
+    {
+      "coord": [7, 30],
+      "item": "pecha_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PECHA_BERRY",
+      "source_bg_event": 9
+    },
+    {
+      "coord": [16, 5],
+      "item": "rawst_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_RAWST_BERRY",
+      "source_bg_event": 10
+    },
+    {
+      "coord": [25, 6],
+      "item": "aspear_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_ASPEAR_BERRY",
+      "source_bg_event": 11
+    },
+    {
+      "coord": [46, 32],
+      "item": "persim_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PERSIM_BERRY",
+      "source_bg_event": 12
+    },
+    {
+      "coord": [43, 16],
+      "item": "pinap_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_PINAP_BERRY",
+      "source_bg_event": 13
+    },
+    {
+      "coord": [8, 5],
+      "item": "lum_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BERRY_FOREST_LUM_BERRY",
+      "source_bg_event": 14
+    }
+  ],
+  "npcs": [
+    {
+      "name": "little_girl",
+      "coord": [4, 8],
+      "hide_flag": "FLAG_HIDE_LOSTELLE_IN_BERRY_FOREST",
+      "source_event": 0,
+      "source_script": "ThreeIsland_BerryForest_EventScript_Lostelle",
+      "source_local_id": "LOCALID_BERRY_FOREST_LOSTELLE"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [12, 11],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 1,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [19, 7],
+      "hide_flag": "FLAG_TEMP_13",
+      "source_event": 2,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [23, 17],
+      "hide_flag": "FLAG_TEMP_14",
+      "source_event": 3,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [38, 23],
+      "hide_flag": "FLAG_TEMP_15",
+      "source_event": 4,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [44, 23],
+      "hide_flag": "FLAG_TEMP_16",
+      "source_event": 5,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [44, 29],
+      "hide_flag": "FLAG_TEMP_17",
+      "source_event": 6,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [16, 43],
+      "hide_flag": "FLAG_TEMP_18",
+      "source_event": 7,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [17, 39],
+      "hide_flag": "FLAG_TEMP_19",
+      "source_event": 8,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [14, 39],
+      "hide_flag": "FLAG_TEMP_1A",
+      "source_event": 9,
+      "source_script": "EventScript_CutTree"
+    },
+    {
+      "name": "cut_tree",
+      "coord": [11, 39],
+      "hide_flag": "FLAG_TEMP_1B",
+      "source_event": 10,
+      "source_script": "EventScript_CutTree"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [12, 5],
+      "source_event": 11,
+      "hide_flag": "FLAG_HIDE_THREE_ISLAND_BERRY_FOREST_MAX_ETHER",
+      "source_script": "ThreeIsland_BerryForest_EventScript_ItemMaxEther",
+      "item": "max_ether"
+    },
+    {
+      "name": "item_ball",
+      "coord": [27, 11],
+      "source_event": 12,
+      "hide_flag": "FLAG_HIDE_THREE_ISLAND_BERRY_FOREST_FULL_HEAL",
+      "source_script": "ThreeIsland_BerryForest_EventScript_ItemFullHeal",
+      "item": "full_heal"
+    },
+    {
+      "name": "item_ball",
+      "coord": [12, 43],
+      "source_event": 13,
+      "hide_flag": "FLAG_HIDE_THREE_ISLAND_BERRY_FOREST_MAX_ELIXIR",
+      "source_script": "ThreeIsland_BerryForest_EventScript_ItemMaxElixir",
+      "item": "max_elixir"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "FourIsland_IcefallCave_B1F",
+  "source": {
+    "decomp_file": "data/maps/FourIsland_IcefallCave_B1F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    },
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "########################",
+    "########################",
+    "################...#####",
+    "########~~~~.~.#....####",
+    "###########~~~.##...####",
+    "##########~#~#..#...####",
+    "##########~~##......####",
+    "########~~~~~#......~~##",
+    "########~~~~~#.#....####",
+    "########~~~~~#...#..~~##",
+    "########~~~~~#..#.#.#~##",
+    "########~~~~##......#~##",
+    "########~~~~.#......#~##",
+    "########~~####.##...~~##",
+    "########~#~~~####~~#####",
+    "############~~~#~~~~~###",
+    "##############~.~~~#####",
+    "##############~~~#######",
+    "########################",
+    "########################"
+  ],
+  "points": {"warp_0": [12, 12], "warp_1": [12, 3], "warp_2": [15, 16]},
+  "warps": [
+    {"coord": [12, 12], "enter": "step_on", "to_map": "FourIsland_IcefallCave_1F", "to_point": "warp_2"},
+    {"coord": [12, 3], "enter": "step_on", "to_map": "FourIsland_IcefallCave_1F", "to_point": "warp_3"},
+    {"coord": [15, 16], "enter": "step_on", "to_map": "FourIsland_IcefallCave_1F", "to_point": "warp_4"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [10, 14],
+      "source_event": 0,
+      "hide_flag": "FLAG_HIDE_FOUR_ISLAND_ICEFALL_CAVE_B1F_FULL_RESTORE",
+      "source_script": "FourIsland_IcefallCave_B1F_EventScript_ItemFullRestore",
+      "item": "full_restore"
+    },
+    {
+      "name": "item_ball",
+      "coord": [21, 7],
+      "source_event": 1,
+      "hide_flag": "FLAG_HIDE_FOUR_ISLAND_ICEFALL_CAVE_B1F_NEVER_MELT_ICE",
+      "source_script": "FourIsland_IcefallCave_B1F_EventScript_ItemNeverMeltIce",
+      "item": "never_melt_ice"
+    }
+  ]
+}

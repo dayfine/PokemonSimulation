@@ -1,0 +1,157 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "PowerPlant",
+  "source": {
+    "decomp_file": "data/maps/PowerPlant/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    },
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "#################################################",
+    "#################################################",
+    "#################################################",
+    "#~~~#####~#~~~#######~~~~~~~~~~~~#####~~~~~~#####",
+    "#~~~~~~##~#~~~~~~####~~~~~~~~~~~~############~###",
+    "#~~~~~~~~~~~~~~~~~###~~~~~~~~~~~~###~~#######~~##",
+    "#~~~~~~~~~~~~~~~~~#####~~######~~##~~~######~~~##",
+    "#~~~~~~~~~####~~#######~~######~~####~####~~~~~##",
+    "####~~########~~#####~~~~~~####~~####~~##~~~~~~##",
+    "####~~#######~~~~####~~~~~~~###~~##~~~~##~###~~~#",
+    "#~~~~~~######~~~~~###~~~~~~~~##~~#~~~~~#~~#######",
+    "#.~~~~~#######~~~~~~#~~~~~~~~~#~~#~~~~~~~~~######",
+    "#~~~~~~~~~##~#~~~~~~~~~~~~~~~~#~~#~~~~~~~~~~~####",
+    "#~~~~~~~~~##~#~~~~~~~~~~~~~~~~#~~#~~~~~~~~~~~####",
+    "#######################~~######~~######~~########",
+    "#######################~~######~~######~~########",
+    "#####~~~~~#~~~~~#####~~~~~~~~~#~~~~~~~~~~~~~~~~~#",
+    "###~~~~~~~~~~~~~~~###~~~~~~~~~#~~~~~~~~~~~~~~~~~#",
+    "##~~~~~~~~~~~~~~~~~##~~~~~~~~~#~~~~~~~~~~~~~~~~~#",
+    "##~~~~~~~~~~~~~~~~~##########################~~~#",
+    "#####~~~~~####~~~~~~#########################~~~#",
+    "#####~~~~~####~~~~~~####~~~~~~~~~~~~~~~~~~~~#~~~#",
+    "#~~~~~~~~~##~~~~~~~~~~~###~#############~~~~#~~~#",
+    "#~~~~~~~~~#~~~~~~~~~~~~###################~~#~~~#",
+    "#~~~#######~~~#######~~~~~~~~~~~~~~~~~~~~~~~#~~~#",
+    "#~~~#######~~~#######~~~~################~~~#~~~#",
+    "#~~~~~~####~~~~~~~~~#~~~~~~~~~~~~~~~~~~~~~~~#~~~#",
+    "#~~~~~~~###~~~~~~~~~#~~~~~~~~~~~~~~~~~~~~~~~#~~~#",
+    "#~~~~~~~###~~~~~~~~~#########################~~~#",
+    "######~~#########~~~#########################~~##",
+    "######~~#########~~~#~~~~~~~~####~~~~~~#~~~~~~~##",
+    "#~~~~~~~~~###~~~~~~~~~~~##~~~~#~~~~##~~~~~~~~~###",
+    "#~~~~~~~~~#~~~~~~~~~~~~~##~~~~~~~~###~~##########",
+    "##~~~~~~###~~~~~~~~~~~~~##~~~~~~~~####~##########",
+    "###~~~~~######~~####################~#~##########",
+    "###~~~~~######~~####################~~~##########",
+    "##~~~~~~~####~~~~~~####~~~~~#####~~~~~~~~~~~#####",
+    "#~~~~~~~~~##~~~~~~####~~~~~~#####~##~~###~~~##~~#",
+    "#~~~~.~~~~#~~~~~~~~~~~~~~~~~~~~~#~~~~~~~~~~~~~~~#",
+    "#################################################"
+  ],
+  "points": {"zapdos": [5, 11], "warp_1": [5, 38], "warp_3": [1, 11]},
+  "warps": [
+    {"coord": [4, 39], "enter": "walk_into", "to_map": "Route10", "to_point": "warp_2"},
+    {"coord": [5, 38], "enter": "walk_south", "to_map": "Route10", "to_point": "warp_2"},
+    {"coord": [6, 39], "enter": "walk_into", "to_map": "Route10", "to_point": "warp_2"},
+    {"coord": [1, 11], "enter": "walk_west", "to_map": "Route10", "to_point": "warp_4"},
+    {"coord": [0, 13], "enter": "walk_into", "to_map": "Route10", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "hidden_items": [
+    {
+      "coord": [29, 16],
+      "item": "max_elixir",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_POWER_PLANT_MAX_ELIXIR",
+      "source_bg_event": 0
+    },
+    {
+      "coord": [8, 12],
+      "item": "thunder_stone",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_POWER_PLANT_THUNDER_STONE",
+      "source_bg_event": 1
+    }
+  ],
+  "npcs": [
+    {
+      "name": "zapdos",
+      "coord": [5, 11],
+      "hide_flag": "FLAG_HIDE_ZAPDOS",
+      "source_event": 5,
+      "source_script": "PowerPlant_EventScript_Zapdos"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [7, 27],
+      "source_event": 0,
+      "hide_flag": "FLAG_HIDE_POWER_PLANT_MAX_POTION",
+      "source_script": "PowerPlant_EventScript_ItemMaxPotion",
+      "item": "max_potion"
+    },
+    {
+      "name": "item_ball",
+      "coord": [40, 22],
+      "source_event": 1,
+      "hide_flag": "FLAG_HIDE_POWER_PLANT_TM17",
+      "source_script": "PowerPlant_EventScript_ItemTM17",
+      "item": "tm17"
+    },
+    {
+      "name": "item_ball",
+      "coord": [46, 37],
+      "source_event": 2,
+      "hide_flag": "FLAG_HIDE_POWER_PLANT_TM25",
+      "source_script": "PowerPlant_EventScript_ItemTM25",
+      "item": "tm25"
+    },
+    {
+      "name": "item_ball",
+      "coord": [45, 4],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_POWER_PLANT_THUNDER_STONE",
+      "source_script": "PowerPlant_EventScript_ItemThunderStone",
+      "item": "thunder_stone"
+    },
+    {
+      "name": "item_ball",
+      "coord": [26, 22],
+      "source_event": 4,
+      "hide_flag": "FLAG_HIDE_POWER_PLANT_ELIXIR",
+      "source_script": "PowerPlant_EventScript_ItemElixir",
+      "item": "elixir"
+    },
+    {
+      "name": "item_ball",
+      "coord": [36, 5],
+      "source_event": 6,
+      "hide_flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_2",
+      "source_script": "PowerPlant_EventScript_Electrode2",
+      "pickup": {"status": "unresolved", "reason": "script is not a supported fixed item pickup"}
+    },
+    {
+      "name": "item_ball",
+      "coord": [30, 38],
+      "source_event": 7,
+      "hide_flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_1",
+      "source_script": "PowerPlant_EventScript_Electrode1",
+      "pickup": {"status": "unresolved", "reason": "script is not a supported fixed item pickup"}
+    }
+  ]
+}

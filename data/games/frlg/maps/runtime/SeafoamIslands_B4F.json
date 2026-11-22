@@ -1,0 +1,146 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SeafoamIslands_B4F",
+  "source": {
+    "decomp_file": "data/maps/SeafoamIslands_B4F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    }
+  },
+  "tiles": [
+    "######################################",
+    "###www#~~~~~~~~#wwww#~~~~~~~~~~~~~####",
+    "###www#~~~~~~~~#wwww#~~~~~~~~~S~~~####",
+    "###www#~~~~~~~~#wwww#~~~~~~~~~~##~####",
+    "###www####~~####wwww#~~~~~~~~~~~#~####",
+    "###wwwwwwwwwwwwwwwww#~~~~~~~~~~~.~####",
+    "###wwwwwwwwwwwwwwwww#~~######~~#######",
+    "###wwwwwww#888888888~~~#wwwwwwwwwww###",
+    "###wwwwwww#~~###~~~~~~~#wwwwwwwwwww###",
+    "###wwwwwww#~~~~.~~~~~~~#wwwwwwwwwww###",
+    "###wwwwwww#~~~~~~~~~~~~#wwwwwwwwwww##~",
+    "###wwwwwww#~~~~~~~~~####wwwwwwwwwww###",
+    "###wwwwwww##~~####~~#wwwwwwwwwwwwww###",
+    "###wwwwwwwwwwwwww#~~#wwwwwwwwwwwwww###",
+    "###wwwwwwwwwwwwww#~~#wwwwwwwwwwwwww#~#",
+    "###wwwwwwwwwwwwww#~~#wwwwwwwwwwwwww###",
+    "###wwwwwwwwwwwwww#~~#wwwwwwwwwwwwww###",
+    "########ww#888888~~~~88#wwwwwwwwwww###",
+    "########..#~~~S~~~~~~~~~8#wwwwwwwww###",
+    "########ww#~~~~~~~~~~~~~~#www#########",
+    "########ww#~~~~~~~~~~~~~~#www#########",
+    "########ww################www#########",
+    "######################################",
+    "######################################"
+  ],
+  "elevation": [
+    "00000000000000000000000000000000000000",
+    "00011104444444401111044444444444440000",
+    "00011104444444401111044444444404440000",
+    "00011104440044401111044444444440040000",
+    "00311100003300001111044444444444040000",
+    "00011111111111111111044444444004440000",
+    "00011111111111111111044000000330000000",
+    "00011111110444444444444011111111111000",
+    "03011111110440004444444011111111111000",
+    "00011111110444444444444011111111111000",
+    "00011111110444444444444011111111111000",
+    "00011111110400444444000011111111111000",
+    "00011111110033000044011111111111111000",
+    "00011111111111111044011111111111111000",
+    "00011111111111111044011111111111111000",
+    "00011111111111111044011111111111111000",
+    "00011111111111111044011111111111111000",
+    "00000000110444444444444011111111111000",
+    "00000000110444044444444440111111111000",
+    "00000000110444444444444440111000000000",
+    "00000000110444444444444440111000000000",
+    "00000000110000000000000000111000000000",
+    "00000000000000000000000000000000000000",
+    "00000000000000000000000000000000000000"
+  ],
+  "points": {"articuno": [9, 2], "warp_0": [15, 9], "warp_1": [32, 5], "warp_2": [8, 17], "warp_3": [9, 17]},
+  "regions": {
+    "wild": [
+      [11, 7],
+      [12, 7],
+      [13, 7],
+      [14, 7],
+      [15, 7],
+      [16, 7],
+      [17, 7],
+      [18, 7],
+      [19, 7],
+      [11, 17],
+      [12, 17],
+      [13, 17],
+      [14, 17],
+      [15, 17],
+      [16, 17],
+      [21, 17],
+      [22, 17],
+      [24, 18]
+    ]
+  },
+  "warps": [
+    {"coord": [15, 9], "enter": "step_on", "to_map": "SeafoamIslands_B3F", "to_point": "warp_3"},
+    {"coord": [32, 5], "enter": "step_on", "to_map": "SeafoamIslands_B3F", "to_point": "warp_4"},
+    {"coord": [8, 17], "enter": "walk_into", "to_map": "SeafoamIslands_B3F", "to_point": "warp_7"},
+    {"coord": [9, 17], "enter": "walk_into", "to_map": "SeafoamIslands_B3F", "to_point": "warp_8"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "hidden_items": [
+    {
+      "coord": [13, 8],
+      "item": "water_stone",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_B4F_WATER_STONE",
+      "source_bg_event": 0
+    }
+  ],
+  "npcs": [
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 18],
+      "hide_flag": "FLAG_HIDE_SEAFOAM_B4F_BOULDER_1",
+      "source_event": 0,
+      "source_script": "0x0"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [9, 18],
+      "hide_flag": "FLAG_HIDE_SEAFOAM_B4F_BOULDER_2",
+      "source_event": 1,
+      "source_script": "0x0"
+    },
+    {
+      "name": "articuno",
+      "coord": [9, 2],
+      "hide_flag": "FLAG_HIDE_ARTICUNO",
+      "source_event": 2,
+      "source_script": "SeafoamIslands_B4F_EventScript_Articuno"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [22, 19],
+      "source_event": 3,
+      "hide_flag": "FLAG_HIDE_SEAFOAM_ISLANDS_B4F_ULTRA_BALL",
+      "source_script": "SeafoamIslands_B4F_EventScript_ItemUltraBall",
+      "item": "ultra_ball"
+    }
+  ]
+}

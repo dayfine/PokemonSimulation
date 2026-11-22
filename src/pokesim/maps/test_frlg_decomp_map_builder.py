@@ -188,7 +188,7 @@ class WalkSequencesInThePackTest(unittest.TestCase):
                     expected = [tuple(t) for t in walk['tiles']] + [tuple(walk['tiles'][0])]
                     self.assertEqual(npc_path.path_tiles((person['x'], person['y']), person['path']), expected)
                     checked += 1
-        self.assertEqual(checked, 12)
+        self.assertEqual(checked, 19)
 
     def test_routing_blocks_the_path_not_the_range(self):
         #   Each case: name, input (tile on Route 11), expectation (occupied by Dave's path).

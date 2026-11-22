@@ -1,0 +1,35 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "MtEmber_RubyPath_B4F",
+  "source": {
+    "decomp_file": "data/maps/MtEmber_RubyPath_B4F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "##################",
+    "##################",
+    "##..............##",
+    "##..............##",
+    "##..............##",
+    "##..............##",
+    "##..............##",
+    "##.###.###.#....##",
+    "##..............##",
+    "##.###.###.#....##",
+    "##..............##",
+    "##.###.###......##",
+    "##..............##",
+    "##.###.###......##",
+    "##..............##",
+    "##################"
+  ],
+  "points": {"warp_0": [14, 14], "warp_1": [4, 2]},
+  "warps": [
+    {"coord": [14, 14], "enter": "step_on", "to_map": "MtEmber_RubyPath_B5F", "to_point": "warp_0"},
+    {"coord": [4, 2], "enter": "step_on", "to_map": "MtEmber_RubyPath_B3F", "to_point": "warp_2"}
+  ],
+  "flag_sets": {},
+  "connections": []
+}

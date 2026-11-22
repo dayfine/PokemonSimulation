@@ -1,0 +1,161 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "FiveIsland_RocketWarehouse",
+  "source": {
+    "decomp_file": "data/maps/FiveIsland_RocketWarehouse/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "item_identities": {
+      "repository": "pret/pokefirered",
+      "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+      "scripts": "data/scripts/item_ball_scripts.inc",
+      "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+      "macros": "asm/macros/event.inc",
+      "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+      "source_game": "firered",
+      "target_game": "frlg",
+      "target_game_relation": "native_decomp",
+      "verification": "FRLG source-derived; collection not observed"
+    },
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "allow_running": false,
+  "tiles": [
+    "#############################",
+    "#############################",
+    "###....########.....##.....##",
+    "#...##.......##.##..##...##.#",
+    "#.####.##.##.##.##..##...##.#",
+    "#.##...##.##.##.....##......#",
+    "#............##.....##......#",
+    "##..######..####...###.######",
+    "##uu######dd####...###.######",
+    "##uu.....#dd.......###..88..#",
+    "##uu....##d..ll#.dd###....###",
+    "#.uo.##dd...ll..ddd.##....###",
+    "#.uu##d...ldll..doo.##......#",
+    "##uu##d..dll##d.d..###......#",
+    "##uur..r..rro.d.d#..####..###",
+    "##uu.#...d##..d.d..#####..###",
+    "#.uu.#.#.d###.d.d#..##......#",
+    "#.uu.#...d###.d.d#rr..o.....#",
+    "#.uu.#d.....#.d.d#####......#",
+    "#.uu.#d.r...or..d..###oo..oo#",
+    "#.u..#rrr.rrrr.od..###dd##dd#",
+    "#.uolllll.lllld#....##oo##oo#",
+    "#.u#####.....u.l.lll........#",
+    "#.u##..olllllll#.rrr..o.....#",
+    "#..#..##########....##......#",
+    "##...###........o.####......#",
+    "#############################"
+  ],
+  "points": {"warp_0": [24, 25]},
+  "warps": [{"coord": [24, 25], "enter": "walk_south", "to_map": "FiveIsland_Meadow", "to_point": "warp_0"}],
+  "flag_sets": {},
+  "connections": [],
+  "hidden_items": [
+    {
+      "coord": [27, 2],
+      "item": "nest_ball",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NEST_BALL",
+      "source_bg_event": 2
+    },
+    {
+      "coord": [7, 16],
+      "item": "net_ball",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NET_BALL",
+      "source_bg_event": 3
+    }
+  ],
+  "npcs": [
+    {
+      "name": "rocket_m",
+      "coord": [15, 11],
+      "trainer": {"sight": 1, "looks": ["south", "west"]},
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKETS",
+      "source_event": 0,
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_Grunt2",
+      "source_local_id": "LOCALID_WAREHOUSE_GRUNT2"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [17, 15],
+      "facing": "east",
+      "trainer": {"sight": 1},
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKETS",
+      "source_event": 1,
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_Grunt3",
+      "source_local_id": "LOCALID_WAREHOUSE_GRUNT3"
+    },
+    {
+      "name": "rocket_f",
+      "coord": [27, 16],
+      "facing": "west",
+      "trainer": {"sight": 3},
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKETS",
+      "source_event": 2,
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_Admin1",
+      "source_local_id": "LOCALID_WAREHOUSE_ADMIN1"
+    },
+    {
+      "name": "rocket_m",
+      "coord": [25, 11],
+      "facing": "east",
+      "trainer": {"sight": 3},
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKETS",
+      "source_event": 3,
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_Admin2",
+      "source_local_id": "LOCALID_WAREHOUSE_ADMIN2"
+    },
+    {
+      "name": "rocket_f",
+      "coord": [6, 6],
+      "trainer": {"sight": 3, "looks": ["north", "east"]},
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKETS",
+      "source_event": 4,
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_Grunt1"
+    },
+    {
+      "name": "scientist",
+      "coord": [27, 4],
+      "source_event": 5,
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_Gideon"
+    }
+  ],
+  "items": [
+    {
+      "name": "item_ball",
+      "coord": [8, 25],
+      "source_event": 6,
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKET_WAREHOUSE_BIG_PEARL",
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_ItemBigPearl",
+      "item": "big_pearl"
+    },
+    {
+      "name": "item_ball",
+      "coord": [17, 3],
+      "source_event": 7,
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKET_WAREHOUSE_TM36",
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_ItemTM36",
+      "item": "tm36"
+    },
+    {
+      "name": "item_ball",
+      "coord": [1, 16],
+      "source_event": 8,
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKET_WAREHOUSE_PEARL",
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_ItemPearl",
+      "item": "pearl"
+    },
+    {
+      "name": "item_ball",
+      "coord": [4, 5],
+      "source_event": 9,
+      "hide_flag": "FLAG_HIDE_FIVE_ISLAND_ROCKET_WAREHOUSE_UP_GRADE",
+      "source_script": "FiveIsland_RocketWarehouse_EventScript_ItemUpGrade",
+      "item": "up_grade"
+    }
+  ]
+}
