@@ -248,3 +248,26 @@ test('Tail Whip and Withdraw update the next physical preview and actual attack 
   assert.equal(Math.max(...rolls(withdrawn.p1.active[0], withdrawn.p2.active[0], 'Tackle')), baseline);
   withdrawn.destroy();
 });
+
+test('Whirlwind drags in a bench member and drops our boosts; with no bench it fails', () => {
+  const benched = stageScenario({moves: ['Tackle']}, {moves: ['Whirlwind', 'Splash'], spe: 60});
+  benched.bench = [{species: 'Rattata', level: 30, moves: ['Tackle']}];
+  benched.bag = {xspecial: 1};
+  const b = createBattle(benched, SEED);
+  playTurn(b, item('xspecial'), move(0));
+  let s = snapshot(b);
+  assert.equal(s.own.species, 'rattata');
+  assert.equal(s.own_party.find(p => p.species === 'wartortle').hp > 0, true);
+  playTurn(b, {kind: 'switch', slot: s.own_party.find(p => p.species === 'wartortle').position}, move(1));
+  s = snapshot(b);
+  assert.equal(s.own.species, 'wartortle');
+  assert.equal(s.own.boosts.spa, 0);
+
+  const alone = stageScenario({moves: ['Tackle']}, {moves: ['Whirlwind'], spe: 60});
+  alone.bag = {xspecial: 1};
+  const a = createBattle(alone, SEED);
+  playTurn(a, item('xspecial'), move(0));
+  s = snapshot(a);
+  assert.equal(s.own.species, 'wartortle');
+  assert.equal(s.own.boosts.spa, 1);
+});

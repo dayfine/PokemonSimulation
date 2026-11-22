@@ -3,14 +3,32 @@
 from pokesim.games.frlg.battle.items import HEALS
 
 
+MAX_TRAINER_ITEMS = 4
+
+
+def trainer_item_slots(state, item_order):
+    """pret ShouldUseItem's slot gate: slot i > 0 is skipped while more than 4 - i + 1 of the
+    trainer's Pokemon are alive, and a used slot is cleared. Equal items are used lowest slot
+    first, so the first `used` slots of an item are the spent ones. Returns the open slots' items."""
+    left = sum(p["hp"] > 0 for p in state["party"])
+    used = dict(state.get("trainer_items_used") or {})
+    open_slots = []
+    for index, item in enumerate(item_order):
+        if used.get(item, 0) > 0:
+            used[item] -= 1
+            continue
+        if index and left > MAX_TRAINER_ITEMS - index + 1:
+            continue
+        if state["trainer_bag"].get(item, 0):
+            open_slots.append(item)
+    return open_slots
+
+
 def trainer_item(state, item_order):
     """pret ShouldUseItem: thresholds, status cures, and item-slot restrictions."""
     foe = state["foe"]
-    left = sum(p["hp"] > 0 for p in state["party"])
-    for index, item in enumerate(item_order):
-        if index and left > len(item_order) - index + 1:
-            continue
-        if not state["trainer_bag"].get(item, 0) or not foe["hp"]:
+    for item in trainer_item_slots(state, item_order):
+        if not foe["hp"]:
             continue
         low = foe["hp"] < foe["max_hp"] // 4
         healing = item in HEALS and (low or (item != "fullrestore" and foe["max_hp"] - foe["hp"] > HEALS[item]))
@@ -18,6 +36,11 @@ def trainer_item(state, item_order):
         if healing or cure:
             return {"kind": "item", "item": item}
     return None
+
+
+def trainer_heals_below_quarter(state, item_order):
+    """True when the trainer will use a Full Restore / HP item if its active foe drops below 1/4."""
+    return any(item in HEALS for item in trainer_item_slots(state, item_order))
 
 
 def replacement(state):
