@@ -26,6 +26,38 @@ One JSON file for the whole League:
                  "items": {"fullrestore": 6, "maxelixir": 1}}}}}  // bag counts it must leave
 ```
 
+Optional per-foe keys (format stays `/1`; a reader that doesn't know them can ignore them):
+
+```json
+{"species": "machamp", "moves": ["surf"],
+ "heal": {"below": 80, "heal_at_least": 50,      // HP < 80: the smallest spendable heal restoring >= 50 HP
+          "heal_when_can_ko": false,             // false (default): a sure KO this turn comes first
+          "ko_rule": true},                      // true (default): the KO-risk heal row still applies
+ "sequence": ["strength", "bite", "bite"],       // our n-th attack on this foe; then `moves`
+ "kill_order": true}                             // false: skip the kill_order row for this foe
+```
+
+- `heal.below` is HP points (not a fraction). Items are tried Super Potion, Hyper Potion, Max Potion, Full Restore;
+  one is taken only if its spendable count is above the fight's reserve (so a Full Restore budget still holds).
+  Two heal turns in a row with the foe's HP unchanged stop the block (the KO-risk row's streak rule).
+- A foe with a `sequence` skips the `kill_order` row.
+
+Optional per-fight keys:
+
+```json
+{"goal": "Win with <= 1 Full Restore: ...",            // the fight's goal in words
+ "caps": {"fullrestore": 1, "xspecial": 6, "superpotion": 1},  // what an accepted win may spend (top-ups included)
+ "reset": {"roar": true,                               // a Roar / Whirlwind that lands: soft reset
+           "after_foe": {"index": 0, "speed_below": 0, "items_used": {"xspeed": 3}}}}
+                                                       // when slot 0 falls: reset if Speed < 0 with 3 X Speed spent
+```
+
+- `caps` is the accept rule: a win counts only if no item's use exceeds its cap. `reserve.items` must equal
+  the later fights' caps (`planned.reserves_from_caps`), so a fight can spend its cap and never a later
+  fight's; `test_plan_budget.py` checks that and that Full Restores, X Special, X Speed and the Max Elixir
+  caps add up to the whole bag. `python3 -m pokesim.cli.frlg_league_final` searches the Super Potion caps
+  and runs the chain forward under these accept rules.
+
 - A foe that isn't found at its slot is looked up by species.
 - A setup goal whose `serves` move has no PP above the reserve is skipped.
   Guard Spec's goal is met while Mist is up.
@@ -47,6 +79,7 @@ One JSON file for the whole League:
 | `sure_ko` | a move's lowest roll KOs (accuracy with both stat stages, evasion included; foe HP after its trainer's Full Restore) and we move first (speed with stages and paralysis); not while this is the plan's setup foe and we are safe | the cheapest such move (Strength, Bite, Surf, Blizzard) |
 | `sleep_cure` | asleep / frozen with a cure | Full Restore at KO risk, else Awakening, Full Heal |
 | `status_ko` | a status and HP <= D | Full Restore |
+| `foe_heal` | the foe's `heal` block: HP < `below` (before `sure_ko` when `heal_when_can_ko`) | the smallest spendable heal restoring >= `heal_at_least` |
 | `ko_heal` | HP <= D < max HP, where D is the foe's worst normal hit now, against our current Def/Sp. Def stages. D is 0 while the foe recharges, sleeps, uses an item, or has a charge move it isn't holding | the smallest heal that clears D with a mean hit to spare. After two medicine turns with the foe's HP unchanged: Full Restore. D >= max HP: attack |
 | `cure` | paralysis or poison, no KO risk, no medicine streak | its cure, Full Heal |
 | `kill_order` | the trainer has an open item slot and the planned hit can leave the foe at 1-24% | a hit leaving it at 25% or more, after which the finisher's lowest roll KOs; else the strongest hit that stays at 25% or more |

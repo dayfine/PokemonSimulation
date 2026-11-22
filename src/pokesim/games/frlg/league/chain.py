@@ -102,7 +102,8 @@ def play(engine, scenario, ai, policy, seed, turn_limit=300, fight=None, extra_g
             'foe': state['foe']['species'], 'foe_hp': state['foe']['hp'], 'foe_max_hp': state['foe']['max_hp'],
             'boosts': dict(state['own']['boosts']), 'foe_evasion': state['foe']['boosts'].get('evasion', 0),
             'own': own, 'opponent': foe,
-            'move': state['own']['moves'][own['slot']]['id'] if own.get('kind') == 'move' else None})
+            'move': state['own']['moves'][own['slot']]['id'] if own.get('kind') == 'move' else None,
+            'foe_move': state['foe']['moves'][foe['slot']]['id'] if foe.get('kind') == 'move' else None})
         turn = state['turn']
         state = engine.request(command='step', own=own, foe=foe)
         if any(line.startswith('|-crit|p1a') for line in state['log']):
