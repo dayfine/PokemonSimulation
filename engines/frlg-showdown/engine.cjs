@@ -170,6 +170,9 @@ function monState(pokemon, target, previews = true) {
   state.first_turn = pokemon.activeTurns <= 1;
   state.protect_count = Math.log2(pokemon.volatiles.stall?.counter || 1);
   state.side_conditions = Object.keys(pokemon.side.sideConditions);
+  state.side_turns = Object.fromEntries(Object.entries(pokemon.side.sideConditions)
+    .map(([id, condition]) => [id, condition.duration || 0]));
+  state.weather_turns = pokemon.battle.field.weatherState?.duration || 0;
   state.weather = {raindance: 'AI_WEATHER_RAIN', sunnyday: 'AI_WEATHER_SUN',
     sandstorm: 'AI_WEATHER_SANDSTORM', hail: 'AI_WEATHER_HAIL'}[pokemon.battle.field.weather] || 0;
   if (previews && target?.hp && pokemon.hp) {
