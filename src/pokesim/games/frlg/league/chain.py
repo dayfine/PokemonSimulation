@@ -225,15 +225,15 @@ def pokeguy_between(carry, max_hp, next_fight):
 
 
 def run_chain(engine, cases, pret, ai, policy_name, bag, levels, seed, entry_hp=None, fights=FIGHTS, only_foe=None,
-              budget=None, plan=None, bench=True, between=None, held_item=None, policy_fn=None, on_between=None):
+              budget=None, plan=None, bench=True, policy_fn=None, on_between=None, between=None, held_item=None):
     """budget: per-fight item budgets {fight: {item: n}} in place of the planner's split (autostory only).
     plan: the League plan (policy 'planned'); bench: our HM users in the party (Roar/Whirlwind work).
+    policy_fn: called in place of POLICIES[policy_name] (a recorder wrapping it); on_between(fight, carry
+    before, max_hp, used): each between-fight top-up.
     levels None: each fight's recorded stats from the case (PokeGuy's Lv51-55).
     between: 'pokeguy' for PokeGuy's out-of-battle healing in place of the policy's own.
     held_item: None keeps each case's (PokeGuy's Black Glasses, so our-Blastoise runs held them too);
-    '' for none (our console Blastoise holds nothing).
-    policy_fn: called in place of POLICIES[policy_name] (a recorder wrapping it); on_between(fight, carry
-    before, max_hp, used): each between-fight top-up."""
+    '' for none (our console Blastoise holds nothing)."""
     policy = policy_fn or POLICIES[policy_name]
     carry = {'hp': entry_hp, 'status': '', 'pp': dict(MOVE_PP), 'bag': dict(bag)}
     record = {'seed': seed, 'fights': [], 'outcome': 'win'}
