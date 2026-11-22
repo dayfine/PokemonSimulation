@@ -16,11 +16,15 @@ Steps:
           fight's accepted wins under the current split; the split (sum <= the bag's 6) with the fewest expected
           tries; twice, the second time from the first split's pools.
   chain   the chosen split forward: each fight's entries sampled from the previous fight's accepted wins.
+
+--chain-only skips the search and runs plan.json as it is; both write the boundary figures (entry / exit HP, PP,
+item minimums, top-up spend over accepted wins) to boundaries.json for plan.json's `contract` rows.
 """
 
 import argparse
 import copy
 import itertools
+import json
 import statistics
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
@@ -28,6 +32,7 @@ from pathlib import Path
 from pokesim.cli import frlg_league_retry as R
 from pokesim.cli.frlg_league_chain import BAG_NOW
 from pokesim.games.frlg.league import planned
+from pokesim.games.frlg.league.contracts import pass_figures
 
 FIGHTS = planned.FIGHTS
 RESET_COST = 0.2  # soft reset + walking in + Onix #1's turns, as a share of a full fight
@@ -195,7 +200,7 @@ def render(plan, out, runs):
         sp = [r['used'].get('superpotion', 0) for r in s['acc']]
         fr = [r['used'].get('fullrestore', 0) for r in s['acc']]
         short = {'fullrestore': 'FR', 'superpotion': 'SP', 'xspecial': 'XSp', 'xspeed': 'XSpe', 'xaccuracy': 'XAcc',
-                 'guardspec': 'GSpec', 'maxelixir': 'MaxElix'}
+                 'guardspec': 'GSpec', 'maxelixir': 'MaxElix', 'elixir': 'Elix'}
         lines.append('  {:9s} {:>8.1%} {:>7.2f} {:>8} {:>9} {:>9.2f}  {}'.format(
             fight, s['p'], s['tries'], statistics.median(sp) if sp else 0, q(sp, 0.9), sum(fr) / max(1, len(fr)),
             ' '.join('{}<={}'.format(short[k], v) for k, v in caps.items() if v or k in ('fullrestore', 'superpotion'))))
@@ -234,6 +239,92 @@ def render(plan, out, runs):
     return '\n'.join(lines)
 
 
+def boundaries(out):
+    """Per fight, over its accepted wins: HP / PP after the top-up (entry) and at the end (exit), the least of each
+    item left at the end, the most the top-up spent; the figures plan.json's `contract` rows quote."""
+    rows = {}
+    for fight in FIGHTS:
+        rs, s = out[fight]
+        acc = s['acc']
+        hp_in = [r['pre']['entry']['hp'] for r in acc]
+        hp_out = [r['end']['hp'] for r in acc]
+        rows[fight] = {
+            'tries': round(s['tries'], 2), 'accepted': len(acc), 'runs': s['n'],
+            'entry': {'hp': {'min': min(hp_in), 'p10': q(hp_in, 0.1), 'median': statistics.median(hp_in)},
+                      'pp_min': {m.lower(): min(r['pre']['entry']['pp'][m] for r in acc) for m in ('SURF', 'BLIZZARD')}},
+            'exit': {'hp': {'min': min(hp_out), 'p10': q(hp_out, 0.1), 'median': statistics.median(hp_out)},
+                     'pp_min': {m.lower(): min(r['end']['pp'][m] for r in acc) for m in ('SURF', 'BLIZZARD')},
+                     'pp_median': {m.lower(): statistics.median(r['end']['pp'][m] for r in acc)
+                                   for m in ('SURF', 'BLIZZARD')},
+                     'items_min': {k: min(r['end']['bag'].get(k, 0) for r in acc) for k in LEDGER}},
+            'topup_max': {k: max(r['top'].get(k, 0) for r in acc) for k in LEDGER},
+        }
+        rows[fight].update(pass_figures(s['p']))
+    return rows
+
+
+def with_caps(base, fr, sp):
+    """plan with Full Restore caps fr and Super Potion caps sp (per fight), reserves recomputed."""
+    plan = copy.deepcopy(base)
+    for fight, f, s in zip(FIGHTS, fr, sp):
+        plan['fights'][fight]['caps'].update(fullrestore=f, superpotion=s)
+    for fight, items in planned.reserves_from_caps(plan).items():
+        plan['fights'][fight]['reserve']['items'] = items
+    return plan
+
+
+def fr_range(fight):
+    return range(1, 5) if fight == 'champion' else range(0, 4)
+
+
+def search_caps(ex, workers, base, seeds, log):
+    """Per-fight tries for each (Full Restore, Super Potion) cap pair, from the current caps' accepted pools;
+    the split using at most the bag's Full Restores and Super Potions with the fewest expected tries."""
+    fr0 = [base['fights'][f]['caps']['fullrestore'] for f in FIGHTS]
+    sp0 = [base['fights'][f]['caps']['superpotion'] for f in FIGHTS]
+
+    def cells_for(fight, pool):
+        cells = {}
+        i = FIGHTS.index(fight)
+        for f in fr_range(fight):
+            for s in range(4):
+                fr, sp = list(fr0), list(sp0)
+                fr[i], sp[i] = f, s
+                plan = with_caps(base, fr, sp)
+                cells[(f, s)] = (fight, plan, None, entries(seeds, plan, fight, pool), i > 0)
+        return cells
+
+    _, side = chain(ex, workers, base, seeds, cells_for)
+    curve = {}
+    log.append('Full Restore x Super Potion cap search from FR {} SP {} ({} runs per cell): expected tries'.format(
+        fr0, sp0, len(seeds)))
+    for fight in FIGHTS:
+        i = FIGHTS.index(fight)
+        for f in fr_range(fight):
+            row = []
+            for s in range(4):
+                fr, sp = list(fr0), list(sp0)
+                fr[i], sp[i] = f, s
+                curve[(fight, f, s)] = stats(side[fight][(f, s)], with_caps(base, fr, sp), fight)['tries']
+                row.append(curve[(fight, f, s)])
+            log.append('    {:9s} FR<={}  '.format(fight, f) + ' '.join('SP<={} {:6.2f}'.format(s, x)
+                                                                    for s, x in enumerate(row)))
+    best = None
+    choices = [[(f, s) for f in fr_range(x) for s in range(4)] for x in FIGHTS]
+    for combo in itertools.product(*choices):
+        if sum(c[0] for c in combo) > BAG_NOW['fullrestore'] or sum(c[1] for c in combo) > BAG_NOW['superpotion']:
+            continue
+        total = sum(curve[(x, f, s)] for x, (f, s) in zip(FIGHTS, combo))
+        if total == float('inf'):
+            continue
+        key = (round(total / 0.02), sum(c[1] for c in combo))
+        if best is None or key < best[0]:
+            best = (key, combo, total)
+    fr, sp = [c[0] for c in best[1]], [c[1] for c in best[1]]
+    log.append('    -> FR {} SP {}: {:.2f} tries (sum of per-fight curves)'.format(fr, sp, best[2]))
+    return fr, sp
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--runs', type=int, default=1000)
@@ -241,24 +332,33 @@ def main(argv=None):
     parser.add_argument('--workers', type=int, default=9)
     parser.add_argument('--out-dir', type=Path, required=True)
     parser.add_argument('--write-plan', action='store_true', help='write the chosen split into plan.json')
+    parser.add_argument('--chain-only', action='store_true', help='skip the search: run plan.json as it is')
+    parser.add_argument('--plan', type=Path, default=planned.DEFAULT_PLAN, help='plan file (default plan.json)')
+    parser.add_argument('--cap-search', action='store_true',
+                        help='search Full Restore x Super Potion caps, then run the chain with the best split')
     args = parser.parse_args(argv)
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    base = planned.load_plan()
+    base = planned.load_plan(args.plan)
     sp = [base['fights'][f]['caps']['superpotion'] for f in FIGHTS]
     heal = True
     log = ['Super Potion split search (objective: total expected tries; Super Potions <= {})'.format(
         BAG_NOW['superpotion'])]
     with ProcessPoolExecutor(args.workers, initializer=R._init) as ex:
         search_seeds = ['s:{}'.format(i) for i in range(args.search_runs)]
-        for _ in range(2):
+        if args.cap_search:
+            fr, sp = search_caps(ex, args.workers, base, search_seeds, log)
+            print('\n'.join(log), flush=True)
+            base = with_caps(base, fr, sp)
+        for _ in range(0 if args.chain_only or args.cap_search else 2):
             sp, heal = search(ex, args.workers, base, search_seeds, sp, log)
             print('\n'.join(log), flush=True)
-        plan = with_split(base, sp, heal)
+        plan = base if args.chain_only or args.cap_search else with_split(base, sp, heal)
         seeds = ['f:{}'.format(i) for i in range(args.runs)]
         out, _ = chain(ex, args.workers, plan, seeds)
     text = render(plan, out, args.runs) + '\n\n' + '\n'.join(log)
     print(text)
-    (args.out_dir / 'final.txt').write_text(text + '\n')
+    (args.out_dir / ('caps-chain.txt' if args.cap_search else 'chain.txt' if args.chain_only else 'final.txt')).write_text(text + '\n')
+    (args.out_dir / 'boundaries.json').write_text(json.dumps(boundaries(out), indent=1) + '\n')
     if args.write_plan:
         planned.DEFAULT_PLAN.write_text(json_dump(plan))
 
@@ -266,13 +366,14 @@ def main(argv=None):
 def json_dump(plan):
     """plan.json in its hand layout: only caps, reserves and the Dragonite block change, so patch those lines."""
     text = planned.DEFAULT_PLAN.read_text()
-    import json
     import re
     for fight in FIGHTS:
         row = plan['fights'][fight]
         for key, value in (('caps', row['caps']), ('items', row['reserve']['items'])):
             pattern = r'("{}":\s*)\{{[^{{}}]*\}}'.format(key)
             start = text.index('"{}": {{'.format(fight))
+            if key == 'items':  # the reserve's, not the contract's
+                start = text.index('"reserve": {', start)
             m = re.compile(pattern).search(text, start)
             text = text[:m.start()] + m.group(1) + json.dumps(value).replace('{"', '{"').replace(', ', ', ') + text[m.end():]
     if 'heal' not in plan['fights']['lance']['foes'][4]:
