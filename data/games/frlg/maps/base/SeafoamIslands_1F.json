@@ -70,6 +70,7 @@
       "name": "pushable_boulder",
       "coord": [22, 12],
       "hide_flag": "FLAG_HIDE_SEAFOAM_1F_BOULDER_1",
+      "pushable": true,
       "source_event": 0,
       "source_script": "EventScript_StrengthBoulder"
     },
@@ -77,6 +78,7 @@
       "name": "pushable_boulder",
       "coord": [32, 9],
       "hide_flag": "FLAG_HIDE_SEAFOAM_1F_BOULDER_2",
+      "pushable": true,
       "source_event": 1,
       "source_script": "EventScript_StrengthBoulder"
     }

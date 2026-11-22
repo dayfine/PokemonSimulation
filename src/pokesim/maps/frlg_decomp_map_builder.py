@@ -74,6 +74,7 @@ TERRAIN = {
     'MB_TALL_GRASS': '~', 'MB_WARP_DOOR': 'D',
     'MB_SPIN_UP': 'u', 'MB_SPIN_DOWN': 'd', 'MB_SPIN_LEFT': 'l', 'MB_SPIN_RIGHT': 'r',
     'MB_STOP_SPINNING': 'o', 'MB_FALL_WARP': 'H', 'MB_STRENGTH_BUTTON': 'B',
+    'MB_ICE': 'i', 'MB_THIN_ICE': 'I',
     **{'MB_IMPASSABLE_' + side.name: glyph for glyph, side in CLOSED_SIDES.items()},
 }
 #   Open tiles whose warp is taken other than by walking into it: how.
@@ -95,10 +96,8 @@ LEDGES = {'MB_JUMP_' + direction.name: glyph for direction, glyph in LEDGE_GLYPH
 #   counter tile without collision (PewterCity_Museum_1F (11, 5)) is floor.
 FLOOR = (
     'MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS', 'MB_TALL_GRASS',
-    'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE', 'MB_COUNTER',
+    'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_COUNTER',
     'MB_PUDDLE', 'MB_HOT_SPRINGS',
-    #   Cracks on the first step and falls through on the second (Icefall Cave).
-    'MB_THIN_ICE',
     #   Not surfable (sBehaviorSurfable): the player walks on it, as on the
     #   sand bars of Route 21.
     'MB_SHALLOW_WATER',
@@ -472,31 +471,35 @@ def quiz_door_gates(scripts, name, tiles):
     return gates
 
 
-#   Cut trees. A tree is an object (OBJ_EVENT_GFX_CUT_TREE) on open ground;
-#   EventScript_CutTree removes it and sets its hide flag, a temporary flag
-#   (FLAG_TEMP_*) that a warp clears, so the tree grows back. Its tile is a
-#   gate (glyph `G`) that opens to the ground under it (`opens_by: cut`, the
-#   hide flag); the object stays in `objects`.
-CUT_TREE_GFX = 'OBJ_EVENT_GFX_CUT_TREE'
+#   Cut trees and Rock Smash rocks. Each is an object on open ground whose
+#   field-move script removes it and sets its hide flag (a temporary FLAG_TEMP_*
+#   that a warp clears). Its tile is a gate (glyph `G`) that opens to the
+#   ground under it; the object stays in `npcs`.
+OBSTACLE_GATES = {
+    'OBJ_EVENT_GFX_CUT_TREE': ('cut_tree', 'cut', 'cut tree'),
+    'OBJ_EVENT_GFX_ROCK_SMASH_ROCK': ('rock_smash', 'rock_smash', 'rock smash rock'),
+}
 
 
 def cut_tree_gates(objects, tiles):
-    """The `gates` of a map's cut trees, `cut_tree_<x>_<y>`, from its
-    `object_events` and the blockdata rows `tiles`. Raises if a tree stands on
-    a tile other than open ground or has no hide flag."""
+    """The `gates` of a map's cut trees and Rock Smash rocks, from its
+    `object_events` and the blockdata rows `tiles`. Raises if an obstacle stands
+    on a tile other than open ground or has no hide flag."""
     gates = {}
     for obj in objects:
-        if obj.get('graphics_id') != CUT_TREE_GFX or not (0 <= obj['y'] < len(tiles) and 0 <= obj['x'] < len(tiles[0])):
+        spec = OBSTACLE_GATES.get(obj.get('graphics_id'))
+        if spec is None or not (0 <= obj['y'] < len(tiles) and 0 <= obj['x'] < len(tiles[0])):
             continue
+        prefix, opens_by, label = spec
         x, y = obj['x'], obj['y']
         ground = tiles[y][x]
         if ground not in ('.', '~'):
-            raise ValueError(f'cut tree ({x}, {y}) stands on {ground!r}, not open ground')
+            raise ValueError(f'{label} ({x}, {y}) stands on {ground!r}, not open ground')
         flag = obj.get('flag') or '0'
         if not flag.startswith('FLAG_'):
-            raise ValueError(f'cut tree ({x}, {y}) has no hide flag')
-        gates[f'cut_tree_{x}_{y}'] = {
-            'tiles': [[x, y]], 'open_glyph': ground, 'new_game': 'closed', 'opens_by': 'cut', 'flag': flag}
+            raise ValueError(f'{label} ({x}, {y}) has no hide flag')
+        gates[f'{prefix}_{x}_{y}'] = {
+            'tiles': [[x, y]], 'open_glyph': ground, 'new_game': 'closed', 'opens_by': opens_by, 'flag': flag}
     return gates
 
 
@@ -875,6 +878,8 @@ def map_object(obj, tiles, event_index=None, path=None):
     flag = obj.get('flag') or '0'
     if flag != '0':
         data['hide_flag'] = flag
+    if kind == 'pushable_boulder':
+        data['pushable'] = True
     return data
 
 

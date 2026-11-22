@@ -34,8 +34,8 @@
     "#############.###.......#####.#####......################",
     "#############.###..###..#####.#####.#....################",
     "#############.###..###....###.###.#..#..#################",
-    "#############.###..###.........#.....vvvv################",
-    "#############......######.........##....#################",
+    "#############.###..###.........#..G..vvvv################",
+    "#############......######.........##G...#################",
     "#############......######..#........#..#.################",
     "##########################......#.......#################",
     "#############################..##########################",
@@ -59,10 +59,10 @@
     "#######.~~#...#......#......>.......#####################",
     "#######~~~#...#......#......>.......#####################",
     "#######~~~###.####..##......>......######################",
-    "########~~~##.......#####..#####..#######################",
-    "#######~.~.~#.......#####..#####..#######..##############",
-    "#######~~.~.####....~.~..~~~~.......###....##############",
-    "########.~.....#...~~~.~~.~~~.......#......##############",
+    "########~~~##.....G.#####..#####..#######################",
+    "#######~.~.~#......G#####..#####..#######..##############",
+    "#######~~.~.####....~.~..~~~~G......###....##############",
+    "########.~.....#...~~~.~~.~~~.G.....#......##############",
     "##########~....#..~.~~~~~~~..~.vvvvv#......##############",
     "##########.....################.....#...#################",
     "##########......#.............##..###...#################",
@@ -93,6 +93,50 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "rock_smash_29_41": {
+      "tiles": [[29, 41]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_12"
+    },
+    "rock_smash_30_42": {
+      "tiles": [[30, 42]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_13"
+    },
+    "rock_smash_34_14": {
+      "tiles": [[34, 14]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_14"
+    },
+    "rock_smash_36_15": {
+      "tiles": [[36, 15]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_15"
+    },
+    "rock_smash_18_39": {
+      "tiles": [[18, 39]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_16"
+    },
+    "rock_smash_19_40": {
+      "tiles": [[19, 40]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_17"
+    }
+  },
   "hidden_items": [
     {
       "coord": [18, 17],
@@ -169,9 +213,27 @@
       "source_event": 7,
       "source_script": "EventScript_RockSmash"
     },
-    {"name": "pushable_boulder", "coord": [22, 45], "source_event": 8, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [17, 46], "source_event": 9, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [36, 14], "source_event": 10, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [22, 45],
+      "pushable": true,
+      "source_event": 8,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [17, 46],
+      "pushable": true,
+      "source_event": 9,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [36, 14],
+      "pushable": true,
+      "source_event": 10,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "rock_smash_rock",
       "coord": [34, 14],
@@ -186,8 +248,20 @@
       "source_event": 12,
       "source_script": "EventScript_RockSmash"
     },
-    {"name": "pushable_boulder", "coord": [35, 14], "source_event": 13, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [35, 17], "source_event": 14, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [35, 14],
+      "pushable": true,
+      "source_event": 13,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [35, 17],
+      "pushable": true,
+      "source_event": 14,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "rock_smash_rock",
       "coord": [18, 39],

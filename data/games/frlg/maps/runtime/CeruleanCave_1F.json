@@ -37,10 +37,10 @@
     "##~~#.~~#www#~~~~##~~~~~~###~~~#~~~~~###",
     "##~~~~~~#~~~#~~~~####~~~####~~~#~~~#####",
     "##~~~~~~#~~~#~~~~~~~~~~~~~~~~~~#~~~#####",
-    "#####.###~~~##.#~~~~~~~~~~~~~~~#~~~#####",
+    "#####.###G~~##.#~~~~~~~~~~~~~~~#~~~#####",
     "#####~~~~~~~~~~#~~~~~~~~~~~~~~~#~~~#####",
-    "#####~~~~~~~~~~#~~~~~~~~~~~~~~~#~~~#####",
-    "#####~~~~~~~~~~#################~.~#####",
+    "#####G~~~~~~~~G#~~~~~~~~~~~~~~~#~~~#####",
+    "#####~~G~~~G~G~#################~.~#####",
     "########################################"
   ],
   "elevation": [
@@ -91,6 +91,50 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "rock_smash_7_21": {
+      "tiles": [[7, 21]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_12"
+    },
+    "rock_smash_13_21": {
+      "tiles": [[13, 21]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_13"
+    },
+    "rock_smash_5_20": {
+      "tiles": [[5, 20]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_14"
+    },
+    "rock_smash_14_20": {
+      "tiles": [[14, 20]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_15"
+    },
+    "rock_smash_11_21": {
+      "tiles": [[11, 21]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_16"
+    },
+    "rock_smash_9_18": {
+      "tiles": [[9, 18]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_17"
+    }
+  },
   "hidden_items": [
     {
       "coord": [12, 2],

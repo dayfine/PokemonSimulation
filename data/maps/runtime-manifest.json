@@ -452,7 +452,7 @@
         {
           "name": "CeruleanCave_1F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_1F.json",
-          "sha256": "7458c386e4a1db5f212c3890b0e688afb2bd861970fe57873b6919846fe1d15f",
+          "sha256": "6234d6068e12e68dbe5f0231426d690ebeff3fab039cba0d3d78dc5d7ab295c0",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_1F.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCave_1F/map.json",
@@ -498,13 +498,13 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCave_1F.json",
-            "sha256": "7458c386e4a1db5f212c3890b0e688afb2bd861970fe57873b6919846fe1d15f"
+            "sha256": "6234d6068e12e68dbe5f0231426d690ebeff3fab039cba0d3d78dc5d7ab295c0"
           }
         },
         {
           "name": "CeruleanCave_2F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_2F.json",
-          "sha256": "53d682b34860b98423ebd5260e5efb112f28cf38024f5976f33be6dbb6372881",
+          "sha256": "8797007fa72fa7ce8e0004113a037facc6024cf44fc3e049b637b75db20491c3",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_2F.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCave_2F/map.json",
@@ -551,13 +551,13 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCave_2F.json",
-            "sha256": "53d682b34860b98423ebd5260e5efb112f28cf38024f5976f33be6dbb6372881"
+            "sha256": "8797007fa72fa7ce8e0004113a037facc6024cf44fc3e049b637b75db20491c3"
           }
         },
         {
           "name": "CeruleanCave_B1F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_B1F.json",
-          "sha256": "e04a375efed05ff5524e19cfde2f3fdfdc7b9c56f56347188cba710185245910",
+          "sha256": "c0d8f20ef6de114be462c9a1f04fc2c8b30071224877109990991570d7259196",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_B1F.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCave_B1F/map.json",
@@ -603,7 +603,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCave_B1F.json",
-            "sha256": "e04a375efed05ff5524e19cfde2f3fdfdc7b9c56f56347188cba710185245910"
+            "sha256": "c0d8f20ef6de114be462c9a1f04fc2c8b30071224877109990991570d7259196"
           }
         },
         {
@@ -1264,7 +1264,7 @@
         {
           "name": "FourIsland",
           "file": "data/games/frlg/maps/runtime/FourIsland.json",
-          "sha256": "c5f4d99596361a18e34b168b7b82d6b2c3f7e3d4b1feb84fe1538d30acd719f9",
+          "sha256": "9d77213c0771d91eb26aa3ae4d9d1627ed01c778ffaea445137e51b0b2b4505b",
           "source": {
             "decomp_file": "data/maps/FourIsland/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -1304,7 +1304,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FourIsland.json",
-            "sha256": "c5f4d99596361a18e34b168b7b82d6b2c3f7e3d4b1feb84fe1538d30acd719f9"
+            "sha256": "9d77213c0771d91eb26aa3ae4d9d1627ed01c778ffaea445137e51b0b2b4505b"
           }
         },
         {
@@ -1345,7 +1345,7 @@
         {
           "name": "FourIsland_IcefallCave_1F",
           "file": "data/games/frlg/maps/runtime/FourIsland_IcefallCave_1F.json",
-          "sha256": "ac442ec9c4b972fc4f772fcd827fec0d386e0bc7472115f776600384789a0bd8",
+          "sha256": "255f5c9675dcd339e2400be9a6ad94660b2e8c29418469cac61e96edefd1b68b",
           "source": {
             "decomp_file": "data/maps/FourIsland_IcefallCave_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -1385,13 +1385,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FourIsland_IcefallCave_1F.json",
-            "sha256": "ac442ec9c4b972fc4f772fcd827fec0d386e0bc7472115f776600384789a0bd8"
+            "sha256": "255f5c9675dcd339e2400be9a6ad94660b2e8c29418469cac61e96edefd1b68b"
           }
         },
         {
           "name": "FourIsland_IcefallCave_B1F",
           "file": "data/games/frlg/maps/runtime/FourIsland_IcefallCave_B1F.json",
-          "sha256": "f69c251b3ab0bf754cdfebc1df91c571ecf64a170cea436d589184464289be90",
+          "sha256": "d1403d5adc00d4f82a6f8d377d2f49ecaefa5b6ffcef08c337676003ffb6819a",
           "source": {
             "decomp_file": "data/maps/FourIsland_IcefallCave_B1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -1432,7 +1432,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FourIsland_IcefallCave_B1F.json",
-            "sha256": "f69c251b3ab0bf754cdfebc1df91c571ecf64a170cea436d589184464289be90"
+            "sha256": "d1403d5adc00d4f82a6f8d377d2f49ecaefa5b6ffcef08c337676003ffb6819a"
           }
         },
         {
@@ -1645,7 +1645,7 @@
         {
           "name": "FuchsiaCity_WardensHouse",
           "file": "data/games/frlg/maps/runtime/FuchsiaCity_WardensHouse.json",
-          "sha256": "f4f9962f296bc91933dafa281c4cfe7319b7e1909a89cee7b2419acc0d478b0a",
+          "sha256": "8a2fdd0f73de692f741fa64ccb94a378a3278276a1720fcae6daac4afbd8ae37",
           "source": {
             "decomp_file": "data/maps/FuchsiaCity_WardensHouse/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -1686,7 +1686,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FuchsiaCity_WardensHouse.json",
-            "sha256": "f4f9962f296bc91933dafa281c4cfe7319b7e1909a89cee7b2419acc0d478b0a"
+            "sha256": "8a2fdd0f73de692f741fa64ccb94a378a3278276a1720fcae6daac4afbd8ae37"
           }
         },
         {
@@ -1912,7 +1912,7 @@
         {
           "name": "MtEmber_Exterior",
           "file": "data/games/frlg/maps/runtime/MtEmber_Exterior.json",
-          "sha256": "c645dba08892ef411441339584403370d971ec43475b5aae2b772ceadf427d91",
+          "sha256": "15bebe640f9cf2344f0edeaaffc5e9b9e88495d265e123087a42dc5cc5029b1c",
           "source": {
             "decomp_file": "data/maps/MtEmber_Exterior/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -1953,13 +1953,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_Exterior.json",
-            "sha256": "c645dba08892ef411441339584403370d971ec43475b5aae2b772ceadf427d91"
+            "sha256": "15bebe640f9cf2344f0edeaaffc5e9b9e88495d265e123087a42dc5cc5029b1c"
           }
         },
         {
           "name": "MtEmber_RubyPath_1F",
           "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_1F.json",
-          "sha256": "ac97b9408be879dde9d27438646ab76fcde425ab990d63ed3fc10b0105e0f616",
+          "sha256": "61c801b22896bf95e7a3634af48387009700c5cb24b3390fd9538177081e9a5b",
           "source": {
             "decomp_file": "data/maps/MtEmber_RubyPath_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -1988,13 +1988,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_RubyPath_1F.json",
-            "sha256": "ac97b9408be879dde9d27438646ab76fcde425ab990d63ed3fc10b0105e0f616"
+            "sha256": "61c801b22896bf95e7a3634af48387009700c5cb24b3390fd9538177081e9a5b"
           }
         },
         {
           "name": "MtEmber_RubyPath_B1F",
           "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B1F.json",
-          "sha256": "692a49a6f2147d31c478a12b09356f179987ff678d4fe6cb1a4850ad9d04e655",
+          "sha256": "1b7ee1bbc9ea53ac65f6c5c9a5b9b7497aa04b6c96740944accaafe7adf2ea6c",
           "source": {
             "decomp_file": "data/maps/MtEmber_RubyPath_B1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2023,13 +2023,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B1F.json",
-            "sha256": "692a49a6f2147d31c478a12b09356f179987ff678d4fe6cb1a4850ad9d04e655"
+            "sha256": "1b7ee1bbc9ea53ac65f6c5c9a5b9b7497aa04b6c96740944accaafe7adf2ea6c"
           }
         },
         {
           "name": "MtEmber_RubyPath_B1F_Stairs",
           "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B1F_Stairs.json",
-          "sha256": "ed7911f038ff966962400b14fe171958fa13ae74163d525f7a949a50f8e696d5",
+          "sha256": "8d6d6e87a2e7e7687ec63c03d2226d142363cb56b57f7380d2210b450abe7aef",
           "source": {
             "decomp_file": "data/maps/MtEmber_RubyPath_B1F_Stairs/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2058,13 +2058,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B1F_Stairs.json",
-            "sha256": "ed7911f038ff966962400b14fe171958fa13ae74163d525f7a949a50f8e696d5"
+            "sha256": "8d6d6e87a2e7e7687ec63c03d2226d142363cb56b57f7380d2210b450abe7aef"
           }
         },
         {
           "name": "MtEmber_RubyPath_B2F",
           "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B2F.json",
-          "sha256": "cec6438210d4802bd75c8b135cf83b642403731a1ddcc3f202a962b2d8bf9892",
+          "sha256": "a6cbf6a4f85ba885c67091f000e817f341b1bd4cc5622a738060d6fbff46ad9f",
           "source": {
             "decomp_file": "data/maps/MtEmber_RubyPath_B2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2093,13 +2093,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B2F.json",
-            "sha256": "cec6438210d4802bd75c8b135cf83b642403731a1ddcc3f202a962b2d8bf9892"
+            "sha256": "a6cbf6a4f85ba885c67091f000e817f341b1bd4cc5622a738060d6fbff46ad9f"
           }
         },
         {
           "name": "MtEmber_RubyPath_B2F_Stairs",
           "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B2F_Stairs.json",
-          "sha256": "77bf6362191a7d345b5f15706164b6ee9f230d6646c29e63df342755bf7361e2",
+          "sha256": "2a41dd0cb7b456753b239799a057fe6d9bc5d315981d61223c73d5bb951dddc1",
           "source": {
             "decomp_file": "data/maps/MtEmber_RubyPath_B2F_Stairs/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2128,13 +2128,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B2F_Stairs.json",
-            "sha256": "77bf6362191a7d345b5f15706164b6ee9f230d6646c29e63df342755bf7361e2"
+            "sha256": "2a41dd0cb7b456753b239799a057fe6d9bc5d315981d61223c73d5bb951dddc1"
           }
         },
         {
           "name": "MtEmber_RubyPath_B3F",
           "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B3F.json",
-          "sha256": "fb169c1a3ed09cadf1bb82d23b68a0f6ca8e0acba470baf0ca6ce660baf16653",
+          "sha256": "bcd5ae61da4814737321c5e0166271ab3be3ab9d69ea908d1c395c291475a8d9",
           "source": {
             "decomp_file": "data/maps/MtEmber_RubyPath_B3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2163,7 +2163,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B3F.json",
-            "sha256": "fb169c1a3ed09cadf1bb82d23b68a0f6ca8e0acba470baf0ca6ce660baf16653"
+            "sha256": "bcd5ae61da4814737321c5e0166271ab3be3ab9d69ea908d1c395c291475a8d9"
           }
         },
         {
@@ -2239,7 +2239,7 @@
         {
           "name": "MtEmber_Summit",
           "file": "data/games/frlg/maps/runtime/MtEmber_Summit.json",
-          "sha256": "f62e1667351e10987ea09a12626d58bfea841b6b2925b91a725acd3e643f4306",
+          "sha256": "42b064af153c30c82ff702338f9c626cc5c8edbd1d01c6f60adf88546108ca7a",
           "source": {
             "decomp_file": "data/maps/MtEmber_Summit/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2268,7 +2268,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_Summit.json",
-            "sha256": "f62e1667351e10987ea09a12626d58bfea841b6b2925b91a725acd3e643f4306"
+            "sha256": "42b064af153c30c82ff702338f9c626cc5c8edbd1d01c6f60adf88546108ca7a"
           }
         },
         {
@@ -2309,7 +2309,7 @@
         {
           "name": "MtEmber_SummitPath_2F",
           "file": "data/games/frlg/maps/runtime/MtEmber_SummitPath_2F.json",
-          "sha256": "5332fcdd52264f0c792346f2a38ad6931d0ddd80bd4b4d1ca39296f93bd13ae6",
+          "sha256": "2765845c35a2356c2a1463728cda4964773b3487c514433750fda6897d0cc0c1",
           "source": {
             "decomp_file": "data/maps/MtEmber_SummitPath_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2338,7 +2338,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/MtEmber_SummitPath_2F.json",
-            "sha256": "5332fcdd52264f0c792346f2a38ad6931d0ddd80bd4b4d1ca39296f93bd13ae6"
+            "sha256": "2765845c35a2356c2a1463728cda4964773b3487c514433750fda6897d0cc0c1"
           }
         },
         {
@@ -2595,7 +2595,7 @@
         {
           "name": "OneIsland_KindleRoad",
           "file": "data/games/frlg/maps/runtime/OneIsland_KindleRoad.json",
-          "sha256": "8c2213edc06e452ff2074c69369d48723002bab08ad0c9da839de01c62881b07",
+          "sha256": "ac9bcff684f038b5e6423cdc2c9bc799696a739974db1c276befe9dd635b5077",
           "source": {
             "decomp_file": "data/maps/OneIsland_KindleRoad/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2635,7 +2635,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/OneIsland_KindleRoad.json",
-            "sha256": "8c2213edc06e452ff2074c69369d48723002bab08ad0c9da839de01c62881b07"
+            "sha256": "ac9bcff684f038b5e6423cdc2c9bc799696a739974db1c276befe9dd635b5077"
           }
         },
         {
@@ -3266,7 +3266,7 @@
         {
           "name": "PokemonLeague_HallOfFame",
           "file": "data/games/frlg/maps/runtime/PokemonLeague_HallOfFame.json",
-          "sha256": "14f0fcfbea0d84ebc008fa467621e4f30e09e26d477864b057c6d9ac79ba1e31",
+          "sha256": "ce7adad9d63ece38a66cb304457bf048888ee637400cd018307bcc1004c94c86",
           "source": {
             "decomp_file": "data/maps/PokemonLeague_HallOfFame/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -3295,7 +3295,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonLeague_HallOfFame.json",
-            "sha256": "14f0fcfbea0d84ebc008fa467621e4f30e09e26d477864b057c6d9ac79ba1e31"
+            "sha256": "ce7adad9d63ece38a66cb304457bf048888ee637400cd018307bcc1004c94c86"
           }
         },
         {
@@ -3984,7 +3984,7 @@
         {
           "name": "RockTunnel_B1F",
           "file": "data/games/frlg/maps/runtime/RockTunnel_B1F.json",
-          "sha256": "d8a4f463d0d7f179a8df25358b8b46c1557ac04ba9b1d51d797090f41e940631",
+          "sha256": "08a01ce26e3064c9119abc0b1cd1d3d21bda8101b4fc034f83984bd889d37277",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/RockTunnel_B1F.json",
           "source": {
             "decomp_file": "data/maps/RockTunnel_B1F/map.json",
@@ -4031,7 +4031,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/RockTunnel_B1F.json",
-            "sha256": "d8a4f463d0d7f179a8df25358b8b46c1557ac04ba9b1d51d797090f41e940631"
+            "sha256": "08a01ce26e3064c9119abc0b1cd1d3d21bda8101b4fc034f83984bd889d37277"
           }
         },
         {
@@ -6425,7 +6425,7 @@
         {
           "name": "SeafoamIslands_1F",
           "file": "data/games/frlg/maps/runtime/SeafoamIslands_1F.json",
-          "sha256": "edc41f8b2c7ba93c892f2d613cb97cd83bd688230c367698ae1aa61da6568001",
+          "sha256": "f14f44d41fa0f6ee2b3a806956baac2f9ecf2081ad12bb52e8ec5f07a9f89519",
           "source": {
             "decomp_file": "data/maps/SeafoamIslands_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6466,13 +6466,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SeafoamIslands_1F.json",
-            "sha256": "edc41f8b2c7ba93c892f2d613cb97cd83bd688230c367698ae1aa61da6568001"
+            "sha256": "f14f44d41fa0f6ee2b3a806956baac2f9ecf2081ad12bb52e8ec5f07a9f89519"
           }
         },
         {
           "name": "SeafoamIslands_B1F",
           "file": "data/games/frlg/maps/runtime/SeafoamIslands_B1F.json",
-          "sha256": "5363645958fe7272b225caa8ef3e0175c2b4b1c958be6a0aab59f93a4a32a04b",
+          "sha256": "f0c2ea793a6b34c70ef78023c1e0ef9202ae16766fb98bd98ba44380560c67c4",
           "source": {
             "decomp_file": "data/maps/SeafoamIslands_B1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6512,13 +6512,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SeafoamIslands_B1F.json",
-            "sha256": "5363645958fe7272b225caa8ef3e0175c2b4b1c958be6a0aab59f93a4a32a04b"
+            "sha256": "f0c2ea793a6b34c70ef78023c1e0ef9202ae16766fb98bd98ba44380560c67c4"
           }
         },
         {
           "name": "SeafoamIslands_B2F",
           "file": "data/games/frlg/maps/runtime/SeafoamIslands_B2F.json",
-          "sha256": "41e4a02e81580a3073aece0d8524b3445097102c8da7296c651c54d8e807785a",
+          "sha256": "65f1c57af50c6af797eef8cb7c654cf4d81c66ae43d4385ce762104548147579",
           "source": {
             "decomp_file": "data/maps/SeafoamIslands_B2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6558,13 +6558,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SeafoamIslands_B2F.json",
-            "sha256": "41e4a02e81580a3073aece0d8524b3445097102c8da7296c651c54d8e807785a"
+            "sha256": "65f1c57af50c6af797eef8cb7c654cf4d81c66ae43d4385ce762104548147579"
           }
         },
         {
           "name": "SeafoamIslands_B3F",
           "file": "data/games/frlg/maps/runtime/SeafoamIslands_B3F.json",
-          "sha256": "44687fc878e519419d67be2134f29d015191767be3555597f1cc4c79d2ab61f5",
+          "sha256": "ba6f9b97a8ba10f636886b190e8786794c4169d905a17b4eb13f728daea847cc",
           "source": {
             "decomp_file": "data/maps/SeafoamIslands_B3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6592,13 +6592,13 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SeafoamIslands_B3F.json",
-            "sha256": "44687fc878e519419d67be2134f29d015191767be3555597f1cc4c79d2ab61f5"
+            "sha256": "ba6f9b97a8ba10f636886b190e8786794c4169d905a17b4eb13f728daea847cc"
           }
         },
         {
           "name": "SeafoamIslands_B4F",
           "file": "data/games/frlg/maps/runtime/SeafoamIslands_B4F.json",
-          "sha256": "867504cae33b798b521f9436a167299421401468e385fabc5919c04784697dd8",
+          "sha256": "04898449c70db8abf4de15535fe632c1993fcb53028cd9a501dd2e8a5d6791e8",
           "source": {
             "decomp_file": "data/maps/SeafoamIslands_B4F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6638,7 +6638,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SeafoamIslands_B4F.json",
-            "sha256": "867504cae33b798b521f9436a167299421401468e385fabc5919c04784697dd8"
+            "sha256": "04898449c70db8abf4de15535fe632c1993fcb53028cd9a501dd2e8a5d6791e8"
           }
         },
         {
@@ -6714,7 +6714,7 @@
         {
           "name": "SevenIsland_SevaultCanyon",
           "file": "data/games/frlg/maps/runtime/SevenIsland_SevaultCanyon.json",
-          "sha256": "ef96a08fac4ff70623064c01e20ec746b985622eee320bd6fa1193cda89d50ca",
+          "sha256": "30109439651fa21ab03119b57638d82da706c808256c77f1dbfd6db0add0c274",
           "source": {
             "decomp_file": "data/maps/SevenIsland_SevaultCanyon/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6754,7 +6754,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SevenIsland_SevaultCanyon.json",
-            "sha256": "ef96a08fac4ff70623064c01e20ec746b985622eee320bd6fa1193cda89d50ca"
+            "sha256": "30109439651fa21ab03119b57638d82da706c808256c77f1dbfd6db0add0c274"
           }
         },
         {
@@ -7538,7 +7538,7 @@
         {
           "name": "SixIsland_RuinValley",
           "file": "data/games/frlg/maps/runtime/SixIsland_RuinValley.json",
-          "sha256": "acb0d20b9aae9fed186bc56af5c8f99f0adb812538f04c6d39a20cc6485e738b",
+          "sha256": "1cd42981c2d4c9eaf456b222cd86cf80db706c097e69918ed28a2fea325b0748",
           "source": {
             "decomp_file": "data/maps/SixIsland_RuinValley/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -7578,7 +7578,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/SixIsland_RuinValley.json",
-            "sha256": "acb0d20b9aae9fed186bc56af5c8f99f0adb812538f04c6d39a20cc6485e738b"
+            "sha256": "1cd42981c2d4c9eaf456b222cd86cf80db706c097e69918ed28a2fea325b0748"
           }
         },
         {
@@ -8446,7 +8446,7 @@
         {
           "name": "VictoryRoad_1F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_1F.json",
-          "sha256": "540d8b003c29f339956f3c0b5903dd4d49d05e8cd11adff7217bd3a28adeb3b6",
+          "sha256": "37c1447ad34588f091d96d1e0d9e3d828291ef38f729a5c507d44e74d063e626",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -8490,7 +8490,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_1F.json",
-            "sha256": "e7decdf2108ca0d369c3af30106b3932ff3eac268f56581d63180243444a3daa"
+            "sha256": "152af632b847165de1c1685845c136168af42de43e6d06bed65d76c3ac8b9b8b"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VictoryRoad_1F.json",
@@ -8500,7 +8500,7 @@
         {
           "name": "VictoryRoad_2F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_2F.json",
-          "sha256": "1018fed7b1f8e1504dcbec02f38ef609b3b0b0576f18d2c1ad7f2b686c9d10b5",
+          "sha256": "8503c1dbba6a7c18e63340a0040b2ace91acd78ec32ed2b65b46d68df631af76",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -8544,7 +8544,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_2F.json",
-            "sha256": "5b46bfcd40278939f990065bab5e584078f419984a3ed7e92bca582c34ca96cf"
+            "sha256": "8cf2f0c7c221cd6c4d1b5d9742bc9ac3a5384927992e82d5768976e8404d4942"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VictoryRoad_2F.json",
@@ -8554,7 +8554,7 @@
         {
           "name": "VictoryRoad_3F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_3F.json",
-          "sha256": "a6235387c1e16954ddae4c2d24687533e207109a8cd7e9e57e6eaf09308a5ee4",
+          "sha256": "4e1867719b93209abb6dc8269960fd1a1260a8aeda545b6dcdad6f37b6afce92",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -8598,7 +8598,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_3F.json",
-            "sha256": "83d34c7f44e48b2cca263aca95793e6a9bf9f649e2a02405098bcfe6f542b8b1"
+            "sha256": "cbed1f569f8a2e0ed2a809ab90d81cf4acc4369a431a01e40f6524536f5f8007"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VictoryRoad_3F.json",

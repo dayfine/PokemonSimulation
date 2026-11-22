@@ -153,14 +153,62 @@
       "source_event": 5,
       "source_script": "SixIsland_RuinValley_EventScript_Hector"
     },
-    {"name": "pushable_boulder", "coord": [17, 10], "source_event": 6, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [17, 12], "source_event": 7, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [18, 11], "source_event": 8, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [6, 33], "source_event": 9, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [6, 34], "source_event": 10, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [41, 32], "source_event": 11, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [41, 33], "source_event": 12, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [42, 33], "source_event": 13, "source_script": "EventScript_StrengthBoulder"}
+    {
+      "name": "pushable_boulder",
+      "coord": [17, 10],
+      "pushable": true,
+      "source_event": 6,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [17, 12],
+      "pushable": true,
+      "source_event": 7,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [18, 11],
+      "pushable": true,
+      "source_event": 8,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 33],
+      "pushable": true,
+      "source_event": 9,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [6, 34],
+      "pushable": true,
+      "source_event": 10,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [41, 32],
+      "pushable": true,
+      "source_event": 11,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [41, 33],
+      "pushable": true,
+      "source_event": 12,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [42, 33],
+      "pushable": true,
+      "source_event": 13,
+      "source_script": "EventScript_StrengthBoulder"
+    }
   ],
   "items": [
     {

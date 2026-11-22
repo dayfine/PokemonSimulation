@@ -159,12 +159,25 @@
     {
       "name": "pushable_boulder",
       "coord": [7, 18],
+      "pushable": true,
       "source_event": 4,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_1F_BOULDER"
     },
-    {"name": "pushable_boulder", "coord": [4, 12], "source_event": 5, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [16, 3], "source_event": 6, "source_script": "EventScript_StrengthBoulder"}
+    {
+      "name": "pushable_boulder",
+      "coord": [4, 12],
+      "pushable": true,
+      "source_event": 5,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [16, 3],
+      "pushable": true,
+      "source_event": 6,
+      "source_script": "EventScript_StrengthBoulder"
+    }
   ],
   "items": [
     {

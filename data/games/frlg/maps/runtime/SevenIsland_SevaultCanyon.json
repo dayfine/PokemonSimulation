@@ -50,7 +50,7 @@
     "###........##~~~########",
     "##...##..####~~~########",
     "##...##..####~~~########",
-    "##...##.........########",
+    "##...##....G....########",
     "##...##~..####..########",
     "##...##~~~####..########",
     "##...##~~~####..########",
@@ -60,13 +60,13 @@
     "##...##~~~~~~~~~########",
     "##...###################",
     "###....########....#####",
-    "###................#####",
+    "###G...............#####",
     "####...............#####",
     "#######....##.##.#######",
-    "#######....##.##.#######",
+    "#######G...##.##.#######",
     "#######....###..##.#####",
-    "#######....###..##.#####",
-    "#######.............####",
+    "#######....###.G##.#####",
+    "#######.....G...G...####",
     "##########..###.########",
     "##########..############",
     "#########...############",
@@ -192,6 +192,50 @@
     {"side": "south", "to_map": "SevenIsland_TanobyRuins", "offset": -48},
     {"side": "west", "to_map": "SevenIsland_SevaultCanyon_Entrance", "offset": -20}
   ],
+  "gates": {
+    "rock_smash_3_41": {
+      "tiles": [[3, 41]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_12"
+    },
+    "rock_smash_7_44": {
+      "tiles": [[7, 44]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_13"
+    },
+    "rock_smash_12_47": {
+      "tiles": [[12, 47]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_15"
+    },
+    "rock_smash_15_46": {
+      "tiles": [[15, 46]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_16"
+    },
+    "rock_smash_16_47": {
+      "tiles": [[16, 47]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_17"
+    },
+    "rock_smash_11_31": {
+      "tiles": [[11, 31]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_1B"
+    }
+  },
   "hidden_items": [
     {
       "coord": [15, 66],
@@ -270,7 +314,13 @@
       "source_event": 8,
       "source_script": "EventScript_RockSmash"
     },
-    {"name": "pushable_boulder", "coord": [13, 47], "source_event": 9, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [13, 47],
+      "pushable": true,
+      "source_event": 9,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "rock_smash_rock",
       "coord": [7, 44],
@@ -299,7 +349,13 @@
       "source_event": 13,
       "source_script": "EventScript_RockSmash"
     },
-    {"name": "pushable_boulder", "coord": [17, 47], "source_event": 14, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [17, 47],
+      "pushable": true,
+      "source_event": 14,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "rock_smash_rock",
       "coord": [11, 31],

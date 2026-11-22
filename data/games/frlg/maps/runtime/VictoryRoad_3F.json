@@ -167,6 +167,7 @@
     },
     {
       "name": "pushable_boulder",
+      "pushable": true,
       "source_event": 6,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_3F_BOULDER1",
@@ -175,13 +176,21 @@
     {
       "name": "pushable_boulder",
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_3F_BOULDER",
+      "pushable": true,
       "source_event": 7,
       "source_script": "EventScript_StrengthBoulder",
       "coord": [33, 18]
     },
-    {"name": "pushable_boulder", "source_event": 8, "source_script": "EventScript_StrengthBoulder", "coord": [35, 13]},
     {
       "name": "pushable_boulder",
+      "pushable": true,
+      "source_event": 8,
+      "source_script": "EventScript_StrengthBoulder",
+      "coord": [35, 13]
+    },
+    {
+      "name": "pushable_boulder",
+      "pushable": true,
       "source_event": 9,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_3F_BOULDER2",

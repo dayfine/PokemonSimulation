@@ -50,6 +50,8 @@ class Behavior(enum.Enum):
     ROCK = "rock"
     #   The player slides until something stops them.
     ICE = "ice"
+    #   Cracks on the first step and drops the player on the second.
+    THIN_ICE = "thin_ice"
     #   The player is moved in a fixed direction once on it.
     FORCED_NORTH = "forced_north"
     FORCED_EAST = "forced_east"

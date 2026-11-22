@@ -409,7 +409,7 @@ class EncounterTest(unittest.TestCase):
 class FloorAndWarpTest(unittest.TestCase):
     def test_cosmetic_floors_are_open_without_unhandled_mark(self):
         for behavior in ('MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS',
-                         'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE'):
+                         'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP'):
             with self.subTest(behavior=behavior):
                 unhandled = {}
                 glyph, entry = frlg_maps.tile_glyph(behavior, 0, unhandled, False)
@@ -428,6 +428,8 @@ class FloorAndWarpTest(unittest.TestCase):
         expected = {
             'MB_SPIN_UP': ('u', None),
             'MB_SPIN_DOWN': ('d', None),
+            'MB_ICE': ('i', None),
+            'MB_THIN_ICE': ('I', None),
             'MB_SPIN_LEFT': ('l', None),
             'MB_SPIN_RIGHT': ('r', None),
             'MB_STOP_SPINNING': ('o', None),

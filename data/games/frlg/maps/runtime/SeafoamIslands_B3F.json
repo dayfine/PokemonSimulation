@@ -113,6 +113,7 @@
       "name": "pushable_boulder",
       "coord": [23, 8],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_1",
+      "pushable": true,
       "source_event": 0,
       "source_script": "0x0"
     },
@@ -120,6 +121,7 @@
       "name": "pushable_boulder",
       "coord": [24, 8],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
+      "pushable": true,
       "source_event": 1,
       "source_script": "0x0"
     },
@@ -127,6 +129,7 @@
       "name": "pushable_boulder",
       "coord": [12, 16],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_5",
+      "pushable": true,
       "source_event": 2,
       "source_script": "EventScript_StrengthBoulder"
     },
@@ -134,6 +137,7 @@
       "name": "pushable_boulder",
       "coord": [13, 16],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_6",
+      "pushable": true,
       "source_event": 3,
       "source_script": "EventScript_StrengthBoulder"
     },
@@ -141,6 +145,7 @@
       "name": "pushable_boulder",
       "coord": [9, 16],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_4",
+      "pushable": true,
       "source_event": 4,
       "source_script": "EventScript_StrengthBoulder"
     },
@@ -148,6 +153,7 @@
       "name": "pushable_boulder",
       "coord": [6, 17],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_3",
+      "pushable": true,
       "source_event": 5,
       "source_script": "EventScript_StrengthBoulder"
     }

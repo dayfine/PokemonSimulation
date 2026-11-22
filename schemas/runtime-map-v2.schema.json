@@ -14,7 +14,7 @@
     },
     "tiles": {
       "type": "array",
-      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246udlroHBG]+$"},
+      "items": {"type": "string", "minLength": 1, "pattern": "^[#.~w^v<>DS 8246udlroHBGiI]+$"},
       "minItems": 1
     },
     "elevation": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-f]+$"}},
@@ -149,7 +149,7 @@
           "tiles": {"type": "array", "items": {"$ref": "#/$defs/coord"}, "minItems": 1},
           "open_glyph": {"enum": [".", "~", "2", "4", "6", "8"]},
           "new_game": {"enum": ["open", "closed"]},
-          "opens_by": {"enum": ["card_key_face_a", "quiz_answer", "cut"]},
+          "opens_by": {"enum": ["card_key_face_a", "quiz_answer", "cut", "rock_smash"]},
           "flag": {"type": "string", "pattern": "^FLAG_[A-Z0-9_]+$"},
           "switch": {"type": "string", "minLength": 1},
           "open_when": {"enum": ["on", "off"]}
@@ -273,7 +273,8 @@
         "hide_flag": {"type": "string"},
         "source_event": {"type": "integer", "minimum": 0, "maximum": 2147483647},
         "wander": {"$ref": "#/$defs/wander"},
-        "path": {"$ref": "#/$defs/path"}
+        "path": {"$ref": "#/$defs/path"},
+        "pushable": {"type": "boolean"}
       },
       "required": ["coord", "name"],
       "additionalProperties": true,

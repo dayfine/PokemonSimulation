@@ -43,9 +43,33 @@
       "source_event": 0,
       "source_script": "MtEmber_Summit_EventScript_Moltres"
     },
-    {"name": "pushable_boulder", "coord": [10, 12], "source_event": 1, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [9, 12], "source_event": 2, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [8, 11], "source_event": 3, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [8, 10], "source_event": 4, "source_script": "EventScript_StrengthBoulder"}
+    {
+      "name": "pushable_boulder",
+      "coord": [10, 12],
+      "pushable": true,
+      "source_event": 1,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [9, 12],
+      "pushable": true,
+      "source_event": 2,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 11],
+      "pushable": true,
+      "source_event": 3,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [8, 10],
+      "pushable": true,
+      "source_event": 4,
+      "source_script": "EventScript_StrengthBoulder"
+    }
   ]
 }

@@ -37,6 +37,8 @@ SYMBOLS = MappingProxyType({
     'o': TileSymbol(behavior=Behavior.STOP_SPIN),
     'H': TileSymbol(behavior=Behavior.FALL_WARP),
     'B': TileSymbol(behavior=Behavior.STRENGTH_BUTTON),
+    'i': TileSymbol(behavior=Behavior.ICE),
+    'I': TileSymbol(behavior=Behavior.THIN_ICE),
     #   A gate: a barrier the story opens (Silph Co. Card Key door, Pokemon
     #   Mansion switch barrier). Closed to a consumer that does not resolve the
     #   map's `gates` table against its story state.

@@ -100,7 +100,7 @@ def undo_added_links(game, data):
 # Every such gate is removed and its tile drawn as that ground before digesting.
 def undo_cut_tree_gates(data):
     gates = data.get('gates', {})
-    for gate_id in [g for g, gate in gates.items() if gate.get('opens_by') == 'cut']:
+    for gate_id in [g for g, gate in gates.items() if gate.get('opens_by') in ('cut', 'rock_smash')]:
         gate = gates.pop(gate_id)
         for x, y in gate['tiles']:
             row = data['tiles'][y]

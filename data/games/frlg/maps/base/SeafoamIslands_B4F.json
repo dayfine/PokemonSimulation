@@ -115,6 +115,7 @@
       "name": "pushable_boulder",
       "coord": [8, 18],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B4F_BOULDER_1",
+      "pushable": true,
       "source_event": 0,
       "source_script": "0x0"
     },
@@ -122,6 +123,7 @@
       "name": "pushable_boulder",
       "coord": [9, 18],
       "hide_flag": "FLAG_HIDE_SEAFOAM_B4F_BOULDER_2",
+      "pushable": true,
       "source_event": 1,
       "source_script": "0x0"
     },

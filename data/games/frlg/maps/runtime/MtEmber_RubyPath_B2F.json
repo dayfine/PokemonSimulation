@@ -13,10 +13,10 @@
     "############~~~#",
     "#######~~~~~~#~#",
     "#######~~#~#~#~#",
-    "####~~~~~#~~~~~#",
+    "####GG~~~#~~~~~#",
     "####~~~~######~#",
     "#.~~~########~~#",
-    "#~~~~########~~#",
+    "#G~~G########~~#",
     "#############.~#",
     "################"
   ],
@@ -27,10 +27,58 @@
   ],
   "flag_sets": {},
   "connections": [],
+  "gates": {
+    "rock_smash_4_8": {
+      "tiles": [[4, 8]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_12"
+    },
+    "rock_smash_1_8": {
+      "tiles": [[1, 8]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_13"
+    },
+    "rock_smash_4_5": {
+      "tiles": [[4, 5]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_14"
+    },
+    "rock_smash_5_5": {
+      "tiles": [[5, 5]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_15"
+    }
+  },
   "npcs": [
-    {"name": "pushable_boulder", "coord": [9, 3], "source_event": 0, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [12, 5], "source_event": 1, "source_script": "EventScript_StrengthBoulder"},
-    {"name": "pushable_boulder", "coord": [12, 2], "source_event": 2, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [9, 3],
+      "pushable": true,
+      "source_event": 0,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [12, 5],
+      "pushable": true,
+      "source_event": 1,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [12, 2],
+      "pushable": true,
+      "source_event": 2,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "rock_smash_rock",
       "coord": [4, 8],

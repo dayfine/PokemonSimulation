@@ -92,9 +92,9 @@
     "########....##..#.######",
     "########..####...####www",
     "########..####...####www",
-    "########..#####.#####www",
-    "########..#####.#######w",
-    "########....###.#######w",
+    "########..#####G#####www",
+    "########..#####G#######w",
+    "########....###G#######w",
     "########...........#.w##",
     "########.............w##",
     "#######.............ww##",
@@ -103,9 +103,9 @@
     "#######...#......#.www##",
     "#######~..#......#.www##",
     "#######~~.#......#.www##",
-    "#######~~.#......#.ww##w",
+    "#######~~G#......#.ww##w",
     "#######~~~##..#..#.ww##w",
-    "#######~~~....#..#.ww##w",
+    "#######~~~G...#..#.ww##w",
     "#######~~~....#..#.ww##w",
     "########~.....#..#.ww##w",
     "########......#..#.ww##w",
@@ -114,8 +114,8 @@
     "########~~~...#..#.www##",
     "########~~~~.#...#.www##",
     "#######~~~~~~#...#.www##",
-    "#######~~~..~#..##.www##",
-    "#######~~~~~.#..#..ww##w",
+    "#######~~~GG~#..##.www##",
+    "#######~~~~~G#..#..ww##w",
     "#######~~~~..#..#wwww##w",
     "########~~...#..#www##ww",
     "########.....#..#www##ww",
@@ -123,15 +123,15 @@
     "########..~~.#..#www##ww",
     "########.~~~#...#..ww##w",
     "########~~~~#...#..ww##w",
-    "#######~.~~~#......#ww##",
-    "#######...~~#......#ww##",
+    "#######~G~~~#......#ww##",
+    "#######..G~~#......#ww##",
     "#######..~~~#......#ww##",
     "#######...~~##..#..#ww##",
     "########..~~~<..#..#ww##",
     "########..~~~<..#..#ww##",
-    "########~.~~~#vv#..#ww##",
-    "########~~~~~...#..#ww##",
-    "########~~~~....##.#ww##",
+    "########~G~~~#vv#..#ww##",
+    "########~~~~~...#.G#ww##",
+    "########~~~~....##G#ww##",
     "########~~~~.....#.#ww##",
     "########~.~......#.#ww##",
     "########S........###ww##",
@@ -310,6 +310,99 @@
   ],
   "flag_sets": {},
   "connections": [{"side": "west", "to_map": "OneIsland", "offset": 120}],
+  "gates": {
+    "rock_smash_8_104": {
+      "tiles": [[8, 104]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_13"
+    },
+    "rock_smash_11_95": {
+      "tiles": [[11, 95]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_15"
+    },
+    "rock_smash_12_96": {
+      "tiles": [[12, 96]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_16"
+    },
+    "rock_smash_10_95": {
+      "tiles": [[10, 95]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_17"
+    },
+    "rock_smash_9_105": {
+      "tiles": [[9, 105]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_18"
+    },
+    "rock_smash_15_75": {
+      "tiles": [[15, 75]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_19"
+    },
+    "rock_smash_9_84": {
+      "tiles": [[9, 84]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_1A"
+    },
+    "rock_smash_15_74": {
+      "tiles": [[15, 74]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_1B"
+    },
+    "rock_smash_15_73": {
+      "tiles": [[15, 73]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_1C"
+    },
+    "rock_smash_18_111": {
+      "tiles": [[18, 111]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_1D"
+    },
+    "rock_smash_10_86": {
+      "tiles": [[10, 86]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_1E"
+    },
+    "rock_smash_9_110": {
+      "tiles": [[9, 110]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_1F"
+    },
+    "rock_smash_18_112": {
+      "tiles": [[18, 112]],
+      "open_glyph": ".",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_11"
+    }
+  },
   "npcs": [
     {
       "name": "swimmer_f_water",
