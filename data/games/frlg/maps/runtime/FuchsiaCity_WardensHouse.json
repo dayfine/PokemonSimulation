@@ -48,7 +48,13 @@
       "source_event": 0,
       "source_script": "FuchsiaCity_WardensHouse_EventScript_Warden"
     },
-    {"name": "pushable_boulder", "coord": [11, 6], "source_event": 1, "source_script": "EventScript_StrengthBoulder"},
+    {
+      "name": "pushable_boulder",
+      "coord": [11, 6],
+      "pushable": true,
+      "source_event": 1,
+      "source_script": "EventScript_StrengthBoulder"
+    },
     {
       "name": "0",
       "coord": [4, 1],

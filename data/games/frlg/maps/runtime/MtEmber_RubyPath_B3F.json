@@ -1,0 +1,159 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "MtEmber_RubyPath_B3F",
+  "source": {
+    "decomp_file": "data/maps/MtEmber_RubyPath_B3F/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "###############################",
+    "###############################",
+    "#####G~G#~~~~~###~#############",
+    "####G~~~##~~##~~~~#############",
+    "#.~~~~~#~~~~~~~#~~~~###########",
+    "#~~~G~~~~~#~#~####~~###########",
+    "######GG~##~~#####~~~~~~~~#####",
+    "###################~###~~~~~~##",
+    "###################~######~~~~#",
+    "###################~######~#~##",
+    "###################~######~#~##",
+    "###################~######~#~##",
+    "vv###############~~~#####~~~~##",
+    "#####~~~~~~~~~~~~~~~######~####",
+    "###~~~~~###########~######~####",
+    "#####~####################~####",
+    "#####~#####vv#############~####",
+    "####~~####################~####",
+    "###~~~~###vv#########~~~~~~####",
+    "###~~.~############.~~~~~~#####",
+    "###############################",
+    "###vv##vv######################",
+    "###############################"
+  ],
+  "points": {"warp_0": [1, 4], "warp_1": [19, 19], "warp_2": [5, 19]},
+  "warps": [
+    {"coord": [1, 4], "enter": "step_on", "to_map": "MtEmber_RubyPath_B2F", "to_point": "warp_1"},
+    {"coord": [19, 19], "enter": "step_on", "to_map": "MtEmber_RubyPath_B1F_Stairs", "to_point": "warp_0"},
+    {"coord": [5, 19], "enter": "step_on", "to_map": "MtEmber_RubyPath_B4F", "to_point": "warp_1"}
+  ],
+  "flag_sets": {},
+  "connections": [],
+  "gates": {
+    "rock_smash_7_2": {
+      "tiles": [[7, 2]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_12"
+    },
+    "rock_smash_4_3": {
+      "tiles": [[4, 3]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_13"
+    },
+    "rock_smash_6_6": {
+      "tiles": [[6, 6]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_14"
+    },
+    "rock_smash_7_6": {
+      "tiles": [[7, 6]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_15"
+    },
+    "rock_smash_4_5": {
+      "tiles": [[4, 5]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_16"
+    },
+    "rock_smash_5_2": {
+      "tiles": [[5, 2]],
+      "open_glyph": "~",
+      "new_game": "closed",
+      "opens_by": "rock_smash",
+      "flag": "FLAG_TEMP_17"
+    }
+  },
+  "npcs": [
+    {
+      "name": "pushable_boulder",
+      "coord": [10, 4],
+      "pushable": true,
+      "source_event": 0,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [26, 12],
+      "pushable": true,
+      "source_event": 1,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [28, 8],
+      "pushable": true,
+      "source_event": 2,
+      "source_script": "EventScript_StrengthBoulder"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [7, 2],
+      "hide_flag": "FLAG_TEMP_12",
+      "source_event": 3,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [4, 3],
+      "hide_flag": "FLAG_TEMP_13",
+      "source_event": 4,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [6, 6],
+      "hide_flag": "FLAG_TEMP_14",
+      "source_event": 5,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [7, 6],
+      "hide_flag": "FLAG_TEMP_15",
+      "source_event": 6,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [4, 5],
+      "hide_flag": "FLAG_TEMP_16",
+      "source_event": 7,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "rock_smash_rock",
+      "coord": [5, 2],
+      "hide_flag": "FLAG_TEMP_17",
+      "source_event": 8,
+      "source_script": "EventScript_RockSmash"
+    },
+    {
+      "name": "pushable_boulder",
+      "coord": [15, 13],
+      "pushable": true,
+      "source_event": 9,
+      "source_script": "EventScript_StrengthBoulder"
+    }
+  ]
+}

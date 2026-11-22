@@ -7,6 +7,76 @@
       "upstream_revision": "51c0ce6128e5981da56b370a770874b96a1e129f",
       "maps": [
         {
+          "name": "BirthIsland_Exterior",
+          "file": "data/games/frlg/maps/runtime/BirthIsland_Exterior.json",
+          "sha256": "256594768629e04632a03c77b28227e1bc1166a600540476b60f98e74f2374e3",
+          "source": {
+            "decomp_file": "data/maps/BirthIsland_Exterior/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 30,
+            "height": 30,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/BirthIsland_Exterior.json",
+            "sha256": "256594768629e04632a03c77b28227e1bc1166a600540476b60f98e74f2374e3"
+          }
+        },
+        {
+          "name": "BirthIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/BirthIsland_Harbor.json",
+          "sha256": "1cfda7a35d28f15debf90deda2465e820102c6f3fa437542305a79aa7e3e1934",
+          "source": {
+            "decomp_file": "data/maps/BirthIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/BirthIsland_Harbor.json",
+            "sha256": "1cfda7a35d28f15debf90deda2465e820102c6f3fa437542305a79aa7e3e1934"
+          }
+        },
+        {
           "name": "CeladonCity",
           "file": "data/games/frlg/maps/runtime/CeladonCity.json",
           "sha256": "c9e5b936834df47bae9ccefb9944b41721d30eda45c278387e1157e964b4870c",
@@ -382,7 +452,7 @@
         {
           "name": "CeruleanCave_1F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_1F.json",
-          "sha256": "7458c386e4a1db5f212c3890b0e688afb2bd861970fe57873b6919846fe1d15f",
+          "sha256": "6234d6068e12e68dbe5f0231426d690ebeff3fab039cba0d3d78dc5d7ab295c0",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_1F.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCave_1F/map.json",
@@ -428,13 +498,13 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCave_1F.json",
-            "sha256": "7458c386e4a1db5f212c3890b0e688afb2bd861970fe57873b6919846fe1d15f"
+            "sha256": "6234d6068e12e68dbe5f0231426d690ebeff3fab039cba0d3d78dc5d7ab295c0"
           }
         },
         {
           "name": "CeruleanCave_2F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_2F.json",
-          "sha256": "53d682b34860b98423ebd5260e5efb112f28cf38024f5976f33be6dbb6372881",
+          "sha256": "8797007fa72fa7ce8e0004113a037facc6024cf44fc3e049b637b75db20491c3",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_2F.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCave_2F/map.json",
@@ -481,13 +551,13 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCave_2F.json",
-            "sha256": "53d682b34860b98423ebd5260e5efb112f28cf38024f5976f33be6dbb6372881"
+            "sha256": "8797007fa72fa7ce8e0004113a037facc6024cf44fc3e049b637b75db20491c3"
           }
         },
         {
           "name": "CeruleanCave_B1F",
           "file": "data/games/frlg/maps/runtime/CeruleanCave_B1F.json",
-          "sha256": "e04a375efed05ff5524e19cfde2f3fdfdc7b9c56f56347188cba710185245910",
+          "sha256": "c0d8f20ef6de114be462c9a1f04fc2c8b30071224877109990991570d7259196",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/CeruleanCave_B1F.json",
           "source": {
             "decomp_file": "data/maps/CeruleanCave_B1F/map.json",
@@ -533,7 +603,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/CeruleanCave_B1F.json",
-            "sha256": "e04a375efed05ff5524e19cfde2f3fdfdc7b9c56f56347188cba710185245910"
+            "sha256": "c0d8f20ef6de114be462c9a1f04fc2c8b30071224877109990991570d7259196"
           }
         },
         {
@@ -927,6 +997,513 @@
           }
         },
         {
+          "name": "FiveIsland",
+          "file": "data/games/frlg/maps/runtime/FiveIsland.json",
+          "sha256": "a9673bbfeedf88a8f653bc5a13dd81b755ca8a959a2659be8341fb3c6d4a126b",
+          "source": {
+            "decomp_file": "data/maps/FiveIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FiveIsland.json",
+            "sha256": "a9673bbfeedf88a8f653bc5a13dd81b755ca8a959a2659be8341fb3c6d4a126b"
+          }
+        },
+        {
+          "name": "FiveIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/FiveIsland_Harbor.json",
+          "sha256": "0db3ba5153429051aaa74d32c91ef010e690dec53de910b734d1a85395b705d0",
+          "source": {
+            "decomp_file": "data/maps/FiveIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FiveIsland_Harbor.json",
+            "sha256": "0db3ba5153429051aaa74d32c91ef010e690dec53de910b734d1a85395b705d0"
+          }
+        },
+        {
+          "name": "FiveIsland_Meadow",
+          "file": "data/games/frlg/maps/runtime/FiveIsland_Meadow.json",
+          "sha256": "7bf37bb24b0ecbbc73ffcc7c3d70ec0981725a35aba9f0a06d50287205aa4c13",
+          "source": {
+            "decomp_file": "data/maps/FiveIsland_Meadow/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FiveIsland_Meadow.json",
+            "sha256": "7bf37bb24b0ecbbc73ffcc7c3d70ec0981725a35aba9f0a06d50287205aa4c13"
+          }
+        },
+        {
+          "name": "FiveIsland_ResortGorgeous",
+          "file": "data/games/frlg/maps/runtime/FiveIsland_ResortGorgeous.json",
+          "sha256": "f98128db7eec473c6eddfc1b49503cd72dfefe09dc79abfff8e226fafe43254d",
+          "source": {
+            "decomp_file": "data/maps/FiveIsland_ResortGorgeous/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 72,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FiveIsland_ResortGorgeous.json",
+            "sha256": "f98128db7eec473c6eddfc1b49503cd72dfefe09dc79abfff8e226fafe43254d"
+          }
+        },
+        {
+          "name": "FiveIsland_ResortGorgeous_House",
+          "file": "data/games/frlg/maps/runtime/FiveIsland_ResortGorgeous_House.json",
+          "sha256": "c48a15e8d1258e06e92f4c10d84691dfad9cb733dc803d671cbc7bead381878e",
+          "source": {
+            "decomp_file": "data/maps/FiveIsland_ResortGorgeous_House/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FiveIsland_ResortGorgeous_House.json",
+            "sha256": "c48a15e8d1258e06e92f4c10d84691dfad9cb733dc803d671cbc7bead381878e"
+          }
+        },
+        {
+          "name": "FiveIsland_RocketWarehouse",
+          "file": "data/games/frlg/maps/runtime/FiveIsland_RocketWarehouse.json",
+          "sha256": "6978c1823473155d1884d6d70e3802dbb4bf631be11398bb6dc260a2c5e18ef8",
+          "source": {
+            "decomp_file": "data/maps/FiveIsland_RocketWarehouse/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 29,
+            "height": 27,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FiveIsland_RocketWarehouse.json",
+            "sha256": "6978c1823473155d1884d6d70e3802dbb4bf631be11398bb6dc260a2c5e18ef8"
+          }
+        },
+        {
+          "name": "FiveIsland_WaterLabyrinth",
+          "file": "data/games/frlg/maps/runtime/FiveIsland_WaterLabyrinth.json",
+          "sha256": "5a10261eb8d1ccc6e3f4ba1532ccb661bbc26b63ac4343276123f1211ddf236f",
+          "source": {
+            "decomp_file": "data/maps/FiveIsland_WaterLabyrinth/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 72,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FiveIsland_WaterLabyrinth.json",
+            "sha256": "5a10261eb8d1ccc6e3f4ba1532ccb661bbc26b63ac4343276123f1211ddf236f"
+          }
+        },
+        {
+          "name": "FourIsland",
+          "file": "data/games/frlg/maps/runtime/FourIsland.json",
+          "sha256": "9d77213c0771d91eb26aa3ae4d9d1627ed01c778ffaea445137e51b0b2b4505b",
+          "source": {
+            "decomp_file": "data/maps/FourIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FourIsland.json",
+            "sha256": "9d77213c0771d91eb26aa3ae4d9d1627ed01c778ffaea445137e51b0b2b4505b"
+          }
+        },
+        {
+          "name": "FourIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/FourIsland_Harbor.json",
+          "sha256": "2175c6faf1e92a3dffdd9969addc61eb61d474a8d6f96ddee408edc2ca94d3e4",
+          "source": {
+            "decomp_file": "data/maps/FourIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FourIsland_Harbor.json",
+            "sha256": "2175c6faf1e92a3dffdd9969addc61eb61d474a8d6f96ddee408edc2ca94d3e4"
+          }
+        },
+        {
+          "name": "FourIsland_IcefallCave_1F",
+          "file": "data/games/frlg/maps/runtime/FourIsland_IcefallCave_1F.json",
+          "sha256": "255f5c9675dcd339e2400be9a6ad94660b2e8c29418469cac61e96edefd1b68b",
+          "source": {
+            "decomp_file": "data/maps/FourIsland_IcefallCave_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 20,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FourIsland_IcefallCave_1F.json",
+            "sha256": "255f5c9675dcd339e2400be9a6ad94660b2e8c29418469cac61e96edefd1b68b"
+          }
+        },
+        {
+          "name": "FourIsland_IcefallCave_B1F",
+          "file": "data/games/frlg/maps/runtime/FourIsland_IcefallCave_B1F.json",
+          "sha256": "d1403d5adc00d4f82a6f8d377d2f49ecaefa5b6ffcef08c337676003ffb6819a",
+          "source": {
+            "decomp_file": "data/maps/FourIsland_IcefallCave_B1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FourIsland_IcefallCave_B1F.json",
+            "sha256": "d1403d5adc00d4f82a6f8d377d2f49ecaefa5b6ffcef08c337676003ffb6819a"
+          }
+        },
+        {
+          "name": "FourIsland_IcefallCave_Back",
+          "file": "data/games/frlg/maps/runtime/FourIsland_IcefallCave_Back.json",
+          "sha256": "d2835aa10e6ce46ef34bab262e20f2387f54229e1ad54cc44cdfa4e9745953ac",
+          "source": {
+            "decomp_file": "data/maps/FourIsland_IcefallCave_Back/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 25,
+            "height": 26,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FourIsland_IcefallCave_Back.json",
+            "sha256": "d2835aa10e6ce46ef34bab262e20f2387f54229e1ad54cc44cdfa4e9745953ac"
+          }
+        },
+        {
+          "name": "FourIsland_IcefallCave_Entrance",
+          "file": "data/games/frlg/maps/runtime/FourIsland_IcefallCave_Entrance.json",
+          "sha256": "bc3a8d7948a9d23bd910536be52cea1e5436a5526bcf4d1e12da9682638801ca",
+          "source": {
+            "decomp_file": "data/maps/FourIsland_IcefallCave_Entrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 30,
+            "height": 36,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/FourIsland_IcefallCave_Entrance.json",
+            "sha256": "bc3a8d7948a9d23bd910536be52cea1e5436a5526bcf4d1e12da9682638801ca"
+          }
+        },
+        {
           "name": "FuchsiaCity",
           "file": "data/games/frlg/maps/runtime/FuchsiaCity.json",
           "sha256": "3158f40d83781c88eb91d0cdba0d47b29ce58c31a6bccbda6b14dab38222b77e",
@@ -1068,7 +1645,7 @@
         {
           "name": "FuchsiaCity_WardensHouse",
           "file": "data/games/frlg/maps/runtime/FuchsiaCity_WardensHouse.json",
-          "sha256": "f4f9962f296bc91933dafa281c4cfe7319b7e1909a89cee7b2419acc0d478b0a",
+          "sha256": "8a2fdd0f73de692f741fa64ccb94a378a3278276a1720fcae6daac4afbd8ae37",
           "source": {
             "decomp_file": "data/maps/FuchsiaCity_WardensHouse/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -1109,7 +1686,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/FuchsiaCity_WardensHouse.json",
-            "sha256": "f4f9962f296bc91933dafa281c4cfe7319b7e1909a89cee7b2419acc0d478b0a"
+            "sha256": "8a2fdd0f73de692f741fa64ccb94a378a3278276a1720fcae6daac4afbd8ae37"
           }
         },
         {
@@ -1333,6 +1910,473 @@
           }
         },
         {
+          "name": "MtEmber_Exterior",
+          "file": "data/games/frlg/maps/runtime/MtEmber_Exterior.json",
+          "sha256": "15bebe640f9cf2344f0edeaaffc5e9b9e88495d265e123087a42dc5cc5029b1c",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_Exterior/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 57,
+            "height": 54,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_Exterior.json",
+            "sha256": "15bebe640f9cf2344f0edeaaffc5e9b9e88495d265e123087a42dc5cc5029b1c"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_1F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_1F.json",
+          "sha256": "61c801b22896bf95e7a3634af48387009700c5cb24b3390fd9538177081e9a5b",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 27,
+            "height": 19,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_1F.json",
+            "sha256": "61c801b22896bf95e7a3634af48387009700c5cb24b3390fd9538177081e9a5b"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_B1F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B1F.json",
+          "sha256": "1b7ee1bbc9ea53ac65f6c5c9a5b9b7497aa04b6c96740944accaafe7adf2ea6c",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_B1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 23,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B1F.json",
+            "sha256": "1b7ee1bbc9ea53ac65f6c5c9a5b9b7497aa04b6c96740944accaafe7adf2ea6c"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_B1F_Stairs",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B1F_Stairs.json",
+          "sha256": "8d6d6e87a2e7e7687ec63c03d2226d142363cb56b57f7380d2210b450abe7aef",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_B1F_Stairs/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 6,
+            "height": 7,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B1F_Stairs.json",
+            "sha256": "8d6d6e87a2e7e7687ec63c03d2226d142363cb56b57f7380d2210b450abe7aef"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_B2F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B2F.json",
+          "sha256": "a6cbf6a4f85ba885c67091f000e817f341b1bd4cc5622a738060d6fbff46ad9f",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_B2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 16,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B2F.json",
+            "sha256": "a6cbf6a4f85ba885c67091f000e817f341b1bd4cc5622a738060d6fbff46ad9f"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_B2F_Stairs",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B2F_Stairs.json",
+          "sha256": "2a41dd0cb7b456753b239799a057fe6d9bc5d315981d61223c73d5bb951dddc1",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_B2F_Stairs/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 8,
+            "height": 6,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B2F_Stairs.json",
+            "sha256": "2a41dd0cb7b456753b239799a057fe6d9bc5d315981d61223c73d5bb951dddc1"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_B3F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B3F.json",
+          "sha256": "bcd5ae61da4814737321c5e0166271ab3be3ab9d69ea908d1c395c291475a8d9",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_B3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 31,
+            "height": 23,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B3F.json",
+            "sha256": "bcd5ae61da4814737321c5e0166271ab3be3ab9d69ea908d1c395c291475a8d9"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_B4F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B4F.json",
+          "sha256": "fc16baccf7bd93f65c7f41c9947e687d9da2416407d006810fe561c5ca0d52e8",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_B4F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 18,
+            "height": 16,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B4F.json",
+            "sha256": "fc16baccf7bd93f65c7f41c9947e687d9da2416407d006810fe561c5ca0d52e8"
+          }
+        },
+        {
+          "name": "MtEmber_RubyPath_B5F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_RubyPath_B5F.json",
+          "sha256": "f92a8c76391adc0db97214e7159d4c321e8cf0fdcb8b818e26ce2ee198ed5b7b",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_RubyPath_B5F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 16,
+            "height": 15,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_RubyPath_B5F.json",
+            "sha256": "f92a8c76391adc0db97214e7159d4c321e8cf0fdcb8b818e26ce2ee198ed5b7b"
+          }
+        },
+        {
+          "name": "MtEmber_Summit",
+          "file": "data/games/frlg/maps/runtime/MtEmber_Summit.json",
+          "sha256": "42b064af153c30c82ff702338f9c626cc5c8edbd1d01c6f60adf88546108ca7a",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_Summit/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 19,
+            "height": 22,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_Summit.json",
+            "sha256": "42b064af153c30c82ff702338f9c626cc5c8edbd1d01c6f60adf88546108ca7a"
+          }
+        },
+        {
+          "name": "MtEmber_SummitPath_1F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_SummitPath_1F.json",
+          "sha256": "500030749416c8331d3bf944791759b9190cb278dbccc12c84c9d771508aa75b",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_SummitPath_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 18,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_SummitPath_1F.json",
+            "sha256": "500030749416c8331d3bf944791759b9190cb278dbccc12c84c9d771508aa75b"
+          }
+        },
+        {
+          "name": "MtEmber_SummitPath_2F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_SummitPath_2F.json",
+          "sha256": "2765845c35a2356c2a1463728cda4964773b3487c514433750fda6897d0cc0c1",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_SummitPath_2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 46,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_SummitPath_2F.json",
+            "sha256": "2765845c35a2356c2a1463728cda4964773b3487c514433750fda6897d0cc0c1"
+          }
+        },
+        {
+          "name": "MtEmber_SummitPath_3F",
+          "file": "data/games/frlg/maps/runtime/MtEmber_SummitPath_3F.json",
+          "sha256": "433bacc22c9aac14d6e7d15dd1a627606eead89acb8db677fd46a0c77a345124",
+          "source": {
+            "decomp_file": "data/maps/MtEmber_SummitPath_3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/MtEmber_SummitPath_3F.json",
+            "sha256": "433bacc22c9aac14d6e7d15dd1a627606eead89acb8db677fd46a0c77a345124"
+          }
+        },
+        {
           "name": "MtMoon_1F",
           "file": "data/games/frlg/maps/runtime/MtMoon_1F.json",
           "sha256": "5f1d04efa1b65bee64724d02c0476ee345b3dfbc7d07bdb394740ca317bb2f3a",
@@ -1477,6 +2521,223 @@
           "base": {
             "file": "data/games/frlg/maps/base/MtMoon_B2F.json",
             "sha256": "436871222dbbc510050074d924debe977f9fa45bfde04a521d0ad8228c2dfafa"
+          }
+        },
+        {
+          "name": "OneIsland",
+          "file": "data/games/frlg/maps/runtime/OneIsland.json",
+          "sha256": "b4742fc063cc8cb714bbded06fed4c7b2dafe477552a31f0bbd125f1cfde1087",
+          "source": {
+            "decomp_file": "data/maps/OneIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/OneIsland.json",
+            "sha256": "b4742fc063cc8cb714bbded06fed4c7b2dafe477552a31f0bbd125f1cfde1087"
+          }
+        },
+        {
+          "name": "OneIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/OneIsland_Harbor.json",
+          "sha256": "9254081b4c63d79c2d401c4149456473caa696d5c80a6e1b5a85172b396c5013",
+          "source": {
+            "decomp_file": "data/maps/OneIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/OneIsland_Harbor.json",
+            "sha256": "9254081b4c63d79c2d401c4149456473caa696d5c80a6e1b5a85172b396c5013"
+          }
+        },
+        {
+          "name": "OneIsland_KindleRoad",
+          "file": "data/games/frlg/maps/runtime/OneIsland_KindleRoad.json",
+          "sha256": "ac9bcff684f038b5e6423cdc2c9bc799696a739974db1c276befe9dd635b5077",
+          "source": {
+            "decomp_file": "data/maps/OneIsland_KindleRoad/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 140,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/OneIsland_KindleRoad.json",
+            "sha256": "ac9bcff684f038b5e6423cdc2c9bc799696a739974db1c276befe9dd635b5077"
+          }
+        },
+        {
+          "name": "OneIsland_KindleRoad_EmberSpa",
+          "file": "data/games/frlg/maps/runtime/OneIsland_KindleRoad_EmberSpa.json",
+          "sha256": "dab7dc3c72c6a0f69047a20156f53655e5b86218b48548bdde210fc6167f4bba",
+          "source": {
+            "decomp_file": "data/maps/OneIsland_KindleRoad_EmberSpa/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 27,
+            "height": 39,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/OneIsland_KindleRoad_EmberSpa.json",
+            "sha256": "dab7dc3c72c6a0f69047a20156f53655e5b86218b48548bdde210fc6167f4bba"
+          }
+        },
+        {
+          "name": "OneIsland_PokemonCenter_1F",
+          "file": "data/games/frlg/maps/runtime/OneIsland_PokemonCenter_1F.json",
+          "sha256": "4daaae31d32169213ef165caa2747171e7b6245465ce8b8bfde1aac7f7c356d1",
+          "source": {
+            "decomp_file": "data/maps/OneIsland_PokemonCenter_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 19,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/OneIsland_PokemonCenter_1F.json",
+            "sha256": "4daaae31d32169213ef165caa2747171e7b6245465ce8b8bfde1aac7f7c356d1"
+          }
+        },
+        {
+          "name": "OneIsland_TreasureBeach",
+          "file": "data/games/frlg/maps/runtime/OneIsland_TreasureBeach.json",
+          "sha256": "35cc13a667bac30a55403011dbe86c1f649b7e77efb52efdc37784501f990e12",
+          "source": {
+            "decomp_file": "data/maps/OneIsland_TreasureBeach/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/OneIsland_TreasureBeach.json",
+            "sha256": "35cc13a667bac30a55403011dbe86c1f649b7e77efb52efdc37784501f990e12"
           }
         },
         {
@@ -2005,7 +3266,7 @@
         {
           "name": "PokemonLeague_HallOfFame",
           "file": "data/games/frlg/maps/runtime/PokemonLeague_HallOfFame.json",
-          "sha256": "14f0fcfbea0d84ebc008fa467621e4f30e09e26d477864b057c6d9ac79ba1e31",
+          "sha256": "ce7adad9d63ece38a66cb304457bf048888ee637400cd018307bcc1004c94c86",
           "source": {
             "decomp_file": "data/maps/PokemonLeague_HallOfFame/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -2034,7 +3295,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/PokemonLeague_HallOfFame.json",
-            "sha256": "14f0fcfbea0d84ebc008fa467621e4f30e09e26d477864b057c6d9ac79ba1e31"
+            "sha256": "ce7adad9d63ece38a66cb304457bf048888ee637400cd018307bcc1004c94c86"
           }
         },
         {
@@ -2621,6 +3882,53 @@
           }
         },
         {
+          "name": "PowerPlant",
+          "file": "data/games/frlg/maps/runtime/PowerPlant.json",
+          "sha256": "e2b18d95f6aec760d37515099f3bef1662e60503d33c197eb02d43588ba19889",
+          "source": {
+            "decomp_file": "data/maps/PowerPlant/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 49,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/PowerPlant.json",
+            "sha256": "e2b18d95f6aec760d37515099f3bef1662e60503d33c197eb02d43588ba19889"
+          }
+        },
+        {
           "name": "RockTunnel_1F",
           "file": "data/games/frlg/maps/runtime/RockTunnel_1F.json",
           "sha256": "298dd5a725f26795089826dec1532a09707c91b254727db37e1775a35f07922b",
@@ -2676,7 +3984,7 @@
         {
           "name": "RockTunnel_B1F",
           "file": "data/games/frlg/maps/runtime/RockTunnel_B1F.json",
-          "sha256": "d8a4f463d0d7f179a8df25358b8b46c1557ac04ba9b1d51d797090f41e940631",
+          "sha256": "08a01ce26e3064c9119abc0b1cd1d3d21bda8101b4fc034f83984bd889d37277",
           "upstream_path": "SerialPrograms/Source/VideoGames/PokemonFRLG/Overworld/Maps/RockTunnel_B1F.json",
           "source": {
             "decomp_file": "data/maps/RockTunnel_B1F/map.json",
@@ -2723,7 +4031,7 @@
           },
           "base": {
             "file": "data/games/frlg/maps/base/RockTunnel_B1F.json",
-            "sha256": "d8a4f463d0d7f179a8df25358b8b46c1557ac04ba9b1d51d797090f41e940631"
+            "sha256": "08a01ce26e3064c9119abc0b1cd1d3d21bda8101b4fc034f83984bd889d37277"
           }
         },
         {
@@ -5115,6 +6423,375 @@
           }
         },
         {
+          "name": "SeafoamIslands_1F",
+          "file": "data/games/frlg/maps/runtime/SeafoamIslands_1F.json",
+          "sha256": "f14f44d41fa0f6ee2b3a806956baac2f9ecf2081ad12bb52e8ec5f07a9f89519",
+          "source": {
+            "decomp_file": "data/maps/SeafoamIslands_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
+            "elevation_omitted": "all reachable land is ground level (3); non-ground tiles are unreachable boundary or counter tiles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 24,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SeafoamIslands_1F.json",
+            "sha256": "f14f44d41fa0f6ee2b3a806956baac2f9ecf2081ad12bb52e8ec5f07a9f89519"
+          }
+        },
+        {
+          "name": "SeafoamIslands_B1F",
+          "file": "data/games/frlg/maps/runtime/SeafoamIslands_B1F.json",
+          "sha256": "f0c2ea793a6b34c70ef78023c1e0ef9202ae16766fb98bd98ba44380560c67c4",
+          "source": {
+            "decomp_file": "data/maps/SeafoamIslands_B1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 23,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SeafoamIslands_B1F.json",
+            "sha256": "f0c2ea793a6b34c70ef78023c1e0ef9202ae16766fb98bd98ba44380560c67c4"
+          }
+        },
+        {
+          "name": "SeafoamIslands_B2F",
+          "file": "data/games/frlg/maps/runtime/SeafoamIslands_B2F.json",
+          "sha256": "65f1c57af50c6af797eef8cb7c654cf4d81c66ae43d4385ce762104548147579",
+          "source": {
+            "decomp_file": "data/maps/SeafoamIslands_B2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 24,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SeafoamIslands_B2F.json",
+            "sha256": "65f1c57af50c6af797eef8cb7c654cf4d81c66ae43d4385ce762104548147579"
+          }
+        },
+        {
+          "name": "SeafoamIslands_B3F",
+          "file": "data/games/frlg/maps/runtime/SeafoamIslands_B3F.json",
+          "sha256": "ba6f9b97a8ba10f636886b190e8786794c4169d905a17b4eb13f728daea847cc",
+          "source": {
+            "decomp_file": "data/maps/SeafoamIslands_B3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 24,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SeafoamIslands_B3F.json",
+            "sha256": "ba6f9b97a8ba10f636886b190e8786794c4169d905a17b4eb13f728daea847cc"
+          }
+        },
+        {
+          "name": "SeafoamIslands_B4F",
+          "file": "data/games/frlg/maps/runtime/SeafoamIslands_B4F.json",
+          "sha256": "04898449c70db8abf4de15535fe632c1993fcb53028cd9a501dd2e8a5d6791e8",
+          "source": {
+            "decomp_file": "data/maps/SeafoamIslands_B4F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 38,
+            "height": 24,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SeafoamIslands_B4F.json",
+            "sha256": "04898449c70db8abf4de15535fe632c1993fcb53028cd9a501dd2e8a5d6791e8"
+          }
+        },
+        {
+          "name": "SevenIsland",
+          "file": "data/games/frlg/maps/runtime/SevenIsland.json",
+          "sha256": "0f7b46ec6e6e97f1ee21ca399040d2e0a99189f34e262a715225f521132e1d19",
+          "source": {
+            "decomp_file": "data/maps/SevenIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SevenIsland.json",
+            "sha256": "0f7b46ec6e6e97f1ee21ca399040d2e0a99189f34e262a715225f521132e1d19"
+          }
+        },
+        {
+          "name": "SevenIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/SevenIsland_Harbor.json",
+          "sha256": "ba9efcd20a681c9aab8bd294247aa588d59d3a610b352d61d7eb4029caabf24c",
+          "source": {
+            "decomp_file": "data/maps/SevenIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SevenIsland_Harbor.json",
+            "sha256": "ba9efcd20a681c9aab8bd294247aa588d59d3a610b352d61d7eb4029caabf24c"
+          }
+        },
+        {
+          "name": "SevenIsland_SevaultCanyon",
+          "file": "data/games/frlg/maps/runtime/SevenIsland_SevaultCanyon.json",
+          "sha256": "30109439651fa21ab03119b57638d82da706c808256c77f1dbfd6db0add0c274",
+          "source": {
+            "decomp_file": "data/maps/SevenIsland_SevaultCanyon/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 80,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SevenIsland_SevaultCanyon.json",
+            "sha256": "30109439651fa21ab03119b57638d82da706c808256c77f1dbfd6db0add0c274"
+          }
+        },
+        {
+          "name": "SevenIsland_SevaultCanyon_Entrance",
+          "file": "data/games/frlg/maps/runtime/SevenIsland_SevaultCanyon_Entrance.json",
+          "sha256": "dcc712d6a882382feeef2f94d948601a914f22e867dad01ebc6e3e20ec386e54",
+          "source": {
+            "decomp_file": "data/maps/SevenIsland_SevaultCanyon_Entrance/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SevenIsland_SevaultCanyon_Entrance.json",
+            "sha256": "dcc712d6a882382feeef2f94d948601a914f22e867dad01ebc6e3e20ec386e54"
+          }
+        },
+        {
           "name": "SilphCo_10F",
           "file": "data/games/frlg/maps/runtime/SilphCo_10F.json",
           "sha256": "ff8f54f0a5fe22bd979f28af43087c9bd669cb620d9d8f942572974961dcb483",
@@ -5674,6 +7351,665 @@
           }
         },
         {
+          "name": "SixIsland",
+          "file": "data/games/frlg/maps/runtime/SixIsland.json",
+          "sha256": "f7d77184337f0daff59c8ca89459beb8f1c427f2ad38f2cc37a712fdbc77c5c4",
+          "source": {
+            "decomp_file": "data/maps/SixIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 30,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland.json",
+            "sha256": "f7d77184337f0daff59c8ca89459beb8f1c427f2ad38f2cc37a712fdbc77c5c4"
+          }
+        },
+        {
+          "name": "SixIsland_GreenPath",
+          "file": "data/games/frlg/maps/runtime/SixIsland_GreenPath.json",
+          "sha256": "60984f77be722eeca0b85c2e95db32451709ef07a1edc24bb07f1541e7c02526",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_GreenPath/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 72,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_GreenPath.json",
+            "sha256": "60984f77be722eeca0b85c2e95db32451709ef07a1edc24bb07f1541e7c02526"
+          }
+        },
+        {
+          "name": "SixIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/SixIsland_Harbor.json",
+          "sha256": "4d1cd2393a324108fcf79ae0e63a52314f2040f1bf5317f8dea4d36b7d5b3bdf",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_Harbor.json",
+            "sha256": "4d1cd2393a324108fcf79ae0e63a52314f2040f1bf5317f8dea4d36b7d5b3bdf"
+          }
+        },
+        {
+          "name": "SixIsland_OutcastIsland",
+          "file": "data/games/frlg/maps/runtime/SixIsland_OutcastIsland.json",
+          "sha256": "b508fe60abaa35b6e4e0e883dfe3d03febc49ff3bc878fcf63e345c8114bf39c",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_OutcastIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 80,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_OutcastIsland.json",
+            "sha256": "b508fe60abaa35b6e4e0e883dfe3d03febc49ff3bc878fcf63e345c8114bf39c"
+          }
+        },
+        {
+          "name": "SixIsland_PatternBush",
+          "file": "data/games/frlg/maps/runtime/SixIsland_PatternBush.json",
+          "sha256": "dd93af705c9740e7ba5b6608f036c43f7bc12859fad0f402fb860ee6c1349ad1",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_PatternBush/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 60,
+            "height": 32,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_PatternBush.json",
+            "sha256": "dd93af705c9740e7ba5b6608f036c43f7bc12859fad0f402fb860ee6c1349ad1"
+          }
+        },
+        {
+          "name": "SixIsland_RuinValley",
+          "file": "data/games/frlg/maps/runtime/SixIsland_RuinValley.json",
+          "sha256": "1cd42981c2d4c9eaf456b222cd86cf80db706c097e69918ed28a2fea325b0748",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_RuinValley/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_RuinValley.json",
+            "sha256": "1cd42981c2d4c9eaf456b222cd86cf80db706c097e69918ed28a2fea325b0748"
+          }
+        },
+        {
+          "name": "SixIsland_WaterPath",
+          "file": "data/games/frlg/maps/runtime/SixIsland_WaterPath.json",
+          "sha256": "36ed0f27194749d203626f7c1dc2e23605841f65b6e4057977ea3e286824f854",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_WaterPath/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 100,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_WaterPath.json",
+            "sha256": "36ed0f27194749d203626f7c1dc2e23605841f65b6e4057977ea3e286824f854"
+          }
+        },
+        {
+          "name": "ThreeIsland",
+          "file": "data/games/frlg/maps/runtime/ThreeIsland.json",
+          "sha256": "e8d9a2d0bb72e169904d89aeabe5622c0cd8b7586048678c9964c5bc8ab87fbd",
+          "source": {
+            "decomp_file": "data/maps/ThreeIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            },
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/ThreeIsland.json",
+            "sha256": "e8d9a2d0bb72e169904d89aeabe5622c0cd8b7586048678c9964c5bc8ab87fbd"
+          }
+        },
+        {
+          "name": "ThreeIsland_BerryForest",
+          "file": "data/games/frlg/maps/runtime/ThreeIsland_BerryForest.json",
+          "sha256": "56b6a29d870d4ab16598a9d8154f64f6e933dd7cd1a9035e3b4cf5929c5fd721",
+          "source": {
+            "decomp_file": "data/maps/ThreeIsland_BerryForest/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 57,
+            "height": 47,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/ThreeIsland_BerryForest.json",
+            "sha256": "56b6a29d870d4ab16598a9d8154f64f6e933dd7cd1a9035e3b4cf5929c5fd721"
+          }
+        },
+        {
+          "name": "ThreeIsland_BondBridge",
+          "file": "data/games/frlg/maps/runtime/ThreeIsland_BondBridge.json",
+          "sha256": "c05c52726dae4a70471a9bc4a58b21b62531c995b3eec0cb0ef3ab5d9867f157",
+          "source": {
+            "decomp_file": "data/maps/ThreeIsland_BondBridge/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 96,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/ThreeIsland_BondBridge.json",
+            "sha256": "c05c52726dae4a70471a9bc4a58b21b62531c995b3eec0cb0ef3ab5d9867f157"
+          }
+        },
+        {
+          "name": "ThreeIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/ThreeIsland_Harbor.json",
+          "sha256": "8d31054ddd401f4cd37dd12e20bdbfbafac731b95dcfe21265272d7844b16403",
+          "source": {
+            "decomp_file": "data/maps/ThreeIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/ThreeIsland_Harbor.json",
+            "sha256": "8d31054ddd401f4cd37dd12e20bdbfbafac731b95dcfe21265272d7844b16403"
+          }
+        },
+        {
+          "name": "ThreeIsland_House1",
+          "file": "data/games/frlg/maps/runtime/ThreeIsland_House1.json",
+          "sha256": "360f93914087ab96bf3f56a484047986931476ceb571405a07de94556979a733",
+          "source": {
+            "decomp_file": "data/maps/ThreeIsland_House1/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/ThreeIsland_House1.json",
+            "sha256": "360f93914087ab96bf3f56a484047986931476ceb571405a07de94556979a733"
+          }
+        },
+        {
+          "name": "ThreeIsland_Port",
+          "file": "data/games/frlg/maps/runtime/ThreeIsland_Port.json",
+          "sha256": "6f6e80ed3476a2ee0ce7cf4f53574553d195d2be02da2c9e6dfb3e9f2238e683",
+          "source": {
+            "decomp_file": "data/maps/ThreeIsland_Port/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/ThreeIsland_Port.json",
+            "sha256": "6f6e80ed3476a2ee0ce7cf4f53574553d195d2be02da2c9e6dfb3e9f2238e683"
+          }
+        },
+        {
+          "name": "TwoIsland",
+          "file": "data/games/frlg/maps/runtime/TwoIsland.json",
+          "sha256": "4c6033b536733957bbef47ad0835167e169bf377676bdecb62fd93454ea7ef9f",
+          "source": {
+            "decomp_file": "data/maps/TwoIsland/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "item_identities": {
+              "repository": "pret/pokefirered",
+              "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+              "scripts": "data/scripts/item_ball_scripts.inc",
+              "scripts_sha256": "0a660b0eddcecc31cec1a815f343c7e5aea54ac2fb7a54597c2ae38fbbd5d65c",
+              "macros": "asm/macros/event.inc",
+              "macros_sha256": "848e5e791adeddbe7ae7fe2717729af666a8d8aa163ab7781c74bfd49ce58671",
+              "source_game": "firered",
+              "target_game": "frlg",
+              "target_game_relation": "native_decomp",
+              "verification": "FRLG source-derived; collection not observed"
+            }
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 48,
+            "height": 20,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/TwoIsland.json",
+            "sha256": "4c6033b536733957bbef47ad0835167e169bf377676bdecb62fd93454ea7ef9f"
+          }
+        },
+        {
+          "name": "TwoIsland_CapeBrink",
+          "file": "data/games/frlg/maps/runtime/TwoIsland_CapeBrink.json",
+          "sha256": "f9383d59261a7182b9ce3d348fd517b68dae734d564f5c3eb57fd249c0b4c045",
+          "source": {
+            "decomp_file": "data/maps/TwoIsland_CapeBrink/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 24,
+            "height": 40,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/TwoIsland_CapeBrink.json",
+            "sha256": "f9383d59261a7182b9ce3d348fd517b68dae734d564f5c3eb57fd249c0b4c045"
+          }
+        },
+        {
+          "name": "TwoIsland_Harbor",
+          "file": "data/games/frlg/maps/runtime/TwoIsland_Harbor.json",
+          "sha256": "58a7d30da0daf5904b2e180fb21f408f3694c84b187829410fd8f48c942994a9",
+          "source": {
+            "decomp_file": "data/maps/TwoIsland_Harbor/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 17,
+            "height": 13,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/TwoIsland_Harbor.json",
+            "sha256": "58a7d30da0daf5904b2e180fb21f408f3694c84b187829410fd8f48c942994a9"
+          }
+        },
+        {
+          "name": "TwoIsland_House",
+          "file": "data/games/frlg/maps/runtime/TwoIsland_House.json",
+          "sha256": "90f700d5ef88be1fcaeb936986ed97b7e4b2c28b62794a7f5bc1324ab9a5c995",
+          "source": {
+            "decomp_file": "data/maps/TwoIsland_House/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/TwoIsland_House.json",
+            "sha256": "90f700d5ef88be1fcaeb936986ed97b7e4b2c28b62794a7f5bc1324ab9a5c995"
+          }
+        },
+        {
           "name": "UndergroundPath_EastEntrance",
           "file": "data/games/frlg/maps/runtime/UndergroundPath_EastEntrance.json",
           "sha256": "bb3a41f1bd2a3fa38669e70b37117f5845f99ff1fbb4c61bfbf4f10cee75214b",
@@ -6110,7 +8446,7 @@
         {
           "name": "VictoryRoad_1F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_1F.json",
-          "sha256": "540d8b003c29f339956f3c0b5903dd4d49d05e8cd11adff7217bd3a28adeb3b6",
+          "sha256": "37c1447ad34588f091d96d1e0d9e3d828291ef38f729a5c507d44e74d063e626",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_1F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6154,7 +8490,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_1F.json",
-            "sha256": "e7decdf2108ca0d369c3af30106b3932ff3eac268f56581d63180243444a3daa"
+            "sha256": "152af632b847165de1c1685845c136168af42de43e6d06bed65d76c3ac8b9b8b"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VictoryRoad_1F.json",
@@ -6164,7 +8500,7 @@
         {
           "name": "VictoryRoad_2F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_2F.json",
-          "sha256": "1018fed7b1f8e1504dcbec02f38ef609b3b0b0576f18d2c1ad7f2b686c9d10b5",
+          "sha256": "8503c1dbba6a7c18e63340a0040b2ace91acd78ec32ed2b65b46d68df631af76",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_2F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6208,7 +8544,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_2F.json",
-            "sha256": "5b46bfcd40278939f990065bab5e584078f419984a3ed7e92bca582c34ca96cf"
+            "sha256": "8cf2f0c7c221cd6c4d1b5d9742bc9ac3a5384927992e82d5768976e8404d4942"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VictoryRoad_2F.json",
@@ -6218,7 +8554,7 @@
         {
           "name": "VictoryRoad_3F",
           "file": "data/games/frlg/maps/runtime/VictoryRoad_3F.json",
-          "sha256": "a6235387c1e16954ddae4c2d24687533e207109a8cd7e9e57e6eaf09308a5ee4",
+          "sha256": "4e1867719b93209abb6dc8269960fd1a1260a8aeda545b6dcdad6f37b6afce92",
           "source": {
             "decomp_file": "data/maps/VictoryRoad_3F/map.json",
             "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -6262,7 +8598,7 @@
           "status": "candidate",
           "base": {
             "file": "data/games/frlg/maps/base/VictoryRoad_3F.json",
-            "sha256": "83d34c7f44e48b2cca263aca95793e6a9bf9f649e2a02405098bcfe6f542b8b1"
+            "sha256": "cbed1f569f8a2e0ed2a809ab90d81cf4acc4369a431a01e40f6524536f5f8007"
           },
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VictoryRoad_3F.json",

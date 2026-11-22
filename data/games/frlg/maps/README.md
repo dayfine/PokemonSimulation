@@ -15,7 +15,7 @@ the runtime file's hash and `base` / `overlay` references (file and sha256):
 | Status | Meaning | Count |
 |---|---|---:|
 | `verified` | Reviewed content. `verified.basis` is `approved-runtime-pack` (in the approved pack before this set existed; no per-map run was recorded) or `console-run` (`run`, `date`, `checkpoint`, optional `consumer_revision`). | 57 |
-| `candidate` | Generated, unreviewed. | 99 |
+| `candidate` | Generated, unreviewed. | 160 |
 
 Every entry also records its `source` (pret file and commit), the same object
 as the runtime file's `source`. The status is kept out of the map bytes, so
@@ -151,16 +151,17 @@ operation, one that no longer changes anything, fails here), then
 
 ## Scope
 
-[`pokeguy-map-scope.json`](pokeguy-map-scope.json) lists the 281 catalog maps
-the generator does **not** publish as candidates (425-map catalog):
+[`pokeguy-map-scope.json`](pokeguy-map-scope.json) lists the 220 catalog maps
+the generator does **not** publish as candidates (425-map catalog; Sevii Islands
+story/catching maps, Birth Island, Power Plant and Seafoam Islands are included
+as candidates; Navel Rock's compressed route is in `data/games/frlg/routes/navel_rock.json`):
 
 | Excluded group | Maps |
 |---|---:|
-| Sevii, event islands and island Trainer Tower | 164 |
 | Multiplayer facilities | 5 |
-| Optional mainland caves, routes and legendary destinations | 13 |
-| Unused interiors, cabins and upper floors | 73 |
-| Mainland Pokemon Centers and elevators (scripted in AutoStory) | 26 |
+| Optional mainland caves and routes (Diglett's Cave, Cycling Road, Cerulean Cave) | 7 |
+| Unused interiors, prototypes, Lost Cave, Dotted Hole, Navel Rock, Trainer Tower, Tanoby Ruins/Altering Cave and side houses | 164 |
+| Pokemon Centers, Marts and elevators (scripted in AutoStory; `OneIsland_PokemonCenter_1F` and `IndigoPlateau_PokemonCenter_1F` retained) | 44 |
 
 **Pokemon Centers and elevators are scripted in AutoStory, not mapped.** The
 Centers are mostly identical and the elevators are small, so a per-building map

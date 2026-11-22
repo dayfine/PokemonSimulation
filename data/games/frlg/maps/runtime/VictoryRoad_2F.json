@@ -210,9 +210,16 @@
       "source_script": "VictoryRoad_2F_EventScript_Gregory",
       "coord": [36, 5]
     },
-    {"name": "pushable_boulder", "source_event": 9, "source_script": "EventScript_StrengthBoulder", "coord": [8, 7]},
     {
       "name": "pushable_boulder",
+      "pushable": true,
+      "source_event": 9,
+      "source_script": "EventScript_StrengthBoulder",
+      "coord": [8, 7]
+    },
+    {
+      "name": "pushable_boulder",
+      "pushable": true,
       "source_event": 10,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_2F_BOULDER1",
@@ -221,6 +228,7 @@
     {
       "name": "pushable_boulder",
       "hide_flag": "FLAG_HIDE_VICTORY_ROAD_2F_BOULDER",
+      "pushable": true,
       "source_event": 11,
       "source_script": "EventScript_StrengthBoulder",
       "source_local_id": "LOCALID_VICTORY_ROAD_2F_BOULDER2",

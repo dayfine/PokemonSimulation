@@ -1,0 +1,64 @@
+{
+  "format": "pokesim-runtime-map/2",
+  "name": "SixIsland",
+  "source": {
+    "decomp_file": "data/maps/SixIsland/map.json",
+    "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+    "date": "2026-10-31",
+    "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+  },
+  "tiles": [
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "#########..........#####",
+    "##################......",
+    "########################",
+    "#######vv#####vvvv######",
+    "#######..SSD##....SSD#vv",
+    "#######.................",
+    "#######.##..............",
+    "#######.##..............",
+    "#######.##...#######....",
+    "#######.##...#######....",
+    "#######..S.....#D###....",
+    "#######.................",
+    "#######.................",
+    "##########...####......#",
+    "########........########",
+    "##########...###########",
+    "##########...###########",
+    "########w#####w#########",
+    "########################",
+    "########################",
+    "########################",
+    "########################",
+    "########################"
+  ],
+  "points": {"warp_0": [11, 23], "warp_1": [11, 11], "warp_2": [16, 17], "warp_3": [20, 11]},
+  "warps": [
+    {"coord": [11, 23], "enter": "walk_south", "to_map": "SixIsland_Harbor", "to_point": "warp_0"},
+    {"coord": [11, 11], "enter": "walk_into", "to_map": "SixIsland_PokemonCenter_1F", "to_point": "warp_0"},
+    {"coord": [16, 17], "enter": "walk_into", "to_map": "SixIsland_House", "to_point": "warp_0"},
+    {"coord": [20, 11], "enter": "walk_into", "to_map": "SixIsland_Mart", "to_point": "warp_0"}
+  ],
+  "flag_sets": {},
+  "connections": [{"side": "east", "to_map": "SixIsland_WaterPath", "offset": -40}],
+  "hidden_items": [
+    {
+      "coord": [9, 7],
+      "item": "leppa_berry",
+      "quantity": 1,
+      "flag": "FLAG_HIDDEN_ITEM_SIX_ISLAND_LEPPA_BERRY",
+      "source_bg_event": 1
+    }
+  ],
+  "npcs": [
+    {"name": "boy", "coord": [10, 15], "source_event": 0, "source_script": "SixIsland_EventScript_Boy"},
+    {"name": "hiker", "coord": [15, 13], "source_event": 1, "source_script": "SixIsland_EventScript_Hiker"}
+  ]
+}

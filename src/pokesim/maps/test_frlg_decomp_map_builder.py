@@ -188,7 +188,7 @@ class WalkSequencesInThePackTest(unittest.TestCase):
                     expected = [tuple(t) for t in walk['tiles']] + [tuple(walk['tiles'][0])]
                     self.assertEqual(npc_path.path_tiles((person['x'], person['y']), person['path']), expected)
                     checked += 1
-        self.assertEqual(checked, 12)
+        self.assertEqual(checked, 19)
 
     def test_routing_blocks_the_path_not_the_range(self):
         #   Each case: name, input (tile on Route 11), expectation (occupied by Dave's path).
@@ -409,7 +409,7 @@ class EncounterTest(unittest.TestCase):
 class FloorAndWarpTest(unittest.TestCase):
     def test_cosmetic_floors_are_open_without_unhandled_mark(self):
         for behavior in ('MB_NORMAL', 'MB_CAVE', 'MB_ROCK_STAIRS',
-                         'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP', 'MB_ICE'):
+                         'MB_SAND', 'MB_SAND_CAVE', 'MB_MOUNTAIN_TOP'):
             with self.subTest(behavior=behavior):
                 unhandled = {}
                 glyph, entry = frlg_maps.tile_glyph(behavior, 0, unhandled, False)
@@ -428,6 +428,8 @@ class FloorAndWarpTest(unittest.TestCase):
         expected = {
             'MB_SPIN_UP': ('u', None),
             'MB_SPIN_DOWN': ('d', None),
+            'MB_ICE': ('i', None),
+            'MB_THIN_ICE': ('I', None),
             'MB_SPIN_LEFT': ('l', None),
             'MB_SPIN_RIGHT': ('r', None),
             'MB_STOP_SPINNING': ('o', None),
