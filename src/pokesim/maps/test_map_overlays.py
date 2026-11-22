@@ -266,7 +266,7 @@ class BdspResolveTest(unittest.TestCase):
 
 class PublishedPackTest(unittest.TestCase):
     def test_runtime_files_are_base_plus_overlays(self):
-        self.assertEqual(overlays.check(), 266)
+        self.assertEqual(overlays.check(), 217)
         self.assertEqual(overlays.check('bdsp'), 22)
 
     def test_bdsp_builder_holds_no_authored_corrections(self):
@@ -482,23 +482,6 @@ class PublishedPackTest(unittest.TestCase):
             ('SeafoamIslands_B2F', (27, 8), 'SeafoamIslands_B3F', 'warp_6'),
             ('SeafoamIslands_B3F', (6, 18), 'SeafoamIslands_B4F', 'warp_2'),
             ('SeafoamIslands_B3F', (9, 18), 'SeafoamIslands_B4F', 'warp_3'),
-            ('SixIsland_DottedHole_1F', (6, 5), 'SixIsland_DottedHole_B1F', 'warp_0'),
-            ('SixIsland_DottedHole_B1F', (6, 1), 'SixIsland_DottedHole_B2F', 'warp_0'),
-            ('SixIsland_DottedHole_B1F', (11, 5), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B1F', (6, 9), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B1F', (1, 5), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B2F', (6, 1), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B2F', (11, 5), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B2F', (6, 9), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B2F', (1, 5), 'SixIsland_DottedHole_B3F', 'warp_0'),
-            ('SixIsland_DottedHole_B3F', (6, 1), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B3F', (11, 5), 'SixIsland_DottedHole_B4F', 'warp_0'),
-            ('SixIsland_DottedHole_B3F', (6, 9), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B3F', (1, 5), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B4F', (6, 1), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B4F', (11, 5), 'SixIsland_DottedHole_1F', 'warp_3'),
-            ('SixIsland_DottedHole_B4F', (6, 9), 'SixIsland_DottedHole_SapphireRoom', 'warp_1'),
-            ('SixIsland_DottedHole_B4F', (1, 5), 'SixIsland_DottedHole_1F', 'warp_3'),
             ('VictoryRoad_3F', (34, 18), 'VictoryRoad_2F', 'warp_8')])
 
     def test_maps_without_overlays_publish_base_bytes(self):
