@@ -11,6 +11,7 @@ The standard legend:
     v ^ < >  ledges, crossed south / north / west / east
     D  door (walk into)   W  warp (step onto)   S  sign
     ~  water              =  counter            i  ice
+    I  thin ice
     R  rock (Rock Smash opens it)
     2 8 4 6  forced move south / north / west / east (as on a keypad)
     ?  unknown: off the map, or not checked yet
@@ -115,6 +116,7 @@ STANDARD = Legend(
         ("=", Cell(blocked=True, behavior=Behavior.COUNTER)),
         ("R", Cell(blocked=True, behavior=Behavior.ROCK)),
         ("i", Cell(behavior=Behavior.ICE)),
+        ("I", Cell(behavior=Behavior.THIN_ICE)),
         ("2", Cell(behavior=Behavior.FORCED_SOUTH)),
         ("8", Cell(behavior=Behavior.FORCED_NORTH)),
         ("4", Cell(behavior=Behavior.FORCED_WEST)),
