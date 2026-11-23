@@ -6,24 +6,13 @@
   "evidence": {
     "notes_commit": "11cbf77e0271e97b3639f9d5d419d0549ebec0bf",
     "notes_path": "pokemon_sv/FRLG_POKEGUY_15934_VIDEO_NOTES.md",
-    "notes_lines": {
-      "ship_heal": "474-480",
-      "tea": "674-686",
-      "fly_house": "611-625",
-      "wardens_house": "709-723"
-    }
+    "notes_lines": {"ship_heal": "474-480", "tea": "674-686", "fly_house": "611-625", "wardens_house": "709-723"}
   },
   "excluded": [
     {
       "reason": "multiplayer",
       "basis": "Link facilities are outside the solo story run.",
-      "maps": [
-        "BattleColosseum_2P",
-        "BattleColosseum_4P",
-        "RecordCorner",
-        "TradeCenter",
-        "UnionRoom"
-      ]
+      "maps": ["BattleColosseum_2P", "BattleColosseum_4P", "RecordCorner", "TradeCenter", "UnionRoom"]
     },
     {
       "reason": "optional-mainland",
