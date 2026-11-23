@@ -1,0 +1,65 @@
+{
+  "format": "pokesim-frlg-party-snapshot/1",
+  "source": "FRLG Mail Glitch lab save after mg-03 (fr.sav.mg03); save not committed",
+  "party": [
+    {
+      "nickname": "BLASTOISE",
+      "species": "BLASTOISE",
+      "level": 57,
+      "exp": 188795,
+      "held_item": 0,
+      "traded": false,
+      "hp": 166,
+      "stats": {"hp": 166, "atk": 109, "def": 159, "spe": 123, "spa": 127, "spd": 116},
+      "ivs": {"hp": 6, "atk": 0, "def": 30, "spe": 26, "spa": 29, "spd": 3},
+      "evs": {"hp": 40, "atk": 80, "def": 68, "spe": 105, "spa": 64, "spd": 23},
+      "moves": [
+        {"name": "SURF", "pp": 15, "pp_ups": 0},
+        {"name": "BITE", "pp": 25, "pp_ups": 0},
+        {"name": "BLIZZARD", "pp": 5, "pp_ups": 0},
+        {"name": "STRENGTH", "pp": 15, "pp_ups": 0}
+      ],
+      "nature_index": 9,
+      "ability_slot": 0
+    },
+    {
+      "nickname": "MIMIEN",
+      "species": "MR_MIME",
+      "level": 9,
+      "exp": 729,
+      "held_item": 0,
+      "traded": true,
+      "hp": 28,
+      "stats": {"hp": 28, "atk": 12, "def": 18, "spe": 25, "spa": 25, "spd": 28},
+      "ivs": {"hp": 20, "atk": 15, "def": 17, "spe": 24, "spa": 23, "spd": 22},
+      "evs": {"hp": 0, "atk": 0, "def": 0, "spe": 0, "spa": 0, "spd": 0},
+      "moves": [
+        {"name": "BARRIER", "pp": 30, "pp_ups": 0},
+        {"name": "CONFUSION", "pp": 25, "pp_ups": 0},
+        {"name": "SUBSTITUTE", "pp": 10, "pp_ups": 0}
+      ],
+      "nature_index": 10,
+      "ability_slot": 0
+    },
+    {
+      "nickname": "CH'DING",
+      "species": "FARFETCHD",
+      "level": 22,
+      "exp": 10648,
+      "held_item": 225,
+      "traded": true,
+      "hp": 59,
+      "stats": {"hp": 59, "atk": 42, "def": 33, "spe": 36, "spa": 29, "spd": 36},
+      "ivs": {"hp": 20, "atk": 25, "def": 21, "spe": 24, "spa": 15, "spd": 20},
+      "evs": {"hp": 0, "atk": 0, "def": 0, "spe": 0, "spa": 0, "spd": 0},
+      "moves": [
+        {"name": "SAND_ATTACK", "pp": 15, "pp_ups": 0},
+        {"name": "LEER", "pp": 30, "pp_ups": 0},
+        {"name": "FURY_ATTACK", "pp": 20, "pp_ups": 0},
+        {"name": "KNOCK_OFF", "pp": 20, "pp_ups": 0}
+      ],
+      "nature_index": 3,
+      "ability_slot": 0
+    }
+  ]
+}
