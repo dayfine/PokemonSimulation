@@ -23,6 +23,9 @@ The [full-run benchmark readiness audit](../battles/pokeguy-readiness.md)
 catalogs purchases and partial bag checkpoints, and identifies what must be
 reconciled before estimating every battle's win probability.
 
+The [Mail Glitch grind comparison](mail-glitch-grind.md) picks where to level the
+mg-04 grinders (Tower, Victory Road, VS Seeker rematches) from the mg-03 save.
+
 The [complete battle log](pokeguy-exp.md) calculates the starter's cumulative
 EXP and level after every battle from Oak's lab through the Champion. It
 contains 69 trainer fights / 199 trainer Pokémon, seven Rare Candies, and the
