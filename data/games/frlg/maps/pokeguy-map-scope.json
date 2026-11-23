@@ -33,12 +33,9 @@
       "maps": [
         "CeladonCity_DepartmentStore_2F",
         "CeladonCity_DepartmentStore_3F",
-        "CeladonCity_DepartmentStore_4F",
         "CeladonCity_DepartmentStore_Roof",
-        "CeladonCity_GameCorner_PrizeRoom",
         "CeladonCity_Hotel",
         "CeladonCity_House1",
-        "CeladonCity_Restaurant",
         "CeruleanCity_House3",
         "CeruleanCity_House4",
         "CeruleanCity_House5",
@@ -115,7 +112,6 @@
         "Route18_EastEntrance_2F",
         "Route19_UnusedHouse",
         "Route23_UnusedHouse",
-        "Route2_House",
         "Route5_PokemonDayCare",
         "Route6_UnusedHouse",
         "SSAnne_1F_Room1",
@@ -191,7 +187,6 @@
         "TwoIsland_CapeBrink_House",
         "TwoIsland_JoyfulGameCorner",
         "VermilionCity_House1",
-        "VermilionCity_House2",
         "VermilionCity_House3",
         "ViridianCity_House",
         "ViridianCity_School"

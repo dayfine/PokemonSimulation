@@ -345,6 +345,41 @@
           }
         },
         {
+          "name": "CeladonCity_DepartmentStore_4F",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_DepartmentStore_4F.json",
+          "sha256": "b11887257f8a0a4ca7c1d4f30a2dd5046b206b83e272fe4fcb0f953639221047",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_DepartmentStore_4F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 15,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/CeladonCity_DepartmentStore_4F.json",
+            "sha256": "b11887257f8a0a4ca7c1d4f30a2dd5046b206b83e272fe4fcb0f953639221047"
+          }
+        },
+        {
           "name": "CeladonCity_DepartmentStore_5F",
           "file": "data/games/frlg/maps/runtime/CeladonCity_DepartmentStore_5F.json",
           "sha256": "1b3377d76190c0893f36d04744e9dbeb74e93832ab5aebca11758b33479b0c91",
@@ -415,6 +450,41 @@
           }
         },
         {
+          "name": "CeladonCity_GameCorner_PrizeRoom",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_GameCorner_PrizeRoom.json",
+          "sha256": "653a8090161697650487a7d366ddb72c1816789017a7049694d67f04cbee0a07",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_GameCorner_PrizeRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 9,
+            "height": 10,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/CeladonCity_GameCorner_PrizeRoom.json",
+            "sha256": "653a8090161697650487a7d366ddb72c1816789017a7049694d67f04cbee0a07"
+          }
+        },
+        {
           "name": "CeladonCity_Gym",
           "file": "data/games/frlg/maps/runtime/CeladonCity_Gym.json",
           "sha256": "82c5a7dbc270273c4d05152ce42be6d99055037efa8e2a4cdc21ff3ff7fb0182",
@@ -447,6 +517,41 @@
           "base": {
             "file": "data/games/frlg/maps/base/CeladonCity_Gym.json",
             "sha256": "82c5a7dbc270273c4d05152ce42be6d99055037efa8e2a4cdc21ff3ff7fb0182"
+          }
+        },
+        {
+          "name": "CeladonCity_Restaurant",
+          "file": "data/games/frlg/maps/runtime/CeladonCity_Restaurant.json",
+          "sha256": "59643c26b6e270c1f87285a625d686596c42ee50f6ee6ef5b5787a8cef86b7af",
+          "source": {
+            "decomp_file": "data/maps/CeladonCity_Restaurant/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 15,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/CeladonCity_Restaurant.json",
+            "sha256": "59643c26b6e270c1f87285a625d686596c42ee50f6ee6ef5b5787a8cef86b7af"
           }
         },
         {
@@ -5307,6 +5412,41 @@
           }
         },
         {
+          "name": "Route2_House",
+          "file": "data/games/frlg/maps/runtime/Route2_House.json",
+          "sha256": "2fed6fa052e69c2d8ddb41b0ca6f418aa616bcf48188df10056d6440b270f205",
+          "source": {
+            "decomp_file": "data/maps/Route2_House/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/Route2_House.json",
+            "sha256": "2fed6fa052e69c2d8ddb41b0ca6f418aa616bcf48188df10056d6440b270f205"
+          }
+        },
+        {
           "name": "Route2_ViridianForest_NorthEntrance",
           "file": "data/games/frlg/maps/runtime/Route2_ViridianForest_NorthEntrance.json",
           "sha256": "20e5c25f9a59298eba9bbdfdf05ab1a8c6b531d3599fd23d4634aa52ca08614d",
@@ -8326,6 +8466,41 @@
           "overlay": {
             "file": "data/games/frlg/maps/overlays/VermilionCity_Gym.json",
             "sha256": "07b2ac01d36875191239080d063cf2a5f9cec0d19efee58bb5e36d32061a23aa"
+          }
+        },
+        {
+          "name": "VermilionCity_House2",
+          "file": "data/games/frlg/maps/runtime/VermilionCity_House2.json",
+          "sha256": "f0fa77a804fedde7a816c1f5f80b82f78a1a4b8460e392ccad7caa75b4ed9a3f",
+          "source": {
+            "decomp_file": "data/maps/VermilionCity_House2/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 11,
+            "height": 9,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/VermilionCity_House2.json",
+            "sha256": "f0fa77a804fedde7a816c1f5f80b82f78a1a4b8460e392ccad7caa75b4ed9a3f"
           }
         },
         {
