@@ -15,7 +15,7 @@ the runtime file's hash and `base` / `overlay` references (file and sha256):
 | Status | Meaning | Count |
 |---|---|---:|
 | `verified` | Reviewed content. `verified.basis` is `approved-runtime-pack` (in the approved pack before this set existed; no per-map run was recorded) or `console-run` (`run`, `date`, `checkpoint`, optional `consumer_revision`). | 57 |
-| `candidate` | Generated, unreviewed. | 160 |
+| `candidate` | Generated, unreviewed. | 165 |
 
 Every entry also records its `source` (pret file and commit), the same object
 as the runtime file's `source`. The status is kept out of the map bytes, so
