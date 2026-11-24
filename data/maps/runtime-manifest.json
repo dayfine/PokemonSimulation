@@ -9798,7 +9798,7 @@
         {
           "name": "TwinleafTown",
           "file": "data/games/bdsp/maps/runtime/TwinleafTown.json",
-          "sha256": "ea894ecdf312bddf8e87884b2c5410dbba9005cb05be01a787316dc87510513b",
+          "sha256": "aa244bcbc2edbd1507917a3ae885f0ee78971445c65a226e386d6fde17375905",
           "upstream_path": "SerialPrograms/Source/PokemonBDSP/Programs/AutoStory/Maps/TwinleafTown.json",
           "source": {
             "decomp_file": "pret/pokediamond: files/fielddata/land_data/land_data_release/narc_0000.bin; zone_event narc_0389",
@@ -9827,7 +9827,7 @@
           },
           "overlay": {
             "file": "data/games/bdsp/maps/overlays/TwinleafTown.json",
-            "sha256": "649970e373df85faa4e7819dffc543060a72f14fdb39309d042bc4532e23e17e"
+            "sha256": "51c9b8663708ddae6f74b5bf332c91c26df18d24f52b0384eea521c583cc355c"
           }
         },
         {

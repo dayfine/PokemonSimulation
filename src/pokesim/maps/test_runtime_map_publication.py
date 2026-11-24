@@ -19,15 +19,18 @@ BASELINE = ROOT / 'data/maps/v2-value-baseline.json'
 # {(game, map): {name: (v1 coord, current coord)}} for points and NPCs.
 # Each is undone before digesting so every other value still matches v1.
 # Floaroma's old couple: console oldprobe/westedge, 2026-11-08 (one column east).
+# Twinleaf's guitarist, who has no point: lab-B 00.04, 2026-11-23 (one row north).
 CORRECTIONS = {
     ('bdsp', 'FloaromaTown'): {'old_man': ([2, 25], [3, 25]), 'old_woman': ([3, 25], [4, 25])},
+    ('bdsp', 'TwinleafTown'): {'guitarist_3': ([12, 5], [12, 4])},
 }
 
 
 def undo_corrections(game, data):
     for name, (before, after) in CORRECTIONS.get((game, data['name']), {}).items():
-        assert data['points'][name] == after, (name, data['points'][name])
-        data['points'][name] = before
+        if name in data['points']:
+            assert data['points'][name] == after, (name, data['points'][name])
+            data['points'][name] = before
         npc = next(obj for obj in data['objects'] if obj['name'] == name)
         assert [npc['x'], npc['y']] == after, (name, npc)
         npc['x'], npc['y'] = before

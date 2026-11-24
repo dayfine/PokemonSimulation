@@ -16,7 +16,7 @@ the pack's (see [runtime-maps.md](../../../../docs/maps/runtime-maps.md)).
 
 ## What the overlays hold
 
-44 operations in 17 files. All are `candidate`: the manifest says BDSP is
+45 operations in 17 files. All are `candidate`: the manifest says BDSP is
 "mixed; not blanket verified", and a console pass promotes status.
 
 | Operation | Count | why | What it is |
@@ -26,6 +26,7 @@ the pack's (see [runtime-maps.md](../../../../docs/maps/runtime-maps.md)).
 | `object` add | 15 | `story_scope` (13), `console_measured` (2) | A person the decomp hides by a story flag but the story meets (Jubilife's clowns and president, Roark, Rowan, Barry, the Lake Verity actors, Floaroma's grunts), and the two Floaroma people the console found. The Jubilife clowns' wander boxes are here. |
 | `object` remove | 3 | `console_measured` (2), `story_scope` (1) | People who wander in BDSP but stand still in Diamond (Sandgem), and Route201's Potion lady, whom the story walks to. |
 | `object` update | 1 | `console_measured` | Route204North's Brandon: still, on (20, 12). |
+| `object` move | 1 | `console_measured` | Twinleaf's guitarist: on (12, 4) in BDSP, one row north of Diamond's (12, 5) (9 lab-B runs blocked there, 2026-11-23). |
 | `trigger` update | 9 | `story_scope` | The names AutoStory's coord-event table uses (`coord_event_<index>` in the base). |
 | `trigger` add | 1 | `console_measured` | Mom's call on the door mat (PlayerHouse1F), not in the decomp. |
 | `link` add (warp) | 3 | `generator_gap` | The door mats of the two Twinleaf houses and the Lab; the builder emits no warps. |
