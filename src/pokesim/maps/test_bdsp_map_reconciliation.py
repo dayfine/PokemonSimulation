@@ -4,7 +4,7 @@ import unittest
 
 from pokesim.grid.geometry import Direction as D, Tile
 from pokesim.grid.maps.world import Place
-from pokesim.grid.movement import Blocked, Moved, Warp, WorldState, world_step
+from pokesim.grid.movement import Blocked, BlockReason, Moved, Warp, WorldState, world_step
 from .local_routing import Context, LocalMap
 from .runtime_map_pack import ROOT, effective_map, load
 from .runtime_world import RuntimeWorld
@@ -95,6 +95,19 @@ class BDSPMapReconciliationTest(unittest.TestCase):
             here = step.state
         self.assertEqual(here, state('FloaromaTown', 0, 26))
         self.assertNotIsInstance(world_step(floaroma, here, D.WEST), Moved)
+
+    def test_twinleaf_row_4_east_leg_stops_before_the_guitarist(self):
+        # lab-B 00.04 short_of_the_catch_tutorial, 9 runs to 2026-11-23: the
+        # leg east 8 from (6, 4) stopped at (11, 4) every time, someone on
+        # (12, 4). Diamond's (12, 5) let the plan run through him.
+        twinleaf = LocalMap(map_data('TwinleafTown'), 'bdsp')
+        here = state('TwinleafTown', 6, 4)
+        for _ in range(5):
+            step = world_step(twinleaf, here, D.EAST)
+            self.assertIsInstance(step, Moved)
+            here = step.state
+        self.assertEqual(here, state('TwinleafTown', 11, 4))
+        self.assertEqual(world_step(twinleaf, here, D.EAST), Blocked(BlockReason.OBJECT))
 
     def test_jubilife_clowns_keep_their_wander_boxes_and_story_flag(self):
         raw = map_data('JubilifeCity')

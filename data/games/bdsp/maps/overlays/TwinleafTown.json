@@ -14,6 +14,20 @@
         "used_by": "AutoStory Data/PokemonBDSP_AutoStory_CoordEvents.h"
       },
       "status": "candidate"
+    },
+    {
+      "op": "object",
+      "action": "move",
+      "name": "guitarist_3",
+      "at": [12, 5],
+      "to": [12, 4],
+      "why": "console_measured",
+      "evidence": {
+        "run": "lab-B 00.04 short_of_the_catch_tutorial, 9 runs 2026-11-21 to 2026-11-23",
+        "date": "2026-11-23",
+        "observation": "Diamond puts the guitarist (LOOK_NORTH_WEST_AND_EAST, range 0) on (12, 5); in BDSP he stands on (12, 4): every east leg along row 4 stopped at (10, 4)/(11, 4) and talked to someone on (12, 4), and the re-plan along row 6 passed. Evidence pack: ~/BDSPLab/evidence/twinleaf-wanderer-20261123"
+      },
+      "status": "candidate"
     }
   ]
 }

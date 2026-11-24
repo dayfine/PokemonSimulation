@@ -70,6 +70,6 @@
     "npcs": [
         {"name": "pokemon_breeder_f_0", "coord": [23, 14], "wander": {"min": [22, 14], "max": [24, 14]}},
         {"name": "collector_1", "coord": [12, 25]},
-        {"name": "guitarist_3", "coord": [12, 5]}
+        {"name": "guitarist_3", "coord": [12, 4]}
     ]
 }
