@@ -7526,6 +7526,216 @@
           }
         },
         {
+          "name": "SixIsland_DottedHole_1F",
+          "file": "data/games/frlg/maps/runtime/SixIsland_DottedHole_1F.json",
+          "sha256": "680d11d25b96766bbfe2ecc538285ea6ae200aee659b2e2973acab313a8c6e26",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_DottedHole_1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 16,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_DottedHole_1F.json",
+            "sha256": "680d11d25b96766bbfe2ecc538285ea6ae200aee659b2e2973acab313a8c6e26"
+          }
+        },
+        {
+          "name": "SixIsland_DottedHole_B1F",
+          "file": "data/games/frlg/maps/runtime/SixIsland_DottedHole_B1F.json",
+          "sha256": "3b75887a9bc0974eacf57989848638707413c120bc806103f128b86700c64f72",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_DottedHole_B1F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_DottedHole_B1F.json",
+            "sha256": "3b75887a9bc0974eacf57989848638707413c120bc806103f128b86700c64f72"
+          }
+        },
+        {
+          "name": "SixIsland_DottedHole_B2F",
+          "file": "data/games/frlg/maps/runtime/SixIsland_DottedHole_B2F.json",
+          "sha256": "79cd55d57c5fb4f6c6833de695b47f8b39f5b3c1164fdc713fcb7e209bc970b2",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_DottedHole_B2F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_DottedHole_B2F.json",
+            "sha256": "79cd55d57c5fb4f6c6833de695b47f8b39f5b3c1164fdc713fcb7e209bc970b2"
+          }
+        },
+        {
+          "name": "SixIsland_DottedHole_B3F",
+          "file": "data/games/frlg/maps/runtime/SixIsland_DottedHole_B3F.json",
+          "sha256": "ebdeefef2512544cc35968fe5b4a44a683316da3c1bf73de95983ea1478b7a2f",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_DottedHole_B3F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_DottedHole_B3F.json",
+            "sha256": "ebdeefef2512544cc35968fe5b4a44a683316da3c1bf73de95983ea1478b7a2f"
+          }
+        },
+        {
+          "name": "SixIsland_DottedHole_B4F",
+          "file": "data/games/frlg/maps/runtime/SixIsland_DottedHole_B4F.json",
+          "sha256": "e3294cec9dedbc52f523e681798c7a5f07e77e242366ba75c5fc0cb2a0b37f3e",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_DottedHole_B4F/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 13,
+            "height": 11,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_DottedHole_B4F.json",
+            "sha256": "e3294cec9dedbc52f523e681798c7a5f07e77e242366ba75c5fc0cb2a0b37f3e"
+          }
+        },
+        {
+          "name": "SixIsland_DottedHole_SapphireRoom",
+          "file": "data/games/frlg/maps/runtime/SixIsland_DottedHole_SapphireRoom.json",
+          "sha256": "ebb4b782385409594ee5fb208ca696d0cac2aab2b87aab869df435cff5124089",
+          "source": {
+            "decomp_file": "data/maps/SixIsland_DottedHole_SapphireRoom/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31",
+            "elevation_omitted": "all walkable tiles are ground level (3); non-ground levels appear only on unwalkable walls/obstacles"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 16,
+            "height": 15,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/SixIsland_DottedHole_SapphireRoom.json",
+            "sha256": "ebb4b782385409594ee5fb208ca696d0cac2aab2b87aab869df435cff5124089"
+          }
+        },
+        {
           "name": "SixIsland_GreenPath",
           "file": "data/games/frlg/maps/runtime/SixIsland_GreenPath.json",
           "sha256": "60984f77be722eeca0b85c2e95db32451709ef07a1edc24bb07f1541e7c02526",
