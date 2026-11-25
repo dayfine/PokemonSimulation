@@ -15,7 +15,7 @@ the runtime file's hash and `base` / `overlay` references (file and sha256):
 | Status | Meaning | Count |
 |---|---|---:|
 | `verified` | Reviewed content. `verified.basis` is `approved-runtime-pack` (in the approved pack before this set existed; no per-map run was recorded) or `console-run` (`run`, `date`, `checkpoint`, optional `consumer_revision`). | 57 |
-| `candidate` | Generated, unreviewed. | 166 |
+| `candidate` | Generated, unreviewed. | 172 |
 
 Every entry also records its `source` (pret file and commit), the same object
 as the runtime file's `source`. The status is kept out of the map bytes, so
@@ -106,10 +106,14 @@ so the pack carries neither them nor where they can be pushed. Their start tiles
 
 A hole (tile `H`, decomp behavior `MB_FALL_WARP`) is a warp with `"one_way": true`:
 you fall to the warp event it names and the landing has no way back up. In the
-pack: `PokemonMansion_3F` (18..20, 18) and (23..24, 18), and `VictoryRoad_3F`
-(34, 18). The generator sets it on every warp on an `H` tile, and the validator
-requires it. Seafoam Islands (1F to B3F) and the Six Island Dotted Hole floors
-also have holes but are outside the pack's scope; they get it when added.
+pack: `PokemonMansion_3F` (18..20, 18) and (23..24, 18), `VictoryRoad_3F`
+(34, 18), Seafoam Islands 1F to B3F, and Six Island's Dotted Hole: one hole on
+1F, four on each of B1F to B4F (pret
+`data/maps/SixIsland_DottedHole_*/map.json`). On each lower floor one hole leads
+on (B1F north (6, 1), B2F west (1, 5), B3F east (11, 5), B4F south (6, 9), to the
+Sapphire room, as the floors' braille says) and the other three drop back to 1F
+(6, 7). The generator sets it on every warp on an `H` tile, and the validator
+requires it.
 
 List a map's differences from its base, or see it at a story state:
 
@@ -151,16 +155,16 @@ operation, one that no longer changes anything, fails here), then
 
 ## Scope
 
-[`pokeguy-map-scope.json`](pokeguy-map-scope.json) lists the 214 catalog maps
+[`pokeguy-map-scope.json`](pokeguy-map-scope.json) lists the 208 catalog maps
 the generator does **not** publish as candidates (425-map catalog; Sevii Islands
-story/catching maps, Birth Island, Power Plant and Seafoam Islands are included
+story/catching maps (Six Island's Dotted Hole among them), Birth Island, Power Plant and Seafoam Islands are included
 as candidates; Navel Rock's compressed route is in `data/games/frlg/routes/navel_rock.json`):
 
 | Excluded group | Maps |
 |---|---:|
 | Multiplayer facilities | 5 |
 | Optional mainland caves and routes (Diglett's Cave, Cycling Road, Cerulean Cave) | 7 |
-| Unused interiors, prototypes, Lost Cave, Dotted Hole, Navel Rock, Trainer Tower, Tanoby Ruins/Altering Cave and side houses | 158 |
+| Unused interiors, prototypes, Lost Cave, Navel Rock, Trainer Tower, Tanoby Ruins/Altering Cave and side houses | 152 |
 | Pokemon Centers, Marts and elevators (scripted in AutoStory; `OneIsland_PokemonCenter_1F` and `IndigoPlateau_PokemonCenter_1F` retained) | 44 |
 
 **Pokemon Centers and elevators are scripted in AutoStory, not mapped.** The
