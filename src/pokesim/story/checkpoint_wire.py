@@ -22,7 +22,7 @@ from pathlib import Path
 
 from pokesim.formats.contract_format import json_text
 
-KINDS = ('new_game', 'options', 'route', 'legs', 'step', 'talk', 'answer',
+KINDS = ('new_game', 'game_settings', 'route', 'legs', 'step', 'talk', 'answer',
          'scene', 'battle', 'train', 'heal', 'shop', 'save', 'ready', 'game_action')
 DIRECTIONS = ('north', 'east', 'south', 'west')
 CERTAINTIES = ('tile', 'column', 'row', 'set', 'unknown')

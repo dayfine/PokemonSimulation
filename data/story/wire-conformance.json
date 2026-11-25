@@ -22,8 +22,8 @@
       "expectation": {"read": {"id": "e", "kind": "new_game"}}
     },
     {
-      "input": {"name": "kind options", "record": "step", "value": {"id": "e", "kind": "options"}},
-      "expectation": {"read": {"id": "e", "kind": "options"}}
+      "input": {"name": "kind game_settings", "record": "step", "value": {"id": "e", "kind": "game_settings"}},
+      "expectation": {"read": {"id": "e", "kind": "game_settings"}}
     },
     {
       "input": {
