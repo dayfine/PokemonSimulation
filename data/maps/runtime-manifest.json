@@ -8150,6 +8150,40 @@
           }
         },
         {
+          "name": "TwoIsland_JoyfulGameCorner",
+          "file": "data/games/frlg/maps/runtime/TwoIsland_JoyfulGameCorner.json",
+          "sha256": "39005b1a66e2e7a20fb955117a6c6f047e29d0143cddb9fa26140f12ab4ecc9d",
+          "source": {
+            "decomp_file": "data/maps/TwoIsland_JoyfulGameCorner/map.json",
+            "revision": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
+            "date": "2026-10-31"
+          },
+          "target_game": "frlg",
+          "source_game": "firered",
+          "source_revision_resolved": true,
+          "verification": "decomp-only",
+          "coordinate_frame": {
+            "kind": "local tiles",
+            "origin": [
+              0,
+              0
+            ],
+            "width": 12,
+            "height": 10,
+            "origin_space": "map layout"
+          },
+          "terrain_corrections": [],
+          "generation_overrides": {
+            "opened_tiles": []
+          },
+          "preconditions": [],
+          "status": "candidate",
+          "base": {
+            "file": "data/games/frlg/maps/base/TwoIsland_JoyfulGameCorner.json",
+            "sha256": "39005b1a66e2e7a20fb955117a6c6f047e29d0143cddb9fa26140f12ab4ecc9d"
+          }
+        },
+        {
           "name": "UndergroundPath_EastEntrance",
           "file": "data/games/frlg/maps/runtime/UndergroundPath_EastEntrance.json",
           "sha256": "bb3a41f1bd2a3fa38669e70b37117f5845f99ff1fbb4c61bfbf4f10cee75214b",
