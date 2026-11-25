@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dayfine/PokemonSimulation/main/schemas/frlg-level-up.schema.json",
+  "title": "FRLG level-up data from pret/pokefirered",
+  "description": "Level-up learnsets, evolutions and HM moves for one game version, from pokesim.games.frlg.progression.level_up_pret.",
+  "type": "object",
+  "properties": {
+    "format": {"const": "pokesim-frlg-level-up/1"},
+    "source": {
+      "type": "object",
+      "properties": {
+        "repository": {"const": "https://github.com/pret/pokefirered"},
+        "revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "sha256": {
+          "type": "object",
+          "propertyNames": {"minLength": 1},
+          "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "minProperties": 1
+        }
+      },
+      "required": ["repository", "revision", "sha256"],
+      "additionalProperties": false
+    },
+    "version": {"enum": ["FIRERED", "LEAFGREEN"]},
+    "hm_moves": {"type": "array", "items": {"$ref": "#/$defs/name"}, "minItems": 1, "uniqueItems": true},
+    "species": {
+      "type": "object",
+      "propertyNames": {"$ref": "#/$defs/name"},
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "learnset": {
+            "description": "[level, move] in pret order; level 1 entries are the moves a new Pokemon starts with.",
+            "type": "array",
+            "items": {
+              "type": "array",
+              "prefixItems": [{"$ref": "#/$defs/level"}, {"$ref": "#/$defs/name"}],
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "evolutions": {"type": "array", "items": {"$ref": "#/$defs/evolution"}}
+        },
+        "required": ["learnset", "evolutions"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["format", "source", "version", "hm_moves", "species"],
+  "additionalProperties": false,
+  "$defs": {
+    "name": {"type": "string", "pattern": "^[A-Z0-9_]+$"},
+    "level": {"type": "integer", "minimum": 1, "maximum": 100},
+    "evolution": {
+      "description": "pret EVO_ method without its prefix; its parameter is named by what it means.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "method": {
+              "enum": [
+                "LEVEL",
+                "LEVEL_ATK_GT_DEF",
+                "LEVEL_ATK_EQ_DEF",
+                "LEVEL_ATK_LT_DEF",
+                "LEVEL_SILCOON",
+                "LEVEL_CASCOON",
+                "LEVEL_NINJASK",
+                "LEVEL_SHEDINJA"
+              ]
+            },
+            "level": {"$ref": "#/$defs/level"},
+            "species": {"$ref": "#/$defs/name"}
+          },
+          "required": ["method", "level", "species"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "method": {"enum": ["ITEM", "TRADE_ITEM"]},
+            "item": {"$ref": "#/$defs/name"},
+            "species": {"$ref": "#/$defs/name"}
+          },
+          "required": ["method", "item", "species"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "method": {"const": "BEAUTY"},
+            "beauty": {"type": "integer", "minimum": 0, "maximum": 255},
+            "species": {"$ref": "#/$defs/name"}
+          },
+          "required": ["method", "beauty", "species"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "method": {"enum": ["FRIENDSHIP", "FRIENDSHIP_DAY", "FRIENDSHIP_NIGHT", "TRADE"]},
+            "species": {"$ref": "#/$defs/name"}
+          },
+          "required": ["method", "species"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
