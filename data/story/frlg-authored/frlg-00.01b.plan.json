@@ -14,8 +14,8 @@
         "why": "the Trainer Card SID Helper left open, or HOME"
       },
       {
-        "id": "options",
-        "kind": "options",
+        "id": "game_settings",
+        "kind": "game_settings",
         "why": "fast text; no switch prompt between a trainer's Pokemon"
       }
     ]

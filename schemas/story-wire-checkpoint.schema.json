@@ -42,7 +42,7 @@
         "kind": {
           "enum": [
             "new_game",
-            "options",
+            "game_settings",
             "route",
             "legs",
             "step",

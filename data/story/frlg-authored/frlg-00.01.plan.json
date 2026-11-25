@@ -12,8 +12,8 @@
         "why": "Oak's speech, BOY, the player's name (default if none is set), rival GREEN"
       },
       {
-        "id": "options",
-        "kind": "options",
+        "id": "game_settings",
+        "kind": "game_settings",
         "why": "fast text; no switch prompt between a trainer's Pokemon"
       }
     ]
