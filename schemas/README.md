@@ -17,6 +17,7 @@ PYTHONPATH=src python3 -m pokesim.formats.json_schema frlg-battle-report report.
 | `story-replay-binding`, `story-replay-cases` | Offline capability bindings and synthetic input/expectation scenarios, including opt-in exact action assertions. The current game adapter supports FRLG route/step and scripted scenes. These do not resolve native runtime options or establish execution parity. |
 | `runtime-map-v2` | Current published FRLG/BDSP runtime maps with coordinate pairs and typed NPC/item/sign/interactable arrays. Historical v1 and older grid formats remain handled by their existing readers. |
 | `frlg-battle-cases` | Existing Gen 3 solo-battle experiment inputs. This does not imply support for another generation or arbitrary teams. |
+| `frlg-level-up` | FRLG level-up learnsets, evolutions (method plus level, item or beauty) and HM moves imported from pinned pret/pokefirered for one game version (`data/games/frlg/progression/level-up-pret.json`). |
 | `frlg-battle-report` | Existing full benchmark output (`pokesim-frlg-report/1`), including probability/count shapes. Run summaries and other result formats are not covered yet. |
 
 `$id` identifies each schema; validation uses a registry of schemas from the local checkout and does not fetch references. Consumers should pin the publisher revision alongside data

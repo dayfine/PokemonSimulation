@@ -33,7 +33,7 @@ def validator(name):
 
 
 def published():
-    """Enumerate current runtime packs and the checked-in FRLG case document."""
+    """Enumerate current runtime packs and the checked-in FRLG case and level-up documents."""
     for path in sorted(ROOT.glob('data/games/*/maps/runtime/*.json')):
         yield 'runtime-map-v2', path
     for path in sorted(ROOT.glob('data/games/*/maps/base/*.json')):
@@ -41,6 +41,7 @@ def published():
     for path in sorted(ROOT.glob('data/games/*/maps/overlays/*.json')):
         yield 'map-overlay', path
     yield 'frlg-battle-cases', ROOT / 'data/games/frlg/battles/cases.json'
+    yield 'frlg-level-up', ROOT / 'data/games/frlg/progression/level-up-pret.json'
     for path in sorted(ROOT.glob('data/story/native/*.json')):
         yield 'native-checkpoint-export', path
     yield 'authored-checkpoint', ROOT / 'data/story/parcel-pilot/frlg-parcel-02.01.plan.json'
