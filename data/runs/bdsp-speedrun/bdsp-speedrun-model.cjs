@@ -224,9 +224,14 @@ function chooseNpc(battle, actor, options, scenario, tactical) {
   return scored.reduce((best, next) => next.score > best.score ? next : best).option;
 }
 
-function playerChoice(battle, entry, actor, options, steps, pending, actorCode) {
+function playerChoice(battle, entry, actor, options, steps, pending, actorCode, rivalRecovery) {
   const foe = options.find(o => o.target)?.target;
   if (!foe) return options[0].choice;
+  if (rivalRecovery && rivalRecovery.potions > 0 && actor.hp <= 11) {
+    rivalRecovery.potions--;
+    pending.set(actor, {item:'pot', target:actor});
+    return options[0].choice;
+  }
   const doublePlan = doublesPlans[entry.key]?.[actorCode];
   if (doublePlan) {
     const step = steps.get(actorCode) ?? 0;
@@ -241,7 +246,7 @@ function playerChoice(battle, entry, actor, options, steps, pending, actorCode) 
   }
   const slot = foe.auditSlot;
   const species = foe.species.id.replace(/east$/, '');
-  const plan = plans[entry.key]?.[species + ':' + slot] ?? plans[entry.key]?.[species];
+  const plan = rivalRecovery ? ['ember'] : plans[entry.key]?.[species + ':' + slot] ?? plans[entry.key]?.[species];
   const counterKey = 'p1:' + slot;
   const step = steps.get(counterKey) ?? 0;
   const defaultMove = repeatedAttacks[entry.key] || entry.attack;
@@ -276,7 +281,8 @@ function playerChoice(battle, entry, actor, options, steps, pending, actorCode) 
   ).choice;
 }
 
-function simulate(entry, seed, scenario) {
+function simulate(entry, seed, scenario, rivalStrategy) {
+  const rivalRecovery = rivalStrategy?.reactive ? {potions:rivalStrategy.potions} : null;
   const coOp = !!entry.ally;
   const doubles = entry.opponents.length > 1;
   const baseFormat = Dex.formats.get('gen8bdspou');
@@ -296,7 +302,10 @@ function simulate(entry, seed, scenario) {
   for (const [i, pokemon] of battle.p1.pokemon.entries()) {
     const mon = playerBoard[i];
     pokemon.auditCode = mon.code ?? 'ally';
-    if (mon.code) setEntry(pokemon, mon, entry.key, scenario);
+    if (mon.code) {
+      setEntry(pokemon, mon, entry.key, scenario);
+      if (rivalStrategy?.startFull) pokemon.hp = pokemon.maxhp;
+    }
   }
   battle.p2.pokemon.forEach((pokemon, i) => {pokemon.auditSlot = i;});
   if (entry.field === 'hail') {
@@ -379,7 +388,7 @@ function simulate(entry, seed, scenario) {
           const mon = side.active[n];
           if (!mon?.hp || !request) return 'pass';
           const options = available(battle, mon, request);
-          if (playerSide) return playerChoice(battle, entry, mon, options, steps, pending, mon.auditCode);
+          if (playerSide) return playerChoice(battle, entry, mon, options, steps, pending, mon.auditCode, rivalRecovery);
           if (medicine > 0 && mon.hp > 1 && mon.hp < mon.maxhp / 4) {
             medicine--;
             pending.set(mon, {item:leaderMedicines[entry.key][0], target:mon});
@@ -412,27 +421,46 @@ function prepare(entry) {
   return entry;
 }
 
-function run(trials, only) {
-  return fixtures.filter(entry => !only || only.has(entry.key)).map(entry => {
-    if (entry.goal !== 'defeat') return {key:entry.key, goal:entry.goal, ...(entry.key === 'palkia' ? {guaranteed:100} : {})};
-    prepare(entry);
-    const results = [0,1].map(scenario => {
-      const counts = {win:0,loss:0,unresolved:0};
-      for (let trial = 0; trial < trials; trial++) {
-        const seed = [entry.number, 9973 * (scenario + 1), trial + 1, 13007];
-        counts[simulate(entry, seed, scenario)]++;
-      }
-      return counts;
-    });
-    return {key:entry.key, trials, results};
+function countResults(entry, trials, rivalStrategy) {
+  prepare(entry);
+  return [0,1].map(scenario => {
+    const counts = {win:0,loss:0,unresolved:0};
+    for (let trial = 0; trial < trials; trial++) {
+      const seed = [entry.number, 9973 * (scenario + 1), trial + 1, 13007];
+      counts[simulate(entry, seed, scenario, rivalStrategy)]++;
+    }
+    return counts;
   });
 }
 
+function run(trials, only) {
+  return fixtures.filter(entry => !only || only.has(entry.key)).map(entry => {
+    if (entry.goal !== 'defeat') return {key:entry.key, goal:entry.goal, ...(entry.key === 'palkia' ? {guaranteed:100} : {})};
+    return {key:entry.key, trials, results:countResults(entry, trials)};
+  });
+}
+
+function route203Sensitivity(trials) {
+  const entry = fixtures.find(encounter => encounter.key === '178');
+  // The bag shows ten Potions against Piplup. Using one before entry leaves nine.
+  const variants = [
+    {strategy:'recorded', startFull:false, reactive:false},
+    {strategy:'full-hp-recorded-actions', startFull:true, reactive:false},
+    {strategy:'reactive-recovery', startFull:false, reactive:true, potions:10},
+    {strategy:'preheal-and-reactive-recovery', startFull:true, reactive:true, potions:9},
+  ];
+  return variants.map(variant => ({...variant, trials, results:countResults(entry, trials, variant)}));
+}
+
 if (require.main === module) {
-  const [count = '128', ...keys] = process.argv.slice(2);
+  const args = process.argv.slice(2);
+  const sensitivity = args[0] === '--route-203';
+  const [count = '128', ...keys] = sensitivity ? args.slice(1) : args;
   const trials = Number(count);
   if (!Number.isSafeInteger(trials) || trials < 1 || trials > 65534) throw Error('Expected 1–65534 trials per scenario');
-  process.stdout.write(JSON.stringify(run(trials, keys.length ? new Set(keys) : null), null, 2) + '\n');
+  if (sensitivity && (policy === 'A' || keys.length)) throw Error('Route 203 sensitivity requires B or C and a trial count only');
+  const output = sensitivity ? route203Sensitivity(trials) : run(trials, keys.length ? new Set(keys) : null);
+  process.stdout.write(JSON.stringify(output, null, 2) + '\n');
 }
 
 module.exports = {dex, fixtures, makeSet, statNames};
