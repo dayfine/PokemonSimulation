@@ -1,0 +1,344 @@
+[
+  {
+    "key": "178",
+    "name": "Route 203 rival",
+    "A": {
+      "key": "178",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "178",
+      "trials": 128,
+      "results": [{"win": 6, "loss": 122, "unresolved": 0}, {"win": 8, "loss": 120, "unresolved": 0}]
+    },
+    "C": {
+      "key": "178",
+      "trials": 128,
+      "results": [{"win": 6, "loss": 122, "unresolved": 0}, {"win": 8, "loss": 120, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "175",
+    "name": "Roark",
+    "A": {
+      "key": "175",
+      "trials": 128,
+      "results": [{"win": 22, "loss": 106, "unresolved": 0}, {"win": 59, "loss": 69, "unresolved": 0}]
+    },
+    "B": {
+      "key": "175",
+      "trials": 128,
+      "results": [{"win": 22, "loss": 106, "unresolved": 0}, {"win": 59, "loss": 69, "unresolved": 0}]
+    },
+    "C": {
+      "key": "175",
+      "trials": 128,
+      "results": [{"win": 78, "loss": 50, "unresolved": 0}, {"win": 106, "loss": 22, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "220",
+    "name": "Valley Windworks Mars",
+    "A": {
+      "key": "220",
+      "trials": 128,
+      "results": [{"win": 5, "loss": 123, "unresolved": 0}, {"win": 78, "loss": 50, "unresolved": 0}]
+    },
+    "B": {
+      "key": "220",
+      "trials": 128,
+      "results": [{"win": 93, "loss": 35, "unresolved": 0}, {"win": 123, "loss": 5, "unresolved": 0}]
+    },
+    "C": {
+      "key": "220",
+      "trials": 128,
+      "results": [{"win": 92, "loss": 36, "unresolved": 0}, {"win": 123, "loss": 5, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "240",
+    "name": "Gardenia",
+    "A": {
+      "key": "240",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 127, "loss": 1, "unresolved": 0}]
+    },
+    "B": {
+      "key": "240",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 127, "loss": 1, "unresolved": 0}]
+    },
+    "C": {
+      "key": "240",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 127, "loss": 1, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "311",
+    "name": "Eterna Jupiter",
+    "A": {
+      "key": "311",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 41, "loss": 87, "unresolved": 0}]
+    },
+    "B": {
+      "key": "311",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 41, "loss": 87, "unresolved": 0}]
+    },
+    "C": {
+      "key": "311",
+      "trials": 128,
+      "results": [{"win": 124, "loss": 4, "unresolved": 0}, {"win": 116, "loss": 12, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "242",
+    "name": "Maylene",
+    "A": {
+      "key": "242",
+      "trials": 128,
+      "results": [{"win": 7, "loss": 121, "unresolved": 0}, {"win": 6, "loss": 122, "unresolved": 0}]
+    },
+    "B": {
+      "key": "242",
+      "trials": 128,
+      "results": [{"win": 7, "loss": 121, "unresolved": 0}, {"win": 6, "loss": 122, "unresolved": 0}]
+    },
+    "C": {
+      "key": "242",
+      "trials": 128,
+      "results": [{"win": 117, "loss": 11, "unresolved": 0}, {"win": 48, "loss": 80, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "241",
+    "name": "Crasher Wake",
+    "A": {
+      "key": "241",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "241",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "241",
+      "trials": 128,
+      "results": [{"win": 60, "loss": 68, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "243",
+    "name": "Fantina",
+    "A": {
+      "key": "243",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "243",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "243",
+      "trials": 128,
+      "results": [{"win": 110, "loss": 18, "unresolved": 0}, {"win": 38, "loss": 90, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "179",
+    "name": "Byron",
+    "A": {
+      "key": "179",
+      "trials": 128,
+      "results": [{"win": 17, "loss": 111, "unresolved": 0}, {"win": 25, "loss": 103, "unresolved": 0}]
+    },
+    "B": {
+      "key": "179",
+      "trials": 128,
+      "results": [{"win": 17, "loss": 111, "unresolved": 0}, {"win": 25, "loss": 103, "unresolved": 0}]
+    },
+    "C": {
+      "key": "179",
+      "trials": 128,
+      "results": [{"win": 106, "loss": 22, "unresolved": 0}, {"win": 6, "loss": 122, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "244",
+    "name": "Candice",
+    "A": {
+      "key": "244",
+      "trials": 128,
+      "results": [{"win": 23, "loss": 105, "unresolved": 0}, {"win": 53, "loss": 75, "unresolved": 0}]
+    },
+    "B": {
+      "key": "244",
+      "trials": 128,
+      "results": [{"win": 23, "loss": 105, "unresolved": 0}, {"win": 53, "loss": 75, "unresolved": 0}]
+    },
+    "C": {
+      "key": "244",
+      "trials": 128,
+      "results": [{"win": 57, "loss": 71, "unresolved": 0}, {"win": 62, "loss": 66, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "309",
+    "name": "Spear Pillar Cyrus",
+    "A": {
+      "key": "309",
+      "trials": 128,
+      "results": [{"win": 1, "loss": 127, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "309",
+      "trials": 128,
+      "results": [{"win": 4, "loss": 124, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "309",
+      "trials": 128,
+      "results": [{"win": 126, "loss": 2, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "245",
+    "name": "Volkner",
+    "A": {
+      "key": "245",
+      "trials": 128,
+      "results": [{"win": 125, "loss": 3, "unresolved": 0}, {"win": 122, "loss": 6, "unresolved": 0}]
+    },
+    "B": {
+      "key": "245",
+      "trials": 128,
+      "results": [{"win": 125, "loss": 3, "unresolved": 0}, {"win": 122, "loss": 6, "unresolved": 0}]
+    },
+    "C": {
+      "key": "245",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 128, "loss": 0, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "362",
+    "name": "League rival",
+    "A": {
+      "key": "362",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "362",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "362",
+      "trials": 128,
+      "results": [{"win": 116, "loss": 12, "unresolved": 0}, {"win": 2, "loss": 126, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "185",
+    "name": "Aaron",
+    "A": {
+      "key": "185",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "185",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "185",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 128, "loss": 0, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "186",
+    "name": "Bertha",
+    "A": {
+      "key": "186",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "186",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "186",
+      "trials": 128,
+      "results": [{"win": 119, "loss": 9, "unresolved": 0}, {"win": 112, "loss": 16, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "187",
+    "name": "Flint",
+    "A": {
+      "key": "187",
+      "trials": 128,
+      "results": [{"win": 2, "loss": 126, "unresolved": 0}, {"win": 3, "loss": 125, "unresolved": 0}]
+    },
+    "B": {
+      "key": "187",
+      "trials": 128,
+      "results": [{"win": 2, "loss": 126, "unresolved": 0}, {"win": 3, "loss": 125, "unresolved": 0}]
+    },
+    "C": {
+      "key": "187",
+      "trials": 128,
+      "results": [{"win": 73, "loss": 55, "unresolved": 0}, {"win": 78, "loss": 50, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "188",
+    "name": "Lucian",
+    "A": {
+      "key": "188",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "188",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "188",
+      "trials": 128,
+      "results": [{"win": 109, "loss": 19, "unresolved": 0}, {"win": 67, "loss": 61, "unresolved": 0}]
+    }
+  },
+  {
+    "key": "191",
+    "name": "Cynthia",
+    "A": {
+      "key": "191",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "B": {
+      "key": "191",
+      "trials": 128,
+      "results": [{"win": 0, "loss": 128, "unresolved": 0}, {"win": 0, "loss": 128, "unresolved": 0}]
+    },
+    "C": {
+      "key": "191",
+      "trials": 128,
+      "results": [{"win": 128, "loss": 0, "unresolved": 0}, {"win": 124, "loss": 4, "unresolved": 0}]
+    }
+  }
+]

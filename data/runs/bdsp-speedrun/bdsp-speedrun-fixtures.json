@@ -1,0 +1,6585 @@
+[
+  {
+    "number": 1,
+    "key": "starly",
+    "start": "04:12",
+    "end": "04:46",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 5,
+        "hp": "20/20",
+        "item": "",
+        "moves": ["Scratch", "Leer"],
+        "evs": [0, 0, 0, 0, 0, 0]
+      }
+    ],
+    "opponents": [
+      {
+        "name": "Wild Starly",
+        "party": [
+          {
+            "species": "Starly",
+            "level": 2,
+            "ability": "Keen Eye",
+            "moves": ["Tackle", "Growl"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [15, 15, 15, 15, 15, 15],
+            "item": ""
+          }
+        ]
+      }
+    ],
+    "log": "Scratch ×2. Starly's Tackle takes 3 HP."
+  },
+  {
+    "number": 2,
+    "key": "tutorial",
+    "start": "08:39",
+    "end": "09:46",
+    "goal": "demonstration",
+    "tier": null,
+    "party": [
+      {
+        "code": "dawn",
+        "name": "Dawn’s Turtwig",
+        "species": "Turtwig",
+        "level": 5,
+        "hp": "22/22",
+        "item": "",
+        "moves": ["Tackle", "Withdraw"],
+        "evs": [0, 0, 0, 0, 0, 0]
+      }
+    ],
+    "opponents": [{"name": "Wild Bidoof", "party": [{"species": "Bidoof", "level": 2}]}],
+    "log": "Dawn's Turtwig Lv.5 22/22 uses Tackle, then Poké Ball on Bidoof Lv.2 after Growl."
+  },
+  {
+    "number": 3,
+    "key": "1",
+    "start": "09:58",
+    "end": "10:45",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 5,
+        "hp": "20/20",
+        "item": "",
+        "moves": ["Scratch", "Leer"],
+        "evs": [0, 0, 0, 0, 0, 1]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 1,
+        "name": "Youngster Tristan",
+        "party": [
+          {
+            "species": "Starly",
+            "level": 5,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Tackle", "Growl", "Quick Attack"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Leer, then Scratch ×3. Four enemy attacks leave 4/20 before Ember unlocks on level-up."
+  },
+  {
+    "number": 4,
+    "key": "3",
+    "start": "10:46",
+    "end": "11:53",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 6,
+        "hp": "7/23",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember"],
+        "evs": [0, 0, 0, 0, 0, 2]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 3,
+        "name": "Lass Natalie",
+        "party": [
+          {
+            "species": "Bidoof",
+            "level": 3,
+            "ability": "Unaware",
+            "item": "",
+            "moves": ["Tackle", "Growl"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Bidoof",
+            "level": 3,
+            "ability": "Unaware",
+            "item": "",
+            "moves": ["Tackle", "Growl"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember burns both Bidoof, then Scratch finishes each. Two Tackles cost 2 HP total."
+  },
+  {
+    "number": 5,
+    "key": "2",
+    "start": "11:54",
+    "end": "12:39",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 7,
+        "hp": "7/25",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember"],
+        "evs": [2, 0, 0, 0, 0, 2]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 2,
+        "name": "Youngster Logan",
+        "party": [
+          {
+            "species": "Shinx",
+            "level": 5,
+            "ability": "Intimidate",
+            "item": "",
+            "moves": ["Tackle", "Leer", "Thunder Shock"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember ×2 through Leer after Intimidate."
+  },
+  {
+    "number": 6,
+    "key": "178",
+    "start": "13:51",
+    "end": "16:17",
+    "goal": "defeat",
+    "tier": "B",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 7,
+        "hp": "7/25",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember"],
+        "evs": [2, 1, 0, 0, 0, 2]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 178,
+        "name": "Pokémon Trainer Cedric",
+        "party": [
+          {
+            "species": "Starly",
+            "level": 7,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Tackle", "Quick Attack", "Growl"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [5, 5, 5, 5, 5, 5]
+          },
+          {
+            "species": "Piplup",
+            "level": 9,
+            "ability": "Torrent",
+            "item": "",
+            "moves": ["Pound", "Growl"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [11, 11, 11, 11, 11, 11]
+          }
+        ]
+      }
+    ],
+    "log": "Ember ×2 on Starly with burn. Potion before eight Embers on Piplup, with burn and a critical hit."
+  },
+  {
+    "number": 7,
+    "key": "geodude-gate",
+    "start": "16:42",
+    "end": "17:19",
+    "goal": "escape",
+    "tier": null,
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 9,
+        "hp": "13/29",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember", "Taunt"],
+        "evs": [2, 1, 0, 1, 0, 3]
+      }
+    ],
+    "opponents": [{"name": "Wild Geodude", "party": [{"species": "Geodude", "level": 6}]}],
+    "log": "Run from Geodude Lv.6."
+  },
+  {
+    "number": 8,
+    "key": "geodude-207",
+    "start": "17:20",
+    "end": "17:38",
+    "goal": "escape",
+    "tier": null,
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 9,
+        "hp": "13/29",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember", "Taunt"],
+        "evs": [2, 1, 0, 1, 0, 3]
+      }
+    ],
+    "opponents": [{"name": "Wild Geodude", "party": [{"species": "Geodude", "level": null}]}],
+    "log": "Run from a second Geodude. Level unread."
+  },
+  {
+    "number": 9,
+    "key": "machop",
+    "start": "17:38",
+    "end": "18:17",
+    "goal": "capture",
+    "tier": null,
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 9,
+        "hp": "13/29",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember", "Taunt"],
+        "evs": [2, 1, 0, 1, 0, 3]
+      }
+    ],
+    "opponents": [{"name": "Wild Machop", "party": [{"species": "Machop", "level": 7}]}],
+    "log": "Scratch, take Low Kick, then catch with one ordinary Poké Ball. Machop joins at Lv.7."
+  },
+  {
+    "number": 10,
+    "key": "174",
+    "start": "19:58",
+    "end": "21:12",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "f",
+        "name": "Machop",
+        "species": "Machop",
+        "ability": "Guts",
+        "level": 7,
+        "hp": "27/27",
+        "item": "",
+        "moves": ["Low Kick", "Leer", "Focus Energy"],
+        "evs": [0, 0, 0, 0, 0, 0]
+      },
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 9,
+        "hp": "29/29",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember", "Taunt"],
+        "evs": [2, 2, 0, 1, 0, 3]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 174,
+        "name": "Youngster Darius",
+        "party": [
+          {
+            "species": "Geodude",
+            "level": 8,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Tackle", "Defense Curl"],
+            "nature": "Impish",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Onix",
+            "level": 8,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Tackle", "Harden", "Bind", "Smack Down"],
+            "nature": "Impish",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Focus Energy, then Low Kick ×3 on Geodude through two critical Tackles. Low Kick ×2 on Onix through Harden."
+  },
+  {
+    "number": 11,
+    "key": "175",
+    "start": "21:30",
+    "end": "23:16",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "f",
+        "name": "Machop",
+        "species": "Machop",
+        "ability": "Guts",
+        "level": 9,
+        "hp": "31/33",
+        "item": "",
+        "moves": ["Low Kick", "Leer", "Focus Energy", "Revenge"],
+        "evs": [0, 0, 2, 0, 0, 0]
+      },
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 10,
+        "hp": "31/31",
+        "item": "",
+        "moves": ["Scratch", "Leer", "Ember", "Taunt"],
+        "evs": [2, 2, 2, 1, 0, 3]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 175,
+        "name": "Gym Leader Roark",
+        "party": [
+          {
+            "species": "Geodude",
+            "level": 12,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Stealth Rock", "Defense Curl", "Rollout"],
+            "nature": "Impish",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Onix",
+            "level": 12,
+            "ability": "Sturdy",
+            "item": "",
+            "moves": ["Stealth Rock", "Rock Throw", "Bind"],
+            "nature": "Adamant",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Cranidos",
+            "level": 14,
+            "ability": "Mold Breaker",
+            "item": "",
+            "moves": ["Headbutt", "Bulldoze", "Leer"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "X Defense, Revenge ×2 against Geodude. Low Kick ×2 on Onix. Revenge after Cranidos's Headbutt."
+  },
+  {
+    "number": 12,
+    "key": "318+317",
+    "start": "25:24",
+    "end": "26:39",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 11,
+        "hp": "33/33",
+        "item": "oranberry",
+        "moves": ["Scratch", "Leer", "Ember", "Taunt"],
+        "evs": [2, 3, 4, 1, 0, 3]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 9,
+        "hp": "26/26",
+        "item": "",
+        "moves": ["Teleport"],
+        "evs": [0, 0, 0, 0, 0, 0]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 318,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Wurmple",
+            "level": 9,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Tackle", "String Shot", "Poison Sting"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 317,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Zubat",
+            "level": 9,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Absorb", "Supersonic", "Astonish"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember into Wurmple first. Dawn finishes Wurmple and Chimchar finishes Zubat after learning Power-Up Punch.",
+    "ally": {
+      "id": 490,
+      "name": "Pokémon Trainer Dawn",
+      "party": [
+        {
+          "species": "Turtwig",
+          "level": 13,
+          "ability": "Overgrow",
+          "item": "",
+          "moves": ["Tackle", "Withdraw", "Absorb", "Razor Leaf"],
+          "nature": "Brave",
+          "evs": [0, 0, 0, 0, 0, 0],
+          "ivs": [31, 0, 31, 0, 31, 0]
+        }
+      ]
+    }
+  },
+  {
+    "number": 13,
+    "key": "221",
+    "start": "28:13",
+    "end": "29:11",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 12,
+        "hp": "30/36",
+        "item": "oranberry",
+        "moves": ["Power-Up Punch", "Leer", "Ember", "Taunt"],
+        "evs": [3, 3, 4, 1, 0, 4],
+        "hpSource": "derived"
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 10,
+        "hp": "27/27",
+        "item": "",
+        "moves": ["Teleport"],
+        "evs": [1, 0, 0, 0, 0, 1],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 221,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Wurmple",
+            "level": 9,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Tackle", "String Shot", "Poison Sting"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Silcoon",
+            "level": 9,
+            "ability": "Shed Skin",
+            "item": "",
+            "moves": ["Harden"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Taunt, then Ember each against Wurmple and Silcoon."
+  },
+  {
+    "number": 14,
+    "key": "222",
+    "start": "29:12",
+    "end": "30:00",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 13,
+        "hp": "29/38",
+        "item": "oranberry",
+        "moves": ["Power-Up Punch", "Leer", "Ember", "Taunt"],
+        "evs": [4, 3, 6, 1, 0, 4],
+        "hpSource": "derived"
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 10,
+        "hp": "27/27",
+        "item": "",
+        "moves": ["Teleport"],
+        "evs": [2, 0, 2, 0, 0, 1],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 222,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Zubat",
+            "level": 11,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Absorb", "Supersonic", "Astonish", "Mean Look"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember ×3 through Mean Look and Absorb. First Ember burns."
+  },
+  {
+    "number": 15,
+    "key": "669",
+    "start": "30:31",
+    "end": "31:14",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 13,
+        "hp": "28/38",
+        "item": "oranberry",
+        "moves": ["Power-Up Punch", "Leer", "Ember", "Taunt"],
+        "evs": [4, 3, 6, 1, 0, 5]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 11,
+        "hp": "29/29",
+        "item": "",
+        "moves": ["Teleport"],
+        "evs": [2, 0, 2, 0, 0, 2],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 669,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Glameow",
+            "level": 11,
+            "ability": "Limber",
+            "item": "",
+            "moves": ["Fake Out", "Scratch", "Growl"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Power-Up Punch ×2. Scratch costs 7 HP."
+  },
+  {
+    "number": 16,
+    "key": "223",
+    "start": "31:42",
+    "end": "32:35",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "c",
+        "name": "Chimchar",
+        "species": "Chimchar",
+        "ability": "Blaze",
+        "level": 13,
+        "hp": "21/38",
+        "item": "oranberry",
+        "moves": ["Power-Up Punch", "Leer", "Ember", "Taunt"],
+        "evs": [4, 3, 6, 1, 0, 6]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 11,
+        "hp": "29/29",
+        "item": "",
+        "moves": ["Teleport"],
+        "evs": [2, 0, 2, 0, 0, 3],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 223,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Cascoon",
+            "level": 11,
+            "ability": "Shed Skin",
+            "item": "",
+            "moves": ["Harden"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember KOs Cascoon. Chimchar evolves and learns Mach Punch."
+  },
+  {
+    "number": 17,
+    "key": "220",
+    "start": "32:36",
+    "end": "34:17",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 14,
+        "hp": "29/46",
+        "item": "oranberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Ember", "Taunt"],
+        "evs": [4, 3, 8, 1, 0, 6]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 12,
+        "hp": "31/31",
+        "item": "",
+        "moves": ["Teleport"],
+        "evs": [2, 0, 4, 0, 0, 3],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 220,
+        "name": "Commander Mars",
+        "party": [
+          {
+            "species": "Zubat",
+            "level": 14,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Absorb", "Supersonic", "Astonish", "U-turn"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Purugly",
+            "level": 16,
+            "ability": "Thick Fat",
+            "item": "Oran Berry",
+            "moves": ["Fake Out", "Scratch", "Growl", "Thief"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Taunt and Ember ×3 against Zubat. Oran activates. Potion, Power-Up Punch ×2 and Mach Punch against Purugly."
+  },
+  {
+    "number": 18,
+    "key": "150",
+    "start": "35:43",
+    "end": "36:41",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 15,
+        "hp": "12/48",
+        "item": "cheriberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Ember", "Taunt"],
+        "evs": [4, 3, 8, 1, 0, 9]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 14,
+        "hp": "34/34",
+        "item": "pechaberry",
+        "moves": ["Teleport"],
+        "evs": [2, 0, 4, 0, 0, 6]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 150,
+        "name": "Bug Catcher Jack",
+        "party": [
+          {
+            "species": "Wurmple",
+            "level": 9,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Tackle", "String Shot", "Poison Sting"],
+            "nature": "Naive",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Beautifly",
+            "level": 13,
+            "ability": "Swarm",
+            "item": "",
+            "moves": ["Gust", "Absorb"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Silcoon",
+            "level": 11,
+            "ability": "Shed Skin",
+            "item": "",
+            "moves": ["Harden"],
+            "nature": "Naive",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "One Ember each against Wurmple, Beautifly and Silcoon."
+  },
+  {
+    "number": 19,
+    "key": "153",
+    "start": "36:42",
+    "end": "37:30",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 16,
+        "hp": "51/51",
+        "item": "cheriberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Ember", "Taunt"],
+        "evs": [5, 3, 10, 4, 0, 9]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 15,
+        "hp": "36/36",
+        "item": "pechaberry",
+        "moves": ["Teleport"],
+        "evs": [3, 0, 6, 3, 0, 6],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 153,
+        "name": "Lass Briana",
+        "party": [
+          {
+            "species": "Pachirisu",
+            "level": 14,
+            "ability": "Pickup",
+            "item": "",
+            "moves": ["Baby-Doll Eyes", "Quick Attack", "Charm", "Spark"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Power-Up Punch, Mach Punch and Ember. Burn finishes Pachirisu through Charm."
+  },
+  {
+    "number": 20,
+    "key": "154+155",
+    "start": "37:31",
+    "end": "39:03",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 17,
+        "hp": "53/53",
+        "item": "cheriberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Ember", "Taunt"],
+        "evs": [5, 3, 10, 4, 0, 10]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Abra",
+        "ability": "Synchronize",
+        "level": 15,
+        "hp": "36/36",
+        "item": "pechaberry",
+        "moves": ["Teleport"],
+        "evs": [3, 0, 6, 3, 0, 7],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 154,
+        "name": "Psychic Elijah",
+        "party": [
+          {
+            "species": "Abra",
+            "level": 15,
+            "ability": "Synchronize",
+            "item": "",
+            "moves": ["Energy Ball"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 155,
+        "name": "Psychic Lindsey",
+        "party": [
+          {
+            "species": "Abra",
+            "level": 15,
+            "ability": "Synchronize",
+            "item": "",
+            "moves": ["Energy Ball"],
+            "nature": "Calm",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Power-Up Punch ×2 into the left Abra and once into the right. Cheryl absorbs Energy Ball. Kazza evolves afterward.",
+    "ally": {
+      "id": 482,
+      "name": "Pokémon Trainer Cheryl",
+      "party": [
+        {
+          "species": "Chansey",
+          "level": 15,
+          "ability": "Healer",
+          "item": "",
+          "moves": ["Sweet Kiss", "Disarming Voice", "Tail Whip", "Life Dew"],
+          "nature": "Timid",
+          "evs": [172, 0, 168, 0, 168, 0],
+          "ivs": [31, 0, 31, 0, 31, 0]
+        }
+      ]
+    }
+  },
+  {
+    "number": 21,
+    "key": "248",
+    "start": "40:00",
+    "end": "41:00",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 17,
+        "hp": "53/53",
+        "item": "cheriberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Ember", "Taunt"],
+        "evs": [5, 3, 10, 6, 0, 10]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 16,
+        "hp": "43/43",
+        "item": "pechaberry",
+        "moves": ["Teleport", "Confusion"],
+        "evs": [3, 0, 6, 5, 0, 7],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 248,
+        "name": "Lass Caroline",
+        "party": [
+          {
+            "species": "Cherubi",
+            "level": 15,
+            "ability": "Chlorophyll",
+            "item": "",
+            "moves": ["Sunny Day", "Morning Sun", "Growth", "Leafage"],
+            "nature": "Impish",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Roselia",
+            "level": 15,
+            "ability": "Leaf Guard",
+            "item": "",
+            "moves": ["Stun Spore", "Mega Drain", "Leech Seed"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember ×2 per opponent. Cherubi uses Growth and Roselia misses Leech Seed."
+  },
+  {
+    "number": 22,
+    "key": "183",
+    "start": "41:01",
+    "end": "42:29",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 18,
+        "hp": "56/56",
+        "item": "cheriberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Ember", "Taunt"],
+        "evs": [5, 3, 10, 9, 0, 10]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 17,
+        "hp": "45/45",
+        "item": "pechaberry",
+        "moves": ["Teleport", "Confusion"],
+        "evs": [3, 0, 6, 8, 0, 7],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 183,
+        "name": "Aroma Lady Jenna",
+        "party": [
+          {
+            "species": "Budew",
+            "level": 14,
+            "ability": "Poison Point",
+            "item": "",
+            "moves": ["Absorb", "Stun Spore", "Rest", "Sleep Talk"],
+            "nature": "Bold",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Budew",
+            "level": 13,
+            "ability": "Poison Point",
+            "item": "",
+            "moves": ["Absorb", "Stun Spore", "Rest", "Sleep Talk"],
+            "nature": "Bold",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Budew",
+            "level": 15,
+            "ability": "Poison Point",
+            "item": "",
+            "moves": ["Absorb", "Stun Spore", "Rest", "Sleep Talk"],
+            "nature": "Bold",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember ×2, ×1 and ×2. Cheri cures Stun Spore. Taunt the final Budew."
+  },
+  {
+    "number": 23,
+    "key": "184",
+    "start": "42:30",
+    "end": "43:25",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 18,
+        "hp": "54/56",
+        "item": "",
+        "moves": ["Power-Up Punch", "Mach Punch", "Ember", "Taunt"],
+        "evs": [5, 3, 10, 12, 0, 10]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 17,
+        "hp": "45/45",
+        "item": "pechaberry",
+        "moves": ["Teleport", "Confusion"],
+        "evs": [3, 0, 6, 11, 0, 7],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 184,
+        "name": "Aroma Lady Angela",
+        "party": [
+          {
+            "species": "Turtwig",
+            "level": 17,
+            "ability": "Overgrow",
+            "item": "",
+            "moves": ["Tackle", "Iron Tail", "Bullet Seed"],
+            "nature": "Adamant",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Ember ×2 through Tackle. Learn Flame Wheel afterward."
+  },
+  {
+    "number": 24,
+    "key": "269",
+    "start": "43:26",
+    "end": "44:10",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 19,
+        "hp": "50/59",
+        "item": "",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [5, 4, 10, 12, 0, 10]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 17,
+        "hp": "45/45",
+        "item": "pechaberry",
+        "moves": ["Teleport", "Confusion"],
+        "evs": [3, 1, 6, 11, 0, 7],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 269,
+        "name": "Beauty Lindsay",
+        "party": [
+          {
+            "species": "Roselia",
+            "level": 17,
+            "ability": "Poison Point",
+            "item": "",
+            "moves": ["Toxic", "Leech Seed", "Mega Drain"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Flame Wheel KOs Roselia. Poison Point poisons Monferno."
+  },
+  {
+    "number": 25,
+    "key": "240",
+    "start": "44:43",
+    "end": "46:03",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 19,
+        "hp": "50/59",
+        "item": "",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [5, 4, 10, 14, 0, 10]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 18,
+        "hp": "47/47",
+        "item": "pechaberry",
+        "moves": ["Teleport", "Confusion"],
+        "evs": [3, 1, 6, 13, 0, 7],
+        "hpSource": "derived-full"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 240,
+        "name": "Gym Leader Gardenia",
+        "party": [
+          {
+            "species": "Cherubi",
+            "level": 19,
+            "ability": "Chlorophyll",
+            "item": "",
+            "moves": ["Grass Knot", "Growth", "Dazzling Gleam", "Safeguard"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Turtwig",
+            "level": 19,
+            "ability": "Shell Armor",
+            "item": "Miracle Seed",
+            "moves": ["Grass Knot", "Razor Leaf", "Reflect", "Work Up"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Roserade",
+            "level": 22,
+            "ability": "Technician",
+            "item": "Sitrus Berry",
+            "moves": ["Grass Knot", "Petal Blizzard", "Poison Sting", "Stun Spore"],
+            "nature": "Timid",
+            "evs": [0, 36, 0, 36, 0, 36],
+            "ivs": [0, 15, 0, 15, 0, 15]
+          }
+        ]
+      }
+    ],
+    "log": "Power-Up Punch, then Flame Wheel ×3. Dazzling Gleam and Grass Knot leave Monferno at 18/61 before the last KO."
+  },
+  {
+    "number": 26,
+    "key": "315+324",
+    "start": "47:43",
+    "end": "48:39",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 19,
+        "hp": "49/49",
+        "item": "",
+        "moves": ["Teleport", "Confusion"],
+        "evs": [3, 2, 6, 17, 0, 7]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 21,
+        "hp": "64/64",
+        "item": "pechaberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [5, 5, 10, 18, 0, 10]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 315,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Wurmple",
+            "level": 13,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Tackle", "String Shot", "Poison Sting"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Cascoon",
+            "level": 13,
+            "ability": "Shed Skin",
+            "item": "",
+            "moves": ["Tackle", "String Shot", "Poison Sting", "Harden"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 324,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Zubat",
+            "level": 14,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Absorb", "Supersonic", "Astonish", "Mean Look"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Glameow",
+            "level": 14,
+            "ability": "Own Tempo",
+            "item": "",
+            "moves": ["Fake Out", "Scratch", "Growl", "Hypnosis"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Confusion to Wurmple and Cascoon, Flame Wheel to Zubat and Glameow."
+  },
+  {
+    "number": 27,
+    "key": "326",
+    "start": "48:40",
+    "end": "49:45",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 20,
+        "hp": "51/51",
+        "item": "",
+        "moves": ["Teleport", "Confusion", "Psycho Cut"],
+        "evs": [4, 2, 8, 17, 0, 9]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 21,
+        "hp": "64/64",
+        "item": "pechaberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [6, 5, 12, 18, 0, 12]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 326,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Wurmple",
+            "level": 12,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Tackle", "String Shot", "Poison Sting"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Silcoon",
+            "level": 12,
+            "ability": "Shed Skin",
+            "item": "",
+            "moves": ["Tackle", "String Shot", "Poison Sting", "Harden"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Zubat",
+            "level": 12,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Absorb", "Supersonic", "Astonish", "Mean Look"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "One Confusion each on Wurmple, Zubat and Silcoon."
+  },
+  {
+    "number": 28,
+    "key": "657",
+    "start": "49:46",
+    "end": "50:24",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 21,
+        "hp": "64/64",
+        "item": "pechaberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [7, 5, 14, 18, 0, 13]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 20,
+        "hp": "51/51",
+        "item": "",
+        "moves": ["Teleport", "Confusion", "Psycho Cut"],
+        "evs": [5, 2, 10, 17, 0, 10]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 657,
+        "name": "Scientist Travon",
+        "party": [
+          {
+            "species": "Kadabra",
+            "level": 15,
+            "ability": "Synchronize",
+            "item": "",
+            "moves": ["Kinesis", "Disable", "Psybeam", "Reflect"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "One Flame Wheel against Kadabra."
+  },
+  {
+    "number": 29,
+    "key": "311",
+    "start": "50:25",
+    "end": "52:57",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 21,
+        "hp": "53/53",
+        "item": "",
+        "moves": ["Teleport", "Confusion", "Psycho Cut"],
+        "evs": [5, 2, 10, 19, 0, 10]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 22,
+        "hp": "66/66",
+        "item": "pechaberry",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [7, 5, 14, 20, 0, 13]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 311,
+        "name": "Commander Jupiter",
+        "party": [
+          {
+            "species": "Zubat",
+            "level": 18,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Absorb", "Supersonic", "Mean Look", "Poison Fang"],
+            "nature": "Modest",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Skuntank",
+            "level": 20,
+            "ability": "Aftermath",
+            "item": "Sitrus Berry",
+            "moves": ["Flamethrower", "Poison Gas", "Acid Spray", "Snarl"],
+            "nature": "Modest",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Confusion KOs Zubat. Switch to Monferno for Skuntank. Power-Up Punch ×2, Flame Wheel, Super Potion, Flame Wheel. Poison, Sitrus and Aftermath matter."
+  },
+  {
+    "number": 30,
+    "key": "353",
+    "start": "57:30",
+    "end": "59:33",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 22,
+        "hp": "55/55",
+        "item": "",
+        "moves": ["Teleport", "Confusion", "Psycho Cut"],
+        "evs": [7, 2, 10, 19, 0, 11]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 22,
+        "hp": "66/66",
+        "item": "",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [9, 5, 14, 20, 0, 14]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 353,
+        "name": "Pokémon Trainer Cedric",
+        "party": [
+          {
+            "species": "Starly",
+            "level": 19,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Quick Attack", "Double Team", "Endeavor", "Pluck"],
+            "nature": "Jolly",
+            "evs": [12, 28, 4, 0, 4, 12],
+            "ivs": [5, 5, 5, 5, 5, 5]
+          },
+          {
+            "species": "Prinplup",
+            "level": 21,
+            "ability": "Torrent",
+            "item": "",
+            "moves": ["Metal Claw", "Bubble Beam", "Stealth Rock", "Grass Knot"],
+            "nature": "Timid",
+            "evs": [12, 36, 4, 0, 4, 36],
+            "ivs": [11, 11, 11, 11, 11, 11]
+          },
+          {
+            "species": "Roselia",
+            "level": 20,
+            "ability": "Natural Cure",
+            "item": "",
+            "moves": ["Growth", "Stun Spore", "Leech Seed", "Magical Leaf"],
+            "nature": "Timid",
+            "evs": [0, 0, 4, 28, 4, 12],
+            "ivs": [6, 6, 6, 6, 6, 6]
+          },
+          {
+            "species": "Ponyta",
+            "level": 20,
+            "ability": "Flash Fire",
+            "item": "",
+            "moves": ["Tackle", "Growl", "Flame Charge", "Agility"],
+            "nature": "Jolly",
+            "evs": [0, 28, 4, 0, 4, 12],
+            "ivs": [7, 7, 7, 7, 7, 7]
+          }
+        ]
+      }
+    ],
+    "log": "Confusion sweeps through Roselia. Ponyta KOs Kazza after Prinplup's Stealth Rock and Bubble Beam. Forced replacement Monferno wins with Mach Punch."
+  },
+  {
+    "number": 31,
+    "key": "229",
+    "start": "1:01:15",
+    "end": "1:02:42",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 23,
+        "hp": "0/58",
+        "item": "",
+        "moves": ["Teleport", "Confusion", "Psycho Cut"],
+        "evs": [7, 2, 10, 23, 0, 12]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 23,
+        "hp": "61/69",
+        "item": "",
+        "moves": ["Power-Up Punch", "Mach Punch", "Flame Wheel", "Taunt"],
+        "evs": [9, 5, 14, 24, 0, 16]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 229,
+        "name": "Ruin Maniac Calvin",
+        "party": [
+          {
+            "species": "Bronzor",
+            "level": 21,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confusion", "Confuse Ray", "Payback", "Gyro Ball"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Shieldon",
+            "level": 23,
+            "ability": "Sturdy",
+            "item": "",
+            "moves": ["Taunt", "Metal Sound", "Take Down", "Iron Defense"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Power-Up Punch ×2 and Mach Punch on Bronzor. Mach Punch triggers Shieldon's Sturdy, Flame Wheel finishes."
+  },
+  {
+    "number": 32,
+    "key": "211",
+    "start": "1:04:03",
+    "end": "1:05:00",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 23,
+        "hp": "58/58",
+        "item": "",
+        "moves": ["Teleport", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 2, 10, 33, 0, 12]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 23,
+        "hp": "37/69",
+        "item": "",
+        "moves": ["Power-Up Punch", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 5, 16, 24, 0, 16]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 211,
+        "name": "Ace Trainer Maya",
+        "party": [
+          {
+            "species": "Glameow",
+            "level": 23,
+            "ability": "Own Tempo",
+            "item": "",
+            "moves": ["Fake Out", "Growl", "Aerial Ace", "Fury Swipes"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Kadabra",
+            "level": 23,
+            "ability": "Synchronize",
+            "item": "",
+            "moves": ["Kinesis", "Psybeam", "Reflect", "Ally Switch"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Critical Confusion KOs Glameow. Kadabra uses Kinesis. Grass Knot misses, then crits. Shock Wave finishes."
+  },
+  {
+    "number": 33,
+    "key": "202",
+    "start": "1:05:00",
+    "end": "1:05:57",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 24,
+        "hp": "60/60",
+        "item": "",
+        "moves": ["Teleport", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 2, 10, 35, 0, 13]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 24,
+        "hp": "40/72",
+        "item": "",
+        "moves": ["Power-Up Punch", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 5, 16, 26, 0, 17]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 202,
+        "name": "Ace Trainer Dennis",
+        "party": [
+          {
+            "species": "Monferno",
+            "level": 23,
+            "ability": "Blaze",
+            "item": "",
+            "moves": ["Leer", "Taunt", "Fury Swipes", "Flame Wheel"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Gyarados",
+            "level": 23,
+            "ability": "Intimidate",
+            "item": "",
+            "moves": ["Bite", "Leer", "Ice Fang", "Waterfall"],
+            "nature": "Hasty",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Confusion on Monferno and Shock Wave on Gyarados."
+  },
+  {
+    "number": 34,
+    "key": "236",
+    "start": "1:09:11",
+    "end": "1:10:00",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 25,
+        "hp": "62/62",
+        "item": "metronome",
+        "moves": ["Psychic", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 4, 10, 46, 0, 14]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 24,
+        "hp": "40/72",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 7, 16, 27, 0, 18]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 236,
+        "name": "Black Belt Rafael",
+        "party": [
+          {
+            "species": "Meditite",
+            "level": 28,
+            "ability": "Pure Power",
+            "item": "",
+            "moves": ["Low Kick", "Force Palm", "Mind Reader", "High Jump Kick"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic one-shots Meditite."
+  },
+  {
+    "number": 35,
+    "key": "242",
+    "start": "1:10:40",
+    "end": "1:12:19",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 26,
+        "hp": "64/64",
+        "item": "metronome",
+        "moves": ["Psychic", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 4, 10, 46, 0, 15]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 24,
+        "hp": "40/72",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 7, 16, 27, 0, 19]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 242,
+        "name": "Gym Leader Maylene",
+        "party": [
+          {
+            "species": "Meditite",
+            "level": 27,
+            "ability": "Pure Power",
+            "item": "Light Clay",
+            "moves": ["Drain Punch", "Light Screen", "Flash", "Bulk Up"],
+            "nature": "Naive",
+            "evs": [36, 52, 0, 0, 0, 36],
+            "ivs": [15, 15, 0, 0, 0, 15]
+          },
+          {
+            "species": "Machoke",
+            "level": 27,
+            "ability": "Guts",
+            "item": "Expert Belt",
+            "moves": ["Low Sweep", "Knock Off", "Rock Tomb", "Bulldoze"],
+            "nature": "Adamant",
+            "evs": [36, 52, 0, 0, 0, 36],
+            "ivs": [15, 15, 0, 0, 0, 15]
+          },
+          {
+            "species": "Lucario",
+            "level": 30,
+            "ability": "Steadfast",
+            "item": "Big Root",
+            "moves": ["Drain Punch", "Screech", "Metal Claw", "Bulk Up"],
+            "nature": "Adamant",
+            "evs": [0, 68, 68, 0, 0, 68],
+            "ivs": [0, 15, 15, 0, 0, 15]
+          }
+        ]
+      }
+    ],
+    "log": "X Defense, X Sp. Atk ×2, X Accuracy, X Speed. Meditite uses Flash, Light Screen, Bulk Up and Drain Punch ×2. Confusion then Psychic ×2."
+  },
+  {
+    "number": 36,
+    "key": "674+675",
+    "start": "1:12:55",
+    "end": "1:14:29",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 25,
+        "hp": "42/74",
+        "item": "metronome",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 10, 16, 28, 0, 20]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 674,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Beautifly",
+            "level": 25,
+            "ability": "Swarm",
+            "item": "",
+            "moves": ["Gust", "Air Cutter", "Mega Drain", "Leech Life"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Stunky",
+            "level": 25,
+            "ability": "Stench",
+            "item": "",
+            "moves": ["Poison Gas", "Fury Swipes", "Focus Energy", "Bite"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 675,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Dustox",
+            "level": 25,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Gust", "Poison Powder", "Venoshock", "Leech Life"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Croagunk",
+            "level": 25,
+            "ability": "Anticipation",
+            "item": "",
+            "moves": ["Poison Sting", "Mud-Slap", "Astonish", "Venoshock"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dawn's Clefairy assists. Flamethrower targets Beautifly, Stunky, Dustox and Croagunk in order.",
+    "ally": {
+      "id": 500,
+      "name": "Pokémon Trainer Dawn",
+      "party": [
+        {
+          "species": "Clefairy",
+          "level": 25,
+          "ability": "Cute Charm",
+          "item": "",
+          "moves": ["Sing", "Disarming Voice", "Growl", "Life Dew"],
+          "nature": "Quiet",
+          "evs": [172, 0, 168, 0, 168, 0],
+          "ivs": [31, 0, 31, 0, 31, 0]
+        }
+      ]
+    }
+  },
+  {
+    "number": 37,
+    "key": "95",
+    "start": "1:15:29",
+    "end": "1:16:31",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 27,
+        "hp": "66/66",
+        "item": "metronome",
+        "moves": ["Psychic", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 7, 10, 47, 0, 16]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 26,
+        "hp": "45/77",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 11, 16, 31, 3, 21]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 95,
+        "name": "Psychic Abigail",
+        "party": [
+          {
+            "species": "Gastly",
+            "level": 22,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Lick", "Confuse Ray", "Payback", "Curse"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Misdreavus",
+            "level": 23,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confusion", "Astonish", "Confuse Ray", "Hex"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Kadabra",
+            "level": 24,
+            "ability": "Synchronize",
+            "item": "",
+            "moves": ["Kinesis", "Disable", "Psybeam", "Psycho Cut"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic ×3 against Gastly, Misdreavus and Kadabra."
+  },
+  {
+    "number": 38,
+    "key": "261",
+    "start": "1:18:17",
+    "end": "1:18:59",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 28,
+        "hp": "68/68",
+        "item": "metronome",
+        "moves": ["Psychic", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 7, 10, 50, 1, 16]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "48/80",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 11, 16, 34, 4, 21]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 261,
+        "name": "Sailor Damian",
+        "party": [
+          {
+            "species": "Wingull",
+            "level": 24,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Growl", "Water Pulse", "Roost", "Pluck"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Wingull",
+            "level": 24,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Quick Attack", "Water Pulse", "Steel Wing", "Aerial Ace"],
+            "nature": "Adamant",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Confusion against each Wingull."
+  },
+  {
+    "number": 39,
+    "key": "373",
+    "start": "1:19:00",
+    "end": "1:19:37",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 29,
+        "hp": "70/70",
+        "item": "metronome",
+        "moves": ["Psychic", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 7, 10, 50, 1, 18]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "48/80",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 11, 16, 34, 4, 23]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 373,
+        "name": "Tuber Jacky",
+        "party": [
+          {
+            "species": "Buizel",
+            "level": 26,
+            "ability": "Water Veil",
+            "item": "",
+            "moves": ["Tail Whip", "Bite", "Aqua Jet", "Iron Tail"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Confusion KOs Buizel."
+  },
+  {
+    "number": 40,
+    "key": "374",
+    "start": "1:19:38",
+    "end": "1:20:23",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 29,
+        "hp": "70/70",
+        "item": "metronome",
+        "moves": ["Psychic", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [7, 7, 10, 50, 1, 19]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "48/80",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [9, 11, 16, 34, 4, 24]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 374,
+        "name": "Tuber Caitlyn",
+        "party": [
+          {
+            "species": "Azurill",
+            "level": 24,
+            "ability": "Sap Sipper",
+            "item": "",
+            "moves": ["Tail Whip", "Charm", "Bubble Beam", "Light Screen"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Marill",
+            "level": 24,
+            "ability": "Huge Power",
+            "item": "",
+            "moves": ["Aqua Tail", "Play Rough", "Aqua Ring", "Brick Break"],
+            "nature": "Adamant",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Confusion against Azurill, Psychic against Marill."
+  },
+  {
+    "number": 41,
+    "key": "364",
+    "start": "1:20:50",
+    "end": "1:21:43",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 29,
+        "hp": "70/70",
+        "item": "metronome",
+        "moves": ["Psychic", "Confusion", "Grass Knot", "Shock Wave"],
+        "evs": [10, 7, 10, 50, 1, 19]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "48/80",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [12, 11, 16, 34, 4, 24]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 364,
+        "name": "Sailor Samson",
+        "party": [
+          {
+            "species": "Shellos",
+            "level": 24,
+            "ability": "Storm Drain",
+            "item": "",
+            "moves": ["Mud-Slap", "Recover", "Water Pulse", "Rain Dance"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Wingull",
+            "level": 24,
+            "ability": "Hydration",
+            "item": "",
+            "moves": ["Water Pulse", "Rain Dance", "U-turn", "Roost"],
+            "nature": "Adamant",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Shellos-East",
+            "level": 24,
+            "ability": "Storm Drain",
+            "item": "",
+            "moves": ["Mud-Slap", "Harden", "Recover", "Water Pulse"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic ×3, including a critical on the first Shellos. Learn Psyshock afterward."
+  },
+  {
+    "number": 42,
+    "key": "241",
+    "start": "1:22:22",
+    "end": "1:24:08",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 30,
+        "hp": "73/73",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [12, 7, 10, 60, 1, 20]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "48/80",
+        "item": "",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 11, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 241,
+        "name": "Gym Leader Wake",
+        "party": [
+          {
+            "species": "Gyarados",
+            "level": 27,
+            "ability": "Intimidate",
+            "item": "Wide Lens",
+            "moves": ["Brine", "Ice Fang", "Crunch", "Flail"],
+            "nature": "Jolly",
+            "evs": [40, 56, 0, 0, 0, 40],
+            "ivs": [16, 16, 0, 0, 0, 16]
+          },
+          {
+            "species": "Quagsire",
+            "level": 27,
+            "ability": "Damp",
+            "item": "Damp Rock",
+            "moves": ["Rain Dance", "Haze", "Mud Shot", "Scald"],
+            "nature": "Quiet",
+            "evs": [40, 40, 4, 56, 4, 0],
+            "ivs": [16, 16, 5, 16, 5, 0]
+          },
+          {
+            "species": "Floatzel",
+            "level": 30,
+            "ability": "Swift Swim",
+            "item": "Sitrus Berry",
+            "moves": ["Brine", "Ice Fang", "Bite", "Aqua Jet"],
+            "nature": "Adamant",
+            "evs": [0, 84, 0, 20, 0, 84],
+            "ivs": [0, 17, 0, 17, 0, 17]
+          }
+        ]
+      }
+    ],
+    "log": "Shock Wave against Gyarados. Switch to Monferno as Quagsire enters, Taunt and faint. Kazza uses X Speed, then Grass Knot twice through Quagsire and Floatzel."
+  },
+  {
+    "number": 43,
+    "key": "356",
+    "start": "1:25:00",
+    "end": "1:26:22",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 31,
+        "hp": "75/75",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [14, 9, 10, 60, 1, 22]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 356,
+        "name": "Pokémon Trainer Cedric",
+        "party": [
+          {
+            "species": "Starly",
+            "level": 26,
+            "ability": "Keen Eye",
+            "item": "Quick Claw",
+            "moves": ["Quick Attack", "Double Team", "Endeavor", "Pluck"],
+            "nature": "Jolly",
+            "evs": [28, 52, 12, 0, 12, 52],
+            "ivs": [5, 5, 5, 5, 5, 5]
+          },
+          {
+            "species": "Prinplup",
+            "level": 31,
+            "ability": "Torrent",
+            "item": "Sea Incense",
+            "moves": ["Metal Claw", "Charm", "Bubble Beam", "Grass Knot"],
+            "nature": "Timid",
+            "evs": [36, 52, 12, 0, 12, 52],
+            "ivs": [11, 11, 11, 11, 11, 11]
+          },
+          {
+            "species": "Roselia",
+            "level": 26,
+            "ability": "Natural Cure",
+            "item": "Miracle Seed",
+            "moves": ["Growth", "Stun Spore", "Leech Seed", "Magical Leaf"],
+            "nature": "Timid",
+            "evs": [0, 0, 12, 44, 12, 36],
+            "ivs": [6, 6, 6, 6, 6, 6]
+          },
+          {
+            "species": "Ponyta",
+            "level": 27,
+            "ability": "Flash Fire",
+            "item": "Shell Bell",
+            "moves": ["Tackle", "Growl", "Agility", "Flame Wheel"],
+            "nature": "Jolly",
+            "evs": [4, 44, 12, 0, 12, 12],
+            "ivs": [7, 7, 7, 7, 7, 7]
+          }
+        ]
+      }
+    ],
+    "log": "X Sp. Atk as Quick Claw Starly uses Pluck. Shock Wave, Psyshock ×2, Shock Wave."
+  },
+  {
+    "number": 44,
+    "key": "673",
+    "start": "1:27:29",
+    "end": "1:27:57",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 32,
+        "hp": "49/77",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [14, 9, 10, 64, 1, 24]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 673,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Glameow",
+            "level": 25,
+            "ability": "Limber",
+            "item": "",
+            "moves": ["Hypnosis", "Aerial Ace", "Fury Swipes", "Charm"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shock Wave KOs Glameow."
+  },
+  {
+    "number": 45,
+    "key": "54",
+    "start": "1:29:05",
+    "end": "1:30:00",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 32,
+        "hp": "49/77",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [14, 9, 10, 64, 1, 25]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 54,
+        "name": "Ace Trainer Alyssa",
+        "party": [
+          {
+            "species": "Ponyta",
+            "level": 27,
+            "ability": "Run Away",
+            "item": "",
+            "moves": ["Growl", "Tail Whip", "Ember", "Flame Wheel"],
+            "nature": "Careful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Grotle",
+            "level": 27,
+            "ability": "Overgrow",
+            "item": "",
+            "moves": ["Razor Leaf", "Curse", "Bite", "Mega Drain"],
+            "nature": "Impish",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic against both opponents through fog.",
+    "field": "fog"
+  },
+  {
+    "number": 46,
+    "key": "56",
+    "start": "1:30:36",
+    "end": "1:31:07",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 32,
+        "hp": "49/77",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [14, 10, 11, 64, 1, 26]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 56,
+        "name": "Black Belt Adam",
+        "party": [
+          {
+            "species": "Machoke",
+            "level": 29,
+            "ability": "No Guard",
+            "item": "",
+            "moves": ["Leer", "Focus Energy", "Low Sweep", "Knock Off"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psyshock through fog.",
+    "field": "fog"
+  },
+  {
+    "number": 47,
+    "key": "61",
+    "start": "1:31:09",
+    "end": "1:31:57",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 33,
+        "hp": "51/79",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [14, 12, 11, 64, 1, 26]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 61,
+        "name": "Bird Keeper Brianna",
+        "party": [
+          {
+            "species": "Hoothoot",
+            "level": 27,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Growl", "Reflect", "Air Slash", "Extrasensory"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Noctowl",
+            "level": 27,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Sky Attack", "Peck", "Echoed Voice", "Extrasensory"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psyshock each on Hoothoot and Noctowl through fog.",
+    "field": "fog"
+  },
+  {
+    "number": 48,
+    "key": "319",
+    "start": "1:33:00",
+    "end": "1:33:54",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 34,
+        "hp": "54/82",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [17, 12, 11, 64, 1, 26]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 319,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Beautifly",
+            "level": 25,
+            "ability": "Swarm",
+            "item": "",
+            "moves": ["Gust", "Stun Spore", "Air Cutter", "Leech Life"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Croagunk",
+            "level": 27,
+            "ability": "Anticipation",
+            "item": "",
+            "moves": ["Mud-Slap", "Taunt", "Revenge", "Sucker Punch"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shock Wave KOs both opponents."
+  },
+  {
+    "number": 49,
+    "key": "243",
+    "start": "1:36:19",
+    "end": "1:38:08",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 34,
+        "hp": "82/82",
+        "item": "rawstberry",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [17, 13, 11, 67, 1, 26]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "metronome",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 243,
+        "name": "Gym Leader Fantina",
+        "party": [
+          {
+            "species": "Drifblim",
+            "level": 32,
+            "ability": "Aftermath",
+            "item": "Zoom Lens",
+            "moves": ["Strength Sap", "Hex", "Fly", "Will-O-Wisp"],
+            "nature": "Timid",
+            "evs": [52, 0, 4, 68, 4, 52],
+            "ivs": [19, 0, 5, 19, 5, 19]
+          },
+          {
+            "species": "Gengar",
+            "level": 34,
+            "ability": "Cursed Body",
+            "item": "Colbur Berry",
+            "moves": ["Shadow Claw", "Confuse Ray", "Sludge Bomb", "Dazzling Gleam"],
+            "nature": "Timid",
+            "evs": [52, 0, 4, 76, 4, 68],
+            "ivs": [19, 0, 5, 19, 5, 19]
+          },
+          {
+            "species": "Mismagius",
+            "level": 36,
+            "ability": "Levitate",
+            "item": "Expert Belt",
+            "moves": ["Confuse Ray", "Phantom Force", "Magical Leaf", "Dazzling Gleam"],
+            "nature": "Timid",
+            "evs": [44, 0, 4, 92, 4, 68],
+            "ivs": [19, 0, 5, 19, 5, 19]
+          }
+        ]
+      }
+    ],
+    "log": "X Sp. Def, X Speed, Super Potion twice, X Sp. Atk. Time recovery around Fly. Psyshock, Psychic and Psyshock through Cursed Body."
+  },
+  {
+    "number": 50,
+    "key": "359",
+    "start": "1:40:32",
+    "end": "1:42:15",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 36,
+        "hp": "86/86",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [19, 13, 11, 71, 2, 26]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 359,
+        "name": "Pokémon Trainer Cedric",
+        "party": [
+          {
+            "species": "Staravia",
+            "level": 32,
+            "ability": "Intimidate",
+            "item": "Quick Claw",
+            "moves": ["Quick Attack", "Double Team", "Endeavor", "Pluck"],
+            "nature": "Jolly",
+            "evs": [40, 72, 16, 0, 16, 56],
+            "ivs": [5, 5, 5, 5, 5, 5]
+          },
+          {
+            "species": "Heracross",
+            "level": 32,
+            "ability": "Swarm",
+            "item": "",
+            "moves": ["Leer", "Aerial Ace", "Brick Break", "Thief"],
+            "nature": "Jolly",
+            "evs": [16, 64, 24, 0, 24, 32],
+            "ivs": [9, 9, 9, 9, 9, 9]
+          },
+          {
+            "species": "Roselia",
+            "level": 33,
+            "ability": "Natural Cure",
+            "item": "Big Root",
+            "moves": ["Growth", "Stun Spore", "Leech Seed", "Giga Drain"],
+            "nature": "Timid",
+            "evs": [16, 0, 24, 48, 24, 56],
+            "ivs": [6, 6, 6, 6, 6, 6]
+          },
+          {
+            "species": "Ponyta",
+            "level": 34,
+            "ability": "Flash Fire",
+            "item": "Shell Bell",
+            "moves": ["Growl", "Agility", "Flame Wheel", "Stomp"],
+            "nature": "Jolly",
+            "evs": [40, 64, 16, 0, 16, 64],
+            "ivs": [7, 7, 7, 7, 7, 7]
+          },
+          {
+            "species": "Prinplup",
+            "level": 37,
+            "ability": "Torrent",
+            "item": "Sea Incense",
+            "moves": ["Metal Claw", "Charm", "Grass Knot", "Brine"],
+            "nature": "Timid",
+            "evs": [48, 80, 24, 0, 24, 80],
+            "ivs": [11, 11, 11, 11, 11, 11]
+          }
+        ]
+      }
+    ],
+    "log": "Shock Wave against Staravia. Psychic through Heracross, Roselia, Ponyta and Prinplup."
+  },
+  {
+    "number": 51,
+    "key": "239",
+    "start": "1:42:49",
+    "end": "1:43:13",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 37,
+        "hp": "88/88",
+        "item": "metronome",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shock Wave"],
+        "evs": [19, 15, 11, 75, 2, 29]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "rawstberry",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 239,
+        "name": "Black Belt Ricky",
+        "party": [
+          {
+            "species": "Steelix",
+            "level": 33,
+            "ability": "Sturdy",
+            "item": "",
+            "moves": ["Thunder Fang", "Ice Fang", "Iron Tail", "Bulldoze"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Grass Knot ×2 through Sturdy. Iron Tail leaves 1/88 HP."
+  },
+  {
+    "number": 52,
+    "key": "203",
+    "start": "1:43:52",
+    "end": "1:44:37",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 38,
+        "hp": "90/90",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shadow Ball"],
+        "evs": [19, 15, 13, 75, 2, 29]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 203,
+        "name": "Ace Trainer Cesar",
+        "party": [
+          {
+            "species": "Skorupi",
+            "level": 30,
+            "ability": "Battle Armor",
+            "item": "",
+            "moves": ["Bite", "Pin Missile", "Toxic", "Iron Tail"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Steelix",
+            "level": 32,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Thunder Fang", "Ice Fang", "Curse", "Iron Tail"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "One Shadow Ball each against Skorupi and Steelix."
+  },
+  {
+    "number": 53,
+    "key": "279",
+    "start": "1:44:38",
+    "end": "1:45:36",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 38,
+        "hp": "90/90",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shadow Ball"],
+        "evs": [19, 15, 16, 75, 2, 29]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 279,
+        "name": "Worker Gerardo",
+        "party": [
+          {
+            "species": "Onix",
+            "level": 29,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Smack Down", "Iron Tail", "Sandstorm", "Bulldoze"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Onix",
+            "level": 29,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Rock Tomb", "Rest", "Sleep Talk", "Iron Tail"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "One Shadow Ball per Onix."
+  },
+  {
+    "number": 54,
+    "key": "164",
+    "start": "1:45:37",
+    "end": "1:46:28",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 38,
+        "hp": "90/90",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shadow Ball"],
+        "evs": [19, 15, 18, 75, 2, 29]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 164,
+        "name": "Black Belt David",
+        "party": [
+          {
+            "species": "Onix",
+            "level": 30,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Screech", "Sandstorm", "Rock Tomb", "Bulldoze"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Steelix",
+            "level": 32,
+            "ability": "Rock Head",
+            "item": "",
+            "moves": ["Thunder Fang", "Ice Fang", "Autotomize", "Dig"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Grass Knot ×2."
+  },
+  {
+    "number": 55,
+    "key": "207",
+    "start": "1:46:29",
+    "end": "1:47:10",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 38,
+        "hp": "90/90",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shadow Ball"],
+        "evs": [19, 15, 21, 75, 2, 29]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "0/80",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 207,
+        "name": "Ace Trainer Breanna",
+        "party": [
+          {
+            "species": "Azumarill",
+            "level": 33,
+            "ability": "Huge Power",
+            "item": "",
+            "moves": ["Play Rough", "Iron Tail", "Bulldoze", "Waterfall"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Grass Knot one-shots Azumarill."
+  },
+  {
+    "number": 56,
+    "key": "179",
+    "start": "1:47:52",
+    "end": "1:49:49",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 27,
+        "hp": "60/80",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 16, 34, 4, 25]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 39,
+        "hp": "93/93",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Grass Knot", "Shadow Ball"],
+        "evs": [22, 15, 21, 75, 2, 29],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 179,
+        "name": "Gym Leader Byron",
+        "party": [
+          {
+            "species": "Bronzor",
+            "level": 36,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confuse Ray", "Sandstorm", "Trick Room", "Flash Cannon"],
+            "nature": "Relaxed",
+            "evs": [68, 0, 68, 44, 68, 0],
+            "ivs": [17, 0, 17, 17, 17, 0]
+          },
+          {
+            "species": "Steelix",
+            "level": 36,
+            "ability": "Sturdy",
+            "item": "Soft Sand",
+            "moves": ["Thunder Fang", "Earthquake", "Sandstorm", "Gyro Ball"],
+            "nature": "Brave",
+            "evs": [0, 100, 68, 0, 68, 0],
+            "ivs": [0, 23, 17, 0, 17, 0]
+          },
+          {
+            "species": "Bastiodon",
+            "level": 39,
+            "ability": "Sturdy",
+            "item": "Sitrus Berry",
+            "moves": ["Iron Defense", "Thunderbolt", "Stone Edge", "Flash Cannon"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 68, 100, 68, 0],
+            "ivs": [0, 0, 17, 23, 17, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Taunt and Stealth Rock setup, Flamethrower ×2 with another Taunt and Mach Punch. Monferno Taunts Steelix and faints. Grass Knot on Steelix and X Sp. Atk before Grass Knot on Bastiodon."
+  },
+  {
+    "number": 57,
+    "key": "109",
+    "start": "1:53:49",
+    "end": "1:54:54",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 40,
+        "hp": "92/95",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 15, 26, 75, 2, 29]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 28,
+        "hp": "0/82",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 17, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 109,
+        "name": "Ace Trainer Dalton",
+        "party": [
+          {
+            "species": "Raichu",
+            "level": 34,
+            "ability": "Static",
+            "item": "",
+            "moves": ["Nuzzle", "Electro Ball", "Agility", "Light Screen"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Hippopotas",
+            "level": 38,
+            "ability": "Sand Stream",
+            "item": "",
+            "moves": ["Yawn", "Sand Tomb", "Crunch", "Rest"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Pelipper",
+            "level": 36,
+            "ability": "Keen Eye",
+            "item": "",
+            "moves": ["Air Slash", "Tailwind", "Water Pulse", "Stockpile"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic KOs Raichu, Hippopotas and Pelipper. Hail and then sand chip.",
+    "field": "hail"
+  },
+  {
+    "number": 58,
+    "key": "110",
+    "start": "1:55:33",
+    "end": "1:56:23",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 41,
+        "hp": "83/97",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 15, 29, 75, 2, 32]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 28,
+        "hp": "0/82",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 17, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 110,
+        "name": "Ace Trainer Olivia",
+        "party": [
+          {
+            "species": "Roselia",
+            "level": 37,
+            "ability": "Poison Point",
+            "item": "",
+            "moves": ["Poison Sting", "Leech Seed", "Giga Drain", "Synthesis"],
+            "nature": "Calm",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Seaking",
+            "level": 37,
+            "ability": "Water Veil",
+            "item": "",
+            "moves": ["Peck", "Supersonic", "Flail", "Waterfall"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psyshock against Roselia and Seaking. Hail chip.",
+    "field": "hail"
+  },
+  {
+    "number": 59,
+    "key": "313",
+    "start": "1:58:08",
+    "end": "1:58:59",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 41,
+        "hp": "77/97",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 17, 29, 77, 2, 32]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 28,
+        "hp": "0/82",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 17, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 313,
+        "name": "Commander Saturn",
+        "party": [
+          {
+            "species": "Kadabra",
+            "level": 35,
+            "ability": "Inner Focus",
+            "item": "Damp Rock",
+            "moves": ["Kinesis", "Reflect", "Psychic", "Rain Dance"],
+            "nature": "Timid",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Toxicroak",
+            "level": 37,
+            "ability": "Dry Skin",
+            "item": "",
+            "moves": ["Mud-Slap", "Revenge", "Toxic", "Thief"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Bronzor",
+            "level": 35,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confuse Ray", "Payback", "Gyro Ball", "Extrasensory"],
+            "nature": "Relaxed",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball, Psyshock and Shadow Ball KOs Kadabra, Toxicroak and Bronzor."
+  },
+  {
+    "number": 60,
+    "key": "322+328",
+    "start": "2:00:00",
+    "end": "2:01:43",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 42,
+        "hp": "99/99",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 19, 30, 79, 2, 32]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 28,
+        "hp": "82/82",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 17, 34, 4, 25]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 322,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Glameow",
+            "level": 33,
+            "ability": "Limber",
+            "item": "",
+            "moves": ["Growl", "Aerial Ace", "Fury Swipes", "Retaliate"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Stunky",
+            "level": 32,
+            "ability": "Aftermath",
+            "item": "",
+            "moves": ["Poison Gas", "Bite", "Venoshock", "Sucker Punch"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Glameow",
+            "level": 32,
+            "ability": "Limber",
+            "item": "",
+            "moves": ["Growl", "Aerial Ace", "Fury Swipes", "Retaliate"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 328,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Silcoon",
+            "level": 32,
+            "ability": "Shed Skin",
+            "item": "",
+            "moves": ["Tackle", "Poison Sting", "Harden"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Golbat",
+            "level": 32,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Screech", "Poison Fang", "Quick Guard", "Air Cutter"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Glameow",
+            "level": 32,
+            "ability": "Own Tempo",
+            "item": "",
+            "moves": ["Growl", "Aerial Ace", "Fury Swipes", "Retaliate"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Kazza uses Dazzling Gleam ×3. Monferno's turns supply two X Sp. Atk and an Energy Root. Stunky lands Sucker Punch."
+  },
+  {
+    "number": 61,
+    "key": "310",
+    "start": "2:02:15",
+    "end": "2:03:39",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 46,
+        "hp": "107/107",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 19, 32, 89, 2, 38]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 310,
+        "name": "Commander Mars",
+        "party": [
+          {
+            "species": "Golbat",
+            "level": 37,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Astonish", "Poison Fang", "Bite", "U-turn"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Purugly",
+            "level": 39,
+            "ability": "Thick Fat",
+            "item": "Sitrus Berry",
+            "moves": ["Growl", "Aerial Ace", "Slash", "U-turn"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Bronzor",
+            "level": 37,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confuse Ray", "Payback", "Gyro Ball", "Iron Defense"],
+            "nature": "Sassy",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic KOs Golbat and Purugly. Shadow Ball ×2 on Bronzor through Payback."
+  },
+  {
+    "number": 62,
+    "key": "244",
+    "start": "2:04:25",
+    "end": "2:06:20",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 46,
+        "hp": "107/107",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 19, 33, 89, 2, 42]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 244,
+        "name": "Gym Leader Candice",
+        "party": [
+          {
+            "species": "Snover",
+            "level": 38,
+            "ability": "Snow Warning",
+            "item": "Icy Rock",
+            "moves": ["Mist", "Razor Leaf", "Water Pulse", "Avalanche"],
+            "nature": "Relaxed",
+            "evs": [60, 124, 0, 124, 0, 0],
+            "ivs": [19, 25, 0, 25, 0, 0]
+          },
+          {
+            "species": "Sneasel",
+            "level": 38,
+            "ability": "Pickpocket",
+            "item": "Chople Berry",
+            "moves": ["Metal Claw", "Hone Claws", "Dig", "Avalanche"],
+            "nature": "Jolly",
+            "evs": [64, 124, 0, 0, 0, 124],
+            "ivs": [10, 25, 10, 0, 0, 25]
+          },
+          {
+            "species": "Medicham",
+            "level": 40,
+            "ability": "Pure Power",
+            "item": "Expert Belt",
+            "moves": ["Ice Punch", "Bulk Up", "Brick Break", "Rock Slide"],
+            "nature": "Jolly",
+            "evs": [64, 124, 0, 0, 0, 124],
+            "ivs": [10, 25, 0, 0, 0, 25]
+          },
+          {
+            "species": "Abomasnow",
+            "level": 42,
+            "ability": "Snow Warning",
+            "item": "Sitrus Berry",
+            "moves": ["Aurora Veil", "Giga Drain", "Earthquake", "Blizzard"],
+            "nature": "Quiet",
+            "evs": [124, 60, 0, 164, 0, 0],
+            "ivs": [13, 25, 10, 27, 10, 0]
+          }
+        ]
+      }
+    ],
+    "log": "X Sp. Atk through Avalanche and hail. Dazzling Gleam ×2, then Psychic ×2."
+  },
+  {
+    "number": 63,
+    "key": "382",
+    "start": "2:07:57",
+    "end": "2:09:09",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 47,
+        "hp": "34/110",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 21, 33, 90, 2, 45]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 382,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Dustox",
+            "level": 35,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Venoshock", "Leech Life", "Toxic", "Bug Buzz"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Bronzor",
+            "level": 35,
+            "ability": "Heatproof",
+            "item": "",
+            "moves": ["Confuse Ray", "Payback", "Extrasensory", "Heavy Slam"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic against Dustox, Shadow Ball against Bronzor."
+  },
+  {
+    "number": 64,
+    "key": "656",
+    "start": "2:09:10",
+    "end": "2:10:32",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 47,
+        "hp": "34/110",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 21, 34, 90, 5, 45]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 656,
+        "name": "Scientist Fredrick",
+        "party": [
+          {
+            "species": "Kadabra",
+            "level": 35,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Kinesis", "Reflect", "Psyshock", "Psychic"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Kadabra",
+            "level": 35,
+            "ability": "Synchronize",
+            "item": "",
+            "moves": ["Reflect", "Recover", "Psyshock", "Psychic"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dazzling Gleam ×2 against Kadabra."
+  },
+  {
+    "number": 65,
+    "key": "331",
+    "start": "2:11:27",
+    "end": "2:12:09",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 47,
+        "hp": "34/110",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 21, 34, 94, 5, 45]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 331,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Golbat",
+            "level": 36,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Poison Fang", "Quick Guard", "Air Cutter", "Bite"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Silcoon",
+            "level": 34,
+            "ability": "Shed Skin",
+            "item": "",
+            "moves": ["Tackle", "Poison Sting", "Harden"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic KOs both opponents. Golbat uses Quick Guard first."
+  },
+  {
+    "number": 66,
+    "key": "387+662",
+    "start": "2:12:44",
+    "end": "2:14:09",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 48,
+        "hp": "112/112",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 21, 36, 94, 5, 47]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 29,
+        "hp": "85/85",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 13, 19, 34, 4, 31],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 387,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Stunky",
+            "level": 36,
+            "ability": "Aftermath",
+            "item": "",
+            "moves": ["Venoshock", "Toxic", "Memento", "Night Slash"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Croagunk",
+            "level": 36,
+            "ability": "Anticipation",
+            "item": "",
+            "moves": ["Mud-Slap", "Revenge", "Sucker Punch", "Toxic"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 662,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Glameow",
+            "level": 32,
+            "ability": "Limber",
+            "item": "",
+            "moves": ["Growl", "Aerial Ace", "Fury Swipes", "Retaliate"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Stunky",
+            "level": 32,
+            "ability": "Aftermath",
+            "item": "",
+            "moves": ["Poison Gas", "Bite", "Venoshock", "Toxic"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Croagunk",
+            "level": 32,
+            "ability": "Anticipation",
+            "item": "",
+            "moves": ["Taunt", "Venoshock", "Sucker Punch", "Poison Jab"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dazzling Gleam ×3 sweeps five enemies. Monferno's first Flamethrower loses its target."
+  },
+  {
+    "number": 67,
+    "key": "308",
+    "start": "2:14:44",
+    "end": "2:15:42",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 48,
+        "hp": "112/112",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 23, 36, 94, 5, 50]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 30,
+        "hp": "88/88",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 15, 19, 34, 4, 34]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 308,
+        "name": "Team Galactic Boss Cyrus",
+        "party": [
+          {
+            "species": "Murkrow",
+            "level": 40,
+            "ability": "Insomnia",
+            "item": "",
+            "moves": ["Wing Attack", "Night Shade", "Assurance", "Taunt"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Golbat",
+            "level": 40,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Screech", "Poison Fang", "Air Cutter", "Bite"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Sneasel",
+            "level": 43,
+            "ability": "Keen Eye",
+            "item": "Sitrus Berry",
+            "moves": ["Metal Claw", "Icy Wind", "Hone Claws", "Beat Up"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dazzling Gleam, Psyshock, Dazzling Gleam. Sneasel lands Icy Wind."
+  },
+  {
+    "number": 68,
+    "key": "314",
+    "start": "2:16:26",
+    "end": "2:17:19",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 48,
+        "hp": "99/112",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 23, 36, 94, 5, 54]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 31,
+        "hp": "90/90",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 15, 19, 34, 4, 38],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 314,
+        "name": "Commander Saturn",
+        "party": [
+          {
+            "species": "Kadabra",
+            "level": 38,
+            "ability": "Inner Focus",
+            "item": "Damp Rock",
+            "moves": ["Kinesis", "Reflect", "Psychic", "Rain Dance"],
+            "nature": "Timid",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Toxicroak",
+            "level": 40,
+            "ability": "Dry Skin",
+            "item": "",
+            "moves": ["Mud-Slap", "Toxic", "Thief", "Brick Break"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Bronzor",
+            "level": 38,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confuse Ray", "Payback", "Gyro Ball", "Extrasensory"],
+            "nature": "Relaxed",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball, Psyshock, Shadow Ball KOs Kadabra, Toxicroak and Bronzor."
+  },
+  {
+    "number": 69,
+    "key": "398",
+    "start": "2:20:53",
+    "end": "2:21:40",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 49,
+        "hp": "101/114",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 25, 37, 96, 5, 54]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 32,
+        "hp": "93/93",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 17, 20, 36, 4, 38]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 398,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Bronzor",
+            "level": 38,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Hypnosis", "Safeguard", "Extrasensory", "Heavy Slam"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Glameow",
+            "level": 38,
+            "ability": "Own Tempo",
+            "item": "",
+            "moves": ["Aerial Ace", "Charm", "Taunt", "Slash"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball on Bronzor and Psyshock on Glameow."
+  },
+  {
+    "number": 70,
+    "key": "393",
+    "start": "2:21:41",
+    "end": "2:22:31",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 49,
+        "hp": "101/114",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 25, 38, 96, 5, 55]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 32,
+        "hp": "93/93",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 17, 21, 36, 4, 39]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 393,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Bronzor",
+            "level": 37,
+            "ability": "Heatproof",
+            "item": "",
+            "moves": ["Confuse Ray", "Payback", "Extrasensory", "Iron Defense"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Golbat",
+            "level": 37,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Screech", "Astonish", "Poison Fang", "Bite"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball on Bronzor and Psyshock on Golbat."
+  },
+  {
+    "number": 71,
+    "key": "399",
+    "start": "2:22:32",
+    "end": "2:23:48",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 49,
+        "hp": "101/114",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 25, 39, 96, 5, 57]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 32,
+        "hp": "93/93",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 17, 22, 36, 4, 41]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 399,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Golbat",
+            "level": 37,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Screech", "Astonish", "Poison Fang", "Bite"],
+            "nature": "Serious",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Glameow",
+            "level": 37,
+            "ability": "Own Tempo",
+            "item": "",
+            "moves": ["Fake Out", "Hypnosis", "Aerial Ace", "Retaliate"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Bronzor",
+            "level": 37,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confuse Ray", "Extrasensory", "Heavy Slam", "Iron Defense"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psyshock on Golbat and Glameow, Shadow Ball on Bronzor."
+  },
+  {
+    "number": 72,
+    "key": "400+394",
+    "start": "2:23:49",
+    "end": "2:25:18",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 50,
+        "hp": "103/116",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 25, 40, 96, 5, 60]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 33,
+        "hp": "95/95",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 17, 23, 36, 4, 44]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 400,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Stunky",
+            "level": 38,
+            "ability": "Aftermath",
+            "item": "",
+            "moves": ["Venoshock", "Toxic", "Memento", "Night Slash"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Glameow",
+            "level": 38,
+            "ability": "Own Tempo",
+            "item": "",
+            "moves": ["Aerial Ace", "Charm", "Taunt", "Retaliate"],
+            "nature": "Docile",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 394,
+        "name": "Team Galactic Grunt",
+        "party": [
+          {
+            "species": "Dustox",
+            "level": 38,
+            "ability": "Shield Dust",
+            "item": "",
+            "moves": ["Light Screen", "Toxic", "Bug Buzz", "Protect"],
+            "nature": "Quirky",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Croagunk",
+            "level": 38,
+            "ability": "Anticipation",
+            "item": "",
+            "moves": ["Revenge", "Venoshock", "Sucker Punch", "Toxic"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dazzling Gleam and Flamethrower on the first pair, then Dazzling Gleam on the second pair after Croagunk's Sucker Punch."
+  },
+  {
+    "number": 73,
+    "key": "401+312",
+    "start": "2:25:19",
+    "end": "2:29:25",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 50,
+        "hp": "116/116",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [22, 26, 40, 96, 8, 62]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 34,
+        "hp": "98/98",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [14, 18, 23, 36, 7, 46],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 401,
+        "name": "Commander Mars",
+        "party": [
+          {
+            "species": "Bronzor",
+            "level": 41,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confuse Ray", "Payback", "Gyro Ball", "Reflect"],
+            "nature": "Sassy",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Golbat",
+            "level": 42,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Poison Fang", "Bite", "Haze", "U-turn"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Purugly",
+            "level": 45,
+            "ability": "Thick Fat",
+            "item": "Sitrus Berry",
+            "moves": ["Aerial Ace", "Body Slam", "Dig", "U-turn"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      },
+      {
+        "id": 312,
+        "name": "Commander Jupiter",
+        "party": [
+          {
+            "species": "Bronzor",
+            "level": 41,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Confuse Ray", "Payback", "Extrasensory", "Light Screen"],
+            "nature": "Relaxed",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Golbat",
+            "level": 41,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Air Cutter", "Haze", "Giga Drain", "Sludge Bomb"],
+            "nature": "Modest",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Skuntank",
+            "level": 46,
+            "ability": "Aftermath",
+            "item": "Sitrus Berry",
+            "moves": ["Flamethrower", "Poison Gas", "Belch", "Snarl"],
+            "nature": "Modest",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "X Defense and X Sp. Atk into two Bronzor. Shadow Ball and Psychic handle Mars's first two. Energy Root, Psychic, Dazzling Gleam and Psychic. Rival's Munchlax Bite and Body Slam help.",
+    "ally": {
+      "id": 494,
+      "name": "Pokémon Trainer Cedric",
+      "party": [
+        {
+          "species": "Munchlax",
+          "level": 42,
+          "ability": "Thick Fat",
+          "item": "",
+          "moves": ["Lick", "Covet", "Bite", "Body Slam"],
+          "nature": "Adamant",
+          "evs": [96, 96, 56, 0, 88, 0],
+          "ivs": [9, 9, 9, 9, 9, 9]
+        },
+        {
+          "species": "Staraptor",
+          "level": 41,
+          "ability": "Intimidate",
+          "item": "Quick Claw",
+          "moves": ["Close Combat", "Quick Attack", "Double Team", "Pluck"],
+          "nature": "Jolly",
+          "evs": [56, 104, 32, 0, 32, 104],
+          "ivs": [5, 5, 5, 5, 5, 5]
+        },
+        {
+          "species": "Roselia",
+          "level": 42,
+          "ability": "Natural Cure",
+          "item": "Big Root",
+          "moves": ["Growth", "Stun Spore", "Leech Seed", "Giga Drain"],
+          "nature": "Timid",
+          "evs": [40, 0, 40, 96, 40, 96],
+          "ivs": [6, 6, 6, 6, 6, 6]
+        },
+        {
+          "species": "Heracross",
+          "level": 43,
+          "ability": "Swarm",
+          "item": "",
+          "moves": ["Leer", "Brick Break", "Pin Missile", "Thief"],
+          "nature": "Jolly",
+          "evs": [40, 104, 40, 0, 40, 96],
+          "ivs": [9, 9, 9, 9, 9, 9]
+        },
+        {
+          "species": "Ponyta",
+          "level": 42,
+          "ability": "Flash Fire",
+          "item": "Shell Bell",
+          "moves": ["Growl", "Agility", "Flame Wheel", "Stomp"],
+          "nature": "Jolly",
+          "evs": [40, 64, 16, 0, 16, 64],
+          "ivs": [7, 7, 7, 7, 7, 7]
+        },
+        {
+          "species": "Empoleon",
+          "level": 45,
+          "ability": "Torrent",
+          "item": "Sea Incense",
+          "moves": ["Metal Claw", "Charm", "Grass Knot", "Brine"],
+          "nature": "Timid",
+          "evs": [52, 124, 52, 0, 52, 164],
+          "ivs": [11, 11, 11, 11, 11, 11]
+        }
+      ]
+    }
+  },
+  {
+    "number": 74,
+    "key": "309",
+    "start": "2:30:00",
+    "end": "2:32:50",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 51,
+        "hp": "118/118",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [24, 26, 42, 96, 8, 68]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "101/101",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 18, 25, 36, 7, 52]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 309,
+        "name": "Team Galactic Boss Cyrus",
+        "party": [
+          {
+            "species": "Honchkrow",
+            "level": 45,
+            "ability": "Super Luck",
+            "item": "Scope Lens",
+            "moves": ["Air Cutter", "Night Slash", "Steel Wing", "Defog"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Gyarados",
+            "level": 45,
+            "ability": "Intimidate",
+            "item": "Wacan Berry",
+            "moves": ["Ice Fang", "Waterfall", "Crunch", "Earthquake"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Crobat",
+            "level": 46,
+            "ability": "Infiltrator",
+            "item": "Quick Claw",
+            "moves": ["Cross Poison", "Tailwind", "Air Cutter", "U-turn"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          },
+          {
+            "species": "Weavile",
+            "level": 48,
+            "ability": "Pickpocket",
+            "item": "Chople Berry",
+            "moves": ["Metal Claw", "Fling", "Dig", "Aerial Ace"],
+            "nature": "Jolly",
+            "evs": [68, 0, 68, 0, 68, 0],
+            "ivs": [15, 0, 15, 0, 15, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dazzling Gleam. Gyarados KOs Kazza after Psyshock. Monferno uses Revival Herb and is KO'd. Psychic ×2, then X Sp. Atk through Dig and Dazzling Gleam."
+  },
+  {
+    "number": 75,
+    "key": "palkia",
+    "start": "2:32:52",
+    "end": "2:34:07",
+    "goal": "capture",
+    "tier": null,
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 52,
+        "hp": "41/121",
+        "item": "wiseglasses",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [24, 31, 42, 96, 8, 72]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "choicespecs",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      }
+    ],
+    "opponents": [
+      {
+        "name": "Wild Palkia",
+        "party": [
+          {
+            "species": "Palkia",
+            "level": 47,
+            "ability": "Pressure",
+            "moves": ["Ancient Power", "Slash", "Aqua Ring", "Spacial Rend"],
+            "item": ""
+          }
+        ]
+      }
+    ],
+    "log": "Use Master Ball on turn one against Palkia Lv.47. Capture awards EXP and Palkia joins."
+  },
+  {
+    "number": 76,
+    "key": "135",
+    "start": "2:35:39",
+    "end": "2:36:37",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 53,
+        "hp": "123/123",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [24, 31, 42, 99, 8, 72]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [0, 0, 0, 0, 0, 0]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 135,
+        "name": "Sailor Luther",
+        "party": [
+          {
+            "species": "Feebas",
+            "level": 37,
+            "ability": "Oblivious",
+            "item": "",
+            "moves": ["Splash", "Tackle", "Flail"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Machoke",
+            "level": 40,
+            "ability": "No Guard",
+            "item": "",
+            "moves": ["Leer", "Low Sweep", "Knock Off", "Dual Chop"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Gastrodon",
+            "level": 43,
+            "ability": "Storm Drain",
+            "item": "",
+            "moves": ["Recover", "Water Pulse", "Ancient Power", "Earth Power"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic ×3."
+  },
+  {
+    "number": 77,
+    "key": "266",
+    "start": "2:38:20",
+    "end": "2:38:48",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 53,
+        "hp": "123/123",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 33, 42, 99, 8, 73]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 2, 0, 0, 0, 1]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 266,
+        "name": "School Kid Tiera",
+        "party": [
+          {
+            "species": "Pachirisu",
+            "level": 44,
+            "ability": "Pickup",
+            "item": "",
+            "moves": ["Charm", "Spark", "Nuzzle", "Dig"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic."
+  },
+  {
+    "number": 78,
+    "key": "263",
+    "start": "2:38:49",
+    "end": "2:39:35",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 53,
+        "hp": "123/123",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 33, 42, 99, 8, 74]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 2, 0, 0, 0, 2]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 263,
+        "name": "School Kid Forrest",
+        "party": [
+          {
+            "species": "Mr. Mime",
+            "level": 44,
+            "ability": "Filter",
+            "item": "",
+            "moves": ["Reflect", "Dazzling Gleam", "Thunderbolt", "Energy Ball"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball."
+  },
+  {
+    "number": 79,
+    "key": "226",
+    "start": "2:39:36",
+    "end": "2:40:18",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 53,
+        "hp": "123/123",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 33, 42, 99, 10, 74]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 2, 0, 0, 2, 2]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 226,
+        "name": "Guitarist Jerry",
+        "party": [
+          {
+            "species": "Luxio",
+            "level": 44,
+            "ability": "Intimidate",
+            "item": "",
+            "moves": ["Leer", "Bite", "Spark", "Iron Tail"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball through Intimidate."
+  },
+  {
+    "number": 80,
+    "key": "209",
+    "start": "2:40:19",
+    "end": "2:41:22",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 54,
+        "hp": "125/125",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 35, 42, 99, 10, 74]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 4, 0, 0, 2, 2]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 209,
+        "name": "Ace Trainer Destiny",
+        "party": [
+          {
+            "species": "Kadabra",
+            "level": 44,
+            "ability": "Inner Focus",
+            "item": "",
+            "moves": ["Reflect", "Psychic", "Shock Wave", "Energy Ball"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Raichu",
+            "level": 44,
+            "ability": "Static",
+            "item": "",
+            "moves": ["Thunder Punch", "Thunderbolt", "Light Screen", "Quick Attack"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dazzling Gleam KOs Kadabra and Raichu."
+  },
+  {
+    "number": 81,
+    "key": "227",
+    "start": "2:41:23",
+    "end": "2:42:13",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 54,
+        "hp": "125/125",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 35, 42, 101, 10, 77]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 4, 0, 2, 2, 5]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 227,
+        "name": "Guitarist Preston",
+        "party": [
+          {
+            "species": "Luxio",
+            "level": 42,
+            "ability": "Intimidate",
+            "item": "",
+            "moves": ["Bite", "Volt Switch", "Thunder Wave", "Iron Tail"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Bibarel",
+            "level": 42,
+            "ability": "Simple",
+            "item": "",
+            "moves": ["Yawn", "Thunderbolt", "Bulldoze", "Waterfall"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Dazzling Gleam KOs Luxio and Bibarel."
+  },
+  {
+    "number": 82,
+    "key": "205",
+    "start": "2:42:14",
+    "end": "2:43:21",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 54,
+        "hp": "125/125",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 39, 42, 101, 10, 77]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 8, 0, 2, 2, 5]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 205,
+        "name": "Ace Trainer Zachery",
+        "party": [
+          {
+            "species": "Steelix",
+            "level": 44,
+            "ability": "Sturdy",
+            "item": "",
+            "moves": ["Thunder Fang", "Screech", "Iron Tail", "Bulldoze"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Medicham",
+            "level": 44,
+            "ability": "Pure Power",
+            "item": "",
+            "moves": ["Zen Headbutt", "Thunder Punch", "Reversal", "Rock Tomb"],
+            "nature": "Jolly",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball ×3. Steelix survives with Sturdy and lands Thunder Fang."
+  },
+  {
+    "number": 83,
+    "key": "245",
+    "start": "2:44:00",
+    "end": "2:45:37",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 47,
+        "hp": "156/156",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 8, 2, 2, 2, 7]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 55,
+        "hp": "90/127",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 39, 44, 101, 10, 79],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 245,
+        "name": "Gym Leader Volkner",
+        "party": [
+          {
+            "species": "Raichu",
+            "level": 46,
+            "ability": "Static",
+            "item": "Shuca Berry",
+            "moves": ["Nuzzle", "Volt Switch", "Surf", "Charge Beam"],
+            "nature": "Timid",
+            "evs": [12, 0, 12, 160, 12, 160],
+            "ivs": [11, 0, 11, 28, 11, 28]
+          },
+          {
+            "species": "Ambipom",
+            "level": 47,
+            "ability": "Technician",
+            "item": "Chople Berry",
+            "moves": ["Fake Out", "Thunderbolt", "Double Hit", "Last Resort"],
+            "nature": "Naive",
+            "evs": [12, 80, 12, 80, 12, 160],
+            "ivs": [11, 20, 11, 20, 11, 28]
+          },
+          {
+            "species": "Octillery",
+            "level": 47,
+            "ability": "Sniper",
+            "item": "Expert Belt",
+            "moves": ["Octazooka", "Focus Energy", "Aurora Beam", "Charge Beam"],
+            "nature": "Modest",
+            "evs": [12, 0, 12, 160, 12, 160],
+            "ivs": [11, 0, 11, 28, 11, 28]
+          },
+          {
+            "species": "Luxray",
+            "level": 49,
+            "ability": "Intimidate",
+            "item": "Sitrus Berry",
+            "moves": ["Thunder Fang", "Ice Fang", "Crunch", "Iron Tail"],
+            "nature": "Jolly",
+            "evs": [28, 160, 28, 0, 0, 200],
+            "ivs": [15, 28, 15, 0, 0, 30]
+          }
+        ]
+      }
+    ],
+    "log": "X Sp. Atk into Volt Switch. X Speed into Ambipom's Fake Out. Surf ×4."
+  },
+  {
+    "number": 84,
+    "key": "141",
+    "start": "2:46:47",
+    "end": "2:47:51",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 55,
+        "hp": "90/127",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 43, 44, 102, 10, 84]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 48,
+        "hp": "83/159",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 12, 2, 3, 2, 12]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 141,
+        "name": "Swimmer Oscar",
+        "party": [
+          {
+            "species": "Mantyke",
+            "level": 38,
+            "ability": "Water Absorb",
+            "item": "",
+            "moves": ["Supersonic", "Bubble Beam", "Air Slash", "Aqua Ring"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Remoraid",
+            "level": 40,
+            "ability": "Hustle",
+            "item": "",
+            "moves": ["Lock-On", "Bullet Seed", "Ice Beam", "Hydro Pump"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Mantine",
+            "level": 42,
+            "ability": "Water Absorb",
+            "item": "",
+            "moves": ["Bullet Seed", "Bubble Beam", "Aqua Ring", "Bounce"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psyshock ×3."
+  },
+  {
+    "number": 85,
+    "key": "158",
+    "start": "2:48:33",
+    "end": "2:49:36",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 55,
+        "hp": "90/127",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [26, 43, 44, 103, 13, 84]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 48,
+        "hp": "83/159",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [2, 12, 2, 4, 5, 12]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 158,
+        "name": "Ace Trainer Mariah",
+        "party": [
+          {
+            "species": "Golduck",
+            "level": 46,
+            "ability": "Cloud Nine",
+            "item": "",
+            "moves": ["Zen Headbutt", "Aqua Jet", "Tail Whip", "Aqua Tail"],
+            "nature": "Calm",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Blissey",
+            "level": 48,
+            "ability": "Serene Grace",
+            "item": "",
+            "moves": ["Disarming Voice", "Double-Edge", "Soft-Boiled", "Last Resort"],
+            "nature": "Calm",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psyshock KOs Golduck and Blissey."
+  },
+  {
+    "number": 86,
+    "key": "156",
+    "start": "2:50:00",
+    "end": "2:51:06",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 56,
+        "hp": "92/130",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [29, 43, 44, 105, 13, 84]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 49,
+        "hp": "87/163",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [5, 12, 2, 6, 5, 12],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 156,
+        "name": "Ace Trainer Omar",
+        "party": [
+          {
+            "species": "Rapidash",
+            "level": 45,
+            "ability": "Run Away",
+            "item": "",
+            "moves": ["Smart Strike", "Poison Jab", "Tail Whip", "Flame Wheel"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Carnivine",
+            "level": 45,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Bind", "Growth", "Leaf Tornado", "Crunch"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Rampardos",
+            "level": 48,
+            "ability": "Mold Breaker",
+            "item": "",
+            "moves": ["Headbutt", "Zen Headbutt", "Assurance", "Swords Dance"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic ×3."
+  },
+  {
+    "number": 87,
+    "key": "159",
+    "start": "2:51:29",
+    "end": "2:52:14",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 57,
+        "hp": "132/132",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [29, 47, 44, 105, 13, 86]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 49,
+        "hp": "87/163",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [5, 16, 2, 6, 5, 14],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 159,
+        "name": "Ace Trainer Sydney",
+        "party": [
+          {
+            "species": "Clefable",
+            "level": 46,
+            "ability": "Cute Charm",
+            "item": "",
+            "moves": ["Moonlight", "Meteor Mash", "Cosmic Power", "Moonblast"],
+            "nature": "Calm",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Torterra",
+            "level": 48,
+            "ability": "Overgrow",
+            "item": "",
+            "moves": ["Earthquake", "Wood Hammer", "Crunch", "Synthesis"],
+            "nature": "Impish",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic ×2."
+  },
+  {
+    "number": 88,
+    "key": "161",
+    "start": "2:52:15",
+    "end": "2:53:13",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 57,
+        "hp": "132/132",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [32, 49, 45, 105, 13, 86]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 49,
+        "hp": "87/163",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [8, 18, 3, 6, 5, 14],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 161,
+        "name": "Veteran Clayton",
+        "party": [
+          {
+            "species": "Staraptor",
+            "level": 47,
+            "ability": "Intimidate",
+            "item": "",
+            "moves": ["Quick Attack", "Endeavor", "Aerial Ace", "Take Down"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Hippowdon",
+            "level": 47,
+            "ability": "Sand Stream",
+            "item": "",
+            "moves": ["Earthquake", "Crunch", "Ice Fang", "Yawn"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic ×2 despite Intimidate. Sand Stream."
+  },
+  {
+    "number": 89,
+    "key": "335",
+    "start": "2:53:14",
+    "end": "2:54:08",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 58,
+        "hp": "133/133",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [32, 52, 47, 105, 13, 86]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 49,
+        "hp": "87/163",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [8, 21, 5, 6, 5, 14],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 335,
+        "name": "Black Belt Miles",
+        "party": [
+          {
+            "species": "Machamp",
+            "level": 49,
+            "ability": "No Guard",
+            "item": "",
+            "moves": ["Low Sweep", "Knock Off", "Dual Chop", "Bulk Up"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic KOs Machamp."
+  },
+  {
+    "number": 90,
+    "key": "167",
+    "start": "2:54:09",
+    "end": "2:55:38",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 58,
+        "hp": "133/133",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [32, 55, 47, 105, 13, 86]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 50,
+        "hp": "90/166",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [8, 24, 5, 6, 5, 14]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 167,
+        "name": "Psychic Valencia",
+        "party": [
+          {
+            "species": "Chingling",
+            "level": 44,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Wrap", "Astonish", "Confusion", "Yawn"],
+            "nature": "Bashful",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Chimecho",
+            "level": 48,
+            "ability": "Levitate",
+            "item": "",
+            "moves": ["Wrap", "Yawn", "Extrasensory", "Heal Pulse"],
+            "nature": "Calm",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball ×2."
+  },
+  {
+    "number": 91,
+    "key": "162",
+    "start": "2:55:39",
+    "end": "2:56:12",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 58,
+        "hp": "133/133",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [32, 55, 47, 107, 14, 86]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 50,
+        "hp": "90/166",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [8, 24, 5, 8, 6, 14]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 162,
+        "name": "Dragon Tamer Andre",
+        "party": [
+          {
+            "species": "Gabite",
+            "level": 49,
+            "ability": "Sand Veil",
+            "item": "",
+            "moves": ["Sand Tomb", "Sand Attack", "Bite", "Dragon Claw"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Shadow Ball KOs Gabite."
+  },
+  {
+    "number": 92,
+    "key": "160",
+    "start": "2:56:16",
+    "end": "2:58:03",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 59,
+        "hp": "137/137",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [32, 57, 47, 107, 14, 86]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 50,
+        "hp": "90/166",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [8, 26, 5, 8, 6, 14]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 160,
+        "name": "Veteran Edgar",
+        "party": [
+          {
+            "species": "Tentacruel",
+            "level": 45,
+            "ability": "Clear Body",
+            "item": "",
+            "moves": ["Reflect Type", "Bubble Beam", "Acid Armor", "Poison Jab"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Golem",
+            "level": 45,
+            "ability": "Sturdy",
+            "item": "",
+            "moves": ["Earthquake", "Sandstorm", "Smack Down", "Heavy Slam"],
+            "nature": "Relaxed",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Empoleon",
+            "level": 48,
+            "ability": "Torrent",
+            "item": "",
+            "moves": ["Brine", "Aqua Jet", "Metal Claw", "Swords Dance"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psychic on Tentacruel and twice on Sturdy Golem. Empoleon KOs Kazza. Forced Palkia replacement wins with Surf ×2 through critical Brine."
+  },
+  {
+    "number": 93,
+    "key": "163",
+    "start": "2:58:25",
+    "end": "2:59:25",
+    "goal": "defeat",
+    "tier": "A",
+    "party": [
+      {
+        "code": "k",
+        "name": "Kazza",
+        "species": "Kadabra",
+        "ability": "Synchronize",
+        "level": 59,
+        "hp": "137/137",
+        "item": "choicespecs",
+        "moves": ["Psychic", "Psyshock", "Dazzling Gleam", "Shadow Ball"],
+        "evs": [32, 57, 50, 107, 16, 86]
+      },
+      {
+        "code": "m",
+        "name": "Monferno",
+        "species": "Monferno",
+        "ability": "Blaze",
+        "level": 35,
+        "hp": "0/101",
+        "item": "wiseglasses",
+        "moves": ["Flamethrower", "Mach Punch", "Stealth Rock", "Taunt"],
+        "evs": [16, 20, 25, 36, 7, 52]
+      },
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 50,
+        "hp": "166/166",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [8, 26, 8, 11, 8, 14]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 163,
+        "name": "Dragon Tamer Clinton",
+        "party": [
+          {
+            "species": "Gible",
+            "level": 46,
+            "ability": "Sand Veil",
+            "item": "",
+            "moves": ["Sand Tomb", "Sand Attack", "Bulldoze", "Dragon Claw"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Gyarados",
+            "level": 49,
+            "ability": "Intimidate",
+            "item": "",
+            "moves": ["Ice Fang", "Waterfall", "Crunch", "Dragon Dance"],
+            "nature": "Sassy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          },
+          {
+            "species": "Gible",
+            "level": 46,
+            "ability": "Sand Veil",
+            "item": "",
+            "moves": ["Bite", "Slash", "Dragon Claw", "Dig"],
+            "nature": "Hardy",
+            "evs": [0, 0, 0, 0, 0, 0],
+            "ivs": [0, 0, 0, 0, 0, 0]
+          }
+        ]
+      }
+    ],
+    "log": "Psyshock ×3, including Gyarados after Intimidate."
+  },
+  {
+    "number": 94,
+    "key": "362",
+    "start": "3:00:26",
+    "end": "3:03:08",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 50,
+        "hp": "166/166",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [8, 30, 8, 11, 8, 14]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 362,
+        "name": "Pokémon Trainer Cedric",
+        "party": [
+          {
+            "species": "Staraptor",
+            "level": 49,
+            "ability": "Intimidate",
+            "item": "Focus Sash",
+            "moves": ["Close Combat", "Pluck", "Rain Dance", "U-turn"],
+            "nature": "Jolly",
+            "evs": [56, 148, 36, 0, 36, 148],
+            "ivs": [5, 5, 5, 5, 5, 5]
+          },
+          {
+            "species": "Rapidash",
+            "level": 49,
+            "ability": "Flash Fire",
+            "item": "Expert Belt",
+            "moves": ["Smart Strike", "Megahorn", "Poison Jab", "Flame Wheel"],
+            "nature": "Jolly",
+            "evs": [48, 116, 48, 0, 48, 172],
+            "ivs": [7, 7, 7, 7, 7, 7]
+          },
+          {
+            "species": "Snorlax",
+            "level": 52,
+            "ability": "Thick Fat",
+            "item": "",
+            "moves": ["Covet", "Yawn", "Crunch", "High Horsepower"],
+            "nature": "Adamant",
+            "evs": [96, 120, 96, 0, 88, 0],
+            "ivs": [9, 9, 9, 9, 9, 9]
+          },
+          {
+            "species": "Roserade",
+            "level": 49,
+            "ability": "Natural Cure",
+            "item": "Black Sludge",
+            "moves": ["Grassy Terrain", "Petal Blizzard", "Stun Spore", "Shadow Ball"],
+            "nature": "Timid",
+            "evs": [40, 0, 40, 104, 40, 160],
+            "ivs": [6, 6, 6, 6, 6, 6]
+          },
+          {
+            "species": "Heracross",
+            "level": 51,
+            "ability": "Swarm",
+            "item": "",
+            "moves": ["Pin Missile", "Swords Dance", "Rock Slide", "Thief"],
+            "nature": "Jolly",
+            "evs": [44, 104, 44, 0, 44, 156],
+            "ivs": [9, 9, 9, 9, 9, 9]
+          },
+          {
+            "species": "Empoleon",
+            "level": 55,
+            "ability": "Torrent",
+            "item": "Quick Claw",
+            "moves": ["Charm", "Grass Knot", "Brine", "Flash Cannon"],
+            "nature": "Timid",
+            "evs": [52, 156, 52, 0, 52, 164],
+            "ivs": [11, 11, 11, 11, 11, 11]
+          }
+        ]
+      }
+    ],
+    "log": "X Speed and X Sp. Atk ×2. Rain Dance and U-turn change matchups. Surf KOs the roster as rain expires and Staraptor returns."
+  },
+  {
+    "number": 95,
+    "key": "185",
+    "start": "3:03:42",
+    "end": "3:05:49",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 52,
+        "hp": "172/172",
+        "item": "choicespecs",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Spacial Rend"],
+        "evs": [10, 35, 8, 17, 8, 16]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 185,
+        "name": "Elite Four Aaron",
+        "party": [
+          {
+            "species": "Dustox",
+            "level": 53,
+            "ability": "Shield Dust",
+            "item": "Black Sludge",
+            "moves": ["Toxic", "Bug Buzz", "Moonlight", "Light Screen"],
+            "nature": "Bold",
+            "evs": [252, 0, 12, 12, 12, 12],
+            "ivs": [31, 0, 21, 21, 21, 31]
+          },
+          {
+            "species": "Heracross",
+            "level": 54,
+            "ability": "Guts",
+            "item": "Flame Orb",
+            "moves": ["Earthquake", "Rock Slide", "Facade", "Brick Break"],
+            "nature": "Jolly",
+            "evs": [12, 60, 12, 0, 12, 204],
+            "ivs": [21, 31, 21, 0, 21, 31]
+          },
+          {
+            "species": "Beautifly",
+            "level": 53,
+            "ability": "Swarm",
+            "item": "Wise Glasses",
+            "moves": ["Bug Buzz", "Shadow Ball", "Psychic", "Quiver Dance"],
+            "nature": "Modest",
+            "evs": [12, 0, 12, 60, 12, 204],
+            "ivs": [21, 0, 21, 31, 21, 31]
+          },
+          {
+            "species": "Vespiquen",
+            "level": 54,
+            "ability": "Unnerve",
+            "item": "Sitrus Berry",
+            "moves": ["Acrobatics", "Attack Order", "Aerial Ace", "Defend Order"],
+            "nature": "Adamant",
+            "evs": [252, 0, 0, 0, 0, 0],
+            "ivs": [31, 31, 31, 0, 31, 31]
+          },
+          {
+            "species": "Drapion",
+            "level": 57,
+            "ability": "Sniper",
+            "item": "Scope Lens",
+            "moves": ["Cross Poison", "Night Slash", "Earthquake", "X-Scissor"],
+            "nature": "Jolly",
+            "evs": [12, 60, 0, 0, 0, 204],
+            "ivs": [31, 31, 31, 0, 31, 31]
+          }
+        ]
+      }
+    ],
+    "log": "X Speed and X Sp. Atk ×2 through Light Screen, Bug Buzz and Toxic. Full Restore, then Surf through all five."
+  },
+  {
+    "number": 96,
+    "key": "186",
+    "start": "3:06:15",
+    "end": "3:08:29",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 53,
+        "hp": "144/175",
+        "item": "metronome",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Dragon Pulse"],
+        "evs": [10, 37, 11, 20, 12, 16],
+        "hpSource": "derived"
+      }
+    ],
+    "opponents": [
+      {
+        "id": 186,
+        "name": "Elite Four Bertha",
+        "party": [
+          {
+            "species": "Quagsire",
+            "level": 55,
+            "ability": "Water Absorb",
+            "item": "Leftovers",
+            "moves": ["Recover", "Toxic", "Earthquake", "Surf"],
+            "nature": "Impish",
+            "evs": [12, 0, 252, 12, 12, 12],
+            "ivs": [23, 31, 31, 0, 13, 31]
+          },
+          {
+            "species": "Sudowoodo",
+            "level": 56,
+            "ability": "Rock Head",
+            "item": "Sitrus Berry",
+            "moves": ["Double-Edge", "Head Smash", "Sucker Punch", "Low Kick"],
+            "nature": "Adamant",
+            "evs": [0, 252, 12, 0, 12, 12],
+            "ivs": [21, 31, 31, 0, 11, 31]
+          },
+          {
+            "species": "Whiscash",
+            "level": 55,
+            "ability": "Hydration",
+            "item": "Rindo Berry",
+            "moves": ["Bulldoze", "Ice Beam", "Belch", "Hydro Pump"],
+            "nature": "Modest",
+            "evs": [12, 12, 12, 252, 12, 0],
+            "ivs": [21, 31, 21, 31, 21, 0]
+          },
+          {
+            "species": "Golem",
+            "level": 56,
+            "ability": "Sturdy",
+            "item": "Soft Sand",
+            "moves": ["Rock Polish", "Heavy Slam", "Earthquake", "Stone Edge"],
+            "nature": "Jolly",
+            "evs": [12, 60, 12, 0, 12, 204],
+            "ivs": [21, 31, 21, 0, 21, 31]
+          },
+          {
+            "species": "Hippowdon",
+            "level": 59,
+            "ability": "Sand Stream",
+            "item": "Chesto Berry",
+            "moves": ["Ice Fang", "Earthquake", "Crunch", "Rest"],
+            "nature": "Adamant",
+            "evs": [12, 252, 0, 0, 0, 0],
+            "ivs": [31, 31, 31, 0, 31, 31]
+          }
+        ]
+      }
+    ],
+    "log": "X Defense, X Sp. Atk, Full Restore. Dragon Pulse through three foes. Slash into Golem, then Dragon Pulse into Golem and Hippowdon."
+  },
+  {
+    "number": 97,
+    "key": "187",
+    "start": "3:08:55",
+    "end": "3:11:24",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 54,
+        "hp": "179/179",
+        "item": "choicespecs",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Dragon Pulse"],
+        "evs": [14, 37, 18, 20, 12, 16]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 187,
+        "name": "Elite Four Flint",
+        "party": [
+          {
+            "species": "Rapidash",
+            "level": 58,
+            "ability": "Flame Body",
+            "item": "Wide Lens",
+            "moves": ["Flame Charge", "Iron Tail", "Poison Jab", "Hypnosis"],
+            "nature": "Jolly",
+            "evs": [12, 60, 12, 0, 12, 204],
+            "ivs": [25, 31, 25, 0, 25, 31]
+          },
+          {
+            "species": "Lopunny",
+            "level": 57,
+            "ability": "Cute Charm",
+            "item": "Leftovers",
+            "moves": ["Mirror Coat", "High Jump Kick", "Quick Attack", "Fire Punch"],
+            "nature": "Jolly",
+            "evs": [252, 0, 0, 0, 0, 0],
+            "ivs": [31, 31, 31, 0, 31, 31]
+          },
+          {
+            "species": "Steelix",
+            "level": 57,
+            "ability": "Sheer Force",
+            "item": "Life Orb",
+            "moves": ["Thunder Fang", "Fire Fang", "Iron Tail", "Crunch"],
+            "nature": "Adamant",
+            "evs": [12, 252, 0, 12, 12, 0],
+            "ivs": [31, 31, 31, 0, 31, 31]
+          },
+          {
+            "species": "Drifblim",
+            "level": 58,
+            "ability": "Unburden",
+            "item": "Sitrus Berry",
+            "moves": ["Strength Sap", "Minimize", "Baton Pass", "Will-O-Wisp"],
+            "nature": "Timid",
+            "evs": [12, 60, 12, 0, 12, 204],
+            "ivs": [31, 0, 31, 0, 31, 31]
+          },
+          {
+            "species": "Infernape",
+            "level": 61,
+            "ability": "Iron Fist",
+            "item": "Focus Sash",
+            "moves": ["Fire Punch", "Thunder Punch", "Close Combat", "Mach Punch"],
+            "nature": "Jolly",
+            "evs": [12, 60, 0, 0, 0, 204],
+            "ivs": [31, 31, 31, 0, 31, 31]
+          }
+        ]
+      }
+    ],
+    "log": "X Speed, X Defense, X Sp. Atk through Hypnosis and Poison Jab. Surf sweep. Infernape's Focus Sash forces an extra attack after Flint heals."
+  },
+  {
+    "number": 98,
+    "key": "188",
+    "start": "3:11:45",
+    "end": "3:14:03",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 55,
+        "hp": "183/183",
+        "item": "choicespecs",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Dragon Pulse"],
+        "evs": [16, 38, 20, 21, 12, 21]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 188,
+        "name": "Elite Four Lucian",
+        "party": [
+          {
+            "species": "Mr. Mime",
+            "level": 59,
+            "ability": "Filter",
+            "item": "Light Clay",
+            "moves": ["Light Screen", "Reflect", "Psychic", "Dazzling Gleam"],
+            "nature": "Bold",
+            "evs": [252, 0, 12, 12, 12, 12],
+            "ivs": [31, 0, 31, 31, 31, 31]
+          },
+          {
+            "species": "Medicham",
+            "level": 60,
+            "ability": "Pure Power",
+            "item": "Muscle Band",
+            "moves": ["Zen Headbutt", "High Jump Kick", "Thunder Punch", "Ice Punch"],
+            "nature": "Brave",
+            "evs": [0, 252, 0, 0, 0, 0],
+            "ivs": [31, 31, 31, 0, 31, 0]
+          },
+          {
+            "species": "Alakazam",
+            "level": 60,
+            "ability": "Magic Guard",
+            "item": "Life Orb",
+            "moves": ["Nasty Plot", "Psychic", "Future Sight", "Shock Wave"],
+            "nature": "Timid",
+            "evs": [0, 0, 0, 0, 0, 252],
+            "ivs": [31, 0, 31, 31, 31, 31]
+          },
+          {
+            "species": "Girafarig",
+            "level": 59,
+            "ability": "Sap Sipper",
+            "item": "Mental Herb",
+            "moves": ["Light Screen", "Psychic", "Thunderbolt", "Trick Room"],
+            "nature": "Calm",
+            "evs": [252, 0, 12, 12, 12, 0],
+            "ivs": [31, 0, 31, 31, 31, 0]
+          },
+          {
+            "species": "Bronzong",
+            "level": 63,
+            "ability": "Levitate",
+            "item": "Sitrus Berry",
+            "moves": ["Gyro Ball", "Earthquake", "Payback", "Trick Room"],
+            "nature": "Brave",
+            "evs": [12, 252, 0, 0, 0, 0],
+            "ivs": [31, 31, 31, 0, 31, 0]
+          }
+        ]
+      }
+    ],
+    "log": "X Sp. Def, X Speed, X Sp. Atk ×3 against Mr. Mime. Survive three Dazzling Gleams at 13 HP. Surf sweep."
+  },
+  {
+    "number": 99,
+    "key": "191",
+    "start": "3:14:54",
+    "end": "3:16:38",
+    "goal": "defeat",
+    "tier": "C",
+    "party": [
+      {
+        "code": "p",
+        "name": "Palkia",
+        "species": "Palkia",
+        "ability": "Pressure",
+        "level": 56,
+        "hp": "186/186",
+        "item": "choicespecs",
+        "moves": ["Surf", "Slash", "Aqua Ring", "Dragon Pulse"],
+        "evs": [16, 38, 21, 26, 15, 23]
+      }
+    ],
+    "opponents": [
+      {
+        "id": 191,
+        "name": "Champion Cynthia",
+        "party": [
+          {
+            "species": "Spiritomb",
+            "level": 61,
+            "ability": "Pressure",
+            "item": "Sitrus Berry",
+            "moves": ["Shadow Ball", "Dark Pulse", "Psychic", "Sucker Punch"],
+            "nature": "Quiet",
+            "evs": [252, 6, 0, 252, 0, 0],
+            "ivs": [31, 31, 31, 31, 31, 31]
+          },
+          {
+            "species": "Lucario",
+            "level": 63,
+            "ability": "Inner Focus",
+            "item": "Wise Glasses",
+            "moves": ["Aura Sphere", "Dragon Pulse", "Flash Cannon", "Nasty Plot"],
+            "nature": "Timid",
+            "evs": [52, 0, 0, 252, 0, 204],
+            "ivs": [31, 0, 31, 31, 31, 31]
+          },
+          {
+            "species": "Roserade",
+            "level": 60,
+            "ability": "Poison Point",
+            "item": "Expert Belt",
+            "moves": ["Dazzling Gleam", "Shadow Ball", "Sludge Bomb", "Energy Ball"],
+            "nature": "Timid",
+            "evs": [52, 0, 0, 252, 0, 204],
+            "ivs": [31, 0, 31, 31, 31, 31]
+          },
+          {
+            "species": "Gastrodon",
+            "level": 60,
+            "ability": "Storm Drain",
+            "item": "Leftovers",
+            "moves": ["Scald", "Earthquake", "Sludge Bomb", "Rock Tomb"],
+            "nature": "Relaxed",
+            "evs": [252, 0, 252, 0, 6, 0],
+            "ivs": [31, 31, 31, 31, 31, 0]
+          },
+          {
+            "species": "Milotic",
+            "level": 63,
+            "ability": "Marvel Scale",
+            "item": "Flame Orb",
+            "moves": ["Recover", "Mirror Coat", "Ice Beam", "Scald"],
+            "nature": "Bold",
+            "evs": [252, 0, 252, 6, 0, 0],
+            "ivs": [31, 0, 31, 31, 31, 31]
+          },
+          {
+            "species": "Garchomp",
+            "level": 66,
+            "ability": "Rough Skin",
+            "item": "Yache Berry",
+            "moves": ["Dragon Claw", "Earthquake", "Swords Dance", "Poison Jab"],
+            "nature": "Jolly",
+            "evs": [52, 252, 0, 0, 0, 204],
+            "ivs": [31, 31, 31, 0, 31, 31]
+          }
+        ]
+      }
+    ],
+    "log": "X Sp. Def takes Shadow Ball. X Speed and X Sp. Atk ×2 exploit three failed Sucker Punches. Dragon Pulse ×6 through Pressure."
+  }
+]

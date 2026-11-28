@@ -1,0 +1,477 @@
+[
+  {
+    "key": "starly",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {"key": "tutorial", "goal": "demonstration"},
+  {
+    "key": "1",
+    "trials": 256,
+    "results": [{"win": 116, "loss": 140, "unresolved": 0}, {"win": 75, "loss": 181, "unresolved": 0}]
+  },
+  {
+    "key": "3",
+    "trials": 256,
+    "results": [{"win": 218, "loss": 38, "unresolved": 0}, {"win": 222, "loss": 34, "unresolved": 0}]
+  },
+  {
+    "key": "2",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 223, "loss": 33, "unresolved": 0}]
+  },
+  {
+    "key": "178",
+    "trials": 256,
+    "results": [{"win": 15, "loss": 241, "unresolved": 0}, {"win": 13, "loss": 243, "unresolved": 0}]
+  },
+  {"key": "geodude-gate", "goal": "escape"},
+  {"key": "geodude-207", "goal": "escape"},
+  {"key": "machop", "goal": "capture"},
+  {
+    "key": "174",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "175",
+    "trials": 256,
+    "results": [{"win": 153, "loss": 103, "unresolved": 0}, {"win": 213, "loss": 43, "unresolved": 0}]
+  },
+  {
+    "key": "318+317",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "221",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "222",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "669",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "223",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "220",
+    "trials": 256,
+    "results": [{"win": 193, "loss": 63, "unresolved": 0}, {"win": 241, "loss": 15, "unresolved": 0}]
+  },
+  {
+    "key": "150",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "153",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 254, "loss": 2, "unresolved": 0}]
+  },
+  {
+    "key": "154+155",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "248",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "183",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "184",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "269",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "240",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 255, "loss": 1, "unresolved": 0}]
+  },
+  {
+    "key": "315+324",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "326",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "657",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "311",
+    "trials": 256,
+    "results": [{"win": 247, "loss": 9, "unresolved": 0}, {"win": 235, "loss": 21, "unresolved": 0}]
+  },
+  {
+    "key": "353",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "229",
+    "trials": 256,
+    "results": [{"win": 241, "loss": 15, "unresolved": 0}, {"win": 236, "loss": 20, "unresolved": 0}]
+  },
+  {
+    "key": "211",
+    "trials": 256,
+    "results": [{"win": 254, "loss": 2, "unresolved": 0}, {"win": 225, "loss": 31, "unresolved": 0}]
+  },
+  {
+    "key": "202",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "236",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "242",
+    "trials": 256,
+    "results": [{"win": 233, "loss": 23, "unresolved": 0}, {"win": 86, "loss": 170, "unresolved": 0}]
+  },
+  {
+    "key": "674+675",
+    "trials": 256,
+    "results": [{"win": 250, "loss": 6, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "95",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "261",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "373",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "374",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "364",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "241",
+    "trials": 256,
+    "results": [{"win": 116, "loss": 140, "unresolved": 0}, {"win": 0, "loss": 256, "unresolved": 0}]
+  },
+  {
+    "key": "356",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 253, "loss": 3, "unresolved": 0}]
+  },
+  {
+    "key": "673",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "54",
+    "trials": 256,
+    "results": [{"win": 220, "loss": 36, "unresolved": 0}, {"win": 162, "loss": 94, "unresolved": 0}]
+  },
+  {
+    "key": "56",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "61",
+    "trials": 256,
+    "results": [{"win": 246, "loss": 10, "unresolved": 0}, {"win": 233, "loss": 23, "unresolved": 0}]
+  },
+  {
+    "key": "319",
+    "trials": 256,
+    "results": [{"win": 253, "loss": 3, "unresolved": 0}, {"win": 245, "loss": 11, "unresolved": 0}]
+  },
+  {
+    "key": "243",
+    "trials": 256,
+    "results": [{"win": 228, "loss": 28, "unresolved": 0}, {"win": 73, "loss": 183, "unresolved": 0}]
+  },
+  {
+    "key": "359",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "239",
+    "trials": 256,
+    "results": [{"win": 198, "loss": 58, "unresolved": 0}, {"win": 202, "loss": 54, "unresolved": 0}]
+  },
+  {
+    "key": "203",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 255, "loss": 1, "unresolved": 0}]
+  },
+  {
+    "key": "279",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "164",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "207",
+    "trials": 256,
+    "results": [{"win": 252, "loss": 4, "unresolved": 0}, {"win": 250, "loss": 6, "unresolved": 0}]
+  },
+  {
+    "key": "179",
+    "trials": 256,
+    "results": [{"win": 213, "loss": 43, "unresolved": 0}, {"win": 8, "loss": 248, "unresolved": 0}]
+  },
+  {
+    "key": "109",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "110",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "313",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "322+328",
+    "trials": 256,
+    "results": [{"win": 255, "loss": 1, "unresolved": 0}, {"win": 248, "loss": 8, "unresolved": 0}]
+  },
+  {
+    "key": "310",
+    "trials": 256,
+    "results": [{"win": 253, "loss": 3, "unresolved": 0}, {"win": 254, "loss": 2, "unresolved": 0}]
+  },
+  {
+    "key": "244",
+    "trials": 256,
+    "results": [{"win": 113, "loss": 143, "unresolved": 0}, {"win": 123, "loss": 133, "unresolved": 0}]
+  },
+  {
+    "key": "382",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "656",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "331",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "387+662",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "308",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "314",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "398",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "393",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "399",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "400+394",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "401+312",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "309",
+    "trials": 256,
+    "results": [{"win": 251, "loss": 5, "unresolved": 0}, {"win": 0, "loss": 256, "unresolved": 0}]
+  },
+  {"key": "palkia", "goal": "capture", "guaranteed": 100},
+  {
+    "key": "135",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "266",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "263",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "226",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "209",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "227",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "205",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "245",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "141",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "158",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "156",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "159",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "161",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "335",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "167",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "162",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "160",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "163",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "362",
+    "trials": 256,
+    "results": [{"win": 233, "loss": 23, "unresolved": 0}, {"win": 5, "loss": 251, "unresolved": 0}]
+  },
+  {
+    "key": "185",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 256, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "key": "186",
+    "trials": 256,
+    "results": [{"win": 240, "loss": 16, "unresolved": 0}, {"win": 228, "loss": 28, "unresolved": 0}]
+  },
+  {
+    "key": "187",
+    "trials": 256,
+    "results": [{"win": 151, "loss": 105, "unresolved": 0}, {"win": 150, "loss": 106, "unresolved": 0}]
+  },
+  {
+    "key": "188",
+    "trials": 256,
+    "results": [{"win": 223, "loss": 33, "unresolved": 0}, {"win": 136, "loss": 120, "unresolved": 0}]
+  },
+  {
+    "key": "191",
+    "trials": 256,
+    "results": [{"win": 256, "loss": 0, "unresolved": 0}, {"win": 248, "loss": 8, "unresolved": 0}]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "strategy": "recorded",
+    "startFull": false,
+    "reactive": false,
+    "trials": 2048,
+    "results": [{"win": 102, "loss": 1946, "unresolved": 0}, {"win": 138, "loss": 1910, "unresolved": 0}]
+  },
+  {
+    "strategy": "full-hp-recorded-actions",
+    "startFull": true,
+    "reactive": false,
+    "trials": 2048,
+    "results": [{"win": 1383, "loss": 665, "unresolved": 0}, {"win": 497, "loss": 1551, "unresolved": 0}]
+  },
+  {
+    "strategy": "reactive-recovery",
+    "startFull": false,
+    "reactive": true,
+    "potions": 10,
+    "trials": 2048,
+    "results": [{"win": 2048, "loss": 0, "unresolved": 0}, {"win": 2048, "loss": 0, "unresolved": 0}]
+  },
+  {
+    "strategy": "preheal-and-reactive-recovery",
+    "startFull": true,
+    "reactive": true,
+    "potions": 9,
+    "trials": 2048,
+    "results": [{"win": 2048, "loss": 0, "unresolved": 0}, {"win": 2048, "loss": 0, "unresolved": 0}]
+  }
+]
