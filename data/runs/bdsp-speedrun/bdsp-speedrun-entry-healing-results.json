@@ -1,0 +1,99 @@
+[
+  {
+    "key": "175",
+    "trials": 1024,
+    "entryHp": [{"name": "Machop", "hp": "31/33"}, {"name": "Chimchar", "hp": "31/31"}],
+    "variants": [
+      {
+        "strategy": "recorded",
+        "results": [{"win": 603, "loss": 421, "unresolved": 0}, {"win": 854, "loss": 170, "unresolved": 0}]
+      },
+      {
+        "strategy": "heal-living",
+        "results": [{"win": 625, "loss": 399, "unresolved": 0}, {"win": 879, "loss": 145, "unresolved": 0}]
+      }
+    ]
+  },
+  {
+    "key": "242",
+    "trials": 1024,
+    "entryHp": [{"name": "Kazza", "hp": "64/64"}, {"name": "Monferno", "hp": "40/72"}],
+    "variants": [
+      {
+        "strategy": "recorded",
+        "results": [{"win": 938, "loss": 86, "unresolved": 0}, {"win": 316, "loss": 708, "unresolved": 0}]
+      },
+      {
+        "strategy": "heal-living",
+        "results": [{"win": 938, "loss": 86, "unresolved": 0}, {"win": 324, "loss": 700, "unresolved": 0}]
+      }
+    ]
+  },
+  {
+    "key": "241",
+    "trials": 1024,
+    "entryHp": [{"name": "Kazza", "hp": "73/73"}, {"name": "Monferno", "hp": "48/80"}],
+    "variants": [
+      {
+        "strategy": "recorded",
+        "results": [{"win": 437, "loss": 587, "unresolved": 0}, {"win": 0, "loss": 1024, "unresolved": 0}]
+      },
+      {
+        "strategy": "heal-living",
+        "results": [{"win": 12, "loss": 1012, "unresolved": 0}, {"win": 0, "loss": 1024, "unresolved": 0}]
+      }
+    ]
+  },
+  {
+    "key": "243",
+    "trials": 1024,
+    "entryHp": [{"name": "Kazza", "hp": "82/82"}, {"name": "Monferno", "hp": "0/80"}],
+    "variants": [
+      {
+        "strategy": "recorded",
+        "results": [{"win": 900, "loss": 124, "unresolved": 0}, {"win": 313, "loss": 711, "unresolved": 0}]
+      },
+      {
+        "strategy": "restore-all",
+        "results": [{"win": 900, "loss": 124, "unresolved": 0}, {"win": 313, "loss": 711, "unresolved": 0}]
+      }
+    ]
+  },
+  {
+    "key": "179",
+    "trials": 1024,
+    "entryHp": [{"name": "Monferno", "hp": "60/80"}, {"name": "Kazza", "hp": "93/93"}],
+    "variants": [
+      {
+        "strategy": "recorded",
+        "results": [{"win": 856, "loss": 168, "unresolved": 0}, {"win": 33, "loss": 991, "unresolved": 0}]
+      },
+      {
+        "strategy": "heal-living",
+        "results": [{"win": 967, "loss": 57, "unresolved": 0}, {"win": 799, "loss": 225, "unresolved": 0}]
+      }
+    ]
+  },
+  {
+    "key": "244",
+    "trials": 1024,
+    "entryHp": [{"name": "Kazza", "hp": "107/107"}],
+    "variants": [
+      {
+        "strategy": "recorded",
+        "results": [{"win": 459, "loss": 565, "unresolved": 0}, {"win": 491, "loss": 533, "unresolved": 0}]
+      }
+    ]
+  },
+  {
+    "key": "362",
+    "trials": 1024,
+    "entryHp": [{"name": "Palkia", "hp": "166/166"}],
+    "variants": [
+      {
+        "strategy": "recorded",
+        "results": [{"win": 922, "loss": 102, "unresolved": 0}, {"win": 9, "loss": 1015, "unresolved": 0}]
+      }
+    ]
+  }
+]

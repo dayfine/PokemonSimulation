@@ -281,8 +281,8 @@ function playerChoice(battle, entry, actor, options, steps, pending, actorCode, 
   ).choice;
 }
 
-function simulate(entry, seed, scenario, rivalStrategy) {
-  const rivalRecovery = rivalStrategy?.reactive ? {potions:rivalStrategy.potions} : null;
+function simulate(entry, seed, scenario, strategy) {
+  const rivalRecovery = strategy?.reactive ? {potions:strategy.potions} : null;
   const coOp = !!entry.ally;
   const doubles = entry.opponents.length > 1;
   const baseFormat = Dex.formats.get('gen8bdspou');
@@ -291,7 +291,7 @@ function simulate(entry, seed, scenario, rivalStrategy) {
   const pending = new Map();
   const steps = new Map();
   const evolutionState = new Set();
-  const player = entry.party.filter(mon => !mon.hp.startsWith('0/'));
+  const player = strategy?.reviveFainted ? entry.party : entry.party.filter(mon => !mon.hp.startsWith('0/'));
   const allyTeam = entry.ally?.party ?? [];
   const playerBoard = coOp ? [player[0], allyTeam[0], ...player.slice(1), ...allyTeam.slice(1)] : player;
   const enemy = doubles
@@ -304,7 +304,7 @@ function simulate(entry, seed, scenario, rivalStrategy) {
     pokemon.auditCode = mon.code ?? 'ally';
     if (mon.code) {
       setEntry(pokemon, mon, entry.key, scenario);
-      if (rivalStrategy?.startFull) pokemon.hp = pokemon.maxhp;
+      if (strategy?.startFull) pokemon.hp = pokemon.maxhp;
     }
   }
   battle.p2.pokemon.forEach((pokemon, i) => {pokemon.auditSlot = i;});
@@ -421,13 +421,13 @@ function prepare(entry) {
   return entry;
 }
 
-function countResults(entry, trials, rivalStrategy) {
+function countResults(entry, trials, strategy) {
   prepare(entry);
   return [0,1].map(scenario => {
     const counts = {win:0,loss:0,unresolved:0};
     for (let trial = 0; trial < trials; trial++) {
       const seed = [entry.number, 9973 * (scenario + 1), trial + 1, 13007];
-      counts[simulate(entry, seed, scenario, rivalStrategy)]++;
+      counts[simulate(entry, seed, scenario, strategy)]++;
     }
     return counts;
   });
@@ -452,14 +452,41 @@ function route203Sensitivity(trials) {
   return variants.map(variant => ({...variant, trials, results:countResults(entry, trials, variant)}));
 }
 
+function healingSensitivity(trials, keys) {
+  if (!keys.length || new Set(keys).size !== keys.length) throw Error('Specify unique defeat encounter IDs');
+  return keys.map(key => {
+    const entry = fixtures.find(encounter => encounter.key === key && encounter.goal === 'defeat');
+    if (!entry) throw Error('Unknown defeat encounter: ' + key);
+    const variants = [{strategy:'recorded'}];
+    const living = entry.party.filter(mon => !mon.hp.startsWith('0/'));
+    const injured = living.some(mon => {
+      const [hp, maxhp] = mon.hp.split('/');
+      return !maxhp || hp !== maxhp;
+    });
+    if (injured) variants.push({strategy:'heal-living', startFull:true});
+    if (living.length < entry.party.length) variants.push({strategy:'restore-all', startFull:true, reviveFainted:true});
+    return {
+      key, trials,
+      entryHp: entry.party.map(mon => ({name:mon.name, hp:mon.hp})),
+      variants: variants.map(variant => ({
+        strategy:variant.strategy,
+        results:countResults(entry, trials, variant),
+      })),
+    };
+  });
+}
+
 if (require.main === module) {
   const args = process.argv.slice(2);
-  const sensitivity = args[0] === '--route-203';
-  const [count = '128', ...keys] = sensitivity ? args.slice(1) : args;
+  const route203 = args[0] === '--route-203';
+  const healing = args[0] === '--entry-healing';
+  const [count = '128', ...keys] = route203 || healing ? args.slice(1) : args;
   const trials = Number(count);
   if (!Number.isSafeInteger(trials) || trials < 1 || trials > 65534) throw Error('Expected 1–65534 trials per scenario');
-  if (sensitivity && (policy === 'A' || keys.length)) throw Error('Route 203 sensitivity requires B or C and a trial count only');
-  const output = sensitivity ? route203Sensitivity(trials) : run(trials, keys.length ? new Set(keys) : null);
+  if (route203 && (policy === 'A' || keys.length)) throw Error('Route 203 sensitivity requires B or C and a trial count only');
+  const output = route203 ? route203Sensitivity(trials)
+    : healing ? healingSensitivity(trials, keys)
+    : run(trials, keys.length ? new Set(keys) : null);
   process.stdout.write(JSON.stringify(output, null, 2) + '\n');
 }
 
