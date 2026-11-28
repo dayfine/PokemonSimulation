@@ -1,0 +1,26 @@
+[
+  {
+    "strategy": "recorded",
+    "trials": 2048,
+    "results": [{"win": 954, "loss": 1094, "unresolved": 0}, {"win": 553, "loss": 1495, "unresolved": 0}]
+  },
+  {
+    "strategy": "recorded-with-potion",
+    "recovery": {"potions": 1, "threshold": 8},
+    "trials": 2048,
+    "results": [{"win": 1939, "loss": 109, "unresolved": 0}, {"win": 1891, "loss": 157, "unresolved": 0}]
+  },
+  {
+    "strategy": "scratch",
+    "plan": ["scratch"],
+    "trials": 2048,
+    "results": [{"win": 919, "loss": 1129, "unresolved": 0}, {"win": 447, "loss": 1601, "unresolved": 0}]
+  },
+  {
+    "strategy": "scratch-with-potion",
+    "plan": ["scratch"],
+    "recovery": {"potions": 1, "threshold": 8},
+    "trials": 2048,
+    "results": [{"win": 1915, "loss": 133, "unresolved": 0}, {"win": 1892, "loss": 156, "unresolved": 0}]
+  }
+]

@@ -224,11 +224,11 @@ function chooseNpc(battle, actor, options, scenario, tactical) {
   return scored.reduce((best, next) => next.score > best.score ? next : best).option;
 }
 
-function playerChoice(battle, entry, actor, options, steps, pending, actorCode, rivalRecovery) {
+function playerChoice(battle, entry, actor, options, steps, pending, actorCode, variantPlan, recovery) {
   const foe = options.find(o => o.target)?.target;
   if (!foe) return options[0].choice;
-  if (rivalRecovery && rivalRecovery.potions > 0 && actor.hp <= 11) {
-    rivalRecovery.potions--;
+  if (recovery && recovery.potions > 0 && actor.hp <= recovery.threshold) {
+    recovery.potions--;
     pending.set(actor, {item:'pot', target:actor});
     return options[0].choice;
   }
@@ -246,7 +246,7 @@ function playerChoice(battle, entry, actor, options, steps, pending, actorCode, 
   }
   const slot = foe.auditSlot;
   const species = foe.species.id.replace(/east$/, '');
-  const plan = rivalRecovery ? ['ember'] : plans[entry.key]?.[species + ':' + slot] ?? plans[entry.key]?.[species];
+  const plan = variantPlan ?? plans[entry.key]?.[species + ':' + slot] ?? plans[entry.key]?.[species];
   const counterKey = 'p1:' + slot;
   const step = steps.get(counterKey) ?? 0;
   const defaultMove = repeatedAttacks[entry.key] || entry.attack;
@@ -282,7 +282,7 @@ function playerChoice(battle, entry, actor, options, steps, pending, actorCode, 
 }
 
 function simulate(entry, seed, scenario, strategy) {
-  const rivalRecovery = strategy?.reactive ? {potions:strategy.potions} : null;
+  const recovery = strategy?.recovery ? {...strategy.recovery} : null;
   const coOp = !!entry.ally;
   const doubles = entry.opponents.length > 1;
   const baseFormat = Dex.formats.get('gen8bdspou');
@@ -388,7 +388,7 @@ function simulate(entry, seed, scenario, strategy) {
           const mon = side.active[n];
           if (!mon?.hp || !request) return 'pass';
           const options = available(battle, mon, request);
-          if (playerSide) return playerChoice(battle, entry, mon, options, steps, pending, mon.auditCode, rivalRecovery);
+          if (playerSide) return playerChoice(battle, entry, mon, options, steps, pending, mon.auditCode, strategy?.plan, recovery);
           if (medicine > 0 && mon.hp > 1 && mon.hp < mon.maxhp / 4) {
             medicine--;
             pending.set(mon, {item:leaderMedicines[entry.key][0], target:mon});
@@ -449,6 +449,25 @@ function route203Sensitivity(trials) {
     {strategy:'reactive-recovery', startFull:false, reactive:true, potions:10},
     {strategy:'preheal-and-reactive-recovery', startFull:true, reactive:true, potions:9},
   ];
+  return variants.map(variant => {
+    const strategy = {...variant};
+    if (variant.reactive) {
+      strategy.plan = ['ember'];
+      strategy.recovery = {potions:variant.potions, threshold:11};
+    }
+    return {...variant, trials, results:countResults(entry, trials, strategy)};
+  });
+}
+
+function tristanSensitivity(trials) {
+  const entry = fixtures.find(encounter => encounter.key === '1');
+  const onePotion = {potions:1, threshold:8};
+  const variants = [
+    {strategy:'recorded'},
+    {strategy:'recorded-with-potion', recovery:onePotion},
+    {strategy:'scratch', plan:['scratch']},
+    {strategy:'scratch-with-potion', plan:['scratch'], recovery:onePotion},
+  ];
   return variants.map(variant => ({...variant, trials, results:countResults(entry, trials, variant)}));
 }
 
@@ -480,11 +499,14 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const route203 = args[0] === '--route-203';
   const healing = args[0] === '--entry-healing';
-  const [count = '128', ...keys] = route203 || healing ? args.slice(1) : args;
+  const tristan = args[0] === '--tristan';
+  const [count = '128', ...keys] = route203 || healing || tristan ? args.slice(1) : args;
   const trials = Number(count);
   if (!Number.isSafeInteger(trials) || trials < 1 || trials > 65534) throw Error('Expected 1–65534 trials per scenario');
   if (route203 && (policy === 'A' || keys.length)) throw Error('Route 203 sensitivity requires B or C and a trial count only');
+  if (tristan && (policy !== 'C' || keys.length)) throw Error('Tristan sensitivity requires C and a trial count only');
   const output = route203 ? route203Sensitivity(trials)
+    : tristan ? tristanSensitivity(trials)
     : healing ? healingSensitivity(trials, keys)
     : run(trials, keys.length ? new Set(keys) : null);
   process.stdout.write(JSON.stringify(output, null, 2) + '\n');
